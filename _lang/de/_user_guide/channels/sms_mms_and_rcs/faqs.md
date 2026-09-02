@@ -106,7 +106,7 @@ Sie können jeden beliebigen Link in jede SMS-Campaign einfügen. Es gibt jedoch
 - Unternehmen verwenden häufig Link-Shortener, um den Einfluss eines Links auf die Zeichenanzahl zu begrenzen. Wenn jedoch ein verkürzter Link über einen Langcode gesendet wird, können Mobilfunkanbieter die Nachricht blockieren oder ablehnen, da sie den Link-Redirect als verdächtig einstufen könnten.
 - Die Verwendung eines [Shortcodes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) wäre der zuverlässigste Nummerntyp für das Einfügen von Links.
 
-Braze verfügt auch über ein eigenes Link-Shortening-Feature, das Links automatisch verkürzt und Klick, der-through-Analytics bereitstellt. Weitere Informationen finden Sie unter [Link-Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
+Braze verfügt auch über ein eigenes Link-Shortening-Feature, das Links automatisch verkürzt und Click-through-Analytics bereitstellt. Weitere Informationen finden Sie unter [Link-Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 
 ### Muss die Sendegeschwindigkeit von SMS-Nachrichten begrenzt werden? {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 

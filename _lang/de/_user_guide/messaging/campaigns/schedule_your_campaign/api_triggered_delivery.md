@@ -47,7 +47,7 @@ Verwenden Sie genau zwei geschweifte Klammern pro Liquid-Tag in `trigger_propert
 
 Sehen Sie sich das folgende Beispiel einer sozialen Benachrichtigung für zusätzlichen Kontext an.
 
-![Die oben genannte Trigger-Eigenschaft in der Nachricht, die automatisch den Namen der Nutzer:innen einfügt, gefolgt von dem Text: „liked your photo! Klick, der here to see what they've been up to.“]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
+![Die oben genannte Trigger-Eigenschaft in der Nachricht, die automatisch den Namen der Nutzer:innen einfügt, gefolgt von dem Text: „liked your photo! click here to see what they've been up to.“]({% image_buster /assets/img_archive/api_triggered_photo_social_example_1.png %}){: style="max-width:70%;"}
 
 ## Wiederzulassung bei API-getriggerten Campaigns {#re-eligibility-with-api-triggered-campaigns}
 

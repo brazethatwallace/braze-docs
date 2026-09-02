@@ -155,7 +155,7 @@ Zum Beispiel:
 
 ![Ein Beispiel für einen Nachrichten-Editor aus einer Content-Card-Kampagne.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-Geben Sie im Abschnitt **On Klick, der behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Internet-Geräten auf die Content-Card klicken.
+Geben Sie im Abschnitt **On click behavior** die Liquid-Logik ein, wohin Nutzer:innen weitergeleitet werden sollen, wenn sie auf iOS-, Android- und Internet-Geräten auf die Content-Card klicken.
 
 {% raw %}
 ```liquid

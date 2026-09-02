@@ -126,7 +126,7 @@ Braze exportiert einzelne Umfrageantworten über das **Survey Response**-Ereigni
 
 ## Landing-Page-Engagement-Funnel {#landing-page-engagement-funnel}
 
-Landing-Page-Umfragen generieren auch **Landing Page Impression**- und **Landing Page Klick, der**-Ereignisse für Seitenaufrufe und getrackte Klicks. Das Abschließen einer Landing-Page-Umfrage schreibt ein **Survey Response**-Ereignis; es löst nicht zusätzlich das generische **Landing Page Form Submission**-Ereignis aus, das für Standard-Landing-Page-Formulare (ohne Umfrage) vorgesehen ist. Die vollständige Feldreferenz für diese Ereignisse finden Sie im [Currents-Ereignisglossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Landing-Page-Umfragen generieren auch **Landing Page Impression**- und **Landing Page Click**-Ereignisse für Seitenaufrufe und getrackte Klicks. Das Abschließen einer Landing-Page-Umfrage schreibt ein **Survey Response**-Ereignis; es löst nicht zusätzlich das generische **Landing Page Form Submission**-Ereignis aus, das für Standard-Landing-Page-Formulare (ohne Umfrage) vorgesehen ist. Die vollständige Feldreferenz für diese Ereignisse finden Sie im [Currents-Ereignisglossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ## Verwandte Artikel {#related-articles}
 

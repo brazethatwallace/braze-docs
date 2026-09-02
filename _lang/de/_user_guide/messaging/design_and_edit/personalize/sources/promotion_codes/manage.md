@@ -44,7 +44,7 @@ Nachdem Sie eine [In-App-Nachricht-Campaign]({{site.baseurl}}/user_guide/channel
 
 ### Testnachrichten {#test-messages}
 
-Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, sofern nicht anders angefordert. Kontaktieren Sie Ihre:n Braze Account Manager:in:in, um dieses Feature-Verhalten zu aktualisieren, damit Aktionscodes bei Testversendungen und Seed-Gruppen-E-Mail-Versendungen nicht verwendet werden.
+Testversendungen und Seed-Gruppen-E-Mail-Versendungen verbrauchen Aktionscodes, sofern nicht anders angefordert. Kontaktieren Sie Ihre:n Braze Account Manager:in, um dieses Feature-Verhalten zu aktualisieren, damit Aktionscodes bei Testversendungen und Seed-Gruppen-E-Mail-Versendungen nicht verwendet werden.
 
 ### Mit Message Extras für Currents {#with-message-extras-for-currents}
 

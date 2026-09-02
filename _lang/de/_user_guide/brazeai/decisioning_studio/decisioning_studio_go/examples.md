@@ -52,7 +52,7 @@ Jedes Beispiel in diesem Leitfaden ist mit einer der folgenden Eignungsstufen ge
 | Thema | Details |
 |---|---|
 | Wie es aussieht | Eine Reihe von E-Mails, die über mehrere Wochen unter demselben Aktionsthema versendet werden – zum Beispiel eine „Back-to-School“-Serie oder eine mehrwöchige Kategorie-Aktion. |
-| Warum es funktioniert | Wenn die Aktion lang genug läuft – mindestens mehrere Wochen – hat der Agent genügend Zeit, innerhalb der Aktion zu lernen. Klick, der-through ist in der Regel ein starker Frühindikator für das Engagement bei Aktionen. |
+| Warum es funktioniert | Wenn die Aktion lang genug läuft – mindestens mehrere Wochen – hat der Agent genügend Zeit, innerhalb der Aktion zu lernen. Click-through ist in der Regel ein starker Frühindikator für das Engagement bei Aktionen. |
 | Hinweise | Bei kürzeren Aktionen hat der Agent möglicherweise nicht genügend Datentage, um vor Ende des Programms zu lernen. Als allgemeine Richtlinie benötigt der Agent mindestens 10 Campaign-Tage, um aussagekräftige Empfehlungen zu entwickeln. Wenn Ihre Aktion kürzer ist, überlegen Sie, ob ein dauerhaftes Programm das Lernen übernehmen könnte, und wenden Sie die Erkenntnisse dann auf die nächste Aktion an. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Multi-E-Mail-Aktionen" }
 

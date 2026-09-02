@@ -26,7 +26,7 @@ Die Integration von Braze und Microsoft Foundry ermöglicht es Ihnen, generative
 | Microsoft Foundry-Instanz | Eine Microsoft Foundry-Instanz zum Erstellen eines Projekts. |
 | Microsoft Foundry-Projekt | Ein Projekt innerhalb Ihrer Foundry-Instanz, in dem die bereitgestellten Modelle untergebracht werden. |
 | Bereitgestellte Modelle | Mindestens eines der unterstützten Modelle, das innerhalb des Foundry-Projekts bereitgestellt wurde. |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Unterstützte Modelle in Foundry bereitstellen {#deploy-supported-models-in-foundry}

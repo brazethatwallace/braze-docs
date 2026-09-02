@@ -28,7 +28,7 @@ Möchten Sie mehr über die Details von Kauf-Events bei Braze erfahren? Besuchen
 
 ### Nexla – Workflow-Automatisierung {#nexla-workflow-automation}
 
-[Nexla]({{site.baseurl}}/partners/nexla) ist führend im Bereich vereinheitlichter Datenoperationen und wurde 2021 von Gartner als Cool Vendor ausgezeichnet. Kund:innen, die Currents nutzen, um Daten an Data Warehouses zu senden, können Nexla nutzen, um diese Daten zu extrahieren, zu transformieren und an andere Standorte zu laden, sodass Daten in Ihrem gesamten Ökosystem leicht zugänglich sind. Nexla ermöglicht es Ihnen, Braze-Currents zu verwenden, um Daten in einem angepassten Format per einfachem Point-and-Klick, der an das Ziel Ihrer Wahl zu liefern.
+[Nexla]({{site.baseurl}}/partners/nexla) ist führend im Bereich vereinheitlichter Datenoperationen und wurde 2021 von Gartner als Cool Vendor ausgezeichnet. Kund:innen, die Currents nutzen, um Daten an Data Warehouses zu senden, können Nexla nutzen, um diese Daten zu extrahieren, zu transformieren und an andere Standorte zu laden, sodass Daten in Ihrem gesamten Ökosystem leicht zugänglich sind. Nexla ermöglicht es Ihnen, Braze-Currents zu verwenden, um Daten in einem angepassten Format per einfachem Point-and-Click an das Ziel Ihrer Wahl zu liefern.
 
 ### Amperity – Customer Data Platform {#amperity-customer-data-platform}
 

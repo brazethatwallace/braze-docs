@@ -269,3 +269,40 @@ class TestPropagateGlossaryChanges:
         assert result["files_changed"] == 1
         assert "Software Development Kit" in user_guide.read_text(encoding="utf-8")
         assert api_doc.read_text(encoding="utf-8") == text
+
+
+class TestRepairGlossaryPropagationCorruption:
+    def test_click_corruption_repairs_javascript_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "$('#x').click(function() {});\n"
+            "$('#y').on('click', function() {});\n"
+            "document.getElementById('z').addEventListener('click', function () {});\n"
+        )
+        corrupted = text.replace("click", "Klick, der")
+        repaired, count = repair.apply_click_corruption_repairs(corrupted)
+        assert repaired == text
+        assert count > 0
+
+    def test_inclusive_marker_repairs_manager_doubling(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = 'Kontaktieren Sie Ihre:n Braze Account Manager:in:in.\n'
+        repaired, count = repair.apply_inclusive_marker_repairs(text)
+        assert repaired == 'Kontaktieren Sie Ihre:n Braze Account Manager:in.\n'
+        assert count == 1
+
+    def test_phrase_repairs_restore_support_form_literals(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = (
+            "'angepasste Attribute' : {}\n"
+            'document.Cookie = "x";\n'
+            '"Token": "abc"\n'
+        )
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert "'Custom Attributes' :" in repaired
+        assert "document.cookie" in repaired
+        assert '"token":' in repaired
+        assert count > 0

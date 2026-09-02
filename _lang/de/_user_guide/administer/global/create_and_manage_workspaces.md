@@ -29,7 +29,7 @@ Alles, was Sie in Braze tun, findet innerhalb eines Workspace statt. Workspaces 
 
 ### 1. Schritt: Einen Plan erstellen {#step-1-have-a-plan}
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces).
+Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces).
 
 {% alert warning %}
 **Best Practice: Verwenden Sie dedizierte Firebase-Projekte pro Workspace**<br>

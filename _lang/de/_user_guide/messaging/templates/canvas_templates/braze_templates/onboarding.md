@@ -44,7 +44,7 @@ Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 
 ### 2. Schritt: Konversions-Events zuweisen {#step-2-assign-your-conversion-events}
 
-Als Nächstes weisen wir unsere Konversions-Events zu. Konversions-Events sind eine Art Metrik, die verwendet werden kann, um den Erfolg des Canvas zu messen. Wählen Sie für **Custom event name** die Option **Email Klick, der** als angepasstes Event.
+Als Nächstes weisen wir unsere Konversions-Events zu. Konversions-Events sind eine Art Metrik, die verwendet werden kann, um den Erfolg des Canvas zu messen. Wählen Sie für **Custom event name** die Option **Email Click** als angepasstes Event.
 
 ![Primäres Konversions-Event – A mit dem Konversionstyp „Performs Custom Event“ und dem angepassten Event-Namen „Email Click“. Es gibt eine Konversionsfrist von 4 Tagen.]({% image_buster /assets/img/canvas_templates/onboarding1.png %})
 

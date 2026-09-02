@@ -13,7 +13,7 @@ tool: Currents
 > Wenn sich Ihre Daten derzeit in Amazon S3 befinden, können Sie sie mit dem Prozess Extract, Load, Transform (ELT) in Snowflake oder ein anderes relationales Data Warehouse übertragen. Auf dieser Seite erfahren Sie, wie das funktioniert.
 
 {% alert note %}
-Wenn Sie spezifischere Anwendungsfälle haben und möchten, dass Braze Ihre Currents-Instanz betreut, wenden Sie sich an Ihre:n Braze Account Manager:in:in und fragen Sie nach den Braze Data Professional Services.
+Wenn Sie spezifischere Anwendungsfälle haben und möchten, dass Braze Ihre Currents-Instanz betreut, wenden Sie sich an Ihre:n Braze Account Manager:in und fragen Sie nach den Braze Data Professional Services.
 {% endalert %}
 
 ## Funktionsweise {#how-it-works}
@@ -275,5 +275,5 @@ Sie müssen die Befehle `CREATE TABLE` und `CREATE PIPE` für jeden Event-Typ wi
 Informationen zu den Arten von Analytics, die Sie mit Braze-Currents durchführen können, finden Sie in unseren [Looker Blocks](https://github.com/llooker?q=braze).
 
 {% alert note %}
-Kontaktieren Sie Ihre:n Braze Account Manager:in:in, wenn Sie Fragen haben oder daran interessiert sind, dass Braze Sie durch diesen Prozess begleitet.
+Kontaktieren Sie Ihre:n Braze Account Manager:in, wenn Sie Fragen haben oder daran interessiert sind, dass Braze Sie durch diesen Prozess begleitet.
 {% endalert %}

@@ -34,9 +34,9 @@ Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei 
 - Kolumbien
 3. Sie müssen eine oder mehrere RCS-SKU(s) in Ihrem Vertrag erwerben.
 
-## Schritt 2: Einen RCS-verifizierten Sender Registrierung {#step-2-register-an-rcs-verified-sender}
+## Schritt 2: Einen RCS-verifizierten Sender registrieren {#step-2-register-an-rcs-verified-sender}
 
-Bevor Sie RCS-Nachrichten senden können, müssen Sie einen RCS-verifizierten Sender Registrierung. Dies ist die Darstellung Ihrer Marke, die Nutzer:innen auf ihren Mobilgeräten sehen, einschließlich des Namens Ihrer Marke, Ihres Logos, eines Verifizierungs-Badges und eines optionalen Slogans. Der RCS-verifizierte Sender stärkt das Vertrauen der Kund:innen und bestätigt, dass Ihre Nachrichten von einer authentifizierten Quelle stammen.
+Bevor Sie RCS-Nachrichten senden können, müssen Sie einen RCS-verifizierten Sender registrieren. Dies ist die Darstellung Ihrer Marke, die Nutzer:innen auf ihren Mobilgeräten sehen, einschließlich des Namens Ihrer Marke, Ihres Logos, eines Verifizierungs-Badges und eines optionalen Slogans. Der RCS-verifizierte Sender stärkt das Vertrauen der Kund:innen und bestätigt, dass Ihre Nachrichten von einer authentifizierten Quelle stammen.
 
 ![Ein Beispiel für einen RCS-verifizierten Sender in einer RCS-Nachricht namens „Cat Failz Cafe“.]({% image_buster /assets/img/rcs/rcs_sender.png %}){: style="max-width:60%;"}
 

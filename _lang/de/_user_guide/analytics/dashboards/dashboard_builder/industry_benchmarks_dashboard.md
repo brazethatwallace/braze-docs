@@ -57,7 +57,7 @@ Wählen Sie einen Tab aus, um die Metriken für jeden Kanal anzuzeigen.
 <table aria-label="E-Mail-Metriken"><thead><tr><th>Metrik</th><th>Beschreibung</th><th>Formel</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Eindeutige Öffnungsrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Diese Rate schließt maschinelle Öffnungen aus.</td><td class="no-split"><i>Unique Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Eindeutige Klickrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %}</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Sends</i></td></tr>
-<tr><td class="no-split"><i>Eindeutige Klick, der-to-Open-Rate</i></td><td class="no-split">Der Prozentsatz der Nutzer:innen, die eine E-Mail nach dem Öffnen angeklickt haben.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Opens</i></td></tr>
+<tr><td class="no-split"><i>Eindeutige Click-to-Open-Rate</i></td><td class="no-split">Der Prozentsatz der Nutzer:innen, die eine E-Mail nach dem Öffnen angeklickt haben.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Opens</i></td></tr>
 </tbody></table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-Mail-Metriken" }
 

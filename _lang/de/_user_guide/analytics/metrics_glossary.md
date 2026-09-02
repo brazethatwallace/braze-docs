@@ -90,7 +90,7 @@ Email, Web Push, iOS Push
 iOS Push, Android Push
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Body Klick, der' %}
+{% multi_lang_include analytics/metrics.md metric='Body Click' %}
 
 <span class="calculation-line">Berechnung: (Body-Klicks) / (Impressionen)</span>
 
@@ -170,7 +170,7 @@ In-App Message
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Klick, der-to-Open Rate' %}
+{% multi_lang_include analytics/metrics.md metric='Click-to-Open Rate' %}
 
 <span class="calculation-line">Berechnung: (Eindeutige Klicks) / (Eindeutige Öffnungen) (für E-Mail)</span>
 

@@ -1230,7 +1230,7 @@ subjectInput.addEventListener('keypress', function(e) {
 nextButton.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
-        nextButton.Klick, der();
+        nextButton.click();
     }
 });
 
@@ -1380,7 +1380,7 @@ var ticket_lookuptable = {
             'User Data' :{
               'ShowSubmit': false,
               'Label': 'Category *',
-              'LinksTitle': ['Automatically Collected Data','Event Naming Conventions','Kundenprofil Lifecycle'],
+              'LinksTitle': ['Automatically Collected Data','Event Naming Conventions','User Profile Lifecycle'],
               'Links': ['{{site.baseurl}}/developer_guide/platform_wide/analytics_overview#automatically-collected-data','{{site.baseurl}}/user_guide/data_and_analytics/custom_data/event_naming_conventions/','{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-profile-lifecycle'],
                 'SelectOption' : {
                 'Custom Events, Purchase Event, and Properties' : {
@@ -1388,9 +1388,9 @@ var ticket_lookuptable = {
                   'LinksTitle': ['Custom Events','Purchase Events','Android: Tracking Custom Events','iOS: Tracking Custom Events','Web: Tracking Custom Events'],
                   'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/custom_data/events/','{{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/tracking_custom_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/tracking_custom_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/tracking_custom_events']
                 },
-                'angepasste Attribute' : {
+                'Custom Attributes' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['angepasste Attribute','Android: Setting angepasste Attribute','iOS: Setting angepasste Attribute','Web: Setting angepasste Attribute'],
+                  'LinksTitle': ['Custom Attributes','Android: Setting Custom Attributes','iOS: Setting Custom Attributes','Web: Setting Custom Attributes'],
                   'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attributes','{{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/']
                 }
               }
@@ -2256,7 +2256,7 @@ async function getSearchResultByPost(subject, sid , language) {
         }
     }
 
-document.getElementById('toStep2').addEventListener('Klick, der', async function () {
+document.getElementById('toStep2').addEventListener('click', async function () {
     const subject = document.getElementById('subject').value.trim();
     const description = document.getElementById('description').value.trim();
     if (!subject || !description) {
@@ -2323,7 +2323,7 @@ document.getElementById('toStep2').addEventListener('Klick, der', async function
                 "search-id": "22d6676b-80b1-4145-af19-6a422417e5d0",
                 "sid-session": sid,
                 "taid-device": taid,
-                "Token": "9ad5ad4164aea64521fd3c00a19b76c8",
+                "token": "9ad5ad4164aea64521fd3c00a19b76c8",
                 "uid": "63590d8d-65fd-11f0-ada3-0242ac120007"
             },
             body: JSON.stringify(requestBody)
@@ -2491,7 +2491,7 @@ document.getElementById('toStep2').addEventListener('Klick, der', async function
                 }
             });
 
-            button.addEventListener('Klick, der', function () {
+            button.addEventListener('click', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
                 const citation_text = this.textContent;
                 const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
@@ -2559,7 +2559,7 @@ document.getElementById('toStep2').addEventListener('Klick, der', async function
 
 
     // Back to Step 1
-    document.getElementById('backToStep1').addEventListener('Klick, der', function () {
+    document.getElementById('backToStep1').addEventListener('click', function () {
         step2.style.display = 'none';
         step1.style.display = 'block';
         steps.forEach(s => s.classList.remove('active'));
@@ -2635,7 +2635,7 @@ function initCaseForm() {
 
 
 
-    document.getElementById('toStep3').addEventListener('Klick, der', function () {
+    document.getElementById('toStep3').addEventListener('click', function () {
         document.querySelector(".form-container").classList.add("hidden");
         document.querySelector(".form-container1").style.display = "block";
         steps[2].classList.add('active');
@@ -2659,7 +2659,7 @@ function initCaseForm() {
             let sid = getCookie("_gz_sid");
             if (!sid) {
                 sid = createNewSid();
-                document.Cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
+                document.cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
                 sendSearchEvent(subject, sid);
             }
 

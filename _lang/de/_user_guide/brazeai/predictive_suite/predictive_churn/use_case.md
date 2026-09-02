@@ -9,7 +9,7 @@ page_type: tutorial
 
 > Dieses Beispiel veranschaulicht, wie eine fiktive Marke Predictive Abwanderung einsetzt, um proaktiv die Abwanderung von Nutzer:innen zu reduzieren. Anstatt abzuwarten, bis es zu Abwanderung kommt, sollten Sie vorhersagen, welche Nutzer:innen gefährdet sind, und ihnen maßgeschneiderte Nachrichten zukommen lassen, solange sie noch aktiv sind.
 
-Nehmen wir an, Camila ist CRM-Manager:in:in bei MovieCanon, einer Streaming-Plattform für Independent-Filme, Dokumentationen und internationale Serien.
+Nehmen wir an, Camila ist CRM-Manager:in bei MovieCanon, einer Streaming-Plattform für Independent-Filme, Dokumentationen und internationale Serien.
 
 Das Team von Camila hat einen besorgniserregenden Trend festgestellt: Nutzer:innen führen eine Registrierung durch, streamen ein oder zwei Filme und verschwinden dann. In der Vergangenheit wurde versucht, eine Woche später eine allgemeine E-Mail mit dem Inhalt „Wir vermissen Sie“ zu versenden – jedoch mit einer Konversionsrate von nur 3 % war dies unzureichend und kam zu spät. Die meisten Nutzer:innen interagieren nicht erneut, und Abwanderung wird unvermeidlich.
 

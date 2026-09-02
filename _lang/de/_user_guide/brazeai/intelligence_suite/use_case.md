@@ -12,7 +12,7 @@ tool:
 
 > Dieses Beispiel veranschaulicht, wie eine fiktive Marke intelligentes Timing nutzt, um vergangene App- und Nachrichten-Engagement-Daten für den Versand personalisierter Aktionen in einem einheitlichen Canvas einzusetzen.
 
-Nehmen wir an, Marvin ist Marketing-Manager:in:in bei SandwichEmperor, einem Fast-Food-Restaurant, das häufig zeitlich begrenzte Angebote durchführt. Marvins Team ist dafür verantwortlich, Werbenachrichten in der App zu versenden, um einen neuen zeitlich begrenzten Menüartikel zu bewerben: das Super Sub.
+Nehmen wir an, Marvin ist Marketing-Manager:in bei SandwichEmperor, einem Fast-Food-Restaurant, das häufig zeitlich begrenzte Angebote durchführt. Marvins Team ist dafür verantwortlich, Werbenachrichten in der App zu versenden, um einen neuen zeitlich begrenzten Menüartikel zu bewerben: das Super Sub.
 
 Bisher wurde jede Nachricht für zeitlich begrenzte Artikel als Silo verwaltet: verschiedene Texttests und Ansätze wurden als separate Sendungen zugestellt – das Team probierte unterschiedliche Messaging-Ansätze aus, um ein höheres Engagement zu erzielen, ohne vollständig zu verstehen, wann zeitlich begrenzte Aktionen bei den Nutzer:innen in der App am beliebtesten sind.
 

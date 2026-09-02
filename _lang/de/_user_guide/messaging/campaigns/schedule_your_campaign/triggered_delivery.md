@@ -56,34 +56,34 @@ Für Kampagnen, die keine In-App-Nachrichten sind, wählen Sie bei Auswahl von *
 {% details Interaktionen für Interact With Campaign %}
 
 - **View in-app message**
-- **Klick, der in-app message**
-- **Klick, der in-app message button 1**
-- **Klick, der in-app message button 2**
+- **Click in-app message**
+- **Click in-app message button 1**
+- **Click in-app message button 2**
 - **Submit in-app message survey**
-- **Klick, der email**
+- **Click email**
 - **Open email**
 - **Open email (machine opens)**
 - **Open email (other opens)**
-- **Klick, der alias in email**
+- **Click alias in email**
 - **Clicked Alias in any campaign or Canvas-Schritt**
 - **Directly open push notification**
-- **Klick, der push notification button**
-- **Klick, der push story page**
+- **Click push notification button**
+- **Click push story page**
 - **Perform conversion event**
 - **Receive email**
 - **Receive push notification**
 - **Receive webhook**
 - **Receive SMS**
-- **Klick, der shortened SMS link**
+- **Click shortened SMS link**
 - **View content card**
-- **Klick, der content card**
+- **Click content card**
 - **Dismiss content card**
 - **View banner**
-- **Klick, der banner**
+- **Click banner**
 - **Dismiss banner**
-- **Klick, der tracked WhatsApp link**
-- **Klick, der tracked LINE link**
-- **Klick, der tracked KakaoTalk link**
+- **Click tracked WhatsApp link**
+- **Click tracked LINE link**
+- **Click tracked KakaoTalk link**
 - **Are enrolled in control group**
 
 {% enddetails %}
@@ -93,29 +93,29 @@ Für Kampagnen, die keine In-App-Nachrichten sind, wählen Sie bei Auswahl von *
 - **View in-app message**
 - **Start in-app message availability window**
 - **Submit in-app message survey**
-- **Klick, der email**
+- **Click email**
 - **Open email**
 - **Open email (machine opens)**
 - **Open email (other opens)**
-- **Klick, der alias in email**
+- **Click alias in email**
 - **Clicked Alias in any campaign or Canvas-Schritt**
 - **Directly open push notification**
-- **Klick, der push notification button**
-- **Klick, der push story page**
+- **Click push notification button**
+- **Click push story page**
 - **Receive email**
 - **Receive push notification**
 - **Receive webhook**
 - **Receive SMS**
-- **Klick, der shortened SMS link**
+- **Click shortened SMS link**
 - **View content card**
-- **Klick, der content card**
+- **Click content card**
 - **Dismiss content card**
 - **View banner**
-- **Klick, der banner**
+- **Click banner**
 - **Dismiss banner**
-- **Klick, der tracked WhatsApp link**
-- **Klick, der tracked LINE link**
-- **Klick, der tracked KakaoTalk link**
+- **Click tracked WhatsApp link**
+- **Click tracked LINE link**
+- **Click tracked KakaoTalk link**
 
 {% enddetails %}
 

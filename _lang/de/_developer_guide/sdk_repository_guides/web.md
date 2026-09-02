@@ -798,7 +798,7 @@ require(['path/to/braze.min.js'], function(braze) {
 });
 ```
 
-### AMP (AMP) {#accelerated-mobile-pages-amp}
+### Accelerated Mobile Pages (AMP) {#accelerated-mobile-pages-amp}
 
 Für die AMP-Integration müssen Sie:
 

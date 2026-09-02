@@ -62,7 +62,7 @@ Die folgende Tabelle zeigt beispielhafte DNS-Einträge für ein SparkPost-Setup.
 | --- | --- | --- | --- |
 | CNAME | mail.example.com | smtp.sparkpostmail.com | Return-Path / SPF-Alignment |
 | TXT | scph1226._domainkey.mail.example.com | v=DKIM1; k=rsa; p=... | Kryptografische DKIM-Authentifizierung |
-| CNAME | Klick, der.mail.example.com | spgo.io (oder CDN-Endpunkt) | Klick- und Öffnungs-Tracking |
+| CNAME | Click.mail.example.com | spgo.io (oder CDN-Endpunkt) | Klick- und Öffnungs-Tracking |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Beispiel einer SparkPost-DNS-Tabelle" }
 
 ### SendGrid-Architektur {#sendgrid-architecture}

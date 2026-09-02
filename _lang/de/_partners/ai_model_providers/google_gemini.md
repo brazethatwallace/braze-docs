@@ -25,7 +25,7 @@ Mit der Integration von Braze und Google Gemini können Sie Gemini über einen A
 | Anforderungen | Beschreibung |
 |---|---|
 | Google Cloud-Konto | Ein Google Cloud-Konto mit Zugriff auf die Gemini API. Sie können sich mit einem API-Schlüssel authentifizieren oder Ihr Google-Konto verbinden und ein GCP-Projekt im Braze-Dashboard auswählen. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Administrator oder den [Google Cloud-Support](https://cloud.google.com/support). |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze Onboarding-Manager:in:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze Onboarding-Manager:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

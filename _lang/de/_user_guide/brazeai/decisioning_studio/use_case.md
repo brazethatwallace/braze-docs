@@ -8,7 +8,7 @@ description: "Dieses Beispiel veranschaulicht, wie eine fiktive Marke BrazeAI De
 
 > Dieses Beispiel veranschaulicht, wie eine fiktive Marke BrazeAI Decisioning Studio™ und einen Decisioning-Agenten einsetzt, um jede:n Kund:in zur optimalen Entscheidung aus der Aktionsbank zu leiten, Messaging für die Rückgewinnung zu personalisieren und den Umsatz zu optimieren. Es verbindet Agentendesign, Zielgruppen und Experimente, Orchestrierung über Braze sowie kontinuierliches Lernen nach dem Start.
 
-Nehmen wir an, Poppy ist CRM-Manager:in:in bei Kitchenerie, einer fiktiven Online-Handelsmarke, die auf Küchenartikel spezialisiert ist.
+Nehmen wir an, Poppy ist CRM-Manager:in bei Kitchenerie, einer fiktiven Online-Handelsmarke, die auf Küchenartikel spezialisiert ist.
 
 Viele Kund:innen durchstöbern saisonale Kollektionen nur ein- oder zweimal, bevor sie die Seite verlassen. Frühere Rückgewinnungsprogramme setzten auf feste Journeys und manuelle A/B-Splits, die zwar hilfreich waren, um Texte zu testen, aber nicht um herauszufinden, welche Kombination aus Angebot, Kanal, Frequenz und Timing den Kaufumsatz für jede:n Kund:in maximiert. Die Priorität der Geschäftsleitung ist klar: So viele inaktive Käufer:innen wie möglich zurückgewinnen und den Umsatz steigern, ohne die Leitplanken für Rabatte oder Häufigkeit zu überschreiten.
 

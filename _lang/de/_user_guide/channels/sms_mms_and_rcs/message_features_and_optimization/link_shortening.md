@@ -24,7 +24,7 @@ Braze führt schrittweise die [einheitliche Linkverkürzung]({{site.baseurl}}/us
 {% sdktabs %}
 {% sdktab Legacy %}
 
-Linkverkürzung und Klick-Tracking ermöglichen es Ihnen, URLs in SMS- oder RCS-Nachrichten automatisch zu verkürzen und Klick, der-through-Rate-Analytics zu erfassen, was zusätzliche Engagement-Metriken liefert, um zu verstehen, wie Nutzer:innen mit Ihren Campaigns interagieren.
+Linkverkürzung und Klick-Tracking ermöglichen es Ihnen, URLs in SMS- oder RCS-Nachrichten automatisch zu verkürzen und Click-through-Rate-Analytics zu erfassen, was zusätzliche Engagement-Metriken liefert, um zu verstehen, wie Nutzer:innen mit Ihren Campaigns interagieren.
 
 Linkverkürzung und Klick-Tracking können auf der [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvases aktiviert werden.
 

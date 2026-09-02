@@ -72,7 +72,7 @@ description: "Durchsuchen Sie Beispiel-Prompts für BrazeAI Operator, organisier
 
 {% include copy_block.html content="Wie viel zugeordneten Umsatz und wie viele Conversions haben Campaigns für Nutzer:innen generiert, die durch unsere Caps in den letzten 30 Tagen ausgeschlossen wurden (7-Tage-Fenster)?" available="Segment Extensions" %}
 
-{% include copy_block.html content="Vergleichen Sie unsere E-Mail-Öffnungsrate und Klick, der-through-Rate mit Branchen-Benchmarks für die letzten 30 Tage." available="Email Performance" %}
+{% include copy_block.html content="Vergleichen Sie unsere E-Mail-Öffnungsrate und Click-through-Rate mit Branchen-Benchmarks für die letzten 30 Tage." available="Email Performance" %}
 
 {% include copy_block.html content="Welche E-Mail-Campaigns hatten die niedrigste CTR (bei hohen Öffnungen) in den letzten 30 Tagen?" available="Email Performance" %}
 

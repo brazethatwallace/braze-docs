@@ -223,7 +223,7 @@ Einige Query-Parser behandeln ein nicht kodiertes Pluszeichen `+` als Leerzeiche
 
 ### Warum werden meine Nutzer:innen automatisch durch E-Mail-Sicherheitssoftware abgemeldet? {#why-are-my-users-being-auto-unsubscribed-by-email-security-software}
 
-Einige Sicherheitstools für Unternehmens-E-Mails (wie Barracuda, Proofpoint und ähnliche Dienste) rufen alle URLs in eingehenden E-Mails vorab ab oder scannen sie, einschließlich Abmeldelinks. Dies kann unbeabsichtigte Abmeldungen verursachen, wenn das Sicherheitstool dem One-Klick, der-List-Unsubscribe-Link folgt.
+Einige Sicherheitstools für Unternehmens-E-Mails (wie Barracuda, Proofpoint und ähnliche Dienste) rufen alle URLs in eingehenden E-Mails vorab ab oder scannen sie, einschließlich Abmeldelinks. Dies kann unbeabsichtigte Abmeldungen verursachen, wenn das Sicherheitstool dem One-Click-List-Unsubscribe-Link folgt.
 
 Um dies zu vermeiden:
 

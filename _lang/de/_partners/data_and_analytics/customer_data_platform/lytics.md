@@ -34,7 +34,7 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 | Lytics-Kontonummer | Für die Konfiguration der Webhook-Endpunkt-URL ist eine Lytics-Kontonummer erforderlich. |
 | Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in:in, wenn Sie sich nicht sicher sind. |
+| Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in, wenn Sie sich nicht sicher sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration {#integration}

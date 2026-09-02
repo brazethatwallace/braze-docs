@@ -1,12 +1,12 @@
-Linkverkürzung und Klick, der-Tracking ermöglichen es Ihnen, URLs in SMS- oder RCS-Nachrichten automatisch zu verkürzen und Klick, der-through-Rate-Analytics zu erfassen. So erhalten Sie zusätzliche Engagement-Metriken, die Ihnen helfen zu verstehen, wie Nutzer:innen mit Ihren Campaigns interagieren.
+Linkverkürzung und Click-Tracking ermöglichen es Ihnen, URLs in SMS- oder RCS-Nachrichten automatisch zu verkürzen und Click-through-Rate-Analytics zu erfassen. So erhalten Sie zusätzliche Engagement-Metriken, die Ihnen helfen zu verstehen, wie Nutzer:innen mit Ihren Campaigns interagieren.
 
-Linkverkürzung und Klick, der-Tracking können auf der [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvases aktiviert werden.
+Linkverkürzung und Click-Tracking können auf der [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvases aktiviert werden.
 
 {% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
 Die Länge der URL wird durch die Art des aktivierten Trackings bestimmt:
-- **Basis-Tracking** ermöglicht Klick, der-Tracking auf Campaign-Ebene. Statische URLs haben eine Länge von 20 Zeichen, und personalisierte URLs haben eine Länge von 25 Zeichen.
-- **Erweitertes Tracking** ermöglicht Klick, der-Tracking auf Campaign- und Nutzer:innen-Ebene und erlaubt die Nutzung von Segmentierungs- und Retargeting-Funktionen, die auf Klicks basieren. Klicks erzeugen außerdem ein [SMS-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), das über Currents gesendet wird. Statische URLs mit erweitertem Tracking haben eine Länge von 27–28 Zeichen, sodass Sie Segmente von Nutzer:innen erstellen können, die auf URLs geklickt haben. Personalisierte URLs haben eine Länge von 32–33 Zeichen.
+- **Basis-Tracking** ermöglicht Click-Tracking auf Campaign-Ebene. Statische URLs haben eine Länge von 20 Zeichen, und personalisierte URLs haben eine Länge von 25 Zeichen.
+- **Erweitertes Tracking** ermöglicht Click-Tracking auf Campaign- und Nutzer:innen-Ebene und erlaubt die Nutzung von Segmentierungs- und Retargeting-Funktionen, die auf Klicks basieren. Klicks erzeugen außerdem ein [SMS-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), das über Currents gesendet wird. Statische URLs mit erweitertem Tracking haben eine Länge von 27–28 Zeichen, sodass Sie Segmente von Nutzer:innen erstellen können, die auf URLs geklickt haben. Personalisierte URLs haben eine Länge von 32–33 Zeichen.
 
 Links werden über unsere gemeinsame Kurz-Domain (`brz.ai`) oder Ihre angepasste Linkverkürzungs-Domain verkürzt. Eine Beispiel-URL könnte so aussehen: `https://brz.ai/8jshX` (Basis, statisch) oder `https://brz.ai/p/8jshX/2dj8d` (erweitert, personalisiert). Weitere Informationen finden Sie unter [Testen](#testing).
 
@@ -71,8 +71,8 @@ Die Linkverkürzung ist auch für reine API-Nachrichten über den [`/messages/se
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled` | Optional | Boolescher Wert | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkverkürzung und das Klick, der-Tracking auf Campaign-Ebene zu aktivieren. Für die Nutzung des Trackings müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein. |
-| `user_click_tracking_enabled` | Optional | Boolescher Wert | Setzen Sie `user_click_tracking_enabled` auf `true`, um die Linkverkürzung sowie das Klick, der-Tracking auf Campaign- und Nutzer:innen-Ebene zu aktivieren. Sie können die getrackten Daten verwenden, um Segmente von Nutzer:innen zu erstellen, die auf URLs geklickt haben.<br><br> Um diesen Parameter zu verwenden, muss `link_shortening_enabled` auf `true` gesetzt sein, und eine `campaign_id` sowie eine `message_variation_id` müssen vorhanden sein. |
+| `link_shortening_enabled` | Optional | Boolescher Wert | Setzen Sie `link_shortening_enabled` auf `true`, um die Linkverkürzung und das Click-Tracking auf Campaign-Ebene zu aktivieren. Für die Nutzung des Trackings müssen eine `campaign_id` und eine `message_variation_id` vorhanden sein. |
+| `user_click_tracking_enabled` | Optional | Boolescher Wert | Setzen Sie `user_click_tracking_enabled` auf `true`, um die Linkverkürzung sowie das Click-Tracking auf Campaign- und Nutzer:innen-Ebene zu aktivieren. Sie können die getrackten Daten verwenden, um Segmente von Nutzer:innen zu erstellen, die auf URLs geklickt haben.<br><br> Um diesen Parameter zu verwenden, muss `link_shortening_enabled` auf `true` gesetzt sein, und eine `campaign_id` sowie eine `message_variation_id` müssen vorhanden sein. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="URLs im /messages/send-Endpunkt verkürzen" }
 
 Eine vollständige Liste der Anfrageparameter finden Sie unter [Anfrageparameter]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
@@ -85,7 +85,7 @@ Diese Vorschau wird mit der relevanten Personalisierung und der verkürzten URL 
 
 Stellen Sie sicher, dass Sie die Campaign oder das Canvas speichern, bevor Sie eine Testnachricht senden, um eine Darstellung der verkürzten URL zu erhalten, die in Ihrer Nachricht versendet wird. Wenn die Campaign oder das Canvas vor dem Testversand nicht gespeichert wird, enthält der Testversand eine Platzhalter-URL.
 
-Damit Canvases im Filter „Verkürzten SMS-Link angeklickt“ erscheinen, muss der Canvas-Schritt, der den Kurzlink enthält, ebenfalls mit erweitertem Tracking aktiviert sein, das Klick, der-Tracking auf Nutzer:innen-Ebene ermöglicht. Wenn der Kurzlink mit Basis-Tracking konfiguriert ist, steht die Option zum Filtern von SMS-Kurzlink-Klick-Ereignissen nicht zur Verfügung. Dieselbe Anforderung für erweitertes Tracking gilt, wenn Sie Canvas-Eingangs- oder Aktionspfade konfigurieren, die von angeklickten verkürzten SMS-Links abhängen.
+Damit Canvases im Filter „Verkürzten SMS-Link angeklickt“ erscheinen, muss der Canvas-Schritt, der den Kurzlink enthält, ebenfalls mit erweitertem Tracking aktiviert sein, das Click-Tracking auf Nutzer:innen-Ebene ermöglicht. Wenn der Kurzlink mit Basis-Tracking konfiguriert ist, steht die Option zum Filtern von SMS-Kurzlink-Klick-Ereignissen nicht zur Verfügung. Dieselbe Anforderung für erweitertes Tracking gilt, wenn Sie Canvas-Eingangs- oder Aktionspfade konfigurieren, die von angeklickten verkürzten SMS-Links abhängen.
 
 {% alert important %}
 Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkürzte URL generiert. Die tatsächliche verkürzte URL wird generiert, wenn der Canvas-Entwurf aktiviert wird.
@@ -97,7 +97,7 @@ Wenn ein Entwurf innerhalb eines aktiven Canvas erstellt wird, wird keine verkü
 Liquid-Personalisierung und verkürzte URLs werden im Tab **Test** erst nach Auswahl einer:eines Nutzer:in gerendert. Stellen Sie sicher, dass eine:ein Nutzer:in ausgewählt ist, um eine genaue Zeichenanzahl zu erhalten.
 {% endalert %}
 
-## Klick, der-Tracking
+## Click-Tracking
 
 Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS-Performance** eine Spalte mit dem Titel **Klicks gesamt**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Details zu Metriken finden Sie unter [Nachrichten-Performance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 

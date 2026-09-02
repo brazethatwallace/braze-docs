@@ -21,7 +21,7 @@ Braze hat seine nativen SMS-Funktionen um die Möglichkeit erweitert, angepasste
 
 ## Playable-Partnerschaft ist live {#playable-partnership-is-live}
 
-Erweitern Sie die E-Mail-Funktionen von Braze, um mit [Playable]({{site.baseurl}}/partners/playable) Ihre besten Inhalte (hochwertige Videos) an Ihre beste Zielgruppe (E-Mail) zu liefern. Playable-Video-E-Mails erlauben es Ihnen, Ihre Klick, der-through- und Post-Klick, der-Metriken mit spannenden, hochwertigen Videoinhalten zu steigern, die automatisch im Posteingang abgespielt werden.
+Erweitern Sie die E-Mail-Funktionen von Braze, um mit [Playable]({{site.baseurl}}/partners/playable) Ihre besten Inhalte (hochwertige Videos) an Ihre beste Zielgruppe (E-Mail) zu liefern. Playable-Video-E-Mails erlauben es Ihnen, Ihre Click-through- und Post-Click-Metriken mit spannenden, hochwertigen Videoinhalten zu steigern, die automatisch im Posteingang abgespielt werden.
 
 ## Zendesk-Partnerschaft ist live {#zendesk-partnership-is-live}
 

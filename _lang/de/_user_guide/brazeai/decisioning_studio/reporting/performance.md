@@ -44,7 +44,7 @@ Wenn Sie ein aktuelles Datum in der Datumsauswahl nicht auswählen können, ist 
 - **Datenpipeline-Verzögerungen:** Die Zeit, die benötigt wird, um Daten aus Ihrer Customer Data Platform (CDP) in Decisioning Studio aufzunehmen und zu verarbeiten. Dadurch wird sichergestellt, dass Berichte nur vollständige, zuverlässige Daten anzeigen.
 - **Empfehlungsaktivierungsverzögerungen:** Die Zeit zwischen dem Zeitpunkt, an dem die Decisioning-Studio-Engine eine Empfehlung vorhersagt, und dem Zeitpunkt, an dem Sie sie in Ihren Campaigns aktivieren. Berichte enthalten keine Tage, an denen Empfehlungen noch nicht aktiviert wurden.
 
-Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n KI Success Manager:in:in.
+Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ## KPI-Karten {#kpi-cards}
 
@@ -130,14 +130,14 @@ Die Datumsauswahl erlaubt möglicherweise nicht die Auswahl der letzten Tage. Di
 - **Empfehlungsaktivierungsverzögerungen:** Konfiguriert, um die Verzögerung zwischen dem Zeitpunkt, an dem Empfehlungen generiert werden, und dem Zeitpunkt, an dem sie in Ihren Campaigns aktiviert werden, zu berücksichtigen. Tage, an denen Empfehlungen noch nicht aktiviert wurden, erscheinen nicht in Berichten.
 - **Explizit ausgeschlossene Daten:** Daten, die Sie in den Berichtseinstellungen manuell ausgeschlossen haben.
 
-Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n KI Success Manager:in:in.
+Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ### Was ist der Unterschied zwischen „Volumen“- und „Raten“-KPIs? {#whats-the-difference-between-volume-and-rate-kpis}
 
 KPIs fallen typischerweise in zwei Kategorien:
 
 - **Volumenmetriken** (wie Gesamt-Conversions, Gesamtumsatz oder Gesamtklicks) beantworten: „Wie viel ist passiert?“
-- **Ratenmetriken** (wie Konversionsrate, Umsatz pro Nutzer:in oder Klick, der-through-Rate) beantworten: „Wie effizient ist es passiert?“
+- **Ratenmetriken** (wie Konversionsrate, Umsatz pro Nutzer:in oder Click-through-Rate) beantworten: „Wie effizient ist es passiert?“
 
 Volumen und Rate erzählen unterschiedliche Geschichten. Eine Campaign kann ein höheres Volumen, aber eine geringere Effizienz erzielen – oder umgekehrt. Wenn Sie Ergebnisse interpretieren, prüfen Sie immer, welche Art von KPI Sie betrachten.
 
@@ -147,7 +147,7 @@ Wenn eine Metrik als „eindeutig“ definiert ist, werden Personen mithilfe ein
 
 „Eindeutig pro Tag“ unterscheidet sich von „eindeutig über den gesamten Datumsbereich“. Wenn Sie tägliche eindeutige Zählungen über mehrere Tage summiert sehen, kann dieselbe Person mehr als einmal erscheinen (einmal pro Tag, an dem sie aktiv war). Das ist beabsichtigt.
 
-Wenn Sie verstehen möchten, wie Eindeutigkeit in Ihrem Setup definiert wurde, wenden Sie sich an Ihre:n KI Success Manager:in:in.
+Wenn Sie verstehen möchten, wie Eindeutigkeit in Ihrem Setup definiert wurde, wenden Sie sich an Ihre:n KI Success Manager:in.
 
 ### Warum könnte dieser Bericht von einem anderen System abweichen? {#why-might-this-report-differ-from-another-system}
 
@@ -186,4 +186,4 @@ Das Chart zeigt 3 an Tag 1 und 3 an Tag 2. Über beide Tage hinweg sehen Sie 3 +
 
 Diese Konfiguration beantwortet: „Wie viele eindeutige Kund:innen-Engagements gab es über die Tage hinweg?“ Sie beantwortet nicht: „Wie viele einzelne Kund:innen haben sich mindestens einmal über den gesamten Zeitraum engagiert?“
 
-Wenn Ihr Ziel die Eindeutigkeit auf Fensterebene ist (eindeutige Personen über die gesamte Campaign oder das gesamte Quartal), ist das ein anderer Modellierungsansatz. Wenden Sie sich an Ihre:n KI Success Manager:in:in für Hinweise zur Gestaltung.
+Wenn Ihr Ziel die Eindeutigkeit auf Fensterebene ist (eindeutige Personen über die gesamte Campaign oder das gesamte Quartal), ist das ein anderer Modellierungsansatz. Wenden Sie sich an Ihre:n KI Success Manager:in für Hinweise zur Gestaltung.

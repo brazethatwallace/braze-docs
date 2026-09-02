@@ -16,7 +16,7 @@ _Diese Integration wird von Playable gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Playable ermöglicht es Ihnen, Ihre besten Inhalte (hochwertige Videos) an Ihre beste Zielgruppe (E-Mail) zu liefern und so Ihre Klick, der-through- und Post-Klick, der-Metriken mit hochwertigen Videoinhalten zu steigern, die automatisch im Posteingang abgespielt werden.
+Die Integration von Braze und Playable ermöglicht es Ihnen, Ihre besten Inhalte (hochwertige Videos) an Ihre beste Zielgruppe (E-Mail) zu liefern und so Ihre Click-through- und Post-Click-Metriken mit hochwertigen Videoinhalten zu steigern, die automatisch im Posteingang abgespielt werden.
 
 {% alert important %}
 Eingebettete Videos werden von vielen E-Mail-Clients nicht nativ unterstützt und können die E-Mail-Größe erheblich erhöhen, was dazu führen kann, dass Nachrichten als Spam markiert werden. Playable löst dieses Problem, indem optimierte Videoinhalte bereitgestellt werden, die über verschiedene E-Mail-Clients hinweg funktionieren. Weitere Informationen zu Videos in E-Mails finden Sie unter [Kann ich Videos in E-Mails einbetten?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-embed-videos-in-emails)

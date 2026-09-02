@@ -34,8 +34,8 @@ Ein <i>Soft Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines vorübergehend
 Eine <i>Zurückstellung</i> liegt vor, wenn eine E-Mail nicht sofort zugestellt werden konnte. Braze versucht jedoch, die E-Mail bis zu 72 Stunden nach diesem vorübergehenden Zustellungsfehler erneut zuzustellen, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezifische Campaign eingestellt werden.
 {% endif %}
 
-{% if include.metric == "Body Klick, der" %}
-Push-Story-Benachrichtigungen zeichnen einen <i>Body Klick, der</i> auf, wenn die Benachrichtigung angeklickt wird. Er wird nicht aufgezeichnet, wenn eine Nachricht erweitert oder ein Aktions-Button angeklickt wird.
+{% if include.metric == "Body Click" %}
+Push-Story-Benachrichtigungen zeichnen einen <i>Body Click</i> auf, wenn die Benachrichtigung angeklickt wird. Er wird nicht aufgezeichnet, wenn eine Nachricht erweitert oder ein Aktions-Button angeklickt wird.
 {% endif %}
 
 {% if include.metric == "Body Clicks" %}
@@ -54,7 +54,7 @@ Push-Story-Benachrichtigungen zeichnen einen <i>Body Klick, der</i> auf, wenn di
 <i>Eingereichte Auswahlen</i> ist die Gesamtzahl der ausgewählten Optionen, wenn ein:e Nutzer:in auf der Seite mit den Umfragefragen einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a> auf den Button „Senden“ klickt.
 {% endif %}
 
-{% if include.metric == "Klick, der-to-Open Rate" %}
+{% if include.metric == "Click-to-Open Rate" %}
 Die <i>Klick-Öffnungsrate</i> ist der Prozentsatz der geöffneten E-Mails, die mindestens einmal von einer einzelnen Nutzer:in oder einem Gerät angeklickt wurden, und ist nur im <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Berichts-Builder</a> verfügbar.
 {% endif %}
 

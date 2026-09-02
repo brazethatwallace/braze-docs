@@ -7,8 +7,8 @@ description: "Dieser Artikel enthält Versionshinweise für November 2021."
 ---
 # November 2021
 
-## Berichtsmetrik Klick, der-to-Open Rate {#click-to-open-rate-reporting-metric}
-Braze hat eine neue E-Mail-Metrik, die Klick, der-to-Open Rate, im [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) bereitgestellt. Diese Metrik gibt den Prozentsatz der geöffneten E-Mails an, die angeklickt wurden.
+## Berichtsmetrik Click-to-Open Rate {#click-to-open-rate-reporting-metric}
+Braze hat eine neue E-Mail-Metrik, die Click-to-Open Rate, im [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) bereitgestellt. Diese Metrik gibt den Prozentsatz der geöffneten E-Mails an, die angeklickt wurden.
 
 ## Berichtsmetrik „Maschinelle Öffnungen“ {#machine-open-reporting-metric}
 

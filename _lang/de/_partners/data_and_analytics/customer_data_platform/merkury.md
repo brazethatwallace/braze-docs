@@ -28,7 +28,7 @@ Die Integration von Braze und Merkury ermöglicht es Ihnen, die `MerkuryID` zu n
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
-Die Anfragen des Merkury-Identitätskonnektors an Braze erfolgen innerhalb der Braze-API-Rate-Limits. Wenden Sie sich an Braze oder Ihre:n Merkle Account Manager:in:in, wenn Sie Fragen haben.<br><br>Merkury sendet mindestens eine Anfrage am Ende einer qualifizierten Sitzung.
+Die Anfragen des Merkury-Identitätskonnektors an Braze erfolgen innerhalb der Braze-API-Rate-Limits. Wenden Sie sich an Braze oder Ihre:n Merkle Account Manager:in, wenn Sie Fragen haben.<br><br>Merkury sendet mindestens eine Anfrage am Ende einer qualifizierten Sitzung.
 {% endalert %}
 
 ## Side-by-Side-SDK-Integration

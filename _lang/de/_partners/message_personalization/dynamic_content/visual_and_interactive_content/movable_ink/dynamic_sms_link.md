@@ -39,7 +39,7 @@ Nachdem Nutzer:innen Ihre Marke als Kontakt gespeichert haben, entweder über ei
 
 #### Schritt 2: Movable Ink-Links versenden {#step-2-send-movable-ink-links}
 
-1. Erstellen Sie eine SMS-Campaign in Movable Ink und generieren Sie Ihre Klick, der-through-URL.
+1. Erstellen Sie eine SMS-Campaign in Movable Ink und generieren Sie Ihre Click-through-URL.
 2. Gehen Sie im Braze-Dashboard zu **Campaigns** und richten Sie eine neue SMS/MMS-Campaign über das Dropdown-Menü **Campaign erstellen** ein.
 3. Im SMS-Campaign-Composer:
     - Legen Sie Ihre Abo-Gruppe fest.

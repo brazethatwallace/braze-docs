@@ -80,7 +80,7 @@ Sie und Ihr E-Mail-Anbieter erstellen ein HTML-E-Mail-Template, um Stylitics-Dat
 - Halten Sie eine Fallback-Option bereit, falls für den Artikel keine Bundles verfügbar sind
 	- Blenden Sie den Bereich aus, in dem sich die Stylitics-Bundles befinden
 	- Zeigen Sie Bundles für den nächsten Artikel an, den Nutzer:innen angesehen haben
-- Zeigen Sie Bundle-Bilder sowie eine Liste von Produkttiteln und Miniaturbildern an, um sicherzustellen, dass Nutzer:innen einen klaren Klick, der-through haben
+- Zeigen Sie Bundle-Bilder sowie eine Liste von Produkttiteln und Miniaturbildern an, um sicherzustellen, dass Nutzer:innen einen klaren Click-through haben
 
 {% alert note %}
 Das Stylitics-Widget-JavaScript kann nicht in E-Mails eingefügt werden, da E-Mails kein JavaScript unterstützen.
@@ -92,7 +92,7 @@ Stylitics stellt die Bundle-Daten für diese Art von E-Mail-Programm bereit. Dah
 - Versendete E-Mails
 - Geöffnete E-Mails
 - Aufrufe und Engagement
-- Klick, der-through-Rate
+- Click-through-Rate
 - In den Warenkorb gelegt
 - Käufe
 

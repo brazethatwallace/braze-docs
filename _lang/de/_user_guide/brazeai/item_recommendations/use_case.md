@@ -9,7 +9,7 @@ page_type: tutorial
 
 > Dieses Beispiel veranschaulicht, wie eine fiktive Marke KI-Artikelempfehlungen von Braze nutzt, um personalisierte Inhalte und Produktempfehlungen in wichtigen Kundenmomenten bereitzustellen. Erfahren Sie, wie Empfehlungslogik das Engagement verbessern, Conversions steigern und den manuellen Aufwand reduzieren kann.
 
-Nehmen wir an, Camila ist CRM-Manager:in:in bei MovieCanon, einer Streaming-Plattform, die kuratierte Filme und Serien anbietet.
+Nehmen wir an, Camila ist CRM-Manager:in bei MovieCanon, einer Streaming-Plattform, die kuratierte Filme und Serien anbietet.
 
 Camilas Ziel ist es, das Engagement der Zuschauer:innen auch nach dem Anschauen eines Inhalts aufrechtzuerhalten. In der Vergangenheit basierten die „Das könnte Ihnen auch gefallen“-Nachrichten von MovieCanon auf einer groben Genre-Zuordnung und wurden zu beliebigen Zeitpunkten versendet – häufig Stunden oder Tage nach einer Sitzung. Das Engagement war gering, und ihr Team war sich bewusst, dass es besser geht.
 

@@ -26,7 +26,7 @@ Die Integration von Braze und Databricks Mosaic ermöglicht es Ihnen, Ihr Databr
 |---|---|
 | Databricks-Konto mit persönlichem Zugriffstoken | Ein Databricks-Konto mit einem [persönlichen Zugriffstoken](https://docs.databricks.com/en/dev-tools/auth/pat.html). Wenden Sie sich bei Fragen an Ihre:n Administrator:in oder den [Databricks-Support](https://help.databricks.com/). |
 | Databricks-Workspace-Name | Der Workspace-Name (oder die Instanz) für Ihr Databricks-Konto. Dies ist die Subdomain vor `.cloud.databricks.com` oder `.azuredatabricks.net` (zum Beispiel `dbc-eb57d699-f22c`). |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

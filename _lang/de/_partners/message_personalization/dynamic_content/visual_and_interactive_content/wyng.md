@@ -57,7 +57,7 @@ Testen Sie in Wyng das Absenden des Formulars in Ihrer Wyng-Campaign. Sie könne
 
 Sobald der Datenkonnektor eingerichtet ist, können alle in Wyng erstellten und zu Braze hinzugefügten Felder wie jedes andere Datenfeld verwendet werden, um Campaigns zu triggern, Zielgruppen zu segmentieren oder personalisierte Inhalte einzuspeisen.
 
-Die Anwendungsmöglichkeiten sind breit gefächert, und spezifische Fragen können Sie an [contact@wyng.com](mailto:contact@wyng.com) oder an Ihre:n zuständige:n Account Manager:in:in richten.
+Die Anwendungsmöglichkeiten sind breit gefächert, und spezifische Fragen können Sie an [contact@wyng.com](mailto:contact@wyng.com) oder an Ihre:n zuständige:n Account Manager:in richten.
 
 ## Fehlerbehebung {#troubleshooting}
 

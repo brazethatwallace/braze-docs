@@ -25,7 +25,7 @@ Mit der Integration von Braze und OpenAI können Sie Ihren OpenAI-API-Schlüssel
 | Anforderungen | Beschreibung |
 |---|---|
 | OpenAI-Konto mit API-Schlüssel | Ein OpenAI-Konto mit einem API-Schlüssel. Wenden Sie sich bei Problemen oder Fragen an Ihre:n Administrator:in oder den [OpenAI-Support](https://help.openai.com/). |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

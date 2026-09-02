@@ -116,7 +116,7 @@ Sie können einen HMAC-Schlüssel nach dem Speichern nicht mehr im Dashboard ent
 {%raw%}
 ### Was passiert, wenn ich diese E-Mail-Adressen-Liquid-Variable `{{${email_address}}}` in Braze hinzufüge? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
-Braze rendert beim Versand der E-Mail die Klartext-E-Mail-Adresse. In Vorschauen wird die verschlüsselte Version der E-Mail angezeigt. Wir empfehlen, die externe ID der Nutzer:innen zu verwenden, wenn Sie eine:n Nutzer:in in einer benutzerdefinierten One-Klick, der-URL referenzieren.
+Braze rendert beim Versand der E-Mail die Klartext-E-Mail-Adresse. In Vorschauen wird die verschlüsselte Version der E-Mail angezeigt. Wir empfehlen, die externe ID der Nutzer:innen zu verwenden, wenn Sie eine:n Nutzer:in in einer benutzerdefinierten One-Click-URL referenzieren.
 
 `{{${email_address}}}` wird derzeit im Preference Center und auf Abmeldeseiten nicht unterstützt.
 {%endraw%}
@@ -131,7 +131,7 @@ Die Klartext-E-Mail-Adresse ist in der Nachrichtenarchivierung enthalten. Diese 
 
 ### Kann ich die Mail-to-List-Unsubscribe-Methode für das Abo-Management mit Bezeichner-Verschlüsselung auf Feldebene verwenden? {#can-i-use-mail-to-list-unsubscribe-for-subscription-management-with-identifier-field-level-encryption}
 
-Nein. Die Verwendung der Mail-to-List-Unsubscribe-Methode würde die entschlüsselte Klartext-E-Mail-Adresse an Braze senden. Bei aktivierter Bezeichner-Verschlüsselung auf Feldebene unterstützen wir die URL-basierte HTTP-Methode, einschließlich One-Klick, der. Wir empfehlen außerdem, einen One-Klick, der-Abmeldelink in Ihren E-Mail-Text einzufügen.
+Nein. Die Verwendung der Mail-to-List-Unsubscribe-Methode würde die entschlüsselte Klartext-E-Mail-Adresse an Braze senden. Bei aktivierter Bezeichner-Verschlüsselung auf Feldebene unterstützen wir die URL-basierte HTTP-Methode, einschließlich One-Click. Wir empfehlen außerdem, einen One-Click-Abmeldelink in Ihren E-Mail-Text einzufügen.
 
 ### Unterstützt die Bezeichner-Verschlüsselung auf Feldebene andere Bezeichner wie Telefonnummern? {#does-identifier-field-level-encryption-support-other-identifiers-like-phone}
 

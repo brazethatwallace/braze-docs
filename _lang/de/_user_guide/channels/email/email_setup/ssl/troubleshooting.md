@@ -35,10 +35,10 @@ channel: email
 
 ## Schlüsselkonzepte {#key-concepts}
 
-- **Klick, der-Tracking-Domain (CTD):** Die gebrandete Subdomain, die Braze zum Umschließen von Links für das Klick-Tracking verwendet (zum Beispiel `clicks.mail.yourbrand.com`).
+- **Click-Tracking-Domain (CTD):** Die gebrandete Subdomain, die Braze zum Umschließen von Links für das Klick-Tracking verwendet (zum Beispiel `clicks.mail.yourbrand.com`).
 - **Getrackte URL:** Umschließt den ursprünglichen HTTPS-Link in Ihrer Tracking-Domain. Wenn eine:r Nutzer:in darauf klickt, löst die Tracking-Domain die Anfrage auf und leitet zum endgültigen Ziel weiter. Ein CDN ermöglicht es Ihnen, sichere (HTTPS) URLs zu tracken. Ohne CDN kann es vorkommen, dass Nutzer:innen die Datenschutzwarnung „Verbindung ist nicht sicher“ sehen.
 - **Ungetrackte URL:** Behält die ursprüngliche URL unverändert bei und umgeht das CDN, um als Kontrollumgebung zu dienen.
-- **Phase-1- und Phase-2-Routing:** Phase 1 verweist den CNAME Ihrer Klick, der-Tracking-Domain direkt auf Ihren E-Mail-Anbieter (E-Mail-Anbieter) für die anfängliche HTTP-Verifizierung. Phase 2 verweist den CNAME auf Ihr CDN oder Ihre Web Application Firewall (WAF), die SSL terminiert und Anfragen mit den erforderlichen Headern an den E-Mail-Anbieter weiterleitet. Informationen zu E-Mail-Anbieter-spezifischen CNAME-Zielen finden Sie unter [E-Mail-Anbieter Phase-1- und Phase-2-Routing](#esp-phase-1-and-phase-2-routing).
+- **Phase-1- und Phase-2-Routing:** Phase 1 verweist den CNAME Ihrer Click-Tracking-Domain direkt auf Ihren E-Mail-Anbieter (E-Mail-Anbieter) für die anfängliche HTTP-Verifizierung. Phase 2 verweist den CNAME auf Ihr CDN oder Ihre Web Application Firewall (WAF), die SSL terminiert und Anfragen mit den erforderlichen Headern an den E-Mail-Anbieter weiterleitet. Informationen zu E-Mail-Anbieter-spezifischen CNAME-Zielen finden Sie unter [E-Mail-Anbieter Phase-1- und Phase-2-Routing](#esp-phase-1-and-phase-2-routing).
 
 ## Klick-Tracking-Domains und DNS-Phasen {#click-tracking-domains-and-dns-phases}
 
@@ -174,7 +174,7 @@ Zusätzliche anbieterspezifische Regeln:
 - **SendGrid:** Schließen Sie die URL in einfache oder doppelte Anführungszeichen ein und fügen Sie keine Leerzeichen um das `=` im `href`-Attribut ein.
 - **Amazon SES:** URLs müssen [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986) entsprechen. Nicht kodierte Leerzeichen in einer URL verhindern, dass Amazon SES den Link trackt.
 
-Weitere Informationen zu den von Braze unterstützten URL-Schemata für Klick-Tracking finden Sie unter [Anforderungen an Klick-Tracking-Links]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements). Anbieterspezifische HTML-Details finden Sie unter [SendGrid Klick, der Tracking HTML Best Practices](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [SparkPost Template Language](https://developers.sparkpost.com/api/template-language/) und [Amazon SES Email Sending Metrics FAQs](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html).
+Weitere Informationen zu den von Braze unterstützten URL-Schemata für Klick-Tracking finden Sie unter [Anforderungen an Klick-Tracking-Links]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking#click-tracking-link-requirements). Anbieterspezifische HTML-Details finden Sie unter [SendGrid click Tracking HTML Best Practices](https://www.twilio.com/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices), [SparkPost Template Language](https://developers.sparkpost.com/api/template-language/) und [Amazon SES Email Sending Metrics FAQs](https://docs.aws.amazon.com/ses/latest/dg/faqs-metrics.html).
 
 Gültige Beispiele sind:
 

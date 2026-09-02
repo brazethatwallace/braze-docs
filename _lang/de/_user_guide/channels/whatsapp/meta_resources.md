@@ -171,7 +171,7 @@ Seit Meta das nutzer:innenindividuelle Marketing-Template-Limit eingeführt hat,
 
 Ab sofort, vor der Feiertagssaison, werden Personen in den USA weniger neue Marketing-Konversationen erhalten. Meta erwartet, dass diese Änderung engagiertere Zielgruppen schafft, was letztlich zu besseren Ergebnissen für Unternehmen führt. Dies kann zu niedrigeren Zustellraten für Ihr Unternehmen führen, wenn Sie Marketing-Nachrichten an US-Telefonnummern senden, was über den Fehlercode `131049` über Braze-Currents und das Nachrichtenaktivitätsprotokoll überwacht werden kann.
 
-Unternehmen in den USA können weiterhin Marketing-Nachrichten in andere Regionen zustellen, und es gibt keine Auswirkungen auf Utility-, Authentifizierungs- oder Servicenachrichten oder Marketing-Template-Nachrichten, die innerhalb eines nutzer:inneninitiierten Konversationsfensters gesendet werden (beispielsweise eine Klick, der-to-WhatsApp-Anzeige oder ein Produktkarussell- oder Coupon-Template, das als Teil einer Konversation gesendet wird).
+Unternehmen in den USA können weiterhin Marketing-Nachrichten in andere Regionen zustellen, und es gibt keine Auswirkungen auf Utility-, Authentifizierungs- oder Servicenachrichten oder Marketing-Template-Nachrichten, die innerhalb eines nutzer:inneninitiierten Konversationsfensters gesendet werden (beispielsweise eine Click-to-WhatsApp-Anzeige oder ein Produktkarussell- oder Coupon-Template, das als Teil einer Konversation gesendet wird).
 
 ### November 2024: WhatsApp erweitert qualitätsbasierte Account-Durchsetzungen um Leseraten {#november-2024-whatsapp-expanding-quality-based-account-enforcements-to-include-read-rates}
 *Zuletzt aktualisiert: Dezember 2024*

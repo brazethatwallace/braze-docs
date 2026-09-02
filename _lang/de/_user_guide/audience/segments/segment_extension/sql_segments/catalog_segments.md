@@ -137,4 +137,4 @@ Ja. Genauso wie SQL-Segmenterweiterungen auf Ihr Segmenterweiterungs-Kontingent 
 
 ### Ich habe einen Anwendungsfall für Katalogsegmente, den das aktuelle Template nicht abdeckt. Wie sollte ich das einrichten? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-Kontaktieren Sie Ihre:n Customer-Support-Manager:in:in oder den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Unterstützung.
+Kontaktieren Sie Ihre:n Customer-Support-Manager:in oder den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Unterstützung.

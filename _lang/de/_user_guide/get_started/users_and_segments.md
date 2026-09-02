@@ -106,7 +106,7 @@ Braze verwendet Datenpunkte, um Ihnen dabei zu helfen, die wirkungsvollsten Info
 
 Datenpunkte werden verbraucht, wenn die Profildaten von Nutzer:innen aktualisiert werden oder wenn diese bestimmte Aktionen ausführen. Zu diesen Aktionen können das Starten einer Sitzung, das Beenden einer Sitzung, das Aufzeichnen eines angepassten Events oder das Tätigen eines Kaufs gehören. Es ist wichtig zu beachten, dass nicht alle von Braze erfassten Daten als Datenpunkte zählen. Beispielsweise werden Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden – wie Push-Token, Geräteinformationen und alle Engagement-Tracking-Events von Campaigns wie E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen – nicht als Datenpunkte gezählt.
 
-Indem Sie sorgfältig abwägen, welche Informationen Sie als Datenpunkte verfolgen, zielen Sie auf die Daten mit der größten Wirkung für das Erlebnis Ihrer Nutzer:innen ab. Ihre Account Manager:in:in bei Braze wird Ihnen helfen, bewährte Datenstrategien zu empfehlen, die Ihren Anforderungen entsprechen.
+Indem Sie sorgfältig abwägen, welche Informationen Sie als Datenpunkte verfolgen, zielen Sie auf die Daten mit der größten Wirkung für das Erlebnis Ihrer Nutzer:innen ab. Ihre Account Manager:in bei Braze wird Ihnen helfen, bewährte Datenstrategien zu empfehlen, die Ihren Anforderungen entsprechen.
 
 Besuchen Sie unseren speziellen Artikel, um mehr über [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points) zu erfahren.
 

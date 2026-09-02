@@ -25,7 +25,7 @@ Mit der Integration von Braze und Anthropic können Sie Ihren Anthropic-API-Schl
 | Anforderungen | Beschreibung |
 |---|---|
 | Anthropic-Konto mit API-Schlüssel | Ein Anthropic-Konto mit einem API-Schlüssel. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Administrator oder den [Anthropic-Support](https://support.anthropic.com/). |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

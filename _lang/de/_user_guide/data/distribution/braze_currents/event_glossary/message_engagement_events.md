@@ -18601,7 +18601,7 @@ Dieses Ereignis tritt ein, wenn eine WhatsApp-Nachricht aufgrund von Liquid-Abbr
 WhatsApp, Clicks
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn Nutzer:innen in einer WhatsApp-Nachricht auf einen Link oder Button klicken, dessen Domain mit der Klick, der-Tracking-Domain übereinstimmt.
+Dieses Ereignis tritt ein, wenn Nutzer:innen in einer WhatsApp-Nachricht auf einen Link oder Button klicken, dessen Domain mit der Click-Tracking-Domain übereinstimmt.
 
 {% tabs %}
 {% tab Cloud Storage %}

@@ -238,15 +238,15 @@ Ihre Nutzerbasis kann im Braze-Dashboard mithilfe der Install-Attribution-Filter
 
 Attributionsdaten für Meta Business-Campaigns sind nicht über unsere Partner verfügbar. Diese Medienquelle erlaubt ihren Partnern nicht, Attributionsdaten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
-## Airbridge-Klick, der-Tracking-URLs in Braze (optional)
+## Airbridge-Click-Tracking-URLs in Braze (optional)
 
-Die Verwendung von Klick, der-Tracking-Links in Ihren Braze-Campaigns zeigt, welche Campaigns App-Installationen und erneute Interaktionen fördern. Nutzen Sie die Ergebnisse, um die Marketing-Performance zu messen und zu entscheiden, wo Sie Ressourcen für einen höheren Kapitalrendite investieren sollten.
+Die Verwendung von Click-Tracking-Links in Ihren Braze-Campaigns zeigt, welche Campaigns App-Installationen und erneute Interaktionen fördern. Nutzen Sie die Ergebnisse, um die Marketing-Performance zu messen und zu entscheiden, wo Sie Ressourcen für einen höheren Kapitalrendite investieren sollten.
 
-Um mit Airbridge-Klick, der-Tracking-Links zu beginnen, besuchen Sie [Airbridge](https://help.airbridge.io/en/guides/creating-a-new-tracking-link). Nachdem die Einrichtung abgeschlossen ist, können Sie die Airbridge-Klick, der-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Airbridge verwendet dann seine [probabilistischen Attributionsmethoden](https://help.airbridge.io/en/guides/identity-matching), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Airbridge-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
+Um mit Airbridge-Click-Tracking-Links zu beginnen, besuchen Sie [Airbridge](https://help.airbridge.io/en/guides/creating-a-new-tracking-link). Nachdem die Einrichtung abgeschlossen ist, können Sie die Airbridge-Click-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Airbridge verwendet dann seine [probabilistischen Attributionsmethoden](https://help.airbridge.io/en/guides/identity-matching), um die Nutzer:innen zu attributieren, die auf den Link geklickt haben. Wir empfehlen, Ihre Airbridge-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Airbridge-SDK-Integration erfasst. Sie können die GAID in Ihre Airbridge-Klick, der-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Airbridge-SDK-Integration erfasst. Sie können die GAID in Ihre Airbridge-Click-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -257,7 +257,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Für iOS erfassen sowohl Braze als auch Airbridge den IDFV automatisch und nativ über unsere SDK-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den Identifier for Vendors (IDFV) in Ihre Airbridge-Klick, der-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für iOS erfassen sowohl Braze als auch Airbridge den IDFV automatisch und nativ über unsere SDK-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den Identifier for Vendors (IDFV) in Ihre Airbridge-Click-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 
 {% raw %}
 ```
@@ -271,5 +271,5 @@ idfv={{most_recently_used_device.${id}}}
 
 {% alert note %}
 **Diese Empfehlung ist rein optional**<br>
-Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Klick, der-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Airbridge dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
+Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Click-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Airbridge dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
 {% endalert %}

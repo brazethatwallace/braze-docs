@@ -32,7 +32,7 @@ Link-Bezeichner werden auch aktualisiert, wenn eine E-Mail-Campaign, ein Canvas 
 ## Link Alias erstellen {#creating-a-link-alias}
 
 {% alert important %}
-**Link Management** wird im E-Mail-Composer der Campaign oder des Canvas angezeigt, wenn Braze das Link-Management für Ihr Konto aktiviert hat. Um **Link-Aliase** zu erstellen und zu bearbeiten, muss Link Aliasing aktiviert sein. Falls **Link Management** fehlt, wenden Sie sich an Ihre:n Account Manager:in:in, um Link Aliasing aktivieren zu lassen.
+**Link Management** wird im E-Mail-Composer der Campaign oder des Canvas angezeigt, wenn Braze das Link-Management für Ihr Konto aktiviert hat. Um **Link-Aliase** zu erstellen und zu bearbeiten, muss Link Aliasing aktiviert sein. Falls **Link Management** fehlt, wenden Sie sich an Ihre:n Account Manager:in, um Link Aliasing aktivieren zu lassen.
 {% endalert %}
 
 Um einen Link Alias zu erstellen, öffnen Sie Ihren E-Mail-Body im Campaign- oder Canvas-Komponenten-Composer und öffnen Sie dann **Link Management** im Bereich **Content**. Der Drag-and-drop- und der HTML-Composer verwenden dasselbe Seitenleisten-Layout:

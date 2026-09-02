@@ -80,15 +80,15 @@ Dieser Status ändert sich erst, wenn Braze Daten über eine attributierte Insta
 
 Attributionsdaten für Facebook- und X-Campaigns (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attributionsdaten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
-## Kochava-Klick, der-Tracking-URLs in Braze (optional)
+## Kochava-Click-Tracking-URLs in Braze (optional)
 
-Wenn Sie Klick, der-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
+Wenn Sie Click-Tracking-Links in Ihren Braze-Campaigns verwenden, können Sie leicht erkennen, welche Campaigns zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite investieren sollten.
 
-Um mit Kochava-Klick, der-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://support.kochava.com/reference-information/attribution-overview/). Sie können die Kochava-Klick, der-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Kochava verwendet dann seine [probabilistischen Attributionsmethoden](https://www.kochava.com/getting-prepared-for-ios-14/), um die Nutzer:innen zuzuordnen, die auf den Link geklickt haben. Wir empfehlen, Ihre Kochava-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
+Um mit Kochava-Click-Tracking-Links zu beginnen, besuchen Sie die [Dokumentation](https://support.kochava.com/reference-information/attribution-overview/). Sie können die Kochava-Click-Tracking-Links direkt in Ihre Braze-Campaigns einfügen. Kochava verwendet dann seine [probabilistischen Attributionsmethoden](https://www.kochava.com/getting-prepared-for-ios-14/), um die Nutzer:innen zuzuordnen, die auf den Link geklickt haben. Wir empfehlen, Ihre Kochava-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Campaigns zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs local %}
 {% tab Android %}
-Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Kochava-SDK-Integration erfasst. Sie können die GAID in Ihre Kochava-Klick, der-Tracking-Links integrieren, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze Kund:innen, sich für die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Kochava-SDK-Integration erfasst. Sie können die GAID in Ihre Kochava-Click-Tracking-Links integrieren, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -99,7 +99,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Für iOS erfassen sowohl Braze als auch Kochava den IDFV automatisch und nativ über unsere SDK-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den IDFV in Ihre Kochava-Klick, der-Tracking-Links integrieren, indem Sie die folgende Liquid-Logik verwenden:
+Für iOS erfassen sowohl Braze als auch Kochava den IDFV automatisch und nativ über unsere SDK-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den IDFV in Ihre Kochava-Click-Tracking-Links integrieren, indem Sie die folgende Liquid-Logik verwenden:
 
 {% raw %}
 ```
@@ -113,5 +113,5 @@ idfv={{most_recently_used_device.${id}}}
 
 {% alert note %}
 **Diese Empfehlung ist rein optional**<br>
-Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Klick, der-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Kochava dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
+Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Click-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Kochava dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
 {% endalert %}

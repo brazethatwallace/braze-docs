@@ -129,7 +129,7 @@ Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/chan
 
 ### Currents {#currents}
 
-Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Klick, der Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
+Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
 
 ## Anwendungsfälle {#use-cases}
 

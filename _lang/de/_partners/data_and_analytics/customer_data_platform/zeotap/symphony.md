@@ -23,7 +23,7 @@ Um E-Mail-Marketing-Campaigns zu erstellen, onboarden Sie die Roh-E-Mails in Zeo
 | ----------- | ----------- |
 | Client Name | Dies ist Ihr Client-Name für Ihr Braze-Konto. Sie finden ihn, indem Sie zur Braze-Konsole navigieren. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Instanz | Ihre Braze-Instanz erhalten Sie von Ihrer/Ihrem Braze-Onboarding-Manager:in:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
+| Instanz | Ihre Braze-Instanz erhalten Sie von Ihrer/Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

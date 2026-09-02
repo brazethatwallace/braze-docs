@@ -16,7 +16,7 @@ _Diese Integration wird von SalesWings gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-SalesWings erlaubt es Marketingteams und Marketing-Operations-Manager:in:innen, Leads und Accounts für ihre Vertriebsteams zu qualifizieren, was für die Ausrichtung von Vertrieb und Marketing und die operative Effizienz unerlässlich ist. Darüber hinaus kann SalesWings zusammen mit Braze den Vertriebsmitarbeitern die vollständige Customer Journey eines Leads und eines Kontos sowie Daten über das Engagement der Braze-Campaigns anzeigen, was es Ihnen erlaubt, die Qualifikationsraten von Leads durch fundiertere Gespräche zu erhöhen. SalesWings identifiziert Bedürfnisse und Interessen zusammen mit anderen Signalen und erlaubt so die automatisierte Übergabe qualifizierter Käufer:innen an Vertriebsteams innerhalb Ihres CRM. Sie können die ermittelten Bedürfnisse, Interessen und die Verkaufsbereitschaft als Braze-Nutzerattribute zur Personalisierung und Segmentierung verwenden.
+SalesWings erlaubt es Marketingteams und Marketing-Operations-Manager:innen, Leads und Accounts für ihre Vertriebsteams zu qualifizieren, was für die Ausrichtung von Vertrieb und Marketing und die operative Effizienz unerlässlich ist. Darüber hinaus kann SalesWings zusammen mit Braze den Vertriebsmitarbeitern die vollständige Customer Journey eines Leads und eines Kontos sowie Daten über das Engagement der Braze-Campaigns anzeigen, was es Ihnen erlaubt, die Qualifikationsraten von Leads durch fundiertere Gespräche zu erhöhen. SalesWings identifiziert Bedürfnisse und Interessen zusammen mit anderen Signalen und erlaubt so die automatisierte Übergabe qualifizierter Käufer:innen an Vertriebsteams innerhalb Ihres CRM. Sie können die ermittelten Bedürfnisse, Interessen und die Verkaufsbereitschaft als Braze-Nutzerattribute zur Personalisierung und Segmentierung verwenden.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -37,7 +37,7 @@ SalesWings bietet Braze-Kund:innen [eine flexible Möglichkeit, Leads, Kontakte 
 
 ![Beispiel für ein einfaches Click-not-Code-Lead-Scoring-Modell in SalesWings]({% image_buster /assets/img/saleswings/example_lead_scoring_builder_braze_lead_scoring.png %})
 
-_Beispiel für ein einfaches Klick, der-not-Code-Lead-Scoring-Modell in SalesWings_
+_Beispiel für ein einfaches Click-not-Code-Lead-Scoring-Modell in SalesWings_
 {% endtab %}
 {% tab Sales and Marketing Alignment %}
 SalesWings erlaubt Marketingteams das Tracking, die Qualifizierung und die Übergabe marketingqualifizierter Leads an Ihre Vertriebsteams. Alle SalesWings-Daten werden nativ an Salesforce gepusht und können genutzt werden, um bestehende Prozesse zu optimieren oder neue Prozesse über Listen, Berichte, Abläufe und mehr zu erstellen.

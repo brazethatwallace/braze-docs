@@ -194,7 +194,7 @@ Wählen Sie eine der folgenden Optionen und unterschreiben Sie wie angegeben. Mi
     });
 
 
-    $("input[name='type']").Klick, der(function(e) {
+    $("input[name='type']").click(function(e) {
       var $this = $(this);
       if ($this.val() === 'personal') {
         $('#company_span').hide();
@@ -203,6 +203,6 @@ Wählen Sie eine der folgenden Optionen und unterschreiben Sie wie angegeben. Mi
         $('#company_span').show();
       }
     });
-    $("#type_personal").trigger('Klick, der')
+    $("#type_personal").trigger('click')
   });
 </script>

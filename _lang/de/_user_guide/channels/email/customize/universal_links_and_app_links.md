@@ -256,7 +256,7 @@ Zum Beispiel:
 ```
 
 {:start="3"}
-3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid Klick, der Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
+3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid click Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
 
 Mit dieser Konfiguration funktionieren Links mit `/uni/` im URL-Pfad als Universal Links, während alle anderen Links als Web-Links funktionieren.
 
@@ -273,7 +273,7 @@ Zum Beispiel:
 <a href=”https://www.example.com” data-msys-sublink="open-in-app">
 ```
 
-Stellen Sie dann sicher, dass Ihre App so eingerichtet ist, dass sie den angepassten Pfad korrekt verarbeitet. Lesen Sie den SparkPost-Artikel [Using SparkPost Klick, der tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Dieser Artikel enthält Beispielcode für [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) und [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+Stellen Sie dann sicher, dass Ihre App so eingerichtet ist, dass sie den angepassten Pfad korrekt verarbeitet. Lesen Sie den SparkPost-Artikel [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Dieser Artikel enthält Beispielcode für [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) und [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
 
 {% endtab %}
 {% tab Amazon SES %}

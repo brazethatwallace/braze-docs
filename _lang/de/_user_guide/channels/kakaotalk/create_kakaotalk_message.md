@@ -202,7 +202,7 @@ Wenn das KakaoTalk-Klick-Tracking aktiviert ist, kürzt Braze Ihre URLs automati
 
 Klick-Tracking wird für Text-, Bild-, Listenelement- und Karussell-Nachrichten unterstützt. Es unterstützt Links innerhalb von Buttons und Bild-Klick-Aktionen. Sie können URLs auch mit Liquid und benutzerdefinierten Domains personalisieren.
 
-Um das Klick-Tracking zu aktivieren, aktivieren Sie **Klick, der Tracking** im Abschnitt **Link options** des Composers. URLs werden mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
+Um das Klick-Tracking zu aktivieren, aktivieren Sie **Click Tracking** im Abschnitt **Link options** des Composers. URLs werden mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
 
 Ausführliche Informationen zu Klick-Tracking, benutzerdefinierten Domains, Liquid-Personalisierung in URLs, Reporting und Retargeting finden Sie unter [KakaoTalk-Klick-Tracking]({{site.baseurl}}/kakaotalk_click_tracking).
 

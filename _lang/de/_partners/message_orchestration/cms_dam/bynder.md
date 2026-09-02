@@ -22,7 +22,7 @@ So bleiben Braze Campaigns mit Bynders zentraler Quelle der Wahrheit abgestimmt:
 ## Anwendungsfälle {#use-cases}
 
 - Marketer, die eine E-Mail, In-App-Nachricht oder einen Content Block in Braze erstellen, können Hero-Bilder, Banner oder Links zu Werbevideos direkt aus Bynder einfügen, sodass Campaigns die neueste genehmigte Version eines Assets verwenden.
-- Campaign-Manager:in:innen können die Such- und Filterleiste der Universal Compact View nutzen, um genehmigte regionale oder lokalisierte Kreativmaterialien für ein bestimmtes Zielgruppen-Segment zu finden, bevor sie diese einem Canvas-Schritt hinzufügen.
+- Campaign-Manager:innen können die Such- und Filterleiste der Universal Compact View nutzen, um genehmigte regionale oder lokalisierte Kreativmaterialien für ein bestimmtes Zielgruppen-Segment zu finden, bevor sie diese einem Canvas-Schritt hinzufügen.
 - Kreativteams können Bynders Dynamic Asset Transformation verwenden, um ein Asset für einen bestimmten Kanal in der Größe anzupassen oder umzuformatieren, bevor der Link in Braze kopiert wird. Verwenden Sie beispielsweise einen kompakten Zuschnitt für eine Push-Benachrichtigung oder ein Banner in voller Größe für E-Mails.
 
 ## Voraussetzungen {#prerequisites}

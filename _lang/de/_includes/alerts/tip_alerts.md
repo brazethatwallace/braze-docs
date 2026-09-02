@@ -503,7 +503,7 @@ $("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", fu
 }).on("mouseleave", "[id^='character_encoding_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
-$('#segment_section').Klick, der(function() {
+$('#segment_section').click(function() {
   if($(this).is(":checked")) {
     $("#sms_segments_data").show();
   }
@@ -511,7 +511,7 @@ $('#segment_section').Klick, der(function() {
     $("#sms_segments_data").hide();
   }
 });
-$('#encoding_section').Klick, der(function() {
+$('#encoding_section').click(function() {
   if($(this).is(":checked")) {
     $("#character_encoding_container").show();
   }

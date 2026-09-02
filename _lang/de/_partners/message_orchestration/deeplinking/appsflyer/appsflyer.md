@@ -185,15 +185,15 @@ So richten Sie Ihre Braze-Integration in AppsFlyer ein:
 ![AppsFlyer-UI mit dem Dropdown-Menü, über das Nutzer:innen ihr Template auswählen können.]({% image_buster /assets/img/attribution/appsflyer/4.png %})
 
 
-### 4. Geben Sie Ihre Klick, der-Tracking-Domain und den Wert für „Braze endpoint“ ein, der mit der neuen CTD aus Schritt 1 bereitgestellt wurde, und klicken Sie dann auf Validate connection. {#4-enter-your-click-tracking-domain-and-braze-endpoint-value-which-was-provided-with-the-new-ctd-created-in-step-1-then-click-validate-connection}
+### 4. Geben Sie Ihre Click-Tracking-Domain und den Wert für „Braze endpoint“ ein, der mit der neuen CTD aus Schritt 1 bereitgestellt wurde, und klicken Sie dann auf Validate connection. {#4-enter-your-click-tracking-domain-and-braze-endpoint-value-which-was-provided-with-the-new-ctd-created-in-step-1-then-click-validate-connection}
 
-Damit wird überprüft, ob die Klick, der-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
+Damit wird überprüft, ob die Click-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
 
 ![AppsFlyer-UI, die zeigt, wo Sie Ihre Click-Tracking-Domain und die zugehörigen Details eingeben sollten.]({% image_buster /assets/img/attribution/appsflyer/5.png %})
 
 Mit „Braze Endpoint“ fragt AppsFlyer nach den Details, die Braze in Schritt 1 dieser Anleitung bereitgestellt hat – konkret nach der neuen CTD.
 
-Klicken Sie dann auf **Validate connection**, um zu überprüfen, ob die Klick, der-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
+Klicken Sie dann auf **Validate connection**, um zu überprüfen, ob die Click-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
 Klicken Sie anschließend auf **Next**.
 
 ### 5. Link-Traffic an AppsFlyer weiterleiten: {#5-route-link-traffic-to-appsflyer}

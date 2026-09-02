@@ -207,7 +207,7 @@ hide_toc: true
   }
 
 
-  $('#feedback_submit').on('Klick, der',function(e){
+  $('#feedback_submit').on('click',function(e){
     var external_id = window.braze ? window.braze.getUser().getUserId() : '';
     var title = 'Documentations Feedback';
     var comment = $('#feedback_comment').val().trim();

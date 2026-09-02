@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import difflib
+import re
 import subprocess
 from pathlib import Path
 
@@ -33,6 +34,21 @@ PHRASE_REPLACEMENTS = [
     ("Tag-Manager:in", "Tag-Manager"),
     ("Tealium Account Manager:in", "Tealium Account Manager"),
     ("{% tab Step 2: angepasste Attribute %}", "{% tab Step 2: Custom Attributes %}"),
+    # click glossary: keep JS/API literals and English loanwords intact
+    ("'angepasste Attribute' :", "'Custom Attributes' :"),
+    ("'LinksTitle': ['angepasste Attribute'", "'LinksTitle': ['Custom Attributes'"),
+    ("'Android: Setting angepasste Attribute'", "'Android: Setting Custom Attributes'"),
+    ("'iOS: Setting angepasste Attribute'", "'iOS: Setting Custom Attributes'"),
+    ("'Web: Setting angepasste Attribute'", "'Web: Setting Custom Attributes'"),
+    ("'Kundenprofil Lifecycle'", "'User Profile Lifecycle'"),
+    ("document.Cookie", "document.cookie"),
+    ('"Token":', '"token":'),
+    ("### AMP (AMP) {#accelerated-mobile-pages-amp}", "### Accelerated Mobile Pages (AMP) {#accelerated-mobile-pages-amp}"),
+    ("AMP (AMP)", "Accelerated Mobile Pages (AMP)"),
+    ("die AMP (AMP)-Version", "die Accelerated Mobile Pages (AMP)-Version"),
+    ("E-Mail-E-Mail-Anbieter", "E-Mail-ESP"),
+    ("E-Mail-E-Mail-", "E-Mail-"),
+    ("bei aktivierter automatischer registrieren", "bei aktivierter automatischer Registrierung"),
     # Bug 1: Taxi product name leaked into rideshare example
     ("Taxi for Email-/Mitfahr-App", "Taxi-/Mitfahr-App"),
     ("Taxi for Email- oder Mitfahr-App", "Taxi- oder Mitfahr-App"),
@@ -154,6 +170,29 @@ NOUN_RESTORATION = [
 NOUN_RESTORATION.sort(key=lambda pair: len(pair[0]), reverse=True)
 
 
+def apply_click_corruption_repairs(text: str) -> tuple[str, int]:
+    """Restore click literals corrupted by the ``click`` glossary key."""
+    total = 0
+    for old, new in (
+        (".Klick, der", ".click"),
+        ("'Klick, der'", "'click'"),
+        ('"Klick, der"', '"click"'),
+        ("Klick, der-", "Click-"),
+        (" Klick, der ", " click "),
+    ):
+        count = text.count(old)
+        if count:
+            text = text.replace(old, new)
+            total += count
+    text, count = re.subn(r"Klick, der", "Click", text)
+    return text, total + count
+
+
+def apply_inclusive_marker_repairs(text: str) -> tuple[str, int]:
+    """Fix duplicated German inclusive markers such as ``Manager:in:in``."""
+    return re.subn(r":in:in(?!en)", ":in", text)
+
+
 def apply_phrase_repairs(text: str) -> tuple[str, int]:
     total = 0
     for old, new in PHRASE_REPLACEMENTS:
@@ -161,6 +200,10 @@ def apply_phrase_repairs(text: str) -> tuple[str, int]:
         if count:
             text = text.replace(old, new)
             total += count
+    text, count = apply_click_corruption_repairs(text)
+    total += count
+    text, count = apply_inclusive_marker_repairs(text)
+    total += count
     for old, new in NOUN_RESTORATION:
         count = text.count(old)
         if count:

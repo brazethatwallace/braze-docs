@@ -18,7 +18,7 @@ Um das Braze-Support-Team zu kontaktieren, gehen Sie zu **Support** > **Get help
 
 Operator kann Ihr Problem mithilfe des Kontexts aus Ihrem Gespräch und dem aktuellen Bildschirm beheben. Wenn Operator Ihr Problem nicht lösen kann, bitten Sie ihn, auf Grundlage Ihres Gesprächs einen Entwurf für ein Support-Ticket zu erstellen und das Ticket im Braze-Support-Portal einzureichen (sofern Sie ein:e benannte:r Support-Kontakt sind). Sie können auch <i class="fa-regular fa-circle-question" aria-label="Support kontaktieren"></i> **Contact Support** innerhalb von Operator auswählen, um direkt ein Ticket zu erstellen. Wenn **Get help with Operator** in Ihrem Dashboard nicht verfügbar ist, wählen Sie **Support** > **Get help**, um stattdessen das Support-Portal oder das Support-Formular zu öffnen.
 
-Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets). Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den/die Braze-Administrator:in Ihres Unternehmens, Ihre:n Braze-Success-Manager:in:in oder den/die Kontoinhaber:in.
+Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets). Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den/die Braze-Administrator:in Ihres Unternehmens, Ihre:n Braze-Success-Manager:in oder den/die Kontoinhaber:in.
 
 ![Das Dropdown-Menü „Support“ mit der Option „Get help with Operator“.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
 

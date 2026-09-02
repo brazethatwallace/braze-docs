@@ -30,7 +30,7 @@ Alle URLs, die mit `http://` oder `https://` beginnen, werden gekürzt. Sie kön
 So richten Sie das Klick-Tracking für eine Textnachricht ein:
 
 1. Verfassen Sie eine **Text**-Nachricht und fügen Sie eine URL in das Textfeld oder den Button ein.
-2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Klick, der Tracking** aktiviert ist. Das Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Click Tracking** aktiviert ist. Das Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 ![KakaoTalk-Textnachrichten-Editor mit dem Abschnitt „Link options“ und aktiviertem „Click Tracking“.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
@@ -40,14 +40,14 @@ So richten Sie das Klick-Tracking für eine Bildnachricht ein:
 
 1. Verfassen Sie eine **Image**-Nachricht und stellen Sie das Klickverhalten so ein, dass eine URL geöffnet wird.
 2. Geben Sie eine URL in das URL-Feld ein.
-3. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Klick, der Tracking** aktiviert ist.
+3. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Click Tracking** aktiviert ist.
 
 ### Listenelementnachrichten {#list-item-messages}
 
 So richten Sie das Klick-Tracking für eine Listenelementnachricht ein:
 
 1. Verfassen Sie eine **List item**-Nachricht und fügen Sie eine URL in das Feld **Website URL** für ein beliebiges Element ein.
-2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Klick, der Tracking** aktiviert ist.
+2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Click Tracking** aktiviert ist.
 
 ## Benutzerdefinierte Domains {#custom-domains}
 

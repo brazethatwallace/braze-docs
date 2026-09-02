@@ -39,7 +39,7 @@ Beschreiben Sie, was Sie wissen möchten. Es ist keine feste Formulierung erford
 {% tab Benchmark-Vergleiche %}
 
 * „Wie schneidet unsere E-Mail-*Öffnungsrate* im Vergleich zu Branchen-Benchmarks der letzten 30 Tage ab?“
-* „Liegen wir in diesem Quartal über oder unter dem Benchmark für die SMS-*Klick, der-Through-Rate*?“
+* „Liegen wir in diesem Quartal über oder unter dem Benchmark für die SMS-*Click-Through-Rate*?“
 * „Wo liegen wir in unserem Kanal-Mix unter dem Branchendurchschnitt?“
 
 {% endtab %}
@@ -52,7 +52,7 @@ Beschreiben Sie, was Sie wissen möchten. Es ist keine feste Formulierung erford
 {% endtab %}
 {% tab Campaign- und Canvas-Detailanalysen %}
 
-* „Was sind unsere Top-10-E-Mail-Campaigns nach *Klick, der-Through-Rate* in diesem Geschäftsquartal?“
+* „Was sind unsere Top-10-E-Mail-Campaigns nach *Click-Through-Rate* in diesem Geschäftsquartal?“
 * „Welche Canvases haben letzten Monat die meisten *Klicks* erzielt?“
 * „Welche Campaigns haben im GJ26 Q1 den meisten *Attributed Revenue* generiert?“
 * „Zeige unsere am schlechtesten performenden Push-Campaigns der letzten 30 Tage.“
@@ -61,7 +61,7 @@ Beschreiben Sie, was Sie wissen möchten. Es ist keine feste Formulierung erford
 {% tab Trendanalyse %}
 
 * „Wie sieht der Monats-über-Monats-Trend beim Push-Engagement für GJ26 aus?“
-* „Wie hat sich die E-Mail-*Klick, der-Through-Rate* im Quartalsvergleich über das letzte Jahr verändert?“
+* „Wie hat sich die E-Mail-*Click-Through-Rate* im Quartalsvergleich über das letzte Jahr verändert?“
 * „Wie hat sich unser *Attributed Revenue* in den letzten 12 Monaten entwickelt?“
 * „Zeige mir unseren wöchentlichen Engagement-Trend für In-App-Nachrichten über die letzten 90 Tage.“
 
@@ -152,9 +152,9 @@ Fragen außerhalb des Umfangs erhalten eine direkte Antwort, wenn möglich eine 
 ## Tipps für bessere Ergebnisse {#tips-for-better-results}
 
 * **Zeitraum:** Bevorzugen Sie explizite Bereiche („GJ26 Q2“, „die letzten 90 Tage“) gegenüber vagen Formulierungen wie „letztes Quartal“, wenn Sie Präzision benötigen.
-* **Metriken:** Nennen Sie die Rate, die Sie interessiert (*Öffnungsrate*, *Klick, der-Through-Rate*, *Klick, der-to-Open-Rate*). Operator gibt die verwendete Formel an.
+* **Metriken:** Nennen Sie die Rate, die Sie interessiert (*Öffnungsrate*, *Click-Through-Rate*, *Click-to-Open-Rate*). Operator gibt die verwendete Formel an.
 * **Nachfragen:** Vertiefen Sie ein Ergebnis, ändern Sie das Fenster oder wechseln Sie den Kanal. Operator behält den Kontext über den Thread hinweg bei.
-* **Kanal-Formulierung:** WhatsApp und RCS verwenden *Read Rate* (nicht *Öffnungsrate*). SMS verwendet *Link Klick, der Rate*.
+* **Kanal-Formulierung:** WhatsApp und RCS verwenden *Read Rate* (nicht *Öffnungsrate*). SMS verwendet *Link click Rate*.
 * **Kombinierte Fragen:** Benchmark plus Trend in einem Prompt wird unterstützt.
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}

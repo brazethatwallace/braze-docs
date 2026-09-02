@@ -18,7 +18,7 @@ Das In-App-Nachricht-Objekt `slideup` erweitert [`InAppMessageBase`](https://bra
 
 {% endsubtab %}
 {% subtab Modal %}
-[`modal`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-in-app-message-modal/index.html) In-App-Nachrichten erscheinen in der Mitte des Bildschirms und werden von einem durchsichtigen Feld eingerahmt. Für kritischere Nachrichten können sie mit zwei Klick, der-Action- und Analytics-fähigen Buttons ausgestattet werden.
+[`modal`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-in-app-message-modal/index.html) In-App-Nachrichten erscheinen in der Mitte des Bildschirms und werden von einem durchsichtigen Feld eingerahmt. Für kritischere Nachrichten können sie mit zwei Click-Action- und Analytics-fähigen Buttons ausgestattet werden.
 
 Dieser Nachrichtentyp ist eine Unterklasse von [`InAppMessageImmersiveBase`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-in-app-message-immersive-base/index.html), einer abstrakten Klasse, die implementiert `IInAppMessageImmersive`und Ihnen die Möglichkeit bietet, Ihre lokal generierten In-App-Nachrichten mit benutzerdefinierten Funktionen anzupassen.
 
@@ -26,7 +26,7 @@ Dieser Nachrichtentyp ist eine Unterklasse von [`InAppMessageImmersiveBase`](htt
 
 {% endsubtab %}
 {% subtab Full Screen %}
-[`full`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-in-app-message-full/index.html)-In-App-Nachrichten sind nützlich, um den Inhalt und die Wirkung Ihrer Nutzer-Kommunikation zu maximieren. Die obere Hälfte einer In-App-Nachricht von `full` enthält ein Bild, die untere Hälfte Text und bis zu zwei Klick, der-Action- und Analytics-fähigen Buttons.
+[`full`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-in-app-message-full/index.html)-In-App-Nachrichten sind nützlich, um den Inhalt und die Wirkung Ihrer Nutzer-Kommunikation zu maximieren. Die obere Hälfte einer In-App-Nachricht von `full` enthält ein Bild, die untere Hälfte Text und bis zu zwei Click-Action- und Analytics-fähigen Buttons.
 
 Dieser Nachrichtentyp erweitert die Möglichkeiten[`InAppMessageImmersiveBase`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.inappmessage/-in-app-message-immersive-base/index.html), sodass Sie Ihren lokal generierten In-App-Nachrichten benutzerdefinierte Funktionen hinzufügen können.
 

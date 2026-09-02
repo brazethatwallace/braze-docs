@@ -163,7 +163,7 @@ Diagramme zur historischen Mitgliedschaft verwenden geschätzte Stichproben, sod
 
 ### Wie ordnet das Conversions-Dashboard Canvas-Konversionen zu? {#how-does-the-conversions-dashboard-attribute-canvas-conversions}
 
-Das [Conversions-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) ordnet Canvas-Konversionen basierend auf der von Ihnen gewählten [Attributionsmethode]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods) zu (z. B. **Upon Receipt**, **Upon Send**, **Upon Open** oder **Upon Klick, der**). Damit ein:e Nutzer:in im Bericht erscheint, muss er/sie den Canvas oder die Campaign betreten, die ausgewählte Attributionsmethode auslösen und das Konversions-Event innerhalb Ihrer Berichtseinstellungen ausführen.
+Das [Conversions-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) ordnet Canvas-Konversionen basierend auf der von Ihnen gewählten [Attributionsmethode]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods) zu (z. B. **Upon Receipt**, **Upon Send**, **Upon Open** oder **Upon Click**). Damit ein:e Nutzer:in im Bericht erscheint, muss er/sie den Canvas oder die Campaign betreten, die ausgewählte Attributionsmethode auslösen und das Konversions-Event innerhalb Ihrer Berichtseinstellungen ausführen.
 
 Informationen zu Konversionsregeln auf Schritt- und Variantenebene in der Canvas-Analyse finden Sie unter [Wie werden Nutzer-Konversionen in einem Canvas getrackt?](#how-are-user-conversions-tracked-in-a-canvas).
 

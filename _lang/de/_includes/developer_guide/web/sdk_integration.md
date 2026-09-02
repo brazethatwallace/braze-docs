@@ -253,7 +253,7 @@ Sie müssen diese beiden Dateien koordiniert aktualisieren, um eine ordnungsgem�
 
 ## Andere Integrationsmethoden {#other-integration-methods}
 
-### AMP (AMP)
+### Accelerated Mobile Pages (AMP)
 {% details Mehr erfahren %}
 #### Schritt 1: AMP-Web-Push-Script einbinden {#step-1-include-amp-web-push-script}
 
@@ -504,7 +504,7 @@ export default function App() {
 
 #### Ereignisse protokollieren und Nutzer:innen aktualisieren {#logging-events-and-updating-users}
 
-Nachdem `useBraze` das SDK an Ihrem App-Root initialisiert hat, können andere Client-Komponenten Braze-Methoden aufrufen. Ein gängiges Muster ist der Aufruf innerhalb von Nutzeraktionen wie `onClick` oder `onSubmit`. Im Beispiel werden die SDK-Methoden innerhalb des Klick, der-Handlers geladen, anstatt am Anfang der Datei. Dadurch bleibt das Internet-SDK außerhalb des Server-Codes und es wird nur das geladen, was diese Aktion benötigt. Der `webpackExports`-Kommentar teilt webpack mit, welche Methoden eingebunden werden sollen, sodass Ihr Bundle kleiner bleibt.
+Nachdem `useBraze` das SDK an Ihrem App-Root initialisiert hat, können andere Client-Komponenten Braze-Methoden aufrufen. Ein gängiges Muster ist der Aufruf innerhalb von Nutzeraktionen wie `onClick` oder `onSubmit`. Im Beispiel werden die SDK-Methoden innerhalb des Click-Handlers geladen, anstatt am Anfang der Datei. Dadurch bleibt das Internet-SDK außerhalb des Server-Codes und es wird nur das geladen, was diese Aktion benötigt. Der `webpackExports`-Kommentar teilt webpack mit, welche Methoden eingebunden werden sollen, sodass Ihr Bundle kleiner bleibt.
 
 ```tsx
 // app/components/BuyButton.tsx

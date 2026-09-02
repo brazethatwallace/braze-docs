@@ -675,7 +675,7 @@ Folgen Sie den Anweisungen in der [Android-Entwicklerdokumentation](http://devel
 
 Das Braze-Dashboard unterstützt das Festlegen von Deeplinks oder Web-URLs in Push-Benachrichtigungs-Campaigns und Canvases, die beim Anklicken der Benachrichtigung geöffnet werden.
 
-![Die Einstellung „On Klick, der Behavior“ im Braze-Dashboard mit der aus dem Dropdown ausgewählten Option „Deep Link Into Application“.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
+![Die Einstellung „On click Behavior“ im Braze-Dashboard mit der aus dem Dropdown ausgewählten Option „Deep Link Into Application“.]({% image_buster /assets/img_archive/deep_link_click_action.png %} "Deep Link Click Action")
 
 #### Back-Stack-Verhalten anpassen {#customizing-back-stack-behavior}
 

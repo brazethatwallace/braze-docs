@@ -145,7 +145,7 @@ Kontext hilft Operator, das Gesamtbild Ihres Projekts zu verstehen. Es ist hilfr
 
 - Ihren Unternehmensnamen und Ihre Branche
 - Eine Campaign, an der Sie arbeiten, wie Black Friday oder Feiertagsverkäufe
-- Ihr Ziel, wie die Steigerung Ihrer Klick, der-through-Rate
+- Ihr Ziel, wie die Steigerung Ihrer Click-through-Rate
 - Bestimmte angepasste Attribute, die Sie in Ihre Nachricht aufnehmen möchten
 
 Das Einbeziehen von Kontext in Ihren Prompt hilft Operator, seine Antworten besser auf Ihre Bedürfnisse abzustimmen. Sie können auch Details aus Ihrer Campaign, Ihrem Nachrichten-Briefing oder Ihrem Brainstorming-Dokument einfügen, um Operator auf den neuesten Stand zu bringen.

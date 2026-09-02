@@ -47,7 +47,7 @@ Content Optimizer verwendet OpenAI nur, wenn Sie explizit KI-generierte Variante
 | Variationen der Betreffzeile | Öffnungsrate steigern | Testen Sie Tonalität, Dringlichkeit, Personalisierung und den Einsatz von Emojis. |
 | Stile für Header-Nachrichten | Engagement steigern | Vergleichen Sie emotionale, wertorientierte und klare Formulierungen im Body-Header. |
 | Format des Body-Inhalts | Lesbarkeit und Engagement verbessern | Testen Sie Storytelling im Vergleich zu Feature-Listen, Aufzählungen im Vergleich zu Absätzen und Inhaltslänge. |
-| CTA-Text und Tonalität | Klick, der-throughs steigern | Vergleichen Sie handlungsorientierte, nutzenorientierte und in der ersten Person formulierte CTA-Formulierungen. |
+| CTA-Text und Tonalität | Click-throughs steigern | Vergleichen Sie handlungsorientierte, nutzenorientierte und in der ersten Person formulierte CTA-Formulierungen. |
 | Thematische Inhaltskombinationen | Leistungsstarke Kombinationen entdecken | Kombinieren Sie thematisch passende Betreffzeilen-, Body- und CTA-Komponenten, um die beste Gesamtkombination zu finden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-Mail" }
 
@@ -65,7 +65,7 @@ Content Optimizer verwendet OpenAI nur, wenn Sie explizit KI-generierte Variante
 | --- | --- | --- |
 | Hook-Variationen | Engagement steigern | Testen Sie Dringlichkeit, Personalisierung und Tonalität in der ersten Zeile, die in SMS-Vorschauen, MMS-Untertiteln oder RCS-Einleitungen angezeigt wird. |
 | Stile für den Body-Text | Engagement verbessern | Vergleichen Sie prägnante und handlungsorientierte Formulierungen im Body, einschließlich Texten, die Medien in MMS und RCS begleiten. |
-| CTA-Textvariationen | Klick, der-throughs steigern | Vergleichen Sie handlungsorientierte und konversationelle CTA-Formulierungen für Links und Aufforderungen zu nächsten Schritten in SMS, MMS und RCS. |
+| CTA-Textvariationen | Click-throughs steigern | Vergleichen Sie handlungsorientierte und konversationelle CTA-Formulierungen für Links und Aufforderungen zu nächsten Schritten in SMS, MMS und RCS. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS-, MMS- und RCS-Nachrichten" }
 
 ## Funktionsweise {#how-it-works}

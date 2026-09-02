@@ -26,7 +26,7 @@ Zumindest müssen Sie die Integration über das RevenueCat-Dashboard aktivieren,
 |---|---|
 | RevenueCat-Konto und -App | Ein [RevenueCat-Konto](https://app.revenuecat.com/login) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. Sie müssen außerdem über eine konfigurierte RevenueCat-App verfügen. |
 | RevenueCat SDK | Wir empfehlen, zusätzlich zum erforderlichen Braze SDK das [RevenueCat SDK](https://docs.revenuecat.com/docs/configuring-sdk) zu installieren, um Nutzer-Aliase an RevenueCat zu übermitteln. |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrer/Ihrem Braze-Onboarding-Manager:in:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints).<br><br>RevenueCat benötigt die Braze-Instanz, um serverseitig an den richtigen Braze-REST-Endpunkt zu senden. |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrer/Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints).<br><br>RevenueCat benötigt die Braze-Instanz, um serverseitig an den richtigen Braze-REST-Endpunkt zu senden. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Test-REST-API-Schlüssel (optional) | Ein Test-API-Schlüssel kann für Test- und Produktionskäufe verwendet werden, wenn Sie möchten, dass diese Anfragen an separate Braze-Instanzen gesendet werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }

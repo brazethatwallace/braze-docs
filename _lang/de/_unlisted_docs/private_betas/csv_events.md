@@ -192,7 +192,7 @@ Pro Zeile kann im Nutzerimport nur eine einzelne `subscription_group_id` festgel
 ### Angepasste Events importieren (Early Access) {#importing-custom-events}
 
 {% alert important %}
-Der Import angepasster Events befindet sich derzeit im Early Access. Wenden Sie sich an Ihre:n Braze Account Manager:in:in, wenn Sie am Early Access teilnehmen möchten.
+Der Import angepasster Events befindet sich derzeit im Early Access. Wenden Sie sich an Ihre:n Braze Account Manager:in, wenn Sie am Early Access teilnehmen möchten.
 {% endalert %}
 
 Um angepasste Events für Ihre Nutzer:innen zu importieren, navigieren Sie zu **Import Users** > **Events**.

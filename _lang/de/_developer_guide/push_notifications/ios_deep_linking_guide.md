@@ -34,7 +34,7 @@ Custom-Scheme-Deeplinks (zum Beispiel `myapp://products/123`) öffnen Ihre App d
 **Verwenden Sie Custom-Scheme-Deeplinks, wenn:**
 - Sie Push-Benachrichtigungen, In-App Messages oder Content Cards senden
 - Der Link nicht funktionieren muss, wenn die App nicht installiert ist
-- Sie kein Klick-Tracking benötigen (Link-Wrapping durch den E-Mail-E-Mail-Anbieter)
+- Sie kein Klick-Tracking benötigen (Link-Wrapping durch den E-Mail-ESP)
 
 **Verwenden Sie Custom-Scheme-Deeplinks nicht, wenn:**
 - Sie E-Mails senden — ESPs wrappen Links für das Klick-Tracking, was Custom Schemes bricht
