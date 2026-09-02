@@ -502,7 +502,7 @@ Nach dem Senden einer WhatsApp-Testnachricht können Sie einen [detaillierten Zu
 
 #### DinMo – Daten und Analytics – Reverse ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo) ist eine Composable Customer Data Platform (Customer Data Platform (CDP)), die Ihr Cloud Data Warehouse über Reverse ETL (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppensegmente aus Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status aktuell halten – ohne CSV-Uploads oder Engineering-Support.
+[DinMo]({{site.baseurl}}/partners/dinmo) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse ETL (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppensegmente aus Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status aktuell halten – ohne CSV-Uploads oder Engineering-Support.
 
 #### EmailShepherd – Nachrichtenorchestrierung – Templates {#emailshepherd-message-orchestration-templates}
 

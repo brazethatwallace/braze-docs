@@ -252,7 +252,7 @@ Wir haben die Liste der verfügbaren Operatoren für Attributfilter, angepasste 
 
 ## Kauf- und Umsatz-Tracking {#purchase-revenue-tracking}
 
-Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den LTV (LTV) für jedes einzelne Kundenprofil fest. Diese Daten sind auf unserer Umsatzseite in Zeitreihen einsehbar.
+Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den Lifetime Value (LTV) für jedes einzelne Kundenprofil fest. Diese Daten sind auf unserer Umsatzseite in Zeitreihen einsehbar.
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen | Beispiele |
 | ---------------------| --------------- | ------------- | -------- |

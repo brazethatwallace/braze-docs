@@ -143,7 +143,7 @@ Wenn Sie kein Service-Teammitglied in Ihrer Root-Domain registrieren können, be
 
 #### Kann ich ein Service-Teammitglied mit Hilfe eines Tag Managers erstellen?
 
-Nein, Service-Teammitglieder müssen auf dem Server Ihrer Website gehostet werden und können nicht über den Tag Manager:in geladen werden.
+Nein, Service-Teammitglieder müssen auf dem Server Ihrer Website gehostet werden und können nicht über den Tag Manager geladen werden.
 
 ### Sicherheit vor Ort
 

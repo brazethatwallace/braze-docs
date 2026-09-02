@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Adobe
 
-> Die Customer Data Platform (Customer Data Platform (CDP)) von Adobe basiert auf der Adobe Experience Platform und führt bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammen, um Kundenprofile zu erstellen. Diese Profile können dann verwendet werden, um über alle Kanäle und Geräte hinweg personalisierte Erlebnisse in Realtime zu bieten.
+> Die Customer Data Platform (CDP) von Adobe basiert auf der Adobe Experience Platform und führt bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammen, um Kundenprofile zu erstellen. Diese Profile können dann verwendet werden, um über alle Kanäle und Geräte hinweg personalisierte Erlebnisse in Realtime zu bieten.
 
 Die Integration von Braze und Adobe Customer Data Platform (CDP) verbindet die Adobe-Daten Ihrer Marke (angepasste Attribute und Segmente) mit Braze und bildet sie in Echtzeit ab. Sie können dann auf diese Daten reagieren und Ihren Nutzer:innen personalisierte, zielgerichtete Erlebnisse zustellen. Bei Adobe ist die Integration intuitiv. Nehmen Sie einfach eine beliebige [Adobe-Identität](https://experienceleague.adobe.com/docs/experience-platform/identity/namespaces.html?lang=en), bilden Sie sie auf eine externe ID von Braze ab und senden Sie sie an die Braze-Plattform. Alle gesendeten Daten werden in Braze über ein neues Attribut `AdobeExperiencePlatformSegments` zugänglich sein.
 

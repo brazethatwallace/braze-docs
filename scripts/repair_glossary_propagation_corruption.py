@@ -12,6 +12,21 @@ LANG_ROOT = REPO_ROOT / "_lang" / "de"
 
 # Targeted phrase fixes (longest first).
 PHRASE_REPLACEMENTS = [
+    # Glossary propagation: nested CDP expansion
+    ("Customer Data Platform (Customer Data Platform (CDP))", "Customer Data Platform (CDP)"),
+    # Product/team names that must stay English
+    ("KI Expert Services", "AI Expert Services"),
+    ("Google Tag Manager:in", "Google Tag Manager"),
+    ("Google tag Manager:in", "Google Tag Manager"),
+    ("Tealium iQ Tag Manager:in", "Tealium iQ Tag Manager"),
+    ("Tag Manager:in", "Tag Manager"),
+    ("tag Manager:in", "tag Manager"),
+    # UI constants and technical terms
+    ("CALENDAR DATE SELEKTOR", "CALENDAR DATE SELECTOR"),
+    ("unrecognized SELEKTOR sent to class", "unrecognized selector sent to class"),
+    ("den LTV (LTV)", "den Lifetime Value (LTV)"),
+    ("### BCC-Eigenschaften – ABKBannerContentCard", "### Banner-Content-Card-Eigenschaften – ABKBannerContentCard"),
+    ('aria-label="Customize in-app message behavior on Klick, der"', 'aria-label="Customize in-app message behavior on click"'),
     # Bug 1: Taxi product name leaked into rideshare example
     ("Taxi for Email-/Mitfahr-App", "Taxi-/Mitfahr-App"),
     ("Taxi for Email- oder Mitfahr-App", "Taxi- oder Mitfahr-App"),

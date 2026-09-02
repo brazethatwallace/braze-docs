@@ -28,7 +28,7 @@ Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verw
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Wenn Sie stattdessen Google Tag Manager:in verwenden möchten, können Sie den Tag-Typ **Purchase** nutzen, um die [`logPurchase`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) aufzurufen. Verwenden Sie diesen Tag, um Käufe in Braze zu tracken, optional einschließlich Kauf-Details. Gehen Sie dazu wie folgt vor:
+Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Purchase** nutzen, um die [`logPurchase`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) aufzurufen. Verwenden Sie diesen Tag, um Käufe in Braze zu tracken, optional einschließlich Kauf-Details. Gehen Sie dazu wie folgt vor:
 
 1. Die Felder **Product ID** und **Price** sind erforderlich.
 2. Verwenden Sie den Button **Add Row**, um Kauf-Details hinzuzufügen.
@@ -145,7 +145,7 @@ Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verw
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Wenn Ihre Website Käufe mithilfe des Standard-[eCommerce-Events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) als Data-Layer-Element im Google Tag Manager:in protokolliert, können Sie den Tag-Typ **E-commerce Purchase** verwenden. Dieser Action-Typ protokolliert einen separaten „Kauf“ in Braze für jeden Artikel, der in der Liste der `items` übermittelt wird.
+Wenn Ihre Website Käufe mithilfe des Standard-[eCommerce-Events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) als Data-Layer-Element im Google Tag Manager protokolliert, können Sie den Tag-Typ **E-commerce Purchase** verwenden. Dieser Action-Typ protokolliert einen separaten „Kauf“ in Braze für jeden Artikel, der in der Liste der `items` übermittelt wird.
 
 Sie können auch zusätzliche Eigenschaftsnamen angeben, die als Kauf-Details einbezogen werden sollen, indem Sie deren Schlüssel in der Liste der Kauf-Details angeben. Beachten Sie, dass Braze innerhalb des einzelnen `item`, das protokolliert wird, nach allen Kauf-Details sucht, die Sie der Liste hinzugefügt haben.
 

@@ -1,10 +1,10 @@
 ### Voraussetzungen {#prerequisites}
 
-Bevor Sie diese Integrationsmethode verwenden können, müssen Sie [ein Konto und einen Container für Google Tag Manager:in erstellen](https://support.google.com/tagmanager/answer/14842164).
+Bevor Sie diese Integrationsmethode verwenden können, müssen Sie [ein Konto und einen Container für Google Tag Manager erstellen](https://support.google.com/tagmanager/answer/14842164).
 
 ### 1. Schritt: Tag-Template-Galerie öffnen {#step-1-open-the-tag-template-gallery}
 
-Wählen Sie im [Google Tag Manager:in](https://tagmanager.google.com/) Ihren Workspace aus und wählen Sie dann **Templates**. Wählen Sie im Bereich **Tag Template** die Option **Search Gallery**.
+Wählen Sie im [Google Tag Manager](https://tagmanager.google.com/) Ihren Workspace aus und wählen Sie dann **Templates**. Wählen Sie im Bereich **Tag Template** die Option **Search Gallery**.
 
 ![Die Template-Seite für einen Beispiel-Workspace im Google Tag Manager.]({% image_buster /assets/img/web-gtm/search_tag_template_gallery.png %}){: style="max-width:95%;"}
 
@@ -64,7 +64,7 @@ Das Braze Initialization Tag bietet die folgenden Optionen. Die meisten davon la
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="4. Schritt: Initialisierungsoptionen auswählen" }
 
 {% alert note %}
-Um [angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) bei Verwendung des Google Tag Manager:in Braze Initialization Tag zu aktivieren, wählen Sie **Allow HTML In-App Messages** in den **Braze Initialization Options** aus. Dieses Kontrollkästchen entspricht der Initialisierungsoption `allowUserSuppliedJavascript` in `braze.initialize()` und setzt sie auf `true`. Das Google Tag Manager:in Braze Initialization Tag verwendet dieses Label anstelle des Optionsnamens.
+Um [angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) bei Verwendung des Google Tag Manager Braze Initialization Tag zu aktivieren, wählen Sie **Allow HTML In-App Messages** in den **Braze Initialization Options** aus. Dieses Kontrollkästchen entspricht der Initialisierungsoption `allowUserSuppliedJavascript` in `braze.initialize()` und setzt sie auf `true`. Das Google Tag Manager Braze Initialization Tag verwendet dieses Label anstelle des Optionsnamens.
 {% endalert %}
 
 Für Optionen, die nicht im GTM-Template verfügbar sind (wie `contentSecurityNonce`, `localization` oder `devicePropertyAllowlist`), verwenden Sie stattdessen die [Laufzeitinitialisierung]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
@@ -81,5 +81,5 @@ Das Initialisierungs-Tag sollte auf allen Seiten Ihrer Website ausgeführt werde
 
 Sie können Ihre Integration mit einer der folgenden Optionen überprüfen:
 
-- **Option 1:** Mit dem [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager:in können Sie prüfen, ob das Braze Initialization Tag auf Ihren konfigurierten Seiten oder bei Ihren konfigurierten Ereignissen korrekt getriggert wird.
+- **Option 1:** Mit dem [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager können Sie prüfen, ob das Braze Initialization Tag auf Ihren konfigurierten Seiten oder bei Ihren konfigurierten Ereignissen korrekt getriggert wird.
 - **Option 2:** Prüfen Sie, ob von Ihrer Webseite Netzwerk-Anfragen an Braze gesendet werden. Darüber hinaus sollte die globale `window.braze`-Bibliothek nun definiert sein.

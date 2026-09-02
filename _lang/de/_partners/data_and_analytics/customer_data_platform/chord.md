@@ -1,7 +1,7 @@
 ---
 nav_title: Chord
 article_title: Chord
-description: "Verbinden Sie die Chord Customer Data Platform (Customer Data Platform (CDP)) mit Braze, um E-Commerce-Ereignisse und Identitätsaktualisierungen für Messaging, Segmentierung und Journeys weiterzuleiten."
+description: "Verbinden Sie die Chord Customer Data Platform (CDP) mit Braze, um E-Commerce-Ereignisse und Identitätsaktualisierungen für Messaging, Segmentierung und Journeys weiterzuleiten."
 alias: /partners/chord/
 page_type: partner
 search_tag: Partner

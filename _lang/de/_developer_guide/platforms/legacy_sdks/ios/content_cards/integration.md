@@ -87,7 +87,7 @@ Braze bietet drei Content-Card-Typen: Banner, Bild mit Bildunterschrift und klas
 | `extras` | Ein optionales `NSDictionary` von `NSString`-Werten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
-### BCC-Eigenschaften – ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
+### Banner-Content-Card-Eigenschaften – ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
 
 | Eigenschaft | Beschreibung |
 |---|---|

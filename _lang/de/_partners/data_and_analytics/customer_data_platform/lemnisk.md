@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Lemnisk
 
-> [Lemnisk](https://www.lemnisk.co/) ist eine KI-gestützte Customer Data Platform (Customer Data Platform (CDP)) und Marketing-Automatisierungslösung, die die Erfassung, Vereinheitlichung und Aktivierung von Kundendaten aus verschiedenen, isolierten Quellen in Echtzeit ermöglicht. Sie stellt diese vereinheitlichten Daten nahtlos über verschiedene MarTech- und Geschäftsplattformen hinweg bereit und bietet gleichzeitig robuste Realtime-Analytics, um jede Phase des Kundendaten-Lebenszyklus zu verfolgen.
+> [Lemnisk](https://www.lemnisk.co/) ist eine KI-gestützte Customer Data Platform (CDP) und Marketing-Automatisierungslösung, die die Erfassung, Vereinheitlichung und Aktivierung von Kundendaten aus verschiedenen, isolierten Quellen in Echtzeit ermöglicht. Sie stellt diese vereinheitlichten Daten nahtlos über verschiedene MarTech- und Geschäftsplattformen hinweg bereit und bietet gleichzeitig robuste Realtime-Analytics, um jede Phase des Kundendaten-Lebenszyklus zu verfolgen.
 
 _Diese Integration wird von Lemnisk gepflegt._
 

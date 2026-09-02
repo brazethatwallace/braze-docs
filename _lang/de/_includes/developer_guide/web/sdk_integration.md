@@ -9,7 +9,7 @@ Das Braze Internet-SDK ermöglicht es Ihnen, Analytics zu erfassen und Ihren Int
 Sie können das Internet-SDK von Braze mit den folgenden Methoden integrieren. Weitere Optionen finden Sie unter [Andere Integrationsmethoden](#web_other-integration-methods).
 
 - **Code-basierte Integration:** Integrieren Sie das Internet-SDK von Braze direkt in Ihre Codebasis mit Ihrem bevorzugten Paketmanager oder dem Braze-CDN. So haben Sie die volle Kontrolle darüber, wie das SDK geladen und konfiguriert wird.
-- **Google Tag Manager:in:** Eine No-Code-Lösung, mit der Sie das Internet-SDK von Braze integrieren können, ohne den Code Ihrer Website zu ändern. Weitere Informationen finden Sie unter [Google Tag Manager:in mit dem Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
+- **Google Tag Manager:** Eine No-Code-Lösung, mit der Sie das Internet-SDK von Braze integrieren können, ohne den Code Ihrer Website zu ändern. Weitere Informationen finden Sie unter [Google Tag Manager mit dem Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager).
 
 {% alert important %}
 Wir empfehlen die Verwendung der [NPM-Integrationsmethode]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web). Zu den Vorteilen gehören die lokale Speicherung von SDK-Bibliotheken auf Ihrer Website, Schutz vor Werbeblocker-Erweiterungen und kürzere Ladezeiten durch Bundler-Unterstützung.
@@ -112,7 +112,7 @@ Anonyme Nutzer:innen auf Mobilgeräten oder im Internet können zu Ihren [MAU]({
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager:in %}
+{% tab Google Tag Manager %}
 {% multi_lang_include developer_guide/web/google_tag_manager/initialization_tag.md %}
 {% endtab %}
 {% endtabs %}

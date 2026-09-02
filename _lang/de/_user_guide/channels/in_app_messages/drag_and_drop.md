@@ -54,7 +54,7 @@ Im Folgenden finden Sie die einzelnen Mindest-SDK-Anforderungen für diese Featu
 ### Weitere Voraussetzungen {#additional-prerequisites}
 
 - Für das Web SDK muss die Initialisierungsoption [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) auf `true` gesetzt sein. Die Option `enableHtmlInAppMessages` ermöglicht ebenfalls die Funktion dieser Nachrichten, ist jedoch veraltet und sollte auf `allowUserSuppliedJavascript` aktualisiert werden.
-- Wenn Sie Google Tag Manager:in verwenden, müssen Sie in der GTM-Konfiguration „Allow HTML In-App Messages“ aktivieren.
+- Wenn Sie Google Tag Manager verwenden, müssen Sie in der GTM-Konfiguration „Allow HTML In-App Messages“ aktivieren.
 
 ## Schritt 1: In-App-Nachricht erstellen {#step-1-create-an-in-app-message}
 

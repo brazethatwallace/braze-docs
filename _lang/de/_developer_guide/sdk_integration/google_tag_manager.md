@@ -1,29 +1,29 @@
 ---
-nav_title: Google tag Manager:in
-article_title: Google Tag Manager:in with the Braze SDK
+nav_title: Google Tag Manager
+article_title: Google Tag Manager with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager:in."
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager."
 
 ---
-## Über Google Tag Manager:in für das Internet {#google-tag-manager}
+## Über Google Tag Manager für das Internet {#google-tag-manager}
 
-Mit dem Google Tag Manager:in (GTM) können Sie per Fernzugriff Tags auf Ihrer Website hinzufügen, entfernen und bearbeiten, ohne dass eine Freigabe des Produktionscodes oder technische Ressourcen erforderlich sind. Braze bietet die folgenden Templates für das Internet-SDK an:
+Mit dem Google Tag Manager (GTM) können Sie per Fernzugriff Tags auf Ihrer Website hinzufügen, entfernen und bearbeiten, ohne dass eine Freigabe des Produktionscodes oder technische Ressourcen erforderlich sind. Braze bietet die folgenden Templates für das Internet-SDK an:
 
 | Tag-Typ | Anwendungsfall |
 |--------|--------|
 | Initialisierungs-Tag | Mit diesem Tag können Sie [das Braze Internet-SDK integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web), ohne den Code Ihrer Website ändern zu müssen. |
 | Aktions-Tag | Mit diesem Tag können Sie [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [Nutzer:innen-Attribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) und [die Datenerfassung verwalten]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Über Google Tag Manager:in für das Internet" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Über Google Tag Manager für das Internet" }
 
 ## Tag-Sequenzierung für Braze-Aktions-Tags {#tag-sequencing-for-braze-action-tags}
 
 Das Braze-Initialisierungs-Tag muss vor allen Tags ausgelöst werden, die Braze-SDK-Methoden aufrufen (wie `braze.getUser()`, `braze.logCustomEvent()` oder `braze.logPurchase()`). Wenn diese Methoden ausgelöst werden, bevor das SDK initialisiert ist, können Fehler wie `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')` auftreten.
 
-So konfigurieren Sie die Tag-Sequenzierung im Google Tag Manager:in:
+So konfigurieren Sie die Tag-Sequenzierung im Google Tag Manager:
 
 1. Öffnen Sie das Tag, das Braze-SDK-Methoden aufruft (z. B. ein Custom-HTML-Tag oder ein Braze-Aktions-Tag).
 2. Gehen Sie zu **Advanced Settings** > **Tag Sequencing**.

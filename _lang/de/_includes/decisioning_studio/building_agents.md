@@ -30,15 +30,15 @@ Hier sind einige Beispiele für Agenten, die Sie mit BrazeAI Decisioning Studio�
 
 Bevor Sie einen Agenten erstellen können, müssen Sie [BrazeAI Decisioning Studio™ integrieren]({{site.baseurl}}/developer_guide/decisioning_studio/integration).
 
-### Schritt 1: KI Expert Services kontaktieren {#step-1-contact-ai-expert-services}
+### Schritt 1: AI Expert Services kontaktieren {#step-1-contact-ai-expert-services}
 
-Das KI Expert Services-Team arbeitet eng mit Ihnen zusammen, um Ihren Decisioning-Agenten zu planen, zu entwerfen und zu erstellen. Falls noch nicht geschehen, [kontaktieren Sie uns](https://www.braze.com/get-started/), um loszulegen.
+Das AI Expert Services-Team arbeitet eng mit Ihnen zusammen, um Ihren Decisioning-Agenten zu planen, zu entwerfen und zu erstellen. Falls noch nicht geschehen, [kontaktieren Sie uns](https://www.braze.com/get-started/), um loszulegen.
 
 Gemeinsam durchlaufen Sie die folgenden Schritte, um einen maßgeschneiderten Agenten zu erstellen, der zu Ihnen passt.
 
 ### Schritt 2: Ihren Agenten entwerfen {#step-2-design-your-agent}
 
-Gemeinsam mit dem KI Expert Services-Team definieren Sie:
+Gemeinsam mit dem AI Expert Services-Team definieren Sie:
 
 - eine Zielgruppe,
 - die zu optimierende Geschäftsmetrik,
@@ -49,7 +49,7 @@ Sobald das Design steht, arbeitet das Team mit Ihnen daran, zusätzliche Integra
 
 ### Schritt 3: Ihre Zustellplattform einrichten {#step-3-set-up-your-delivery-platform}
 
-Als Nächstes unterstützt Sie das KI Expert Services-Team bei der Einrichtung Ihrer Customer-Engagement-Plattform. Decisioning Studio funktioniert am besten mit Braze, es werden jedoch auch verschiedene andere Plattformen unterstützt&#8212;wenden Sie sich an Ihr KI Expert Services-Team für weitere Informationen.
+Als Nächstes unterstützt Sie das AI Expert Services-Team bei der Einrichtung Ihrer Customer-Engagement-Plattform. Decisioning Studio funktioniert am besten mit Braze, es werden jedoch auch verschiedene andere Plattformen unterstützt&#8212;wenden Sie sich an Ihr AI Expert Services-Team für weitere Informationen.
 
 {% tabs local %}
 {% tab Braze %}
@@ -63,4 +63,4 @@ So richten Sie Braze ein:
 
 ### Schritt 4: Starten und überwachen {#step-4-launch-and-monitor}
 
-Nach dem Start Ihres Agenten überwacht und optimiert Ihr KI Expert Services-Team diesen weiterhin gemäß dem vereinbarten Design. Das Team hilft Ihnen außerdem bei Anpassungen, Erweiterungen oder Änderungen am Agenten, falls erforderlich.
+Nach dem Start Ihres Agenten überwacht und optimiert Ihr AI Expert Services-Team diesen weiterhin gemäß dem vereinbarten Design. Das Team hilft Ihnen außerdem bei Anpassungen, Erweiterungen oder Änderungen am Agenten, falls erforderlich.

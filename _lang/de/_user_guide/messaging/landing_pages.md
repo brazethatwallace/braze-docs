@@ -47,9 +47,9 @@ Braze wendet ein Rate-Limit von 500 Anfragen pro drei Sekunden (ca. 167 Anfragen
 
 Zwischengespeicherte Landing-Page-Aufrufe werden nicht auf dieses Limit angerechnet. Informationen dazu, wie Caching den Datenverkehr beeinflusst, finden Sie unter [Können Landing-Pages Szenarien mit hohem Datenverkehr bewältigen?](#can-landing-pages-handle-high-traffic-scenarios).
 
-## Google Tag Manager:in zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
+## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
 
-Um Google Tag Manager:in zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und setzen Sie dann den Tag Manager:in-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag Manager:in-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
+Um Google Tag Manager zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und setzen Sie dann den Tag Manager-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag Manager-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
 
 ```
 <script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Weitere Informationen zur Implementierung von Google Tag Manager:in finden Sie in der [Dokumentation von Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
+Weitere Informationen zur Implementierung von Google Tag Manager finden Sie in der [Dokumentation von Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 

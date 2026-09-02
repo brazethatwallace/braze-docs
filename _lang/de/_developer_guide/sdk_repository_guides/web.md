@@ -832,9 +832,9 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 
 Tealium iQ bietet eine einfache schlüsselfertige Braze-Integration. Um die Integration zu konfigurieren, suchen Sie in der Tealium Tag-Management-Oberfläche nach Braze und geben Sie den Web-SDK-API-Schlüssel aus Ihrem Dashboard an. Weitere Details oder vertiefenden Tealium-Konfigurationssupport finden Sie in unserer [Integrationsdokumentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) oder wenden Sie sich an Ihren Tealium Account Manager:in.
 
-#### Google Tag Manager:in
+#### Google Tag Manager
 
-Das Web SDK kann über ein benutzerdefiniertes HTML-Tag in Ihrem Google Tag Manager:in-Container initialisiert und aufgerufen werden. Sehen Sie sich unsere [Google Tag Manager:in-Beispiel-App](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) an, um ein Beispiel für das Senden von Events an Braze über GTM zu sehen, oder lesen Sie unsere [Integrationsdokumentation](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) für weitere Details.
+Das Web SDK kann über ein benutzerdefiniertes HTML-Tag in Ihrem Google Tag Manager-Container initialisiert und aufgerufen werden. Sehen Sie sich unsere [Google Tag Manager-Beispiel-App](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) an, um ein Beispiel für das Senden von Events an Braze über GTM zu sehen, oder lesen Sie unsere [Integrationsdokumentation](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) für weitere Details.
 
 #### Andere Tag-Manager:in {#other-tag-managers}
 

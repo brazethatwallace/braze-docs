@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Amperity
 
-> [Amperity](https://amperity.com/) ist eine umfassende Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity bietet intelligente Funktionen für die Vereinheitlichung der Datenverwaltung, Analytics, Insights und Aktivierung.
+> [Amperity](https://amperity.com/) ist eine umfassende Customer Data Platform (CDP) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity bietet intelligente Funktionen für die Vereinheitlichung der Datenverwaltung, Analytics, Insights und Aktivierung.
 
 _Diese Integration wird von Amperity gepflegt._
 

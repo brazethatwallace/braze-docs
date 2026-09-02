@@ -1,16 +1,16 @@
-## Über Google Tag Manager:in für das Internet {#google-tag-manager}
+## Über Google Tag Manager für das Internet {#google-tag-manager}
 
-Mit dem Google Tag Manager:in (GTM) können Sie per Fernzugriff Tags auf Ihrer Website hinzufügen, entfernen und bearbeiten, ohne dass eine Freigabe des Produktionscodes oder technische Ressourcen erforderlich sind. Braze bietet die folgenden Templates für das Internet-SDK an:
+Mit dem Google Tag Manager (GTM) können Sie per Fernzugriff Tags auf Ihrer Website hinzufügen, entfernen und bearbeiten, ohne dass eine Freigabe des Produktionscodes oder technische Ressourcen erforderlich sind. Braze bietet die folgenden Templates für das Internet-SDK an:
 
 | Tag-Typ | Anwendungsfall |
 |--------|--------|
 | Initialisierungs-Tag | Mit diesem Tag können Sie [das Braze Internet-SDK integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web), ohne den Code Ihrer Website ändern zu müssen. |
 | Aktions-Tag | Mit diesem Tag können Sie [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [Nutzer:innen-Attribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) und [die Datenerfassung verwalten]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Über Google Tag Manager:in für das Internet" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Über Google Tag Manager für das Internet" }
 
 ## Tag-Sequenzierung für Braze-Aktions-Tags {#tag-sequencing-for-braze-action-tags}
 
-Angepasste Events und andere Braze-Aktions-Tags können fehlschlagen, wenn sie ausgelöst werden, bevor das **Braze Initialization**-Tag das Internet-SDK vollständig geladen hat. Öffnen Sie in Google Tag Manager:in das Aktions-Tag, gehen Sie zu **Advanced Settings** > **Tag Sequencing**, wählen Sie **A tag that fires before [this tag] is fired** und wählen Sie Ihr Braze Initialization-Tag aus.
+Angepasste Events und andere Braze-Aktions-Tags können fehlschlagen, wenn sie ausgelöst werden, bevor das **Braze Initialization**-Tag das Internet-SDK vollständig geladen hat. Öffnen Sie in Google Tag Manager das Aktions-Tag, gehen Sie zu **Advanced Settings** > **Tag Sequencing**, wählen Sie **A tag that fires before [this tag] is fired** und wählen Sie Ihr Braze Initialization-Tag aus.
 
 Weitere Details finden Sie unter [Tag-Sequenzierung für angepasste Events überprüfen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
 

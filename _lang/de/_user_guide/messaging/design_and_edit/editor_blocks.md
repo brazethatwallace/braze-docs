@@ -462,7 +462,7 @@ Fügt vertikalen Abstand zwischen Elementen hinzu.
 
 ### Benutzerdefinierter Code
 
-Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen ein, z. B. [Google Tag Manager:in]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
+Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen ein, z. B. [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Eigenschaft | Beschreibung |
 | --- | --- |

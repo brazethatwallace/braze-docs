@@ -58,7 +58,7 @@ Navigieren Sie als Nächstes zu den **Build-Einstellungen** Ihres Projekts und f
 ![Xcode-Build-Einstellungen mit dem Feld „Other Linker Flags“.]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 
 {% alert note %}
-Wenn Sie das Flag `-ObjC` nicht hinzufügen, können Teile der API fehlen und das Verhalten ist nicht definiert. Es kann zu unerwarteten Fehlern (z. B. „unrecognized SELEKTOR sent to class“), Abstürzen der Anwendung und anderen Problemen kommen.
+Wenn Sie das Flag `-ObjC` nicht hinzufügen, können Teile der API fehlen und das Verhalten ist nicht definiert. Es kann zu unerwarteten Fehlern (z. B. „unrecognized selector sent to class“), Abstürzen der Anwendung und anderen Problemen kommen.
 {% endalert %}
 
 ## Schritt 3: Schema des Ziels bearbeiten {#step-3-editing-the-targets-scheme}

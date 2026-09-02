@@ -37,7 +37,7 @@ Tealium AudienceStream ist eine Omnichannel-Kundensegmentierung und Realtime-Act
 {% tab iQ Tag-Management %}
 Tealium iQ erlaubt es Ihnen, Code in Ihren Apps über ein Tag in der Tealium iQ Tag-Management-UI zu triggern. Dieser Tag sammelt, kontrolliert und liefert Event-Daten von Mobil- und Webplattformen und erlaubt es Ihnen, eine native Braze-Implementierung zu konfigurieren, ohne Braze-spezifischen Code zu Ihren Apps hinzuzufügen. Nutzer:innen können Mobile Remote Commands über iQ Tag-Management oder JSON-Konfigurationsdateien integrieren (empfohlener Ansatz von Tealium). Nutzer:innen, die das Braze Web SDK verwenden, müssen die Integration über den Web-iQ-Tag vornehmen.
 
-Wenn Sie mehr über die Vor- und Nachteile der einzelnen Methoden erfahren möchten, lesen Sie den folgenden Abschnitt [Tealium iQ Tag Manager:in](#mobile-remote-commands).
+Wenn Sie mehr über die Vor- und Nachteile der einzelnen Methoden erfahren möchten, lesen Sie den folgenden Abschnitt [Tealium iQ Tag Manager](#mobile-remote-commands).
 {% endtab %}
 {% endtabs %}
 

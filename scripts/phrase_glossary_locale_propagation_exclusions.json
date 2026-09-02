@@ -17,7 +17,13 @@
     "click",
     "sign-up",
     "Taxi",
-    "Taxi for email"
+    "Taxi for email",
+    "token",
+    "manager",
+    "selector",
+    "CDP",
+    "LTV",
+    "AI"
   ],
   "de": [
     "customer",

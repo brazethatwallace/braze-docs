@@ -1,7 +1,7 @@
 ---
 nav_title: Treasure Data
 article_title: Treasure Data
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Treasure Data, einer Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, die es Ihnen erlaubt, Auftragsergebnisse direkt in Braze zu schreiben."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Treasure Data, einer Customer Data Platform (CDP) für Unternehmen, die es Ihnen erlaubt, Auftragsergebnisse direkt in Braze zu schreiben."
 alias: /partners/treasure_data/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Treasure Data
 
-> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (Customer Data Platform (CDP)), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
+> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und Treasure Data erlaubt es Ihnen, Auftragsergebnisse aus Treasure Data direkt in Braze zu schreiben, wodurch Sie die Möglichkeit haben:
 * **Externe IDs abbilden**: Ordnen Sie IDs dem Braze-Nutzerkonto von Ihrem CRM-System zu.

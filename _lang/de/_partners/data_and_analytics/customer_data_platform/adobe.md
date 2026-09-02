@@ -5,7 +5,7 @@ page_type: partner
 search_tag: Partner
 layout: dev_guide
 guide_top_header: "Adobe"
-guide_top_text: "Die auf der Adobe Experience Platform basierende Customer Data Platform (Customer Data Platform (CDP)) von Adobe hilft Unternehmen, bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammenzuführen, um Kundenprofile zu erstellen. Diese Profile können dann verwendet werden, um über alle Kanäle und Geräte hinweg personalisierte Erlebnisse in Realtime zu bieten."
+guide_top_text: "Die auf der Adobe Experience Platform basierende Customer Data Platform (CDP) von Adobe hilft Unternehmen, bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammenzuführen, um Kundenprofile zu erstellen. Diese Profile können dann verwendet werden, um über alle Kanäle und Geräte hinweg personalisierte Erlebnisse in Realtime zu bieten."
 
 description: "Auf dieser Landing Page finden Sie alles über Adobe, z. B. wie Sie Adobe integrieren und die Erweiterung zur Ereignisweiterleitung verwenden können."
 

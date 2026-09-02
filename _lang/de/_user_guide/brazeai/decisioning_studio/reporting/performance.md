@@ -28,7 +28,7 @@ Oben im Dashboard wählen Sie:
 - **Datumsbereich:** Der Zeitraum für den Bericht.
 - **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Kontrollgruppe).
 - **Aggregation:** Die Chart-Aggregationseinstellung (Täglich, 7-Tage-Durchschnitt oder 30-Tage-Durchschnitt).
-- **Segments:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem KI Expert Services-Team konfiguriert.
+- **Segments:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
 - **Timeline-Ereignisse:** Ob konfigurierte Timeline-Ereignisse im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
 
 ![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segmente und Timeline-Ereignisse oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})

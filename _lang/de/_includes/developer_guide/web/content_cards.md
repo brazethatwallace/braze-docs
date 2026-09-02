@@ -278,15 +278,15 @@ Bei Verwendung einer angepassten UI werden Impressionen, Klicks und Schließunge
 Das an `logContentCardClick()` übergebene Argument muss ein originales Braze-`Card`-Objekt sein. Wenn Sie die Kartendaten transformieren oder rekonstruieren (z. B. durch Serialisierung und Deserialisierung), werden Klicks nicht protokolliert und Sie sehen den Fehler: „card must be a Card object.“
 {% endalert %}
 
-## Google Tag Manager:in verwenden {#using-google-tag-manager}
+## Google Tag Manager verwenden {#using-google-tag-manager}
 
-Google Tag Manager:in funktioniert, indem das [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (eine Version unseres Web SDK) direkt in den Code Ihrer Website eingespeist wird. Das bedeutet, dass alle SDK-Methoden genauso verfügbar sind, als hätten Sie das SDK ohne Google Tag Manager:in integriert – außer bei der Implementierung von Content Cards.
+Google Tag Manager funktioniert, indem das [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (eine Version unseres Web SDK) direkt in den Code Ihrer Website eingespeist wird. Das bedeutet, dass alle SDK-Methoden genauso verfügbar sind, als hätten Sie das SDK ohne Google Tag Manager integriert – außer bei der Implementierung von Content Cards.
 
 ### Content Cards einrichten {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab Google Tag Manager:in %}
-Für eine Standardintegration des Content-Card-Feeds können Sie ein **Custom HTML**-Tag im Google Tag Manager:in verwenden. Fügen Sie Ihrem Custom-HTML-Tag Folgendes hinzu, um den standardmäßigen Content-Card-Feed zu aktivieren:
+{% tab Google Tag Manager %}
+Für eine Standardintegration des Content-Card-Feeds können Sie ein **Custom HTML**-Tag im Google Tag Manager verwenden. Fügen Sie Ihrem Custom-HTML-Tag Folgendes hinzu, um den standardmäßigen Content-Card-Feed zu aktivieren:
 
 ```html
 <script>
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### Templates upgraden {#upgrading}
 
-Um ein Upgrade auf die neueste Version des Braze Web SDK durchzuführen, führen Sie die folgenden drei Schritte im Google Tag Manager:in-Dashboard aus:
+Um ein Upgrade auf die neueste Version des Braze Web SDK durchzuführen, führen Sie die folgenden drei Schritte im Google Tag Manager-Dashboard aus:
 
 1. **Tag-Template aktualisieren**<br>Rufen Sie die Seite **Templates** in Ihrem Workspace auf. Hier sollten Sie ein Symbol sehen, das anzeigt, dass ein Update verfügbar ist.<br><br>![Templates-Seite zeigt an, dass ein Update verfügbar ist]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Klicken Sie auf dieses Symbol und klicken Sie nach Überprüfung der Änderung auf **Accept Update**.<br><br>![Ein Bildschirm, der die alten und neuen Tag-Templates vergleicht, mit einem Button „Accept Update“]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **Versionsnummer aktualisieren**<br>Nachdem Sie das Tag-Template aktualisiert haben, bearbeiten Sie das Braze-Initialisierungs-Tag und aktualisieren die SDK-Version auf die neueste Version im Format `major.minor`. Wenn die neueste Version beispielsweise `4.1.2` ist, geben Sie `4.1` ein. Sie können eine Liste der SDK-Versionen in unserem [Changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) einsehen.<br><br>![Braze-Initialisierungs-Template mit einem Eingabefeld zum Ändern der SDK-Version]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **QA und Veröffentlichung**<br>Vergewissern Sie sich, dass die neue SDK-Version funktioniert, indem Sie das [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager:in verwenden, bevor Sie ein Update für Ihren Tag-Container veröffentlichen.
+3. **QA und Veröffentlichung**<br>Vergewissern Sie sich, dass die neue SDK-Version funktioniert, indem Sie das [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager verwenden, bevor Sie ein Update für Ihren Tag-Container veröffentlichen.
 
 ### Fehlerbehebung {#troubleshooting}
 
@@ -338,7 +338,7 @@ Jedes Braze-Tag-Template verfügt über ein optionales Kontrollkästchen **GTM T
 
 #### Debugging-Modus aufrufen {#enter-debug-mode}
 
-Eine weitere Möglichkeit, Ihre Google Tag Manager:in-Integration zu debuggen, ist die Verwendung der Google-Funktion [Vorschaumodus](https://support.google.com/tagmanager/answer/6107056).
+Eine weitere Möglichkeit, Ihre Google Tag Manager-Integration zu debuggen, ist die Verwendung der Google-Funktion [Vorschaumodus](https://support.google.com/tagmanager/answer/6107056).
 
 Auf diese Weise können Sie feststellen, welche Werte von der Datenebene Ihrer Webseite an die einzelnen ausgelösten Braze-Tags gesendet werden, und Sie erfahren, welche Tags ausgelöst wurden und welche nicht.
 
@@ -356,9 +356,9 @@ Dies stellt sicher, dass das SDK vollständig initialisiert ist, bevor Aktions-T
 
 #### Ausführliche Protokollierung aktivieren {#enable-verbose-logging}
 
-Um detaillierte Protokolle für die Fehlerbehebung zu erfassen, können Sie die ausführliche Protokollierung in Ihrer Google Tag Manager:in-Integration aktivieren. Diese Protokolle erscheinen im Tab **Console** der [Entwicklertools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) Ihres Browsers.
+Um detaillierte Protokolle für die Fehlerbehebung zu erfassen, können Sie die ausführliche Protokollierung in Ihrer Google Tag Manager-Integration aktivieren. Diese Protokolle erscheinen im Tab **Console** der [Entwicklertools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) Ihres Browsers.
 
-Navigieren Sie in Ihrer Google Tag Manager:in-Integration zu Ihrem Braze-Initialisierungs-Tag und wählen Sie **Enable Web SDK Logging**.
+Navigieren Sie in Ihrer Google Tag Manager-Integration zu Ihrem Braze-Initialisierungs-Tag und wählen Sie **Enable Web SDK Logging**.
 
 ![Die Übersichtsseite des Braze-Initialisierungs-Tags mit der aktivierten Option „Enable Web SDK Logging“.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/) ist eine Composable Customer Data Platform (Customer Data Platform (CDP)), die Ihr Cloud Data Warehouse über Reverse ETL (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppen-Segmente aus Data-Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status ohne CSV-Uploads oder technischen Support aktuell halten.
+> [DinMo](https://www.dinmo.com/) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse ETL (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppen-Segmente aus Data-Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status ohne CSV-Uploads oder technischen Support aktuell halten.
 
 _Diese Integration wird von DinMo verwaltet._
 

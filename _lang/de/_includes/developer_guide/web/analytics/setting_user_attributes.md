@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Google Tag Manager:in %}
-Bei Verwendung von Google Tag Manager:in sollten Standard-Nutzerattribute (z. B. der Vorname) auf die gleiche Weise protokolliert werden wie angepasste Nutzerattribute. Stellen Sie sicher, dass die übergebenen Werte für Standardattribute dem erwarteten Format entsprechen, das in der Dokumentation der [`User`-Klasse](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) angegeben ist.
+{% tab Google Tag Manager %}
+Bei Verwendung von Google Tag Manager sollten Standard-Nutzerattribute (z. B. der Vorname) auf die gleiche Weise protokolliert werden wie angepasste Nutzerattribute. Stellen Sie sicher, dass die übergebenen Werte für Standardattribute dem erwarteten Format entsprechen, das in der Dokumentation der [`User`-Klasse](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) angegeben ist.
 
 Beispielsweise kann das Geschlechtsattribut einen der folgenden Werte annehmen: `"m" | "f" | "o" | "u" | "n" | "p"`. Um das Geschlecht einer:eines Nutzer:in als weiblich festzulegen, erstellen Sie ein Custom-HTML-Tag mit folgendem Inhalt:
 
@@ -166,8 +166,8 @@ Schlüssel und Werte angepasster Attribute dürfen maximal 255 Zeichen lang sein
 {% endalert %}
 {% endtab %}
 
-{% tab google tag Manager:in %}
-Angepasste Nutzerattribute sind aufgrund einer Einschränkung in der Skriptsprache von Google Tag Manager:in nicht verfügbar. Um angepasste Attribute zu protokollieren, erstellen Sie ein Custom-HTML-Tag mit dem folgenden Inhalt:
+{% tab google tag Manager %}
+Angepasste Nutzerattribute sind aufgrund einer Einschränkung in der Skriptsprache von Google Tag Manager nicht verfügbar. Um angepasste Attribute zu protokollieren, erstellen Sie ein Custom-HTML-Tag mit dem folgenden Inhalt:
 
 ```html
 <script>

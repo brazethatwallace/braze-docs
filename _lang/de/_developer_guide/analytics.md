@@ -177,8 +177,8 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Zei
 
 | Segmentierungsoptionen | Dropdown-Filter | Eingabeoptionen |
 | ---------------------| --------------- | ------------- |
-| Prüfen, ob das Zeitattribut **vor** einem **ausgewählten Datum** liegt | **BEFORE** | **CALENDAR DATE SELEKTOR** |
-| Prüfen, ob das Zeitattribut **nach** einem **ausgewählten Datum** liegt | **AFTER** | **CALENDAR DATE SELEKTOR** |
+| Prüfen, ob das Zeitattribut **vor** einem **ausgewählten Datum** liegt | **BEFORE** | **CALENDAR DATE SELECTOR** |
+| Prüfen, ob das Zeitattribut **nach** einem **ausgewählten Datum** liegt | **AFTER** | **CALENDAR DATE SELECTOR** |
 | Prüfen, ob das Zeitattribut **mehr als X Tage** zurückliegt | **MORE THAN** | **NUMBER OF DAYS AGO** |
 | Prüfen, ob das Zeitattribut **weniger als X Tage** zurückliegt | **LESS THAN** | **NUMBER OF DAYS AGO** |
 | Prüfen, ob das Zeitattribut **mehr als X Tage in der Zukunft** liegt | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |
@@ -222,7 +222,7 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für boo
 
 ## Kauf-Events / Umsatz-Tracking {#purchase-events-revenue-tracking}
 
-Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den LTV (LTV) für jedes einzelne Kundenprofil fest. Diese Daten können auf unserer Umsatzseite in Zeitreihendiagrammen eingesehen werden.
+Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den Lifetime Value (LTV) für jedes einzelne Kundenprofil fest. Diese Daten können auf unserer Umsatzseite in Zeitreihendiagrammen eingesehen werden.
 
 Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Kauf-Events.
 

@@ -27,7 +27,7 @@ Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-Wenn Sie stattdessen Google Tag Manager:in verwenden möchten, können Sie den Tag-Typ **Custom Event** nutzen, um die [`logCustomEvent`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) aufzurufen und angepasste Events an Braze zu senden – optional mit Event-Eigenschaften. Gehen Sie dazu wie folgt vor:
+Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Custom Event** nutzen, um die [`logCustomEvent`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) aufzurufen und angepasste Events an Braze zu senden – optional mit Event-Eigenschaften. Gehen Sie dazu wie folgt vor:
 
 1. Geben Sie den **Event Name** ein, indem Sie entweder eine Variable verwenden oder einen Event-Namen eingeben.
 2. Verwenden Sie den Button **Add Row**, um Event-Eigenschaften hinzuzufügen.

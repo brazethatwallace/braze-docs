@@ -2,14 +2,14 @@
 nav_title: Decisioning Studio integrieren
 article_title: BrazeAI Decisioning Studio™ integrieren
 page_order: 1
-description: "Erfahren Sie, wie Sie BrazeAI Decisioning Studio™ in Braze integrieren und zusammen mit dem Team von KI Expert Services Agenten erstellen, die KI für 1:1-Entscheidungen zur Verbesserung Ihrer wichtigsten geschäftlichen Metriken einsetzen."
+description: "Erfahren Sie, wie Sie BrazeAI Decisioning Studio™ in Braze integrieren und zusammen mit dem Team von AI Expert Services Agenten erstellen, die KI für 1:1-Entscheidungen zur Verbesserung Ihrer wichtigsten geschäftlichen Metriken einsetzen."
 
 noindex: true
 ---
 
 # BrazeAI Decisioning Studio™ integrieren {#integrating-brazeai-decisioning-studio}
 
-> Erfahren Sie, wie Sie BrazeAI Decisioning Studio™ in Braze integrieren und zusammen mit dem Team von KI Expert Services [Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup), die KI für 1:1-Entscheidungen zur Verbesserung Ihrer wichtigsten geschäftlichen Metriken einsetzen.
+> Erfahren Sie, wie Sie BrazeAI Decisioning Studio™ in Braze integrieren und zusammen mit dem Team von AI Expert Services [Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup), die KI für 1:1-Entscheidungen zur Verbesserung Ihrer wichtigsten geschäftlichen Metriken einsetzen.
 
 {% multi_lang_include decisioning_studio/alert_multi_platform_support.md %}
 
@@ -33,4 +33,4 @@ Gehen Sie in Braze zu **Einstellungen** > **API-Schlüssel** und erstellen Sie e
 
 Wenden Sie sich an Ihren BrazeAI Decisioning Studio™ CSM und bitten Sie darum, BrazeAI Decisioning Studio™ zu aktivieren. Ihr CSM wird Ihren Braze-API-Schlüssel und Ihre Endpunkt-URL verwenden, um die Einrichtung Ihrer Integration abzuschließen.
 
-Sobald die Integration abgeschlossen ist, arbeiten Sie gemeinsam mit dem KI Expert Services Team daran, [Agenten für Ihr Produkt zu erstellen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup). Jeder Agent ist auf ein bestimmtes Geschäftsziel zugeschnitten, sodass Sie gemeinsam eine Implementierung entwerfen, die genau zu Ihnen passt.
+Sobald die Integration abgeschlossen ist, arbeiten Sie gemeinsam mit dem AI Expert Services Team daran, [Agenten für Ihr Produkt zu erstellen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup). Jeder Agent ist auf ein bestimmtes Geschäftsziel zugeschnitten, sodass Sie gemeinsam eine Implementierung entwerfen, die genau zu Ihnen passt.

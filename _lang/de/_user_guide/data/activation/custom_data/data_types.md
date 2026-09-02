@@ -376,7 +376,7 @@ Kauf- und Umsatzdaten werden über [Kauf-Events]({{site.baseurl}}/user_guide/dat
 Empfohlene Events haben vordefinierte Schemas mit festgelegten Datentypen. Weitere Details finden Sie unter [Empfohlene E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
-Das Protokollieren von Kauf-Events legt den LTV (LTV) für jedes Kundenprofil fest, und diese Daten sind auf der Umsatzseite als Zeitreihe einsehbar. Sie können nach ausgegebenem Betrag, letztem Kaufdatum, Anzahl der Käufe in einem Zeitfenster und mehr segmentieren.
+Das Protokollieren von Kauf-Events legt den Lifetime Value (LTV) für jedes Kundenprofil fest, und diese Daten sind auf der Umsatzseite als Zeitreihe einsehbar. Sie können nach ausgegebenem Betrag, letztem Kaufdatum, Anzahl der Käufe in einem Zeitfenster und mehr segmentieren.
 
 ### Datentypen für Kauf-Event-Eigenschaften {#purchase-event-property-data-types}
 

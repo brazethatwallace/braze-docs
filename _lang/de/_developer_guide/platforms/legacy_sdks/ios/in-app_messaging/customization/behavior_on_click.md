@@ -38,7 +38,7 @@ Die `inAppMessageClickActionType` kann auf einen der folgenden Werte eingestellt
 | -------------------------- | -------- |
 | `ABKInAppMessageRedirectToURI` | Die angegebene URI wird angezeigt, wenn auf die Nachricht geklickt wird, und die Nachricht wird ausgeblendet. Beachten Sie, dass der Parameter `uri` nicht nil sein darf. |
 | `ABKInAppMessageNoneClickAction` | Die Nachricht wird ausgeblendet, wenn sie angeklickt wird. Beachten Sie, dass der Parameter `uri` ignoriert und die Eigenschaft `uri` von `ABKInAppMessage` auf nil gesetzt wird. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Customize in-app message behavior on Klick, der" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Customize in-app message behavior on click" }
 
 {% alert important %}
 Bei In-App-Nachrichten mit Buttons wird die `clickAction` der Nachricht ebenfalls in die endgültige Nutzlast aufgenommen, wenn die Klickaktion vor dem Hinzufügen des Button-Textes hinzugefügt wird.

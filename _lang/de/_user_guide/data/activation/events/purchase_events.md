@@ -13,7 +13,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-Kauf-Events sind Kaufaktionen Ihrer Nutzer:innen und werden verwendet, um In-App-Käufe zu erfassen und den LTV (LTV) für jedes Kundenprofil zu ermitteln. Diese Events müssen von Ihrem Team eingerichtet werden. Die Protokollierung von Kauf-Events ermöglicht es Ihnen, Eigenschaften wie Menge und Typ hinzuzufügen, sodass Sie Ihre Nutzer:innen auf der Grundlage dieser Eigenschaften noch gezielter ansprechen können.
+Kauf-Events sind Kaufaktionen Ihrer Nutzer:innen und werden verwendet, um In-App-Käufe zu erfassen und den Lifetime Value (LTV) für jedes Kundenprofil zu ermitteln. Diese Events müssen von Ihrem Team eingerichtet werden. Die Protokollierung von Kauf-Events ermöglicht es Ihnen, Eigenschaften wie Menge und Typ hinzuzufügen, sodass Sie Ihre Nutzer:innen auf der Grundlage dieser Eigenschaften noch gezielter ansprechen können.
 
 ## Kauf-Events protokollieren {#log-purchase-events}
 

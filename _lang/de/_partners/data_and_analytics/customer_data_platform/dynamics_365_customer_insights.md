@@ -1,7 +1,7 @@
 ---
 nav_title: Dynamics 365 Customer Insights
 article_title: Dynamics 365 Customer Insights
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Dynamics 365 Customer Insights, einer führenden Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, mit der Sie Kundensegmente nach Braze exportieren können, um sie in Kampagnen oder Canvases zu verwenden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Dynamics 365 Customer Insights, einer führenden Customer Data Platform (CDP) für Unternehmen, mit der Sie Kundensegmente nach Braze exportieren können, um sie in Kampagnen oder Canvases zu verwenden."
 alias: /partners/dynamics_365_customer_insights/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Dynamics 365 Customer Insights
 
-> [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) ist eine führende Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, die personalisierte Kundenerlebnisse mit einer 360-Grad-Sicht auf Ihre Kund:innen ermöglicht.
+> [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) ist eine führende Customer Data Platform (CDP) für Unternehmen, die personalisierte Kundenerlebnisse mit einer 360-Grad-Sicht auf Ihre Kund:innen ermöglicht.
 
 _Diese Integration wird von Dynamics 365 Customer Insights gepflegt._
 

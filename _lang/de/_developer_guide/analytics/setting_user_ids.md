@@ -39,7 +39,7 @@ Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-Wenn Sie stattdessen Google Tag Manager:in verwenden möchten, können Sie den Tag-Typ **Change User** verwenden, um die [`changeUser`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) aufzurufen. Verwenden Sie ihn immer dann, wenn sich eine Nutzer:in anmeldet oder anderweitig mit dem eindeutigen `external_id`-Bezeichner identifiziert wird.
+Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Change User** verwenden, um die [`changeUser`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) aufzurufen. Verwenden Sie ihn immer dann, wenn sich eine Nutzer:in anmeldet oder anderweitig mit dem eindeutigen `external_id`-Bezeichner identifiziert wird.
 
 Geben Sie die eindeutige ID der aktuellen Nutzer:in im Feld **External User ID** ein, das in der Regel über eine von Ihrer Website gesendete Datenschichtvariable befüllt wird.
 

@@ -55,6 +55,6 @@ Wenn Sie mehr erfahren möchten, lesen Sie unseren neuen Artikel über [Amazon P
 
 Die Integration von [Yotpo]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/yotpo/) und Braze erlaubt es Ihnen, Sternebewertungen, Top-Rezensionen und visuelle nutzergenerierte Inhalte zu Produkten in E-Mails und anderen Kommunikationskanälen innerhalb von Braze dynamisch abzurufen und anzuzeigen. Sie können auch Daten zur Kundentreue in E-Mails und andere Kommunikationsmethoden einbeziehen, um eine personalisierte Interaktion zu schaffen, die den Umsatz und die Loyalität steigert.
 
-### Zeotap – Customer Data Platform (Customer Data Platform (CDP)) {#zeotap-customer-data-platform}
+### Zeotap – Customer Data Platform (CDP) {#zeotap-customer-data-platform}
 
 Mit der Integration von [Zeotap]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/zeotap/) und Braze können Sie den Umfang und die Reichweite Ihrer Campaigns erweitern, indem Sie Zeotap-Kundensegmente synchronisieren, um Zeotap-Nutzerdaten Braze-Nutzer:innen-Konten zuzuordnen. Sie können dann auf diese Daten reagieren und Ihren Nutzer:innen personalisierte Targeting-Erlebnisse bereitstellen.

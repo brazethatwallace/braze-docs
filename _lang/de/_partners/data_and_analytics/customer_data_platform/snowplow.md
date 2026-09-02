@@ -22,7 +22,7 @@ Die Integration von Braze und Snowplow ermöglicht es Ihnen, Snowplow-Events in 
 - Alle Daten in Ihrer privaten Cloud aufbewahren, bis Sie sich entscheiden, sie weiterzuleiten.
 - Die Lösung selbst innerhalb Ihres bestehenden Snowplow-Cloud-Kontos bereitstellen.
 
-Das [Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/) von Snowplow ist ein kostenpflichtiges Add-on-Feature, das Snowplow-Kund:innen zur Verfügung steht. Um Events ohne dieses Add-on an Braze weiterzuleiten, verwenden Sie die [Google Tag Manager:in Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/)-Integration von Snowplow.
+Das [Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/) von Snowplow ist ein kostenpflichtiges Add-on-Feature, das Snowplow-Kund:innen zur Verfügung steht. Um Events ohne dieses Add-on an Braze weiterzuleiten, verwenden Sie die [Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/)-Integration von Snowplow.
 
 Nutzen Sie die umfangreichen Verhaltensdaten von Snowplow, um leistungsstarke kundenorientierte Interaktionen in Braze voranzutreiben und personalisierte Nachrichten in Realtime zuzustellen.
 
