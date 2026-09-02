@@ -59,6 +59,10 @@ If the campaign approval workflow is turned on, Braze automatically approves cam
 2. Then, drag and drop the segments to rank them from high to low engagement. High engagement includes recipients who consistently open and click on your emails. Low engagement includes recipients who are inconsistent in their engagement with your emails or haven't engaged with your emails in a very long time.
 3. Select **Next: Messages** to continue the setup.
 
+{% alert important %}
+Make sure the total number of emailable users across all selected segments is greater than or equal to your **Target send volume**. When your audience is smaller than your target volume, some users receive more than one email template on the same day. For more information, see [Audience size and multiple sends per user](#audience-size-and-multiple-sends-per-user).
+{% endalert %}
+
 ![Two segments selected to target for automated IP warming.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
 
 ### Step 3: Select the messages to send
@@ -137,6 +141,19 @@ Braze evaluates deliverability for campaigns that sent between 12 and 20 hours a
 - Spam complaint rate above 0.04%
 
 For what happens when volume is held, see [What happens when volume is held?]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq#what-happens-when-volume-is-held).
+
+## Audience size and multiple sends per user
+
+To reach the send goal for each day, Braze cycles through the email templates you selected. Within a plan, Braze excludes users who already received a given template, but users who received a different template remain eligible. When the audience available for that day's schedule runs out, the plan cycles back through your templates, so some users receive a second template on the same day.
+
+If the total number of emailable users across your selected segments is smaller than your **Target send volume**, this outcome is unavoidable on the final day or days of the plan, when daily volume is at its highest. For example, if your segments contain 400,000 emailable users and your target send volume is 600,000, about 200,000 users receive two templates on the last day and the remaining 200,000 users receive one.
+
+Users can also receive different templates on different days, even when your audience is larger than your target send volume. Because Braze splits each day's audience across your templates without accounting for which template a user received previously, a user who received one template can be selected for a different template later in the plan.
+
+Braze doesn't prevent you from launching a plan when your target send volume is greater than your available audience. To keep each user to one template per send day, do one of the following before you launch:
+
+- Add segments so that the total number of emailable users is greater than or equal to your target send volume.
+- Lower your **Target send volume** so that it's no greater than your total number of emailable users.
 
 ## Stop an IP warmup plan
 
