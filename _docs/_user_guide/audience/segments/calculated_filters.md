@@ -17,20 +17,20 @@ Calculated filters are currently in early access. If you're interested in partic
 
 ## How it works
 
-Braze segments give you powerful targeting tools to create dynamic groups of users. For most use cases, this is enough to reach your audience effectively. Calculated filters are designed for advanced use cases where you need to analyze behaviors from up to two years ago or apply complex logic—without compromising data retention or system performance. You can use data from your own [data warehouse]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/) to refine your audience further.
+Braze segments give you powerful targeting tools to create dynamic groups of users. For most use cases, this is enough to reach your audience effectively. Calculated filters are designed for advanced use cases where you need to analyze behaviors from up to two years ago or apply complex logic—without compromising data retention or system performance. Use **User activity filters** for purchase and eCommerce event criteria, or **Data Object filters** for account and custom object targeting.
 
 For example, Braze default segmentation finds users that fit specific criteria you define, such as identifying a user who recently purchased one of your products. Calculated filters let you go deeper—like identifying users who bought a particular color of a specific product at least twice between 18 to 24 months ago. Calculated filters are an enhancement, not a requirement. If you need more advanced filters or a longer historical window, they're a great tool to help while keeping your data usage optimized.
 
 ## Calculated filters and SQL Segment Extensions
 
-[SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) and calculated filters both help you build audiences from purchase and custom event behavior, but they use different tools and data sources. SQL Segment Extensions use SQL you write against your connected Snowflake data.
+[SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) and calculated filters both help you build audiences from purchase behavior, but they use different tools and data sources. SQL Segment Extensions use SQL you write against your connected Snowflake data.
 
 | Behavior | Calculated filters | SQL Segment Extensions |
 |---|---|---|
-| How you define the audience | Choose purchases, eCommerce recommended events, message interaction, or custom events, and counts, time windows, and optional property filters | Write SQL against your Snowflake connection; use templates, incremental refresh, or full refresh |
+| How you define the audience | Choose purchases or eCommerce recommended events, and counts, time windows, and optional property filters | Write SQL against your Snowflake connection; use templates, incremental refresh, or full refresh |
 | Where the logic runs | Criteria and refresh are managed in Braze as calculated filters | Query runs in your warehouse context according to your extension configuration |
 | Filter list page | A shared list for user activity and data object filters, the **Segments** column shows how many segments use each filter, and processing statuses reflect generation state | Includes a **Type** column and filters that vary by extension type |
-| Typical use cases | Purchase frequency, total spend, custom event counts, and property-based rules over your selected window | Warehouse-backed logic, joins across tables, and historical windows or aggregations beyond the calculated filter form |
+| Typical use cases | Purchase frequency, total spend, and property-based rules over your selected window | Warehouse-backed logic, joins across tables, and historical windows or aggregations beyond the calculated filter form |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Calculated filters and SQL Segment Extensions" }
 
 ### When to use calculated filters
@@ -43,7 +43,7 @@ Use [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segme
 
 ### Use calculated filters and Segment Extensions together
 
-A segment can reference a calculated filter alongside a SQL or CDI Segment Extension—for example, a warehouse-defined cohort from an extension plus purchase or custom event rules you maintain in the calculated filter builder.
+A segment can reference a calculated filter alongside a SQL or CDI Segment Extension—for example, a warehouse-defined cohort from an extension plus purchase rules you maintain in the calculated filter builder.
 
 ## Create a calculated filter
 
@@ -75,10 +75,6 @@ If **Create filter** opens the user activity builder directly, or if you select 
 
 - **Made a Purchase**
 - **Performed an eCommerce event**
-- **Performed a Custom Event**
-- **Interacted with Message Channel**
-
-Available **Criterion** options vary based on the features enabled for your workspace. **Performed an eCommerce event** is always available. If you don't see another option that you need, contact your Braze account manager.
 
 After you select an event type, choose the specific event, how many times the user must have completed it (more than, less than, or equal to), and the time period.
 
@@ -86,13 +82,11 @@ After you select an event type, choose the specific event, how many times the us
 The **more than** and **less than** filters are exclusive—they don't include the number you specify. For example, a filter for **more than 4 times and less than 16 times** includes users who have had 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, or 15 times.
 {% endalert %}
 
-When choosing your time period, you can specify a relative date range (the past X days), a start date, an end date, or an exact date range.
-
-![Calculated filter criteria for users who performed a custom event more than zero times in the date range of June 21, 2026 through June 27, 2026.]({% image_buster /assets/img/segment/calculated_filter_example.png %})
+When choosing your time period, you can specify a relative date range (the past X days), a start date, an end date, or an exact date range. For relative ranges, enter **1** through **730** days (two years). For absolute date ranges, the start date must fall within the past two years and the end date must fall within the next two years.
 
 #### Event property segmentation
 
-To increase targeting precision, select **Add Property Filters**. This lets you filter on properties of your purchase, eCommerce event, or custom event. Braze supports event property segmentation based on string, numeric, boolean, and time objects.
+To increase targeting precision, select **Add event property filters**. This lets you filter on properties of your purchase or eCommerce event. Braze supports event property segmentation based on string, numeric, boolean, and time objects.
 
 For string properties, enter multiple values at once—for example, targeting users with a status equal to gold, silver, or bronze. For eCommerce recommended events, the property dropdown populates with the properties available for that event.
 
@@ -105,7 +99,7 @@ You don't need calculated filters to use event properties in your segment. Calcu
 
 ### Step 3: Save and activate your filter
 
-Select **Save as draft** to save a new calculated filter without activating it. For an activated filter, select **Save changes** to save your updates. You must select **Activate filter** before a draft appears as an option when you build a segment.
+Select **Save as draft** to save a new calculated filter without activating it. For an activated filter, select **Save changes** to save your updates. You must select **Activate filter** before the filter is available in the segment builder.
 
 After you activate a calculated filter, Braze starts calculating its audience. When processing is complete, you can select the filter when building an audience.
 
@@ -138,7 +132,7 @@ Each calculated filter displays one of the following statuses. **Processing** an
 | Active | The filter is activated and available to use in segments. |
 | Draft | The filter is saved but not activated. |
 | Archived | The filter is archived. |
-| Refresh disabled | Recurring audience updates are disabled. |
+| Refresh disabled | Recurring audience updates are disabled. Braze may set this status automatically when a filter with scheduled refresh goes unused. |
 | Processing | Braze is processing an update to the filter. |
 | Processing failed | The most recent processing attempt did not complete successfully. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Status labels" }
@@ -174,15 +168,9 @@ You can save a calculated filter without activating it. Inactive filters remain 
 
 ## Frequently asked questions
 
-### Can I create a calculated filter that uses multiple custom events?
-
-When using calculated filters, you can select one custom event, one purchase event, one eCommerce event, or one channel interaction. However, you can combine multiple calculated filters with an AND or OR when creating the segment.
-
-You can add multiple events or reference multiple Snowflake tables when using [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). 
-
 ### Can I archive a calculated filter if it is in use? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
 
-No. Before you can archive a calculated filter, remove it from all campaigns, Canvases, and segments that use it.
+No. Before you can archive a calculated filter, remove it from all campaigns, Canvases, and segments that use it. You also cannot archive a filter while its status is **Processing**; wait until processing finishes.
 
 ### Can I use arrays in calculated filters?
 
@@ -192,6 +180,6 @@ Braze uses `[]` to traverse arrays and check if any item in the traversed array 
 
 ### How does Braze calculate the time period for a relative time period of "last X days"?
 
-When calculated filters calculate the relative time period ("last X days"), the start time is set to midnight UTC. For example, for a calculated filter that refreshes at 2024-09-16 21:00 UTC and specifies 10 days, the start time is set to 2024-09-06 00:00 UTC, not 2024-09-06 21:00 UTC. 
+When calculated filters calculate the relative time period ("last X days"), the start time is set to midnight UTC. For example, for a calculated filter that refreshes at 2024-09-16 21:00 UTC and specifies 10 days, the start time is set to 2024-09-06 00:00 UTC, not 2024-09-06 21:00 UTC. Calculated filters always use UTC for time windows; your workspace timezone does not apply.
 
-However, you can specify the time zones by using SQL segments to identify users who performed the custom event 10 days ago based on midnight in company time, or users who performed the event 10 days ago based on the current time.
+However, you can specify time zones by using [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) to identify users who performed an event 10 days ago based on midnight in company time, or users who performed the event 10 days ago based on the current time.
