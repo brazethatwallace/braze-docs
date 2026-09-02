@@ -57,7 +57,7 @@ Wenn Sie eine Fehlermeldung unter **Contact Settings** > **Push Changelog** sehe
 
 ## Push-Token / Textbaustein-Registrierung {#push-token-registration}
 
-Jede Geräteplattform handhabt die Push-Token / Textbaustein-Registrierung unterschiedlich. Plattformspezifische Details finden Sie im Folgenden:
+Jede Geräteplattform handhabt die Push-Token / Textbaustein-registrieren unterschiedlich. Plattformspezifische Details finden Sie im Folgenden:
 
 {% tabs local %}
 {% tab Web %}
@@ -142,4 +142,4 @@ Wenn Nutzer:innen den Vordergrund-Push erneut aktivieren, ist außerdem ein Sitz
 
 Leider definieren APNs und FCM dies nicht genau. Push-Token / Textbaustein können ablaufen, wenn eine App aktualisiert wird, wenn Nutzer:innen ihre Daten auf ein neues Gerät übertragen oder wenn sie ein Betriebssystem neu installieren. Im Allgemeinen haben wir keinen genauen Einblick, warum Push-Anbieter bestimmte Push-Token / Textbaustein ablaufen lassen.
 
-Um dieser Unklarheit Rechnung zu tragen, Registrierung und übermitteln unsere SDK-Push-Integrationen Token / Textbaustein immer bei Sitzungsstart, um sicherzustellen, dass wir über das aktuellste Token / Textbaustein verfügen.
+Um dieser Unklarheit Rechnung zu tragen, registrieren und übermitteln unsere SDK-Push-Integrationen Token immer bei Sitzungsstart, um sicherzustellen, dass wir über das aktuellste Token verfügen.

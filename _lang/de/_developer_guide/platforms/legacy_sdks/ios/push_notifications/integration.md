@@ -44,14 +44,14 @@ Wenn Sie separate Push-Zertifikate für Entwicklung und Produktion verwenden, de
 
 ![Xcode-Projekteinstellungen mit dem Tab „General“. In diesem Tab ist die Option „Automatically manage signing“ deaktiviert.]({% image_buster /assets/img_archive/xcode8_auto_signing.png %})
 
-## 3. Schritt: Für Push-Benachrichtigungen Registrierung {#step-3-register-for-push-notifications}
+## 3. Schritt: Für Push-Benachrichtigungen registrieren {#step-3-register-for-push-notifications}
 
-Das entsprechende Codebeispiel muss in die `application:didFinishLaunchingWithOptions:`-Delegate-Methode Ihrer App eingebunden werden, damit die Geräte Ihrer Nutzer:innen sich bei APNs Registrierung können. Stellen Sie sicher, dass Sie den gesamten Push-Integrationscode im Hauptthread Ihrer Anwendung aufrufen.
+Das entsprechende Codebeispiel muss in die `application:didFinishLaunchingWithOptions:`-Delegate-Methode Ihrer App eingebunden werden, damit die Geräte Ihrer Nutzer:innen sich bei APNs registrieren können. Stellen Sie sicher, dass Sie den gesamten Push-Integrationscode im Hauptthread Ihrer Anwendung aufrufen.
 
 Braze bietet außerdem Standard-Push-Kategorien für die Unterstützung von Push-Action-Buttons, die manuell zu Ihrem Push-Registrierungscode hinzugefügt werden müssen. Weitere Integrationsschritte finden Sie unter [Push-Action-Buttons]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/action_buttons).
 
 {% alert warning %}
-Wenn Sie eine angepasste Push-Aufforderung implementiert haben, wie in unseren [Push-Best-Practices]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting) beschrieben, stellen Sie sicher, dass Sie den folgenden Code **bei jedem App-Start** aufrufen, nachdem Push-Berechtigungen für Ihre App erteilt wurden. **Apps müssen sich erneut bei APNs Registrierung, da [Geräte-Token / Textbaustein sich willkürlich ändern können](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
+Wenn Sie eine angepasste Push-Aufforderung implementiert haben, wie in unseren [Push-Best-Practices]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/troubleshooting) beschrieben, stellen Sie sicher, dass Sie den folgenden Code **bei jedem App-Start** aufrufen, nachdem Push-Berechtigungen für Ihre App erteilt wurden. **Apps müssen sich erneut bei APNs registrieren, da [Geräte-Token / Textbaustein sich willkürlich ändern können](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/BackgroundExecution/BackgroundExecution.html).**
 {% endalert %}
 
 ### Verwendung des UserNotification-Frameworks (iOS 10+) {#using-usernotification-framework-ios-10}
@@ -142,7 +142,7 @@ UIApplication.shared.registerForRemoteNotifications()
 {% endtab %}
 {% endtabs %}
 
-## 4. Schritt: Push-Token / Textbaustein bei Braze Registrierung {#step-4-register-push-tokens-with-braze}
+## 4. Schritt: Push-Token / Textbaustein bei Braze registrieren {#step-4-register-push-tokens-with-braze}
 
 Sobald die APNs-Registrierung abgeschlossen ist, muss die folgende Methode angepasst werden, um das resultierende `deviceToken` an Braze zu übergeben, damit Push-Benachrichtigungen für die Nutzer:innen aktiviert werden:
 

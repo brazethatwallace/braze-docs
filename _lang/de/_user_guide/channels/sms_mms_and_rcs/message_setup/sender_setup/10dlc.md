@@ -14,7 +14,7 @@ channel:
 > A2P 10DLC bezeichnet ein System in den Vereinigten Staaten, das es Unternehmen ermöglicht, Application-to-Person-Nachrichten (A2P) über eine standardmäßige 10-stellige Langcode-Telefonnummer (10DLC) zu senden. Diese registrierten Langcodes erhalten einen höheren Durchsatz, eine bessere Zustellbarkeit und eine verbesserte Compliance im Vergleich zum Standard-Langcode.
 
 {% alert important %}
-Alle Kund:innen, die derzeit US-Langcodes besitzen und/oder nutzen, um Nachrichten an US-Kund:innen zu senden, müssen ihre Langcodes für 10DLC Registrierung. Wer dies nicht tut, muss mit einer starken Filterung aller Nachrichten rechnen. Dieser Antragsprozess dauert 4–6 Wochen.
+Alle Kund:innen, die derzeit US-Langcodes besitzen und/oder nutzen, um Nachrichten an US-Kund:innen zu senden, müssen ihre Langcodes für 10DLC registrieren. Wer dies nicht tut, muss mit einer starken Filterung aller Nachrichten rechnen. Dieser Antragsprozess dauert 4–6 Wochen.
 {% endalert %}
 
 ## Warum es notwendig ist {#why-its-necessary}
@@ -54,7 +54,7 @@ Der Nachrichtendurchsatz für Ihr 10DLC hängt von mehreren Faktoren ab, darunte
 
 #### Vertrauens-Score der Marke {#trust-score}
 
-Die Campaign Registry (TCR) ist eine Drittanbieter-Agentur, die einen Reputationsalgorithmus verwendet, um bestimmte Kriterien in Bezug auf Ihr Unternehmen zu überprüfen und einen Vertrauens-Score zuzuweisen, der den Messaging-Durchsatz für jede Marke bestimmt. Dieser Vertrauens-Score wird zugewiesen, wenn sich Kund:innen für US-10DLC-Messaging Registrierung. Je höher der Vertrauens-Score, desto besser die MPS (MPS), die Sie erleben werden.
+Die Campaign Registry (TCR) ist eine Drittanbieter-Agentur, die einen Reputationsalgorithmus verwendet, um bestimmte Kriterien in Bezug auf Ihr Unternehmen zu überprüfen und einen Vertrauens-Score zuzuweisen, der den Messaging-Durchsatz für jede Marke bestimmt. Dieser Vertrauens-Score wird zugewiesen, wenn sich Kund:innen für US-10DLC-Messaging registrieren. Je höher der Vertrauens-Score, desto besser die MPS (MPS), die Sie erleben werden.
 
 |     | Vertrauens-Score | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
@@ -122,4 +122,4 @@ Besuchen Sie den Twilio-10DLC-Artikel, um aktuelle [Durchsatzschätzungen](https
 
 ## Nächste Schritte {#next-steps}
 
-Kund:innen, die sich noch nicht für 10DLC registriert haben, müssen mit ihrem CSM zusammenarbeiten, um ihre Langcodes zu Registrierung. **Wenn Kund:innen ihre Langcodes nicht Registrierung, wird ab dem 1. Oktober 2021 jeder A2P-Sender, der Langcodes verwendet, eine starke Filterung aller Nachrichten erfahren.** Kontaktieren Sie Ihren CSM, um mit Ihrer 10DLC-Registrierung zu beginnen.
+Kund:innen, die sich noch nicht für 10DLC registriert haben, müssen mit ihrem CSM zusammenarbeiten, um ihre Langcodes zu registrieren. **Wenn Kund:innen ihre Langcodes nicht registrieren, wird ab dem 1. Oktober 2021 jeder A2P-Sender, der Langcodes verwendet, eine starke Filterung aller Nachrichten erfahren.** Kontaktieren Sie Ihren CSM, um mit Ihrer 10DLC-Registrierung zu beginnen.

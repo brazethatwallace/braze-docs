@@ -23,7 +23,7 @@ Die Integration von Braze und Vizbee ermöglicht es Ihnen, über eine einzige Ko
 
 | Anforderung | Beschreibung |
 |---|---|
-| Vizbee-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Vizbee](https://vizbee.tv/)-Konto erforderlich. Sie müssen Ihre App bei Vizbee Registrierung und eine zugewiesene Vizbee-ID erhalten. |
+| Vizbee-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Vizbee](https://vizbee.tv/)-Konto erforderlich. Sie müssen Ihre App bei Vizbee registrieren und eine zugewiesene Vizbee-ID erhalten. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. |
 | Vizbee SDK | Zusätzlich zum erforderlichen Braze SDK müssen Sie auch das Vizbee SDK installieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }

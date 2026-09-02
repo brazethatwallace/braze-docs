@@ -54,7 +54,7 @@ Bevor Sie diese Option verwenden, arbeiten Sie mit Ihren Entwickler:innen zusamm
 
 So legen Sie dieses Klickverhalten fest:
 
-1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-Klick, der behavior**:
+1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-Click behavior**:
    - Für Push-Benachrichtigungen und Content Cards gehen Sie zum Tab **Compose**.
    - Für In-App-Nachrichten gehen Sie zum Tab **Compose**. Wählen Sie im Drag-and-Drop-Editor einen Button- oder Bildblock aus und öffnen Sie dessen Eigenschaftenpanel.
 2. Wählen Sie **Deeplink into application** oder **Deep Link Into App**.

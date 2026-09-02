@@ -274,7 +274,7 @@ Um eine In-App-Nachricht über ein vom Server gesendetes Event zu triggern, send
 
 #### Schritt 1: Einen Push-Callback erstellen, um die stille Push-Benachrichtigung zu empfangen {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-Registrierung Sie Ihren angepassten Push-Callback, um auf eine bestimmte stille Push-Benachrichtigung zu lauschen. Weitere Informationen finden Sie unter [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
+Registrieren Sie Ihren angepassten Push-Callback, um auf eine bestimmte stille Push-Benachrichtigung zu lauschen. Weitere Informationen finden Sie unter [Push-Benachrichtigungen einrichten]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications).
 
 Zwei Events werden protokolliert, damit die In-App-Nachricht zugestellt wird: eines vom Server und eines aus Ihrem angepassten Push-Callback heraus. Um sicherzustellen, dass dasselbe Event nicht dupliziert wird, sollte das aus Ihrem Push-Callback heraus protokollierte Event einer generischen Namenskonvention folgen, z. B. „In-App-Nachricht-Trigger-Event“, und nicht denselben Namen wie das vom Server gesendete Event haben. Andernfalls können Segmentierung und Nutzerdaten durch doppelt protokollierte Events für eine einzelne Nutzeraktion beeinträchtigt werden.
 

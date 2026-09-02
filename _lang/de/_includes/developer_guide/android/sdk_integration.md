@@ -287,7 +287,7 @@ Braze.disableDelayedInitialization(context)
 
 Wenn Sie das Tracking von Nutzer:innen-Sitzungen aktivieren, können Aufrufe von `openSession()`, `closeSession()`, [`ensureSubscribedToInAppMessageEvents()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/ensure-subscribed-to-in-app-message-events.html) und die `InAppMessageManager`-Registrierung automatisch verarbeitet werden.
 
-Um Activity-Lifecycle-Callbacks zu Registrierung, fügen Sie den folgenden Code in die `onCreate()`-Methode Ihrer `Application`-Klasse ein.
+Um Activity-Lifecycle-Callbacks zu registrieren, fügen Sie den folgenden Code in die `onCreate()`-Methode Ihrer `Application`-Klasse ein.
 
 {% tabs local %}
 {% tab JAVA %}

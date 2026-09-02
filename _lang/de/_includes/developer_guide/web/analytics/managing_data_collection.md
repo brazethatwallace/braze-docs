@@ -54,7 +54,7 @@ logout(successCallback, errorCallback);
 
 #### Tracking und Push nach `logout` wieder aktivieren {#re-enable-tracking-and-push-after-logout}
 
-Rufen Sie nach einem erfolgreichen `logout` [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) auf und Registrierung Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der Anleitung unter [Web-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) folgen.
+Rufen Sie nach einem erfolgreichen `logout` [`enableSDK()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#enablesdk) auf und Registrieren Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der Anleitung unter [Web-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) folgen.
 
 #### Sofortige Aufrufe zur Aufhebung der Registrierung vermeiden {#avoid-immediate-unregister-calls}
 
@@ -80,9 +80,9 @@ const errorCallback = () => {
 unregisterPush(successCallback, errorCallback);
 ```
 
-#### Push nach `unregisterPush` erneut Registrierung {#re-register-push-after-unregisterpush}
+#### Push nach `unregisterPush` erneut registrieren {#re-register-push-after-unregisterpush}
 
-Registrierung Sie sich nach dem Aufruf von `unregisterPush` erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der Anleitung unter [Web-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) folgen, bevor Sie erneut Braze-Push-Benachrichtigungen senden.
+Registrieren Sie sich nach dem Aufruf von `unregisterPush` erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der Anleitung unter [Web-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) folgen, bevor Sie erneut Braze-Push-Benachrichtigungen senden.
 
 {% alert note %}
 In unterstützten Browsern hebt `unregisterPush` bei einer aktiven Push-Subscription auch die Registrierung des von Braze verwalteten Service-Workers auf, nachdem die Abmeldung von der Browser-Push-API erfolgt ist. Wenn Sie `manageServiceWorkerExternally` auf `true` setzen, hebt das SDK die Registrierung des Service-Workers nicht für Sie auf.

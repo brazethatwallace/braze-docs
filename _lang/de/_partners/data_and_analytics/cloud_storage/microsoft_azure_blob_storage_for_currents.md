@@ -103,11 +103,11 @@ Sie laden nur das öffentliche Zertifikat zu Microsoft Entra ID hoch – Ihr Pri
 
 Bevor Sie beginnen, [erstellen Sie ein Speicherkonto](#step-1-create-a-storage-account) und einen [Blob-Dienstcontainer](#step-3-create-a-blob-service-container) wie in der [Verbindungszeichenfolgen-Methode](#connection-string-auth-method) beschrieben.
 
-### Schritt 1: Anwendung Registrierung {#cert-sp-1}
+### Schritt 1: Anwendung registrieren {#cert-sp-1}
 
-Navigieren Sie in Microsoft Azure zu **Microsoft Entra ID** > **App-Registrierungen** > **+ Neue Registrierung**. Geben Sie einen Namen ein (zum Beispiel `braze-currents`) und wählen Sie **Registrierung**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
+Navigieren Sie in Microsoft Azure zu **Microsoft Entra ID** > **App-Registrierungen** > **+ Neue Registrierung**. Geben Sie einen Namen ein (zum Beispiel `braze-currents`) und wählen Sie **Registrieren**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
-Notieren Sie sich auf der **Übersicht**-Seite Ihrer neuen App-Registrierung die folgenden Werte. Sie geben beide in [Schritt 6](#cert-sp-6) in Braze an.
+Notieren Sie sich auf der **Übersicht**-Seite Ihrer neuen App-registrieren die folgenden Werte. Sie geben beide in [Schritt 6](#cert-sp-6) in Braze an.
 
 - **Application (client) ID**
 - **Directory (tenant) ID**
@@ -155,7 +155,7 @@ Notieren Sie sich das Ablaufdatum Ihres Zertifikats. Siehe [Azure-Zugangsdaten f
 
 ### Schritt 4: Zugriff auf Ihr Speicherkonto gewähren {#cert-sp-4}
 
-Erteilen Sie als Nächstes Ihrer App-Registrierung die Berechtigung, in Ihren Container zu schreiben.
+Erteilen Sie als Nächstes Ihrer App-registrieren die Berechtigung, in Ihren Container zu schreiben.
 
 Navigieren Sie zu Ihrem Speicherkonto und wählen Sie **Zugriffssteuerung (IAM)** > **+ Hinzufügen** > **Rollenzuweisung hinzufügen**. Dann:
 

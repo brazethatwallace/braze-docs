@@ -209,7 +209,7 @@ Cloud-API-Unternehmen können jetzt Konversationen mit WhatsApp-Nutzer:innen mit
 
 Damit eine Geschäftsnachricht „zugestellt“ oder „gelesen“ wird, muss der:die Nutzer:in die WhatsApp-Bedingungen akzeptiert haben. Einem Unternehmen wird nichts berechnet, es sei denn, die Nachricht wird zugestellt.
 
-Nutzer:innen, die eine Nachricht von einem Cloud-API-Unternehmen erhalten oder versuchen, eine Nachricht an ein solches zu senden, wird eine In-App-Benachrichtigung über das Bedingungsupdate angezeigt, die deutlich macht, dass sie einem Cloud-API-Unternehmen erst dann Nachrichten senden können, wenn sie das WhatsApp-Update akzeptiert haben. Darüber hinaus werden Nutzer:innen, die die App auf ihrem Telefon Registrierung oder erneut Registrierung, aufgefordert, das WhatsApp-Update zu akzeptieren.
+Nutzer:innen, die eine Nachricht von einem Cloud-API-Unternehmen erhalten oder versuchen, eine Nachricht an ein solches zu senden, wird eine In-App-Benachrichtigung über das Bedingungsupdate angezeigt, die deutlich macht, dass sie einem Cloud-API-Unternehmen erst dann Nachrichten senden können, wenn sie das WhatsApp-Update akzeptiert haben. Darüber hinaus werden Nutzer:innen, die die App auf ihrem Telefon Registrierung oder erneut registrieren, aufgefordert, das WhatsApp-Update zu akzeptieren.
 
 Wenn ein:e Nutzer:in das Update akzeptiert, sieht er:sie den bestehenden Cloud-API-Systemnachrichtenhinweis, wenn er:sie mit einem Cloud-API-Unternehmen chattet.
 

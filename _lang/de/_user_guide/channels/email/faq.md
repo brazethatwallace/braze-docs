@@ -419,9 +419,9 @@ Nein. Jeder Teil der E-Mail (Betreff, Text, Header, Buttons usw.) wird separat g
 
 Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) zum Anzeigen von Templates haben. Um gespeicherte E-Mail-Templates anzuzeigen, gehen Sie zu **Content** > **E-Mail**. Sie können Templates nach Status und Typ (HTML oder Drag-and-Drop) filtern.
 
-### Muss ich Domains für Relay- oder maskierte E-Mails Registrierung? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
+### Muss ich Domains für Relay- oder maskierte E-Mails registrieren? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
-[Apples Private-E-Mail-Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) erfordert, dass Sie Ihre Versand-Domains im Apple Developer Portal Registrierung, um Bounces zu verhindern. Google Shielded Email erfordert keinen manuellen Domain-Registrierungs- oder Allowlisting-Prozess.
+[Apples Private-E-Mail-Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) erfordert, dass Sie Ihre Versand-Domains im Apple Developer Portal registrieren, um Bounces zu verhindern. Google Shielded Email erfordert keinen manuellen Domain-Registrierungs- oder Allowlisting-Prozess.
 
 ### Kann ich Hyperlinks in E-Mail-Betreffzeilen oder Preheadern hinzufügen? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 

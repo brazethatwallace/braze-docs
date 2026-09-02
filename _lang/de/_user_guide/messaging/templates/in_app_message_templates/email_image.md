@@ -1,12 +1,12 @@
 ---
-nav_title: E-Mail-Registrierung mit Bild
-article_title: E-Mail-Registrierung mit Hintergrundbild
+nav_title: E-Mail-registrieren mit Bild
+article_title: E-Mail-registrieren mit Hintergrundbild
 alias: "/email_image/"
 page_order: 5
 description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um Ihren Markenstil mit einer einfachen Nachricht zu präsentieren und Ihre E-Mail-Liste aufzubauen."
 ---
 
-# E-Mail-Registrierung mit Hintergrundbild {#email-sign-up-with-background-image}
+# E-Mail-registrieren mit Hintergrundbild {#email-sign-up-with-background-image}
 
 > Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um Ihren Markenstil mit einer einfachen Nachricht zu präsentieren und Ihre E-Mail-Liste aufzubauen.
 

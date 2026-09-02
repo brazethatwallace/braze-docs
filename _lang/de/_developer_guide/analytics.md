@@ -21,7 +21,7 @@ platform:
 > Erfahren Sie mehr über die Analytics des Braze SDK, damit Sie besser verstehen, welche Daten Braze erfasst, was der Unterschied zwischen angepassten Events und angepassten Attributen ist und wie Sie Analytics am besten verwalten.
 
 {% alert tip %}
-Besprechen Sie während der Implementierung von Braze unbedingt die Marketingziele mit Ihrem Team, damit Sie am besten entscheiden können, welche Daten Sie tracken möchten und wie Sie sie mit Braze tracken wollen. Ein Beispiel finden Sie in unserem Anwendungsbeispiel zur [Taxi for Email-/Mitfahr-App](#example-case) am Ende dieses Leitfadens.
+Besprechen Sie während der Implementierung von Braze unbedingt die Marketingziele mit Ihrem Team, damit Sie am besten entscheiden können, welche Daten Sie tracken möchten und wie Sie sie mit Braze tracken wollen. Ein Beispiel finden Sie in unserem Anwendungsbeispiel zur [Taxi-/Mitfahr-App](#example-case) am Ende dieses Leitfadens.
 {% endalert %}
 
 ## Automatisch erfasste Daten {#automatically-collected-data}
@@ -244,7 +244,7 @@ Die folgende Tabelle beschreibt die verfügbaren Segmentierungsoptionen für Kau
 Wenn Sie nach der Anzahl der Käufe eines bestimmten Produkts segmentieren möchten, sollten Sie diesen Kauf zusätzlich als einzelnes [inkrementierendes angepasstes Attribut](#integers) erfassen.
 {% endalert %}
 
-## Anwendungsfall Taxi for Email-/Mitfahr-App {#example-case}
+## Anwendungsfall Taxi-/Mitfahr-App {#example-case}
 
 Nehmen wir als Beispiel eine Mitfahr-App, die entscheiden möchte, welche Nutzerdaten sie erfassen will. Die folgenden Fragen und der Brainstorming-Prozess sind ein hervorragendes Modell für Marketing- und Entwicklungsteams. Am Ende dieser Übung sollten beide Teams ein solides Verständnis davon haben, welche angepassten Events und Attribute sinnvollerweise erfasst werden sollten, um ihr Ziel zu erreichen.
 
@@ -256,8 +256,8 @@ Ihr Ziel ist ganz einfach: Sie wollen, dass Nutzer:innen über ihre App Taxifahr
 
 1. Die Nutzer:innen müssen den Registrierungsprozess beginnen und ihre persönlichen Daten ausfüllen.
 2. Die Nutzer:innen müssen den Registrierungsprozess abschließen und verifizieren, indem sie einen Code in die App eingeben, den sie per SMS erhalten.
-3. Sie müssen versuchen, ein Taxi for Email zu rufen.
-4. Um ein Taxi for Email anzufordern, muss eines verfügbar sein, wenn sie suchen.
+3. Sie müssen versuchen, ein Taxi zu rufen.
+4. Um ein Taxi anzufordern, muss eines verfügbar sein, wenn sie suchen.
 
 Diese Aktionen könnten dann als die folgenden angepassten Events getaggt werden:
 
@@ -270,7 +270,7 @@ Nachdem Sie die Events implementiert haben, können Sie nun die folgenden Campai
 
 1. Nachrichten an Nutzer:innen senden, die mit der Registrierung begonnen, aber das Event „Registrierung abgeschlossen“ nicht innerhalb eines bestimmten Zeitrahmens ausgelöst haben.
 2. Glückwunschnachrichten an Nutzer:innen senden, die die Registrierung abgeschlossen haben.
-3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die erfolglos ein Taxi for Email gerufen haben und auf die nicht innerhalb einer bestimmten Zeitspanne ein erfolgreicher Taxiruf folgte.
+3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die erfolglos ein Taxi gerufen haben und auf die nicht innerhalb einer bestimmten Zeitspanne ein erfolgreicher Taxiruf folgte.
 4. Aktionen an leistungsstarke Nutzer:innen mit vielen erfolgreichen Taxirufen senden, um ihnen für ihre Treue zu danken.
 
 Und viele mehr!

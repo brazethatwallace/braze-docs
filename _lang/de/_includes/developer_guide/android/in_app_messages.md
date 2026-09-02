@@ -8,7 +8,7 @@
 
 ## Aktivieren von In-App-Nachrichten
 
-### Schritt 1: Registrierung Sie sich `BrazeInAppMessageManager`
+### Schritt 1: Registrieren Sie sich `BrazeInAppMessageManager`
 
 Die Anzeige von In-App-Nachrichten wird von der Klasse [`BrazeInAppMessageManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-braze-in-app-message-manager/index.html) verwaltet. Jede Aktivität in Ihrer App muss bei `BrazeInAppMessageManager` registriert sein, damit sie In-App-Nachricht-Ansichten zur Ansichtshierarchie hinzufügen kann. Es gibt zwei Möglichkeiten, dies zu erreichen:
 

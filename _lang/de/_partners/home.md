@@ -347,7 +347,7 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 - [Talon.One]({{site.baseurl}}/partners/data_and_analytics/loyalty/talonone)
 - [Tangerine]({{site.baseurl}}/partners/ecommerce/analytics_workflow/tangerine)
 - [Tapcart]({{site.baseurl}}/partners/ecommerce/tapcart)
-- [Taxi for Email for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
+- [Taxi for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
 - [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium)
 - [Tellius]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/tellius)
 - [The Trade Desk Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync)

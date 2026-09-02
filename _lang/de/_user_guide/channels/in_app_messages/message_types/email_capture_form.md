@@ -38,7 +38,7 @@ Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braz
 
 Das E-Mail-Erfassungsformular setzt die E-Mail-Adresse im derzeit aktiven Kundenprofil in Braze. Das Verhalten unterscheidet sich je nachdem, ob die Nutzer:innen identifiziert (eingeloggt, `changeUser` aufgerufen) sind oder nicht.
 
-Wenn anonyme Nutzer:innen ihre E-Mail-Adresse in das Formular eingeben und absenden, fügt Braze die E-Mail-Adresse zu ihrem Profil hinzu. Wenn `changeUser` später im Verlauf ihrer Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich neue Nutzer:innen beim Dienst Registrierung), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
+Wenn anonyme Nutzer:innen ihre E-Mail-Adresse in das Formular eingeben und absenden, fügt Braze die E-Mail-Adresse zu ihrem Profil hinzu. Wenn `changeUser` später im Verlauf ihrer Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich neue Nutzer:innen beim Dienst registrieren), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
 
 Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Kundenprofil verwaist und [bestimmte Kundenprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
 

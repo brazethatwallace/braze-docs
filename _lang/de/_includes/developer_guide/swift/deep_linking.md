@@ -6,7 +6,7 @@ Für Unterstützung bei der Auswahl zwischen angepassten Schema-Deeplinks, unive
 
 ## Handhabung von Deeplinks {#handling-deep-links}
 
-### 1. Schritt: Ein Schema Registrierung {#register-a-scheme}
+### 1. Schritt: Ein Schema registrieren {#register-a-scheme}
 
 Um Deeplinking zu ermöglichen, muss ein angepasstes Schema in Ihrer `Info.plist`-Datei angegeben sein. Die Navigationsstruktur wird durch ein Array von Wörterbüchern definiert. Jedes dieser Wörterbücher enthält ein String-Array.
 

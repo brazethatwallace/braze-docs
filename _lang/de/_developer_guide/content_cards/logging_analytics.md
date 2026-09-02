@@ -2,7 +2,7 @@
 nav_title: Analytics protokollieren
 article_title: Analytics protokollieren
 page_order: 1
-description: "Dieser Artikel beschreibt, wie Sie Impressionen, Klicks und Ausblendungen manuell protokollieren und das On-Klick, der-Verhalten für Ihre angepassten Content Cards handhaben."
+description: "Dieser Artikel beschreibt, wie Sie Impressionen, Klicks und Ausblendungen manuell protokollieren und das On-Click-Verhalten für Ihre angepassten Content Cards handhaben."
 toc_headers: "h2"
 
 ---

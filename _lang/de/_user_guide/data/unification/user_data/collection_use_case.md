@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel behandelt einen Anwendungsfall zur Datenerf
 
 > Dieser Artikel behandelt einen Anwendungsfall zur Datenerfassung und zeigt, wie eine Mitfahr-App entscheiden könnte, welche Nutzerdaten sie erfassen soll.
 
-Nehmen wir an, eine Taxi for Email- oder Mitfahr-App namens StyleRyde möchte entscheiden, welche Nutzerdaten sie sammeln soll. Die folgenden Fragen und der Brainstorming-Prozess sind ein hervorragendes Modell für ihre Marketing- und Entwicklungsteams. Am Ende dieser Übung sollten beide Teams ein solides Verständnis dafür haben, welche angepassten Events und Attribute sinnvollerweise erfasst werden sollten, um ihr Ziel zu erreichen.
+Nehmen wir an, eine Taxi- oder Mitfahr-App namens StyleRyde möchte entscheiden, welche Nutzerdaten sie sammeln soll. Die folgenden Fragen und der Brainstorming-Prozess sind ein hervorragendes Modell für ihre Marketing- und Entwicklungsteams. Am Ende dieser Übung sollten beide Teams ein solides Verständnis dafür haben, welche angepassten Events und Attribute sinnvollerweise erfasst werden sollten, um ihr Ziel zu erreichen.
 
 ## Fallbeispiel 1: Was ist das Ziel? {#case-question-1-what-is-the-goal}
 
@@ -21,22 +21,22 @@ Das Ziel von StyleRyde ist einfach: Sie möchten, dass Nutzer:innen über ihre A
 
 1. StyleRyde benötigt, dass Nutzer:innen den Registrierungsprozess starten und ihre persönlichen Daten eingeben.
 2. StyleRyde benötigt, dass Nutzer:innen die Registrierung abschließen und überprüfen, indem sie einen per SMS erhaltenen Code in die App eingeben.
-3. StyleRyde benötigt, dass Nutzer:innen versuchen, ein Taxi for Email zu rufen.
-4. StyleRyde muss verfügbar sein, wenn Nutzer:innen ein Taxi for Email rufen.
+3. StyleRyde benötigt, dass Nutzer:innen versuchen, ein Taxi zu rufen.
+4. StyleRyde muss verfügbar sein, wenn Nutzer:innen ein Taxi rufen.
 
 Diese Aktionen könnten dann als folgende angepasste Events getaggt werden:
 
 - Began Registration
 - Completed Registration
-- Successful Taxi for Email Hails
-- Unsuccessful Taxi for Email Hails
+- Successful Taxi Hails
+- Unsuccessful Taxi Hails
 
 Nach der Implementierung der Events kann StyleRyde Campaigns durchführen, darunter:
 
 1. Nutzer:innen kontaktieren, die „Began Registration“ ausgelöst, aber „Completed Registration“ nicht innerhalb eines bestimmten Zeitraums abgeschlossen haben.
 2. Glückwunschnachrichten an Nutzer:innen senden, die „Completed Registration“ abgeschlossen haben.
-3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die „Unsuccessful Taxi for Email Hails“ hatten, auf die nicht innerhalb eines bestimmten Zeitraums ein „Successful Taxi for Email Hail“ folgte.
-4. Aktionen an Power-Nutzer:innen mit vielen „Successful Taxi for Email Hails“ senden, um ihnen für ihre Treue zu danken.
+3. Entschuldigungen und Aktionsguthaben an Nutzer:innen senden, die „Unsuccessful Taxi Hails“ hatten, auf die nicht innerhalb eines bestimmten Zeitraums ein „Successful Taxi Hail“ folgte.
+4. Aktionen an Power-Nutzer:innen mit vielen „Successful Taxi Hails“ senden, um ihnen für ihre Treue zu danken.
 
 ## Fallbeispiel 3: Welche weiteren Nutzerinfos könnten wir erfassen und für unser Messaging nutzen? {#case-question-3-what-other-user-information-could-we-collect-and-use-to-inform-our-messaging}
 

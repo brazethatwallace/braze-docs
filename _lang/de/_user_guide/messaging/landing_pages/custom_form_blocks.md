@@ -20,10 +20,10 @@ Umfragen und In-App Messages haben eigene Formularblöcke, aber `registerFormInp
 
 ## Funktionsweise {#how-it-works}
 
-Eine angepasste Formulareingabe ist jedes Element auf Ihrer Landing-Page, dessen Wert Sie erfassen und mit dem Formular übermitteln möchten. Sie verbinden dieses Element mit dem Braze-Formularsystem, indem Sie es Registrierung. Die Registrierung teilt Braze mit, welches Element überwacht werden soll, wie der aktuelle Wert gelesen wird und was mit diesem Wert bei der Formularübermittlung geschehen soll.
+Eine angepasste Formulareingabe ist jedes Element auf Ihrer Landing-Page, dessen Wert Sie erfassen und mit dem Formular übermitteln möchten. Sie verbinden dieses Element mit dem Braze-Formularsystem, indem Sie es registrieren. Die Registrierung teilt Braze mit, welches Element überwacht werden soll, wie der aktuelle Wert gelesen wird und was mit diesem Wert bei der Formularübermittlung geschehen soll.
 
 1. Erstellen Sie Ihre angepasste UI in einem **Custom Code**-Block auf der Landing-Page und geben Sie ihr einen stabilen CSS-Selektor, z. B. eine `id`.
-2. Registrierung Sie das Element, indem Sie `window.brazeHelpers.forms.registerFormInput` mit einem Konfigurationsobjekt aufrufen.
+2. Registrieren Sie das Element, indem Sie `window.brazeHelpers.forms.registerFormInput` mit einem Konfigurationsobjekt aufrufen.
 3. Braze ruft Ihre `getValue`-Funktion auf, um den aktuellen Wert bei Bedarf zu lesen.
 4. Wenn das Feld erforderlich ist oder Sie eine `onValidate`-Funktion bereitstellen, blockiert Braze die Übermittlung, bis der Wert gültig ist, und kennzeichnet ein ungültiges Element mit einer CSS-Klasse, die Sie stylen können. Siehe [Validierung und Pflichtfelder](#validation-and-required-fields).
 5. Wenn das Formular übermittelt wird und die Validierung bestanden ist, ruft Braze Ihre `onSubmit`-Funktion auf, in der Sie das Braze SDK aufrufen können, um Informationen wie ein angepasstes Attribut zu protokollieren.

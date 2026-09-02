@@ -10,7 +10,7 @@ Appboy.AppboyBinding.DisplayContentCards();
 
 ## Empfangen von Content-Card-Daten in Unity {#receiving-content-card-data-in-unity}
 
-Sie können Unity-Spielobjekte Registrierung, um über eingehende Content Cards benachrichtigt zu werden. Wir empfehlen, Spielobjekt-Listener über den Braze-Konfigurationseditor einzustellen.
+Sie können Unity-Spielobjekte registrieren, um über eingehende Content Cards benachrichtigt zu werden. Wir empfehlen, Spielobjekt-Listener über den Braze-Konfigurationseditor einzustellen.
 
 Wenn Sie den Spielobjekt-Listener zur Laufzeit konfigurieren müssen, verwenden Sie `AppboyBinding.ConfigureListener()` und geben Sie `BrazeUnityMessageType.CONTENT_CARDS_UPDATED` an.
 

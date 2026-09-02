@@ -12,9 +12,9 @@ Die Verwendung eines angepassten `BroadcastReceiver` für Push-Benachrichtigunge
 
 Braze sendet auch angepasste Absichten, wenn Push-Benachrichtigungen empfangen, geöffnet oder abgelehnt werden. Wenn Sie einen speziellen Anwendungsfall für diese Szenarien haben (z.B. die Notwendigkeit, auf angepasste Schlüssel-Wert-Paare oder proprietäre Handhabung von Deeplinks zu achten), müssen Sie auf diese Absichten achten, indem Sie eine angepasste `BroadcastReceiver` erstellen.
 
-## Schritt 1: Registrierung Sie Ihren BroadcastReceiver
+## Schritt 1: Registrieren Sie Ihren BroadcastReceiver
 
-Registrierung Sie Ihre angepasste `BroadcastReceiver`, um auf geöffnete und empfangene Push-Absichten von Braze in Ihrem [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/custom-broadcast/src/main/AndroidManifest.xml):
+Registrieren Sie Ihre angepasste `BroadcastReceiver`, um auf geöffnete und empfangene Push-Absichten von Braze in Ihrem [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/custom-broadcast/src/main/AndroidManifest.xml):
 
 ```xml
 <receiver android:name="YOUR-BROADCASTRECEIVER-NAME" android:exported="false" >

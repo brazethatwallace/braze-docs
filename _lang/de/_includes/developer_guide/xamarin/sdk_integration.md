@@ -91,7 +91,7 @@ Ein Beispiel für Ihre `AndroidManifest.xml` finden Sie in der [Android MAUI](ht
 
 #### Schritt 2.3: Tracking von Nutzer:innen-Sitzungen und Registrierung für In-App-Nachrichten {#step-23-track-user-sessions-and-registering-for-in-app-messages}
 
-Um das Tracking von Nutzer:innen-Sitzungen zu aktivieren und Ihre App für In-App-Nachrichten zu Registrierung, fügen Sie den folgenden Aufruf in die `OnCreate()`-Lebenszyklus-Methode der Klasse `Application` in Ihrer App ein:
+Um das Tracking von Nutzer:innen-Sitzungen zu aktivieren und Ihre App für In-App-Nachrichten zu registrieren, fügen Sie den folgenden Aufruf in die `OnCreate()`-Lebenszyklus-Methode der Klasse `Application` in Ihrer App ein:
 
 ```kotlin
 RegisterActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener());

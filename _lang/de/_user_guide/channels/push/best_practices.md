@@ -130,7 +130,7 @@ Wenn Sie einer Push-Campaign [Konversions-Events]({{site.baseurl}}/user_guide/me
 
 Während alle Push-Campaign-Ergebnisse die direkten Öffnungen und Öffnungen einer Nachricht aufschlüsseln (was sowohl direkte als auch [beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens) umfasst), verfolgt das Konversions-Tracking jede Art von Öffnung, ob direkt oder beeinflusst.
 
-Darüber hinaus verfolgen Sie mit dem Konversions-Event „öffnet App“ App-Öffnungen, die vor Ablauf der Konversionsfrist auftreten (zum Beispiel drei Tage). Dies unterscheidet sich von einer beeinflussten Öffnung, da die Zeit, die Nutzer:innen haben, um eine beeinflusste Öffnung zu Registrierung, von Person zu Person variieren kann und vom bisherigen Engagement-Verhalten der jeweiligen Nutzer:innen abhängt.
+Darüber hinaus verfolgen Sie mit dem Konversions-Event „öffnet App“ App-Öffnungen, die vor Ablauf der Konversionsfrist auftreten (zum Beispiel drei Tage). Dies unterscheidet sich von einer beeinflussten Öffnung, da die Zeit, die Nutzer:innen haben, um eine beeinflusste Öffnung zu registrieren, von Person zu Person variieren kann und vom bisherigen Engagement-Verhalten der jeweiligen Nutzer:innen abhängt.
 
 ## Vorschriften für Push-Nachrichten {#push-message-regulations}
 

@@ -26,7 +26,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Folgendes gegeben ist:
 
 | Anwendungsfall | Erläuterung |
 | --- | --- |
-| Initiales Onboarding | Solange Nutzer:innen die ersten Schritte zur Nutzung Ihrer App nicht unternommen haben (z. B. ein Konto Registrierung), ist ihr Wert stark eingeschränkt. Verwenden Sie Push-Benachrichtigungen, um Nutzer:innen zu motivieren, diese Schritte abzuschließen, damit sie Ihre App in vollem Umfang nutzen können. |
+| Initiales Onboarding | Solange Nutzer:innen die ersten Schritte zur Nutzung Ihrer App nicht unternommen haben (z. B. ein Konto registrieren), ist ihr Wert stark eingeschränkt. Verwenden Sie Push-Benachrichtigungen, um Nutzer:innen zu motivieren, diese Schritte abzuschließen, damit sie Ihre App in vollem Umfang nutzen können. |
 | Erste Käufe | Sobald Nutzer:innen mit Ihrer App vertraut sind, können Sie Push-Benachrichtigungen nutzen, um sie zu In-App-Käufer:innen zu konvertieren. |
 | Neue Features | Push-Benachrichtigungen können ein effektives Mittel sein, um inaktive Nutzer:innen über neue Features zu informieren, die sie zurück in Ihre App locken könnten. |
 | Zeitlich begrenzte Angebote | Wenn ein Angebot zeitlich begrenzt ist, sind Push-Benachrichtigungen eine hervorragende Möglichkeit, Ihre Nutzer:innen darüber zu informieren, bevor es abläuft. Diese Nachrichten vermitteln in der Regel ein hohes Maß an Dringlichkeit und eignen sich optimal, um kürzlich abgewanderte Nutzer:innen an Ihre App zu erinnern. Wenn Ihre App beispielsweise ein Spiel ist und Sie einen In-Game-Währungsbonus für eine tägliche Spielserie anbieten, kann eine Benachrichtigung, dass die Serie gefährdet ist, ein wirkungsvoller Push sein, nachdem die Nutzer:innen eine bestimmte Anzahl an Tagen erreicht haben. |

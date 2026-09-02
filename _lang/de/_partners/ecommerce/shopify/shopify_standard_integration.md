@@ -39,7 +39,7 @@ Nachdem Sie den Standard-Onboarding-Pfad ausgewählt haben, müssen Sie aus eine
     - Tracking von identifizierten und anonymen Nutzer:innen
 - Bei der Kontoanmeldung, z. B. beim Account-Login
     - Nur identifizierte Nutzer:innen tracken
-    - Startet das Tracking von Daten, wenn sich Besucher:innen der Website Registrierung oder bei ihren Konten anmelden
+    - Startet das Tracking von Daten, wenn sich Besucher:innen der Website registrieren oder bei ihren Konten anmelden
 
 {% alert note %}
 Neue Kund:innen werden während der Einrichtung mit den neuesten Versionen des Braze Web SDK und des JavaScript SDK bereitgestellt. Bestehende Kund:innen können ihre aktuelle SDK-Version in den Integrationseinstellungen einsehen, werden benachrichtigt, wenn eine neuere Version verfügbar ist, und können Upgrades selbstständig über die Integrationseinstellungen durchführen.

@@ -35,7 +35,7 @@ Die Integration von Braze und Kognitiv erlaubt es Ihnen, Ihre Strategie zur Kund
 
 ## Integration
 
-Verwenden Sie Kognitiv-Webhooks, um Anfragen an Braze zu senden, wenn Treueereignisse auftreten. Die folgenden Beispiele zeigen, wie Sie Kognitiv und Braze verwenden, um ein Reward auszustellen, Kognitiv-Nutzer:innen in Braze zu Registrierung und ihnen eine Willkommens-E-Mail zu senden.
+Verwenden Sie Kognitiv-Webhooks, um Anfragen an Braze zu senden, wenn Treueereignisse auftreten. Die folgenden Beispiele zeigen, wie Sie Kognitiv und Braze verwenden, um ein Reward auszustellen, Kognitiv-Nutzer:innen in Braze zu registrieren und ihnen eine Willkommens-E-Mail zu senden.
 
 {% raw %}
 ### Braze – Reward-Ausgabe {#braze-issue-reward}

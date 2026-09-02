@@ -82,7 +82,7 @@ Diese Schritte sind aus der Apple-Entwicklerdokumentation adaptiert. Weitere Inf
 [Ab Xcode 13](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/) kann Xcode die Berechtigungsbereitstellung automatisch für Sie übernehmen. Sie können voraussichtlich direkt zu [Schritt&nbsp;1c](#step-1c) springen und bei Problemen auf diese Anleitung zurückkommen.
 {% endalert %}
 
-#### Schritt 1a: App Registrierung {#step-1a}
+#### Schritt 1a: App registrieren {#step-1a}
 
 1. Rufen Sie developer.apple.com auf und melden Sie sich an.
 2. Klicken Sie auf **Certificates, Identifiers & Profiles**.
@@ -111,7 +111,7 @@ Stellen Sie vor dem Fortfahren sicher, dass in Ihrem Xcode-Projekt dasselbe Team
 Wenn der Fehler „An App ID with Identifier 'your-app-id' is not available. Please enter a different string“ angezeigt wird, gehen Sie wie folgt vor:
 
 1. Überprüfen Sie, ob das richtige Team ausgewählt ist.
-2. Stellen Sie sicher, dass die Bundle ID ([Schritt 1a](#step-1a)) Ihres Xcode-Projekts mit der beim Registrierung des App Identifiers verwendeten übereinstimmt.
+2. Stellen Sie sicher, dass die Bundle ID ([Schritt 1a](#step-1a)) Ihres Xcode-Projekts mit der beim Registrieren des App Identifiers verwendeten übereinstimmt.
 
 #### Schritt 1d: Domain-Berechtigung hinzufügen {#step-1d-add-the-domain-entitlement}
 
@@ -127,7 +127,7 @@ Xcode sollte dies automatisch erledigen.
 
 ### Schritt 2: Ihre Website für das Hosting der AASA-Datei konfigurieren {#step-2-configure-your-website-to-host-the-aasa-file}
 
-Um Ihre Website-Domain mit Ihrer nativen App unter iOS zu verknüpfen, müssen Sie die Apple App Site Association (AASA)-Datei auf Ihrer Website hosten. Diese Datei dient als sichere Methode zur Überprüfung des Domain-Eigentums gegenüber iOS. Vor iOS 9 konnten Entwickler:innen jedes beliebige URI-Schema Registrierung, um ihre Apps zu öffnen – ohne jegliche Überprüfung. Mit AASA ist dieser Prozess jedoch deutlich sicherer und zuverlässiger geworden.
+Um Ihre Website-Domain mit Ihrer nativen App unter iOS zu verknüpfen, müssen Sie die Apple App Site Association (AASA)-Datei auf Ihrer Website hosten. Diese Datei dient als sichere Methode zur Überprüfung des Domain-Eigentums gegenüber iOS. Vor iOS 9 konnten Entwickler:innen jedes beliebige URI-Schema registrieren, um ihre Apps zu öffnen – ohne jegliche Überprüfung. Mit AASA ist dieser Prozess jedoch deutlich sicherer und zuverlässiger geworden.
 
 Die AASA-Datei enthält ein JSON-Objekt mit einer Liste von Apps und den URL-Pfaden auf der Domain, die als Universal Links ein- oder ausgeschlossen werden sollen. Hier ist eine Beispiel-AASA-Datei:
 

@@ -80,7 +80,7 @@ Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Serve
 
 Öffnen Sie die Braze-Konfigurationseinstellungen im Unity-Editor, indem Sie zu **Braze > Braze Configuration** navigieren.
 
-Aktivieren Sie **Integrate Push With Braze**, um Nutzer:innen automatisch für Push-Benachrichtigungen zu Registrierung, Push-Token / Textbaustein an Braze weiterzugeben, Analytics für Push-Öffnungen zu verfolgen und die Vorteile unserer standardmäßigen Push-Benachrichtigungsverarbeitung zu nutzen.
+Aktivieren Sie **Integrate Push With Braze**, um Nutzer:innen automatisch für Push-Benachrichtigungen zu registrieren, Push-Token / Textbaustein an Braze weiterzugeben, Analytics für Push-Öffnungen zu verfolgen und die Vorteile unserer standardmäßigen Push-Benachrichtigungsverarbeitung zu nutzen.
 
 #### Schritt 2.3: Hintergrund-Push aktivieren (optional) {#step-23-enable-background-push-optional}
 
@@ -90,7 +90,7 @@ Aktivieren Sie **Enable Background Push**, wenn Sie `background mode` für Push-
 
 #### Schritt 2.4: Automatische Registrierung deaktivieren (optional) {#step-24-disable-automatic-registration-optional}
 
-Nutzer:innen, die sich noch nicht für Push-Benachrichtigungen entschieden haben, werden beim Öffnen Ihrer Anwendung automatisch für Push autorisiert. Um diese Funktion zu deaktivieren und Nutzer:innen manuell für Push zu Registrierung, aktivieren Sie **Disable Automatic Push Registration**.
+Nutzer:innen, die sich noch nicht für Push-Benachrichtigungen entschieden haben, werden beim Öffnen Ihrer Anwendung automatisch für Push autorisiert. Um diese Funktion zu deaktivieren und Nutzer:innen manuell für Push zu registrieren, aktivieren Sie **Disable Automatic Push Registration**.
 
 - Wenn **Disable Provisional Authorization** unter iOS 12 oder höher nicht aktiviert ist, werden Nutzer:innen vorläufig (stillschweigend) für den Empfang stiller Push-Benachrichtigungen autorisiert. Wenn diese Option aktiviert ist, wird den Nutzer:innen der native Push-Prompt angezeigt.
 - Wenn Sie genau konfigurieren möchten, wann der Prompt zur Laufzeit angezeigt werden soll, deaktivieren Sie die automatische Registrierung im Braze-Konfigurationseditor und verwenden Sie stattdessen `AppboyBinding.PromptUserForPushPermissions()`.

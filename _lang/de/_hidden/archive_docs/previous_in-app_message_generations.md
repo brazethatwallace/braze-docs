@@ -112,7 +112,7 @@ Wir haben eine Reihe von HTML5-Templates für In-App-Nachrichten entworfen, die 
 - Schriftarten
 - Stile
 - Bilder + Videos
-- On-Klick, der-Verhalten
+- On-Click-Verhalten
 - Interaktive Komponenten
 
 {% enddetails %}

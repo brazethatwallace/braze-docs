@@ -236,7 +236,7 @@ lifecycleScope.launch {
 
 #### Tracking und Push nach `logout` wieder aktivieren {#re-enable-tracking-and-push-after-logout}
 
-Nach einem erfolgreichen `logout` aktivieren Sie das SDK mit [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) erneut und Registrierung Sie sich dann über Ihr Betriebssystem oder Ihren Push-Anbieter erneut für Benachrichtigungen, indem Sie der [Android-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) folgen.
+Nach einem erfolgreichen `logout` aktivieren Sie das SDK mit [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) erneut und Registrieren Sie sich dann über Ihr Betriebssystem oder Ihren Push-Anbieter erneut für Benachrichtigungen, indem Sie der [Android-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) folgen.
 
 #### Sofortige Aufrufe zur Aufhebung der Registrierung vermeiden {#avoid-immediate-unregister-calls}
 
@@ -283,9 +283,9 @@ lifecycleScope.launch {
 }
 ```
 
-#### Push nach `unregisterPush` erneut Registrierung {#re-register-push-after-unregisterpush}
+#### Push nach `unregisterPush` erneut registrieren {#re-register-push-after-unregisterpush}
 
-Nachdem Sie `unregisterPush` aufgerufen haben, Registrierung Sie sich über Ihr Betriebssystem oder Ihren Push-Anbieter erneut für Benachrichtigungen, indem Sie der [Android-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) folgen, bevor Sie erneut Braze-Push-Benachrichtigungen senden.
+Nachdem Sie `unregisterPush` aufgerufen haben, Registrieren Sie sich über Ihr Betriebssystem oder Ihren Push-Anbieter erneut für Benachrichtigungen, indem Sie der [Android-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) folgen, bevor Sie erneut Braze-Push-Benachrichtigungen senden.
 
 #### Sofortige Aufrufe zur Aufhebung der Registrierung vermeiden
 

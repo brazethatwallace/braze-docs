@@ -3,7 +3,7 @@ nav_title: Benutzerdefiniertes Verhalten beim Klicken
 article_title: Anpassen des Verhaltens bei Klick auf In-App-Nachrichten für iOS
 platform: iOS
 page_order: 5
-description: "Dieser Referenzartikel behandelt das benutzerdefinierte On-Klick, der-Verhalten bei In-App-Nachrichten für Ihre iOS-Anwendung."
+description: "Dieser Referenzartikel behandelt das benutzerdefinierte On-Click-Verhalten bei In-App-Nachrichten für Ihre iOS-Anwendung."
 channel:
   - in-app messages
 noindex: true
@@ -34,7 +34,7 @@ inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withUR
 
 Die `inAppMessageClickActionType` kann auf einen der folgenden Werte eingestellt werden:
 
-| `ABKInAppMessageClickActionType` | On-Klick, der-Verhalten |
+| `ABKInAppMessageClickActionType` | On-Click-Verhalten |
 | -------------------------- | -------- |
 | `ABKInAppMessageRedirectToURI` | Die angegebene URI wird angezeigt, wenn auf die Nachricht geklickt wird, und die Nachricht wird ausgeblendet. Beachten Sie, dass der Parameter `uri` nicht nil sein darf. |
 | `ABKInAppMessageNoneClickAction` | Die Nachricht wird ausgeblendet, wenn sie angeklickt wird. Beachten Sie, dass der Parameter `uri` ignoriert und die Eigenschaft `uri` von `ABKInAppMessage` auf nil gesetzt wird. |

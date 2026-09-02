@@ -195,7 +195,7 @@ Verwenden Sie **Buttons**, um eine Aktion anzuzeigen, wie das Absenden eines For
     </tr>
     <tr>
       <td>„Konto erstellen“</td>
-      <td>„Registrierung“</td>
+      <td>„Registrieren“</td>
     </tr>
     <tr>
       <td>„Unsere Broschüre herunterladen“</td>

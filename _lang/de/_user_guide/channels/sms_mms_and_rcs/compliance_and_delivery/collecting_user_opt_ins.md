@@ -29,7 +29,7 @@ Braze empfiehlt, zusätzlich das Feature [SMS-Double-Opt-in]({{site.baseurl}}/us
 
 ## Option 3: Registrierungsablauf {#option-3-sign-up-flow}
 
-Wenn sich neue Nutzer:innen auf der Website oder in der App Registrierung, fragen Sie nach deren Telefonnummer und E-Mail-Adresse. Fügen Sie ein Kontrollkästchen hinzu, um Werbe-E-Mails und SMS zu erhalten.
+Wenn sich neue Nutzer:innen auf der Website oder in der App registrieren, fragen Sie nach deren Telefonnummer und E-Mail-Adresse. Fügen Sie ein Kontrollkästchen hinzu, um Werbe-E-Mails und SMS zu erhalten.
 
 Nachdem sich die Nutzer:innen registriert haben, gehen Sie wie folgt vor:
 

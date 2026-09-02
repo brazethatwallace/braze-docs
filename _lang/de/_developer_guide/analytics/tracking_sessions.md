@@ -116,7 +116,7 @@ Braze.getInstance(this).subscribeToSessionUpdates { message ->
 {% endtab %}
 
 {% tab swift %}
-Wenn Sie einen Callback für das Sitzungsende Registrierung, wird dieser ausgelöst, wenn die App in den Vordergrund zurückkehrt. Die Sitzungsdauer wird vom Zeitpunkt des Öffnens oder In-den-Vordergrund-Bringens der App bis zum Schließen oder In-den-Hintergrund-Wechseln gemessen.
+Wenn Sie einen Callback für das Sitzungsende registrieren, wird dieser ausgelöst, wenn die App in den Vordergrund zurückkehrt. Die Sitzungsdauer wird vom Zeitpunkt des Öffnens oder In-den-Vordergrund-Bringens der App bis zum Schließen oder In-den-Hintergrund-Wechseln gemessen.
 
 {% subtabs %}
 {% subtab swift %}

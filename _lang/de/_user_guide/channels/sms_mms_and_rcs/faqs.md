@@ -114,7 +114,7 @@ Die standardmäßige Parallelitätsrate und der Durchsatz ermöglichen etwa 360.
 
 ### Wie werden URLs für SMS auf eine Allowlist gesetzt? {#how-do-you-allowlist-urls-for-sms}
 
-Bevor Sie SMS-Nachrichten mit URLs an Nutzer:innen in bestimmten Ländern senden (z. B. Schweden oder nordische Länder), müssen Sie diese URLs beim Mobilfunkanbieter Registrierung lassen. Wenden Sie sich an Ihre:n Braze-Account-Manager:in:in, um Unterstützung zu erhalten. Dieser Vorgang dauert etwa fünf Tage.
+Bevor Sie SMS-Nachrichten mit URLs an Nutzer:innen in bestimmten Ländern senden (z. B. Schweden oder nordische Länder), müssen Sie diese URLs beim Mobilfunkanbieter registrieren lassen. Wenden Sie sich an Ihre:n Braze-Account-Manager:in, um Unterstützung zu erhalten. Dieser Vorgang dauert etwa fünf Tage.
 
 ### Welche Best Practices gibt es für den Versand, um Spam-Erkennung bei SMS zu vermeiden? {#what-are-the-best-sending-practices-to-avoid-spam-detection-for-sms}
 

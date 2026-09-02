@@ -222,7 +222,7 @@ Um ein Abo für Ihre Nutzer:innen einzurichten (entweder E-Mail oder Push), rufe
 | `braze.User.NotificationSubscriptionTypes.UNSUBSCRIBED` | Abgemeldet und/oder explizites Opt-out |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen-Abos festlegen" }
 
-Wenn sich Nutzer:innen für Push Registrierung, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, werden sie standardmäßig auf `OPTED_IN` gesetzt.
+Wenn sich Nutzer:innen für Push registrieren, fordert der Browser sie auf, Benachrichtigungen zuzulassen oder zu blockieren. Wenn sie Push zulassen, werden sie standardmäßig auf `OPTED_IN` gesetzt.
 
 Weitere Informationen zur Implementierung von Abos und expliziten Opt-ins finden Sie unter [Nutzer:innen-Abos verwalten]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions).
 

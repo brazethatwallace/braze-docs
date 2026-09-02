@@ -147,7 +147,7 @@ Analytics innerhalb der Braze-Dienste sind mit dem Braze-Endnutzer:innen-Bezeich
 
 #### Nach erfolgter Löschung {#once-deletion-has-happened}
 
-Es wird allgemein erwartet, dass Sie angemessene Anstrengungen unternehmen, um betroffene Personen zu benachrichtigen, wenn Sie deren Antrag auf Löschung ihrer personenbezogenen Daten nachgekommen sind. Eine:ein gelöschte:r Endnutzer:in kann sich zu einem späteren Zeitpunkt erneut Registrierung oder wieder mit Ihrer App oder Ihrem Dienst interagieren, und Braze wird nicht in der Lage sein, sie:ihn als die:den gelöschte:n oder vergessene:n Nutzer:in zu identifizieren. Die Braze-Dienste sind nicht in der Lage, in Ihrem Auftrag Listen gelöschter Nutzer:innen-Bezeichner oder E-Mail-Adressen zu erstellen.
+Es wird allgemein erwartet, dass Sie angemessene Anstrengungen unternehmen, um betroffene Personen zu benachrichtigen, wenn Sie deren Antrag auf Löschung ihrer personenbezogenen Daten nachgekommen sind. Eine:ein gelöschte:r Endnutzer:in kann sich zu einem späteren Zeitpunkt erneut registrieren oder wieder mit Ihrer App oder Ihrem Dienst interagieren, und Braze wird nicht in der Lage sein, sie:ihn als die:den gelöschte:n oder vergessene:n Nutzer:in zu identifizieren. Die Braze-Dienste sind nicht in der Lage, in Ihrem Auftrag Listen gelöschter Nutzer:innen-Bezeichner oder E-Mail-Adressen zu erstellen.
 
 ## Das Recht auf Einschränkung der Verarbeitung {#the-right-to-restriction-of-processing}
 

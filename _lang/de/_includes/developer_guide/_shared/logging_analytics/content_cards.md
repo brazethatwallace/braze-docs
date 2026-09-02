@@ -15,7 +15,7 @@ Alle Eigenschaften außer `id` und `extras` sind für angepasste Content Cards o
 {% tabs %}
 {% tab web %}
 
-Registrierung Sie eine Callback-Funktion, um Updates zu abonnieren, wenn Cards aktualisiert werden.
+Registrieren Sie eine Callback-Funktion, um Updates zu abonnieren, wenn Cards aktualisiert werden.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -286,7 +286,7 @@ Um eine Impression oder einen Klick auf eine Card zu protokollieren, rufen Sie [
 
 Sie können eine Content-Card manuell protokollieren oder für eine bestimmte Card bei Braze als „geschlossen“ markieren, indem Sie [`isDismissed`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/is-dismissed.html) verwenden. Wenn eine Card bereits als geschlossen markiert ist, kann sie nicht erneut als geschlossen markiert werden.
 
-Um einen angepassten Klick-Listener zu erstellen, erstellen Sie eine Klasse, die [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) implementiert, und Registrierung Sie sie beim [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html). Implementieren Sie die Methode [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html), die aufgerufen wird, wenn Nutzer:innen auf eine Content-Card klicken. Weisen Sie Braze dann an, Ihren Content-Card-Klick-Listener zu verwenden.
+Um einen angepassten Klick-Listener zu erstellen, erstellen Sie eine Klasse, die [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) implementiert, und registrieren Sie sie beim [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html). Implementieren Sie die Methode [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html), die aufgerufen wird, wenn Nutzer:innen auf eine Content-Card klicken. Weisen Sie Braze dann an, Ihren Content-Card-Klick-Listener zu verwenden.
 
 {% subtabs local %}
 {% subtab Java %}

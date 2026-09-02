@@ -46,7 +46,7 @@ Die Nutzer:innen sind nun mit den Daten, die bereits in ihrem Braze-Profil vorha
 
 	![Weiterleitung zum Webinar, wenn ein Button angeklickt wird.]({% image_buster /assets/img/zoom/zoom2.png %})<br><br>
 
-	Ein einfaches Beispiel einer Landing-Page für Nutzer:innen, die sich per Button-Klick aus einer Push-Nachricht anmelden. Informieren Sie die Nutzer:innen darüber, wofür sie sich angemeldet haben, und bestätigen Sie ihre Registrierung:<br>
+	Ein einfaches Beispiel einer Landing-Page für Nutzer:innen, die sich per Button-Klick aus einer Push-Nachricht anmelden. Informieren Sie die Nutzer:innen darüber, wofür sie sich angemeldet haben, und bestätigen Sie ihre registrieren:<br>
 
 	![Bestätigungs-Landing-Page für das Webinar, nachdem sich Nutzer:innen über Braze angemeldet haben.]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
 
@@ -83,7 +83,7 @@ Die Nutzer:innen sind nun mit den Daten, die bereits in ihrem Braze-Profil vorha
 
 	![Weiterleitung zum Webinar, wenn ein Button angeklickt wird.]({% image_buster /assets/img/zoom/zoom3.png %})<br><br>
 
-	Ein einfaches Beispiel einer Landing-Page für Nutzer:innen, die sich per Button-Klick aus einer In-App-Nachricht anmelden. Informieren Sie die Nutzer:innen darüber, wofür sie sich angemeldet haben, und bestätigen Sie ihre Registrierung:<br>
+	Ein einfaches Beispiel einer Landing-Page für Nutzer:innen, die sich per Button-Klick aus einer In-App-Nachricht anmelden. Informieren Sie die Nutzer:innen darüber, wofür sie sich angemeldet haben, und bestätigen Sie ihre registrieren:<br>
 
 	![Bestätigungs-Landing-Page für das Webinar, nachdem sich Nutzer:innen über Braze angemeldet haben.]({% image_buster /assets/img/zoom/zoom4.png %})<br><br>
 

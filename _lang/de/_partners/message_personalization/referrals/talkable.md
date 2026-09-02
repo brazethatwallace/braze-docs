@@ -19,14 +19,14 @@ Talkable bringt die von Fürsprecher:innen gesteuerte Akquise in die Customer Jo
 
 Talkable erfasst Marketing-Opt-ins in zwei Szenarien:
 
-* **Registrierung als Fürsprecher:in:** Eine Fürsprecherin oder ein Fürsprecher meldet sich für eine Talkable-Empfehlungskampagne an und stimmt dem Erhalt von Marketing-E-Mails zu.
+* **Registrieren als Fürsprecher:in:** Eine Fürsprecherin oder ein Fürsprecher meldet sich für eine Talkable-Empfehlungskampagne an und stimmt dem Erhalt von Marketing-E-Mails zu.
 * **E-Mail-Gating für Freund:innen:** Eine eingeladene Person durchläuft den E-Mail-Gating-Schritt von Talkable und entscheidet sich für den Empfang von Marketing-E-Mails (Opt-in).
 
 In beiden Fällen erstellt oder aktualisiert Talkable das passende Braze-Kundenprofil in Realtime und setzt den E-Mail-Abo-Status der Nutzerin oder des Nutzers auf **Opted In**.
 
 ### Standardverhalten {#default-behavior}
 
-Talkable sendet Daten nur dann an Braze, wenn ein konkretes Opt-in-Ereignis von einer Person vorliegt, die in Talkable ausdrücklich eingewilligt hat – entweder durch Registrierung als Fürsprecher:in für eine Kampagne oder durch Opt-in während des E-Mail-Gatings. Talkable führt keine nächtlichen Batches, vollständigen Synchronisierungen oder impliziten Profilaktualisierungen durch. Talkable sendet niemals Profile an Braze, die kein Opt-in erteilt haben.
+Talkable sendet Daten nur dann an Braze, wenn ein konkretes Opt-in-Ereignis von einer Person vorliegt, die in Talkable ausdrücklich eingewilligt hat – entweder durch Registrieren als Fürsprecher:in für eine Kampagne oder durch Opt-in während des E-Mail-Gatings. Talkable führt keine nächtlichen Batches, vollständigen Synchronisierungen oder impliziten Profilaktualisierungen durch. Talkable sendet niemals Profile an Braze, die kein Opt-in erteilt haben.
 
 ## Anwendungsfälle {#use-cases}
 

@@ -45,7 +45,7 @@ Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK Ihre Firebase-Se
 Ein häufiger Fehler bei diesem Schritt ist die Verwendung des App-Bezeichner-API-Schlüssels anstelle des REST-API-Schlüssels.
 {% endalert %}
 
-### Schritt 2: Geräte Registrierung sich bei FCM und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
+### Schritt 2: Geräte registrieren sich bei FCM und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
 Bei typischen Integrationen übernimmt das Braze Android SDK die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token / Textbaustein für eine Ihrer Apps vorhanden war.
 
@@ -128,7 +128,7 @@ Wenn eine Push-Benachrichtigung nicht zugestellt wird, stellen Sie sicher, dass 
 
 #### Fehler: NotRegistered {#error-notregistered}
 
-2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite Registrierung das erste Token / Textbaustein ungültig macht.
+2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite registrieren das erste Token / Textbaustein ungültig macht.
 
 ### Push-Benachrichtigungen gesendet, aber nicht auf Geräten der Nutzer:innen angezeigt {#push-notifications-sent-but-not-displayed-on-users-devices}
 

@@ -189,9 +189,9 @@ Navigieren Sie zu Ihrem bestehenden Workspace im Braze-Dashboard. Laden Sie unte
 Verpassen Sie nicht den speziellen Checkpoint am Ende dieses Schritts!
 {% endalert %}
 
-##### Für Push-Benachrichtigungen Registrierung {#register-for-push-notifications}
+##### Für Push-Benachrichtigungen registrieren {#register-for-push-notifications}
 
-Registrierung Sie sich als Nächstes für Push-Benachrichtigungen. Dieses Handbuch setzt voraus, dass Sie Ihre [Push-Zugangsdaten korrekt eingerichtet]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) haben – sowohl in Ihrem Apple Developer Portal als auch in Ihrem Xcode-Projekt.
+Registrieren Sie sich als Nächstes für Push-Benachrichtigungen. Dieses Handbuch setzt voraus, dass Sie Ihre [Push-Zugangsdaten korrekt eingerichtet]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) haben – sowohl in Ihrem Apple Developer Portal als auch in Ihrem Xcode-Projekt.
 
 Der Code zur Registrierung von Push-Benachrichtigungen wird in der Methode `didFinishLaunching...` in der `BrazeManager.swift`-Datei hinzugefügt. Ihr Initialisierungscode sollte am Ende so aussehen:
 
@@ -259,7 +259,7 @@ Leiten Sie als Nächstes die System-Push-Benachrichtigungsmethoden von `AppDeleg
 Erstellen Sie eine Extension für Ihren Push-Benachrichtigungscode in Ihrer `BrazeManager.swift`-Datei, damit die Datei übersichtlicher lesbar ist und der Zweck in der Hilfsdatei deutlich wird, wie folgt:
 
 1. Dem Muster folgend, keine `import AppboyUI`-Anweisung in Ihrem `AppDelegate` einzubinden, werden wir die Push-Benachrichtigungsmethoden in der `BrazeManager.swift`-Datei behandeln. Die Geräte-Token / Textbaustein der Nutzer:innen müssen aus der Methode `didRegisterForRemote...` an Braze übergeben werden. Diese Methode ist erforderlich, um stille Push-Benachrichtigungen zu implementieren. Fügen Sie als Nächstes dieselbe Methode aus dem `AppDelegate` in Ihre `BrazeManager`-Klasse ein.
-2. Fügen Sie die folgende Zeile innerhalb der Methode hinzu, um das Geräte-Token / Textbaustein bei Braze zu Registrierung. Dies ist notwendig, damit Braze das Token / Textbaustein mit dem aktuellen Gerät verknüpfen kann.
+2. Fügen Sie die folgende Zeile innerhalb der Methode hinzu, um das Geräte-Token / Textbaustein bei Braze zu registrieren. Dies ist notwendig, damit Braze das Token / Textbaustein mit dem aktuellen Gerät verknüpfen kann.
 
 {% subtabs global %}
 {% subtab Swift %}

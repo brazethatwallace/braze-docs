@@ -324,7 +324,7 @@ cd ios && RCT_NEW_ARCH_ENABLED=0 pod install
 
 **2.7 Braze SDK konfigurieren**
 
-Verwenden Sie `BrazeReactInitializer.configure` in Ihrem `AppDelegate`, um die native Konfiguration zu Registrierung. Die von Ihnen bereitgestellten Closures werden gespeichert und später angewendet, wenn `Braze.initialize(apiKey, endpoint)` aus JavaScript aufgerufen wird.
+Verwenden Sie `BrazeReactInitializer.configure` in Ihrem `AppDelegate`, um die native Konfiguration zu registrieren. Die von Ihnen bereitgestellten Closures werden gespeichert und später angewendet, wenn `Braze.initialize(apiKey, endpoint)` aus JavaScript aufgerufen wird.
 
 {% subtabs local %}
 {% subtab SWIFT %}
@@ -336,7 +336,7 @@ import BrazeKit
 import braze_react_native_sdk
 ```
 
-Registrierung Sie in der `application(_:didFinishLaunchingWithOptions:)`-Methode Ihre native Konfiguration mit `BrazeReactInitializer.configure`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
+Registrieren Sie in der `application(_:didFinishLaunchingWithOptions:)`-Methode Ihre native Konfiguration mit `BrazeReactInitializer.configure`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
 
 - **`configure`-Closure**: Empfängt eine `Braze.Configuration` und ermöglicht Ihnen, native Konfigurationseigenschaften festzulegen (Protokollierung, Push, Sitzungen und mehr).
 - **`postInitialization`-Closure** _(optional)_: Empfängt die aktive `Braze`-Instanz nach der Erstellung für Einrichtungsschritte, die die Instanz erfordern (z. B. Speichern einer Referenz oder Festlegen von Delegates).
@@ -376,7 +376,7 @@ Der folgende Codeausschnitt zeigt, wie Sie das Braze SDK am Anfang der `AppDeleg
 @import braze_react_native_sdk;
 ```
 
-Registrierung Sie in der `application:didFinishLaunchingWithOptions:`-Methode Ihre native Konfiguration mit `BrazeReactInitializer`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
+Registrieren Sie in der `application:didFinishLaunchingWithOptions:`-Methode Ihre native Konfiguration mit `BrazeReactInitializer`. Legen Sie den API-Schlüssel oder Endpunkt hier nicht fest. Diese werden aus JavaScript über `Braze.initialize()` bereitgestellt.
 
 Der folgende Codeausschnitt zeigt eine beispielhafte `AppDelegate.m`-Implementierung mit `BrazeReactInitializer`:
 

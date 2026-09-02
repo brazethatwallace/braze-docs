@@ -115,7 +115,7 @@ Sie kann bis zu 11 Zeichen haben und Groß- (A–Z) und Kleinbuchstaben (a–z),
 
 | Vorteile | Nachteile |
 | ---- | ---- |
-| {::nomarkdown} <ul><li> Verbesserte Markenwiedererkennung </li><li> In vielen internationalen Märkten Registrierung und prüfen lokale Carrier alphanumerische Sender vorab, sodass Ihre Nachrichten weniger wahrscheinlich in aggressiven Carrier-Spam-Filtern hängen bleiben, die andernfalls zufällige Langcodes blockieren könnten </li><li> Verfügbar innerhalb einer Woche, wenn keine Vorregistrierung erforderlich ist </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>Zwei-Wege-Messaging</a> wird nicht unterstützt </li><li> Nicht alle Länder unterstützen dieses Feature. Es wird beispielsweise in Großbritannien unterstützt, ist jedoch in den USA blockiert. </li><li> Einige Länder haben einen umfangreichen Vorregistrierungsprozess, der die Einreichung rechtlicher Dokumente und längere Vorlaufzeiten erfordert. </li></ul> {:/} |
+| {::nomarkdown} <ul><li> Verbesserte Markenwiedererkennung </li><li> In vielen internationalen Märkten registrieren und prüfen lokale Carrier alphanumerische Sender vorab, sodass Ihre Nachrichten weniger wahrscheinlich in aggressiven Carrier-Spam-Filtern hängen bleiben, die andernfalls zufällige Langcodes blockieren könnten </li><li> Verfügbar innerhalb einer Woche, wenn keine Vorregistrierung erforderlich ist </li></ul> {:/} | {::nomarkdown} <ul><li> <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#two-way-messaging-custom-keyword-responses'>Zwei-Wege-Messaging</a> wird nicht unterstützt </li><li> Nicht alle Länder unterstützen dieses Feature. Es wird beispielsweise in Großbritannien unterstützt, ist jedoch in den USA blockiert. </li><li> Einige Länder haben einen umfangreichen Vorregistrierungsprozess, der die Einreichung rechtlicher Dokumente und längere Vorlaufzeiten erfordert. </li></ul> {:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vor- und Nachteile" }
 
 Für weitere Informationen zu alphanumerischen Sender-IDs wenden Sie sich an Ihren CSM.
@@ -236,7 +236,7 @@ Braze arbeitet mit Ihnen zusammen, um alle erforderlichen Details für die Berei
 Der Zeitrahmen für die Einrichtung hängt vom Bereitstellungsland ab. In der Regel dauert es 1–4 Wochen, bis Langcodes und gebührenfreie Nummern genehmigt werden.
 
 {% alert important %}
-Alle Kund:innen, die derzeit US-Langcodes haben und/oder nutzen, um an US-Kund:innen zu senden, müssen ihre Langcodes Registrierung. Weitere Informationen zu den Einzelheiten der US A2P 10DLC-Registrierung und warum sie erforderlich ist finden Sie in unserem speziellen [10DLC-Artikel]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc).
+Alle Kund:innen, die derzeit US-Langcodes haben und/oder nutzen, um an US-Kund:innen zu senden, müssen ihre Langcodes registrieren. Weitere Informationen zu den Einzelheiten der US A2P 10DLC-Registrierung und warum sie erforderlich ist finden Sie in unserem speziellen [10DLC-Artikel]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc).
 {% endalert %}
 
 {% endtab %}
@@ -251,7 +251,7 @@ Möglicherweise werden Sie aufgefordert, die folgenden Details für die Einricht
 - **Bevorzugte ID:** Ein String mit bis zu 11 Zeichen. Er muss mindestens einen Buchstaben enthalten und darf kein generisches Wort wie „BANK“ oder „INFO“ sein.
 - **Nachweis der Markeninhaberschaft:** Ihre Markenurkunde oder ein Handelsregisterauszug (zum Beispiel eine innerhalb der letzten 12 Monate ausgestellte Gründungsurkunde).
 - **Vollmachtsschreiben:** Ein unterschriebenes Schreiben auf Ihrem Firmenbriefkopf, das Braze und unseren Provider autorisiert, Nachrichten in Ihrem Namen unter Verwendung dieser spezifischen ID zu senden.
-- **Beispiel-Nachrichtentemplates:** In mehreren Regionen müssen Sie die genauen „Templates“ der Nachrichten Registrierung, die Sie zu senden beabsichtigen. Abweichungen in den tatsächlichen Nachrichten können in diesen Ländern zu Zustellfehlern führen.
+- **Beispiel-Nachrichtentemplates:** In mehreren Regionen müssen Sie die genauen „Templates“ der Nachrichten registrieren, die Sie zu senden beabsichtigen. Abweichungen in den tatsächlichen Nachrichten können in diesen Ländern zu Zustellfehlern führen.
 
 Der Zeitrahmen für die Einrichtung einer alphanumerischen Absender-ID hängt stark davon ab, ob das Land eine „dynamische“ (sofortige, keine Registrierung erforderlich) Einrichtung erlaubt oder eine „Vorregistrierung“ erfordert. In Ländern, die eine Vorregistrierung erfordern, variiert der Einrichtungszeitrahmen, liegt aber in der Regel zwischen 1–4 Wochen.
 

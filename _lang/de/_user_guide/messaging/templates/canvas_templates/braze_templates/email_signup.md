@@ -1,17 +1,17 @@
 ---
-nav_title: E-Mail-Registrierung mit Double-Opt-in
-article_title: E-Mail-Registrierung mit Double-Opt-in
+nav_title: E-Mail-registrieren mit Double-Opt-in
+article_title: E-Mail-registrieren mit Double-Opt-in
 page_order: 2
 page_type: reference
 description: "Dieser Artikel beschreibt, wie Sie ein Braze-Canvas-Template verwenden, um Ihre Reichweite mit verifizierten E-Mail-Registrierungen zu erweitern."
 tool: Canvas
 ---
 
-# E-Mail-Registrierung mit Double-Opt-in {#email-sign-up-with-double-opt-in}
+# E-Mail-registrieren mit Double-Opt-in {#email-sign-up-with-double-opt-in}
 
-> Verwenden Sie das Template für die E-Mail-Registrierung mit Double-Opt-in, um Ihre Reichweite mit verifizierten E-Mail-Registrierungen zu erweitern. Sprechen Sie neue Nutzer:innen an, um deren E-Mail-Adresse zu erfassen, ihr Abo zu bestätigen und einen Aktionscode zu erhalten – alles in einer nahtlosen Journey.
+> Verwenden Sie das Template für die E-Mail-registrieren mit Double-Opt-in, um Ihre Reichweite mit verifizierten E-Mail-Registrierungen zu erweitern. Sprechen Sie neue Nutzer:innen an, um deren E-Mail-Adresse zu erfassen, ihr Abo zu bestätigen und einen Aktionscode zu erhalten – alles in einer nahtlosen Journey.
 
-Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **E-Mail-Registrierung mit Double-Opt-in**, das für die Erwägungsphase des Nutzerlebenszyklus konzipiert ist. Am Ende werden Sie ein Canvas erstellt haben, das E-Mails und In-App-Nachrichten an Nutzer:innen sendet, wenn sie eine Sitzung starten oder ihr Onboarding nicht abgeschlossen haben.
+Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **E-Mail-registrieren mit Double-Opt-in**, das für die Erwägungsphase des Nutzerlebenszyklus konzipiert ist. Am Ende werden Sie ein Canvas erstellt haben, das E-Mails und In-App-Nachrichten an Nutzer:innen sendet, wenn sie eine Sitzung starten oder ihr Onboarding nicht abgeschlossen haben.
 
 ## Voraussetzungen {#prerequisites}
 

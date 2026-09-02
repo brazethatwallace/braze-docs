@@ -6,7 +6,7 @@ Das Braze Swift SDK bietet Unterstützung für die URL-Verarbeitung bei Push-Act
 
 ![Ein GIF, das eine Push-Nachricht zeigt, die nach unten gezogen wird, um zwei anpassbare Aktions-Buttons anzuzeigen.]({% image_buster /assets/img_archive/iOS8Action.gif %}){: style="max-width:60%"}
 
-### Manuelles Registrierung von Aktions-Buttons {#manually-registering-action-buttons}
+### Manuelles Registrieren von Aktions-Buttons {#manually-registering-action-buttons}
 
 {% alert important %}
 Die manuelle Registrierung von Push-Action-Buttons wird nicht empfohlen.
@@ -14,11 +14,11 @@ Die manuelle Registrierung von Push-Action-Buttons wird nicht empfohlen.
 
 Wenn Sie [Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) über die Konfigurationsoption `configuration.push.automation` einrichten, registriert Braze automatisch die Aktions-Buttons für die Standard-Push-Kategorien und übernimmt die Klick-Analytics für Push-Action-Buttons sowie das URL-Routing.
 
-Sie können jedoch auch die Push-Action-Buttons manuell Registrierung.
+Sie können jedoch auch die Push-Action-Buttons manuell registrieren.
 
 #### Schritt 1: Hinzufügen von Braze-Standard-Push-Kategorien {#registering}
 
-Verwenden Sie den folgenden Code, um sich für die Standard-Push-Kategorien zu Registrierung, wenn Sie sich [für Push anmelden]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze):
+Verwenden Sie den folgenden Code, um sich für die Standard-Push-Kategorien zu registrieren, wenn Sie sich [für Push anmelden]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze):
 
 {% tabs %}
 {% tab swift %}
@@ -73,9 +73,9 @@ Hier ist ein Beispiel, das die auf dem Gerät angezeigte `LIKE_CATEGORY` nutzt:
 
 ![Eine Push-Nachricht, die zwei Push-Action-Buttons „unlike“ und „like“ anzeigt.]({% image_buster /assets/img_archive/push_example_category.png %})
 
-### Schritt 1: Eine Kategorie Registrierung {#step-1-register-a-category}
+### Schritt 1: Eine Kategorie registrieren {#step-1-register-a-category}
 
-Um eine Kategorie in Ihrer App zu Registrierung, gehen Sie ähnlich vor wie im Folgenden beschrieben:
+Um eine Kategorie in Ihrer App zu registrieren, gehen Sie ähnlich vor wie im Folgenden beschrieben:
 
 {% tabs %}
 {% tab swift %}
@@ -128,7 +128,7 @@ Wenn Sie eine `UNNotificationAction` erstellen, können Sie eine Liste von Aktio
 Nachdem Sie eine Kategorie registriert haben, verwenden Sie das Braze-Dashboard, um Benachrichtigungen dieses Typs an Nutzer:innen zu senden.
 
 {% alert tip %}
-Sie müssen Aktions-Buttons im Braze-Dashboard nur für Verhaltensweisen definieren, die nicht lokal in Ihrem Swift-Code erstellt werden können, wie beispielsweise Deeplinking in Ihre App oder Weiterleitungen zu einer Web-URL. Diese Aktionen müssen im Dashboard konfiguriert werden, damit sie festlegen können, welche URL oder welcher Deeplink geöffnet werden soll. Für Aktions-Buttons, die die Benachrichtigung einfach schließen, ohne die App zu öffnen, ist keine Konfiguration im Dashboard erforderlich – das Schließen wird automatisch von iOS übernommen. Registrierung Sie einfach Ihre angepasste Kategorie und die zugehörigen Aktionen in Ihrem App-Code und geben Sie anschließend den entsprechenden Kategorienamen im Dashboard ein.
+Sie müssen Aktions-Buttons im Braze-Dashboard nur für Verhaltensweisen definieren, die nicht lokal in Ihrem Swift-Code erstellt werden können, wie beispielsweise Deeplinking in Ihre App oder Weiterleitungen zu einer Web-URL. Diese Aktionen müssen im Dashboard konfiguriert werden, damit sie festlegen können, welche URL oder welcher Deeplink geöffnet werden soll. Für Aktions-Buttons, die die Benachrichtigung einfach schließen, ohne die App zu öffnen, ist keine Konfiguration im Dashboard erforderlich – das Schließen wird automatisch von iOS übernommen. Registrieren Sie einfach Ihre angepasste Kategorie und die zugehörigen Aktionen in Ihrem App-Code und geben Sie anschließend den entsprechenden Kategorienamen im Dashboard ein.
 {% endalert %}
 
 1. Wählen Sie im Braze-Dashboard **Messaging** > **Push-Benachrichtigungen** und wählen Sie dann Ihre iOS-[Push-Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).

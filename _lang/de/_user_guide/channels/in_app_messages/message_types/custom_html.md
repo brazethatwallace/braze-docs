@@ -21,7 +21,7 @@ HTML-In-App-Nachrichten ermöglichen eine größere Kontrolle über das Erschein
 - Angepasste Schriftarten und Stile
 - Videos
 - Mehrere Bilder
-- On-Klick, der-Verhalten
+- On-Click-Verhalten
 - Interaktive Komponenten
 - Angepasste Animationen
 

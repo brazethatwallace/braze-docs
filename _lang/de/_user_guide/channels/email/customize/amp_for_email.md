@@ -15,7 +15,7 @@ channel:
 
 ## Anforderungen {#requirements}
 
-Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google Registrierung oder die erforderlichen Sicherheitsanforderungen erfüllen. AMP für E-Mail ist nur für SparkPost und SendGrid verfügbar.
+Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google registrieren oder die erforderlichen Sicherheitsanforderungen erfüllen. AMP für E-Mail ist nur für SparkPost und SendGrid verfügbar.
 
 | Anforderung   | Beschreibung |
 | --------------| ----------- |
@@ -27,7 +27,7 @@ Braze ist nicht dafür verantwortlich, dass sich Nutzer:innen bei Google Registr
 
 ### Unterstützte E-Mail-Clients {#supported-email-clients}
 
-Bevor Sie AMP-E-Mails an Nutzer:innen senden können, müssen Sie sich bei unseren E-Mail-Clients Registrierung. Der Registrierungsprozess umfasst das Senden einer Test-AMP-HTML-E-Mail zur Genehmigung. Die Genehmigungszeiten variieren je nach Client. Folgen Sie den Registrierungslinks für weitere Informationen.
+Bevor Sie AMP-E-Mails an Nutzer:innen senden können, müssen Sie sich bei unseren E-Mail-Clients registrieren. Der Registrierungsprozess umfasst das Senden einer Test-AMP-HTML-E-Mail zur Genehmigung. Die Genehmigungszeiten variieren je nach Client. Folgen Sie den Registrierungslinks für weitere Informationen.
 
 | Client | Registrierungslink |
 | ------ | -------- |

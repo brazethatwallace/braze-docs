@@ -169,7 +169,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 
 **Zellen durch Subclassing anpassen**
 
-Alternativ können Sie benutzerdefinierte Schnittstellen erstellen, indem Sie für jeden gewünschten Kartentyp eigene Klassen Registrierung. Um Ihre Subklasse anstelle der Standardzelle zu verwenden, ändern Sie die Eigenschaft [`cells`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/cells) im `Attributes`-Struct. Beispiel:
+Alternativ können Sie benutzerdefinierte Schnittstellen erstellen, indem Sie für jeden gewünschten Kartentyp eigene Klassen registrieren. Um Ihre Subklasse anstelle der Standardzelle zu verwenden, ändern Sie die Eigenschaft [`cells`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/cells) im `Attributes`-Struct. Beispiel:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults

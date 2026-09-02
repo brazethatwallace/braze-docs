@@ -18,7 +18,7 @@ Fügen Sie in der Datei `service-worker.js` Ihres Projekts das folgende Snippet 
 Ihr Server muss eine `Content-Type: application/javascript` zurückgeben, wenn er Ihre Service-Teammitglied-Datei bedient. Wenn die Datei Ihres Service-Teammitglieds nicht `service-worker.js` heißt, müssen Sie außerdem die [Initialisierungsoption](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) `serviceWorkerLocation` verwenden.
 {% endalert %}
 
-### Schritt 2: Registrierung Sie den Browser
+### Schritt 2: Registrieren Sie den Browser
 
 Um sofort die Push-Berechtigungen eines Nutzers:innen anzufordern, damit sein Browser Push-Benachrichtigungen empfangen kann, rufen Sie `braze.requestPushPermission()` auf. Um zunächst zu testen, ob Push in ihrem Browser unterstützt wird, rufen Sie `braze.isPushSupported()` auf.
 
@@ -44,7 +44,7 @@ Aktuelle Versionen von Safari und Firefox erfordern, dass Sie diese Methode von 
 
 ## Alternative Domains
 
-Für die Integration von Web-Push muss Ihre Domain [sicher](https://w3c.github.io/webappsec-secure-contexts/) sein, was im Allgemeinen bedeutet: `https`, `localhost` und andere Ausnahmen, die im [W3C-Push-Standard](https://www.w3.org/TR/service-workers/#security-considerations) definiert sind. Sie müssen auch in der Lage sein, ein Service-Teammitglied im Stammverzeichnis Ihrer Domain zu Registrierung oder zumindest die HTTP-Header für diese Datei zu kontrollieren. Dieser Artikel beschreibt, wie Sie Braze Web-Push in eine andere Domain integrieren.
+Für die Integration von Web-Push muss Ihre Domain [sicher](https://w3c.github.io/webappsec-secure-contexts/) sein, was im Allgemeinen bedeutet: `https`, `localhost` und andere Ausnahmen, die im [W3C-Push-Standard](https://www.w3.org/TR/service-workers/#security-considerations) definiert sind. Sie müssen auch in der Lage sein, ein Service-Teammitglied im Stammverzeichnis Ihrer Domain zu registrieren oder zumindest die HTTP-Header für diese Datei zu kontrollieren. Dieser Artikel beschreibt, wie Sie Braze Web-Push in eine andere Domain integrieren.
 
 ### Anwendungsfälle
 
@@ -54,7 +54,7 @@ Wenn Sie nicht alle Kriterien des [W3C-Push-Standards](https://www.w3.org/TR/ser
 
 Denken Sie daran, dass sich die Browser, wie viele andere Lösungen im Internet, ständig weiterentwickeln und dass diese Methode in Zukunft möglicherweise nicht mehr praktikabel ist. Bevor Sie fortfahren, vergewissern Sie sich, dass:
 
-- Sie besitzen eine eigene sichere Domain (`https://`) und die Berechtigung, ein Service-Teammitglied in dieser Domain zu Registrierung.
+- Sie besitzen eine eigene sichere Domain (`https://`) und die Berechtigung, ein Service-Teammitglied in dieser Domain zu registrieren.
 - Die Nutzer:innen sind auf Ihrer Website angemeldet, so dass die Push-Tokens dem richtigen Profil zugeordnet werden können.
 
 {% alert important %}
@@ -90,7 +90,7 @@ document.getElementById("opt-in").onclick = function(){
 </script>
 ```
 
-#### Schritt 2: Für Push Registrierung
+#### Schritt 2: Für Push registrieren
 
 An dieser Stelle öffnet `secure.com` ein Popup-Fenster, in dem Sie das Braze Web SDK für dieselbe Nutzer-ID initialisieren und die Nutzererlaubnis für Web-Push anfordern können.
 
@@ -100,7 +100,7 @@ An dieser Stelle öffnet `secure.com` ein Popup-Fenster, in dem Sie das Braze We
 
 #### Schritt 3: Kommunikation zwischen Domains (optional)
 
-Jetzt, da die Nutzer über diesen Workflow auf `insecure.com` ein Opt-in durchführen können, möchten Sie vielleicht Ihre Website anpassen, je nachdem, ob der Nutzer bereits ein Opt-in hat oder nicht. Es macht keinen Sinn, die Nutzer aufzufordern, sich für Push zu Registrierung, wenn sie bereits registriert sind.
+Jetzt, da die Nutzer über diesen Workflow auf `insecure.com` ein Opt-in durchführen können, möchten Sie vielleicht Ihre Website anpassen, je nachdem, ob der Nutzer bereits ein Opt-in hat oder nicht. Es macht keinen Sinn, die Nutzer aufzufordern, sich für Push zu registrieren, wenn sie bereits registriert sind.
 
 Sie können iFrames und die [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)-API verwenden, um zwischen Ihren beiden Domains zu kommunizieren. 
 
@@ -135,11 +135,11 @@ function getPushStatus(event){
 
 ### Service-Teammitglieder
 
-#### Was ist, wenn ich ein Service-Teammitglied nicht im Stammverzeichnis Registrierung kann?
+#### Was ist, wenn ich ein Service-Teammitglied nicht im Stammverzeichnis registrieren kann?
 
-Standardmäßig kann ein Service-Teammitglied nur in demselben Verzeichnis verwendet werden, in dem es registriert ist. Wenn Ihr Service-Teammitglied z.B. in `/assets/service-worker.js` vorhanden ist, können Sie es nur in `example.com/assets/*` oder einem Unterverzeichnis des Ordners `assets` Registrierung, nicht aber auf Ihrer Homepage (`example.com/`). Aus diesem Grund empfiehlt es sich, das Service-Teammitglied im Stammverzeichnis (z. B. `https://example.com/service-worker.js`) zu hosten und zu Registrierung.
+Standardmäßig kann ein Service-Teammitglied nur in demselben Verzeichnis verwendet werden, in dem es registriert ist. Wenn Ihr Service-Teammitglied z.B. in `/assets/service-worker.js` vorhanden ist, können Sie es nur in `example.com/assets/*` oder einem Unterverzeichnis des Ordners `assets` registrieren, nicht aber auf Ihrer Homepage (`example.com/`). Aus diesem Grund empfiehlt es sich, das Service-Teammitglied im Stammverzeichnis (z. B. `https://example.com/service-worker.js`) zu hosten und zu registrieren.
 
-Wenn Sie kein Service-Teammitglied in Ihrer Root-Domain Registrierung können, besteht eine Alternative darin, den HTTP-Header [`Service-Worker-Allowed`](https://w3c.github.io/ServiceWorker/#service-worker-script-response) zu verwenden, wenn Sie Ihre Service-Teammitglied-Datei bereitstellen. Wenn Sie Ihren Server so konfigurieren, dass in der Antwort für das Service-Teammitglied `Service-Worker-Allowed: /` zurückgegeben wird, weist dies den Browser an, den Geltungsbereich zu erweitern und die Verwendung aus einem anderen Verzeichnis zuzulassen.
+Wenn Sie kein Service-Teammitglied in Ihrer Root-Domain registrieren können, besteht eine Alternative darin, den HTTP-Header [`Service-Worker-Allowed`](https://w3c.github.io/ServiceWorker/#service-worker-script-response) zu verwenden, wenn Sie Ihre Service-Teammitglied-Datei bereitstellen. Wenn Sie Ihren Server so konfigurieren, dass in der Antwort für das Service-Teammitglied `Service-Worker-Allowed: /` zurückgegeben wird, weist dies den Browser an, den Geltungsbereich zu erweitern und die Verwendung aus einem anderen Verzeichnis zuzulassen.
 
 #### Kann ich ein Service-Teammitglied mit Hilfe eines Tag Managers erstellen?
 

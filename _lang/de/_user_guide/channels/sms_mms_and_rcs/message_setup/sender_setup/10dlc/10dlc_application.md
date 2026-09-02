@@ -3,14 +3,14 @@ nav_title: 10DLC-Antrag
 article_title: Erforderliche Informationen für den 10DLC-Antrag
 alias: /10dlc_application/
 page_type: reference
-description: "Dieser Artikel behandelt die Unternehmens- und SMS-Campaign-Informationen, die Braze benötigt, wenn Sie mit uns zusammenarbeiten, um Ihre 10DLC zu Registrierung."
+description: "Dieser Artikel behandelt die Unternehmens- und SMS-Campaign-Informationen, die Braze benötigt, wenn Sie mit uns zusammenarbeiten, um Ihre 10DLC zu registrieren."
 channel:
   - SMS
 ---
 
 # Erforderliche Informationen für den 10DLC-Antrag {#required-information-for-10dlc-application}
 
-> Dieser Artikel behandelt die Unternehmens- und SMS-Campaign-Informationen, die Braze benötigt, wenn Sie mit Braze zusammenarbeiten, um Ihre 10DLC zu Registrierung.
+> Dieser Artikel behandelt die Unternehmens- und SMS-Campaign-Informationen, die Braze benötigt, wenn Sie mit Braze zusammenarbeiten, um Ihre 10DLC zu registrieren.
 
 Wenn Sie Unterstützung von Braze für die Registrierung Ihrer 10DLC erworben haben, müssen Sie uns alle erforderlichen Informationen, die unten aufgeführt sind, an die im folgenden Abschnitt angegebene E-Mail-Adresse senden, wie in Ihrem Vertrag mit uns vereinbart.
 
@@ -52,7 +52,7 @@ Alle US-Mobilfunkanbieter benötigen die folgenden Unternehmensinformationen fü
 
 ## SMS-Campaign-Informationen {#sms-campaign-information}
 
-Wir müssen jede SMS-Abo-Gruppe, die einen US-Langcode enthält, mit einer eigenen A2P-10DLC-Campaign (manchmal auch als Anwendungsfall bezeichnet) Registrierung. Bitte geben Sie die folgenden Informationen einmal für jede Ihrer SMS-Abo-Gruppen an, die einen US-Langcode enthalten.
+Wir müssen jede SMS-Abo-Gruppe, die einen US-Langcode enthält, mit einer eigenen A2P-10DLC-Campaign (manchmal auch als Anwendungsfall bezeichnet) registrieren. Bitte geben Sie die folgenden Informationen einmal für jede Ihrer SMS-Abo-Gruppen an, die einen US-Langcode enthalten.
 
 | Feld | Optionen (falls zutreffend) | Beschreibung |
 | ------ | ------------------------ | --------------- |

@@ -19,7 +19,7 @@ Nutzen Sie die Integration von MyPostcard und Braze, um Ihren Kund:innen mühelo
 
 | Anforderung                      | Beschreibung                                                                                                             |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| MyPostcard B2B-Konto           | Um die Vorteile dieser Integration zu nutzen, müssen Sie sich bei MyPostcard Registrierung.                                          |
+| MyPostcard B2B-Konto           | Um die Vorteile dieser Integration zu nutzen, müssen Sie sich bei MyPostcard registrieren.                                          |
 | B2B-API-Schlüssel und Zugangsdaten        | Sie finden Ihren API-Schlüssel und die Zugangsdaten im MyPostcard B2B Admin Tool.                                         |
 | Genehmigte MyPostcard B2B-Kampagne | Um die Vorteile dieser Integration zu nutzen, müssen Sie eine Print-Mailing-Kampagne im MyPostcard B2B-Tool einrichten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -34,7 +34,7 @@ Um Ihre Direkt-Mailing-Kampagnen aufzuwerten, ist es entscheidend, über traditi
 
 ## Integration
 
-Um MyPostcard zu integrieren, [melden Sie sich an oder Registrierung Sie sich](https://www.mypostcard.com/b2b/admin/) und erstellen Sie Ihre erste Kampagne, um sie über [Braze-Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) zu nutzen.
+Um MyPostcard zu integrieren, [melden Sie sich an oder registrieren Sie sich](https://www.mypostcard.com/b2b/admin/) und erstellen Sie Ihre erste Kampagne, um sie über [Braze-Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/) zu nutzen.
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 

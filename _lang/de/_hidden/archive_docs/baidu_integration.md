@@ -28,13 +28,13 @@ Um ein neues Konto zu erstellen, klicken Sie unten im Anmeldedialog auf **立即
 
 ![Baidu-Anmeldedialog]({% image_buster /assets/img_archive/baidu_login_dialog.png %}){: style="max-width:70%;"}
 
-Geben Sie Ihren Nutzernamen, Ihre Telefonnummer und Ihr Passwort auf der Kontoerstellungsseite ein. Klicken Sie anschließend auf den Button zum Empfangen des Verifizierungscodes. Sie erhalten nun eine SMS von Baidu mit einem Verifizierungscode. Akzeptieren Sie abschließend die Lizenzvereinbarung und klicken Sie auf **注册** (Konto erstellen), um sich zu Registrierung. Falls diese Einrichtungsschritte fehlschlagen, versuchen Sie, sich über die Baidu-Cloud-Anmeldung zu Registrierung, wie in diesem [Anmeldeartikel](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/) beschrieben.
+Geben Sie Ihren Nutzernamen, Ihre Telefonnummer und Ihr Passwort auf der Kontoerstellungsseite ein. Klicken Sie anschließend auf den Button zum Empfangen des Verifizierungscodes. Sie erhalten nun eine SMS von Baidu mit einem Verifizierungscode. Akzeptieren Sie abschließend die Lizenzvereinbarung und klicken Sie auf **注册** (Konto erstellen), um sich zu registrieren. Falls diese Einrichtungsschritte fehlschlagen, versuchen Sie, sich über die Baidu-Cloud-Anmeldung zu registrieren, wie in diesem [Anmeldeartikel](https://www.adchina.io/how-to-open-a-baidu-account-outside-china/) beschrieben.
 
 ![Baidu-Registrierungsseite]({% image_buster /assets/img_archive/baidu_signup.png %}){: style="max-width:80%;"}
 
-## Schritt 2: Als Baidu-Entwickler:in Registrierung {#step-2-register-as-a-baidu-developer}
+## Schritt 2: Als Baidu-Entwickler:in registrieren {#step-2-register-as-a-baidu-developer}
 
-Als Nächstes müssen Sie sich als Baidu-Entwickler:in Registrierung. Besuchen Sie zunächst das [Baidu-Entwicklerportal](http://developer.baidu.com/) und wählen Sie **注册** (neues Entwicklerkonto erstellen), um die Registrierung zu starten.
+Als Nächstes müssen Sie sich als Baidu-Entwickler:in registrieren. Besuchen Sie zunächst das [Baidu-Entwicklerportal](http://developer.baidu.com/) und wählen Sie **注册** (neues Entwicklerkonto erstellen), um die Registrierung zu starten.
 
 ![Baidu-Entwicklerportal]({% image_buster /assets/img_archive/baidu_dev_portal.png %})
 
@@ -42,9 +42,9 @@ Wählen Sie auf der Registrierungsseite Ihren Kontotyp (个人 für Privatperson
 
 ![Baidu-Entwicklerregistrierungsseite]({% image_buster /assets/img_archive/baidu_dev_reg.png %})
 
-## Schritt 3: Ihre Anwendung bei Baidu Registrierung {#step-3-register-your-application-with-baidu}
+## Schritt 3: Ihre Anwendung bei Baidu registrieren {#step-3-register-your-application-with-baidu}
 
-Um Ihre Anwendung bei Baidu zu Registrierung, besuchen Sie das [Baidu-Projektportal](http://developer.baidu.com/console#app/project) und klicken Sie auf **创建工程** (Projekt erstellen).
+Um Ihre Anwendung bei Baidu zu registrieren, besuchen Sie das [Baidu-Projektportal](http://developer.baidu.com/console#app/project) und klicken Sie auf **创建工程** (Projekt erstellen).
 
 ![Baidu-Projektportal]({% image_buster /assets/img_archive/baidu_project.png %})
 
@@ -141,7 +141,7 @@ Fügen Sie in der `onCreate()`-Methode Ihrer Hauptaktivität die folgende Zeile 
 PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "Your-API-Key");
 ```
 
-Abschließend müssen Sie Ihre Nutzer:innen bei Braze Registrierung. Senden Sie in der `onBind()`-Methode des Baidu-Broadcast-Receivers, den Sie in diesem Schritt erstellt haben, die `channelId` an Braze mit `Braze.registerAppboyPushMessages(channelId)`.
+Abschließend müssen Sie Ihre Nutzer:innen bei Braze registrieren. Senden Sie in der `onBind()`-Methode des Baidu-Broadcast-Receivers, den Sie in diesem Schritt erstellt haben, die `channelId` an Braze mit `Braze.registerAppboyPushMessages(channelId)`.
 
 {% tabs %}
 {% tab JAVA %}
@@ -160,7 +160,7 @@ Braze.getInstance(context).setRegisteredPushToken(channelId)
 {% endtab %}
 {% endtabs %}
 
-## Schritt 5: Push-Öffnungen Registrierung {#step-5-registering-push-opens}
+## Schritt 5: Push-Öffnungen registrieren {#step-5-registering-push-opens}
 
 Baidu unterstützt das Senden zusätzlicher Schlüssel-Wert-Paare mit Push-Nachrichten im JSON-Format. Die Methode `public void onNotificationClicked(Context context, String title, String description, String customContentString)` Ihres Broadcast-Receivers wird aufgerufen, wenn Nutzer:innen auf eine eingehende Push-Nachricht klicken. Der Parameter `customContentString` enthält die Extras im JSON-Format. Alle Nachrichten von Braze enthalten die folgenden zwei Schlüssel-Wert-Paare:
 

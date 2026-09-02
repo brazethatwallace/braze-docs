@@ -1,18 +1,18 @@
 ---
-nav_title: Taxi for Email for Email
-article_title: Taxi for Email for Email
+nav_title: Taxi for Email
+article_title: Taxi for Email
 alias: /partners/taxi_for_email
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Taxi for Email for Email, einem Online-Tool für E-Mail-Marketing, das es Braze-Kund:innen erlaubt, intelligente E-Mail-Templates mit Hilfe der Drag-and-Drop-Schnittstelle und einer einfachen, aber leistungsstarken Syntax zu erstellen."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Taxi for Email, einem Online-Tool für E-Mail-Marketing, das es Braze-Kund:innen erlaubt, intelligente E-Mail-Templates mit Hilfe der Drag-and-Drop-Schnittstelle und einer einfachen, aber leistungsstarken Syntax zu erstellen."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Taxi for Email for Email
+# Taxi for Email
 
-> [Taxi for Email for Email](http://taxiforemail.com/) ist ein Online-Tool für E-Mail-Marketing, das einen intuitiven visuellen Drag-and-Drop-Editor für E-Mails bietet. Taxi for Email ermöglicht Teams eine einfache Zusammenarbeit bei E-Mail-Campaigns und gibt Texter:innen und Redakteur:innen den Zugriff auf die Ressourcen, die sie für die Erstellung von E-Mails benötigen – ganz ohne Code.
+> [Taxi for Email](http://taxiforemail.com/) ist ein Online-Tool für E-Mail-Marketing, das einen intuitiven visuellen Drag-and-Drop-Editor für E-Mails bietet. Taxi for Email ermöglicht Teams eine einfache Zusammenarbeit bei E-Mail-Campaigns und gibt Texter:innen und Redakteur:innen den Zugriff auf die Ressourcen, die sie für die Erstellung von E-Mails benötigen – ganz ohne Code.
 
-_Diese Integration wird von Taxi for Email for Email gepflegt._
+_Diese Integration wird von Taxi for Email gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
@@ -22,7 +22,7 @@ Die Integration von Braze und Taxi for Email nutzt die einfache, aber leistungss
 
 | Anforderung | Beschreibung |
 | ------------| ----------- |
-| Taxi for Email for Email-Konto | Um diese Partnerschaft zu nutzen, ist ein Taxi for Email for Email-Konto erforderlich. |
+| Taxi for Email-Konto | Um diese Partnerschaft zu nutzen, ist ein Taxi for Email-Konto erforderlich. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Braze-Endpunkt | [Ihr Braze-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) entspricht der URL Ihres Braze-Dashboards.<br><br> Wenn Ihre Dashboard-URL zum Beispiel `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }

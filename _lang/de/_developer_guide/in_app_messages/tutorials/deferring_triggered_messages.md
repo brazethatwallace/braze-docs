@@ -66,7 +66,7 @@ lines-index.js=9-16
 
 #### 3. Den Callback-Handler für In-App-Nachrichten abonnieren {#3-subscribe-to-the-in-app-message-callback-handler}
 
-Registrierung Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
+Registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
 
 !!step
 lines-index.js=11-12
@@ -219,9 +219,9 @@ Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das D
 !!step
 lines-MainApplication.kt=34-36
 
-#### 3. Activity-Lifecycle-Callbacks Registrierung {#3-register-activity-lifecycle-callbacks}
+#### 3. Activity-Lifecycle-Callbacks registrieren {#3-register-activity-lifecycle-callbacks}
 
-Registrierung Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
+Registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
 
 !!step
 lines-MainApplication.kt=39-49

@@ -42,7 +42,7 @@ Erstellen Sie zunächst Ihre eigene benutzerdefinierte View-Controller-Komponent
 
 ### Schritt 2: Card-Aktualisierungen abonnieren {#step-2-subscribe-to-card-updates}
 
-Registrierung Sie eine Callback-Funktion, um Datenaktualisierungen zu abonnieren, wenn Cards aktualisiert werden. Sie können die Content-Card-Objekte parsen und deren Payload-Daten wie `title`, `cardDescription` und `imageUrl` extrahieren und dann die resultierenden Modelldaten verwenden, um Ihre benutzerdefinierte UI zu befüllen.
+Registrieren Sie eine Callback-Funktion, um Datenaktualisierungen zu abonnieren, wenn Cards aktualisiert werden. Sie können die Content-Card-Objekte parsen und deren Payload-Daten wie `title`, `cardDescription` und `imageUrl` extrahieren und dann die resultierenden Modelldaten verwenden, um Ihre benutzerdefinierte UI zu befüllen.
 
 Um die Content-Card-Datenmodelle zu erhalten, abonnieren Sie Content-Card-Aktualisierungen. Achten Sie besonders auf die folgenden Eigenschaften:
 

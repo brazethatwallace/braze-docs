@@ -16,7 +16,7 @@ Fügt einen Standard-Button mit konfigurierbarem Styling, Links und Analytics hi
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_properties.md %}
 
-#### On-Klick, der-Verhalten {#on-click-behavior}
+#### On-Click-Verhalten {#on-click-behavior}
 
 {% multi_lang_include drag_and_drop/editor_block_properties/button_actions.md %}
 
@@ -36,7 +36,7 @@ Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/
 
 Informationen zu Bildspezifikationen finden Sie in unseren [Bildspezifikationen für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#in-app-messages).
 
-#### On-Klick, der-Verhalten
+#### On-Click-Verhalten
 
 {% multi_lang_include drag_and_drop/editor_block_properties/image_actions.md %}
 
@@ -46,7 +46,7 @@ Fügt einen Hyperlink ein, auf den Nutzer:innen klicken können, um zu einer bes
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_properties.md %}
 
-#### On-Klick, der-Verhalten
+#### On-Click-Verhalten
 
 {% multi_lang_include drag_and_drop/editor_block_properties/link_actions.md %}
 

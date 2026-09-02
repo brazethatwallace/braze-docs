@@ -306,6 +306,6 @@ Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer 
 
 ![Beispiel für personalisierte Push-Benachrichtigung im Dashboard]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 
-Um einen personalisierten Push im Dashboard einzurichten, Registrierung Sie die spezifische Kategorie, die angezeigt werden soll, und legen Sie dann alle relevanten Nutzerattribute fest, die Sie mithilfe von Liquid anzeigen möchten.
+Um einen personalisierten Push im Dashboard einzurichten, Registrieren Sie die spezifische Kategorie, die angezeigt werden soll, und legen Sie dann alle relevanten Nutzerattribute fest, die Sie mithilfe von Liquid anzeigen möchten.
 
 ![Beispiel für personalisierte Push-Benachrichtigung im Dashboard]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}

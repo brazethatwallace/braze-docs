@@ -340,7 +340,7 @@ Erstellen Sie die Google-Tabelle so, dass jede Zeile eine Sprache darstellt. Zum
 
 #### Schritt 2: Sheetlabs verwenden, um die Tabelle zu importieren und eine API zu erstellen {#step-2-use-sheetlabs-to-import-the-sheet-and-create-an-api}
 
-1. Registrierung Sie sich bei [Sheetlabs](https://sheetlabs.com).
+1. Registrieren Sie sich bei [Sheetlabs](https://sheetlabs.com).
 2. Folgen Sie den Sheetlabs-Anweisungen, um Daten aus Google Sheets zu importieren.
 3. Wählen Sie die Tabellenkalkulation aus, die Sie in Schritt 1 erstellt haben.
 4. Wählen Sie **Create a matching API** aus.

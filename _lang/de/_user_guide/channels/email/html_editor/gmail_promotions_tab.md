@@ -155,7 +155,7 @@ Gmail empfiehlt, Folgendes zu vermeiden:
 - Verwendung von Bildern mit runden Masken
 - Verwendung personalisierter Bild-URLs
 
-### Bei DMARC Registrierung {#register-with-dmarc}
+### Bei DMARC registrieren {#register-with-dmarc}
 
 Damit Ihre Annotationen korrekt gerendert werden, bestätigen Sie, dass die eingereichten Domains bei DMARC registriert sind und alle Richtlinien aktiviert sind.
 

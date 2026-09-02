@@ -47,7 +47,7 @@ braze.initialize("YOUR-API-KEY", {
 
 ## Anpassen des Anzeigezeitpunkts {#customizing-display-timing}
 
-Um das standardmäßige Anzeigeverhalten zu überschreiben, entfernen Sie Aufrufe von `braze.automaticallyShowInAppMessages()` und verarbeiten Sie Nachrichten in `braze.subscribeToInAppMessage()`. Registrierung Sie Ihren Callback vor `braze.openSession()`, damit Sie Nachrichten beim Sitzungsstart abfangen und entscheiden können, ob Sie jede Nachricht anzeigen oder zurückstellen möchten.
+Um das standardmäßige Anzeigeverhalten zu überschreiben, entfernen Sie Aufrufe von `braze.automaticallyShowInAppMessages()` und verarbeiten Sie Nachrichten in `braze.subscribeToInAppMessage()`. Registrieren Sie Ihren Callback vor `braze.openSession()`, damit Sie Nachrichten beim Sitzungsstart abfangen und entscheiden können, ob Sie jede Nachricht anzeigen oder zurückstellen möchten.
 
 Standardmäßig zeigt Braze In-App-Nachrichten an, wenn sie getriggert werden und zur Anzeige berechtigt sind. Wenn Sie ein anderes Verhalten für Ihr App-Erlebnis benötigen, verwenden Sie einen angepassten Callback, um Nachrichten basierend auf Ihrer eigenen Logik zurückzustellen oder anzuzeigen.
 

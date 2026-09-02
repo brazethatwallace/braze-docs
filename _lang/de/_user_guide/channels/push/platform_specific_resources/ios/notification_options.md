@@ -97,7 +97,7 @@ Wenn Sie zusätzliche Push-Aufforderungen oder [In-App-Push-Primer](https://www.
 
 #### Vorläufige Push-Benachrichtigungen einrichten {#set-up-provisional-push-notifications}
 
-Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu Registrierung, indem Sie Ihren Code im Token / Textbaustein-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK-Implementierung aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass diese die [vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
+Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu registrieren, indem Sie Ihren Code im Token / Textbaustein-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK-Implementierung aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass diese die [vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
 
 {% alert warning %}
 Die Implementierung der vorläufigen Push-Authentifizierung unterstützt nur iOS 12+ und gibt bei einem früheren Deployment-Target einen Fehler aus. Weitere Informationen finden Sie [in unserer ausführlicheren Implementierungsdokumentation hier]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift).

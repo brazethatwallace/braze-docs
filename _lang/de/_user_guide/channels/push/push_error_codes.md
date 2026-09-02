@@ -21,16 +21,16 @@ platform:
 
 Häufige Fehlerursachen können sein:
 - Falsche [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
-- Mehrfachregistrierung, wenn sich Nutzer:innen bei einem anderen Push-Dienst mit einer anderen senderID Registrierung
+- Mehrfachregistrierung, wenn sich Nutzer:innen bei einem anderen Push-Dienst mit einer anderen senderID registrieren
 
 ### Push-Bounce: InvalidRegistration {#push-bounced-invalidregistration}
 `InvalidRegistration` kann auftreten, wenn ein Push-Token / Textbaustein fehlerhaft ist. Häufige Fehlerursachen können sein:
 - Nutzer:innen übergeben Braze-Registrierungstoken manuell, rufen aber nicht `getToken()` auf. Zum Beispiel übergeben sie möglicherweise die gesamte Instanz-ID. Das Token / Textbaustein in der Fehlermeldung sieht dann wie folgt aus: `&#124;ID&#124;1&#124;:[regular token]`.
-- Nutzer:innen Registrierung sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen Registrierung und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token / Textbaustein entstehen.
+- Nutzer:innen registrieren sich bei mehreren Diensten. Derzeit erwarten wir, dass Push-Registrierungs-Intents im alten Stil eintreffen. Wenn sich Nutzer:innen also an mehreren Stellen Registrierung und wir Intents von anderen Diensten abfangen, können fehlerhafte Push-Token / Textbaustein entstehen.
 
 ### Push-Bounce: NotRegistered {#notregistered}
 
-`NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite Registrierung das Push-Token / Textbaustein ungültig macht, das Braze erhalten hat.
+`NotRegistered` bedeutet in der Regel, dass die App vom Gerät gelöscht wurde (z. B. unser Signal für eine Deinstallation). Dies kann auch auftreten, wenn eine Mehrfachregistrierung stattfindet und eine zweite registrieren das Push-Token / Textbaustein ungültig macht, das Braze erhalten hat.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
@@ -84,7 +84,7 @@ Der `BadToken`-Fehler kann aus verschiedenen Gründen auftreten:
 - Das Push-Token / Textbaustein wird nicht korrekt an Braze gesendet (z. B. in `registerDeviceToken:` oder dem Äquivalent Ihrer Plattform).
 	- Überprüfen Sie das Token / Textbaustein im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Es sollte in der Regel wie ein langer String aus Buchstaben und Zahlen aussehen (z. B. `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Wenn nicht, überprüfen Sie den Code, der das Push-Token / Textbaustein an Braze sendet.<br><br>
 - Nicht übereinstimmende Bereitstellungsumgebung:
-	- Wenn Sie sich mit einem Entwicklungszertifikat Registrierung und versuchen, mit einem Produktionszertifikat zu senden, kann dieser Fehler auftreten.
+	- Wenn Sie sich mit einem Entwicklungszertifikat registrieren und versuchen, mit einem Produktionszertifikat zu senden, kann dieser Fehler auftreten.
 	- Braze unterstützt nur universelle Zertifikate für Produktionsumgebungen. Das Testen von Push in Entwicklungsumgebungen mit einem universellen Zertifikat funktioniert nicht.
 	- Diese Meldung zeigt Bounces in der Produktion, aber nicht in der Entwicklung an.<br><br>
 - Nicht übereinstimmendes Bereitstellungsprofil:

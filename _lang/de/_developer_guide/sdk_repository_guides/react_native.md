@@ -104,7 +104,7 @@ Ein erneuter Aufruf von `Braze.initialize` mit anderen Zugangsdaten beendet die 
 cd ios && pod install
 ```
 
-Verwenden Sie `BrazeReactInitializer.configure` in Ihrem `AppDelegate`, um die native Konfiguration zu Registrierung. Die von Ihnen bereitgestellten Closures werden gespeichert und später angewendet, wenn `Braze.initialize(apiKey, endpoint)` aus JavaScript aufgerufen wird.
+Verwenden Sie `BrazeReactInitializer.configure` in Ihrem `AppDelegate`, um die native Konfiguration zu registrieren. Die von Ihnen bereitgestellten Closures werden gespeichert und später angewendet, wenn `Braze.initialize(apiKey, endpoint)` aus JavaScript aufgerufen wird.
 
 ``` swift
 import BrazeKit
@@ -157,7 +157,7 @@ Häufig verwendete Einträge:
 | `com_braze_custom_endpoint` | `string` | Nicht erforderlich bei Verwendung von `Braze.initialize()` aus JavaScript. Nur für die ältere native-first Initialisierung erforderlich. |
 | `com_braze_server_target` | `string` | Optionaler Cluster-/Umgebungsselektor (z. B. für einige interne oder Staging-Builds). Bevorzugen Sie `com_braze_custom_endpoint` für die Produktion, sofern Ihre Braze-Integration nichts anderes vorgibt. |
 | `com_braze_firebase_cloud_messaging_registration_enabled` | `bool` | Bei `true` registriert sich Braze für FCM (typisches Push-Setup). |
-| `com_braze_firebase_cloud_messaging_sender_id` | `string` | FCM-Sender-ID bei aktivierter automatischer Registrierung. |
+| `com_braze_firebase_cloud_messaging_sender_id` | `string` | FCM-Sender-ID bei aktivierter automatischer registrieren. |
 | `com_braze_handle_push_deep_links_automatically` | `bool` | Braze öffnet Push-Deeplinks automatisch. |
 | `com_braze_trigger_action_minimum_time_interval_seconds` | `integer` | Minimale Sekunden zwischen In-App-Nachricht-Trigger-Aktionen. |
 | **Sonstige** | *verschiedene* | Weitere hier nicht aufgeführte Schlüssel (Sitzungstimeout, Geofences, Standort, Benachrichtigungsstandards, Geräte-Allowlists, verzögerte Initialisierung, SDK-Authentifizierung und mehr). Siehe [`BrazeConfigurationProvider`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-configuration-provider/index.html) und den [Android-SDK-Integrationsleitfaden](https://www.braze.com/docs/developer_guide/platforms/android/sdk_integration/). |

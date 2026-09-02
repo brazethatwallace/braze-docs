@@ -1,12 +1,12 @@
 ---
-nav_title: E-Mail-Registrierung mit Angebot
-article_title: E-Mail-Registrierung mit Sonderangebot
+nav_title: E-Mail-registrieren mit Angebot
+article_title: E-Mail-registrieren mit Sonderangebot
 alias: "/email_offer/"
 page_order: 6
 description: "Auf dieser Seite erfahren Sie, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um Ihre E-Mail-Liste aufzubauen, indem Sie bei der Registrierung einen Sonderrabatt anbieten."
 ---
 
-# E-Mail-Registrierung mit Sonderangebot {#email-sign-up-with-special-offer}
+# E-Mail-registrieren mit Sonderangebot {#email-sign-up-with-special-offer}
 
 > Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um Ihre E-Mail-Liste aufzubauen, indem Sie bei der Registrierung einen Sonderrabatt anbieten.
 
@@ -16,7 +16,7 @@ description: "Auf dieser Seite erfahren Sie, wie Sie den Drag-and-Drop-Editor f�
 
 ### 1. Schritt: Template auswählen {#step-1-choose-your-template}
 
-Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **E-Mail-Registrierung mit Sonderangebot** als Template aus und klicken Sie dann auf **Nachricht erstellen**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
+Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **E-Mail-registrieren mit Sonderangebot** als Template aus und klicken Sie dann auf **Nachricht erstellen**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
 ![Der In-App-Nachrichten-Editor mit dem Template für ein E-Mail-Registrierungsformular mit Sonderangebot.]({% image_buster /assets/img/drag_and_drop/templates/email_capture_offer.png %})
 

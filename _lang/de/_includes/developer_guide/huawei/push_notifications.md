@@ -4,9 +4,9 @@
 
 Neuere von [Huawei](https://huaweimobileservices.com/) hergestellte Telefone sind mit Huawei Mobile Services (HMS) ausgestattet – einem Dienst, der Push anstelle von Googles Firebase Cloud Messaging (FCM) zustellt.
 
-### Schritt 1: Registrierung Sie sich für ein Huawei-Entwicklerkonto {#step-1-register-for-a-huawei-developer-account}
+### Schritt 1: Registrieren Sie sich für ein Huawei-Entwicklerkonto {#step-1-register-for-a-huawei-developer-account}
 
-Bevor Sie beginnen, müssen Sie sich Registrierung und ein [Huawei-Entwicklerkonto](https://developer.huawei.com/consumer/en/console) einrichten. Gehen Sie in Ihrem Huawei-Konto zu **Meine Projekte > Projekteinstellungen > App-Informationen** und notieren Sie sich die `App ID` und das `App secret`.
+Bevor Sie beginnen, müssen Sie sich registrieren und ein [Huawei-Entwicklerkonto](https://developer.huawei.com/consumer/en/console) einrichten. Gehen Sie in Ihrem Huawei-Konto zu **Meine Projekte > Projekteinstellungen > App-Informationen** und notieren Sie sich die `App ID` und das `App secret`.
 
 ![Seite „App-Informationen“ in der Huawei-Entwicklerkonsole mit App-ID und App-Secret.]({% image_buster /assets/img/huawei/huawei-credentials.png %})
 

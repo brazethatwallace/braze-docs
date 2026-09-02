@@ -50,7 +50,7 @@ Stellen Sie sicher, dass die Standorterfassung in Ihrer Braze-Konfiguration akti
 
 ### Schritt 5: Standortberechtigungen zur Laufzeit anfordern {#step-5-request-location-permissions-at-runtime}
 
-Sie müssen Standortberechtigungen von den Nutzer:innen anfordern, bevor Sie Geofences Registrierung. Verwenden Sie in Ihrem C#-Code das folgende Muster:
+Sie müssen Standortberechtigungen von den Nutzer:innen anfordern, bevor Sie Geofences registrieren. Verwenden Sie in Ihrem C#-Code das folgende Muster:
 
 ```csharp
 using AndroidX.Core.App;

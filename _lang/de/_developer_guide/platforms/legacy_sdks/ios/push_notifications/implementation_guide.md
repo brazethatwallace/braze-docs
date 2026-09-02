@@ -89,7 +89,7 @@ Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer 
 
 #### Dashboard-Konfiguration
 
-Um einen personalisierten Push im Dashboard einzurichten, müssen Sie die spezifische Kategorie Registrierung, die angezeigt werden soll, und dann innerhalb der Schlüssel-Wert-Paare mit Hilfe von Standard-Liquid die entsprechenden Nutzerattribute einstellen, die in der Nachricht angezeigt werden sollen. Diese Ansichten können auf der Grundlage bestimmter Nutzerattribute eines bestimmten Nutzerprofils personalisiert werden.
+Um einen personalisierten Push im Dashboard einzurichten, müssen Sie die spezifische Kategorie registrieren, die angezeigt werden soll, und dann innerhalb der Schlüssel-Wert-Paare mit Hilfe von Standard-Liquid die entsprechenden Nutzerattribute einstellen, die in der Nachricht angezeigt werden sollen. Diese Ansichten können auf der Grundlage bestimmter Nutzerattribute eines bestimmten Nutzerprofils personalisiert werden.
 
 ![Vier Sätze von Schlüssel-Wert-Paaren, wobei „next_session_name“ und „next_session_complete_date“ als API-Trigger-Eigenschaft mit Liquid festgelegt sind und „completed_session count“ und „total_session_count“ als angepasstes Nutzerattribut mit Liquid festgelegt sind.]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
 
@@ -143,7 +143,7 @@ Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserwei
 
 1. Nutzer:innen erhalten eine Push-Benachrichtigung.
 2. Der Push wird geöffnet und fordert Nutzer:innen zur Eingabe von Informationen auf.
-3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Registrierung“ angezeigt.
+3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Registrieren“ angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
 
@@ -151,7 +151,7 @@ Beachten Sie, dass es sich bei den hier angeforderten Informationen um eine Viel
 
 #### Dashboard-Konfiguration
 
-Um einen Push für die Informationserfassung im Dashboard einzurichten, müssen Sie Ihre angepasste Kategorie Registrierung und einstellen und die benötigten Schlüssel-Wert-Paare bereitstellen. Wie im Beispiel gezeigt, können Sie auch ein Bild in Ihren Push einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich Notification einstellen und ein Rich-Push-Bild einfügen.
+Um einen Push für die Informationserfassung im Dashboard einzurichten, müssen Sie Ihre angepasste Kategorie registrieren und einstellen und die benötigten Schlüssel-Wert-Paare bereitstellen. Wie im Beispiel gezeigt, können Sie auch ein Bild in Ihren Push einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich Notification einstellen und ein Rich-Push-Bild einfügen.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 

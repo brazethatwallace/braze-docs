@@ -266,9 +266,9 @@ Wählen Sie unter den **Push Notification Settings** Ihrer Android-App **Firebas
 Private Keys können ein Sicherheitsrisiko darstellen, wenn sie kompromittiert werden. Da Ihr Schlüssel nun zu Braze hochgeladen wurde, löschen Sie die Datei, die [Sie zuvor generiert haben](#android_json).
 {% endalert %}
 
-### Schritt 7: Automatische Token / Textbaustein-Registrierung einrichten {#step-7-set-up-automatic-token-registration}
+### Schritt 7: Automatische Token / Textbaustein-registrieren einrichten {#step-7-set-up-automatic-token-registration}
 
-Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, muss Ihre App ein FCM-Token / Textbaustein auf deren Gerät generieren, bevor Sie ihnen Push-Benachrichtigungen senden können. Mit dem Braze SDK können Sie die automatische FCM-Token / Textbaustein-Registrierung für das Gerät jeder Nutzerin und jedes Nutzers in den Braze-Konfigurationsdateien Ihres Projekts aktivieren.
+Wenn Nutzer:innen Push-Benachrichtigungen aktivieren, muss Ihre App ein FCM-Token / Textbaustein auf deren Gerät generieren, bevor Sie ihnen Push-Benachrichtigungen senden können. Mit dem Braze SDK können Sie die automatische FCM-Token-Registrierung für das Gerät jeder Nutzerin und jedes Nutzers in den Braze-Konfigurationsdateien Ihres Projekts aktivieren.
 
 Öffnen Sie zunächst die Firebase Console, öffnen Sie Ihr Projekt und wählen Sie <i class="fa-solid fa-gear" aria-label="Einstellungen"></i>&nbsp;**Settings** > **Project settings**.
 
@@ -278,11 +278,11 @@ Wählen Sie **Cloud Messaging** und kopieren Sie unter **Firebase Cloud Messagin
 
 ![Die Seite „Cloud Messaging“ des Firebase-Projekts mit hervorgehobener „Sender ID“.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
-Öffnen Sie als Nächstes Ihr Android-Studio-Projekt und verwenden Sie Ihre Firebase-Sender-ID, um die automatische FCM-Token / Textbaustein-Registrierung in Ihrer `braze.xml` oder `BrazeConfig` zu aktivieren.
+Öffnen Sie als Nächstes Ihr Android-Studio-Projekt und verwenden Sie Ihre Firebase-Sender-ID, um die automatische FCM-Token-Registrierung in Ihrer `braze.xml` oder `BrazeConfig` zu aktivieren.
 
 {% tabs local %}
 {% tab Braze.XML %}
-Um die automatische FCM-Token / Textbaustein-Registrierung zu konfigurieren, fügen Sie die folgenden Zeilen zu Ihrer `braze.xml`-Datei hinzu:
+Um die automatische FCM-Token-Registrierung zu konfigurieren, fügen Sie die folgenden Zeilen zu Ihrer `braze.xml`-Datei hinzu:
 
 ```xml
 <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
@@ -302,7 +302,7 @@ Ersetzen Sie `FIREBASE_SENDER_ID` durch den Wert, den Sie aus Ihren Firebase-Pro
 {% endtab %}
 
 {% tab BrazeConfig %}
-Um die automatische FCM-Token / Textbaustein-Registrierung zu konfigurieren, fügen Sie die folgenden Zeilen zu Ihrer `BrazeConfig` hinzu:
+Um die automatische FCM-Token-Registrierung zu konfigurieren, fügen Sie die folgenden Zeilen zu Ihrer `BrazeConfig` hinzu:
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -356,7 +356,7 @@ Braze.configure(this, brazeConfig)
 {% endtabs %}
 
 {% alert tip %}
-Wenn Sie FCM-Token / Textbaustein stattdessen manuell Registrierung möchten, setzen Sie die Eigenschaft [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) auf der Braze-Instanz in der [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())-Methode Ihrer App.
+Wenn Sie FCM-Token / Textbaustein stattdessen manuell registrieren möchten, setzen Sie die Eigenschaft [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) auf der Braze-Instanz in der [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate())-Methode Ihrer App.
 
 ```kotlin
 // Kotlin
@@ -374,7 +374,7 @@ Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
 Wenn Ihre App mehrere Firebase-Projekte verwendet, befolgen Sie diese Schritte:
 
 1. Belassen Sie Braze-Push im Standard-Firebase-Projekt, das über die `google-services.json` Ihrer App initialisiert wird.
-2. Wenn Sie einen benutzerdefinierten Firebase-Messaging-Service verwenden, führen Sie [Installations-IDs in benutzerdefinierten Firebase-Messaging-Services Registrierung](#android_register-installation-id-custom-firebase-service) durch.
+2. Wenn Sie einen benutzerdefinierten Firebase-Messaging-Service verwenden, führen Sie [Installations-IDs in benutzerdefinierten Firebase-Messaging-Services registrieren](#android_register-installation-id-custom-firebase-service) durch.
 3. Wenn Ihre App ein Push-Token / Textbaustein auf anderem Wege erhält, setzen Sie `registeredPushToken` manuell, wie im vorherigen Tipp gezeigt.
 
 {% alert important %}
@@ -391,7 +391,7 @@ Um zu verhindern, dass Braze bei jedem Senden stiller Push-Benachrichtigungen un
 
 <a id="android_step-1-register-braze-firebase-messaging-service"></a>
 
-### Schritt 1: Braze Firebase Messaging Service Registrierung {#register-braze-firebase-messaging-service}
+### Schritt 1: Braze Firebase Messaging Service registrieren {#register-braze-firebase-messaging-service}
 
 Sie können entweder einen neuen, einen bestehenden oder einen Nicht-Braze Firebase Messaging Service erstellen. Wählen Sie die Option, die am besten zu Ihren spezifischen Anforderungen passt.
 
@@ -408,7 +408,7 @@ Braze enthält einen Dienst, der den Empfang und die Öffnungsabsichten von Push
 </service>
 ```
 
-Unser Benachrichtigungscode verwendet ebenfalls `BrazeFirebaseMessagingService`, um das Öffnen und das Klick-Tracking zu verarbeiten. Dieser Dienst muss in der `AndroidManifest.xml` registriert sein, damit er korrekt funktioniert. Denken Sie auch daran, dass Braze Benachrichtigungen aus unserem System mit einem eindeutigen Schlüssel versieht, sodass nur von unseren Systemen gesendete Benachrichtigungen gerendert werden. Sie können zusätzliche Dienste separat Registrierung, um Benachrichtigungen zu rendern, die von anderen FCM-Diensten gesendet werden. Siehe [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml) in der Firebase-Push-Beispiel-App.
+Unser Benachrichtigungscode verwendet ebenfalls `BrazeFirebaseMessagingService`, um das Öffnen und das Klick-Tracking zu verarbeiten. Dieser Dienst muss in der `AndroidManifest.xml` registriert sein, damit er korrekt funktioniert. Denken Sie auch daran, dass Braze Benachrichtigungen aus unserem System mit einem eindeutigen Schlüssel versieht, sodass nur von unseren Systemen gesendete Benachrichtigungen gerendert werden. Sie können zusätzliche Dienste separat registrieren, um Benachrichtigungen zu rendern, die von anderen FCM-Diensten gesendet werden. Siehe [`AndroidManifest.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/samples/firebase-push/src/main/AndroidManifest.xml) in der Firebase-Push-Beispiel-App.
 
 {% alert important %}
 Vor Braze SDK 3.1.1 wurde `AppboyFcmReceiver` zur Verarbeitung von FCM-Push-Benachrichtigungen verwendet. Die Klasse `AppboyFcmReceiver` sollte aus Ihrem Manifest entfernt und durch die vorstehende Integration ersetzt werden.
@@ -420,9 +420,9 @@ Wenn Sie bereits einen Firebase Messaging Service registriert haben, können Sie
 
 <a id="android_register-installation-id-custom-firebase-service"></a>
 
-#### Installations-IDs in benutzerdefinierten Firebase Messaging Services Registrierung {#register-installation-id-custom-firebase-service}
+#### Installations-IDs in benutzerdefinierten Firebase Messaging Services registrieren {#register-installation-id-custom-firebase-service}
 
-Wenn Sie `firebase-messaging` v25.1.0 oder höher verwenden, nutzt die Firebase-Registrierung die Firebase Installation ID. Überschreiben Sie in Ihrem benutzerdefinierten Firebase Messaging Service `onRegistered` und setzen Sie `registeredPushToken`.
+Wenn Sie `firebase-messaging` v25.1.0 oder höher verwenden, nutzt die Firebase-registrieren die Firebase Installation ID. Überschreiben Sie in Ihrem benutzerdefinierten Firebase Messaging Service `onRegistered` und setzen Sie `registeredPushToken`.
 
 {% subtabs %}
 {% subtab JAVA %}

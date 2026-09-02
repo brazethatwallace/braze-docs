@@ -101,7 +101,7 @@ lines-MainApplication.kt=21-28
 
 ### 2. Banner-Updates abonnieren {#2-subscribe-to-banner-updates}
 
-Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu Registrierung, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird.
+Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird.
 
 !!step
 lines-MainActivity.kt=10-14

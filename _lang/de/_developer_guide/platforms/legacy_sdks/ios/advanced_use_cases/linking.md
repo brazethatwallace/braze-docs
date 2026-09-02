@@ -14,7 +14,7 @@ noindex: true
 
 Einführende Informationen zu Deeplinks finden Sie in unserem [Artikel im Benutzerhandbuch]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Wenn Sie zum ersten Mal Deeplinks in Ihrer Braze-App implementieren möchten, helfen Ihnen die folgenden Schritte beim Einstieg.
 
-## Schritt 1: Ein Schema Registrierung {#step-1-register-a-scheme}
+## Schritt 1: Ein Schema registrieren {#step-1-register-a-scheme}
 
 Sie müssen ein angepasstes Schema in der Datei `Info.plist` angeben. Die Navigationsstruktur wird durch ein Array von Wörterbüchern definiert. Jedes dieser Wörterbücher enthält ein String-Array.
 

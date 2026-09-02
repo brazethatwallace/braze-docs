@@ -40,7 +40,7 @@ Diese [Android 12 Upgrade-Anleitung]({{site.baseurl}}/developer_guide/platforms/
 
 A2P 10DLC bezieht sich auf ein System in den Vereinigten Staaten, das es Unternehmen ermöglicht, Nachrichten vom Typ Application-to-Person (A2P) über einen standardmäßigen 10-stelligen Langcode (10DLC) zu versenden. 10-stellige Langcodes wurden traditionell für den Person-to-Person (P2P)-Verkehr entwickelt, was dazu führte, dass Unternehmen durch einen begrenzten Durchsatz und verstärkte Filterung eingeschränkt wurden. Dieser Dienst trägt dazu bei, diese Probleme zu lösen, indem er die Zustellbarkeit von Nachrichten insgesamt verbessert, es Marken erlaubt, Nachrichten in großem Umfang zu versenden, einschließlich Links und Handlungsaufforderungen, und Verbraucher:innen vor unerwünschten Nachrichten schützt.
 
-Alle Kund:innen, die derzeit US-Langcodes haben und/oder verwenden, um an US-Kund:innen zu versenden, müssen ihre Langcodes für 10DLC Registrierung. Wenn Sie mehr über die Besonderheiten von 10DLC erfahren möchten und warum es erforderlich ist, besuchen Sie unseren speziellen [10DLC-Artikel]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/).
+Alle Kund:innen, die derzeit US-Langcodes haben und/oder verwenden, um an US-Kund:innen zu versenden, müssen ihre Langcodes für 10DLC registrieren. Wenn Sie mehr über die Besonderheiten von 10DLC erfahren möchten und warum es erforderlich ist, besuchen Sie unseren speziellen [10DLC-Artikel]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/).
 
 ## Zwei-Faktor-Authentifizierung zurücksetzen {#two-factor-authentication-reset}
 

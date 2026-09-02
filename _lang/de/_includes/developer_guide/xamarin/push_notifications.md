@@ -28,7 +28,7 @@ Um Push-Benachrichtigungen für .NET MAUI (ehemals Xamarin) zu integrieren, müs
 ### Schritt 3: Laden Sie Ihre JSON-Anmeldedaten hoch
 
 1. Wählen Sie in Braze <i class="fa-solid fa-gear"></i> **Einstellungen** > **App-Einstellungen**. Wählen Sie unter den **Push-Benachrichtigungseinstellungen** Ihrer Android-App **Firebase**, dann **JSON-Datei hochladen** und laden Sie die zuvor generierten Anmeldeinformationen hoch. Wenn Sie fertig sind, wählen Sie **Speichern**.
-2. Aktivieren Sie in der Firebase-Konsole die automatische FCM-Token / Textbaustein-Registrierung. Öffnen Sie Ihr Projekt und wählen Sie dann <i class="fa-solid fa-gear"></i> **Einstellungen** > **Projekteinstellungen**. Wählen Sie **Cloud Messaging** und kopieren Sie dann unter **Firebase Cloud Messaging API (V1)** die Nummer in das Feld **Absender-ID**.
+2. Aktivieren Sie in der Firebase-Konsole die automatische FCM-Token-Registrierung. Öffnen Sie Ihr Projekt und wählen Sie dann <i class="fa-solid fa-gear"></i> **Einstellungen** > **Projekteinstellungen**. Wählen Sie **Cloud Messaging** und kopieren Sie dann unter **Firebase Cloud Messaging API (V1)** die Nummer in das Feld **Absender-ID**.
 3. Fügen Sie Folgendes zur `braze.xml` Ihres Android Studio-Projekts hinzu.
 
   ```xml

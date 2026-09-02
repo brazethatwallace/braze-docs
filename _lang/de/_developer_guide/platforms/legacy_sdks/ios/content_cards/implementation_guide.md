@@ -451,7 +451,7 @@ Besuchen Sie den [folgenden Abschnitt](#logging-impressions-clicks-and-dismissal
 
 ### Content Cards in einem Nachrichtencenter {#content-cards-in-a-message-center}
 <br>
-Content Cards können in einem Nachrichtencenter-Format verwendet werden, bei dem jede Nachricht eine eigene Karte ist. Jede Nachricht im Nachrichtencenter wird über ein Content-Card-Payload befüllt, und jede Karte enthält zusätzliche Schlüssel-Wert-Paare, die das On-Klick, der-UI/UX steuern. Im folgenden Beispiel leitet eine Nachricht Sie zu einer beliebigen angepassten Ansicht weiter, während eine andere ein Webview öffnet, das angepasstes HTML anzeigt.
+Content Cards können in einem Nachrichtencenter-Format verwendet werden, bei dem jede Nachricht eine eigene Karte ist. Jede Nachricht im Nachrichtencenter wird über ein Content-Card-Payload befüllt, und jede Karte enthält zusätzliche Schlüssel-Wert-Paare, die das On-Click-UI/UX steuern. Im folgenden Beispiel leitet eine Nachricht Sie zu einer beliebigen angepassten Ansicht weiter, während eine andere ein Webview öffnet, das angepasstes HTML anzeigt.
 
 ![Content-Card-Nachrichtencenter mit individuellen Nachrichtenkarten.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
@@ -491,7 +491,7 @@ Die Nachrichtencenter-Logik wird durch den `contentCardClassType` gesteuert, der
 
 {% tabs %}
 {% tab Swift %}
-**Verwendung von `class_type` für das On-Klick, der-Verhalten**<br>
+**Verwendung von `class_type` für das On-Click-Verhalten**<br>
 Wenn eine Nachricht angeklickt wird, bestimmt der `ContentCardClassType`, wie der nächste Bildschirm befüllt werden soll.
 ```swift
 func addContentCardToView(with message: Message) {
@@ -507,7 +507,7 @@ func addContentCardToView(with message: Message) {
 ```
 {% endtab %}
 {% tab Objective-C %}
-**Verwendung von `class_type` für das On-Klick, der-Verhalten**<br>
+**Verwendung von `class_type` für das On-Click-Verhalten**<br>
 Wenn eine Nachricht angeklickt wird, bestimmt der `ContentCardClassType`, wie der nächste Bildschirm befüllt werden soll.
 ```objc
 - (void)addContentCardToView:(Message *)message {

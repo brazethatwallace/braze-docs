@@ -108,7 +108,7 @@ Konfigurieren Sie den Webhook wie folgt:
 
 ### 2. Schritt: Konfigurieren Sie ein Projekt in der Seen-Plattform {#step-2-configure-a-project-in-the-seen-platform}
 
-Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu Registrierung. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
+Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu registrieren. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
 
 1. Erstellen Sie in der Seen-Plattform ein Projekt, erstellen Sie Ihr Video und wählen Sie dann **Publish**. Videos werden aus eingehenden Daten generiert, sobald das Projekt veröffentlicht ist.
 2. Wählen Sie auf dem Run-Tab **Add a webhook**.

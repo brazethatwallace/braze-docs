@@ -215,7 +215,7 @@ Hinweise:
 {% tab Braze-Willkommen %}
 #### Braze-Willkommens-Campaign {#braze-welcome-campaign}
 
-Wenn sich neue Nutzer:innen Registrierung, sendet Punchh ein Gast-Ereignis an Braze, das die Nutzer:innen erstellt und ein angepasstes Attribut `signup_channel` sendet, das Sie verwenden können, um die Braze-Willkommens-Campaign auszulösen.
+Wenn sich neue Nutzer:innen registrieren, sendet Punchh ein Gast-Ereignis an Braze, das die Nutzer:innen erstellt und ein angepasstes Attribut `signup_channel` sendet, das Sie verwenden können, um die Braze-Willkommens-Campaign auszulösen.
 
 Um die Braze-Willkommens-Campaign einzurichten, führen Sie die folgenden Schritte aus:
 

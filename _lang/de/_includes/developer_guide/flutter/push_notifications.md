@@ -6,9 +6,9 @@
 
 {% tabs %}
 {% tab Android %}
-#### Schritt 1.1: Für Push Registrierung {#step-11-register-for-push}
+#### Schritt 1.1: Für Push registrieren {#step-11-register-for-push}
 
-Registrierung Sie sich für Push über die Firebase Cloud Messaging (FCM) API von Google. Eine vollständige Anleitung finden Sie in den folgenden Schritten aus dem [nativen Android-Push-Integrationsleitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
+Registrieren Sie sich für Push über die Firebase Cloud Messaging (FCM) API von Google. Eine vollständige Anleitung finden Sie in den folgenden Schritten aus dem [nativen Android-Push-Integrationsleitfaden]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
 
 1. [Firebase zu Ihrem Projekt hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-1-add-firebase-to-your-project).
 2. [Cloud Messaging zu Ihren Abhängigkeiten hinzufügen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-2-add-cloud-messaging-to-your-dependencies).

@@ -30,7 +30,7 @@ Mit separaten Apps in einem Workspace können Sie App-Filter für eine sauberere
 Bei separaten Root-Domains ist die Web-Push-Registrierung pro Domain isoliert.
 
 - Wählen Sie eine Domain als Ihre Push-Benachrichtigungs-Domain.
-- Registrierung Sie Push nicht auf beiden Root-Domains für dieselbe User Journey, da dies zu widersprüchlichem Prompt- und Abo-Verhalten führen kann.
+- Registrieren Sie Push nicht auf beiden Root-Domains für dieselbe User Journey, da dies zu widersprüchlichem Prompt- und Abo-Verhalten führen kann.
 
 ## Nutzer:innen konsistent über Domains hinweg identifizieren {#identify-users-consistently-across-domains}
 

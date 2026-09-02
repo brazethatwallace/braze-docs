@@ -64,11 +64,11 @@ Beachten Sie, dass Sie diese Einstellungen anstelle der nativen Einrichtungsanwe
 {% endtab %}
 
 {% tab Android Native %}
-Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, Registrierung Sie sich für Push anhand der [Anleitung zur nativen Android-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/).
+Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, Registrieren Sie sich für Push anhand der [Anleitung zur nativen Android-Push-Integration]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/).
 {% endtab %}
 
 {% tab iOS Native %}
-Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, Registrierung Sie sich für Push, indem Sie die folgenden Schritte aus der [Anleitung zur nativen iOS-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) befolgen:
+Wenn Sie das Braze Expo Plugin nicht verwenden oder diese Einstellungen stattdessen nativ konfigurieren möchten, Registrieren Sie sich für Push, indem Sie die folgenden Schritte aus der [Anleitung zur nativen iOS-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) befolgen:
 
 #### Schritt 1.1: Push-Berechtigungen anfordern {#step-11-request-for-push-permissions}
 
@@ -263,7 +263,7 @@ Für diese Methode ist die native Einrichtung in Schritt 3.1 für Ihre Plattform
 
 #### Schritt 3.3: Universal Links aktivieren (optional) {#step-33-enable-universal-links-optional}
 
-Um die Unterstützung für [Universal Links]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#universal-links) zu aktivieren, implementieren Sie einen Braze-Delegaten, der festlegt, ob eine bestimmte URL geöffnet werden soll, und Registrierung Sie diesen anschließend bei Ihrer Braze-Instanz.
+Um die Unterstützung für [Universal Links]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift#universal-links) zu aktivieren, implementieren Sie einen Braze-Delegaten, der festlegt, ob eine bestimmte URL geöffnet werden soll, und registrieren Sie diesen anschließend bei Ihrer Braze-Instanz.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -299,7 +299,7 @@ class BrazeReactDelegate: NSObject, BrazeDelegate {
 }
 ```
 
-Erstellen und Registrierung Sie dann Ihr `BrazeReactDelegate` in `didFinishLaunchingWithOptions` der Datei `AppDelegate.swift` Ihres Projekts.
+Erstellen und registrieren Sie dann Ihr `BrazeReactDelegate` in `didFinishLaunchingWithOptions` der Datei `AppDelegate.swift` Ihres Projekts.
 
 ```swift
 import BrazeKit
@@ -365,7 +365,7 @@ Erstellen Sie als Nächstes eine Datei `BrazeReactDelegate.m` und fügen Sie das
 @end
 ```
 
-Erstellen und Registrierung Sie dann Ihr `BrazeReactDelegate` in `didFinishLaunchingWithOptions` der Datei `AppDelegate.m` Ihres Projekts.
+Erstellen und registrieren Sie dann Ihr `BrazeReactDelegate` in `didFinishLaunchingWithOptions` der Datei `AppDelegate.m` Ihres Projekts.
 
 ```objc
 #import "BrazeReactUtils.h"
@@ -517,7 +517,7 @@ Für iOS-Integrationen können Sie auch unser [Tutorial zur Einrichtung von Push
 
 #### Geräte-Token / Textbaustein wird nicht bei Braze registriert {#troubleshooting-token-registration}
 
-Wenn sich Ihr Geräte-Token / Textbaustein nicht bei Braze Registrierung lässt, lesen Sie zunächst den Abschnitt [Push-Benachrichtigungen funktionieren nicht mehr](#troubleshooting-stopped-working).
+Wenn sich Ihr Geräte-Token / Textbaustein nicht bei Braze registrieren lässt, lesen Sie zunächst den Abschnitt [Push-Benachrichtigungen funktionieren nicht mehr](#troubleshooting-stopped-working).
 
 Wenn das Problem weiterhin besteht, gibt es möglicherweise eine separate Abhängigkeit, die Ihre Braze-Push-Benachrichtigungskonfiguration beeinträchtigt. Sie können versuchen, diese zu entfernen, oder stattdessen manuell `Braze.registerPushToken` aufrufen.
 

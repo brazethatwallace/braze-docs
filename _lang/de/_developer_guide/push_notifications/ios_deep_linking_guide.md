@@ -72,7 +72,7 @@ Diese Option öffnet eine Webseite in einem modalen WebView innerhalb Ihrer App.
 | Anforderung | Details |
 |---|---|
 | AASA-Datei | Nicht erforderlich |
-| `Info.plist` | Registrierung Sie Ihr Schema unter `CFBundleURLTypes` und fügen Sie es zu `LSApplicationQueriesSchemes` hinzu |
+| `Info.plist` | Registrieren Sie Ihr Schema unter `CFBundleURLTypes` und fügen Sie es zu `LSApplicationQueriesSchemes` hinzu |
 | App-Delegate-Methode | Implementieren Sie `application(_:open:options:)`, um die URL zu analysieren und zu navigieren |
 | Braze SDK-Konfiguration | Keine – das SDK öffnet URLs mit benutzerdefiniertem Schema standardmäßig |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Benutzerdefinierte Deeplinks mit eigenem Schema" }

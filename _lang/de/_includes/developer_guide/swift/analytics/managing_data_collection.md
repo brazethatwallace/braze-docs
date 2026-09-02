@@ -209,7 +209,7 @@ Dieses Objective-C-Beispiel zeigt die Completion-basierte `logout`-Behandlung. V
 
 #### Tracking und Push nach `logout` wieder aktivieren {#re-enable-tracking-and-push-after-logout}
 
-Setzen Sie nach einem erfolgreichen `logout` [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) wieder auf `true` und Registrierung Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen.
+Setzen Sie nach einem erfolgreichen `logout` [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled/) wieder auf `true` und Registrieren Sie sich dann erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen.
 
 #### Sofortige Abmeldeaufrufe vermeiden {#avoid-immediate-unregister-calls}
 
@@ -267,9 +267,9 @@ Dieses Objective-C-Beispiel zeigt die Completion-basierte `unregisterPush`-Behan
 {% endsubtab %}
 {% endsubtabs local %}
 
-#### Push nach `unregisterPush` erneut Registrierung {#re-register-push-after-unregisterpush}
+#### Push nach `unregisterPush` erneut registrieren {#re-register-push-after-unregisterpush}
 
-Registrierung Sie sich nach dem Aufruf von `unregisterPush` erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen, bevor Sie erneut Braze-Push-Benachrichtigungen senden.
+Registrieren Sie sich nach dem Aufruf von `unregisterPush` erneut für Benachrichtigungen bei Ihrem Betriebssystem oder Push-Anbieter, indem Sie der [Swift-Push-Einrichtung]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) folgen, bevor Sie erneut Braze-Push-Benachrichtigungen senden.
 
 #### Sofortige Abmeldeaufrufe vermeiden
 

@@ -18,11 +18,11 @@ Das Braze iOS SDK unterstützt die standardmäßigen Push-Kategorien, einschlie�
 
 ![Ein GIF, das eine Push-Nachricht zeigt, die nach unten gezogen wird, um zwei anpassbare Aktions-Buttons anzuzeigen.]({% image_buster /assets/img_archive/iOS8Action.gif %})
 
-Um unsere Standard-Push-Kategorien zu Registrierung, folgen Sie den Anweisungen zur Integration:
+Um unsere Standard-Push-Kategorien zu registrieren, folgen Sie den Anweisungen zur Integration:
 
 ## Schritt 1: Standard-Push-Kategorien von Braze hinzufügen {#step-1-adding-braze-default-push-categories}
 
-Verwenden Sie den folgenden Code, um sich für unsere Standard-Push-Kategorien zu Registrierung, wenn Sie sich [für Push Registrierung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
+Verwenden Sie den folgenden Code, um sich für unsere Standard-Push-Kategorien zu registrieren, wenn Sie sich [für Push registrieren]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

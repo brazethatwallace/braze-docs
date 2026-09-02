@@ -43,7 +43,7 @@ configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initEnab
 {% endsubtabs %}
 
 Dies weist das SDK an:
-- Ihre Anwendung für Push-Benachrichtigungen im System zu Registrierung.
+- Ihre Anwendung für Push-Benachrichtigungen im System zu registrieren.
 - Bei der Initialisierung die Autorisierung/Berechtigung für Push-Benachrichtigungen anzufordern.
 - Dynamisch Implementierungen für die systembezogenen Delegate-Methoden für Push-Benachrichtigungen bereitzustellen.
 
@@ -89,9 +89,9 @@ Unter [`Braze.Configuration.Push.Automation`](https://braze-inc.github.io/braze-
 Wenn Sie auf Push-Benachrichtigungen für zusätzliches, app-spezifisches Verhalten angewiesen sind, können Sie möglicherweise trotzdem die automatische Push-Integration anstelle der manuellen Push-Benachrichtigungs-Integration verwenden. Die Methode [`subscribeToUpdates(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/notifications-swift.class/subscribetoupdates(_:)) bietet die Möglichkeit, über von Braze verarbeitete Remote-Benachrichtigungen benachrichtigt zu werden.
 {% endalert %}
 
-#### Schritt 3.1: Für Push-Benachrichtigungen bei APNs Registrierung {#step-31-register-for-push-notifications-with-apns}
+#### Schritt 3.1: Für Push-Benachrichtigungen bei APNs registrieren {#step-31-register-for-push-notifications-with-apns}
 
-Fügen Sie das entsprechende Codebeispiel in die [`application:didFinishLaunchingWithOptions:`-Delegate-Methode](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) Ihrer App ein, damit sich die Geräte Ihrer Nutzer:innen bei APNs Registrierung können. Stellen Sie sicher, dass Sie den gesamten Push-Integrationscode im Main-Thread Ihrer Anwendung aufrufen.
+Fügen Sie das entsprechende Codebeispiel in die [`application:didFinishLaunchingWithOptions:`-Delegate-Methode](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) Ihrer App ein, damit sich die Geräte Ihrer Nutzer:innen bei APNs registrieren können. Stellen Sie sicher, dass Sie den gesamten Push-Integrationscode im Main-Thread Ihrer Anwendung aufrufen.
 
 Braze bietet auch standardmäßige Push-Kategorien zur Unterstützung von Push-Action-Buttons, die manuell zu Ihrem Push-Registrierungscode hinzugefügt werden müssen. Weitere Integrationsschritte finden Sie unter [Push-Action-Buttons]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_customizing-push-categories).
 
@@ -146,7 +146,7 @@ Sie müssen Ihr Delegate-Objekt mit `center.delegate = self` synchron zuweisen, 
 Wenn Ihre App `wipeData()` aufruft und später das Braze SDK im selben App-Lauf erneut aktiviert, müssen Sie `registerForRemoteNotifications()` erneut aufrufen, um das vom SDK verwendete Geräte-Token / Textbaustein wiederherzustellen.
 {% endalert %}
 
-#### Schritt 3.2: Push-Token / Textbaustein bei Braze Registrierung {#step-32-register-push-tokens-with-braze}
+#### Schritt 3.2: Push-Token / Textbaustein bei Braze registrieren {#step-32-register-push-tokens-with-braze}
 
 Sobald die APNs-Registrierung abgeschlossen ist, übergeben Sie das resultierende `deviceToken` an Braze, um Push-Benachrichtigungen für die Nutzer:innen zu aktivieren.
 

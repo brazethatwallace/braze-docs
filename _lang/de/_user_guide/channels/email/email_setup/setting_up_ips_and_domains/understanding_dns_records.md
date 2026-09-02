@@ -40,7 +40,7 @@ Damit eine E-Mail DMARC besteht, muss die Domain im für Nutzer:innen sichtbaren
 
 Braze übernimmt die grundlegende SPF- und DKIM-Authentifizierung standardmäßig, aber Sie müssen dennoch einen DMARC-Eintrag zu Ihrer Versand-Domain hinzufügen. DMARC ist ein unverzichtbares Authentifizierungswerkzeug, das von nahezu allen großen Posteingangsanbietern verlangt wird. Es beweist, dass Ihre E-Mails legitim sind, baut die Reputation Ihrer Domain auf und hält Ihre Zustellbarkeit langfristig gesund.
 
-Da dies Zugriff auf die Domain-Registrierung Ihres Unternehmens erfordert, müssen Sie oder Ihre Netzwerkadministrator:innen diesen Eintrag auf Root-Domain-Ebene hinzufügen. Wenn Sie gerade erst anfangen, erfüllt eine einfache Richtlinie wie `p=none` die Mindestanforderungen der Posteingangsanbieter. Weitere Informationen zu DMARC finden Sie unter [DMARC.org](https://dmarc.org/). Braze-spezifische DMARC-Anleitungen finden Sie unter [E-Mail-Authentifizierung]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication#dmarc).
+Da dies Zugriff auf die Domain-registrieren Ihres Unternehmens erfordert, müssen Sie oder Ihre Netzwerkadministrator:innen diesen Eintrag auf Root-Domain-Ebene hinzufügen. Wenn Sie gerade erst anfangen, erfüllt eine einfache Richtlinie wie `p=none` die Mindestanforderungen der Posteingangsanbieter. Weitere Informationen zu DMARC finden Sie unter [DMARC.org](https://dmarc.org/). Braze-spezifische DMARC-Anleitungen finden Sie unter [E-Mail-Authentifizierung]({{site.baseurl}}/user_guide/channels/email/email_setup/authentication#dmarc).
 
 ## E-Mail-Anbieter-spezifische DNS-Architektur {#esp-specific-dns-architecture}
 

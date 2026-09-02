@@ -494,7 +494,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 {% endtab %}
 {% tab React Native %}
 
-Wenn Sie die [New Architecture von React Native](https://reactnative.dev/architecture/landing-page) verwenden, müssen Sie `BrazeBannerView` als Fabric-Komponente in Ihrer `AppDelegate.mm` Registrierung.
+Wenn Sie die [New Architecture von React Native](https://reactnative.dev/architecture/landing-page) verwenden, müssen Sie `BrazeBannerView` als Fabric-Komponente in Ihrer `AppDelegate.mm` registrieren.
 
 ```swift
 #ifdef RCT_NEW_ARCH_ENABLED

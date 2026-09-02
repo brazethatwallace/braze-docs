@@ -110,4 +110,4 @@ Weitere Informationen zu den unterstützten Initialisierungsoptionen finden Sie 
 
 ## Push {#push}
 
-Popup-Dialoge von Erweiterungen erlauben keine Push-Eingabeaufforderungen (sie haben keine URL-Leiste in der Navigation). Um sich innerhalb des Popup-Dialogs einer Erweiterung zu Registrierung und Push-Berechtigungen anzufordern, müssen Sie eine alternative Domain-Lösung verwenden, wie unter [Alternative Push-Domain]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/push_notifications/alternate_push_domain) beschrieben.
+Popup-Dialoge von Erweiterungen erlauben keine Push-Eingabeaufforderungen (sie haben keine URL-Leiste in der Navigation). Um sich innerhalb des Popup-Dialogs einer Erweiterung zu registrieren und Push-Berechtigungen anzufordern, müssen Sie eine alternative Domain-Lösung verwenden, wie unter [Alternative Push-Domain]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/push_notifications/alternate_push_domain) beschrieben.

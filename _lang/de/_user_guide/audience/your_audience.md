@@ -81,7 +81,7 @@ Nutzer:innen werden in Braze angelegt, sobald jemand über eine unterstützte In
 
 {% tab Internet %}
 - Nutzer:innen werden erstellt, wenn das Web SDK initialisiert wird.
-- Web-Push-Abos Registrierung einen Browser als Messaging-Kanal.
+- Web-Push-Abos registrieren einen Browser als Messaging-Kanal.
 {% endtab %}
 
 {% tab E-Mail und SMS %}

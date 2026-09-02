@@ -59,7 +59,7 @@ Für [Vollbild]({{site.baseurl}}/user_guide/channels/in_app_messages/message_typ
 | Nutzer:innen sehen eine In-App-Nachricht, klicken nichts und schließen die App | 1 Impression | 1 Impression |
 | Nutzer:innen sehen eine In-App-Nachricht und klicken den Schließen-Button | 1 Impression | 1 Impression |
 | Nutzer:innen sehen eine In-App-Nachricht und klicken einen CTA-Button | 1 Button-Klick und 1 Impression | N/A |
-| Nutzer:innen sehen eine In-App-Nachricht und tippen auf den Bildschirm, aber nicht auf einen Button | 1 Impression<br><br>Das Tippen auf die In-App-Nachricht schließt die Nachricht nicht | 1 Body-Klick und 1 Impression<br><br>Das Tippen auf die In-App-Nachricht schließt die Nachricht oder löst das On-Klick, der-Verhalten aus |
+| Nutzer:innen sehen eine In-App-Nachricht und tippen auf den Bildschirm, aber nicht auf einen Button | 1 Impression<br><br>Das Tippen auf die In-App-Nachricht schließt die Nachricht nicht | 1 Body-Klick und 1 Impression<br><br>Das Tippen auf die In-App-Nachricht schließt die Nachricht oder löst das On-Click-Verhalten aus |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Vollbild-In-App-Nachricht-Metriken nach Nutzerverhalten" }
 
 {% alert note %}

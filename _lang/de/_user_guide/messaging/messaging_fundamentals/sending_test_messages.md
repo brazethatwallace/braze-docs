@@ -398,7 +398,7 @@ Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalte
 
 Wenn Ihre In-App-Nachrichten-Campaign nicht durch eine Push-Campaign getriggert wird, überprüfen Sie die Segmentierung der In-App-Campaign, um sicherzustellen, dass die Nutzer:innen die Zielgruppe erfüllen, **bevor** sie die Push-Nachricht erhalten.
 
-Bei Testsendungen auf Android und iOS werden In-App-Nachrichten, die das On-Klick, der-Verhalten **Push-Berechtigung anfordern** verwenden, möglicherweise auf einigen Geräten nicht angezeigt. Als Workaround:
+Bei Testsendungen auf Android und iOS werden In-App-Nachrichten, die das On-Click-Verhalten **Push-Berechtigung anfordern** verwenden, möglicherweise auf einigen Geräten nicht angezeigt. Als Workaround:
 - **Android:** Geräte müssen Android 13 und unser Android SDK Version 21.0.0 verwenden. Ein weiterer Grund kann sein, dass das Gerät, auf dem die In-App-Nachricht angezeigt wird, bereits eine Aufforderung auf Systemebene hat. Möglicherweise haben Sie **Nicht erneut fragen** ausgewählt, sodass Sie die App möglicherweise neu installieren müssen, um die Benachrichtigungsberechtigungen vor einem erneuten Test zurückzusetzen.
 - **iOS:** Wir empfehlen Ihrem Entwicklerteam, die Implementierung von Push-Benachrichtigungen für Ihre App zu überprüfen und jeglichen Code, der Push-Berechtigungen anfordern würde, manuell zu entfernen. Weitere Informationen finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices).
 

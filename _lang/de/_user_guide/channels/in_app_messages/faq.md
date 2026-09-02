@@ -215,11 +215,11 @@ Der [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/
 
 Beachten Sie Folgendes:
 
-- **Links und Deeplinks:** Jede On-Klick, der-Aktion verfügt standardmäßig über ein URL-Feld. Verwenden Sie Liquid in der URL, um Links je nach Gerät, App-Typ oder Nutzer:innenattributen zu variieren. Im **Nachrichten-Container** können Sie auch plattformspezifisches On-Klick, der-Verhalten aktivieren, um unterschiedliche Links pro Plattform festzulegen.
+- **Links und Deeplinks:** Jede On-Click-Aktion verfügt standardmäßig über ein URL-Feld. Verwenden Sie Liquid in der URL, um Links je nach Gerät, App-Typ oder Nutzer:innenattributen zu variieren. Im **Nachrichten-Container** können Sie auch plattformspezifisches On-Click-Verhalten aktivieren, um unterschiedliche Links pro Plattform festzulegen.
 - **Deckkraft und Hintergründe:** Die Deckkraft des Nachrichten-Containers wirkt sich auf den gesamten Nachrichtenhintergrund aus. Einzelne Blöcke können eigene Hintergrundfarben festlegen. Für eine feinere Steuerung fügen Sie angepasstes CSS in einem Custom-Code-Block hinzu.
 - **Nachrichtenbreite:** Die maximale Breite des **Nachrichten-Containers** kann im Editor nicht unter 325 px eingestellt werden, damit Inhalte auf kleineren Bildschirmen lesbar bleiben. Verwenden Sie angepasstes CSS, wenn Sie ein schmaleres Layout benötigen.
 - **Plattformspezifische Hintergründe:** Eine einzelne Nachricht verwendet auf Web und Mobilgeräten dasselbe Hintergrundbild und dieselben Farben. Unterschiedliche Hintergründe pro Plattform können im Editor nicht festgelegt werden.
-- **Mehrseitige Nachrichten:** Hintergrundbilder und On-Klick, der-Aktionen auf Nachrichtenebene gelten für alle Seiten einer mehrseitigen Nachricht. Um auf jeder Seite unterschiedliche Vollbilder zu verwenden, fügen Sie Buttons hinzu, die auf die nächste Seite verlinken.
+- **Mehrseitige Nachrichten:** Hintergrundbilder und On-Click-Aktionen auf Nachrichtenebene gelten für alle Seiten einer mehrseitigen Nachricht. Um auf jeder Seite unterschiedliche Vollbilder zu verwenden, fügen Sie Buttons hinzu, die auf die nächste Seite verlinken.
 - **Stile auf Nachrichtenebene:** Stile auf Nachrichtenebene gelten für die gesamte Nachricht.
 - **Hintergrundbilder:** Hintergrundbilder werden gestreckt, um das Modal auszufüllen.
 

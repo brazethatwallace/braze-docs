@@ -31,9 +31,9 @@ Diese Integration wird derzeit nur auf iOS unterstützt.
 
 ## Integration {#apteligent-ios-integration}
 
-### 1. Schritt: Einen Observer Registrierung {#step-1-register-an-observer}
+### 1. Schritt: Einen Observer registrieren {#step-1-register-an-observer}
 
-Zunächst müssen Sie einen Observer Registrierung. Stellen Sie sicher, dass dies geschieht, bevor Sie Apteligent initialisieren.
+Zunächst müssen Sie einen Observer registrieren. Stellen Sie sicher, dass dies geschieht, bevor Sie Apteligent initialisieren.
 
 ```objc
 [[NSNotificationCenter defaultCenter] addObserver:self

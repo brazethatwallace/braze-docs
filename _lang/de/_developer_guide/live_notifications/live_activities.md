@@ -73,7 +73,7 @@ sequenceDiagram
 - Stellen Sie sicher, dass Ihr Projekt auf iOS 16.1 oder höher abzielt.
 - Fügen Sie die Berechtigung `Push Notification` unter **Signing & Capabilities** in Ihrem Xcode-Projekt hinzu.
 - Stellen Sie sicher, dass `.p8`-Schlüssel zum Senden von Benachrichtigungen verwendet werden. Ältere Dateien wie `.p12` oder `.pem` werden nicht unterstützt.
-- Ab Version 8.2.0 des Braze Swift SDK können Sie [eine Live Activity remote Registrierung](#swift_step-2-start-the-activity). Um dieses Feature zu nutzen, ist iOS 17.2 oder höher erforderlich.
+- Ab Version 8.2.0 des Braze Swift SDK können Sie [eine Live Activity remote registrieren](#swift_step-2-start-the-activity). Um dieses Feature zu nutzen, ist iOS 17.2 oder höher erforderlich.
 
 {% alert note %}
 Obwohl Live Activities und Push-Benachrichtigungen ähnlich sind, sind ihre Systemberechtigungen separat. Standardmäßig sind alle Live-Activity-Features aktiviert, aber Nutzer:innen können dieses Feature pro App deaktivieren.
@@ -120,7 +120,7 @@ struct SportsActivityAttributes: ActivityAttributes {
 
 ### Schritt 2: Die Aktivität starten {#start-the-activity}
 
-Wählen Sie zunächst, wie Sie Ihre Aktivität Registrierung möchten:
+Wählen Sie zunächst, wie Sie Ihre Aktivität registrieren möchten:
 
 - **Remote:** Verwenden Sie die Methode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) früh im Lifecycle Ihrer Nutzer:innen und bevor das Push-to-Start-Token / Textbaustein benötigt wird, und starten Sie dann eine Aktivität über den Endpunkt [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
 - **Lokal:** Erstellen Sie eine Instanz Ihrer Live Activity und verwenden Sie dann die Methode [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>), um Push-Token / Textbaustein zu erstellen, die Braze für Sie verwaltet.
@@ -128,7 +128,7 @@ Wählen Sie zunächst, wie Sie Ihre Aktivität Registrierung möchten:
 {% tabs local %}
 {% tab remote %}
 {% alert important %}
-Um eine Live Activity remote zu Registrierung, ist iOS 17.2 oder höher erforderlich.
+Um eine Live Activity remote zu registrieren, ist iOS 17.2 oder höher erforderlich.
 {% endalert %}
 
 #### Schritt 2.1: BrazeKit zur Widget-Erweiterung hinzufügen {#step-21-add-brazekit-to-your-widget-extension}
@@ -168,9 +168,9 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 }
 ```
 
-#### Schritt 2.3: Für Push-to-Start Registrierung {#step-23-register-for-push-to-start}
+#### Schritt 2.3: Für Push-to-Start registrieren {#step-23-register-for-push-to-start}
 
-Registrierung Sie als Nächstes den Live-Activity-Typ, damit Braze alle Push-to-Start-Token / Textbaustein und Live-Activity-Instanzen nachverfolgen kann, die mit diesem Typ verknüpft sind.
+Registrieren Sie als Nächstes den Live-Activity-Typ, damit Braze alle Push-to-Start-Token / Textbaustein und Live-Activity-Instanzen nachverfolgen kann, die mit diesem Typ verknüpft sind.
 
 {% alert warning %}
 Das iOS-Betriebssystem generiert Push-to-Start-Token / Textbaustein nur bei der ersten App-Installation nach einem Geräteneustart. Um sicherzustellen, dass Ihre Token / Textbaustein zuverlässig registriert werden, rufen Sie `registerPushToStart` in Ihrer `didFinishLaunchingWithOptions`-Methode auf.
@@ -213,7 +213,7 @@ Sie können [Apples ActivityKit-Framework](https://developer.apple.com/documenta
 1. Erstellen Sie eine Instanz Ihrer Live-Activity-Implementierung mithilfe der ActivityKit-APIs von Apple.
 2. Setzen Sie den Parameter `pushType` auf `.token`.
 3. Übergeben Sie die von Ihnen definierten `ActivitiesAttributes` und `ContentState` der Live Activities.
-4. Registrierung Sie Ihre Aktivität bei Ihrer Braze-Instanz, indem Sie sie an [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class) übergeben. Der Parameter `pushTokenTag` ist ein benutzerdefinierter String, den Sie festlegen. Er sollte für jede erstellte Live Activity eindeutig sein.
+4. Registrieren Sie Ihre Aktivität bei Ihrer Braze-Instanz, indem Sie sie an [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class) übergeben. Der Parameter `pushTokenTag` ist ein benutzerdefinierter String, den Sie festlegen. Er sollte für jede erstellte Live Activity eindeutig sein.
 
 Nachdem Sie die Live Activity registriert haben, extrahiert das Braze SDK die Push-Token / Textbaustein und überwacht deren Änderungen.
 
@@ -384,7 +384,7 @@ Verwenden Sie stattdessen die in diesem Abschnitt beschriebenen Abos.
 
 Das Braze SDK bietet zwei Abo-Methoden auf `braze.liveActivities`, um den gesamten Lebenszyklus von Live-Aktivitäten zu beobachten. Eine vollständige Schritt-für-Schritt-Anleitung finden Sie im [Live Activities Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
 
-- [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Liefert Lebenszyklus-Ereignisse sowohl für die Push-to-Start-Token / Textbaustein-Registrierung als auch für laufende Aktivitätsinstanzen.
+- [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Liefert Lebenszyklus-Ereignisse sowohl für die Push-to-Start-Token / Textbaustein-Registrieren als auch für laufende Aktivitätsinstanzen.
 - [`subscribeToErrors(_:)`](#subscribe-to-errors): Liefert SDK- und serverseitige Fehler, die beim Tracking von Live-Aktivitäten auftreten.
 
 {% alert note %}

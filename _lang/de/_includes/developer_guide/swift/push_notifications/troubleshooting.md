@@ -3,7 +3,7 @@
 Der Apple Push Notification service (APNs) ist die Infrastruktur zum Senden von Push-Benachrichtigungen an Anwendungen, die auf Apple-Plattformen laufen. Hier ist die vereinfachte Struktur, wie Push-Benachrichtigungen für die Geräte Ihrer Nutzer:innen aktiviert werden und wie Braze Push-Benachrichtigungen an sie senden kann:
 
 1. Sie konfigurieren das Push-Zertifikat und das Provisioning-Profil
-2. Geräte Registrierung sich bei APNs und stellen Braze Push-Token / Textbaustein bereit
+2. Geräte registrieren sich bei APNs und stellen Braze Push-Token / Textbaustein bereit
 3. Sie starten eine Braze-Push-Campaign
 4. Braze entfernt ungültige Token / Textbaustein
 
@@ -17,7 +17,7 @@ Es gibt zwei Arten von [Provisioning-Profilen](https://developer.apple.com/libra
 Ändern Sie nicht die Umgebung des Push-Zertifikats (Entwicklung versus Produktion). Ein Wechsel des Push-Zertifikats auf die falsche Umgebung kann dazu führen, dass die Push-Token / Textbaustein Ihrer Nutzer:innen versehentlich entfernt werden, sodass sie per Push nicht mehr erreichbar sind.
 {% endalert %}
 
-### Schritt 2: Geräte Registrierung sich bei APNs und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
+### Schritt 2: Geräte registrieren sich bei APNs und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
 Wenn Nutzer:innen Ihre App öffnen, werden sie aufgefordert, Push-Benachrichtigungen zu akzeptieren. Wenn sie diese Aufforderung annehmen, generiert APNs ein Push-Token / Textbaustein für das jeweilige Gerät. Das Swift SDK sendet das Push-Token / Textbaustein sofort und asynchron für Apps, die die standardmäßige [automatische Flush-Richtlinie]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control#automatic-request-processing) verwenden. Sobald wir ein Push-Token / Textbaustein mit einer/einem Nutzer:in verknüpft haben, wird diese:r im Dashboard auf dem Kundenprofil unter dem Tab **Engagement** als „Push Registered“ angezeigt und ist berechtigt, Push-Benachrichtigungen von Braze-Campaigns zu erhalten.
 

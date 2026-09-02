@@ -11,7 +11,7 @@ hidden: true
 # Erste SDK-Integration {#initial-sdk-integration}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-Das Braze SDK stellt Ihnen eine API zur Verfügung, mit der Sie Informationen für Analytics, Segmentierung und Engagement melden können, sowie die Möglichkeit, Nutzer:innen für Push-Benachrichtigungen zu Registrierung und diese zu empfangen.
+Das Braze SDK stellt Ihnen eine API zur Verfügung, mit der Sie Informationen für Analytics, Segmentierung und Engagement melden können, sowie die Möglichkeit, Nutzer:innen für Push-Benachrichtigungen zu registrieren und diese zu empfangen.
 
 >  Das Windows Universal SDK ist auch mit .NET MAUI Windows Apps kompatibel.
 

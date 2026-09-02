@@ -61,7 +61,7 @@ Braze-Geofences sind aktiviert, wenn die Braze-Standorterfassung aktiviert ist. 
 
 ### Schritt 5: Standortberechtigungen von Nutzer:innen einholen {#step-5-obtain-location-permissions-from-the-end-user}
 
-Bei Android M und höheren Versionen müssen Sie Nutzer:innen um Standortberechtigungen bitten, bevor Sie Standortinformationen erfassen oder Geofences Registrierung können.
+Bei Android M und höheren Versionen müssen Sie Nutzer:innen um Standortberechtigungen bitten, bevor Sie Standortinformationen erfassen oder Geofences registrieren können.
 
 Fügen Sie den folgenden Aufruf hinzu, um Braze zu benachrichtigen, wenn Nutzer:innen Ihrer App die Standortberechtigung erteilen:
 

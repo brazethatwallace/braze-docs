@@ -493,7 +493,7 @@ Braze.setSdkAuthenticationSignature("NEW-JWT-FROM-SERVER");
 {% endtab %}
 {% endtabs %}
 
-#### Schritt 2.3: Callback-Funktion für ungültige Token / Textbaustein Registrierung {#sdk-callback}
+#### Schritt 2.3: Callback-Funktion für ungültige Token manuell registrieren {#sdk-callback}
 
 Wenn dieses Feature auf [Erforderlich](#enforcement-options) gesetzt ist, führen die folgenden Szenarien dazu, dass SDK-Anfragen von Braze abgelehnt werden:
 - Das JWT war zum Zeitpunkt des Eingangs bei der Braze-API abgelaufen

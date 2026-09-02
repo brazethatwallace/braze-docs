@@ -58,7 +58,7 @@ lines-index.js=8-23
 
 ### 2. Banner-Updates abonnieren {#2-subscribe-to-banner-updates}
 
-Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu Registrierung, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird. Rufen Sie innerhalb des Handlers `braze.getBanner("global_banner")` auf, um die neueste Platzierung abzurufen.
+Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird. Rufen Sie innerhalb des Handlers `braze.getBanner("global_banner")` auf, um die neueste Platzierung abzurufen.
 
 !!step
 lines-index.js=15-22

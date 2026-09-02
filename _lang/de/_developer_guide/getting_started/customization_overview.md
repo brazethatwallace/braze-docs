@@ -85,7 +85,7 @@ Der Walk-Ansatz ist ein hybrider Implementierungsansatz, bei dem sowohl Marketin
 
 Während der Implementierung schreiben Entwickler:innen angepassten Code, um das Erscheinungsbild eines Messaging-Kanals besser an Ihre Marke anzupassen. Dazu gehört das Ändern von Schriftart, Schriftgröße, abgerundeten Ecken und Farben. Bei diesem Ansatz werden weiterhin die Standardoptionen verwendet, nur mit programmatischem Template-Styling ergänzt.
 
-Marketer behalten weiterhin die Kontrolle über die Zielgruppe, den Inhalt, das On-Klick, der-Verhalten und die Ablaufzeit direkt im Braze-Dashboard.
+Marketer behalten weiterhin die Kontrolle über die Zielgruppe, den Inhalt, das On-Click-Verhalten und die Ablaufzeit direkt im Braze-Dashboard.
 
 <table aria-label="Anpassungsübersicht">
   <caption>Anpassungsübersicht</caption>

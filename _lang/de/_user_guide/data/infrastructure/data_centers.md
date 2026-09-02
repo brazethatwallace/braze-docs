@@ -3,7 +3,7 @@ nav_title: Datenzentren
 article_title: Datenzentren
 page_order: 1
 page_type: reference
-description: "Dieser Referenzartikel enthält Informationen über Datenzentren, einschließlich ihrer Standorte und wie Sie sich für regionsspezifische Datenzentren Registrierung können."
+description: "Dieser Referenzartikel enthält Informationen über Datenzentren, einschließlich ihrer Standorte und wie Sie sich für regionsspezifische Datenzentren registrieren können."
 ---
 
 # Datenzentren {#data-centers}

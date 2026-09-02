@@ -823,7 +823,7 @@ Electron unterstützt Web-Push-Benachrichtigungen nicht offiziell (siehe: dieses
 
 - **Erforderlich**: Der Braze-Service-Worker muss eingebunden werden, damit Push-Benachrichtigungen funktionieren.
 - **Standardregistrierung**: Standardmäßig registriert und verwaltet das Braze Web SDK Ihren Service Worker automatisch, wenn `requestPushPermission()` aufgerufen wird, sowie zu Beginn jeder neuen Sitzung für Nutzer:innen, die bereits die Push-Berechtigung erteilt haben. Sie müssen weiterhin eine Service-Worker-Datei am erwarteten Speicherort hosten, die den Braze-Service-Worker-Code enthält.
-- **Eigenen Service Worker verwalten**: Wenn Sie bereits einen Service Worker in Ihrer Anwendung verwalten, setzen Sie die Initialisierungsoption `manageServiceWorkerExternally` auf `true`, fügen Sie den Braze-Service-Worker-Code in Ihre Service-Worker-Datei ein und Registrierung Sie ihn selbst mit `navigator.serviceWorker.register()`.
+- **Eigenen Service Worker verwalten**: Wenn Sie bereits einen Service Worker in Ihrer Anwendung verwalten, setzen Sie die Initialisierungsoption `manageServiceWorkerExternally` auf `true`, fügen Sie den Braze-Service-Worker-Code in Ihre Service-Worker-Datei ein und registrieren Sie ihn selbst mit `navigator.serviceWorker.register()`.
 - **Push-Berechtigungen**: Rufen Sie `braze.requestPushPermission()` als Reaktion auf Nutzer:innen-Interaktionen auf (z. B. Button-Klicks). Verwenden Sie Soft-Push-Prompts (angepasste UI), bevor Sie die Browserberechtigung anfordern.
 
 ### Tag-Manager:in {#tag-managers}
