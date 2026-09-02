@@ -13,7 +13,7 @@ description: "Dieser Artikel enthält Versionshinweise für Februar 2019."
 
 Wenn Sie z. B. mehrere Kategorien von E-Mail-Campaigns versenden, können Sie Ihren Kund:innen die Möglichkeit bieten, diese Gruppen von einer einzigen Seite aus zu abonnieren oder sich abzumelden, indem Sie unser [E-Mail-Präferenzzentrum](#email-preference-center) verwenden.
 
-Verwenden Sie die [Abo-Gruppen-REST-APIs]({{site.baseurl}}/api/endpoints/subscription_groups), um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Abo-Gruppe** gespeichert haben, programmatisch zu verwalten.
+Verwenden Sie die [Abo-Gruppen-Representational State Transfer-APIs]({{site.baseurl}}/api/endpoints/subscription_groups), um die Abo-Gruppen, die Sie im Braze-Dashboard auf der Seite **Abo-Gruppe** gespeichert haben, programmatisch zu verwalten.
 
 ## E-Mail-Präferenzzentrum {#email-preference-center}
 

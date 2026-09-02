@@ -1,5 +1,5 @@
 {% alert important %}
-A Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), uma forma mais flexível de gerenciar o acesso do usuário. Consulte [Migrando para permissões granulares]({{site.baseurl}}/granular_permissions_migration) para saber mais sobre o processo de migração, e a guia [API SCIM granular]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) para visualizar os objetos e o apêndice da API SCIM granular.
+A Braze está introduzindo [permissões granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), uma forma mais flexível de gerenciar o acesso do usuário. Consulte [Migrando para permissões granulares]({{site.baseurl}}/granular_permissions_migration) para saber mais sobre o processo de migração, e a guia [API or interface de programação do aplicativo (API) SCIM granular]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) para visualizar os objetos e o apêndice da API or interface de programação do aplicativo (API) SCIM granular.
 {% endalert %}
 
 ## Objeto de permissões {#permissions-object}
@@ -76,7 +76,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão da empresa {#company}
 
-| Conforme exibido na interface do usuário | String da API SCIM |
+| Conforme exibido na interface do usuário | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Administrator | `admin` |
 | Can Manage Company Settings | `manage_company_settings` |
@@ -85,7 +85,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão do espaço de trabalho {#workspace-strings}
 
-| Nome da permissão | String da API SCIM |
+| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
@@ -94,8 +94,8 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View IPI | `view_pii` |
+| View User Profiles IPI Compliant | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -116,7 +116,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão da equipe {#team}
 
-| Nome da permissão | String da API SCIM |
+| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
@@ -132,7 +132,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings do departamento {#department-strings}
 
-| Conforme exibido na interface do usuário | String da API SCIM |
+| Conforme exibido na interface do usuário | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Agency / Third Party | `agency` |
 | BI / Analytics | `bi` |

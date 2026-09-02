@@ -14,7 +14,7 @@ description: "Este artículo de referencia proporciona los pasos para crear una 
 
 | Requisito | Descripción |
 | --- | --- |
-| Autenticación de dos factores o SSO | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) para tu cuenta. |
+| Autenticación de dos factores o inicio de sesión único | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (inicio de sesión único) para tu cuenta. |
 | Permisos correctos | Debes ser administrador de la cuenta o del espacio de trabajo, o tener permisos de usuario para "Gestionar transformaciones". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

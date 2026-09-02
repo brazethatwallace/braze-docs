@@ -9,7 +9,7 @@ Les fenêtres de navigation privée ne prennent pas en charge les notifications 
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-L'ajout d'une adresse CCI à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI.
+L'ajout d'une adresse CCI or carte de contenu de type bannière à votre Campaign ou Canvas entraîne le doublement de vos e-mails facturables pour la Campaign ou le composant Canvas, car Braze envoie un message à votre utilisateur et un autre à votre adresse CCI or carte de contenu de type bannière.
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Les propriétés d'entrée Canvas font partie des variables de contexte Canvas. 
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si vous avez activé [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Pour obtenir de l'aide pour démarrer, contactez votre CSM.
+Ce partenaire n'apparaît sur votre page **Partenaires technologiques** que si vous avez activé [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Pour obtenir de l'aide pour démarrer, contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients.
 {% endalert %}
 
 {% endif %}

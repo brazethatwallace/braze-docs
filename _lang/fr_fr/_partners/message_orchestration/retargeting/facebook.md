@@ -30,8 +30,8 @@ Si vous participez au test des comptes Meta Work en version bêta, assurez-vous 
 
 | Condition requise | Description |
 | ----------- | ----------- |
-| [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages, les applications). |
-| [Compte publicitaire Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Un compte publicitaire Facebook actif lié au gestionnaire commercial de votre marque que vous souhaitez utiliser avec les audiences personnalisées de Braze.<br><br>Assurez-vous que l'administrateur de votre Facebook Business Manager vous a accordé les permissions d'administrateur pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze, et que vous avez accepté les conditions générales de votre compte publicitaire. Dans le cas contraire, vous ne pourrez accéder à aucun compte publicitaire Facebook dans Braze. |
+| [Facebook Business gestionnaire](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages, les applications). |
+| [Compte publicitaire Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Un compte publicitaire Facebook actif lié au gestionnaire commercial de votre marque que vous souhaitez utiliser avec les audiences personnalisées de Braze.<br><br>Assurez-vous que l'administrateur de votre Facebook Business gestionnaire vous a accordé les permissions d'administrateur pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze, et que vous avez accepté les conditions générales de votre compte publicitaire. Dans le cas contraire, vous ne pourrez accéder à aucun compte publicitaire Facebook dans Braze. |
 | [Conditions d'utilisation des audiences personnalisées Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Vous devez accepter les conditions d'utilisation des audiences personnalisées de Facebook pour les comptes publicitaires Facebook que vous prévoyez d'utiliser avec Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
@@ -49,7 +49,7 @@ Si vous participez au test des comptes Meta Work en version bêta, assurez-vous 
 
 {: start="4"}
 4. Une fois Braze lié à votre compte Facebook, sélectionnez les comptes publicitaires que vous souhaitez synchroniser au sein de votre espace de travail Braze. <br><br>![Liste des comptes publicitaires disponibles que vous pouvez connecter à Facebook.]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> Une fois la connexion établie, vous êtes redirigé vers la page partenaire, où vous pouvez voir quels comptes sont connectés et déconnecter des comptes existants. <br><br> ![Version mise à jour de la page des partenaires technologiques Facebook montrant les comptes publicitaires connectés avec succès.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
-<br> Votre connexion Facebook s'applique au niveau de l'espace de travail Braze. Si votre administrateur Facebook vous retire de votre Facebook Business Manager ou de l'accès aux comptes Facebook connectés, Braze détecte un jeton invalide. Par conséquent, vos Canvas actifs utilisant les étapes d'audience Facebook affichent des erreurs, et Braze ne peut pas synchroniser les utilisateurs.
+<br> Votre connexion Facebook s'applique au niveau de l'espace de travail Braze. Si votre administrateur Facebook vous retire de votre Facebook Business gestionnaire ou de l'accès aux comptes Facebook connectés, Braze détecte un jeton invalide. Par conséquent, vos Canvas actifs utilisant les étapes d'audience Facebook affichent des erreurs, et Braze ne peut pas synchroniser les utilisateurs.
 
 {% alert important %}
 Pour les clients ayant déjà effectué le processus de révision de l'application Facebook pour [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) et [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard), votre jeton utilisateur système reste valide pour l'étape d'audience Facebook. Vous ne pouvez pas modifier ni révoquer le jeton utilisateur système Facebook via la page partenaire Facebook. Vous pouvez toutefois connecter votre compte Facebook pour remplacer votre jeton utilisateur système Facebook au sein de votre espace de travail Braze.
@@ -76,7 +76,7 @@ Vous ne pouvez sélectionner qu'un seul champ utilisateur par exportation. Si vo
 
 {: start="4"}
 4. Après avoir sélectionné le champ utilisateur, sélectionnez **Export Segment**. Comme pour les exportations CSV, vous recevez un e-mail lorsque le segment a fini d'être exporté vers Facebook.
-5. Consultez l'audience personnalisée dans le [Facebook Ads Manager](https://www.facebook.com/ads/manager/audiences/manage/).
+5. Consultez l'audience personnalisée dans le [Facebook Ads gestionnaire](https://www.facebook.com/ads/manager/audiences/manage/).
 
 {% alert important %}
 Pour des raisons de confidentialité des utilisateurs, Facebook ne vous permet pas de voir :

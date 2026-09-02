@@ -46,7 +46,7 @@ Los nombres de usuario empresariales deben cumplir los siguientes requisitos de 
 
 Antes de que la función de nombres de usuario esté ampliamente disponible, es posible que Meta haya prerreservado un nombre de usuario para tu empresa, generalmente coincidiendo con un nombre de usuario existente de Facebook Page o Instagram. Puedes reclamar este nombre de usuario reservado o elegir uno diferente a través de [WhatsApp Manage](https://business.facebook.com/wa/manage/). Los nombres de usuario reclamados no se activan hasta que Meta haga disponible la función.
 
-Si el nombre de usuario reservado coincide con uno ya asociado a tu Facebook Page o cuenta de Instagram, primero debes vincular tu número de teléfono empresarial a esa Page o cuenta. Puedes hacerlo mientras reclamas el nombre de usuario en WhatsApp Manager o Meta Business Suite, o agregando tu número de teléfono directamente desde la Page o cuenta correspondiente. La vinculación requiere control total de la Page o cuenta, o acceso parcial básico con el permiso `manage_phone`.
+Si el nombre de usuario reservado coincide con uno ya asociado a tu Facebook Page o cuenta de Instagram, primero debes vincular tu número de teléfono empresarial a esa Page o cuenta. Puedes hacerlo mientras reclamas el nombre de usuario en WhatsApp Administrador o Meta Business Suite, o agregando tu número de teléfono directamente desde la Page o cuenta correspondiente. La vinculación requiere control total de la Page o cuenta, o acceso parcial básico con el permiso `manage_phone`.
 
 #### Prioridad de visualización en las ventanas de chat {#display-priority-in-chat-windows}
 
@@ -67,7 +67,7 @@ Para más información, consulta la documentación de Meta sobre [nombres de usu
 - La actividad de la plantilla incluye crear, editar, enviar, apelar o desarchivar una plantilla.
 - Las plantillas archivadas no se pueden enviar y están programadas para eliminación permanente después de 28 días.
 - Puedes desarchivar plantillas dentro del período de 28 días para restaurarlas y cancelar la eliminación programada.
-- Las notificaciones se envían a través del webhook `message_template_status_update`, correo electrónico y un banner único en WhatsApp Manager.
+- Las notificaciones se envían a través del webhook `message_template_status_update`, correo electrónico y un banner único en WhatsApp Administrador.
 
 Para más información, consulta la documentación de Meta sobre [archivado de plantillas](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
 
@@ -88,10 +88,10 @@ Para más información, consulta la documentación de Meta sobre [archivado de p
 ### Octubre de 2025: Cambio en el proceso de aprobación de cuentas empresariales oficiales (OBA) {#october-2025-official-business-account-oba-approval-process-changed}
 *Última actualización: marzo de 2026*
 
-- Anteriormente abierto a todos los clientes a través de WhatsApp Manager
+- Anteriormente abierto a todos los clientes a través de WhatsApp Administrador
 - Ahora restringido a: gobierno/grandes anunciantes de Meta, anunciantes directos, o a través de un BSP como Braze (hasta 5 por semana)
 - Nuevos prerrequisitos: verificación empresarial, verificación en dos pasos, nombre de visualización aprobado, notabilidad
-- Comunícate con tu administrador de éxito de cliente para obtener asistencia
+- Comunícate con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para obtener asistencia
 
 ### Octubre de 2025: Reducciones de tarifas de precios regionales {#october-2025-regional-pricing-rate-cuts}
 *Última actualización: marzo de 2026*
@@ -190,13 +190,13 @@ Si la tasa de lectura de la cuenta es extremadamente baja, se tomarán las sigui
 
 #### Cómo mantenerte actualizado sobre estas advertencias y medidas {#how-to-stay-updated-on-these-warnings-and-enforcements}
 
-De manera similar a las medidas de plataforma existentes, las empresas serán notificadas sobre estas acciones y podrán reconocerlas utilizando la página de Calidad de cuenta en WhatsApp Business Manager. Confirma que tienes los datos de contacto correctos listados en WhatsApp Business Manager para todos los administradores necesarios, ya que los correos electrónicos de notificación de medidas se enviarán según esa información.
+De manera similar a las medidas de plataforma existentes, las empresas serán notificadas sobre estas acciones y podrán reconocerlas utilizando la página de Calidad de cuenta en WhatsApp Business Administrador. Confirma que tienes los datos de contacto correctos listados en WhatsApp Business Administrador para todos los administradores necesarios, ya que los correos electrónicos de notificación de medidas se enviarán según esa información.
 
 Las notificaciones sobre violaciones severas de correo no deseado serán:
 
-- Mostradas en el Centro de notificaciones de WhatsApp Business Manager
-- Mostradas en un banner en WhatsApp Manager
-- Enviadas como correo electrónico a todos los administradores configurados en WhatsApp Business Manager
+- Mostradas en el Centro de notificaciones de WhatsApp Business Administrador
+- Mostradas en un banner en WhatsApp Administrador
+- Enviadas como correo electrónico a todos los administradores configurados en WhatsApp Business Administrador
 
 ### Mayo de 2024: Cloud API entra en funcionamiento en Türkiye {#may-2024-cloud-api-going-live-in-trkiye}
 *Última actualización: mayo de 2024*
@@ -289,4 +289,4 @@ No hay un tiempo fijo para este experimento. Como tal, un consumidor puede segui
 
 ### ¿Qué puedo hacer si mis mensajes de marketing no se entregan debido al experimento de Meta? {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-Recomendamos usar otros canales de Braze, como correo electrónico, SMS, notificaciones push o In-App Messages para enviar un mensaje con contenido similar a tus usuarios previstos.
+Recomendamos usar otros canales de Braze, como correo electrónico, servicio de mensajes cortos, notificaciones push o In-App Messages para enviar un mensaje con contenido similar a tus usuarios previstos.

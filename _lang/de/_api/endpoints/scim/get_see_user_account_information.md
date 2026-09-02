@@ -23,7 +23,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Such
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token / Textbaustein. Verwenden Sie Ihre Dienst-Herkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 {% alert note %}
-Wenn Sie eine `401`-Antwort erhalten, überprüfen Sie, ob Sie ein SCIM-Token verwenden (keinen REST-API-Schlüssel), ob `X-Request-Origin` mit Ihrer Dienst-Herkunft übereinstimmt und ob Ihre IP-Adresse auf der SCIM-Allowlist steht. Weitere Details finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+Wenn Sie eine `401`-Antwort erhalten, überprüfen Sie, ob Sie ein SCIM-Token / Textbaustein verwenden (keinen Representational State Transfer-API-Schlüssel), ob `X-Request-Origin` mit Ihrer Dienst-Herkunft übereinstimmt und ob Ihre IP-Adresse auf der SCIM-Allowlist steht. Weitere Details finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 {% endalert %}
 
 ## Beispielanfrage {#example-request}

@@ -3,7 +3,7 @@ nav_title: 구매 후 피드백
 article_title: 구매 후 피드백
 page_order: 6
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 피드백에 응답하고 사용자와의 관계를 구축할 수 있는 개인화된 경험을 오케스트레이션하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 피드백에 응답하고 사용자와의 관계를 구축할 수 있는 개인화된 경험을 오케스트레이션하는 방법을 설명합니다."
 tool: Canvas
 ---
 
@@ -45,7 +45,7 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 
 ### 2단계: 전환 이벤트 할당 {#step-2-assign-conversion-events}
 
-다음으로 전환 이벤트를 할당해 보겠습니다. **Primary Conversion Event - A**를 **Make a specific purchase**로 업데이트하고 **Proxy War**를 선택합니다.
+다음으로 전환 이벤트를 할당해 보겠습니다. **주요 전환 Event - A**를 **Make a specific purchase**로 업데이트하고 **Proxy War**를 선택합니다.
 
 ![Proxy War 게임 제품 구매의 전환 이벤트 유형에 대한 "전환 이벤트 할당" 섹션.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/select_conversion_event.png %}){: style="max-width:90%;"}
 
@@ -80,7 +80,7 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 
 ### 6단계: Canvas 커스터마이즈 {#step-6-customize-your-canvas}
 
-다음으로 사용자에게 발송할 메시징 채널과 콘텐츠를 커스터마이즈하여 Canvas를 구축합니다. 이메일, 인앱 메시지, 웹훅 채널만 사용하여 피드백을 수집하므로, 템플릿을 살펴보고 메시지 단계에서 SMS 배리언트를 제거합니다.
+다음으로 사용자에게 발송할 메시징 채널과 콘텐츠를 커스터마이즈하여 Canvas를 구축합니다. 이메일, 인앱 메시지, 웹훅 채널만 사용하여 피드백을 수집하므로, 템플릿을 살펴보고 메시지 단계에서 단문 메시지 서비스 배리언트를 제거합니다.
 
 각 메시징 구성요소를 살펴보며 콘텐츠를 업데이트하는 것으로 커스터마이즈를 시작합니다. 참조할 커스텀 속성은 `Experience Feedback`입니다.
 

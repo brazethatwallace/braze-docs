@@ -16,7 +16,7 @@ tool: Campaigns
 
 Antes de entrar en los detalles más específicos de la configuración de campañas, identifiquemos los aspectos clave para entender cómo funcionan las campañas en los diferentes canales de mensajería.
 
-Las campañas son un paso de mensaje único para conectar con tus usuarios a través de canales, o más comúnmente conocidos como canales de mensajería. Estos canales de mensajería incluyen Content Cards, correo electrónico, mensajes dentro de la aplicación, push, SMS y MMS, y webhooks. Al comprender dónde se encuentran tus clientes, puedes aprovechar los canales de mensajería adecuados para comunicarte.
+Las campañas son un paso de mensaje único para conectar con tus usuarios a través de canales, o más comúnmente conocidos como canales de mensajería. Estos canales de mensajería incluyen Content Cards, correo electrónico, mensajes dentro de la aplicación, push, servicio de mensajes cortos y MMS, y webhooks. Al comprender dónde se encuentran tus clientes, puedes aprovechar los canales de mensajería adecuados para comunicarte.
 
 ## Construir el recorrido del cliente {#building-the-customer-journey}
 
@@ -56,7 +56,7 @@ Puedes usar [Segments]({{site.baseurl}}/user_guide/audience/segments) predefinid
 
 *¿Por qué estás creando esta campaña?*
 
-Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a KPI como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de comprender el rendimiento de tu campaña.
+Siempre es importante tener un objetivo definido en mente, y las campañas te ayudan a entender tu rendimiento frente a indicador clave de rendimiento como la interacción en sesiones, las compras y los eventos personalizados. Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de comprender el rendimiento de tu campaña.
 
 ### El "dónde": encuentra a mi audiencia {#the-where-find-my-audience}
 

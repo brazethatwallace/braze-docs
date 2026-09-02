@@ -54,9 +54,9 @@ Você pode combinar Content Cards de forma integrada em um feed existente, permi
 
 O exemplo ao lado mostra um feed com uma lista híbrida de itens preenchidos com dados locais e Content Cards da Braze. Dessa forma, os Content Cards podem se tornar indistinguíveis do conteúdo existente.
 
-### Pares chave-valor disparados por API {#api-triggered-key-value-pairs}
+### Pares chave-valor disparados por API or interface de programação do aplicativo (API) {#api-triggered-key-value-pairs}
 
-[Campaigns disparadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) são uma boa estratégia quando os valores de um cartão dependem de fatores externos para determinar qual conteúdo exibir ao usuário. Por exemplo, para exibir conteúdo complementar, defina pares chave-valor usando Liquid. Observe que `class_type` deve ser conhecido no momento da configuração.
+[Campaigns disparadas por API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) são uma boa estratégia quando os valores de um cartão dependem de fatores externos para determinar qual conteúdo exibir ao usuário. Por exemplo, para exibir conteúdo complementar, defina pares chave-valor usando Liquid. Observe que `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares chave-valor para o caso de uso de Content Cards complementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -90,7 +90,7 @@ Você pode solicitar o número de cartões não lidos a qualquer momento chamand
 braze.getCachedContentCards().getUnviewedCardCount();
 ```
 
-Em seguida, você pode usar essa informação para exibir um emblema indicando quantos Content Cards não lidos existem. Consulte a <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">documentação de referência do SDK</a> para saber mais.
+Em seguida, você pode usar essa informação para exibir um emblema indicando quantos Content Cards não lidos existem. Consulte a <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">documentação de referência do SDK or kit de desenvolvimento de software</a> para saber mais.
 
 {% endtab %}
 {% tab android %}
@@ -114,7 +114,7 @@ Braze.getInstance(context).contentCardUnviewedCount
 {% endsubtab %}
 {% endsubtabs %}
 
-Em seguida, você pode usar essa informação para exibir um emblema indicando quantos Content Cards não lidos existem. Consulte a <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">documentação de referência do SDK</a> para saber mais.
+Em seguida, você pode usar essa informação para exibir um emblema indicando quantos Content Cards não lidos existem. Consulte a <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">documentação de referência do SDK or kit de desenvolvimento de software</a> para saber mais.
 
 
 {% endtab %}

@@ -11,12 +11,12 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 {% api %}
 # Canvas-Datenreihen-Analytics exportieren {#export-canvas-data-series-analytics}
 {% apimethod get %}
-/canvas/data_series
+/Canvas/data_series
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um Zeitreihendaten für ein Canvas zu exportieren.
 
-{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='Canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 

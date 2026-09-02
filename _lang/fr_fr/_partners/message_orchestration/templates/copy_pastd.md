@@ -108,7 +108,7 @@ Le modèle apparaît dans Braze sous **Modèles et médias** > **Modèles d'e-ma
 1. Dans Braze, créez une nouvelle Campaign d'e-mail ou une étape Canvas.
 2. Sélectionnez **Templates** et choisissez le modèle envoyé par Building Blocks.
 
-Le modèle contient chaque référence Building Blocks (feuille de style, Content Blocks) sous forme de Liquid {% raw %}`{{content_blocks.${...}}}`{% endraw %} en direct, de sorte que les mises à jour dans Building Blocks se propagent sans avoir à réimporter le modèle.
+Le modèle contient chaque référence Building Blocks (feuille de style, Content Blocks) sous forme de Liquid {% raw %}`{{content_blocks.${...}}}`{% endraw %} en direct or en ligne/en production/instantané, de sorte que les mises à jour dans Building Blocks se propagent sans avoir à réimporter le modèle.
 
 ### Étape 3 : Mettre à jour le contenu de manière centralisée {#step-3-update-content-centrally}
 

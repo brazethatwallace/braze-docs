@@ -333,7 +333,7 @@ Les requêtes webhook envoient également un `User-Agent` commençant par `Braze
 
 Si votre appel de contenu connecté ne s'affiche pas correctement ou pas du tout, vérifiez les points suivants :
 
-- **Inspectez la requête et la réponse en direct :** Utilisez le [débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) dans **Aperçu et test**.
+- **Inspectez la requête et la réponse en direct or en ligne/en production/instantané :** Utilisez le [débogueur de contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) dans **Aperçu et test**.
 - **Confirmez qu'un appel de contenu connecté a été effectué :** Vous pouvez vérifier qu'un appel a été passé dans l'[onglet Historique des messages]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). Vous pouvez également envoyer un test avec une seule requête de contenu connecté.
 - **Vérifiez via Postman ou une requête CURL que la requête souhaitée aboutit :** Si la requête fonctionne et renvoie une réponse, comparez la requête en détail (y compris les en-têtes). Confirmez que les en-têtes sont capturés dans des paires clé-valeur avec des guillemets doubles.
 - **Vérifiez que l'autorisation est correctement gérée :** Confirmez que l'option `:basic_auth`/`:auth_credentials` est utilisée et que l'autorisation de contenu connecté a été ajoutée aux paramètres de l'espace de travail de contenu connecté. Il arrive que l'URL de contenu connecté nécessite des en-têtes supplémentaires au-delà de l'authentification qui doivent être renseignés.

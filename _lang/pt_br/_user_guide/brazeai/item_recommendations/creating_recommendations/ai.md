@@ -86,7 +86,7 @@ Se não encontrar sua seleção, certifique-se de que ela foi configurada primei
 Selecione o evento para o qual você deseja que essa recomendação otimize. Esse evento geralmente é uma compra, mas também pode ser qualquer interação com um item.
 
 {% alert tip %}
-Ao configurar recomendações de itens com IA, sua escolha de evento é importante. Seu evento de disparo determina quem recebe uma recomendação gerada por IA — as recomendações de itens com IA são geradas para usuários que completaram o evento configurado, então essa escolha determina diretamente quem recebe recomendações. Selecione um evento que cubra todo o Segment de público que você deseja alcançar.<br><br>Ao mesmo tempo, equilibre cobertura com relevância. Eventos de topo de funil (como Produto Visualizado) tendem a capturar um público mais amplo, mas são menos conectados aos resultados de negócios, enquanto eventos de fundo de funil (como Comprou) tendem a produzir recomendações mais direcionadas e relevantes para o negócio. O melhor evento é aquele que equilibra cobertura com influência nos resultados.
+Ao configurar recomendações de itens com IA, sua escolha de evento é importante. Seu evento de disparo determina quem recebe uma recomendação gerada por IA — as recomendações de itens com IA são geradas para usuários que completaram o evento configurado, então essa escolha determina diretamente quem recebe recomendações. Selecione um evento que cubra todo o Segment or segmento de público que você deseja alcançar.<br><br>Ao mesmo tempo, equilibre cobertura com relevância. Eventos de topo de funil (como Produto Visualizado) tendem a capturar um público mais amplo, mas são menos conectados aos resultados de negócios, enquanto eventos de fundo de funil (como Comprou) tendem a produzir recomendações mais direcionadas e relevantes para o negócio. O melhor evento é aquele que equilibra cobertura com influência nos resultados.
 {% endalert %}
 
 Você pode otimizar para:
@@ -110,7 +110,7 @@ Para criar uma recomendação, você precisa informar à Braze qual campo do seu
 
 Selecione esse campo em **Property Name**.
 
-O campo **Property Name** é preenchido automaticamente com uma lista de campos enviados pelo SDK para a Braze. Se dados suficientes forem fornecidos, essas propriedades também são classificadas por ordem de probabilidade de ser a propriedade correta. Selecione aquela que corresponde ao campo `id` do catálogo.
+O campo **Property Name** é preenchido automaticamente com uma lista de campos enviados pelo SDK or kit de desenvolvimento de software para a Braze. Se dados suficientes forem fornecidos, essas propriedades também são classificadas por ordem de probabilidade de ser a propriedade correta. Selecione aquela que corresponde ao campo `id` do catálogo.
 
 ![O nome da propriedade "purchase_item" selecionado que corresponde aos IDs de item no catálogo.]({% image_buster /assets/img/item_recs_4.png %})
 
@@ -244,7 +244,7 @@ Se seus IDs de produto são valores em um array em vez de objetos, você pode us
 {% endtab %}
 {% tab Objeto de compra %}
 
-Um objeto de compra é passado pela API quando uma compra é realizada.
+Um objeto de compra é passado pela API or interface de programação do aplicativo (API) quando uma compra é realizada.
 
 Em termos de mapeamento, uma lógica semelhante se aplica aos objetos de compra assim como aos eventos personalizados, exceto que você pode escolher entre usar o `product_id` do objeto de compra ou um campo no objeto `properties`.
 

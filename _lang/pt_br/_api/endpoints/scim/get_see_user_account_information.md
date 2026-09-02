@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para procurar o ID de recurso de uma conta de usuário existente no dashboard."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Procurar uma conta de usuário existente no dashboard por ID de recurso {#look-up-an-existing-dashboard-user-account-by-resource-id}
 {% apimethod get %}
 /scim/v2/Users/{id}
@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 {% alert note %}
-Se você receber uma resposta `401`, confirme que está usando um token SCIM (e não uma chave da API REST), que o `X-Request-Origin` corresponde à Origin do seu serviço e que seu endereço IP está na lista de permissões do SCIM. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
+Se você receber uma resposta `401`, confirme que está usando um token SCIM (e não uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional), que o `X-Request-Origin` corresponde à Origin do seu serviço e que seu endereço IP está na lista de permissões do SCIM. Para saber mais, consulte [Provisionamento automatizado de usuários]({{site.baseurl}}/scim/automated_user_provisioning).
 {% endalert %}
 
 ## Exemplo de solicitação {#example-request}

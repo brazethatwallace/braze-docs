@@ -2,7 +2,7 @@
 
 ## Angepasste Stile {#custom-styles}
 
-Die UI-Elemente von Braze sind standardmäßig so gestaltet, dass sie ein neutrales In-App-Nachricht-Erlebnis bieten und die Konsistenz mit anderen mobilen Plattformen von Braze gewährleisten. Die Standardstile von Braze sind in CSS im Braze SDK definiert.
+Die UI-Elemente von Braze sind standardmäßig so gestaltet, dass sie ein neutrales In-App-Nachricht-Erlebnis bieten und die Konsistenz mit anderen mobilen Plattformen von Braze gewährleisten. Die Standardstile von Braze sind in CSS im Braze SDK or Software-Development-Kit definiert.
 
 ### Einstellen eines Standard-Stils {#setting-a-default-style}
 
@@ -30,7 +30,7 @@ braze.initialize("YOUR-API-KEY", {
 ```
 
 {% alert important %}
-Dieses Feature ist nur für Web Braze SDK v3.3.0 und höher verfügbar.
+Dieses Feature ist nur für Web Braze SDK or Software-Development-Kit v3.3.0 und höher verfügbar.
 {% endalert %}
 
 ## Anpassen von Nachrichtenabweisungen {#customizing-message-dismissals}
@@ -47,7 +47,7 @@ braze.initialize("YOUR-API-KEY", {
 
 ## Anpassen des Anzeigezeitpunkts {#customizing-display-timing}
 
-Um das standardmäßige Anzeigeverhalten zu überschreiben, entfernen Sie Aufrufe von `braze.automaticallyShowInAppMessages()` und verarbeiten Sie Nachrichten in `braze.subscribeToInAppMessage()`. Registrieren Sie Ihren Callback vor `braze.openSession()`, damit Sie Nachrichten beim Sitzungsstart abfangen und entscheiden können, ob Sie jede Nachricht anzeigen oder zurückstellen möchten.
+Um das standardmäßige Anzeigeverhalten zu überschreiben, entfernen Sie Aufrufe von `braze.automaticallyShowInAppMessages()` und verarbeiten Sie Nachrichten in `braze.subscribeToInAppMessage()`. Registrierung or registrieren Sie Ihren Callback vor `braze.openSession()`, damit Sie Nachrichten beim Sitzungsstart abfangen und entscheiden können, ob Sie jede Nachricht anzeigen oder zurückstellen möchten.
 
 Standardmäßig zeigt Braze In-App-Nachrichten an, wenn sie getriggert werden und zur Anzeige berechtigt sind. Wenn Sie ein anderes Verhalten für Ihr App-Erlebnis benötigen, verwenden Sie einen angepassten Callback, um Nachrichten basierend auf Ihrer eigenen Logik zurückzustellen oder anzuzeigen.
 

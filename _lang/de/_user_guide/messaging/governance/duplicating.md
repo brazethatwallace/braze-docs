@@ -3,22 +3,22 @@ nav_title: Duplizieren
 article_title: Duplizieren
 page_order: 4
 page_type: reference
-description: "Dieser Referenzartikel beschreibt, wie Sie Ihre Campaigns und Canvases duplizieren können."
+description: "Dieser Referenzartikel beschreibt, wie Sie Ihre Campaigns und Canvase duplizieren können."
 tool:
     - Campaigns
     - Canvas
 ---
 
-# Campaigns und Canvases duplizieren {#duplicate-campaigns-and-canvases}
+# Campaigns und Canvase duplizieren {#duplicate-campaigns-and-canvases}
 
-> Sie können bereits vorhandene Campaigns und Canvases duplizieren, um kontinuierlich zu iterieren und auf Ihren erfolgreichen Strategien aufzubauen. Das Duplizieren von Campaigns und Canvases hilft, den Zeitaufwand für die Neukonfiguration von Zustellungsdetails und Zielgruppen-Segmenten zu minimieren.
+> Sie können bereits vorhandene Campaigns und Canvase duplizieren, um kontinuierlich zu iterieren und auf Ihren erfolgreichen Strategien aufzubauen. Das Duplizieren von Campaigns und Canvase hilft, den Zeitaufwand für die Neukonfiguration von Zustellungsdetails und Zielgruppen-Segmenten zu minimieren.
 
 ## Duplizieren {#duplicating}
 
 Nachdem Sie eine Campaign oder ein Canvas dupliziert haben, wird die neue Nachricht automatisch mit dem Titel `"Copy of [Original Name]"` versehen und Sie werden zur Bearbeitungsseite weitergeleitet. Diese Duplikate bleiben als Entwürfe bestehen, bis Sie sie bearbeiten und starten.
 
 {% alert tip %}
-Sie können auch [Campaigns, Canvases und Landing-Pages über Workspaces hinweg kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Die Kopie bleibt als Entwurf bestehen, bis Sie sie bearbeiten und die Campaign oder das Canvas starten bzw. die Landing-Page veröffentlichen.
+Sie können auch [Campaigns, Canvase und Landing-Pages über Workspaces hinweg kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces). Die Kopie bleibt als Entwurf bestehen, bis Sie sie bearbeiten und die Campaign oder das Canvas starten bzw. die Landing-Page veröffentlichen.
 {% endalert %}
 
 {% tabs %}

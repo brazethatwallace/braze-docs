@@ -104,7 +104,7 @@ Braze usa `https://brz.ai` o el dominio personalizado configurado para el grupo 
 
 ### Paso 5: Previsualiza y prueba tu mensaje {#step-5-preview-and-test-your-message}
 
-Ve a la pestaña **Preview & Test** para previsualizar el mensaje como un usuario o enviar un mensaje de prueba de LINE a un grupo de prueba de contenido o a un usuario individual.
+Ve a la pestaña **vista previa & Test** para previsualizar el mensaje como un usuario o enviar un mensaje de prueba de LINE a un grupo de prueba de contenido o a un usuario individual.
 
 ![La pestaña Preview & Test mostrando una vista previa de un mensaje de prueba.]({% image_buster /assets/img/line/test_preview.png %})
 

@@ -15,8 +15,8 @@ Puedes usar las alertas de uso de API para monitorizar los volúmenes de solicit
 
 | Categoría de API | Detalles |
 |--------------|---------|
-| Endpoints de REST API | Realiza el seguimiento del uso de todas las llamadas a la REST API realizadas al backend de Braze, como el envío de mensajes, la creación de Campaigns o la exportación de usuarios. |
-| Solicitudes de API del SDK | Realiza el seguimiento de las solicitudes de API realizadas desde los SDK de Braze en las aplicaciones del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar datos de usuario.<br><br>_*Solo disponible para clientes que hayan adquirido usuarios activos al mes – CY 24-25._ |
+| Endpoints de REST or transferencia de estado representacional API | Realiza el seguimiento del uso de todas las llamadas a la REST or transferencia de estado representacional API realizadas al backend de Braze, como el envío de mensajes, la creación de Campaigns o la exportación de usuarios. |
+| Solicitudes de API del SDK or kit de desarrollo de software | Realiza el seguimiento de las solicitudes de API realizadas desde los SDK or kit de desarrollo de software de Braze en las aplicaciones del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar datos de usuario.<br><br>_*Solo disponible para clientes que hayan adquirido MAU or usuarios activos al mes or usuarios activos al mes – CY 24-25._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de las alertas de uso de API" }
 
 ## Crear una alerta de uso de API {#creating-an-api-usage-alert}
@@ -24,7 +24,7 @@ Puedes usar las alertas de uso de API para monitorizar los volúmenes de solicit
 Para crear una alerta de uso de API:
 
 1. Ve a **Configuración** > **API e identificadores** > **Alertas de uso de API** y crea una nueva alerta.
-2. Introduce un nombre para tu alerta y elige los endpoints de la REST API y las claves de API sobre los que deseas recibir alertas.
+2. Introduce un nombre para tu alerta y elige los endpoints de la REST or transferencia de estado representacional API y las claves de API sobre los que deseas recibir alertas.
 3. Define los criterios de tu alerta eligiendo uno o más códigos de respuesta y especificando los [umbrales de alerta](#api-usage-alert-thresholds).
 4. Cuando hayas terminado, activa **Alerta habilitada**.
     ![Un ejemplo de una alerta de uso de API que envía notificaciones cuando el endpoint Track users aumenta en un 100 por ciento en una hora.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts1.png %})
@@ -150,7 +150,7 @@ Esta configuración de alerta te notifica cuando se producen errores en Campaign
 
 | Endpoint | Clave de API | Código de respuesta | Condición del umbral | Volumen del umbral | Dentro de |
 | --- | --- | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Todas las claves de API | `4XX` y `5XX` | Mayor o igual a | 1 | 1 hora |
+| {::nomarkdown}<ul><li><code>/campaigns/trigger/send</code></li><li><code>/Canvas/trigger/send</code></li><li><code>/messages/send</code></li></ul>{:/} | Todas las claves de API | `4XX` y `5XX` | Mayor o igual a | 1 | 1 hora |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 .reset-td-br-6 aria-label="Alertas de ejemplo" }
 {% endtab %}
 

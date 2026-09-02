@@ -11,7 +11,7 @@ description: "Este artículo describe el endpoint de Braze para exportar el resu
 {% api %}
 # Exportar análisis de resumen de datos de Canvas {#export-canvas-data-summary-analytics}
 {% apimethod get %}
-/canvas/data_summary
+/Canvas/data_summary
 {% endapimethod %}
 
 > Utiliza este endpoint para exportar resúmenes de datos de series temporales para un Canvas, lo que proporciona un resumen conciso de los resultados del Canvas.

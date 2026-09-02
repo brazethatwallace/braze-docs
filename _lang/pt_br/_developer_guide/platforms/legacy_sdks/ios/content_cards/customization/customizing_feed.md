@@ -19,7 +19,7 @@ Também é importante considerar se você deve usar uma estratégia de subclasse
 
 ## Personalizando a UI {#customizing-ui}
 
-Os trechos de código a seguir mostram como estilizar e alterar os Content Cards para atender às suas necessidades de UI usando métodos fornecidos pelo SDK. Esses métodos permitem personalizar todos os aspectos da UI dos Content Cards, incluindo fontes personalizadas, componentes de cores personalizados, texto personalizado e mais.
+Os trechos de código a seguir mostram como estilizar e alterar os Content Cards para atender às suas necessidades de UI usando métodos fornecidos pelo SDK or kit de desenvolvimento de software. Esses métodos permitem personalizar todos os aspectos da UI dos Content Cards, incluindo fontes personalizadas, componentes de cores personalizados, texto personalizado e mais.
 
 Existem duas maneiras distintas de personalizar a UI dos Content Cards:
 - Método dinâmico: atualizar a UI do cartão individualmente, cartão por cartão

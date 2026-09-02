@@ -31,7 +31,7 @@ Das Produktportal finden Sie unter **Community** > **Product Roadmap**.
 | --- | --- |
 | Wichtigkeit eines Features bewerten | Bewerten Sie die Wichtigkeit eines Features, indem Sie **Nice to Have**, **Important** oder **Critical** auswählen. |
 | Ein Feature kommentieren | Nachdem Sie ein Feature bewertet haben, können Sie einen Kommentar mit Ihrem Feedback hinterlassen. |
-| Fragen einer Product Manager:in beantworten | Suchen Sie auf einer Feature-Karte nach „How Customers Can Help“, um Fragen unseres Produktteams zu beantworten. |
+| Fragen einer Product Manager:in:in beantworten | Suchen Sie auf einer Feature-Karte nach „How Customers Can Help“, um Fragen unseres Produktteams zu beantworten. |
 | Eine Idee einreichen | Gehen Sie zur Seite **Submit Ideas** im Portal und wählen Sie eine der zehn Karten aus, um deren Wichtigkeit zu bewerten. Fügen Sie Ihre Idee oder Anfrage in den Kommentaren hinzu! <br><br>Nach dem Einreichen wird Ihre Idee von einem Mitglied unseres Produktteams geprüft. Wir können keine Updates zum Status einer Anfrage geben. Schauen Sie gelegentlich vorbei, ob Ihre Idee in den Abschnitten „In Erwägung“ oder „Geplante Features“ aufgenommen wurde. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="So können Sie sich an der Diskussion beteiligen" }
 
@@ -46,7 +46,7 @@ Prioritäten und Zeitpläne können sich (und werden sich) basierend auf den neu
 
 ## Tipps zum Einreichen von Produkt-Feedback {#tips-for-submitting-product-feedback}
 
-Je mehr Informationen und Kontext, desto besser! Fügen Sie Links zu Campaigns, Canvases oder Segmenten hinzu – alles, was die Beschreibung unterstützt. Wir strukturieren Produkt-Feedback anhand der folgenden Fragen:
+Je mehr Informationen und Kontext, desto besser! Fügen Sie Links zu Campaigns, Canvase oder Segmenten hinzu – alles, was die Beschreibung unterstützt. Wir strukturieren Produkt-Feedback anhand der folgenden Fragen:
 
 - Welches Problem versuchen Sie zu lösen?
 - Was sind konkrete Anwendungsfälle?

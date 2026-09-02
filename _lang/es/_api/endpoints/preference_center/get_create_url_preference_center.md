@@ -26,7 +26,7 @@ Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/ap
 
 ## Límite de velocidad {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='get preference center' %} Este límite de velocidad es fijo y no es configurable.
+{% multi_lang_include rate_limits.md endpoint='get centro de preferencias' %} Este límite de velocidad es fijo y no es configurable.
 
 ## Parámetros de ruta {#path-parameters}
 

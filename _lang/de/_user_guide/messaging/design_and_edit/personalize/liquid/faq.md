@@ -18,7 +18,7 @@ Braze unterstützt derzeit nicht 100 % von Shopifys Liquid, sondern nur bestimmt
 
 ### Wie verwende ich Liquid-Snippets in Braze? {#how-do-i-use-liquid-snippets-in-braze}
 
-In vielen Fällen können Sie Liquid-Snippets einbinden, indem Sie zu Ihren Campaigns oder Canvases gehen und Liquid über das Personalisierungs-Modal in Bereichen wie dem E-Mail-Nachrichtentext oder in Ihren Segments einfügen.
+In vielen Fällen können Sie Liquid-Snippets einbinden, indem Sie zu Ihren Campaigns oder Canvase gehen und Liquid über das Personalisierungs-Modal in Bereichen wie dem E-Mail-Nachrichtentext oder in Ihren Segments einfügen.
 
 #### Wo kann ich mehr erfahren? {#where-can-i-learn-more}
 
@@ -186,7 +186,7 @@ Um eine 10-stellige Telefonnummer als `123***7890` anzuzeigen:
 ```
 {% endraw %}
 
-## Canvas, Kataloge und Trigger-Eigenschaften {#canvas-catalogs-and-trigger-properties}
+## Canvas, Kataloge und Trigger or triggern-Eigenschaften {#canvas-catalogs-and-trigger-properties}
 
 ### Warum schlägt mein API-getriggertes Liquid in Braze fehl? {#why-is-my-api-triggered-liquid-failing-in-braze}
 
@@ -263,7 +263,7 @@ Einige Content Blocks werden unter **Zeile** in der Drag-and-drop-Editor-Suche n
 
 ### Warum unterscheidet sich die Drag-and-drop-Content-Block-Vorschau von der Editoransicht? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Wenn Sie einen Content Block mit Liquid als Template verwenden, werden mobile Media-Queries im Block in der Vorschau möglicherweise nicht auf dieselbe Weise angewendet wie beim direkten Ziehen des Blocks in eine Nachricht. Das Ziehen des Blocks behält das Layout bei, entkoppelt ihn jedoch vom Quellblock, sodass zukünftige Blockänderungen die Nachricht nicht mehr automatisch aktualisieren.
+Wenn Sie einen Content Block mit Liquid als Template verwenden, werden mobile Media-Queries im Block in der Vorschau möglicherweise nicht auf dieselbe Weise angewendet wie beim direkten Ziehen des Blocks in eine Nachricht. Das Ziehen des Blocks behält das Layout bei, entkoppelt ihn jedoch vom Quellblock, sodass zukünftige Blockänderungen die Nachricht nicht mehr automatisch Update or aktualisieren or aktualisieren.
 
 ### Wie kann ich Event-Property-Werte im Nachrichten-Editor in der Vorschau anzeigen? {#how-do-i-preview-event-property-values-in-message-composer}
 
@@ -302,7 +302,7 @@ Dies gilt für Standardwerte, Bedingungen und jeden anderen Liquid-Code, der Anf
 
 Weitere Informationen zur Verwendung von Anführungszeichen in Liquid finden Sie unter [Liquid-Syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#liquid-syntax).
 
-### Warum wird der Liquid-Fehler „Unexpected end token“ angezeigt? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
+### Warum wird der Liquid-Fehler „Unexpected end Token / Textbaustein“ angezeigt? {#why-am-i-seeing-an-unexpected-end-token-liquid-error}
 
 Dieser Fehler weist in der Regel auf zusätzliche oder fehlende geschweifte Klammern hin. Verschachteln Sie {% raw %}`{{ }}`{% endraw %} nicht innerhalb eines anderen Liquid-Tag-Ausdrucks. Verwenden Sie zum Beispiel {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}, anstatt die Attributreferenz in ein zusätzliches Klammernpaar einzuschließen.
 

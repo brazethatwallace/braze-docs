@@ -101,7 +101,7 @@ Os endereços BCC estão disponíveis para Amazon SES, SendGrid e SparkPost. Com
 
 Depois de adicionar um endereço, ele fica disponível para seleção ao compor um e-mail em Campaigns ou etapas do Canvas. Selecione **Make Default** ao lado de um endereço para defini-lo como selecionado por padrão ao iniciar uma nova campanha de e-mail ou componente do Canvas. Para substituir isso no nível da mensagem, você pode selecionar **No BCC** ao configurar sua mensagem.
 
-Se você exigir que todas as mensagens de e-mail enviadas pela Braze incluam um endereço BCC, ative a opção **Require a BCC address for all your email campaigns**. Isso requer que você selecione um endereço padrão, que é automaticamente selecionado em novas campanhas de e-mail ou etapas do Canvas. O endereço padrão também é adicionado automaticamente a todas as mensagens disparadas por meio da nossa REST API. Não é necessário alterar a solicitação de API existente para incluir o endereço.
+Se você exigir que todas as mensagens de e-mail enviadas pela Braze incluam um endereço BCC, ative a opção **Require a BCC address for all your email campaigns**. Isso requer que você selecione um endereço padrão, que é automaticamente selecionado em novas campanhas de e-mail ou etapas do Canvas. O endereço padrão também é adicionado automaticamente a todas as mensagens disparadas por meio da nossa REST or transferir estado representacional API or interface de programação do aplicativo (API). Não é necessário alterar a solicitação de API or interface de programação do aplicativo (API) existente para incluir o endereço.
 
 #### BCC dinâmico {#dynamic-bcc}
 
@@ -376,7 +376,7 @@ Não. Se a configuração do espaço de trabalho estiver desativada e a configur
 {% enddetails %}
 
 {% details O que acontece se um grupo de inscrições for arquivado? Isso interrompe o cancelamento de inscrição com um clique nos e-mails enviados? %}
-Se um grupo de inscrições referenciado em **Informações de envio** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de Segment, perfil de usuário e áreas semelhantes).
+Se um grupo de inscrições referenciado em **Informações de envio** para cancelamento com um clique for arquivado, a Braze ainda processa os cancelamentos de inscrição com um clique. O grupo de inscrições não aparece mais no dashboard (filtro de Segment or segmento, perfil de usuário e áreas semelhantes).
 {% enddetails %}
 
 {% details A configuração de cancelamento de inscrição com um clique está disponível para modelos de e-mail? %}

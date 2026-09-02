@@ -46,7 +46,7 @@ Geschäftliche Nutzernamen müssen die folgenden Formatanforderungen erfüllen:
 
 Bevor die Nutzernamen-Funktion allgemein verfügbar ist, hat Meta möglicherweise bereits einen Nutzernamen für Ihr Unternehmen reserviert – in der Regel passend zu einem bestehenden Facebook-Seiten- oder Instagram-Nutzernamen. Sie können diesen reservierten Nutzernamen beanspruchen oder einen anderen über [WhatsApp Manage](https://business.facebook.com/wa/manage/) wählen. Beanspruchte Nutzernamen werden erst aktiviert, wenn Meta die Funktion verfügbar macht.
 
-Wenn der reservierte Nutzername mit einem bereits mit Ihrer Facebook-Seite oder Ihrem Instagram-Konto verknüpften Nutzernamen übereinstimmt, müssen Sie zunächst Ihre geschäftliche Telefonnummer mit dieser Seite oder diesem Konto verknüpfen. Dies können Sie tun, während Sie den Nutzernamen im WhatsApp Manager oder der Meta Business Suite beanspruchen, oder indem Sie Ihre Telefonnummer direkt über die entsprechende Seite oder das Konto hinzufügen. Für die Verknüpfung ist entweder die vollständige Kontrolle über die Seite oder das Konto erforderlich, oder ein grundlegender Teilzugriff mit der Berechtigung `manage_phone`.
+Wenn der reservierte Nutzername mit einem bereits mit Ihrer Facebook-Seite oder Ihrem Instagram-Konto verknüpften Nutzernamen übereinstimmt, müssen Sie zunächst Ihre geschäftliche Telefonnummer mit dieser Seite oder diesem Konto verknüpfen. Dies können Sie tun, während Sie den Nutzernamen im WhatsApp Manager:in oder der Meta Business Suite beanspruchen, oder indem Sie Ihre Telefonnummer direkt über die entsprechende Seite oder das Konto hinzufügen. Für die Verknüpfung ist entweder die vollständige Kontrolle über die Seite oder das Konto erforderlich, oder ein grundlegender Teilzugriff mit der Berechtigung `manage_phone`.
 
 #### Anzeige-Priorität in Chatfenstern {#display-priority-in-chat-windows}
 
@@ -67,7 +67,7 @@ Weitere Informationen finden Sie in der Meta-Dokumentation zu [geschäftlichen N
 - Zu den Template-Aktivitäten gehören das Erstellen, Bearbeiten, Senden, Einlegen eines Einspruchs oder Entarchivieren eines Templates.
 - Archivierte Templates können nicht gesendet werden und werden nach 28 Tagen zur endgültigen Löschung vorgemerkt.
 - Sie können Templates innerhalb des 28-Tage-Fensters entarchivieren, um sie wiederherzustellen und die geplante Löschung abzubrechen.
-- Benachrichtigungen werden über den `message_template_status_update`-Webhook, per E-Mail und über ein einmaliges WhatsApp-Manager-Banner gesendet.
+- Benachrichtigungen werden über den `message_template_status_update`-Webhook, per E-Mail und über ein einmaliges WhatsApp-Manager:in-Banner gesendet.
 
 Weitere Informationen finden Sie in der Meta-Dokumentation zur [Template-Archivierung](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
 
@@ -88,10 +88,10 @@ Weitere Informationen finden Sie in der Meta-Dokumentation zur [Template-Archivi
 ### Oktober 2025: Genehmigungsprozess für Official Business Account (OBA) geändert {#october-2025-official-business-account-oba-approval-process-changed}
 *Zuletzt aktualisiert: März 2026*
 
-- Zuvor über den WhatsApp Manager für alle Kund:innen zugänglich
+- Zuvor über den WhatsApp Manager:in für alle Kund:innen zugänglich
 - Jetzt beschränkt auf: Regierungs-/große Meta-Werbetreibende, direkte Werbetreibende oder über einen BSP wie Braze (bis zu 5 pro Woche)
 - Neue Voraussetzungen: Unternehmensverifizierung, Zwei-Stufen-Verifizierung, genehmigter Anzeigename, Bekanntheit
-- Wenden Sie sich an Ihren Customer-Success-Manager für Unterstützung
+- Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in für Unterstützung
 
 ### Oktober 2025: Regionale Preissenkungen {#october-2025-regional-pricing-rate-cuts}
 *Zuletzt aktualisiert: März 2026*
@@ -144,7 +144,7 @@ WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen
 
 Der Versand von Marketing-Nachrichten (sowie alle anderen Nachrichtentypen) in alle anderen Länder oder Regionen ist weiterhin zulässig und wird nicht beeinträchtigt.
 
-Meta hat uns mitgeteilt, dass dieses Update durchgeführt wird, um die Gesundheit des WhatsApp-Ökosystems in den USA zu erhalten, wo WhatsApp schnell wächst, sich aber noch in einem früheren Stadium befindet (beispielsweise erzielen Marketing-Nachrichten niedrigeres Engagement als in anderen Regionen). Sie werden weiterhin evaluieren, wann der US-Markt bereit ist, Marketing-Nachrichten wieder aufzunehmen.
+Meta hat uns mitgeteilt, dass dieses Update or aktualisieren durchgeführt wird, um die Gesundheit des WhatsApp-Ökosystems in den USA zu erhalten, wo WhatsApp schnell wächst, sich aber noch in einem früheren Stadium befindet (beispielsweise erzielen Marketing-Nachrichten niedrigeres Engagement als in anderen Regionen). Sie werden weiterhin evaluieren, wann der US-Markt bereit ist, Marketing-Nachrichten wieder aufzunehmen.
 
 Die Zustellung von Marketing-Nachrichten an Telefonnummern mit US-Ortsvorwahlen wird von WhatsApp abgelehnt und gibt den Fehlercode 131049 zurück.
 
@@ -171,7 +171,7 @@ Seit Meta das nutzer:innenindividuelle Marketing-Template-Limit eingeführt hat,
 
 Ab sofort, vor der Feiertagssaison, werden Personen in den USA weniger neue Marketing-Konversationen erhalten. Meta erwartet, dass diese Änderung engagiertere Zielgruppen schafft, was letztlich zu besseren Ergebnissen für Unternehmen führt. Dies kann zu niedrigeren Zustellraten für Ihr Unternehmen führen, wenn Sie Marketing-Nachrichten an US-Telefonnummern senden, was über den Fehlercode `131049` über Braze-Currents und das Nachrichtenaktivitätsprotokoll überwacht werden kann.
 
-Unternehmen in den USA können weiterhin Marketing-Nachrichten in andere Regionen zustellen, und es gibt keine Auswirkungen auf Utility-, Authentifizierungs- oder Servicenachrichten oder Marketing-Template-Nachrichten, die innerhalb eines nutzer:inneninitiierten Konversationsfensters gesendet werden (beispielsweise eine Click-to-WhatsApp-Anzeige oder ein Produktkarussell- oder Coupon-Template, das als Teil einer Konversation gesendet wird).
+Unternehmen in den USA können weiterhin Marketing-Nachrichten in andere Regionen zustellen, und es gibt keine Auswirkungen auf Utility-, Authentifizierungs- oder Servicenachrichten oder Marketing-Template-Nachrichten, die innerhalb eines nutzer:inneninitiierten Konversationsfensters gesendet werden (beispielsweise eine Klick, der or klicken-to-WhatsApp-Anzeige oder ein Produktkarussell- oder Coupon-Template, das als Teil einer Konversation gesendet wird).
 
 ### November 2024: WhatsApp erweitert qualitätsbasierte Account-Durchsetzungen um Leseraten {#november-2024-whatsapp-expanding-quality-based-account-enforcements-to-include-read-rates}
 *Zuletzt aktualisiert: Dezember 2024*
@@ -190,28 +190,28 @@ Wenn die Leserate eines Accounts extrem niedrig ist, werden die folgenden Maßna
 
 #### So bleiben Sie über diese Warnungen und Durchsetzungen informiert {#how-to-stay-updated-on-these-warnings-and-enforcements}
 
-Ähnlich wie bei bestehenden Plattformdurchsetzungen werden Unternehmen über diese Maßnahmen benachrichtigt und können sie über die Seite „Account Quality“ im WhatsApp Business Manager bestätigen. Stellen Sie sicher, dass die korrekten Kontaktdaten im WhatsApp Business Manager für alle erforderlichen Administrator:innen hinterlegt sind, da die Durchsetzungsbenachrichtigungs-E-Mails basierend auf diesen Informationen gesendet werden.
+Ähnlich wie bei bestehenden Plattformdurchsetzungen werden Unternehmen über diese Maßnahmen benachrichtigt und können sie über die Seite „Account Quality“ im WhatsApp Business Manager:in bestätigen. Stellen Sie sicher, dass die korrekten Kontaktdaten im WhatsApp Business Manager:in für alle erforderlichen Administrator:innen hinterlegt sind, da die Durchsetzungsbenachrichtigungs-E-Mails basierend auf diesen Informationen gesendet werden.
 
 Benachrichtigungen über schwerwiegende Spam-Verstöße werden:
 
-- Im Benachrichtigungscenter des WhatsApp Business Manager angezeigt
-- Als Banner im WhatsApp Manager angezeigt
-- Per E-Mail an alle im WhatsApp Business Manager eingerichteten Administrator:innen gesendet
+- Im Benachrichtigungscenter des WhatsApp Business Manager:in angezeigt
+- Als Banner im WhatsApp Manager:in angezeigt
+- Per E-Mail an alle im WhatsApp Business Manager:in eingerichteten Administrator:innen gesendet
 
 ### Mai 2024: Cloud API geht in der Türkei live {#may-2024-cloud-api-going-live-in-trkiye}
 *Zuletzt aktualisiert: Mai 2024*
 
 Meta bietet Cloud-API-Unternehmen jetzt Zugang zur Türkei für geschäftliches Messaging. Zuvor war die WhatsApp Cloud API für Unternehmen in der Türkei nutzbar, aber WhatsApp-Nutzer:innen mit türkischen Nummern konnten keine über die Cloud API gesendeten Nachrichten senden oder empfangen.
 
-Meta macht es Nutzer:innen immer deutlich, wenn sie mit einem von Meta gehosteten Unternehmen chatten, und alle Nutzer:innen müssen die entsprechenden WhatsApp-Nutzungsbedingungen und Datenschutzrichtlinien akzeptieren, um mit dem geschäftlichen Messaging fortzufahren. Das Update der Nutzungsbedingungen und Datenschutzrichtlinien von 2021 in der Türkei war pausiert worden, wird aber jetzt ausgerollt. Es ändert nichts an Metas Engagement für den Datenschutz – persönliche Konversationen werden weiterhin durch Ende-zu-Ende-Verschlüsselung geschützt, sodass nur Sie und der beabsichtigte Empfänger sie sehen können. Das Update ermöglicht es türkischen Nutzer:innen, auf optionale Geschäftsfunktionen zuzugreifen, wenn sie sich dafür entscheiden, und bietet mehr Transparenz darüber, wie WhatsApp funktioniert.
+Meta macht es Nutzer:innen immer deutlich, wenn sie mit einem von Meta gehosteten Unternehmen chatten, und alle Nutzer:innen müssen die entsprechenden WhatsApp-Nutzungsbedingungen und Datenschutzrichtlinien akzeptieren, um mit dem geschäftlichen Messaging fortzufahren. Das Update or aktualisieren der Nutzungsbedingungen und Datenschutzrichtlinien von 2021 in der Türkei war pausiert worden, wird aber jetzt ausgerollt. Es ändert nichts an Metas Engagement für den Datenschutz – persönliche Konversationen werden weiterhin durch Ende-zu-Ende-Verschlüsselung geschützt, sodass nur Sie und der beabsichtigte Empfänger sie sehen können. Das Update or aktualisieren ermöglicht es türkischen Nutzer:innen, auf optionale Geschäftsfunktionen zuzugreifen, wenn sie sich dafür entscheiden, und bietet mehr Transparenz darüber, wie WhatsApp funktioniert.
 
 Cloud-API-Unternehmen können jetzt Konversationen mit WhatsApp-Nutzer:innen mit türkischen Nummern initiieren, die nun einen Webhook als „gesendet“-Konversation zurückgeben, anstatt des bisherigen Fehlercodes 131026.
 
 Damit eine Geschäftsnachricht „zugestellt“ oder „gelesen“ wird, muss der:die Nutzer:in die WhatsApp-Bedingungen akzeptiert haben. Einem Unternehmen wird nichts berechnet, es sei denn, die Nachricht wird zugestellt.
 
-Nutzer:innen, die eine Nachricht von einem Cloud-API-Unternehmen erhalten oder versuchen, eine Nachricht an ein solches zu senden, wird eine In-App-Benachrichtigung über das Bedingungsupdate angezeigt, die deutlich macht, dass sie einem Cloud-API-Unternehmen erst dann Nachrichten senden können, wenn sie das WhatsApp-Update akzeptiert haben. Darüber hinaus werden Nutzer:innen, die die App auf ihrem Telefon registrieren oder erneut registrieren, aufgefordert, das WhatsApp-Update zu akzeptieren.
+Nutzer:innen, die eine Nachricht von einem Cloud-API-Unternehmen erhalten oder versuchen, eine Nachricht an ein solches zu senden, wird eine In-App-Benachrichtigung über das Bedingungsupdate angezeigt, die deutlich macht, dass sie einem Cloud-API-Unternehmen erst dann Nachrichten senden können, wenn sie das WhatsApp-Update or aktualisieren akzeptiert haben. Darüber hinaus werden Nutzer:innen, die die App auf ihrem Telefon Registrierung or registrieren oder erneut Registrierung or registrieren, aufgefordert, das WhatsApp-Update or aktualisieren zu akzeptieren.
 
-Wenn ein:e Nutzer:in das Update akzeptiert, sieht er:sie den bestehenden Cloud-API-Systemnachrichtenhinweis, wenn er:sie mit einem Cloud-API-Unternehmen chattet.
+Wenn ein:e Nutzer:in das Update or aktualisieren akzeptiert, sieht er:sie den bestehenden Cloud-API-Systemnachrichtenhinweis, wenn er:sie mit einem Cloud-API-Unternehmen chattet.
 
 ### Mai 2024: Nutzer:innenindividuelle Limits für Marketing-Template-Nachrichten {#may-2024-per-user-marketing-template-message-limits}
 *Zuletzt aktualisiert: Mai 2024*
@@ -252,9 +252,9 @@ Das „Pace-Limit“ (die anfängliche Teilmenge der gesendeten Nachrichten) ist
 
 Beachten Sie, dass WhatsApp beim Template-Pacing dasselbe System zur Bewertung der Template-Qualität verwendet wie bei der Template-Pausierung. Nachrichten, die beim Template-Pacing nicht zugestellt werden (aufgrund von Templates niedriger Qualität), sind dieselben, die in größerem Umfang pausiert worden wären.
 
-Letztendlich bietet Ihnen dieses Update eine schnellere Feedback-Schleife (30 Minuten statt Stunden oder Tagen bei der Template-Pausierung), sodass Sie Ihre Templates anpassen und ein besseres Kundenerlebnis bieten können.
+Letztendlich bietet Ihnen dieses Update or aktualisieren eine schnellere Feedback-Schleife (30 Minuten statt Stunden oder Tagen bei der Template-Pausierung), sodass Sie Ihre Templates anpassen und ein besseres Kundenerlebnis bieten können.
 
-**Wenn Sie weitere Fragen zu diesem Update haben, kontaktieren Sie Ihre:n Meta-Partner-Vertretung.**
+**Wenn Sie weitere Fragen zu diesem Update or aktualisieren haben, kontaktieren Sie Ihre:n Meta-Partner-Vertretung.**
 
 ### Juni 2023: Messaging-Experiment {#june-2023-messaging-experimentation}
 *Zuletzt aktualisiert: Juni 2023*
@@ -289,4 +289,4 @@ Es gibt keinen festen Zeitrahmen für dieses Experiment. Daher kann ein:e Verbra
 
 ### Was kann ich tun, wenn meine Marketing-Nachrichten aufgrund von Metas Experiment nicht zugestellt werden? {#what-can-i-do-if-my-marketing-messages-are-not-delivered-due-to-metas-experiment}
 
-Wir empfehlen, andere Braze-Kanäle wie E-Mail, SMS, Push-Benachrichtigungen oder In-App-Nachrichten zu nutzen, um eine Nachricht mit ähnlichem Inhalt an Ihre beabsichtigten Nutzer:innen zu senden.
+Wir empfehlen, andere Braze-Kanäle wie E-Mail, Kurzmitteilungsdienst or SMS, Push-Benachrichtigungen oder In-App-Nachrichten zu nutzen, um eine Nachricht mit ähnlichem Inhalt an Ihre beabsichtigten Nutzer:innen zu senden.

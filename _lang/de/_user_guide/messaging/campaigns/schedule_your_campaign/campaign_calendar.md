@@ -28,7 +28,7 @@ Um eine Kopie Ihrer Daten herunterzuladen, wählen Sie <i class="fa-solid fa-bar
 
 ## Sendekalender {#send-calendar}
 
-Der Sendekalender zeigt geplante Campaigns für den aktuellen Monat an. Canvases, aktionsbasierte Campaigns und API-getriggerte Campaigns sind nicht enthalten.
+Der Sendekalender zeigt geplante Campaigns für den aktuellen Monat an. Canvase, aktionsbasierte Campaigns und API-getriggerte Campaigns sind nicht enthalten.
 
 Campaigns sind in der **Legende** farblich nach Typ gekennzeichnet:
 

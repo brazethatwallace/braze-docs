@@ -10,14 +10,14 @@ search_tag: Partner
 
 # Email Love
 
-> [Email Love](https://emaillove.com/) é um plugin do Figma que permite projetar e exportar e-mails HTML responsivos e acessíveis diretamente do Figma. O recurso Exportar para a Braze do Email Love utiliza a API da Braze para fazer upload dos seus modelos de e-mail para a Braze de forma integrada.
+> [Email Love](https://emaillove.com/) é um plugin do Figma que permite projetar e exportar e-mails HTML responsivos e acessíveis diretamente do Figma. O recurso Exportar para a Braze do Email Love utiliza a API or interface de programação do aplicativo (API) da Braze para fazer upload dos seus modelos de e-mail para a Braze de forma integrada.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito            | Descrição                                                      |
 |------------------------|------------------------------------------------------------------|
 | **Conta do Email Love** | Uma conta do Email Love é necessária para aproveitar esta parceria. |
-| **Chave da API REST da Braze** | Uma chave da API REST da Braze com permissão total de `Templates` ativada. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze** | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissão total de `Templates` ativada. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Usando o Email Love com a Braze {#using-email-love-with-braze}
@@ -46,8 +46,8 @@ Modifique os componentes usando as ferramentas do Figma para ajustar texto, imag
 
 1. Quando terminar, selecione o quadro que deseja exportar. Observe que você precisará usar um rodapé do Email Love que contenha um link de cancelamento de inscrição para que a exportação funcione.
 2. Selecione o botão **Export** no plugin e selecione **Braze** no menu suspenso.
-3. Copie e cole sua chave de API na caixa **Braze API Key** dentro do plugin Email Love para Figma.
-4. Selecione o botão **Set API Key**.
+3. Copie e cole sua chave de API or interface de programação do aplicativo (API) na caixa **Braze API or interface de programação do aplicativo (API) Key** dentro do plugin Email Love para Figma.
+4. Selecione o botão **Set API or interface de programação do aplicativo (API) Key**.
 5. Selecione **Change Instance ID** e, em seguida, selecione o ID da sua instância da Braze.
 
 ![Exportando um modelo para a Braze a partir do plugin Email Love.]({% image_buster /assets/img/email_love/emaillove3_exportbraze.png %}){: style="max-width:50%;"}

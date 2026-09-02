@@ -10,7 +10,7 @@ description: "Aprenda a otimizar testes multivariantes e A/B de Campaigns com Br
 
 > Use **Otimizar com BrazeAI<sup>TM</sup>** para otimizar automaticamente uma Campaign com múltiplas variantes.
 
-Na etapa **Públicos-alvo**, acesse **A/B Testing** e ative **Otimizar com BrazeAI<sup>TM</sup>**.
+Na etapa **Públicos-alvo**, acesse **Testes A/B** e ative **Otimizar com BrazeAI<sup>TM</sup>**.
 
 Para uma Campaign de envio único, a BrazeAI<sup>TM</sup> envia um teste inicial e depois envia a variante de melhor desempenho para o público restante. Para uma Campaign de múltiplos envios, a BrazeAI<sup>TM</sup> analisa o desempenho a cada 12 horas e direciona mais usuários para as variantes de melhor desempenho.
 

@@ -1,15 +1,15 @@
 ---
-nav_title: Central de Preferências de e-mail via API
-article_title: Central de Preferências de e-mail via API
+nav_title: Central de Preferências de e-mail via API or interface de programação do aplicativo (API)
+article_title: Central de Preferências de e-mail via API or interface de programação do aplicativo (API)
 page_order: 1
-description: "Este artigo descreve a Central de Preferências de e-mail via API e como personalizá-la."
+description: "Este artigo descreve a Central de Preferências de e-mail via API or interface de programação do aplicativo (API) e como personalizá-la."
 channel:
   - email
 ---
 
-# Central de Preferências de e-mail via API {#api-email-preference-center}
+# Central de Preferências de e-mail via API or interface de programação do aplicativo (API) {#api-email-preference-center}
 
-> Configurar uma Central de Preferências oferece um local centralizado para que seus usuários editem e gerenciem suas preferências de notificação para o [envio de mensagens por e-mail]({{site.baseurl}}/user_guide/channels/email). Este artigo inclui etapas para criar uma Central de Preferências gerada por API, mas você também pode criar uma Central de Preferências usando o [editor de arrastar e soltar]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center).
+> Configurar uma Central de Preferências oferece um local centralizado para que seus usuários editem e gerenciem suas preferências de notificação para o [envio de mensagens por e-mail]({{site.baseurl}}/user_guide/channels/email). Este artigo inclui etapas para criar uma Central de Preferências gerada por API or interface de programação do aplicativo (API), mas você também pode criar uma Central de Preferências usando o [editor de arrastar e soltar]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center).
 
 {% multi_lang_include alerts/tip_alerts.md alert="Landing pages manage subscriptions" %}
 
@@ -21,7 +21,7 @@ Aqui é onde você pode gerenciar e visualizar cada grupo de inscrições. Cada 
 A Central de Preferências foi projetada para ser usada dentro do canal de e-mail da Braze. Os links da Central de Preferências são dinâmicos com base em cada usuário e não podem ser hospedados externamente.
 {% endalert %}
 
-## Criar uma Central de Preferências com API {#create-a-preference-center-with-api}
+## Criar uma Central de Preferências com API or interface de programação do aplicativo (API) {#create-a-preference-center-with-api}
 
 Ao usar os [endpoints da Central de Preferências da Braze]({{site.baseurl}}/api/endpoints/preference_center), você pode criar uma Central de Preferências, um site hospedado pela Braze, que pode exibir o estado de inscrição e os status dos grupos de inscrições dos seus usuários. Usando HTML e CSS, sua equipe de desenvolvedores pode construir a Central de Preferências para que o estilo da página esteja alinhado com as diretrizes da sua marca.
 
@@ -34,7 +34,7 @@ O uso de Liquid permite recuperar os nomes dos seus grupos de inscrições e o s
 | Central de Preferências ativada | Seu dashboard da Braze tem permissões para usar o recurso de Central de Preferências. |
 | Espaço de trabalho válido com um grupo de inscrições para e-mail, SMS ou WhatsApp | Um espaço de trabalho funcional com usuários válidos e um grupo de inscrições para e-mail, SMS ou WhatsApp. |
 | Usuário válido | Um usuário com um endereço de e-mail e um ID externo. |
-| Chave de API gerada com permissões da Central de Preferências | No dashboard da Braze, acesse **Configurações** > **Chaves de API** para confirmar que você tem acesso a uma chave de API com permissões da Central de Preferências. |
+| Chave de API or interface de programação do aplicativo (API) gerada com permissões da Central de Preferências | No dashboard da Braze, acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)** para confirmar que você tem acesso a uma chave de API or interface de programação do aplicativo (API) com permissões da Central de Preferências. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ### Etapa 1: Usar o endpoint Criar Central de Preferências {#step-1-use-the-create-preference-center-endpoint}
@@ -69,7 +69,7 @@ Você também pode usar uma combinação de HTML que inclua Liquid. Por exemplo,
 
 A Central de Preferências tem uma caixa de seleção que permite que seus usuários cancelem a inscrição de todos os e-mails.
 
-{% multi_lang_include preference_center/testing.md section="api" %}
+{% multi_lang_include preference_center/testing.md section="API or interface de programação do aplicativo (API)" %}
 
 #### Editar uma Central de Preferências {#edit-a-preference-center}
 
@@ -118,7 +118,7 @@ Essa abordagem não requer pares de campo-valor de string de consulta incorporad
 
 ### Por que minha Central de Preferências não funciona em um envio de teste? {#why-doesnt-my-preference-center-work-in-a-test-send}
 
-Os links da Central de Preferências exigem um contexto de envio real. Envios de teste não geram URLs válidas da Central de Preferências, e o botão **Salvar Preferências** fica desativado se a página for carregada. Esse é o comportamento esperado. Para testar de ponta a ponta, lance uma Campaign ou etapa do Canvas para um usuário teste ou um Segment interno pequeno, ou use o [endpoint Gerar URL da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Para mais detalhes, consulte [Testando Centrais de Preferências](#testing-preference-centers).
+Os links da Central de Preferências exigem um contexto de envio real. Envios de teste não geram URLs válidas da Central de Preferências, e o botão **Salvar Preferências** fica desativado se a página for carregada. Esse é o comportamento esperado. Para testar de ponta a ponta, lance uma Campaign ou etapa do Canvas para um usuário teste ou um Segment or segmento interno pequeno, ou use o [endpoint Gerar URL da Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center/get_create_url_preference_center). Para mais detalhes, consulte [Testando Centrais de Preferências](#testing-preference-centers).
 
 ### Eu não criei uma Central de Preferências. Por que estou vendo "PreferenceCenterBrazeDefault" no meu dashboard? {#i-havent-created-a-preference-center-why-am-i-seeing-preferencecenterbrazedefault-on-my-dashboard}
 
@@ -151,7 +151,7 @@ Não. Se você vir a mensagem "Your Email Body does not include an unsubscribe l
 
 ### Como atualizo o ícone padrão do navegador? {#how-do-i-update-the-default-browser-icon}
 
-Por padrão, o ícone ao lado do nome da guia do navegador (favicon) usa o logotipo da Braze. Para adicionar um favicon personalizado, defina-o por meio do atributo `links-tags` na sua chamada de API para Criar ou Atualizar a [Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center). A Braze então injeta a tag {% raw %}`<link rel="icon" ...>`{% endraw %} na página hospedada para você.
+Por padrão, o ícone ao lado do nome da guia do navegador (favicon) usa o logotipo da Braze. Para adicionar um favicon personalizado, defina-o por meio do atributo `links-tags` na sua chamada de API or interface de programação do aplicativo (API) para Criar ou Atualizar a [Central de Preferências]({{site.baseurl}}/api/endpoints/preference_center). A Braze então injeta a tag {% raw %}`<link rel="icon" ...>`{% endraw %} na página hospedada para você.
 
 {% raw %}
 ```

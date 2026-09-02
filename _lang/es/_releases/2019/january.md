@@ -9,9 +9,9 @@ description: "Este artículo contiene notas de la versión de enero de 2019."
 
 ¡Bienvenido a un nuevo año!
 
-## TTL para notificación push {#push-time-to-live-ttl}
+## TTL or tiempo de vida para notificación push {#push-time-to-live-ttl}
 
-En tu cuenta, dentro de **Administrar configuración**, haz clic en la pestaña [Configuración de TTL push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) para administrar el tiempo de duración de los intentos de reenvío en caso de que un dispositivo esté desconectado.
+En tu cuenta, dentro de **Administrar configuración**, haz clic en la pestaña [Configuración de TTL or tiempo de vida push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings/) para administrar el tiempo de duración de los intentos de reenvío en caso de que un dispositivo esté desconectado.
 
 ## Lista blanca de IP de contenido conectado {#connected-content-ip-whitelisting}
 

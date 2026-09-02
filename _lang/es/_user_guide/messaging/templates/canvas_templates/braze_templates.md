@@ -29,7 +29,7 @@ Ten en cuenta lo siguiente al usar esta plantilla:
 - El horario de entrada se desencadena por API. Usa el [punto de conexión `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) para hacer que los usuarios entren cuando abandonen un carrito, o cambia a un horario basado en acciones con un desencadenante como **Realizar evento personalizado** o **Realizar evento de actualización de carrito** si se adapta a tu configuración.
 - La conversión predeterminada rastrea **Realizar cualquier compra (Heredado)**. Adapta los eventos de conversión y los pasos de Rutas de acción **¿Realizó una compra?** a productos específicos si es necesario.
 - Los usuarios salen del Canvas cuando realizan una compra en los pasos de Rutas de acción **¿Realizó una compra?**. Esta plantilla asume que tienes un recorrido post-compra separado.
-- El Canvas incluye un correo electrónico para **Recordatorio detallado**, un paso de retraso, una división de canal inteligente para correo electrónico y SMS, mensajes de canal con Content Cards (correo electrónico, SMS y mensaje dentro de la aplicación), y un paso de Audience Sync. Configura **Reorientación de anuncios** con tus socios y audiencias.
+- El Canvas incluye un correo electrónico para **Recordatorio detallado**, un paso de retraso, una división de canal inteligente para correo electrónico y servicio de mensajes cortos, mensajes de canal con Content Cards (correo electrónico, servicio de mensajes cortos y mensaje dentro de la aplicación), y un paso de Audience Sync. Configura **Reorientación de anuncios** con tus socios y audiencias.
 
 Para un recorrido paso a paso, consulta [Intención abandonada]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart).
 
@@ -96,4 +96,4 @@ Orquesta experiencias personalizadas que te permitan responder a la retroaliment
 
 Las plantillas de Canvas de comercio electrónico están diseñadas específicamente para especialistas en marketing de comercio electrónico, lo que facilita la implementación de estrategias esenciales.
 
-{% multi_lang_include canvas/ecommerce_templates.md %}
+{% multi_lang_include Canvas/ecommerce_templates.md %}

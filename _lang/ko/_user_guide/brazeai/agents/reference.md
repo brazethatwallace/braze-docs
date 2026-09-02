@@ -39,7 +39,7 @@ Braze 제공 **Auto** 모델은 카탈로그 검색 및 Segment 멤버십과 같
 
 그런 다음 에이전트로 돌아가서 모델을 선택할 수 있습니다.
 
-Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(DPA) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
+Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(데이터 보호 어드바이저) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
 
 #### 사고 수준 {#thinking-levels}
 
@@ -58,7 +58,7 @@ Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 
 Braze는 아웃바운드 LLM 호출에 연결된 콘텐츠와 동일한 IP 범위를 사용합니다. 해당 범위는 [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)에 나열되어 있습니다. 제공업체가 IP 허용 목록을 지원하는 경우, Braze만 사용할 수 있도록 해당 범위로 키를 제한할 수 있습니다.
 
 {% alert important %}
-Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(DPA) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
+Braze 제공 LLM을 사용하는 경우, 해당 모델의 제공업체는 Braze 하위 처리자로 활동하며, 귀하와 Braze 간의 데이터 처리 부속서(데이터 보호 어드바이저) 조건의 적용을 받습니다. 자체 API 키를 가져오는 경우, LLM 구독 제공업체는 귀하와 Braze 간의 계약에 따라 제3자 제공업체로 간주됩니다.
 {% endalert %}
 
 #### 사용할 모델 결정 {#determine-which-model-to-use}
@@ -147,7 +147,7 @@ Agent Console의 시작 구성에 대해서는 [Operator로 구축한 에이전�
 | [최근 행동에서 가장 관련성 높은 Canvas 경로로 사용자 라우팅]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | 친밀도 에이전트 | 캔버스 단계 에이전트 | 최근 행동에서 동기를 추론하고 사용자의 다음 캔버스 단계에 가장 적합한 경로 키를 반환합니다. |
 | [실시간 높은 의도 행동에서 사용자를 관심사 카테고리에 할당]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | 친밀도 에이전트 | 캔버스 단계 에이전트 | 높은 의도 행동에서 관심사 카테고리를 할당하고 최적의 다음 경험 또는 항목을 추천합니다. |
 | [수신 메시지를 수신 거부 의도로 분류]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | 분류 및 라우팅 | 캔버스 단계 에이전트 | 메시지가 수신 거부 요청인지 여부를 나타내는 엄격한 불린값을 반환합니다. |
-| [수신 메시지를 자동화를 위한 구조화된 데이터로 표준화]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | 데이터 표준화 | 캔버스 단계 에이전트 | 수신 SMS 또는 채팅을 다운스트림 자동화를 위한 구조화된 의도, 엔티티, 규정 준수 플래그로 정규화합니다. |
+| [수신 메시지를 자동화를 위한 구조화된 데이터로 표준화]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | 데이터 표준화 | 캔버스 단계 에이전트 | 수신 단문 메시지 서비스 또는 채팅을 다운스트림 자동화를 위한 구조화된 의도, 엔티티, 규정 준수 플래그로 정규화합니다. |
 | [브랜드 가이드라인에 맞는 높은 전환율의 설명 작성]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | 콘텐츠 생성 | 카탈로그 에이전트 | 각 카탈로그 행에 대해 짧고 브랜드에 맞는 설명을 생성합니다. |
 | [지역별 사용 언어에 기반한 번역 제공]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | 카탈로그 강화 | 카탈로그 에이전트 | 로케일 및 문자 수 제한에 따라 UI 및 마케팅 문자열을 현지화합니다. |
 | [설명, 카테고리, 태그로 카탈로그 항목 강화]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | 카탈로그 강화 | 카탈로그 에이전트 | 기존 카탈로그 항목 데이터에서 향상된 설명, 카테고리, 태그를 생성합니다. |
@@ -283,7 +283,7 @@ Catalog Agent는 입력 필드 간에 의존 관계가 있는 경우 열 순서�
 
 ## 브랜드 가이드라인 {#brand-guidelines}
 
-에이전트가 응답에서 준수할 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 선택할 수 있습니다. 예를 들어, 에이전트가 사용자에게 체육관 멤버십 가입을 유도하는 SMS 문구를 생성하도록 하려면, 이 필드를 사용하여 사전에 정의한 대담하고 동기를 부여하는 가이드라인을 참조할 수 있습니다.
+에이전트가 응답에서 준수할 [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)을 선택할 수 있습니다. 예를 들어, 에이전트가 사용자에게 체육관 멤버십 가입을 유도하는 단문 메시지 서비스 문구를 생성하도록 하려면, 이 필드를 사용하여 사전에 정의한 대담하고 동기를 부여하는 가이드라인을 참조할 수 있습니다.
 
 ## 사용자별 상호작용 기록 {#user-history}
 

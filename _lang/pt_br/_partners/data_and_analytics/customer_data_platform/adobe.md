@@ -5,7 +5,7 @@ page_type: partner
 search_tag: Partner
 layout: dev_guide
 guide_top_header: "Adobe"
-guide_top_text: "Baseada na Adobe Experience Platform, a plataforma de dados do cliente em tempo real da Adobe ajuda as empresas a reunir dados conhecidos e anônimos de várias fontes empresariais para criar perfis de clientes. Esses perfis podem então ser usados para fornecer experiências personalizadas em todos os canais e dispositivos em tempo real."
+guide_top_text: "Baseada na Adobe Experience Platform, a CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente em tempo real da Adobe ajuda as empresas a reunir dados conhecidos e anônimos de várias fontes empresariais para criar perfis de clientes. Esses perfis podem então ser usados para fornecer experiências personalizadas em todos os canais e dispositivos em tempo real."
 
 description: "Esta landing page é o hub central das informações relacionadas à Adobe, incluindo como integrar a Adobe e usar a extensão de encaminhamento de eventos."
 

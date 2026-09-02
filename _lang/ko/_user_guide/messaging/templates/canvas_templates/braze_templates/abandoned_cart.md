@@ -3,13 +3,13 @@ nav_title: 유기한 의도
 article_title: 유기한 의도
 page_order: 1
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 사용자와 실시간으로 소통하고 구매를 완료하도록 유도하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 사용자와 실시간으로 소통하고 구매를 완료하도록 유도하는 방법을 설명합니다."
 tool: Canvas
 ---
 
 # 유기한 의도 {#abandoned-intent}
 
-> 제품이 아직 기억에 남아 있을 때 사용자와 실시간으로 소통하여 구매를 완료하도록 유도하세요. 이 API 트리거 템플릿은 사용자가 장바구니를 유기하는 즉시 진입시키고, 최적의 채널(이메일, SMS 또는 인앱)로 시의적절한 리마인더를 보내며, 여정의 두 지점에서 구매 완료 여부를 확인하고, 전환하지 않은 사용자를 리타겟팅을 위해 광고 오디언스에 동기화합니다.
+> 제품이 아직 기억에 남아 있을 때 사용자와 실시간으로 소통하여 구매를 완료하도록 유도하세요. 이 API 트리거 템플릿은 사용자가 장바구니를 유기하는 즉시 진입시키고, 최적의 채널(이메일, 단문 메시지 서비스 또는 인앱)로 시의적절한 리마인더를 보내며, 여정의 두 지점에서 구매 완료 여부를 확인하고, 전환하지 않은 사용자를 리타겟팅을 위해 광고 오디언스에 동기화합니다.
 
 이 문서에서는 사용자 라이프사이클의 고려 단계를 위한 **Abandoned Intent** 템플릿의 사용 사례를 안내합니다. 이 문서를 마치면 장바구니에 상품을 추가한 후 구매를 완료하지 않은 사용자에게 구매를 유도하는 사용자 여정을 커스텀할 수 있습니다.
 
@@ -37,8 +37,8 @@ Canvas를 만들기 전에 [Braze 오디언스 동기화 to Facebook]({{site.bas
 | 행동 경로 | Made purchase? | 첫 번째 완료 확인으로, 이미 구매한 사용자는 Canvas를 종료합니다. |
 | 메시지 | Itemized Reminder | 진입 직후 발송되는 즉시 장바구니 리마인더입니다. |
 | 지연 | Delay | 제품이 아직 기억에 남아 있을 때 후속 메시지가 도착하도록 30분 대기합니다. |
-| 오디언스 경로 | Intelligent Channel split | [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 순위에 따라 사용자를 이메일 또는 SMS로 라우팅합니다. |
-| 메시지 | Abandoned Cart Email, Abandoned Cart SMS, Abandoned Cart In-App Message | 채널별 후속 메시지입니다. 인텔리전트 채널이 이메일과 SMS 중 선택하며, 인앱 메시지는 템플릿에서 별도의 경로로 발송됩니다. |
+| 오디언스 경로 | Intelligent Channel split | [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 순위에 따라 사용자를 이메일 또는 단문 메시지 서비스로 라우팅합니다. |
+| 메시지 | Abandoned Cart Email, Abandoned Cart 단문 메시지 서비스, Abandoned Cart In-App Message | 채널별 후속 메시지입니다. 인텔리전트 채널이 이메일과 단문 메시지 서비스 중 선택하며, 인앱 메시지는 템플릿에서 별도의 경로로 발송됩니다. |
 | 행동 경로 | Made purchase? (2) | 리타겟팅 전 두 번째 완료 확인입니다. |
 | 오디언스 동기화 | Ad Retargeting | 비전환자를 광고 오디언스(예: Facebook)에 동기화하여 오프채널 리타겟팅을 수행합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Abandoned Intent 템플릿 단계" }
@@ -112,8 +112,8 @@ Canvas 템플릿을 적용하고 목표에 맞게 세부 정보를 업데이트�
 
 #### 최적 채널로 라우팅 {#route-to-the-optimal-channel}
 
-1. **Intelligent Channel split** 오디언스 경로 단계를 검토합니다. 이 단계는 [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 순위에 따라 사용자를 **Abandoned Cart Email** 또는 **Abandoned Cart SMS**로 라우팅합니다. 필요에 따라 경로를 조정합니다.
-2. **Abandoned Cart Email**, **Abandoned Cart SMS**, **Abandoned Cart In-App Message** 단계를 커스텀합니다. 각 단계에서 **메시지 편집**을 선택하여 해당 채널의 문구와 메시지를 업데이트합니다. 인앱 메시지는 인텔리전트 채널 분할과 별도의 경로에서 실행되며 인텔리전트 채널 순위에 의해 선택되지 않습니다.
+1. **Intelligent Channel split** 오디언스 경로 단계를 검토합니다. 이 단계는 [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 순위에 따라 사용자를 **Abandoned Cart Email** 또는 **Abandoned Cart 단문 메시지 서비스**로 라우팅합니다. 필요에 따라 경로를 조정합니다.
+2. **Abandoned Cart Email**, **Abandoned Cart 단문 메시지 서비스**, **Abandoned Cart In-App Message** 단계를 커스텀합니다. 각 단계에서 **메시지 편집**을 선택하여 해당 채널의 문구와 메시지를 업데이트합니다. 인앱 메시지는 인텔리전트 채널 분할과 별도의 경로에서 실행되며 인텔리전트 채널 순위에 의해 선택되지 않습니다.
 
 #### 비전환자 리타겟팅 {#retarget-non-converters}
 

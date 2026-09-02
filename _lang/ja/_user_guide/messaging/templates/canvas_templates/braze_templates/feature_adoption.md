@@ -3,7 +3,7 @@ nav_title: 機能導入
 article_title: 機能導入
 page_order: 3
 page_type: reference
-description: "この記事では、Braze Canvasテンプレートを使用して、メリットや使い方のヒントを強調するタイムリーでパーソナライズ済みのメッセージを配信する方法について説明します。"
+description: "この記事では、Braze キャンバステンプレートを使用して、メリットや使い方のヒントを強調するタイムリーでパーソナライズ済みのメッセージを配信する方法について説明します。"
 tool: Canvas
 ---
 
@@ -91,18 +91,18 @@ tool: Canvas
 {: start="2"}
 2. 2番目のアクショングループ**Taken Tour**はそのままにします。ユーザーがアプリのツアーを完了したかどうかを評価し、完了した場合は2番目のパスに進むようにするためです。
 3. 後続のアクションパス**Assess Usage**で、**Used Feature >3x**を**Viewed Cruise Control settings**に置き換えます。
-4. **Perform Custom Event**ドロップダウンを選択し、カスタムイベントとして`scheduled_delivery`を選択します。
+4. **カスタムイベントを実行**ドロップダウンを選択し、カスタムイベントとして`scheduled_delivery`を選択します。
 
 ![アクショングループ名が「Used Feature >3x」に設定され、「Perform Custom Event」が「scheduled_delivery」に設定されている画面。]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_assess_usage.png %}){: style="max-width:60%;"}
 
 #### フィードバック調査を設定する {#set-up-feedback-survey}
 
-次に、**Feedback Survey**というメッセージステップに移動して、ユーザーがCruise Controlを初めて使用した後に記入するフィードバック調査を含めます。調査の回答オプションは以下のとおりです。
+次に、**フィードバック Survey**というメッセージステップに移動して、ユーザーがCruise Controlを初めて使用した後に記入するフィードバック調査を含めます。調査の回答オプションは以下のとおりです。
 
 - **Loved it!**
 - **Not for me.**
 
-1. 2つの調査選択肢について、Cruise Controlに関するフィードバックをキャプチャおよび追跡するためのカスタム属性として**Experience Feedback**を選択します。このカスタム属性には、調査回答を表す2つの値（`good`と`bad`）があります。
+1. 2つの調査選択肢について、Cruise Controlに関するフィードバックをキャプチャおよび追跡するためのカスタム属性として**Experience フィードバック**を選択します。このカスタム属性には、調査回答を表す2つの値（`good`と`bad`）があります。
 2. 属性値を調査オプションに合わせて更新します。これにより、ユーザーの回答を追跡できるようになります。
 
 ### ステップ 7: キャンバスをテストして起動する {#step-7-test-and-launch-your-canvas}

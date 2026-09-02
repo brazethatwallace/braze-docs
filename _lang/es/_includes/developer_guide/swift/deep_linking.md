@@ -173,7 +173,7 @@ Puedes desactivar ATS por completo. Ten en cuenta que no es una práctica recome
 
 ## Decodificación de URL {#decoding-urls}
 
-El SDK codifica porcentualmente los enlaces para crear `URL` válidas. Todos los caracteres de enlace que no estén permitidos en una URL correctamente formada, como los caracteres Unicode, se escaparán porcentualmente.
+El SDK or kit de desarrollo de software codifica porcentualmente los enlaces para crear `URL` válidas. Todos los caracteres de enlace que no estén permitidos en una URL correctamente formada, como los caracteres Unicode, se escaparán porcentualmente.
 
 Para decodificar un enlace codificado, utiliza la propiedad `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). También debes devolver `true` en `BrazeDelegate.braze(_:shouldOpenURL:)`. Se necesita una llamada a la acción para desencadenar el manejo de la URL por parte de tu aplicación. Por ejemplo, en tu controlador [`scene:openURLContexts:`](#step-3-implement-a-handler) del paso 3:
 
@@ -243,7 +243,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 ### Personalización predeterminada de WebView {#default-webview-customization}
 
-La clase `Braze.WebViewController` muestra las URL web abiertas por el SDK, normalmente cuando se selecciona "Abrir URL web dentro de la aplicación" para un vínculo profundo web.
+La clase `Braze.WebViewController` muestra las URL web abiertas por el SDK or kit de desarrollo de software, normalmente cuando se selecciona "Abrir URL web dentro de la aplicación" para un vínculo profundo web.
 
 Puedes personalizar `Braze.WebViewController` mediante el método delegado [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/).
 
@@ -267,14 +267,14 @@ Para añadir soporte a las compilaciones del simulador, puedes añadir el archiv
 {% endalert %}
 
 {% alert note %}
-El SDK no consulta el archivo `apple-app-site-association` de tus dominios. Realiza la diferenciación entre vínculos universales y URL normales fijándose solo en el nombre de dominio. Como resultado, el SDK no respeta ninguna regla de exclusión definida en `apple-app-site-association` según [Compatibilidad con dominios asociados](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
+El SDK or kit de desarrollo de software no consulta el archivo `apple-app-site-association` de tus dominios. Realiza la diferenciación entre vínculos universales y URL normales fijándose solo en el nombre de dominio. Como resultado, el SDK or kit de desarrollo de software no respeta ninguna regla de exclusión definida en `apple-app-site-association` según [Compatibilidad con dominios asociados](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
 {% endalert %}
 
 ## Ejemplos {#examples}
 
 ### BrazeDelegate
 
-Aquí tienes un ejemplo utilizando `BrazeDelegate`. Para obtener más información, consulta la [referencia del SDK Swift de Braze](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
+Aquí tienes un ejemplo utilizando `BrazeDelegate`. Para obtener más información, consulta la [referencia del SDK or kit de desarrollo de software Swift de Braze](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
 
 {% tabs %}
 {% tab swift %}

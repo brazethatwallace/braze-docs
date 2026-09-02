@@ -7,10 +7,10 @@
 <tr><th>Fonte</th><th>Descrição</th></tr>
 </thead>
 <tbody>
-<tr><td>SDK</td><td>Endpoints de SDK</td></tr>
+<tr><td>SDK or kit de desenvolvimento de software</td><td>Endpoints de SDK or kit de desenvolvimento de software</td></tr>
 <tr><td>Dashboard</td><td>Quando o estado da inscrição de um usuário é atualizado na página de perfil de usuário no dashboard</td></tr>
 <tr><td>Página de inscrição</td><td>Quando um usuário cancela a inscrição por meio de um link de e-mail que não seja a Central de Preferências</td></tr>
-<tr><td>REST API</td><td>Endpoints da REST API</td></tr>
+<tr><td>REST or transferir estado representacional API or interface de programação do aplicativo (API)</td><td>Endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API)</td></tr>
 <tr><td>Importação de CSV</td><td>Importação de usuários via CSV</td></tr>
 <tr><td>Central de Preferências</td><td>Quando um usuário é atualizado a partir da Central de Preferências</td></tr>
 <tr><td>Mensagem recebida</td><td>Quando um usuário é atualizado por mensagens recebidas de usuários finais por meio de canais como SMS</td></tr>

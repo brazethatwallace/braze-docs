@@ -16,7 +16,7 @@ description: "Si eres un socio de Braze, utiliza este punto de conexión para re
 > Si eres un socio de Braze, utiliza este punto de conexión para registrar eventos personalizados y compras, y actualizar atributos de perfil de usuario de forma masiva.
 
 {% alert important %}
-Este punto de conexión está disponible para que los socios de Braze migren casos de uso masivos en su integración con Braze. Si tienes preguntas, ponte en contacto con [isv-support@braze.com](mailto:isv-support@braze.com).
+Este punto de conexión está disponible para que los socios de Braze migren casos de uso masivos en su integración con Braze. Si tienes preguntas, ponte en contacto con [proveedor de software independiente-support@braze.com](mailto:isv-support@braze.com).
 {% endalert %}
 
 ## Cuándo usar este punto de conexión {#when-to-use-this-endpoint}
@@ -44,7 +44,7 @@ Si tus clientes están usando la API para llamadas de servidor a servidor, es po
 
 Para la mayoría de los clientes, aplicamos un límite de velocidad base de 50 solicitudes por segundo a este punto de conexión.
 
-Sin embargo, los clientes con contratos más recientes pueden recibir un límite de velocidad de ráfaga (por segundo) y estable (por hora), que está vinculado a su MAU contratado con Braze.
+Sin embargo, los clientes con contratos más recientes pueden recibir un límite de velocidad de ráfaga (por segundo) y estable (por hora), que está vinculado a su MAU or usuarios activos al mes contratado con Braze.
 
 Para mejorar las interacciones en tiempo real con nuestra API, asegúrate de usar nuestros [encabezados de respuesta recomendados]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits).
 

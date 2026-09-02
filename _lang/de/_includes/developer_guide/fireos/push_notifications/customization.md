@@ -6,9 +6,9 @@ Für die Push-Benachrichtigungen von FireOS, die über das Braze-Dashboard verse
 
 ![Panel für erweiterte Einstellungen im Braze FireOS Push Composer.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
-### Time to Live (TTL) {#ttl}
+### TTL (TTL) {#ttl}
 
-Im Feld **Time to Live** (TTL) können Sie eine benutzerdefinierte Zeitspanne für die Speicherung von Nachrichten mit dem Push-Messaging-Dienst festlegen. Die Standardwerte für die Time to Live betragen vier Wochen für FCM und 31 Tage für ADM.
+Im Feld **TTL** (TTL) können Sie eine benutzerdefinierte Zeitspanne für die Speicherung von Nachrichten mit dem Push-Messaging-Dienst festlegen. Die Standardwerte für die TTL betragen vier Wochen für FCM und 31 Tage für ADM.
 
 ### Zusammenfassungstext {#summary-text}
 

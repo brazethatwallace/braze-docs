@@ -15,9 +15,9 @@ search_rank: 5
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Content Cards hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Content Cards hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um loszulegen.
 
-Bevor Sie Content Cards verwenden können, müssen Sie das [Braze SDK]({{site.baseurl}}/developer_guide/content_cards) in Ihre App oder Website integrieren. Es ist kein zusätzliches Setup erforderlich. Wenn Sie stattdessen eine eigene UI erstellen möchten, lesen Sie den [Leitfaden zur Anpassung von Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
+Bevor Sie Content Cards verwenden können, müssen Sie das [Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/content_cards) in Ihre App oder Website integrieren. Es ist kein zusätzliches Setup erforderlich. Wenn Sie stattdessen eine eigene UI erstellen möchten, lesen Sie den [Leitfaden zur Anpassung von Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
 
 ## Vorteile von Content Cards {#benefits-of-using-content-cards}
 
@@ -25,7 +25,7 @@ Hier sind einige Vorteile von Content Cards im Vergleich dazu, Ihre Entwickler:i
 
 - **Einfachere Segmentierung und Personalisierung:** Ihre Nutzerdaten befinden sich in Braze, sodass Sie Ihre Zielgruppe einfach definieren und Ihre Nachrichten mit Content Cards personalisieren können.
 - **Zentralisiertes Reporting:** Content-Card-Analytics werden in Braze erfasst, sodass Sie Insights zu all Ihren Campaigns an einem Ort haben.
-- **Zusammenhängende Customer Journeys:** Sie können Content Cards mit anderen Kanälen in Braze kombinieren, um konsistente Kundenerlebnisse zu schaffen. Ein beliebter Anwendungsfall ist das Senden einer Push-Benachrichtigung und das anschließende Speichern dieser Benachrichtigung als Content Card in Ihrer App für alle, die nicht auf den Push reagiert haben. Wenn der Inhalt direkt von Ihren Entwickler:innen in die App eingebaut wird, ist er vom Rest Ihres Messagings isoliert.
+- **Zusammenhängende Customer Journeys:** Sie können Content Cards mit anderen Kanälen in Braze kombinieren, um konsistente Kundenerlebnisse zu schaffen. Ein beliebter Anwendungsfall ist das Senden einer Push-Benachrichtigung und das anschließende Speichern dieser Benachrichtigung als Content Card in Ihrer App für alle, die nicht auf den Push reagiert haben. Wenn der Inhalt direkt von Ihren Entwickler:innen in die App eingebaut wird, ist er vom Representational State Transfer Ihres Messagings isoliert.
 - **Kein Opt-in erforderlich:** Ähnlich wie In-App Messages erfordern Content Cards kein Opt-in oder Berechtigungen von Ihren Nutzer:innen. Während In-App Messages jedoch keine Berechtigung erfordern und kurzlebig sind, erfordern Content Cards ebenfalls keine Berechtigung, sind aber dauerhaft. Das bedeutet, dass Messaging-Strategien, die In-App Messages und Content Cards kombinieren, eine hervorragende Balance bieten.
 - **Mehr Kontrolle über das Messaging-Erlebnis:** Auch wenn Sie für das initiale Setup von Content Cards noch die Hilfe Ihrer Entwickler:innen benötigen, können Sie danach die Nachricht, Empfänger:innen, das Timing und mehr direkt über Ihr Braze-Dashboard steuern.
 
@@ -33,7 +33,7 @@ Hier sind einige Vorteile von Content Cards im Vergleich dazu, Ihre Entwickler:i
 
 ## Content Cards in Zahlen {#content-cards-by-the-numbers}
 
-Wenn Sie Content Cards in Braze erstellen, können Sie Messaging aktualisieren und die Wirkung messen, ohne Ihre App oder Website grundlegend überarbeiten zu müssen. Highlights aus der Braze-Forschung:
+Wenn Sie Content Cards in Braze erstellen, können Sie Messaging Update or aktualisieren or aktualisieren und die Wirkung messen, ohne Ihre App oder Website grundlegend überarbeiten zu müssen. Highlights aus der Braze-Forschung:
 
 - Content Cards sind **38-mal** effektiver als E-Mail bei der Steigerung von Verkäufen innerhalb eines 72-Stunden-Fensters.[^1]
 - Der Einsatz von Content Cards in Campaigns zur Anmeldung für Treueprogramme steigert Conversions um das **5-Fache**.[^1]

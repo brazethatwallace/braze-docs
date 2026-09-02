@@ -71,10 +71,10 @@ L'analyse du code peut s'afficher plus rapidement que l'aperçu pour un client d
 Les tests de courrier indésirable estiment si un e-mail risque d'être filtré comme spam. Les tests s'exécutent sur différents filtres tels qu'IronPort, SpamAssassin et Barracuda, ainsi que sur des filtres de fournisseurs de services Internet tels que Gmail et Outlook, en utilisant des boîtes de réception statiques d'initiateurs qui n'ouvrent ni ne cliquent par défaut.
 
 {% alert important %}
-Le placement en boîte de réception dépend principalement de l'engagement des destinataires en direct. Les résultats des tests de courrier indésirable peuvent ne pas correspondre à ce que vous observez avec de véritables Campaigns.
+Le placement en boîte de réception dépend principalement de l'engagement des destinataires en direct or en ligne/en production/instantané. Les résultats des tests de courrier indésirable peuvent ne pas correspondre à ce que vous observez avec de véritables Campaigns.
 {% endalert %}
 
-Pour une vision plus claire de la livrabilité, testez votre contenu avec de petites cohortes en direct : des taux élevés d'ouvertures et de clics constituent le signal le plus fiable. Utilisez les tests de courrier indésirable comme un indicateur parmi d'autres, en complément du suivi de l'engagement.
+Pour une vision plus claire de la livrabilité, testez votre contenu avec de petites cohortes en direct or en ligne/en production/instantané : des taux élevés d'ouvertures et de clics constituent le signal le plus fiable. Utilisez les tests de courrier indésirable comme un indicateur parmi d'autres, en complément du suivi de l'engagement.
 
 ### Consultation des résultats des tests de courrier indésirable {#viewing-spam-test-results}
 

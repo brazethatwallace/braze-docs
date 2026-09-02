@@ -172,7 +172,7 @@ Brazeダッシュボードにアクセスし、SSOを使用してサインイン
 
 ### ステップ3:エクスポートしてBrazeに送信する {#step-3-export-and-send-to-braze}
 
-**Export**を選択します。**Select cookie-filter profile**で**None**を選択します。次に、**Export**を選択します。これにより、Brazeサポートに送信してさらなるトラブルシューティングに活用できるJSONファイルが生成されます。
+**Export**を選択します。**Select Cookie-filter profile**で**None**を選択します。次に、**Export**を選択します。これにより、Brazeサポートに送信してさらなるトラブルシューティングに活用できるJSONファイルが生成されます。
 
 ![「Export SAML-trace preferences」メニューで「None」オプションが選択された状態。]({% image_buster /assets/img/export_saml_trace_preferences.png %})
 

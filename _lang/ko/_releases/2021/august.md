@@ -10,7 +10,7 @@ description: "이 문서에는 2021년 8월의 릴리스 노트가 포함되어 
 
 ## Google 오디언스 동기화 {#google-audience-sync}
 
-Braze [오디언스 싱크와 Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) 통합을 통해 브랜드는 크로스채널 고객 여정의 도달 범위를 Google 검색, Google 쇼핑, Gmail, YouTube, Google 디스플레이로 확장할 수 있습니다. 퍼스트파티 고객 데이터를 사용하면 동적 행동 트리거, 세분화 등을 기반으로 광고를 안전하게 전달할 수 있습니다. 일반적으로 메시지를 트리거하는 데 사용하는 모든 기준(예: 푸시, 이메일, SMS 등)을 Braze Canvas의 일부로 사용하여 Google의 고객 일치를 통해 해당 사용자에게 광고를 트리거할 수 있습니다.
+Braze [오디언스 싱크와 Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) 통합을 통해 브랜드는 크로스채널 고객 여정의 도달 범위를 Google 검색, Google 쇼핑, Gmail, YouTube, Google 디스플레이로 확장할 수 있습니다. 퍼스트파티 고객 데이터를 사용하면 동적 행동 트리거, 세분화 등을 기반으로 광고를 안전하게 전달할 수 있습니다. 일반적으로 메시지를 트리거하는 데 사용하는 모든 기준(예: 푸시, 이메일, 단문 메시지 서비스 등)을 BRAZE 캔버스의 일부로 사용하여 Google의 고객 일치를 통해 해당 사용자에게 광고를 트리거할 수 있습니다.
 
 ## 모범 사례 iOS SDK 통합 가이드 {#best-practice-ios-sdk-integration-guide}
 

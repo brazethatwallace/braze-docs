@@ -46,13 +46,13 @@ A forma de obter um grupo de inscrições depende do canal. Grupos de e-mail sã
 
 ## Segmentar com grupos de inscrições {#segment-with-subscription-groups}
 
-Ao criar um segmento, adicione um filtro de grupo de inscrições para direcionar usuários que aceitaram receber mensagens daquele grupo. Isso é útil para newsletters mensais, programas de cupons, níveis de associação e outros envios baseados em categorias.
+Ao criar um Segment or segmento or segmento, adicione um filtro de grupo de inscrições para direcionar usuários que aceitaram receber mensagens daquele grupo. Isso é útil para newsletters mensais, programas de cupons, níveis de associação e outros envios baseados em categorias.
 
 ![Exemplo de direcionamento de usuários no segmento "Lapsed Users" com o filtro para usuários no grupo de inscrições "Weekly Emails".]({% image_buster /assets/img/segment_sub_group.png %}){: style="max-width:90%"}
 
 ## Arquivar grupos de inscrições {#archive-subscription-groups}
 
-Grupos de inscrições arquivados não podem ser editados e não aparecem mais em filtros de segmento ou centrais de preferências. Se você arquivar um grupo usado como filtro de segmento em uma Campaign, Canvas ou segmento ativo, receberá um erro até remover essas referências.
+Grupos de inscrições arquivados não podem ser editados e não aparecem mais em filtros de Segment or segmento or segmento ou centrais de preferências. Se você arquivar um grupo usado como filtro de Segment or segmento or segmento em uma Campaign, Canvas ou Segment or segmento or segmento ativo, receberá um erro até remover essas referências.
 
 Para arquivar um grupo em **Gerenciamento de grupos de inscrições**, encontre o grupo e selecione **Arquivar** no menu <i class="fa-solid fa-ellipsis-vertical" aria-label="Mais opções"></i>.
 
@@ -63,17 +63,17 @@ Alguns canais têm regras adicionais de arquivamento. Consulte [Grupos de inscri
 ## Verificar os grupos de inscrições de um usuário {#check-a-users-subscription-groups}
 
 - **Perfil de usuário:** Abra um perfil em [Pesquisar usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles). Na guia **Engajamento**, veja os grupos de inscrições e o status para e-mail, SMS, WhatsApp e canais relacionados.
-- **REST API:** Use os endpoints [Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou [Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+- **REST or transferir estado representacional API or interface de programação do aplicativo (API):** Use os endpoints [Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou [Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
 
 ### Atualizar o status do grupo de inscrições {#update-subscription-group-status}
 
-Você pode atualizar a associação de um usuário a um grupo de inscrições por meio da REST API, SDK, importação de usuário, perfil de usuário, Central de Preferências de e-mail, etapa de atualização de usuário em um Canvas e outros fluxos específicos do canal. Os métodos exatos dependem do canal — consulte cada [seção do canal](#channel-specific-behavior) e [Grupos de inscrições de SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) para orientações de tempo específicas de SMS.
+Você pode atualizar a associação de um usuário a um grupo de inscrições por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API), SDK or kit de desenvolvimento de software, importação de usuário, perfil de usuário, Central de Preferências de e-mail, etapa de atualização de usuário em um Canvas e outros fluxos específicos do canal. Os métodos exatos dependem do canal — consulte cada [seção do canal](#channel-specific-behavior) e [Grupos de inscrições de SMS, MMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#set-a-users-state) para orientações de tempo específicas de SMS.
 
 ## Centrais de preferências {#preference-centers}
 
 Grupos de inscrições de e-mail podem aparecer em uma [Central de Preferências de e-mail]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) para que os usuários gerenciem as aceitações de e-mail por categoria em um só lugar. Os grupos de inscrições de e-mail ativos ficam disponíveis para adição quando você cria uma Central de Preferências; centrais de preferências legadas listam automaticamente todos os grupos de e-mail ativos.
 
-Para SMS e WhatsApp, gerencie o estado de inscrição por meio da REST API, fluxos de aceitação, palavras-chave (SMS), perfil de usuário e outros métodos específicos do canal em cada [seção do canal](#channel-specific-behavior).
+Para SMS e WhatsApp, gerencie o estado de inscrição por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API), fluxos de aceitação, palavras-chave (SMS), perfil de usuário e outros métodos específicos do canal em cada [seção do canal](#channel-specific-behavior).
 
 ## Comportamento específico do canal {#channel-specific-behavior}
 
@@ -93,7 +93,7 @@ Em **Gerenciamento de grupos de inscrições**, gráficos de séries temporais r
 - **Tamanho do grupo de inscrições:** usuários inscritos naquele grupo em uma data específica
 - **Tamanho de cancelamentos do grupo de inscrições:** usuários que cancelaram a inscrição daquele grupo em uma data específica
 
-Essas contagens refletem a associação àquele grupo, não o estado de inscrição global de e-mail. Elas podem diferir de um segmento que usa **Email Subscription Status is Unsubscribed**, que reflete o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states).
+Essas contagens refletem a associação àquele grupo, não o estado de inscrição global de e-mail. Elas podem diferir de um Segment or segmento or segmento que usa **Email Subscription Status is Unsubscribed**, que reflete o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states).
 
 O tamanho do grupo de inscrições de hoje não é calculado por padrão. Se o seu intervalo de datas incluir hoje, selecione **Calculate today's statistics** para adicionar o valor de hoje à série temporal. Para espaços de trabalho muito grandes, a Braze pode exibir contagens estimadas em vez de contagens exatas.
 
@@ -105,13 +105,13 @@ Os grupos de inscrições do WhatsApp são criados quando você [integra o Whats
 
 | Estado | Definição |
 | --- | --- |
-| Inscrito | O usuário confirmou explicitamente que deseja receber mensagens do WhatsApp da sua empresa. Os usuários podem ser inscritos por meio da API de inscrição da Braze ou do seu fluxo de aceitação. |
+| Inscrito | O usuário confirmou explicitamente que deseja receber mensagens do WhatsApp da sua empresa. Os usuários podem ser inscritos por meio da API or interface de programação do aplicativo (API) de inscrição da Braze ou do seu fluxo de aceitação. |
 | Cancelou inscrição | O usuário não aceitou ou foi removido do grupo. Usuários que cancelaram a inscrição não recebem mensagens do WhatsApp dos números de telefone daquele grupo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição do WhatsApp" }
 
 O WhatsApp exige uma aceitação explícita. Palavras-chave de aceitação não são suportadas neste canal — você mantém o consentimento e o estado de inscrição. Para fluxos de aceitação e cancelamento, consulte [Aceitações e cancelamentos do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs).
 
-Para etapas de arquivamento, atualizações de Canvas e exemplos de REST API, consulte [Grupos de inscrições do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
+Para etapas de arquivamento, atualizações de Canvas e exemplos de REST or transferir estado representacional API or interface de programação do aplicativo (API), consulte [Grupos de inscrições do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 ### Grupos de inscrições de SMS, MMS e RCS {#sms-mms-and-rcs-subscription-groups}
 
@@ -119,8 +119,8 @@ Os grupos de inscrições de SMS, MMS e RCS são a base para o envio nesses cana
 
 | Estado | Definição |
 | --- | --- |
-| Inscrito | O usuário está inscrito para receber mensagens daquele grupo de inscrições, por meio da API de inscrição, palavras-chave de aceitação ou outros fluxos suportados. Com a [aceitação dupla]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) ativada, os usuários devem confirmar antes que o status seja atualizado para inscrito. |
-| Cancelou inscrição | O usuário cancelou por meio de uma palavra-chave ou atualização de API. Usuários que cancelaram a inscrição não recebem SMS, MMS ou RCS dos remetentes daquele grupo. |
+| Inscrito | O usuário está inscrito para receber mensagens daquele grupo de inscrições, por meio da API or interface de programação do aplicativo (API) de inscrição, palavras-chave de aceitação ou outros fluxos suportados. Com a [aceitação dupla]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) ativada, os usuários devem confirmar antes que o status seja atualizado para inscrito. |
+| Cancelou inscrição | O usuário cancelou por meio de uma palavra-chave ou atualização de API or interface de programação do aplicativo (API). Usuários que cancelaram a inscrição não recebem SMS, MMS ou RCS dos remetentes daquele grupo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de inscrição de SMS e RCS" }
 
 Ao lançar uma mensagem SMS ou RCS, você seleciona um grupo de inscrições no criador. A Braze adiciona um filtro de público para que apenas usuários inscritos sejam direcionados. A Braze não envia SMS ou RCS para usuários que não estejam inscritos no grupo selecionado. Para receber uma mensagem de teste de SMS, o destinatário deve pertencer ao grupo de inscrições que você selecionar para o teste. Para mais detalhes, consulte [Perguntas frequentes sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages).

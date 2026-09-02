@@ -59,7 +59,7 @@ Braze Alloys est le programme de partenaires technologiques de Braze. Les parten
 - [Blings]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/blings)
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
-- [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Branch or branche]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
 - [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
@@ -347,7 +347,7 @@ Braze Alloys est le programme de partenaires technologiques de Braze. Les parten
 - [Talon.One]({{site.baseurl}}/partners/data_and_analytics/loyalty/talonone)
 - [Tangerine]({{site.baseurl}}/partners/ecommerce/analytics_workflow/tangerine)
 - [Tapcart]({{site.baseurl}}/partners/ecommerce/tapcart)
-- [Taxi for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
+- [Taxi or Taxi for email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
 - [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium)
 - [Tellius]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/tellius)
 - [The Trade Desk Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync)

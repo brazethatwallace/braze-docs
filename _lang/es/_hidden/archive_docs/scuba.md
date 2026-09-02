@@ -21,8 +21,8 @@ Para usar Scuba Analytics con Braze, necesitarás lo siguiente:
 | Requisito | Descripción |
 |---|---|
 | Token de API de Scuba | Un token de API de Scuba que puedes obtener desde el endpoint `https://{scuba_hostname}/api/create_token`. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia](https://scuba.io). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze para tu instancia](https://scuba.io). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Carga de datos de Scuba en Braze {#uploading-your-scuba-data-to-braze}
@@ -53,8 +53,8 @@ Sustituye los siguientes valores:
 
 | Marcador de posición | Descripción |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT` | La URL del endpoint REST de Braze de tu instancia actual de Braze. Para más información, consulta [Claves de API REST]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
-| `BRAZE_API_KEY` | Tu clave de API REST de Braze con el permiso `users.track`. |
+| `BRAZE_API_ENDPOINT` | La URL del endpoint REST or transferencia de estado representacional de Braze de tu instancia actual de Braze. Para más información, consulta [Claves de API REST or transferencia de estado representacional]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
+| `BRAZE_API_KEY` | Tu clave de API REST or transferencia de estado representacional de Braze con el permiso `users.track`. |
 | `HOSTNAME` | El nombre de host de tu instancia actual de Scuba. |
 | `SCUBA_API_TOKEN` | Tu token de API de Scuba. |
 | `TABLE_NAME` | La tabla a la que pertenece tu conjunto de datos. Para más información, consulta [Glosario: tabla de conjunto de datos](https://docs.scuba.io/glossary/dataset-table). |

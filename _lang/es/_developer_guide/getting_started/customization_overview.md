@@ -2,7 +2,7 @@
 nav_title: Resumen de la personalización
 article_title: Resumen de la personalización
 page_order: 10
-description: "Este artículo de referencia cubre los conceptos esenciales de la personalización y ampliación de los canales de mensajería del SDK."
+description: "Este artículo de referencia cubre los conceptos esenciales de la personalización y ampliación de los canales de mensajería del SDK or kit de desarrollo de software."
 hidden: true
 layout: redirect
 redirect_to: /docs/developer_guide/getting_started/
@@ -13,7 +13,7 @@ redirect_to: /docs/developer_guide/getting_started/
 > ¡Casi todo en Braze es totalmente personalizable! Los artículos de esta guía de personalización te muestran cómo enfocar el perfeccionamiento de tu experiencia con Braze mediante una mezcla de configuración y personalización. Durante este proceso, los equipos de marketing e ingeniería deben colaborar estrechamente para coordinar exactamente cómo personalizar los canales de mensajería de Braze.
 
 {% alert note %}
-El SDK de Braze es un potente conjunto de herramientas, pero a alto nivel proporciona dos importantes funciones: ayuda a recopilar y sincronizar los datos de usuario entre plataformas en un perfil de usuario consolidado, y también gestiona canales de mensajería como mensajes dentro de la aplicación, notificaciones push y Content Cards. Los artículos de la guía de personalización asumen que ya has pasado por el [proceso de implementación del SDK]({{site.baseurl}}/developer_guide/home).
+El SDK or kit de desarrollo de software de Braze es un potente conjunto de herramientas, pero a alto nivel proporciona dos importantes funciones: ayuda a recopilar y sincronizar los datos de usuario entre plataformas en un perfil de usuario consolidado, y también gestiona canales de mensajería como mensajes dentro de la aplicación, notificaciones push y Content Cards. Los artículos de la guía de personalización asumen que ya has pasado por el [proceso de implementación del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/home).
 {% endalert %}
 
 Todos los componentes de Braze están diseñados para ser accesibles, adaptables y personalizables. Por ello, te recomendamos que empieces con los componentes predeterminados de `BrazeUI` y los personalices para adaptarlos a las necesidades de tu marca y a tu caso de uso. En Braze, dividimos la personalización en tres enfoques diferentes, según el esfuerzo asociado y el nivel de flexibilidad proporcionado. Estos enfoques se denominan "gatear", "caminar" o "correr".
@@ -130,7 +130,7 @@ Los especialistas en marketing siguen manteniendo el control de la audiencia, el
 
 Con el enfoque Correr, los desarrolladores toman la iniciativa con pleno control de la experiencia del usuario. El código personalizado dicta qué aspecto tendrán los mensajes, cómo se comportan y cómo interactúan con otros canales de mensajería (por ejemplo, desencadenar una Content Card a partir de una notificación push).
 
-Cuando crees contenido personalizado completamente nuevo, como nuevos tipos de Content Cards o mensajes dentro de la aplicación con una interfaz de usuario a medida, el SDK de Braze no hará un [seguimiento automático de los análisis]({{site.baseurl}}/developer_guide/analytics). Debes gestionar los análisis mediante programación para que los especialistas en marketing sigan teniendo acceso a métricas como impresiones, clics y descartes en el dashboard de Braze. Llama a los métodos de análisis del SDK de Braze para que el SDK devuelva estos datos a Braze. Cada canal de mensajería dispone de un artículo de análisis para facilitar esta tarea.
+Cuando crees contenido personalizado completamente nuevo, como nuevos tipos de Content Cards o mensajes dentro de la aplicación con una interfaz de usuario a medida, el SDK or kit de desarrollo de software de Braze no hará un [seguimiento automático de los análisis]({{site.baseurl}}/developer_guide/analytics). Debes gestionar los análisis mediante programación para que los especialistas en marketing sigan teniendo acceso a métricas como impresiones, clics y descartes en el dashboard de Braze. Llama a los métodos de análisis del SDK or kit de desarrollo de software de Braze para que el SDK or kit de desarrollo de software devuelva estos datos a Braze. Cada canal de mensajería dispone de un artículo de análisis para facilitar esta tarea.
 
 <table aria-label="Resumen de la personalización">
   <caption>Resumen de la personalización</caption>

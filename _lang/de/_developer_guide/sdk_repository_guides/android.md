@@ -1,16 +1,16 @@
 ---
-nav_title: Android SDK
-article_title: Leitfaden zum Android SDK-Repository
+nav_title: Android SDK or Software-Development-Kit
+article_title: Leitfaden zum Android SDK or Software-Development-Kit-Repository
 page_order: 2
-description: "Braze Android SDK README-Referenz, gespiegelt von GitHub."
+description: "Braze Android SDK or Software-Development-Kit README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Leitfaden zum Android SDK-Repository {#android-sdk-repository-guide}
+# Leitfaden zum Android SDK or Software-Development-Kit-Repository {#android-sdk-repository-guide}
 
-## Über das Braze Android SDK {#about-the-braze-android-sdk}
+## Über das Braze Android SDK or Software-Development-Kit {#about-the-braze-android-sdk}
 
-Das Braze Android SDK hilft Ihnen, Braze Messaging-, Analytics- und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
+Das Braze Android SDK or Software-Development-Kit hilft Ihnen, Braze Messaging-, Analytics- und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
 
 Für den Einstieg können Sie die folgenden Ressourcen nutzen:
 
@@ -19,7 +19,7 @@ Für den Einstieg können Sie die folgenden Ressourcen nutzen:
 
 ## Schnellstart {#quickstart}
 
-Die folgenden Snippets zeigen die minimale Konfiguration, die erforderlich ist, um das Braze Android SDK zu Ihrer App hinzuzufügen.
+Die folgenden Snippets zeigen die minimale Konfiguration, die erforderlich ist, um das Braze Android SDK or Software-Development-Kit zu Ihrer App hinzuzufügen.
 
 ``` groovy
 // build.gradle
@@ -54,14 +54,14 @@ Weitere Informationen zu erweiterten Integrationsoptionen finden Sie im [Braze D
 ## Versionsunterstützung {#version-support}
 
 {% alert important %}
-Das Braze Android SDK deklariert eine `minSdkVersion` von API 21+, wodurch das SDK in Apps kompiliert werden kann, die ab API 21 unterstützt werden. Obwohl das SDK für diese Versionen kompiliert wird, bietet Braze keine formale Unterstützung für API-Versionen unter 25, und das SDK funktioniert auf Geräten mit diesen Versionen möglicherweise nicht wie vorgesehen.
+Das Braze Android SDK or Software-Development-Kit deklariert eine `minSdkVersion` von API 21+, wodurch das SDK or Software-Development-Kit in Apps kompiliert werden kann, die ab API 21 unterstützt werden. Obwohl das SDK or Software-Development-Kit für diese Versionen kompiliert wird, bietet Braze keine formale Unterstützung für API-Versionen unter 25, und das SDK or Software-Development-Kit funktioniert auf Geräten mit diesen Versionen möglicherweise nicht wie vorgesehen.
 
 Wenn Ihre App diese Versionen unterstützt, gehen Sie wie folgt vor:
 
-- Überprüfen Sie, dass Ihre Integration des SDK auf physischen Geräten (nicht nur Emulatoren) für diese API-Versionen wie vorgesehen funktioniert.
-- Wenn Sie das erwartete Verhalten nicht validieren können, müssen Sie entweder [disableSDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html) aufrufen oder die Initialisierung des SDK auf diesen Versionen überspringen. Andernfalls können unbeabsichtigte Nebeneffekte oder eine verschlechterte Performance auf den Geräten Ihrer Nutzer:innen auftreten.
+- Überprüfen Sie, dass Ihre Integration des SDK or Software-Development-Kit auf physischen Geräten (nicht nur Emulatoren) für diese API-Versionen wie vorgesehen funktioniert.
+- Wenn Sie das erwartete Verhalten nicht validieren können, müssen Sie entweder [disableSDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html) aufrufen oder die Initialisierung des SDK or Software-Development-Kit auf diesen Versionen überspringen. Andernfalls können unbeabsichtigte Nebeneffekte oder eine verschlechterte Performance auf den Geräten Ihrer Nutzer:innen auftreten.
 {% endalert %}
-Die folgende Tabelle listet die minimal unterstützten Versionen für Tools auf, die vom Braze Android SDK verwendet werden.
+Die folgende Tabelle listet die minimal unterstützten Versionen für Tools auf, die vom Braze Android SDK or Software-Development-Kit verwendet werden.
 
 Tool | Minimal unterstützte Version
 :----|:----
@@ -73,16 +73,16 @@ Font Awesome|4.3.0
 
 ## Module {#modules}
 
-Die folgende Tabelle beschreibt jedes Modul im Braze Android SDK.
+Die folgende Tabelle beschreibt jedes Modul im Braze Android SDK or Software-Development-Kit.
 
 Modul | Beschreibung
 :----|:----
-`android-sdk-base`|Die Braze SDK Basis-Analytics-Bibliothek.
-`android-sdk-ui`|Die Braze SDK Benutzeroberflächen-Bibliothek für In-App Messages, Push, Content Cards und Banner.
-`android-sdk-location`|Die Braze SDK Standort-Bibliothek für Standorte und Geofences.
-`android-sdk-jetpack-compose`|Die Braze SDK Bibliothek für Jetpack Compose-Unterstützung.
+`android-sdk-base`|Die Braze SDK or Software-Development-Kit Basis-Analytics-Bibliothek.
+`android-sdk-ui`|Die Braze SDK or Software-Development-Kit Benutzeroberflächen-Bibliothek für In-App Messages, Push, Content Cards und Banner.
+`android-sdk-location`|Die Braze SDK or Software-Development-Kit Standort-Bibliothek für Standorte und Geofences.
+`android-sdk-jetpack-compose`|Die Braze SDK or Software-Development-Kit Bibliothek für Jetpack Compose-Unterstützung.
 `droidboy`|Eine Beispiel-App, die zeigt, wie Sie Braze im Detail nutzen können.
-`android-sdk-unity`|Eine Bibliothek, die Braze SDK-Integrationen auf Unity ermöglicht.
+`android-sdk-unity`|Eine Bibliothek, die Braze SDK or Software-Development-Kit-Integrationen auf Unity ermöglicht.
 `samples`|Ein Ordner mit Beispiel-Apps für verschiedene Integrationsoptionen.
 
 ## Kontakt {#contact}

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Snowflake
 
-> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html)는 SaaS(software-as-a-service)로 제공되는 전용 SQL 클라우드 데이터 웨어하우스입니다. Snowflake는 기존 데이터 웨어하우스 오퍼링보다 더 빠르고, 사용하기 쉬우며, 훨씬 유연한 데이터 웨어하우스를 제공합니다. Snowflake의 고유하고 특허받은 아키텍처를 통해 모든 데이터를 쉽게 수집하고, 빠른 분석을 수행하며, 모든 사용자를 위한 데이터 중심 인사이트를 도출할 수 있습니다.
+> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html)는 SaaS(software-as-a-service)(software-as-a-service)로 제공되는 전용 SQL 클라우드 데이터 웨어하우스입니다. Snowflake는 기존 데이터 웨어하우스 오퍼링보다 더 빠르고, 사용하기 쉬우며, 훨씬 유연한 데이터 웨어하우스를 제공합니다. Snowflake의 고유하고 특허받은 아키텍처를 통해 모든 데이터를 쉽게 수집하고, 빠른 분석을 수행하며, 모든 사용자를 위한 데이터 중심 인사이트를 도출할 수 있습니다.
 
 Braze는 Snowflake와 두 가지 통합을 제공합니다. 이 두 가지를 함께 사용하면 Braze와 Snowflake 환경 간에 완전한 양방향 데이터 파이프라인을 구축할 수 있습니다.
 

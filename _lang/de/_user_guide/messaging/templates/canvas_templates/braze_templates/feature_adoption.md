@@ -32,8 +32,8 @@ Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 ![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/feature_adoption/select_edit_details.png %}){: style="max-width:60%;"}
 
 {:start="2"}
-2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas darauf abzielt, Nutzer:innen-Feedback zu sammeln.
-3. Aktualisieren Sie die Beschreibung, um anzugeben, dass das Canvas Nutzer:innen dazu ermutigen soll, Feedback einzureichen und die Nutzer:innen-Stimmung für das neue Cruise-Control-Feature zu verfolgen.
+2. Update or aktualisieren or aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas darauf abzielt, Nutzer:innen-Feedback zu sammeln.
+3. Update or aktualisieren or aktualisieren Sie die Beschreibung, um anzugeben, dass das Canvas Nutzer:innen dazu ermutigen soll, Feedback einzureichen und die Nutzer:innen-Stimmung für das neue Cruise-Control-Feature zu verfolgen.
 4. Fügen Sie den Tag **Feature adoption** hinzu, damit wir auf der Canvas-Startseite danach filtern können.
 
 ![Der neue Name und die neue Beschreibung für das Canvas. Die neue Beschreibung lautet: „Ein Feature-Adoption-Canvas zur Verfolgung der Adoption und Nutzer:innen-Stimmung für Cruise Control, ein Feature zur Planung wiederkehrender Essenslieferungen.“]({% image_buster /assets/img/canvas_templates/feature_adoption/enter_new_canvas_name.png %}){: style="max-width:60%;"}
@@ -53,17 +53,17 @@ Als Nächstes fügen wir ein Konversions-Event für unser Canvas hinzu, um die F
 
 Unser Ziel ist es, unsere Nutzer:innen zur Nutzung von Cruise Control zu ermutigen, aber wir möchten nicht, dass unsere Nachrichten zu häufig sind. Daher belassen wir dieses Canvas als geplante Zustellung und nehmen die folgenden Anpassungen im Abschnitt **Time-Based Options** vor.
 
-1. Aktualisieren Sie die **Entry Frequency** auf **Weekly**.
+1. Update or aktualisieren or aktualisieren Sie die **Entry Frequency** auf **Weekly**.
 2. Belassen Sie die Wiederholung wie sie ist.
 3. Wählen Sie **Mon**, um Nutzer:innen zu Beginn der Woche anzusprechen.
 4. Wählen Sie die Startzeit für unser Canvas.
-5. Aktualisieren Sie die **Ending parameters**, um das Canvas am letzten Tag des Jahres zu beenden.
+5. Update or aktualisieren or aktualisieren Sie die **Ending parameters**, um das Canvas am letzten Tag des Jahres zu beenden.
 
 Wir belassen die Option, Nutzer:innen in ihrer Ortszeit in das Canvas eintreten zu lassen.
 
 ### 4. Schritt: Die Zielgruppe auswählen {#step-4-select-the-target-audience}
 
-Nun richten wir unsere Zielgruppe ein, indem wir die folgenden Details im Template aktualisieren:
+Nun richten wir unsere Zielgruppe ein, indem wir die folgenden Details im Template Update or aktualisieren or aktualisieren:
 
 1. Wählen Sie das Segment **All Users**.
 2. Entfernen Sie die zusätzlichen Filter des Templates.
@@ -72,7 +72,7 @@ Nun richten wir unsere Zielgruppe ein, indem wir die folgenden Details im Templa
 ![Das Segment für alle Nutzer:innen, die Cruise Control noch nicht verwendet haben.]({% image_buster /assets/img/canvas_templates/feature_adoption/cruise_control_segment.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. Da Calorie Rocket zuvor einigen Nutzer:innen erlaubt hat, das neue Feature Cruise Control als Beta zu testen, aktualisieren wir die Austrittskriterien, um diese Nutzer:innen vom Eintritt in das Canvas auszuschließen.
+4. Da Calorie Rocket zuvor einigen Nutzer:innen erlaubt hat, das neue Feature Cruise Control als Beta zu testen, Update or aktualisieren or aktualisieren wir die Austrittskriterien, um diese Nutzer:innen vom Eintritt in das Canvas auszuschließen.
 
 ### 5. Schritt: Sendeeinstellungen auswählen {#step-5-select-your-send-settings}
 
@@ -103,7 +103,7 @@ Als Nächstes gehen wir zum Nachrichtenschritt namens **Feedback Survey**, um un
 - **Not for me.**
 
 1. Wählen Sie für die beiden Umfrage-Optionen **Experience Feedback** als unser angepasstes Attribut, um Feedback zu Cruise Control zu erfassen und zu verfolgen. Dieses angepasste Attribut hat zwei Werte, die die Umfrageantworten repräsentieren (`good` und `bad`).
-2. Aktualisieren Sie die Attributwerte, damit sie zu den Umfrage-Optionen passen. So können wir die Antwort der Nutzer:innen verfolgen.
+2. Update or aktualisieren or aktualisieren Sie die Attributwerte, damit sie zu den Umfrage-Optionen passen. So können wir die Antwort der Nutzer:innen verfolgen.
 
 ### 7. Schritt: Ihr Canvas testen und starten {#step-7-test-and-launch-your-canvas}
 

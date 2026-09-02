@@ -9,14 +9,14 @@ page_order: 4
 
 > Saiba como encontrar e mesclar usuários duplicados para maximizar a eficácia das suas Campaigns e Canvas.
 
-## REST API: identificar e mesclar usuários {#rest-api-identify-and-merge-users}
+## REST or transferir estado representacional API or interface de programação do aplicativo (API): identificar e mesclar usuários {#rest-api-identify-and-merge-users}
 
 As ferramentas nesta página mesclam perfis duplicados no dashboard. Você também pode combinar ou redirecionar perfis por meio dos [endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data) da Braze:
 
 - [POST: Identificar usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) (`/users/identify`): Combina um perfil somente com alias, somente com e-mail ou somente com número de telefone com um perfil que tenha um `external_id`.
 - [POST: Mesclar usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) (`/users/merge`): Mescla um perfil de usuário em outro, inclusive quando ambos os perfis já possuem um `external_id`. Revise os [Pré-requisitos]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#prerequisites) e o [Comportamento de mesclagem]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) antes de chamar esse endpoint.
 
-Quando um perfil anônimo é associado a um perfil identificado existente (por exemplo, por meio de uma chamada `changeUser()` do SDK ou `/users/identify`), a Braze descarta o perfil anônimo e copia apenas determinados campos para o perfil identificado. Para saber mais, consulte [O que acontece quando você identifica usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).
+Quando um perfil anônimo é associado a um perfil identificado existente (por exemplo, por meio de uma chamada `changeUser()` do SDK or kit de desenvolvimento de software ou `/users/identify`), a Braze descarta o perfil anônimo e copia apenas determinados campos para o perfil identificado. Para saber mais, consulte [O que acontece quando você identifica usuários anônimos]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users).
 
 Mesclagens de usuários são difíceis de desfazer. Se você está planejando uma mesclagem complexa envolvendo múltiplos valores de `external_id` ou grandes migrações de perfis, entre em contato com seu gerente de sucesso do cliente da Braze para orientação antes de usar `/users/merge`.
 
@@ -67,7 +67,7 @@ Para pré-visualizar os resultados antes de mesclar os duplicados, selecione **G
 
 A Braze gerará a pré-visualização e a enviará para o seu endereço de e-mail como um arquivo CSV.
 
-O arquivo CSV inclui uma coluna **Created from** que mostra como cada perfil foi criado inicialmente (por exemplo, por meio do [SDK]({{site.baseurl}}/developer_guide/sdk_integration), da [REST API]({{site.baseurl}}/api/basics) ou de uma [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)). Isso ajuda a entender a origem do perfil antes de mesclar duplicados.
+O arquivo CSV inclui uma coluna **Created from** que mostra como cada perfil foi criado inicialmente (por exemplo, por meio do [SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration), da [REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) ou de uma [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)). Isso ajuda a entender a origem do perfil antes de mesclar duplicados.
 
 Ao revisar as linhas duplicadas, compare **Created from** com identificadores como `external_id`, endereço de e-mail e número de telefone. Use esse contexto para decidir qual perfil deve ser mantido como perfil principal antes de selecionar **Merge all duplicates**.
 
@@ -80,8 +80,8 @@ No exemplo a seguir, a Braze usa o ID externo do usuário para sinalizar perfis 
 {% tab example csv file %}
 | Email Address    | External ID | Phone Number   | Braze ID              | Identifier for rule | Created from | Profile to keep | Profile to merge |
 | ---------------- | ----------- | -------------- | --------------------- | ------------------- | ------------ | --------------- | ---------------- |
-| jane.doe@example.com   | 123-external-id | 555 123-4567 | example-id-12345 | email               | sdk          | TRUE            | FALSE            |
-| john.doe@example.com   |                 | 555 123-4567 | example-id-12346 | email               | rest         | FALSE           | TRUE             |
+| jane.doe@example.com   | 123-external-id | 555 123-4567 | example-id-12345 | email               | SDK or kit de desenvolvimento de software          | TRUE            | FALSE            |
+| john.doe@example.com   |                 | 555 123-4567 | example-id-12346 | email               | REST or transferir estado representacional         | FALSE           | TRUE             |
 | jordan.doe@example.com |                 | 555 123-4567 | example-id-12347 | email               | csv          | FALSE           | TRUE             |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 2: Pré-visualizar os resultados (opcional)" }
 {% endtab %}

@@ -189,7 +189,7 @@ On parle de <i>désabonnement</i> lorsqu'un utilisateur a répondu à votre mess
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-Le terme <i>En attente d'une nouvelle tentative</i> désigne le nombre de demandes qui ont été temporairement rejetées par le serveur destinataire, mais qui ont fait l'objet d'une nouvelle tentative de livraison par le fournisseur de services d'e-mailing (ESP). Le fournisseur de services d'e-mailing réessaiera jusqu'à ce qu'un délai soit atteint (généralement 72 heures).
+Le terme <i>En attente d'une nouvelle tentative</i> désigne le nombre de demandes qui ont été temporairement rejetées par le serveur destinataire, mais qui ont fait l'objet d'une nouvelle tentative de livraison par le fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing). Le fournisseur de services d'e-mail marketing or e-mailing réessaiera jusqu'à ce qu'un délai soit atteint (généralement 72 heures).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}

@@ -158,8 +158,8 @@ Mantenha seu ID de chave de acesso e sua chave de acesso secreta da AWS sempre a
 
 Você também pode adicionar as seguintes personalizações conforme sua necessidade:
 
-- **Folder Path:** O padrão é `currents`. Se essa pasta não existir, a Braze cria uma automaticamente para você.
-- **Server-Side, At-Rest AES-256 Encryption:** O padrão é DESATIVADO e inclui o cabeçalho `x-amz-server-side-encryption`.
+- **Folder jornada:** O padrão é `currents`. Se essa pasta não existir, a Braze cria uma automaticamente para você.
+- **Server-Side, At-REST or transferir estado representacional AES-256 Encryption:** O padrão é DESATIVADO e inclui o cabeçalho `x-amz-server-side-encryption`.
 
 Selecione **Launch Current** para continuar.
 
@@ -349,7 +349,7 @@ Quando terminar de preparar as credenciais na AWS, acesse **Integrações de par
 
 Usuários que integraram uma solução de armazenamento de dados em nuvem e APIs de exportação, relatórios do dashboard ou relatórios CSV terão o seguinte comportamento:
 
-- Todas as exportações de API não retornam uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
+- Todas as exportações de API or interface de programação do aplicativo (API) não retornam uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
 - Todos os relatórios do dashboard e relatórios CSV são enviados para o e-mail do usuário para download (sem necessidade de permissões de armazenamento) e têm backup no armazenamento de dados.
 
 ### Erro `Unable to connect to S3, please validate that your credentials are correct` {#unable-to-connect-to-s3-please-validate-that-your-credentials-are-correct-error}
@@ -361,7 +361,7 @@ Atualize sua política IAM para que o usuário ou a role de integração possa c
 {% alert important %}
 **Requisito de formato JSON:** Para exportações JSON, a Braze utiliza o formato JSONL (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato difere do JSON padrão, que é um único array ou objeto JSON. Cada linha no arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um documento JSON único e válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON.
 
-As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), e não JSON. Esse requisito de formato JSON se aplica a exportações de dados do dashboard e exportações de API.
+As exportações do Currents usam o formato Apache Avro (arquivos `.avro`), e não JSON. Esse requisito de formato JSON se aplica a exportações de dados do dashboard e exportações de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ## Múltiplos conectores {#multiple-connectors}

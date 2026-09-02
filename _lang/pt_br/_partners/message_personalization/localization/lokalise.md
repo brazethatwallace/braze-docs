@@ -18,14 +18,14 @@ _Esta integração é mantida pelo Lokalise._
 
 O Lokalise oferece duas opções de integração com a Braze:
 
-- **Integração multilíngue (recomendada)**: Usa a [API de composição multilíngue]({{site.baseurl}}/api/endpoints/translations) da Braze para fornecer uma sincronização bidirecional direta entre o Lokalise e a Braze. Essa integração funciona com variantes de mensagens localizadas para Campaigns, Canvas e modelos de e-mail, e oferece suporte a fluxos de trabalho pré-lançamento e pós-lançamento para push, e-mail e In-App Messages.
+- **Integração multilíngue (recomendada)**: Usa a [API or interface de programação do aplicativo (API) de composição multilíngue]({{site.baseurl}}/api/endpoints/translations) da Braze para fornecer uma sincronização bidirecional direta entre o Lokalise e a Braze. Essa integração funciona com variantes de mensagens localizadas para Campaigns, Canvas e modelos de e-mail, e oferece suporte a fluxos de trabalho pré-lançamento e pós-lançamento para push, e-mail e In-App Messages.
 - **Integração de Connected Content (legada)**: Usa o Connected Content da Braze para inserir conteúdo traduzido com base nas configurações de idioma do usuário.
 
 Este artigo aborda a configuração de ambas as integrações.
 
 ## Integração multilíngue (recomendada) {#multi-language-integration-recommended}
 
-A integração multilíngue usa a API de composição multilíngue da Braze para fornecer uma maneira simplificada e automatizada de gerenciar conteúdo multilíngue da Braze dentro do Lokalise.
+A integração multilíngue usa a API or interface de programação do aplicativo (API) de composição multilíngue da Braze para fornecer uma maneira simplificada e automatizada de gerenciar conteúdo multilíngue da Braze dentro do Lokalise.
 
 ### Pré-requisitos {#prerequisites}
 
@@ -34,7 +34,7 @@ A integração multilíngue usa a API de composição multilíngue da Braze para
 | Conta do Lokalise | É necessário ter uma conta do Lokalise para usar essa parceria. |
 | Projeto de tradução do Lokalise | Crie um projeto do Lokalise com o tipo **Marketing and support** e escolha **Braze** como a **Content integration**. |
 | Configurações multilíngues da Braze | O [suporte multilíngue]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) deve estar ativado no seu espaço de trabalho da Braze. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões para ler e atualizar Campaigns, Canvas e modelos de e-mail. Você pode criar uma no dashboard da Braze em **Settings** > **API Keys**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões para ler e atualizar Campaigns, Canvas e modelos de e-mail. Você pode criar uma no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
 | Região do servidor da Braze | Sua [região do servidor da Braze]({{site.baseurl}}/api/basics#endpoints) (por exemplo, US-01, EU-01). Você pode encontrá-la no dashboard da Braze. |
 | Tags de tradução no conteúdo da Braze | As mensagens devem usar [tags de tradução]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para identificar o conteúdo traduzível. Envolva cada bloco traduzível em tags {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} com um ID exclusivo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }

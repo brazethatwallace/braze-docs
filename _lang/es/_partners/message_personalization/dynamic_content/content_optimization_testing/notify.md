@@ -13,7 +13,7 @@ search_tag: Partner
 
 > [Notify](https://fr.notify-group.com/) es una solución de software basada en IA que se integra fácilmente con las herramientas de administración de las relaciones con los clientes para mejorar las estrategias de marketing y facilitar la participación a través de múltiples canales.
 
-La integración de Braze y Notify permite a los especialistas en marketing impulsar eficazmente la participación en varias plataformas. En lugar de depender de los métodos de marketing tradicionales, una Campaign de Braze desencadenada por API puede utilizar las capacidades de Notify para entregar mensajes personalizados a través de múltiples canales, como correo electrónico, SMS, notificaciones push, etc.
+La integración de Braze y Notify permite a los especialistas en marketing impulsar eficazmente la participación en varias plataformas. En lugar de depender de los métodos de marketing tradicionales, una Campaign de Braze desencadenada por API puede utilizar las capacidades de Notify para entregar mensajes personalizados a través de múltiples canales, como correo electrónico, servicio de mensajes cortos, notificaciones push, etc.
 
 ## Requisitos previos {#prerequisites}
 
@@ -21,7 +21,7 @@ Antes de empezar, necesitarás lo siguiente:
 
 | Requisito | Descripción |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.segment` y `campaigns.trigger.send`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.export.segment` y `campaigns.trigger.send`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Configuración CNAME | Debe crearse un subdominio para el píxel de seguimiento utilizado en el correo electrónico para que Notify realice un seguimiento de la participación del usuario con la mensajería y así informar mejor al modelo. Comparte la URL del subdominio con Notify después de crearlo. |
 | Exportación de la adhesión voluntaria a la base de datos | Envía los datos de campaña y compra del último año (12 meses) a Notify. ​Esta exportación se utilizará para entrenar el modelo predictivo de Notify. <br><br> **Campos:** <br><br> **Correo electrónico:** Un hash SHA256 del correo electrónico, convertido a minúsculas y sin espacios iniciales ni finales.<br><br>**Segmento:** La información del segmento que define el nivel de actividad (activo o inactivo).<br><br>**Subsegmento:** Cualquier otra información de actividad relevante, como el nivel de actividad de compra.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }

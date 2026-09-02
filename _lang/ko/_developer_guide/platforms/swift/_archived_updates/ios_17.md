@@ -21,9 +21,9 @@ Braze Swift SDK와 Objective-C SDK는 모두 Xcode 14 및 Xcode 15와 역호환�
 
 ### 링크 추적 및 UTM 매개변수 제거 {#link-tracking-and-utm-parameter-stripping}
 
-iOS 17의 중요한 변경 사항 중 하나는 Safari에서 UTM 매개변수를 차단하는 것입니다. UTM 매개변수는 URL에 추가되는 코드 조각으로, 마케팅 캠페인에서 이메일, SMS 및 기타 메시징 채널의 효과를 측정하는 데 자주 사용됩니다.
+iOS 17의 중요한 변경 사항 중 하나는 Safari에서 UTM 매개변수를 차단하는 것입니다. UTM 매개변수는 URL에 추가되는 코드 조각으로, 마케팅 캠페인에서 이메일, 단문 메시지 서비스 및 기타 메시징 채널의 효과를 측정하는 데 자주 사용됩니다.
 
-이 변경 사항은 Braze 이메일 클릭 추적 및 SMS 링크 단축 전송에는 영향을 미치지 않습니다.
+이 변경 사항은 Braze 이메일 클릭 추적 및 단문 메시지 서비스 링크 단축 전송에는 영향을 미치지 않습니다.
 
 ### 앱 추적 투명성 {#app-tracking-transparency}
 

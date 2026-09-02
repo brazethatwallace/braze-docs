@@ -52,7 +52,7 @@ Isso é renderizado da seguinte forma:
 Existem duas formas de exportar catálogos a partir do dashboard:
 
 - Passe o cursor sobre a linha do catálogo na seção **Catalogs**. Em seguida, selecione o botão **Export catalog**.
-- Selecione seu catálogo. Em seguida, selecione o botão **Export catalog** na guia **Preview** do catálogo.
+- Selecione seu catálogo. Em seguida, selecione o botão **Export catalog** na guia **prévia** do catálogo.
 
 Você receberá um e-mail para baixar o arquivo CSV após iniciar a exportação. Você terá até quatro horas para recuperar esse arquivo.
 
@@ -171,7 +171,7 @@ Você também pode usar modelos para buscar dinamicamente itens de catálogo com
 ```
 
 {% alert note %}
-Objetos JSON em catálogos são ingeridos apenas pela API. Não é possível fazer upload de um objeto JSON usando um arquivo CSV.
+Objetos JSON em catálogos são ingeridos apenas pela API or interface de programação do aplicativo (API). Não é possível fazer upload de um objeto JSON usando um arquivo CSV.
 {% endalert %}
 
 Usando modelos Liquid, você pode extrair dinamicamente os IDs da lista de desejos e usá-los na sua mensagem. Para isso, [atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) ao seu atributo personalizado e, em seguida, use o modal **Adicionar personalização** para buscar um item específico do array. Variáveis referenciadas como o ID do item de catálogo devem estar envolvidas em chaves para serem referenciadas corretamente, como `{{result}}`.

@@ -150,13 +150,13 @@ Para desactivar un atributo personalizado, pasa la clave del atributo correspond
 m.Braze.unsetCustomAttribute("attributeName")
 ```
 
-### Utilizar la REST API {#using-the-rest-api}
+### Utilizar la REST or transferencia de estado representacional API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST API para establecer o desactivar atributos de usuario. Para más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
+También puedes utilizar nuestra REST or transferencia de estado representacional API para establecer o desactivar atributos de usuario. Para más información, consulta [Puntos finales de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data).
 
 ## Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
 
-Puedes configurar los siguientes estados de suscripción por correo electrónico para tus usuarios mediante programación a través del SDK.
+Puedes configurar los siguientes estados de suscripción por correo electrónico para tus usuarios mediante programación a través del SDK or kit de desarrollo de software.
 
 | Estado de la suscripción | Definición |
 | ------------------- | ---------- |

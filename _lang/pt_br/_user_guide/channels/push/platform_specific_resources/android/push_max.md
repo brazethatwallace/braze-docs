@@ -24,12 +24,12 @@ Alguns dispositivos Android fabricados por fabricantes de equipamentos originais
 ## Disponibilidade {#availability}
 
 - Disponível apenas para notificações por push para Android
-- Não é compatível com mensagens baseadas em ação ou disparadas por API
+- Não é compatível com mensagens baseadas em ação ou disparadas por API or interface de programação do aplicativo (API)
 - Não é compatível quando a opção de [enviar apenas para o último dispositivo usado pelo usuário]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device) está selecionada
 
 ## Pré-requisitos {#prerequisites}
 
-As notificações por push enviadas usando o Push Max serão entregues apenas a dispositivos que tenham pelo menos a seguinte [versão mínima do SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions):
+As notificações por push enviadas usando o Push Max serão entregues apenas a dispositivos que tenham pelo menos a seguinte [versão mínima do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions):
 
 {% sdk_min_versions android:29.0.1 %}
 
@@ -42,10 +42,10 @@ Para usar o Push Max na sua Campaign:
 
 1. Crie uma Campaign de push.
 2. Selecione **Android Push** como sua plataforma.
-3. Acesse a etapa **Schedule Delivery**.
+3. Acesse a etapa **agendar/cronograma Delivery**.
 4. Selecione **Send using Push Max**.
 
-![Seção de entregabilidade de push para Android na etapa Schedule Delivery com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_campaigns.png %})
+![Seção de entregabilidade de push para Android na etapa agendar/cronograma Delivery com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_campaigns.png %})
 
 {% endtab %}
 {% tab Canvas %}

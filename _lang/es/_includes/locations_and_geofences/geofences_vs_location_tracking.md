@@ -8,6 +8,6 @@ En Braze, las geovallas y el seguimiento de ubicación tienen propósitos difere
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Location tracking compared to geofences" }
 
 - **Seguimiento de ubicación:** Recopila y almacena la ubicación más reciente de cada usuario en su perfil. Usas estos datos para segmentación retrospectiva; por ejemplo, el filtro `Most Recent Location` se dirige a usuarios según dónde abrieron tu aplicación por última vez, no necesariamente donde se encuentran en tiempo real.
-- **Geovallas:** Define límites virtuales alrededor de una latitud, longitud y radio. Cuando un usuario entra o sale de un límite, Braze puede desencadenar acciones como enviar una Campaign. Las geovallas requieren configuración adicional del SDK más allá del seguimiento de ubicación básico.
+- **Geovallas:** Define límites virtuales alrededor de una latitud, longitud y radio. Cuando un usuario entra o sale de un límite, Braze puede desencadenar acciones como enviar una Campaign. Las geovallas requieren configuración adicional del SDK or kit de desarrollo de software más allá del seguimiento de ubicación básico.
 
 Ambas características requieren que los usuarios otorguen permisos de ubicación. Si un usuario desactiva el seguimiento de ubicación, los datos de ubicación almacenados previamente no se eliminan automáticamente de su perfil, pero no se recopilan nuevos datos de ubicación.

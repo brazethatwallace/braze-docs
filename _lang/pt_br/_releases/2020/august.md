@@ -9,7 +9,7 @@ description: "Este artigo contém notas de versão para agosto de 2020."
 
 ## Endpoints de migração de ID externo {#external-id-migration-endpoints}
 
-A Braze lançou dois novos endpoints de migração de ID externo. Esses endpoints permitem que os clientes renomeiem ou removam as IDs externas da Braze de seus usuários utilizando a API da Braze. Esses endpoints podem ser aproveitados para migrar usuários com diferentes esquemas de nomenclatura e, ao mesmo tempo, reter dados históricos sobre esses usuários. Confira nossa documentação para saber mais sobre os endpoints [`users.external_ids.rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/) e [`users.external_ids.remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/).
+A Braze lançou dois novos endpoints de migração de ID externo. Esses endpoints permitem que os clientes renomeiem ou removam as IDs externas da Braze de seus usuários utilizando a API or interface de programação do aplicativo (API) da Braze. Esses endpoints podem ser aproveitados para migrar usuários com diferentes esquemas de nomenclatura e, ao mesmo tempo, reter dados históricos sobre esses usuários. Confira nossa documentação para saber mais sobre os endpoints [`users.external_ids.rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/) e [`users.external_ids.remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove/).
 
 ## Predictive Churn
 
@@ -31,7 +31,7 @@ A Vizbee permite que todos os smartphones e smart TVs da sua casa trabalhem junt
 
 ## Parceria com a Bluedot {#bluedot-partnership}
 
-A Bluedot é uma plataforma de localização que fornece geofencing preciso e direto para apps. Você pode usar o SDK da Bluedot para enviar mensagens mais inteligentes, automatizar check-ins de pedidos móveis, otimizar fluxos de trabalho e criar experiências sem atrito. Para saber mais, consulte a documentação da [Bluedot]({{site.baseurl}}/partners/data_augmentation/contextual_location/bluedot/#bluedot).
+A Bluedot é uma plataforma de localização que fornece geofencing preciso e direto para apps. Você pode usar o SDK or kit de desenvolvimento de software da Bluedot para enviar mensagens mais inteligentes, automatizar check-ins de pedidos móveis, otimizar fluxos de trabalho e criar experiências sem atrito. Para saber mais, consulte a documentação da [Bluedot]({{site.baseurl}}/partners/data_augmentation/contextual_location/bluedot/#bluedot).
 
 ## Parceria com a Iterate {#iterate-partnership}
 

@@ -25,8 +25,8 @@ La integración de Braze y Rokt Calendar permite que tus suscriptores de Rokt Ca
 | Cuenta de Rokt Calendar | Se necesita una cuenta de Rokt Calendar específica para cada cliente para aprovechar esta asociación. Ponte en contacto con [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com) para hablar con un director de cuentas  |
 | Configuración de Rokt Calendar | Tu director de cuentas de Rokt Calendar trabajará contigo para configurar el calendario de la forma que mejor se adapte a tus necesidades, incluyendo ajustes como:<br>- Indicador de fusión<br>- Indicador de respaldo de SubscriberID<br>- Captura de correo electrónico, si es necesario |
 | Credenciales OAuth de Rokt Calendar | Esta clave proporcionada por tu director de cuentas de Rokt Calendar te permitirá conectar tus cuentas de Braze y Rokt Calendar.<br><br>Se puede crear en el dashboard de Braze en **Settings** > **Connected Content**. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Deberás proporcionar esta clave a tu director de cuentas de Rokt Calendar.<br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
-| [Punto de conexión REST de Braze]({{site.baseurl}}/api/basics/#endpoints) | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. Deberás proporcionar esta clave a tu director de cuentas de Rokt Calendar.<br><br> Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**. |
+| [Punto de conexión REST or transferencia de estado representacional de Braze]({{site.baseurl}}/api/basics/#endpoints) | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
 | ID de suscriptor externo | Es el identificador utilizado por el proceso de suscripción de Rokt Calendar para emparejar al suscriptor del calendario con el usuario de Braze. Esto es algo que tú pasas a Rokt Calendar.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -65,7 +65,7 @@ Para enviar eventos de calendario desde Canvas, primero debes tener configurado 
 #### Proporcionar puntos de integración de suscripciones {#provide-subscription-integration-points}
 Para crear una audiencia de suscriptores del calendario, tendrás que ofrecer un destino al que el usuario pueda navegar y suscribirse. Algunos ejemplos de puntos de integración de suscripciones incluyen:
   - Añadir un botón de calendario a tu sitio web
-  - Añadir un enlace de calendario en un correo electrónico o SMS
+  - Añadir un enlace de calendario en un correo electrónico o servicio de mensajes cortos
   - Añadir un botón de calendario a tu aplicación
   - Añadir un enlace al calendario en las redes sociales
 
@@ -192,7 +192,7 @@ Para obtener una lista de zonas horarias válidas, consulta [https://roktcalenda
 
 ### Paso 3: Previsualizar tu solicitud {#step-3-preview-your-request}
 
-Previsualiza tu solicitud en el panel de **Preview** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
+Previsualiza tu solicitud en el panel de **vista previa** o navega a la pestaña **Test**, donde puedes seleccionar un usuario al azar, un usuario existente o personalizar el tuyo propio para probar tu webhook.
 
 {% alert important %}
 Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas se pueden encontrar en la lista **Saved Webhook Templates** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

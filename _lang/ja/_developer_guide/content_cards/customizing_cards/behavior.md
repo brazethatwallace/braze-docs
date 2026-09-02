@@ -63,9 +63,9 @@ Content Cardsを既存のフィードにシームレスにブレンドして、�
 ## インタラクティブコンテンツとしてのContent Cards {#content-cards-as-interactive-content}
 ![画面の左下隅に50パーセントのプロモーションを表示するインタラクティブなContent Card。クリックすると、プロモーションがカートに適用されます。]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Content Cardsを活用して、ユーザー向けにダイナミックなインタラクティブ体験を作成できます。この例では、チェックアウト時にContent Cardのポップアップが表示され、ユーザーに直前のプロモーションを提供します。このように適切に配置されたカードは、ユーザーに特定のアクションを促す「ナッジ」を与える優れた方法です。
+Content Cardsを活用して、ユーザー向けにダイナミックなインタラクティブ体験を作成できます。この例では、チェックアウト時にContent カードのポップアップが表示され、ユーザーに直前のプロモーションを提供します。このように適切に配置されたカードは、ユーザーに特定のアクションを促す「ナッジ」を与える優れた方法です。
 
-このユースケースのキーと値のペアには、希望の割引額として設定された`discount_percentage`と、`coupon_code`として設定された`class_type`が含まれます。これらのキーと値のペアにより、チェックアウト画面でタイプ固有のContent Cardsをフィルタリングして表示できます。キーと値のペアを使用して複数のフィードを管理する方法の詳細については、[デフォルトのContent Cardフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds)を参照してください。
+このユースケースのキーと値のペアには、希望の割引額として設定された`discount_percentage`と、`coupon_code`として設定された`class_type`が含まれます。これらのキーと値のペアにより、チェックアウト画面でタイプ固有のContent Cardsをフィルタリングして表示できます。キーと値のペアを使用して複数のフィードを管理する方法の詳細については、[デフォルトのContent カードフィードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#implementing-multiple-feeds)を参照してください。
 <br>
 <br>
 

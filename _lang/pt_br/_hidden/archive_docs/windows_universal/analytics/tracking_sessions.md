@@ -12,7 +12,7 @@ hidden: true
 
 ## Rastreamento de sessão
 
-O SDK do Braze relata dados de sessão que são usados pelo dashboard do Braze para calcular o engajamento do usuário e outras análises essenciais para entender seus usuários. Com base na semântica de sessão a seguir, nosso SDK gera pontos de dados de "início de sessão" e "encerramento de sessão" que contabilizam a duração da sessão e as contagens de sessão visíveis no dashboard do Braze.
+O SDK or kit de desenvolvimento de software do Braze relata dados de sessão que são usados pelo dashboard do Braze para calcular o engajamento do usuário e outras análises essenciais para entender seus usuários. Com base na semântica de sessão a seguir, nosso SDK or kit de desenvolvimento de software gera pontos de dados de "início de sessão" e "encerramento de sessão" que contabilizam a duração da sessão e as contagens de sessão visíveis no dashboard do Braze.
 
 ### Ciclo de vida da sessão
 

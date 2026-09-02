@@ -103,7 +103,7 @@ Amazon SES は、カスタマイズされたバウンストラッキング用の
 | CNAME | sel1._domainkey.mail.example.com | sel1.dkim.amazonses.com | Easy DKIM キー 1（ローテーション） |
 | CNAME | sel2._domainkey.mail.example.com | sel2.dkim.amazonses.com | Easy DKIM キー 2（ローテーション） |
 | CNAME | sel3._domainkey.mail.example.com | sel3.dkim.amazonses.com | Easy DKIM キー 3（ローテーション） |
-| MX | bounce.mail.example.com | 10 feedback-smtp.us-east-1.amazonses.com | バウンス処理を AWS にルーティング |
+| MX | bounce.mail.example.com | 10 フィードバック-smtp.us-east-1.amazonses.com | バウンス処理を AWS にルーティング |
 | TXT | bounce.mail.example.com | v=spf1 include:amazonses.com ~all | 明示的な SPF 承認 |
 | CNAME | track.mail.example.com | r.us-east-1.awstrack.me（または CDN） | クリックおよび開封トラッキング |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Amazon SES DNS テーブルの例" }

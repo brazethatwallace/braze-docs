@@ -39,7 +39,7 @@ description: "Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아�
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-Google Tag Manager를 대신 사용하려면 **Change User** 태그 유형을 사용하여 [`changeUser` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 호출할 수 있습니다. 사용자가 로그인하거나 고유한 `external_id` 식별자로 식별될 때마다 사용합니다.
+Google Tag 매니저를 대신 사용하려면 **Change User** 태그 유형을 사용하여 [`changeUser` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)를 호출할 수 있습니다. 사용자가 로그인하거나 고유한 `external_id` 식별자로 식별될 때마다 사용합니다.
 
 **External User ID** 필드에 현재 사용자의 고유 ID를 입력해야 하며, 이는 일반적으로 웹사이트에서 전송하는 데이터 레이어 변수를 통해 채워집니다.
 

@@ -48,5 +48,5 @@ guide_menu_list:
 ---
 
 {% alert important %}
-La disponibilité des synchronisations d'audience de Braze avec Criteo, Pinterest, Snapchat et TikTok dépend de votre forfait Braze. Contactez votre Account Manager ou votre Customer Success Manager pour commencer.
+La disponibilité des synchronisations d'audience de Braze avec Criteo, Pinterest, Snapchat et TikTok dépend de votre forfait Braze. Contactez votre Account gestionnaire ou votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients or gestionnaire de la satisfaction client or gestionnaire du succès des clients pour commencer.
 {% endalert %}

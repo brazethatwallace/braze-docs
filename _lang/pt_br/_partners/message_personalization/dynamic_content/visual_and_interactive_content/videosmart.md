@@ -19,7 +19,7 @@ _Esta integração é desenvolvida e mantida pela VideoSmart._
 
 A VideoSmart se integra com a Braze para gerar dinamicamente ativos de vídeo personalizados no momento do envio, que são então incorporados diretamente no conteúdo de e-mail das suas Campaigns e Canvas na Braze.
 
-Na Braze, você seleciona a campanha VideoSmart relevante e passa atributos do cliente (por meio de modelos Liquid) para a VideoSmart no momento do envio. Esses atributos são usados para renderizar uma experiência de vídeo única e personalizada para cada destinatário. Você pode então usar o Connected Content da Braze para solicitar URLs de vídeo ou ativos da API da VideoSmart em tempo real, permitindo personalização em escala.
+Na Braze, você seleciona a campanha VideoSmart relevante e passa atributos do cliente (por meio de modelos Liquid) para a VideoSmart no momento do envio. Esses atributos são usados para renderizar uma experiência de vídeo única e personalizada para cada destinatário. Você pode então usar o Connected Content da Braze para solicitar URLs de vídeo ou ativos da API or interface de programação do aplicativo (API) da VideoSmart em tempo real, permitindo personalização em escala.
 
 Esta integração foi projetada para mensagens de e-mail da Braze que suportam modelos Liquid e Connected Content, e pode ser configurada para funcionar com atributos padrão do perfil de usuário da Braze ou campos de dados personalizados.
 
@@ -126,9 +126,9 @@ As variáveis comuns incluem:
 
 ## Limites de frequência {#rate-limits}
 
-A API da VideoSmart tem um limite de frequência de 10.000 solicitações por minuto. Se você exceder esse limite, poderá receber erros ou enfrentar atrasos na geração de vídeos.
+A API or interface de programação do aplicativo (API) da VideoSmart tem um limite de frequência de 10.000 solicitações por minuto. Se você exceder esse limite, poderá receber erros ou enfrentar atrasos na geração de vídeos.
 
-Para reduzir esse risco, configure o limite de frequência da Campaign da Braze para que a taxa de envio de mensagens fique abaixo da capacidade da API da VideoSmart.
+Para reduzir esse risco, configure o limite de frequência da Campaign da Braze para que a taxa de envio de mensagens fique abaixo da capacidade da API or interface de programação do aplicativo (API) da VideoSmart.
 
 Para orientações da Braze sobre velocidade de entrega e limite de frequência, consulte [Velocidade de entrega e limite de frequência]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
 

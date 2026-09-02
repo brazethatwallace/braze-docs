@@ -19,7 +19,7 @@ Los anuncios que redirigen a WhatsApp son una forma eficiente de atraer tanto a 
 
 ## Configuración de anuncios que hacen clic a WhatsApp {#setting-up-ads-that-click-to-whatsapp}
 
-1. En Meta Ads Manager, crea un anuncio en Facebook, Instagram u otras plataformas siguiendo la guía paso a paso [Cómo crear anuncios que hacen clic a WhatsApp](https://business.whatsapp.com/products/create-ads-that-click-to-whatsapp). **No** configures respuestas automatizadas; configurarás las respuestas en Braze en su lugar.
+1. En Meta Ads Administrador, crea un anuncio en Facebook, Instagram u otras plataformas siguiendo la guía paso a paso [Cómo crear anuncios que hacen clic a WhatsApp](https://business.whatsapp.com/products/create-ads-that-click-to-whatsapp). **No** configures respuestas automatizadas; configurarás las respuestas en Braze en su lugar.
 
 ![Ads Manager con un creador para crear un anuncio de participación.]({% image_buster /assets/img/whatsapp/meta_ads_composer.png %})
 
@@ -51,7 +51,7 @@ Configura tu mensaje de respuesta con respuestas rápidas (como "Sí" o "No, gra
 
 {: start="4"}
 4. Adhiere a los usuarios actualizando el estado de suscripción de los perfiles de usuario con uno de los siguientes métodos de actualización:
-    - Crea un webhook de Braze a Braze que actualice el estado de suscripción a través de la REST API.
+    - Crea un webhook de Braze a Braze que actualice el estado de suscripción a través de la REST or transferencia de estado representacional API.
     - Usa el editor JSON avanzado para actualizar el perfil de usuario con la plantilla para [actualizar el estado de suscripción de un usuario a un Canvas de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 ![Paso de actualización de usuario en Canvas que usa el editor JSON avanzado para actualizar el perfil de usuario.]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})

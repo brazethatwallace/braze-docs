@@ -26,7 +26,7 @@ Hilfe bei der Wahl des richtigen Deeplinking-Ansatzes für Ihren Anwendungsfall 
 
 ## Integration
 
-Folgen Sie dem [Leitfaden zur SDK-Integration von Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview), um Ihre Branch-Integration zum Laufen zu bringen. Im Folgenden finden Sie weitere Anwendungsfälle.
+Folgen Sie dem [Leitfaden zur SDK or Software-Development-Kit-Integration von Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview), um Ihre Branch-Integration zum Laufen zu bringen. Im Folgenden finden Sie weitere Anwendungsfälle.
 
 ### Unterstützung von iOS Universal Links {#support-ios-universal-links}
 
@@ -49,7 +49,7 @@ Falls Sie eine benutzerdefinierte Branch-Domain verwenden, fügen Sie diese eben
 
 #### 3. Schritt: Universal Links in Braze weiterleiten {#step-3-forward-universal-links-in-braze}
 
-Setzen Sie `forwardUniversalLinks` in Ihrer Braze-SDK-Konfiguration auf `true`, damit das SDK Universal Links an den `AppDelegate` Ihrer App weiterleitet:
+Setzen Sie `forwardUniversalLinks` in Ihrer Braze-SDK or Software-Development-Kit-Konfiguration auf `true`, damit das SDK or Software-Development-Kit Universal Links an den `AppDelegate` Ihrer App weiterleitet:
 
 {% tabs %}
 {% tab swift %}
@@ -111,7 +111,7 @@ oder die [Dokumentation von Branch](https://help.branch.io/developers-hub/docs/i
 
 Das Verknüpfen mit Telefonnummern (Anhängen von `tel` an `href`) wird in der Gmail-App für iOS nicht unterstützt, es sei denn, Nutzer:innen gewähren der App Anrufberechtigungen.
 
-Abhängig von Ihrem ESP sind möglicherweise zusätzliche Anpassungen erforderlich, um Universal Links mit Klick-Tracking zu unterstützen. Diese Informationen finden Sie in unserem entsprechenden Artikel. Sie können auch die folgenden Referenzen heranziehen, um mehr zu erfahren:
+Abhängig von Ihrem E-Mail-Anbieter or ESP sind möglicherweise zusätzliche Anpassungen erforderlich, um Universal Links mit Klick-Tracking zu unterstützen. Diese Informationen finden Sie in unserem entsprechenden Artikel. Sie können auch die folgenden Referenzen heranziehen, um mehr zu erfahren:
 
 - [SendGrid](https://help.branch.io/using-branch/page/braze-sendgrid)
 - [SparkPost](https://help.branch.io/using-branch/page/braze-sparkpost)
@@ -130,7 +130,7 @@ Wenn Branch-Links aus Braze-Campaigns nicht wie erwartet funktionieren, folgen S
 
 ### Duales Logging aktivieren {#enable-dual-logging}
 
-1. **Braze**: [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) und suchen Sie nach `Opening '<URL>':`-Einträgen. Dies bestätigt, dass das SDK den Link empfangen hat.
+1. **Braze**: [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) und suchen Sie nach `Opening '<URL>':`-Einträgen. Dies bestätigt, dass das SDK or Software-Development-Kit den Link empfangen hat.
 2. **Branch**: Aktivieren Sie den [Branch-Testmodus](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking) und prüfen Sie das Branch-Dashboard auf Link-Klick-Ereignisse.
 3. **Vergleich**: Wenn Braze den Link protokolliert, Branch aber keinen Klick registriert, fängt die `BrazeDelegate`-Routing-Logik den Link wahrscheinlich nicht korrekt ab. Prüfen Sie, ob der Domain-Abgleich in `shouldOpenURL` Ihre Branch-Domain enthält.
 
@@ -140,7 +140,7 @@ Wenn Branch-Links aus Braze-Campaigns nicht wie erwartet funktionieren, folgen S
 |---|---|---|
 | Branch-Link öffnet sich in Safari | AASA ungültig oder auf der Branch-Domain nicht vorhanden | Associated Domains und AASA-Datei überprüfen |
 | Branch-Link öffnet sich, landet aber auf dem falschen Bildschirm | Branch-Link-Daten falsch konfiguriert | Routing-Regeln im Branch-Dashboard prüfen |
-| Link funktioniert über Push, aber nicht per E-Mail | Klick-Tracking-Domain fehlt AASA | AASA auf der Klick-Tracking-Domain Ihres ESP hosten; siehe [E-Mail-Einrichtung](#deep-linking-in-email) |
+| Link funktioniert über Push, aber nicht per E-Mail | Klick-Tracking-Domain fehlt AASA | AASA auf der Klick-Tracking-Domain Ihres E-Mail-Anbieter or ESP hosten; siehe [E-Mail-Einrichtung](#deep-linking-in-email) |
 | `shouldOpenURL` wird für Branch-Links nie ausgelöst | `forwardUniversalLinks` nicht aktiviert | `configuration.forwardUniversalLinks = true` setzen |
 | Branch-Link funktioniert aus Notizen, aber nicht aus Braze | `BrazeDelegate` gibt `true` für Branch-URLs zurück | Domain-Prüfung in `shouldOpenURL` überprüfen, ob sie Ihre Branch-Domain enthält |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Häufige Probleme" }

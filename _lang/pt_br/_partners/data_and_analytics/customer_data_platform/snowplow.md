@@ -32,8 +32,8 @@ Aproveite os ricos dados comportamentais da Snowplow para promover interações 
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pipeline da Snowplow | Você precisa de um pipeline da Snowplow em funcionamento. |
 | Acesso ao Console da Snowplow | Você deve ter acesso ao Console da Snowplow para configurar os encaminhadores de eventos. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` e `users.alias.update`. <br><br> Você pode criar isso no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` e `users.alias.update`. <br><br> Você pode criar isso no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -52,7 +52,7 @@ Para criar o encaminhador de eventos:
 
 1. No Console da Snowplow, navegue até **Destinations** e selecione **Create new destination**.
 2. Ao configurar a conexão, selecione **Braze** para o tipo de conexão.
-3. Digite sua chave de API da Braze e o endpoint da API REST.
+3. Digite sua chave de API or interface de programação do aplicativo (API) da Braze e o endpoint da API or interface de programação do aplicativo (API) REST or transferir estado representacional.
 4. Salve a conexão.
 
 ### Etapa 2: Configure o encaminhador de eventos {#step-2-configure-the-event-forwarder}
@@ -70,7 +70,7 @@ Para cada tipo de objeto, você pode configurar mapeamentos de campo para especi
 Confirme se os eventos estão chegando à Braze verificando as seguintes páginas em sua conta da Braze:
 
 1. **Criador de consultas**: Na Braze, navegue até **Analytics** > **Query Builder**. Você pode escrever consultas nas tabelas a seguir para ter uma prévia dos dados encaminhados pela Snowplow: `USER_BEHAVIORS_CUSTOMEVENT_SHARED` e `USERS_BEHAVIORS_PURCHASE_SHARED`.
-2. **Dashboard de uso da API**: Na Braze, navegue até **Configurações** > **APIs e identificadores** para ver um gráfico do uso da API ao longo do tempo. Você pode filtrar especificamente pela chave de API que a Snowplow usa e ver os sucessos e as falhas.
+2. **Dashboard de uso da API or interface de programação do aplicativo (API)**: Na Braze, navegue até **Configurações** > **APIs e identificadores** para ver um gráfico do uso da API or interface de programação do aplicativo (API) ao longo do tempo. Você pode filtrar especificamente pela chave de API or interface de programação do aplicativo (API) que a Snowplow usa e ver os sucessos e as falhas.
 
 ## Envio de propriedades personalizadas {#sending-custom-properties}
 
@@ -86,4 +86,4 @@ Consulte a [documentação do Event Object]({{site.baseurl}}/api/objects_filters
 
 ## Limitações {#limitations}
 
-**Limites de frequência:** A Braze impõe um limite de frequência de 3.000 chamadas de API a cada três segundos para a API Track Users. Como a Snowplow não oferece suporte a lotes para encaminhadores de eventos, esse limite de frequência da API também funciona como o limite de frequência de eventos. Se a taxa de transferência de entrada exceder 3.000 eventos a cada três segundos, a latência poderá aumentar.
+**Limites de frequência:** A Braze impõe um limite de frequência de 3.000 chamadas de API or interface de programação do aplicativo (API) a cada três segundos para a API or interface de programação do aplicativo (API) Track Users. Como a Snowplow não oferece suporte a lotes para encaminhadores de eventos, esse limite de frequência da API or interface de programação do aplicativo (API) também funciona como o limite de frequência de eventos. Se a taxa de transferência de entrada exceder 3.000 eventos a cada três segundos, a latência poderá aumentar.

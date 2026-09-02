@@ -39,23 +39,23 @@ sequenceDiagram
 
 ### Schritt 1: Ihren Google Cloud API-Schlüssel konfigurieren {#step-1-configure-your-google-cloud-api-key}
 
-Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK Ihre Firebase-Sender-ID bereitstellen. Darüber hinaus müssen Sie einen API-Schlüssel für Serveranwendungen im Braze-Dashboard angeben. Braze verwendet diesen API-Schlüssel, um Nachrichten an Ihre Geräte zu senden. Sie müssen außerdem sicherstellen, dass der FCM-Dienst in der Google Developer-Konsole aktiviert ist.
+Bei der Entwicklung Ihrer App müssen Sie dem Braze Android SDK or Software-Development-Kit Ihre Firebase-Sender-ID bereitstellen. Darüber hinaus müssen Sie einen API-Schlüssel für Serveranwendungen im Braze-Dashboard angeben. Braze verwendet diesen API-Schlüssel, um Nachrichten an Ihre Geräte zu senden. Sie müssen außerdem sicherstellen, dass der FCM-Dienst in der Google Developer-Konsole aktiviert ist.
 
 {% alert note %}
-Ein häufiger Fehler bei diesem Schritt ist die Verwendung des App-Bezeichner-API-Schlüssels anstelle des REST-API-Schlüssels.
+Ein häufiger Fehler bei diesem Schritt ist die Verwendung des App-Bezeichner-API-Schlüssels anstelle des Representational State Transfer-API-Schlüssels.
 {% endalert %}
 
-### Schritt 2: Geräte registrieren sich bei FCM und stellen Braze Push-Token bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
+### Schritt 2: Geräte Registrierung or registrieren sich bei FCM und stellen Braze Push-Token / Textbaustein bereit {#step-2-devices-register-for-fcm-and-provide-braze-with-push-tokens}
 
-Bei typischen Integrationen übernimmt das Braze Android SDK die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token für eine Ihrer Apps vorhanden war.
+Bei typischen Integrationen übernimmt das Braze Android SDK or Software-Development-Kit die Registrierung der Geräte für die FCM-Funktionalität. Dies geschieht in der Regel direkt beim erstmaligen Öffnen der App. Nach der Registrierung erhält Braze eine FCM-Registrierungs-ID, die verwendet wird, um Nachrichten gezielt an dieses Gerät zu senden. Wir speichern die Registrierungs-ID für diese:n Nutzer:in, und diese:r Nutzer:in wird als „Push-registriert“ markiert, sofern zuvor kein Push-Token / Textbaustein für eine Ihrer Apps vorhanden war.
 
 ### Schritt 3: Eine Braze-Push-Campaign starten {#step-3-launch-a-braze-push-campaign}
 
-Wenn eine Push-Campaign gestartet wird, sendet Braze Anfragen an FCM, um Ihre Nachricht zuzustellen. Braze verwendet den im Dashboard hinterlegten API-Schlüssel, um sich zu authentifizieren und zu bestätigen, dass Push-Benachrichtigungen an die bereitgestellten Push-Token gesendet werden können.
+Wenn eine Push-Campaign gestartet wird, sendet Braze Anfragen an FCM, um Ihre Nachricht zuzustellen. Braze verwendet den im Dashboard hinterlegten API-Schlüssel, um sich zu authentifizieren und zu bestätigen, dass Push-Benachrichtigungen an die bereitgestellten Push-Token / Textbaustein gesendet werden können.
 
-### Schritt 4: Ungültige Token entfernen {#step-4-remove-invalid-tokens}
+### Schritt 4: Ungültige Token / Textbaustein entfernen {#step-4-remove-invalid-tokens}
 
-Wenn FCM uns mitteilt, dass Push-Token, an die wir eine Nachricht senden wollten, ungültig sind, entfernen wir diese Token aus den zugehörigen Nutzerprofilen. Wenn Nutzer:innen keine weiteren Push-Token besitzen, werden sie auf der **Segments**-Seite nicht mehr als „Push-registriert“ angezeigt.
+Wenn FCM uns mitteilt, dass Push-Token / Textbaustein, an die wir eine Nachricht senden wollten, ungültig sind, entfernen wir diese Token / Textbaustein aus den zugehörigen Nutzerprofilen. Wenn Nutzer:innen keine weiteren Push-Token / Textbaustein besitzen, werden sie auf der **Segments**-Seite nicht mehr als „Push-registriert“ angezeigt.
 
 Weitere Informationen zu FCM finden Sie unter [Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/).
 
@@ -92,7 +92,7 @@ Da die FCM-Registrierung außerhalb von Braze abgewickelt wird, kann ein Registr
 1. Während der Registrierung bei FCM
 2. Beim Übergeben des von FCM generierten Push-Tokens an Braze
 
-Wir empfehlen, einen Breakpoint zu setzen oder Logging zu aktivieren, um sicherzustellen, dass das von FCM generierte Push-Token an Braze gesendet wird. Wenn ein Token nicht korrekt oder gar nicht generiert wird, empfehlen wir, die [FCM-Dokumentation](https://firebase.google.com/docs/cloud-messaging/android/client) zu konsultieren.
+Wir empfehlen, einen Breakpoint zu setzen oder Logging zu aktivieren, um sicherzustellen, dass das von FCM generierte Push-Token / Textbaustein an Braze gesendet wird. Wenn ein Token / Textbaustein nicht korrekt oder gar nicht generiert wird, empfehlen wir, die [FCM-Dokumentation](https://firebase.google.com/docs/cloud-messaging/android/client) zu konsultieren.
 
 #### Google Play Services nicht vorhanden {#google-play-services-not-present}
 
@@ -122,13 +122,13 @@ Wenn eine Push-Benachrichtigung nicht zugestellt wird, stellen Sie sicher, dass 
 
 #### Fehler: InvalidRegistration {#error-invalidregistration}
 
-`InvalidRegistration` kann durch ein fehlerhaftes Push-Token verursacht werden.
+`InvalidRegistration` kann durch ein fehlerhaftes Push-Token / Textbaustein verursacht werden.
 
-1. Stellen Sie sicher, dass Sie ein gültiges Push-Token von [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token) an Braze übergeben.
+1. Stellen Sie sicher, dass Sie ein gültiges Push-Token / Textbaustein von [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/android/client#retrieve-the-current-registration-token) an Braze übergeben.
 
 #### Fehler: NotRegistered {#error-notregistered}
 
-2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite Registrierung das erste Token ungültig macht.
+2. `NotRegistered` kann auch auftreten, wenn mehrere Registrierungen stattfinden und eine zweite Registrierung das erste Token / Textbaustein ungültig macht.
 
 ### Push-Benachrichtigungen gesendet, aber nicht auf Geräten der Nutzer:innen angezeigt {#push-notifications-sent-but-not-displayed-on-users-devices}
 
@@ -165,7 +165,7 @@ Es gibt mehrere mögliche Ursachen:
 
 #### Anwendung wurde deinstalliert {#application-was-uninstalled}
 
-Nutzer:innen haben die Anwendung deinstalliert. Dadurch wird ihr FCM-Push-Token ungültig.
+Nutzer:innen haben die Anwendung deinstalliert. Dadurch wird ihr FCM-Push-Token / Textbaustein ungültig.
 
 #### Ungültiger Firebase Cloud Messaging-Serverschlüssel {#invalid-firebase-cloud-messaging-server-key}
 
@@ -175,11 +175,11 @@ Der im Braze-Dashboard hinterlegte Firebase Cloud Messaging-Serverschlüssel ist
 
 ### Push-Klicks werden nicht protokolliert {#push-clicks-not-logged}
 
-Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klick-Daten noch nicht an unsere Server übertragen wurden. Das Braze Android SDK kann Übertragungen drosseln.
+Wenn Push-Klicks nicht protokolliert werden, ist es möglich, dass die Push-Klick-Daten noch nicht an unsere Server übertragen wurden. Das Braze Android SDK or Software-Development-Kit kann Übertragungen drosseln.
 
 Wenn Sie einen benutzerdefinierten Push-Handler implementiert haben, stellen Sie sicher, dass Sie die [nativen Push-Analytics korrekt beibehalten]({{site.baseurl}}/developer_guide/push_notifications/logging_message_data/?tab=android#preserving-native-push-analytics-with-custom-push-handling).
 
-Das Protokollieren von Push-Klicks ist ein Netzwerkvorgang und unterliegt Netzwerkbeschränkungen. Obwohl das Braze Android SDK Netzwerkfehler berücksichtigt und fehlgeschlagene Anfragen wiederholt, ist ein gewisser Datenverlust zu erwarten.
+Das Protokollieren von Push-Klicks ist ein Netzwerkvorgang und unterliegt Netzwerkbeschränkungen. Obwohl das Braze Android SDK or Software-Development-Kit Netzwerkfehler berücksichtigt und fehlgeschlagene Anfragen wiederholt, ist ein gewisser Datenverlust zu erwarten.
 
 ### Deeplinks funktionieren nicht {#deep-links-not-working}
 
@@ -197,7 +197,7 @@ Wenn der Deeplink [mit ADB korrekt funktioniert](https://developer.android.com/t
 
 #### Back-Stack-Verhalten deaktivieren {#disable-back-stack-behavior}
 
-Wenn der Deeplink [mit ADB korrekt funktioniert](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters), aber nicht über Braze-Push, versuchen Sie, den [Back-Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack) zu deaktivieren. Aktualisieren Sie dazu Ihre **braze.xml**-Datei mit folgendem Eintrag:
+Wenn der Deeplink [mit ADB korrekt funktioniert](https://developer.android.com/training/app-indexing/deep-linking.html#testing-filters), aber nicht über Braze-Push, versuchen Sie, den [Back-Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack) zu deaktivieren. Update or aktualisieren or aktualisieren Sie dazu Ihre **braze.xml**-Datei mit folgendem Eintrag:
 
 ```xml
 <bool name="com_braze_push_deep_link_back_stack_activity_enabled">false</bool>

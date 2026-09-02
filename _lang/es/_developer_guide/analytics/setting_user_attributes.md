@@ -2,15 +2,15 @@
 nav_title: Establecer atributos del usuario
 article_title: Establecer atributos del usuario
 page_order: 1.2
-description: "Aprende a establecer los atributos de usuario a través del SDK de Braze."
+description: "Aprende a establecer los atributos de usuario a través del SDK or kit de desarrollo de software de Braze."
 ---
 
 # Establecer atributos del usuario {#set-user-attributes}
 
-> Aprende a establecer los atributos de usuario a través del SDK de Braze.
+> Aprende a establecer los atributos de usuario a través del SDK or kit de desarrollo de software de Braze.
 
 {% alert note %}
-Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
+Para los SDK or kit de desarrollo de software envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
 {% endalert %}
 
 {% sdktabs %}
@@ -38,7 +38,7 @@ Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo 
 {% multi_lang_include developer_guide/unity/analytics/setting_user_attributes.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/setting_user_attributes.md %}
 {% endsdktab %}
 

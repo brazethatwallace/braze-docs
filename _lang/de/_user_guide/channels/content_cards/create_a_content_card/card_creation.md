@@ -16,13 +16,13 @@ toc_headers: h2
 
 ## Voraussetzungen {#prerequisites}
 
-Um dieses Feature nutzen zu können, müssen Sie auf die folgenden Mindest-SDK-Versionen upgraden:
+Um dieses Feature nutzen zu können, müssen Sie auf die folgenden Mindest-SDK or Software-Development-Kit-Versionen upgraden:
 
 {% sdk_min_versions swift:5.2.0 objc:4.5.0 android:23.0.0 web:4.2.0 %}
 
-Unter iOS unterstützt das Swift SDK dieses Feature ab Version 5.2.0, und das Legacy-Objective-C-SDK unterstützt es ab Version 4.5.0. Die Swift-SDK-Versionen 5.0.0 bis 5.1.x unterstützen es nicht.
+Unter iOS unterstützt das Swift SDK or Software-Development-Kit dieses Feature ab Version 5.2.0, und das Legacy-Objective-C-SDK or Software-Development-Kit unterstützt es ab Version 4.5.0. Die Swift-SDK or Software-Development-Kit-Versionen 5.0.0 bis 5.1.x unterstützen es nicht.
 
-Nach dem SDK-Upgrade müssen Ihre mobilen Nutzer:innen ihre App aktualisieren. Sie können Ihre Campaign- oder Canvas-Zielgruppe filtern, um nur [Nutzer:innen mit diesen Mindest-App-Versionen anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Nach dem SDK or Software-Development-Kit-Upgrade or upgraden müssen Ihre mobilen Nutzer:innen ihre App Update or aktualisieren or aktualisieren. Sie können Ihre Campaign- oder Canvas-Zielgruppe filtern, um nur [Nutzer:innen mit diesen Mindest-App-Versionen anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 ## Übersicht {#overview}
 
@@ -151,6 +151,6 @@ Wählen Sie bei großen Zielgruppen die Option, Karten bei erster Impression zu 
 
 Wenn Karten bei erster Impression erstellt werden, kann die Verarbeitung der Karten einige Sekunden dauern. Die Dauer dieser Verarbeitungszeit hängt von verschiedenen Faktoren ab, wie der Kartengröße und der Komplexität der Optionen für das Nachrichten-Templating. Zum Beispiel ist die Verarbeitungszeit für Karten, die Connected-Content verwenden, mindestens so lang wie die Antwortzeit des Connected-Content.
 
-### Frühere SDK-Versionen {#previous-sdk-versions}
+### Frühere SDK or Software-Development-Kit-Versionen {#previous-sdk-versions}
 
-Wenn die App einer Nutzerin oder eines Nutzers eine frühere SDK-Version verwendet, erhält sie oder er trotzdem die von Ihnen gesendeten Content Cards. Allerdings dauert es länger, bis die Karten erscheinen, und sie werden möglicherweise erst bei der nächsten Content-Card-Synchronisierung angezeigt.
+Wenn die App einer Nutzerin oder eines Nutzers eine frühere SDK or Software-Development-Kit-Version verwendet, erhält sie oder er trotzdem die von Ihnen gesendeten Content Cards. Allerdings dauert es länger, bis die Karten erscheinen, und sie werden möglicherweise erst bei der nächsten Content-Card-Synchronisierung angezeigt.

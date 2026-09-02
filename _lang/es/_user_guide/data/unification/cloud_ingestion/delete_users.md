@@ -32,7 +32,7 @@ Añade una marca de tiempo `UPDATED_AT` a tu tabla de origen. Esta marca de tiem
 Tu tabla puede contener una o más columnas de identificadores de usuario. Cada fila solo debe contener un identificador: `external_id`, la combinación de `alias_name` y `alias_label`, o `braze_id`. Una tabla de origen puede contener columnas para uno, dos o los tres tipos de identificadores.
 - `EXTERNAL_ID` - Identifica al usuario que deseas actualizar. Debe coincidir con el valor `external_id` utilizado en Braze.
 - `ALIAS_NAME` y `ALIAS_LABEL` - Estas dos columnas crean un objeto de alias de usuario. `alias_name` debe ser un identificador único, y `alias_label` especifica el tipo de alias. Los usuarios pueden tener varios alias con etiquetas diferentes, pero solo un `alias_name` por `alias_label`.
-- `BRAZE_ID` - El identificador de usuario de Braze. Lo genera el SDK de Braze y no se pueden crear nuevos usuarios utilizando un ID de Braze a través de la Ingesta de datos de Cloud. Para crear nuevos usuarios, especifica un ID de usuario externo o un alias de usuario.
+- `BRAZE_ID` - El identificador de usuario de Braze. Lo genera el SDK or kit de desarrollo de software de Braze y no se pueden crear nuevos usuarios utilizando un ID de Braze a través de la Ingesta de datos de Cloud. Para crear nuevos usuarios, especifica un ID de usuario externo o un alias de usuario.
 
 {% alert important %}
 No incluyas una columna `PAYLOAD` en tu tabla para la eliminación de usuarios. Para evitar la eliminación accidental y permanente de usuarios, la sincronización fallará si se proporciona una columna de carga útil en la tabla de origen. Cualquier otra columna está permitida, pero Braze la ignorará.
@@ -115,7 +115,7 @@ GO
 
 ### Cómo funciona {#how-it-works}
 
-Con la Ingesta de datos de Cloud de Braze, configuras una integración entre tu instancia de almacén de datos y el espacio de trabajo de Braze para sincronizar datos de forma periódica. Esta sincronización se ejecuta según la planificación que establezcas, y cada integración puede tener una planificación diferente. Las sincronizaciones pueden ejecutarse con una frecuencia de cada 15 minutos o tan esporádicamente como una vez al mes. Si necesitas sincronizaciones con una frecuencia superior a 15 minutos, habla con tu administrador del éxito del cliente o considera la posibilidad de utilizar llamadas a la REST API para la ingesta de datos en tiempo real.
+Con la Ingesta de datos de Cloud de Braze, configuras una integración entre tu instancia de almacén de datos y el espacio de trabajo de Braze para sincronizar datos de forma periódica. Esta sincronización se ejecuta según la planificación que establezcas, y cada integración puede tener una planificación diferente. Las sincronizaciones pueden ejecutarse con una frecuencia de cada 15 minutos o tan esporádicamente como una vez al mes. Si necesitas sincronizaciones con una frecuencia superior a 15 minutos, habla con tu administrador del éxito del cliente o considera la posibilidad de utilizar llamadas a la REST or transferencia de estado representacional API para la ingesta de datos en tiempo real.
 
 Cuando se ejecuta una sincronización, Braze se conecta directamente a tu instancia de almacén de datos, recupera todos los datos nuevos de la tabla especificada y elimina los perfiles de usuario correspondientes en tu panel de Braze.
 

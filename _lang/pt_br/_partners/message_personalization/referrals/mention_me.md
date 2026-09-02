@@ -20,8 +20,8 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito | Descrição |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta Mention Me | É necessário ter uma conta [Mention Me](https://mention-me.com/login) para aproveitar essa parceria. |
-| Uma chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `templates.email.create`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Um endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track` e `templates.email.create`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Um endpoint REST or transferir estado representacional da Braze | [URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -47,6 +47,6 @@ Para um passo a passo completo, consulte a [documentação de configuração da 
 Para integrar o Mention Me à Braze:
 
 1. No Mention Me, acesse a página de [integração da Braze](https://mention-me.com/merchant/~/integrations/braze) e selecione **Connect**.
-2. Selecione **Create New Authorization**, adicione a [chave de API criada anteriormente](#prerequisites) e selecione sua instância da Braze.
+2. Selecione **Create New Authorization**, adicione a [chave de API or interface de programação do aplicativo (API) criada anteriormente](#prerequisites) e selecione sua instância da Braze.
 3. Escolha um ou mais países com os quais você gostaria de sincronizar.
 4. Quando terminar, selecione **Connect**.

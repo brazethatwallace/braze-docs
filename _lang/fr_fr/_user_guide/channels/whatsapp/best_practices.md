@@ -21,7 +21,7 @@ La première fois que vous envoyez un message à un utilisateur sur WhatsApp, ce
 ![Fil de conversation WhatsApp avec des options pour bloquer ou signaler une entreprise]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-Pour consulter les indicateurs relatifs à vos blocages et signalements, assurez-vous que l'[onglet Insights](https://www.facebook.com/business/help/683499390267496) est activé dans votre WhatsApp Manager.
+Pour consulter les indicateurs relatifs à vos blocages et signalements, assurez-vous que l'[onglet Insights](https://www.facebook.com/business/help/683499390267496) est activé dans votre WhatsApp gestionnaire.
 {% endalert %}
 
 Pour éviter un nombre élevé de blocages et de signalements, Braze recommande les bonnes pratiques suivantes afin de maintenir une note de qualité téléphonique élevée et des limites d'envoi de messages stables.

@@ -30,7 +30,7 @@ O script [`s3loader.py`](https://github.com/Appboy/currents-examples/tree/master
 
 ## Dependências
 
-Você precisa instalar o AWS Python SDK e o Psycopg para executar o carregador:
+Você precisa instalar o AWS Python SDK or kit de desenvolvimento de software e o Psycopg para executar o carregador:
 
 ```bash
 pip install boto3

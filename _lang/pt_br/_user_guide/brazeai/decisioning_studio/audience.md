@@ -25,21 +25,21 @@ description: "Saiba como definir e configurar o público do seu agente do BrazeA
 {% tabs %}
 {% tab Braze %}
 
-1. Crie um segmento para o público que você deseja direcionar.
-2. Forneça o ID do segmento à sua equipe de AI Decisioning Services.
+1. Crie um Segment or segmento or segmento para o público que você deseja direcionar.
+2. Forneça o ID do Segment or segmento or segmento à sua equipe de AI Decisioning Services.
 
 {% alert note %}
-Na Braze, é possível ingerir múltiplos segmentos e combiná-los para criar o público. O Decisioning Studio pode ingerir um segmento para uma Campaign de comparação Business-as-Usual. Todos esses padrões são aceitáveis.
+Na Braze, é possível ingerir múltiplos segmentos e combiná-los para criar o público. O Decisioning Studio pode ingerir um Segment or segmento or segmento para uma Campaign de comparação Business-as-Usual. Todos esses padrões são aceitáveis.
 {% endalert %}
 
 {% endtab %}
 {% tab Salesforce Marketing Cloud %}
 
 1. Configure uma Data Extension do SFMC para o seu público e forneça o ID da data extension.
-2. Configure um SFMC Installed Package para integração via API com as permissões apropriadas exigidas pelo Decisioning Studio.
+2. Configure um SFMC Installed Package para integração via API or interface de programação do aplicativo (API) com as permissões apropriadas exigidas pelo Decisioning Studio.
 3. Confirme que essa data extension é atualizada diariamente, pois o Decisioning Studio extrai os dados incrementais mais recentes disponíveis.
 
-Forneça o ID da extensão e a chave de API à nossa equipe de AI Decisioning Services, que auxiliará nas próximas etapas de ingestão de dados de cliente.
+Forneça o ID da extensão e a chave de API or interface de programação do aplicativo (API) à nossa equipe de AI Decisioning Services, que auxiliará nas próximas etapas de ingestão de dados de cliente.
 
 {% endtab %}
 {% tab Outras plataformas %}

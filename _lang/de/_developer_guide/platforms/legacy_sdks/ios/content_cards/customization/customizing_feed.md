@@ -19,15 +19,15 @@ Es ist auch wichtig zu überlegen, ob Sie eine Strategie der Unterklassifizierun
 
 ## UI anpassen {#customizing-ui}
 
-Die folgenden Code-Snippets zeigen, wie Sie Content Cards mit den vom SDK bereitgestellten Methoden gestalten und an Ihre UI-Anforderungen anpassen können. Diese Methoden erlauben es Ihnen, alle Aspekte der Content-Card-UI anzupassen, einschließlich angepasster Schriftarten, angepasster Farbkomponenten, angepasster Texte und mehr.
+Die folgenden Code-Snippets zeigen, wie Sie Content Cards mit den vom SDK or Software-Development-Kit bereitgestellten Methoden gestalten und an Ihre UI-Anforderungen anpassen können. Diese Methoden erlauben es Ihnen, alle Aspekte der Content-Card-UI anzupassen, einschließlich angepasster Schriftarten, angepasster Farbkomponenten, angepasster Texte und mehr.
 
 Es gibt zwei verschiedene Möglichkeiten, die Content-Card-UI anzupassen:
-- Dynamische Methode: Update der UI pro Karte
-- Statische Methode: Update der UI über alle Karten hinweg
+- Dynamische Methode: Update or aktualisieren der UI pro Karte
+- Statische Methode: Update or aktualisieren der UI über alle Karten hinweg
 
 ### Dynamische UI {#dynamic-ui}
 
-Die Content-Card-Methode `applyCard` kann das Kartenobjekt referenzieren und ihm Schlüssel-Wert-Paare übergeben, die für das Update der UI verwendet werden:
+Die Content-Card-Methode `applyCard` kann das Kartenobjekt referenzieren und ihm Schlüssel-Wert-Paare übergeben, die für das Update or aktualisieren der UI verwendet werden:
 
 {% tabs %}
 {% tab Objective-C %}

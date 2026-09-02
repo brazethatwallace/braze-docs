@@ -41,7 +41,7 @@ Dies sind die Informationsspalten, die Sie für die Anzeige in der Segmentliste 
 - **Tags:** Tags, die dem Segment zugeordnet sind
 - **Teams:** Teams, die dem Segment zugeordnet sind
 - **Estimated size:** Geschätzte Anzahl der Nutzer:innen im Segment
-- **Canvases:** Anzahl der Canvases, die das Segment verwenden
+- **Canvase:** Anzahl der Canvase, die das Segment verwenden
 - **Campaigns:** Anzahl der Campaigns, die das Segment verwenden
 
 ### Nur markierte anzeigen {#show-starred-only}
@@ -50,7 +50,7 @@ Wenn Sie **Show Starred Only** auswählen, wird Ihre Ansicht auf die Segments ei
 
 ## Messaging-Nutzung eines Segments anzeigen {#messaging-use}
 
-Gehen Sie zum Abschnitt **Messaging Use** eines Segments, um eine Übersicht darüber zu erhalten, wo das Segment verwendet wird, z. B. in anderen Segments, Campaigns und Canvases.
+Gehen Sie zum Abschnitt **Messaging Use** eines Segments, um eine Übersicht darüber zu erhalten, wo das Segment verwendet wird, z. B. in anderen Segments, Campaigns und Canvase.
 
 {% alert note %}
 Um Schleifen durch gegenseitige Segment-Referenzen zu vermeiden, können Segments, die den Filter **Segment Membership** verwenden, nicht von anderen Segments referenziert werden. Weitere Informationen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
@@ -63,7 +63,7 @@ Um Schleifen durch gegenseitige Segment-Referenzen zu vermeiden, können Segment
 Um ein bestimmtes Segment zu verwalten, fahren Sie mit dem Mauszeiger darüber und wählen Sie das Menüsymbol am Ende der Zeile aus, um die folgenden Optionen anzuzeigen:
 - **Bearbeiten:** Bearbeiten Sie die Filter in Ihrem Segment.
 - **Duplizieren:** Erstellen Sie eine Kopie Ihres Segments.
-- **Archivieren:** Archivieren Sie das Segment. Beachten Sie, dass dadurch auch alle Campaigns oder Canvases archiviert werden, die dieses Segment verwenden.
+- **Archivieren:** Archivieren Sie das Segment. Beachten Sie, dass dadurch auch alle Campaigns oder Canvase archiviert werden, die dieses Segment verwenden.
 - **Zu Favoriten hinzufügen:** Markieren Sie das Segment als Favorit, sodass Sie schnell darauf zugreifen können, indem Sie im Segments-Bereich das Kontrollkästchen „Nur Favoriten anzeigen“ aktivieren.
 
 Sie können auch Massenaktionen durchführen – insbesondere Massenarchivierung und Massen-Tagging – indem Sie die Kontrollkästchen neben mehreren Segmentnamen aktivieren.
@@ -86,12 +86,12 @@ Alle in dieses Feld eingegebenen Begriffe und Zeichenfolgen werden durchsucht. W
 
 ![Die Suchergebnisse für die Eingabe von „all users“ in das Suchfeld umfassen „All Users (Test)“, „All Users“, „All Users 15“.]({% image_buster /assets/img/segment/segments_search.png %})
 
-### Segments in Canvases {#segments-in-canvases}
+### Segments in Canvase {#segments-in-canvases}
 
-Um nach allen Segment-Referenzen zu suchen, einschließlich solcher in anderen Segments, Campaigns oder Canvases, navigieren Sie zum Abschnitt [Messaging-Nutzung](#messaging-use) eines Segments. Der Filter **Target segment** auf der **Canvas**-Seite durchsucht nur Canvas-Zielgruppen-Segments.
+Um nach allen Segment-Referenzen zu suchen, einschließlich solcher in anderen Segments, Campaigns oder Canvase, navigieren Sie zum Abschnitt [Messaging-Nutzung](#messaging-use) eines Segments. Der Filter **Target segment** auf der **Canvas**-Seite durchsucht nur Canvas-Zielgruppen-Segments.
 
 ![Filter „Target segment“ auf der Canvas-Seite.]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}
 
 ## Fehlerbehebung {#troubleshooting}
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas-Variante archived segment' %}

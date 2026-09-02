@@ -14,7 +14,7 @@ page_type: reference
 {% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
-Die Verschlüsselung auf Bezeichner-Feldebene ist als zusätzliches Feature verfügbar. Wenden Sie sich an Ihren Braze Account Manager, um mit der Verschlüsselung auf Bezeichner-Feldebene zu beginnen.
+Die Verschlüsselung auf Bezeichner-Feldebene ist als zusätzliches Feature verfügbar. Wenden Sie sich an Ihren Braze Account Manager:in, um mit der Verschlüsselung auf Bezeichner-Feldebene zu beginnen.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}
@@ -57,18 +57,18 @@ Wenn die Verschlüsselung für ein Feld aktiviert ist, kann sie nicht wieder rü
 
 ![Einstellungen für Verschlüsselung auf Feldebene.]({% image_buster /assets/img/field_level_encryption.png %})
 
-## Schritt 3: Nutzer:innen importieren und aktualisieren {#step-3-import-and-update-users}
+## Schritt 3: Nutzer:innen importieren und Update or aktualisieren or aktualisieren {#step-3-import-and-update-users}
 
 Wenn die Verschlüsselung auf Bezeichnerebene aktiviert ist, müssen Sie die E-Mail-Adresse hashen und verschlüsseln, bevor Sie sie zu Braze hinzufügen. Stellen Sie sicher, dass Sie die E-Mail-Adresse vor dem Hashen in Kleinbuchstaben umwandeln. Weitere Details finden Sie unter [Nutzer:innenattribut-Objekt](#user-attributes-object).
 
-Wenn Sie die E-Mail-Adresse in Braze aktualisieren, sollten Sie den gehashten E-Mail-Wert überall dort verwenden, wo `email` enthalten ist. Dies umfasst:
+Wenn Sie die E-Mail-Adresse in Braze Update or aktualisieren or aktualisieren, sollten Sie den gehashten E-Mail-Wert überall dort verwenden, wo `email` enthalten ist. Dies umfasst:
 
-- REST-Endpunkte:
+- Representational State Transfer-Endpunkte:
     - `/users/track`
     - `/campaigns/trigger/send`
     - `/canvas/trigger/send`
     - `/transactional/v1/campaigns/{campaign_id}/send`
-- Hinzufügen oder Aktualisieren von Nutzer:innen per CSV
+- Hinzufügen oder Update or aktualisieren or aktualisieren von Nutzer:innen per CSV
 
 {% alert note %}
 Wenn Sie eine:n neue:n Nutzer:in mit einer E-Mail-Adresse erstellen, müssen Sie `email_encrypted` mit dem verschlüsselten E-Mail-Wert hinzufügen. Andernfalls wird die/der Nutzer:in nicht erstellt. Wenn Sie eine E-Mail-Adresse zu einer/einem bestehenden Nutzer:in hinzufügen, die/der noch keine E-Mail hat, müssen Sie ebenfalls `email_encrypted` hinzufügen. Andernfalls wird die/der Nutzer:in nicht aktualisiert.
@@ -78,7 +78,7 @@ Wenn Sie eine:n neue:n Nutzer:in mit einer E-Mail-Adresse erstellen, müssen Sie
 
 Diese Features werden bei der Verschlüsselung auf Bezeichnerebene nicht unterstützt:
 
-- Identifizierung und Erfassung von E-Mail-Adressen über das SDK
+- Identifizierung und Erfassung von E-Mail-Adressen über das SDK or Software-Development-Kit
 - E-Mail-Erfassungsformulare für In-App-Nachrichten
 - Berichte über Empfänger:innen-Domains, einschließlich der E-Mail-Insights-Charts nach E-Mail-Anbieter
 - E-Mail-Adressfilter mit regulärem Ausdruck
@@ -111,12 +111,12 @@ Ja. Unter **Dateneinstellungen** > **Verschlüsselung auf Feldebene** akzeptiert
 
 ### Wie entferne oder setze ich einen HMAC-Schlüssel zurück? {#how-do-i-remove-or-reset-an-hmac-key}
 
-Sie können einen HMAC-Schlüssel nach dem Speichern nicht mehr im Dashboard entfernen oder zurücksetzen. Um ein Zurücksetzen des HMAC-Schlüssels oder die Entfernung der Bezeichner-Verschlüsselung auf Feldebene anzufordern, wenden Sie sich an Ihren Braze Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).
+Sie können einen HMAC-Schlüssel nach dem Speichern nicht mehr im Dashboard entfernen oder zurücksetzen. Um ein Zurücksetzen des HMAC-Schlüssels oder die Entfernung der Bezeichner-Verschlüsselung auf Feldebene anzufordern, wenden Sie sich an Ihren Braze Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).
 
 {%raw%}
 ### Was passiert, wenn ich diese E-Mail-Adressen-Liquid-Variable `{{${email_address}}}` in Braze hinzufüge? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
-Braze rendert beim Versand der E-Mail die Klartext-E-Mail-Adresse. In Vorschauen wird die verschlüsselte Version der E-Mail angezeigt. Wir empfehlen, die externe ID der Nutzer:innen zu verwenden, wenn Sie eine:n Nutzer:in in einer benutzerdefinierten One-Click-URL referenzieren.
+Braze rendert beim Versand der E-Mail die Klartext-E-Mail-Adresse. In Vorschauen wird die verschlüsselte Version der E-Mail angezeigt. Wir empfehlen, die externe ID der Nutzer:innen zu verwenden, wenn Sie eine:n Nutzer:in in einer benutzerdefinierten One-Klick, der or klicken-URL referenzieren.
 
 `{{${email_address}}}` wird derzeit im Preference Center und auf Abmeldeseiten nicht unterstützt.
 {%endraw%}
@@ -131,7 +131,7 @@ Die Klartext-E-Mail-Adresse ist in der Nachrichtenarchivierung enthalten. Diese 
 
 ### Kann ich die Mail-to-List-Unsubscribe-Methode für das Abo-Management mit Bezeichner-Verschlüsselung auf Feldebene verwenden? {#can-i-use-mail-to-list-unsubscribe-for-subscription-management-with-identifier-field-level-encryption}
 
-Nein. Die Verwendung der Mail-to-List-Unsubscribe-Methode würde die entschlüsselte Klartext-E-Mail-Adresse an Braze senden. Bei aktivierter Bezeichner-Verschlüsselung auf Feldebene unterstützen wir die URL-basierte HTTP-Methode, einschließlich One-Click. Wir empfehlen außerdem, einen One-Click-Abmeldelink in Ihren E-Mail-Text einzufügen.
+Nein. Die Verwendung der Mail-to-List-Unsubscribe-Methode würde die entschlüsselte Klartext-E-Mail-Adresse an Braze senden. Bei aktivierter Bezeichner-Verschlüsselung auf Feldebene unterstützen wir die URL-basierte HTTP-Methode, einschließlich One-Klick, der or klicken. Wir empfehlen außerdem, einen One-Klick, der or klicken-Abmeldelink in Ihren E-Mail-Text einzufügen.
 
 ### Unterstützt die Bezeichner-Verschlüsselung auf Feldebene andere Bezeichner wie Telefonnummern? {#does-identifier-field-level-encryption-support-other-identifiers-like-phone}
 

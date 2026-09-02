@@ -25,13 +25,13 @@ A integração da Braze e da Vizbee permite que você use um único console para
 |---|---|
 | Conta Vizbee | É necessário ter uma conta [Vizbee](https://vizbee.tv/) para aproveitar essa parceria. Você deve registrar seu app na Vizbee e ter um ID da Vizbee atribuído. |
 | App iOS ou Android | Essa integração é compatível com apps para iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. |
-| SDK da Vizbee | Além do SDK da Braze obrigatório, você deve instalar o SDK da Vizbee. |
+| SDK or kit de desenvolvimento de software da Vizbee | Além do SDK or kit de desenvolvimento de software da Braze obrigatório, você deve instalar o SDK or kit de desenvolvimento de software da Vizbee. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-Siga o [guia de integração de SDK](https://console.vizbee.tv/app/vzb1765003429/develop/guides/ios-continuity) da Vizbee para configurar sua integração com a Braze. Lá você encontra orientações sobre deep linking do celular para a TV, instalações de apps de TV e atribuição de visualizações.
+Siga o [guia de integração de SDK or kit de desenvolvimento de software](https://console.vizbee.tv/app/vzb1765003429/develop/guides/ios-continuity) da Vizbee para configurar sua integração com a Braze. Lá você encontra orientações sobre deep linking do celular para a TV, instalações de apps de TV e atribuição de visualizações.
 
 ### Visualização de relatórios de instalação e atribuição {#vizbee-tv-app-installs-viewership-attribution}
 
-A Vizbee e a Braze também permitem que você visualize o desempenho holístico das suas campanhas em dispositivos móveis e de CTV. O SDK da Vizbee envia eventos personalizados para o SDK da Braze, que podem ser visualizados nos seus relatórios de campanha no dashboard da Braze.
+A Vizbee e a Braze também permitem que você visualize o desempenho holístico das suas campanhas em dispositivos móveis e de CTV. O SDK or kit de desenvolvimento de software da Vizbee envia eventos personalizados para o SDK or kit de desenvolvimento de software da Braze, que podem ser visualizados nos seus relatórios de campanha no dashboard da Braze.

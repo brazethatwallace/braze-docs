@@ -153,7 +153,7 @@ Une fois que vous avez terminé d'utiliser un Content Block, vous pouvez l'archi
 
 ### Bonnes pratiques {#best-practices}
 
-- Lorsque votre bloc n'est utilisé que dans quelques e-mails, nous vous recommandons d'archiver le bloc obsolète et de mettre à jour vos messages en direct avec un bloc plus récent qui n'a pas été archivé.
+- Lorsque votre bloc n'est utilisé que dans quelques e-mails, nous vous recommandons d'archiver le bloc obsolète et de mettre à jour vos messages en direct or en ligne/en production/instantané avec un bloc plus récent qui n'a pas été archivé.
 - Lorsque votre bloc contient uniquement une faute de frappe ou nécessite une modification mineure, nous ne recommandons pas d'archiver le bloc. Mettez plutôt le bloc à jour et lancez vos envois !
 - Lorsque votre bloc est utilisé dans plus de messages que vous ne pouvez raisonnablement gérer avec la première suggestion de cette liste, nous vous recommandons de supprimer tout le contenu du bloc. Cela empêche l'inclusion d'informations obsolètes dans les messages.
 - Si vous archivez accidentellement un Content Block, vous pouvez le désarchiver.

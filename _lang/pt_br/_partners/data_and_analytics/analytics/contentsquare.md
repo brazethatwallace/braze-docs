@@ -23,7 +23,7 @@ A integração entre a Braze e a Contentsquare permite que você envie Live Sign
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Contentsquare | É necessário ter uma conta na Contentsquare para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Para criar uma nova chave no dashboard da Braze, acesse **Configurações** > **Chaves de API**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Para criar uma nova chave no dashboard da Braze, acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
 | Endpoint REST da Braze | [URL do seu endpoint REST]({% image_buster /assets/img/contentsquare_custom_events.png %}). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

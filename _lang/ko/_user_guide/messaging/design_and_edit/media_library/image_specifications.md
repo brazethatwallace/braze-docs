@@ -142,14 +142,14 @@ iOS 글자 수에 대한 자세한 내용은 [iOS 글자 수 가이드라인]({{
 
 추가 리소스는 [푸시 이미지 및 텍스트 사양]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)을 참조하세요.
 
-### SMS 및 MMS {#sms-and-mms}
+### 단문 메시지 서비스 및 MMS {#sms-and-mms}
 
-{% multi_lang_include channels/image_specs.md variable_name='sms and mms' %}
+{% multi_lang_include channels/image_specs.md variable_name='단문 메시지 서비스 and mms' %}
 
-MMS 메시지 작성에 대해서는 [SMS, MMS 또는 RCS 메시지 만들기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)를 참조하세요.
+MMS 메시지 작성에 대해서는 [단문 메시지 서비스, MMS 또는 RCS 메시지 만들기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)를 참조하세요.
 
 ### RCS {#rcs}
 
-RCS 미디어 메시지는 JPG, JPEG 및 GIF 이미지를 지원합니다. 파일 크기 및 형식에 대한 자세한 내용은 [SMS, MMS 또는 RCS 메시지 만들기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)를 참조하세요.
+RCS 미디어 메시지는 JPG, JPEG 및 GIF 이미지를 지원합니다. 파일 크기 및 형식에 대한 자세한 내용은 [단문 메시지 서비스, MMS 또는 RCS 메시지 만들기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)를 참조하세요.
 
 iOS에서는 RCS 리치 카드의 GIF가 정적 이미지로 표시됩니다. Android에서는 예상대로 애니메이션이 재생됩니다. 자세한 내용은 [RCS 리치 카드의 GIF가 iOS에서 정적으로 표시되는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#why-do-gifs-in-rcs-rich-cards-appear-static-on-ios)를 참조하세요.

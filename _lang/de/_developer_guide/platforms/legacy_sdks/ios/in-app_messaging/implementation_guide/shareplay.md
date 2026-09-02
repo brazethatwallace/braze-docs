@@ -86,7 +86,7 @@ func configureVideoPlayer() {
 
 **Schlüssel-Wert-Paare**: Die Videodatei muss in den Schlüssel-Wert-Paaren der In-App-Nachricht festgelegt werden und kann nicht direkt an das Medienelement angehängt werden. Sie können auch eine URL-Gültigkeitsprüfung in `beforeInAppMessageDisplayed` als Sicherheitsmechanismus hinzufügen, bevor der Inhalt angezeigt wird.
 
-**Triggern**: Die In-App-Nachricht sollte für alle Nutzer:innen mit aktivierter erneuter Berechtigung verfügbar sein. Dies kann durch Festlegen von zwei Triggern erreicht werden: ein Standard-Trigger zum Starten der Nachricht und ein weiterer zum Starten der Nachricht, wenn sie über SharePlay initiiert wird. Nutzer:innen, die nicht iOS 15 verwenden, können Nachrichten nur lokal anzeigen.
+**Trigger or triggern or triggern**: Die In-App-Nachricht sollte für alle Nutzer:innen mit aktivierter erneuter Berechtigung verfügbar sein. Dies kann durch Festlegen von zwei Trigger or triggern or triggern erreicht werden: ein Standard-Trigger or triggern zum Starten der Nachricht und ein weiterer zum Starten der Nachricht, wenn sie über SharePlay initiiert wird. Nutzer:innen, die nicht iOS 15 verwenden, können Nachrichten nur lokal anzeigen.
 
 {% alert important %}
 Achten Sie auf andere In-App-Nachrichten, die beim Sitzungsstart getriggert werden und miteinander in Konflikt geraten könnten.
@@ -135,7 +135,7 @@ Wenn der Zustand als `activationPreferred` zurückkommt, ist das Ihr Signal, den
 
 ### Schritt 4: In-App-Nachricht über die SharePlay-API starten {#step-4-launch-in-app-message-from-shareplay-api}
 
-Die `GroupActivities`-API prüft, ob ein Video vorhanden ist. Falls ja, sollten Sie das angepasste Event triggern, um Ihre SharePlay-fähige In-App-Nachricht zu starten. Der `CoordinationManager` ist für die Zustandsänderungen von SharePlay verantwortlich, zum Beispiel wenn Nutzer:innen den Anruf verlassen oder ihm beitreten.
+Die `GroupActivities`-API prüft, ob ein Video vorhanden ist. Falls ja, sollten Sie das angepasste Event Trigger or triggern or triggern, um Ihre SharePlay-fähige In-App-Nachricht zu starten. Der `CoordinationManager` ist für die Zustandsänderungen von SharePlay verantwortlich, zum Beispiel wenn Nutzer:innen den Anruf verlassen oder ihm beitreten.
 
 {% tabs %}
 {% tab Swift %}

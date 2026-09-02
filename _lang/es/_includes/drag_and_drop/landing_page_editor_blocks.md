@@ -60,7 +60,7 @@ Añade espacio vertical entre elementos.
 
 ### Código personalizado {#custom-code}
 
-Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, como [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
+Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, como [Google Tag Administrador]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -70,7 +70,7 @@ Inserta HTML, CSS o JavaScript personalizado para personalización avanzada, com
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Temporizador de cuenta regresiva {#countdown-timer}
 
-Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Muestra una cuenta regresiva hasta una fecha y hora que establezcas. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
 
 Después de añadir un bloque de **Temporizador de cuenta regresiva**, usa el panel de propiedades para establecer la fecha y hora objetivo, las etiquetas y el estilo.
 -->
@@ -83,7 +83,7 @@ Añade un campo de formulario para direcciones de correo electrónico. Al enviar
 
 ### Captura de teléfono {#phone-capture}
 
-Añade un campo de formulario para números de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) seleccionado.
+Añade un campo de formulario para números de teléfono. Al enviar, suscribe al usuario a tu grupo de suscripción de [servicio de mensajes cortos]({{site.baseurl}}/sms_rcs_subscription_groups) o [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) seleccionado.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -113,14 +113,14 @@ Los usuarios eligen múltiples opciones; los valores establecen o se añaden a u
 
 ### Texto largo {#long-text}
 
-Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze. Este bloque no está disponible para páginas de destino estándar.
+Campo de texto multilínea para flujos de tipo cuestionario. Si no ves este bloque, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze. Este bloque no está disponible para páginas de destino estándar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Fila guardada {#saved-row}
 
-Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original: si el original se actualiza, tendrás que arrastrarlo de nuevo al editor para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Rows**, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu administrador de éxito de cliente de Braze.
+Inserta una fila reutilizable que guardaste anteriormente como un Content Block de arrastrar y soltar. Las filas guardadas **no están vinculadas** al Content Block original: si el original se actualiza, tendrás que arrastrarlo de nuevo al editor para obtener la última versión. Para más información, consulta [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Si no ves **Fila guardada** en **Rows**, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
 -->
 
 ## Cosas que debes saber {#things-to-know}

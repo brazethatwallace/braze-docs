@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade ao vivo\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Iniciar atividade ao vivo {#start-live-activity}
 {% apimethod post %}
 /messages/live_activity/start
@@ -17,7 +17,7 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Iniciar atividade
 
 > Use esse endpoint para iniciar remotamente [as Live Activities]({{site.baseurl}}/developer_guide/live_notifications?sdktab=swift) exibidas no seu app para iOS. Esse endpoint requer configuração adicional.
 
-Depois de criar uma Live Activity, faça uma solicitação POST para direcionar um segmento, um público conectado ou usuários específicos. Identifique usuários específicos por ID de usuário externo, alias de usuário ou ambos. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
+Depois de criar uma Live Activity, faça uma solicitação POST para direcionar um Segment or segmento or segmento, um público conectado ou usuários específicos. Identifique usuários específicos por ID de usuário externo, alias de usuário ou ambos. Para saber mais sobre as Live Activities da Apple, consulte [Como iniciar e atualizar Live Activities com notificações por push do ActivityKit](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications).
 
 Se `content-available` não estiver definido, a prioridade padrão do serviço de Notificações por Push da Apple (APN) é 10. Se `content-available` estiver definido, essa prioridade é 5. Para saber mais, consulte [objeto de push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object).
 
@@ -41,10 +41,10 @@ Para configurar o encerramento automático após o início de uma Live Activity,
 
 Para usar este endpoint, complete os seguintes pré-requisitos:
 
-- Gere uma chave de API com a permissão `messages.live_activity.start`.
-- [Crie uma Live Activity]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) usando o SDK Swift da Braze.
+- Gere uma chave de API or interface de programação do aplicativo (API) com a permissão `messages.live_activity.start`.
+- [Crie uma Live Activity]({{site.baseurl}}/developer_guide/live_notifications/live_activities?tab=local&sdktab=swift#create-an-activity) usando o SDK or kit de desenvolvimento de software Swift da Braze.
 
-{% multi_lang_include api/payload_size_alert.md %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/payload_size_alert.md %}
 
 {% alert important %}
 Quando você direciona usuários específicos, a Braze inicia uma Live Activity apenas para `external_user_ids` e `user_aliases` que correspondam a usuários existentes.
@@ -80,7 +80,7 @@ Quando você direciona usuários específicos, a Braze inicia uma Live Activity 
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição  |
 |-----------|----------|----------|--------------|
-| `app_id` | Obrigatório | String | [Identificador de API]({{site.baseurl}}/api/identifier_types#app-identifier) do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers).  |
+| `app_id` | Obrigatório | String | [Identificador de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/identifier_types#app-identifier) do app recuperado da página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers).  |
 | `activity_id` | Obrigatório | String  | Defina uma string personalizada como seu `activity_id`. Use esse ID para enviar eventos de atualização ou encerramento para sua Live Activity.  |
 | `activity_attributes_type`  | Obrigatório | String | O tipo de atributo de atividade que você define em `liveActivities.registerPushToStart` no seu app.  |
 | `activity_attributes` | Obrigatório | Objeto  | Os valores de atributo estáticos para o tipo de atividade (como os nomes das equipes esportivas, que não mudam). |
@@ -89,7 +89,7 @@ Quando você direciona usuários específicos, a Braze inicia uma Live Activity 
 | `notification` | Obrigatório | Objeto | Inclua um objeto [`apple_push`]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para definir uma notificação por push. O comportamento desta notificação por push depende de o usuário estar ativo ou de estar usando um dispositivo proxy. {::nomarkdown}<ul><li>Se um <code>notification</code> está incluído e o usuário está ativo no iPhone quando a atualização é entregue, a interface da Live Activity atualizada deslizará para baixo e será exibida como uma notificação por push.</li><li>Se um <code>notification</code> está incluído e o usuário não está ativo no iPhone, a tela acenderá para exibir a interface da Live Activity atualizada na tela de bloqueio.</li><li>O <code>notification alert</code> não será exibido como uma notificação por push padrão. Além disso, se o usuário tiver um dispositivo proxy, como um Apple Watch, o <code>alert</code> será exibido nele.</li></ul>{:/} |
 | `external_user_ids` | Opcional se `user_aliases`, `segment_id` ou `custom_audience` for fornecido | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
 | `user_aliases` | Opcional se `external_user_ids`, `segment_id` ou `custom_audience` for fornecido | Matriz de objetos de alias de usuário | Consulte [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `segment_id`  | Opcional se `external_user_ids`, `user_aliases` ou `custom_audience` for fornecido | String    | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types). |
+| `segment_id`  | Opcional se `external_user_ids`, `user_aliases` ou `custom_audience` for fornecido | String    | Consulte [identificador de Segment or segmento or segmento]({{site.baseurl}}/api/identifier_types). |
 | `custom_audience` | Opcional se `external_user_ids`, `user_aliases` ou `segment_id` for fornecido | Objeto de público conectado  | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
@@ -148,7 +148,7 @@ Um código de status `201` é retornado se a solicitação foi formatada correta
 
 ### Exemplo de resposta de erro {#example-error-response}
 
-A classe de código de status `4XX` indica um erro do cliente. Consulte o artigo [erros e respostas da API]({{site.baseurl}}/api/errors) para saber mais sobre os erros que você pode encontrar.
+A classe de código de status `4XX` indica um erro do cliente. Consulte o artigo [erros e respostas da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/errors) para saber mais sobre os erros que você pode encontrar.
 
 O código de status `400` pode retornar o seguinte corpo de resposta.
 

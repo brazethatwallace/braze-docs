@@ -1,7 +1,7 @@
 ---
 nav_title: Pypestream
 article_title: Pypestream
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Pypestream, einer umfassenden KI-Plattform für Konversationen, mit der Sie das digitale Engagement Ihrer Marke verbessern können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Pypestream, einer umfassenden KI or künstliche Intelligenz-Plattform für Konversationen, mit der Sie das digitale Engagement Ihrer Marke verbessern können."
 alias: /partners/pypestream/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Pypestream
 
-> [Pypestream](https://www.pypestream.com) ist eine umfassende KI-Plattform für Konversationen, die patentiertes, All-in-One-Cloud-Messaging anbietet, um Marken in „always-on“ digitale Einheiten zu transformieren. Mit Pypestream können Marken jetzt Omnichannel-Konversationen in großem Umfang mit allen Kund:innen führen und dabei ein immersives Nutzererlebnis, fortschrittliche NLU-Funktionen und Realtime-Integrationen in Backend-Systeme nutzen.
+> [Pypestream](https://www.pypestream.com) ist eine umfassende KI or künstliche Intelligenz-Plattform für Konversationen, die patentiertes, All-in-One-Cloud-Messaging anbietet, um Marken in „always-on“ digitale Einheiten zu transformieren. Mit Pypestream können Marken jetzt Omnichannel-Konversationen in großem Umfang mit allen Kund:innen führen und dabei ein immersives Nutzererlebnis, fortschrittliche NLU-Funktionen und Realtime-Integrationen in Backend-Systeme nutzen.
 
 _Diese Integration wird von Pypestream gepflegt._
 
@@ -22,14 +22,14 @@ Die Integration von Braze und Pypestream ermöglicht es Ihnen, den End-to-End-Ku
 
 | Anforderung | Beschreibung |
 |---|---|
-| Pypestream-Konto | Ein [Pypestream-Konto](https://www.pypestream.com/contact-us/) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen.<br><br>Sobald Sie registriert sind, hilft Ihnen das Pypestream-Team bei der Einrichtung Ihrer dedizierten Umgebung, damit Sie mit dem Aufbau Ihrer KI-Lösung für die Integration mit Braze beginnen können. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt  | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/) ab. |
+| Pypestream-Konto | Ein [Pypestream-Konto](https://www.pypestream.com/contact-us/) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen.<br><br>Sobald Sie registriert sind, hilft Ihnen das Pypestream-Team bei der Einrichtung Ihrer dedizierten Umgebung, damit Sie mit dem Aufbau Ihrer KI or künstliche Intelligenz-Lösung für die Integration mit Braze beginnen können. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt  | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Die Partnerschaft zwischen Braze und Pypestream kann in Ihren Canvases genutzt werden, um gängige Anwendungsfälle zu realisieren:
+Die Partnerschaft zwischen Braze und Pypestream kann in Ihren Canvase genutzt werden, um gängige Anwendungsfälle zu realisieren:
 * **Intelligentes Retargeting**: Retargeten Sie Nutzer:innen mit Braze Canvas nach deren konversationsbasiertem Engagement mit Ihrer Marke, indem Sie alle über Pypestream erfassten Datenpunkte nutzen.
 * **Dynamisches Targeting**: Kontaktieren Sie bestehende und potenzielle Kund:innen auf Basis ihrer spezifischen Kohorten und Segmente und bieten Sie ihnen über Pypestream maßgeschneiderte Konversationserlebnisse.
 * **Kontextuelle Kund:innen-Insights**: Nachdem sich Endnutzer:innen (bestehende oder potenzielle Kund:innen) auf Ihrer Website engagiert haben, kombinieren Sie die vom Pypestream Event Listener aufgenommenen Webseiten-Tags mit den in Braze gespeicherten Kundendaten, um eine vollständig personalisierte und kontextuelle Konversationsinteraktion zu ermöglichen.
@@ -44,7 +44,7 @@ In diesem [Pypestream-Artikel](https://pypestream.atlassian.net/servicedesk/cust
 
 ### 1. Schritt: Endpunkt-Konfigurationen festlegen {#step-1-set-endpoint-configurations}
 
-Die primären Konfigurationswerte, wie die URL des Braze REST-Endpunkts und die Braze-API-Schlüssel, sollten in der Datei `app.py` der Lösung festgelegt werden:
+Die primären Konfigurationswerte, wie die URL des Braze Representational State Transfer-Endpunkts und die Braze-API-Schlüssel, sollten in der Datei `app.py` der Lösung festgelegt werden:
 
 ```
 import os
@@ -155,9 +155,9 @@ class BrazeExample:
 
         return {'success': 'error'}
 ```
-### 3. Schritt: Lösungsdesigns aktualisieren {#step-3-update-the-solution-designs}
+### 3. Schritt: Lösungsdesigns Update or aktualisieren or aktualisieren {#step-3-update-the-solution-designs}
 
-Der letzte Schritt der Integration mit der Braze REST API besteht darin, die Abläufe im [Design Studio](https://platform.pypestream.com/design-studio/) von Pypestream so zu konfigurieren, dass sie den Action Node verwenden, der im vorherigen Schritt entwickelt wurde.
+Der letzte Schritt der Integration mit der Braze Representational State Transfer API besteht darin, die Abläufe im [Design Studio](https://platform.pypestream.com/design-studio/) von Pypestream so zu konfigurieren, dass sie den Action Node verwenden, der im vorherigen Schritt entwickelt wurde.
 
 {% alert note %}
 In diesem [Pypestream-Artikel](https://pypestream.atlassian.net/servicedesk/customer/kb/view/669352070) finden Sie eine Übersicht darüber, wie Sie Modi im Design Studio konfigurieren können. Sie müssen Kund:in von Pypestream sein, um auf diese Dokumentation zugreifen zu können.
@@ -169,7 +169,7 @@ Nachdem die Voraussetzungen erfüllt sind und eine Action-Node-Struktur erstellt
 
 ### 1. Schritt: Daten von Nutzer:innen im Gespräch erfassen {#step-1-collect-data-from-the-user-in-conversation}
 
-Wenn Nutzer:innen eine Pypestream-Sitzung betreten, hängt die Art der erfassten Daten ganz vom jeweiligen Anwendungsfall ab. Um ein Nutzerprofil innerhalb von Braze erstellen zu können, muss die Konversation die erforderlichen Felder erfassen, die für den gewünschten Endpunkt benötigt werden.
+Wenn Nutzer:innen eine Pypestream-Sitzung betreten, hängt die Art der erfassten Daten ganz vom jeweiligen Anwendungsfall ab. Um ein Kundenprofil or Nutzerprofil innerhalb von Braze erstellen zu können, muss die Konversation die erforderlichen Felder erfassen, die für den gewünschten Endpunkt benötigt werden.
 
 Wenn die Lösung beispielsweise während der Konversation für den Braze-`/user/track`-Endpunkt die folgenden Informationen von Nutzer:innen gesammelt hat:
 
@@ -277,6 +277,6 @@ class BrazeExample:
         return {'success': 'error'}
 ```
 
-### 3. Schritt: Lösungsabläufe für Weiterleitung bei Erfolg/Fehler des Action Nodes aktualisieren {#step-3-update-solution-flows-to-redirect-upon-successfailure-of-action-node}
+### 3. Schritt: Lösungsabläufe für Weiterleitung bei Erfolg/Fehler des Action Nodes Update or aktualisieren or aktualisieren {#step-3-update-solution-flows-to-redirect-upon-successfailure-of-action-node}
 
 Abschließend können Sie im Design jeder Lösung Nutzer:innen basierend darauf zu Knoten weiterleiten, ob der API-Aufruf des Action Nodes erfolgreich war. Wenn der Action Node eine Fehlermeldung erhält, sollten Endnutzer:innen mit besonderer Sorgfalt behandelt werden.

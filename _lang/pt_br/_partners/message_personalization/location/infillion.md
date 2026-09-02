@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Infillion
 
-> A [Infillion](https://infillion.com/) permite que você aperfeiçoe a relevância do seu marketing usando dados de localização. Seu SDK de localização, combinado com software de geofencing e beacons, possibilita experiências móveis relevantes, personalizadas e com reconhecimento de proximidade.
+> A [Infillion](https://infillion.com/) permite que você aperfeiçoe a relevância do seu marketing usando dados de localização. Seu SDK or kit de desenvolvimento de software de localização, combinado com software de geofencing e beacons, possibilita experiências móveis relevantes, personalizadas e com reconhecimento de proximidade.
 
 Combine o suporte ao seu beacon ou geofence com os recursos de direcionamento e envio de mensagens da Braze para aprender mais sobre as ações físicas do seu usuário e enviar mensagens de acordo. Essa integração de parceria abre uma série de casos de uso para:
 
@@ -27,19 +27,19 @@ Esta integração funciona da mesma forma para beacons da Infillion e soluções
 | Requisito | Descrição |
 | --- | --- |
 | [Conta de gerente da Infillion](https://manager.gimbal.com/login/users/sign_in) | Uma conta de gerente da Infillion é necessária para aproveitar esta parceria. |
-| [SDK de Localização da Infillion](https://docs.gimbal.com/index.html) | O SDK de Localização da Infillion possibilita experiências móveis baseadas em localização macro e micro usando beacons de proximidade e geofences que permitem que você se comunique de forma mais eficaz com os usuários do seu app. É necessário ter o SDK implementado e as geofences (ou beacons) configuradas. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API Keys**. |
+| [SDK or kit de desenvolvimento de software de Localização da Infillion](https://docs.gimbal.com/index.html) | O SDK or kit de desenvolvimento de software de Localização da Infillion possibilita experiências móveis baseadas em localização macro e micro usando beacons de proximidade e geofences que permitem que você se comunique de forma mais eficaz com os usuários do seu app. É necessário ter o SDK or kit de desenvolvimento de software implementado e as geofences (ou beacons) configuradas. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração de SDK {#sdk-integration}
+## Integração de SDK or kit de desenvolvimento de software {#sdk-integration}
 
-Para integrar a Braze e a Infillion, você deve implementar o SDK de Localização da Infillion e criar uma conta de gerente da Infillion. As seguintes integrações para Android, FireOS e iOS criarão um evento personalizado exclusivo para cada novo local em que um usuário entrar. Esses eventos podem ser usados para disparar e redirecionar suas Campaigns e Canvas.
+Para integrar a Braze e a Infillion, você deve implementar o SDK or kit de desenvolvimento de software de Localização da Infillion e criar uma conta de gerente da Infillion. As seguintes integrações para Android, FireOS e iOS criarão um evento personalizado exclusivo para cada novo local em que um usuário entrar. Esses eventos podem ser usados para disparar e redirecionar suas Campaigns e Canvas.
 
 Se você prevê a criação de mais de 50 lugares, recomendamos a criação de um evento personalizado genérico `Places Entered` e a adição do nome do lugar como uma propriedade do evento.
 
-1. Integre o [SDK da Infillion](https://manager.gimbal.com/sdk_downloads) para Android e iOS no seu app seguindo as instruções na [documentação da Infillion](https://docs.gimbal.com/).
-2. Use a [API REST de lugares da Infillion](https://docs.gimbal.com/rest.html) para obter os `places` do usuário.
-3. Vincule sua conta da Infillion à Braze inserindo a [chave da API REST](https://manager.gimbal.com/apps) da Braze.
-4. Configure [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) no SDK da Braze. Você pode integrar a Infillion com a Braze para [Android e FireOS]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/beacon_integration/#gimbal-beacons) e [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/beacon_integration/#gimbal-beacons).
+1. Integre o [SDK or kit de desenvolvimento de software da Infillion](https://manager.gimbal.com/sdk_downloads) para Android e iOS no seu app seguindo as instruções na [documentação da Infillion](https://docs.gimbal.com/).
+2. Use a [API or interface de programação do aplicativo (API) REST or transferir estado representacional de lugares da Infillion](https://docs.gimbal.com/rest.html) para obter os `places` do usuário.
+3. Vincule sua conta da Infillion à Braze inserindo a [chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional](https://manager.gimbal.com/apps) da Braze.
+4. Configure [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) no SDK or kit de desenvolvimento de software da Braze. Você pode integrar a Infillion com a Braze para [Android e FireOS]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/beacon_integration/#gimbal-beacons) e [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/beacon_integration/#gimbal-beacons).
 5. Registre propriedades para esses eventos (nome do local, tempo de permanência).
 6. Use essas propriedades e eventos para disparar Campaigns e Canvas na Braze.

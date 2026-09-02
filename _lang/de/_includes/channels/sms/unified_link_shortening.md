@@ -1,8 +1,8 @@
-Link-Shortening ermöglicht es Ihnen, URLs in SMS- oder RCS-Nachrichten automatisch zu kürzen und Klickraten-Analytics zu erfassen. So erhalten Sie zusätzliche Engagement-Metriken, die Ihnen helfen zu verstehen, wie Nutzer:innen mit Ihren Campaigns interagieren.
+Link-Shortening ermöglicht es Ihnen, URLs in Kurzmitteilungsdienst or SMS- oder RCS-Nachrichten automatisch zu kürzen und Klickraten-Analytics zu erfassen. So erhalten Sie zusätzliche Engagement-Metriken, die Ihnen helfen zu verstehen, wie Nutzer:innen mit Ihren Campaigns interagieren.
 
-Link-Shortening kann auf [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvases aktiviert werden. Wenn Link-Shortening aktiviert ist, werden Klicks als [SMS-Klick-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) generiert und über Currents gesendet.
+Link-Shortening kann auf [Nachrichtenvarianten-Ebene]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) sowohl in Campaigns als auch in Canvase aktiviert werden. Wenn Link-Shortening aktiviert ist, werden Klicks als [Kurzmitteilungsdienst or SMS-Klick-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) generiert und über Currents gesendet.
 
-{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+{% multi_lang_include channels/Kurzmitteilungsdienst or SMS/rcs_link_shortening_note.md %}
 
 Links werden über unsere gemeinsame Short-Domain (`brz.ai`) oder Ihre angepasste Link-Shortening-Domain gekürzt und sind ab dem Erstellungsdatum 9 Wochen lang gültig. Eine Beispiel-URL könnte etwa so aussehen: `https://brz.ai/8jshX2dj`.
 
@@ -11,7 +11,7 @@ Links werden über unsere gemeinsame Short-Domain (`brz.ai`) oder Ihre angepasst
 Um Link-Shortening zu verwenden, stellen Sie sicher, dass das Kontrollkästchen für Link-Shortening im Nachrichten-Editor aktiviert ist.
 
 {% tabs %}
-{% tab SMS composer %}
+{% tab Kurzmitteilungsdienst or SMS composer %}
 
 ![SMS-Nachrichten-Editor mit aktiviertem Kontrollkästchen für Link-Shortening.]({% image_buster /assets/img/link_shortening/shortening1.png %}){: width="1562" height="1068"}
 
@@ -37,7 +37,7 @@ Informationen darüber, wie Sie URLs direkt im Braze-Nachrichten-Editor dynamisc
 
 ## Testen {#testing}
 
-Bevor Sie Ihre Campaign oder Ihr Canvas starten, sollten Sie Ihre Nachricht zunächst in der Vorschau ansehen und testen. Gehen Sie dazu auf den Tab **Test**, um eine SMS- oder RCS-Nachricht in der Vorschau anzuzeigen und an [Inhaltstestgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden.
+Bevor Sie Ihre Campaign oder Ihr Canvas starten, sollten Sie Ihre Nachricht zunächst in der Vorschau ansehen und testen. Gehen Sie dazu auf den Tab **Test**, um eine Kurzmitteilungsdienst or SMS- oder RCS-Nachricht in der Vorschau anzuzeigen und an [Inhaltstestgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden.
 
 Diese Vorschau wird mit der relevanten Personalisierung und der gekürzten URL aktualisiert. Die Zeichenanzahl und die [abrechenbaren Segmente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) werden ebenfalls aktualisiert, um die gerenderte Personalisierung und die gekürzte URL widerzuspiegeln.
 
@@ -55,11 +55,11 @@ Liquid-Personalisierung und gekürzte URLs werden im Tab **Test** erst nach Ausw
 
 ## Klick-Tracking {#click-tracking}
 
-Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **SMS/MMS/RCS Performance** eine Spalte mit dem Titel **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Informationen zu Metriken finden Sie unter [Nachrichtenperformance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Wenn die Linkverkürzung aktiviert ist, enthält die Tabelle **Kurzmitteilungsdienst or SMS/MMS/RCS Performance** eine Spalte mit dem Titel **Total Clicks**, die eine Anzahl der Klick-Ereignisse pro Variante und eine zugehörige Klickrate anzeigt. Weitere Informationen zu Metriken finden Sie unter [Nachrichtenperformance]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 
 ![Tabelle mit SMS- und MMS-Performance-Metriken.]({% image_buster /assets/img/link_shortening/shortening4.png %}){: width="1586" height="191"}
 
-Die Tabellen **Historical Performance** und **SMS/MMS/RCS Performance** enthalten außerdem eine Option für **Total Clicks** und zeigen eine tägliche Zeitreihe von Klick-Ereignissen an. Klicks werden bei der Weiterleitung gezählt (z. B. wenn Nutzer:innen einen Link aufrufen) und können pro Nutzer:in mehrfach gezählt werden.
+Die Tabellen **Historical Performance** und **Kurzmitteilungsdienst or SMS/MMS/RCS Performance** enthalten außerdem eine Option für **Total Clicks** und zeigen eine tägliche Zeitreihe von Klick-Ereignissen an. Klicks werden bei der Weiterleitung gezählt (z. B. wenn Nutzer:innen einen Link aufrufen) und können pro Nutzer:in mehrfach gezählt werden.
 
 ## Retargeting von Nutzer:innen {#retargeting-users}
 
@@ -71,7 +71,7 @@ Informationen zum Retargeting finden Sie unter [Retargeting]({{site.baseurl}}/us
 
 ### Kann ich sehen, welche einzelnen Nutzer:innen auf eine URL klicken? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
-Ja. Sie können Nutzer:innen, die auf URLs geklickt haben, mithilfe der [SMS-Retargeting-Filter]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) oder der SMS-Klick-Events (`users.messages.sms.ShortLinkClick`) über Currents erneut ansprechen.
+Ja. Sie können Nutzer:innen, die auf URLs geklickt haben, mithilfe der [Kurzmitteilungsdienst or SMS-Retargeting-Filter]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) oder der Kurzmitteilungsdienst or SMS-Klick-Events (`users.messages.sms.ShortLinkClick`) über Currents erneut ansprechen.
 
 ### Funktioniert die Link-Verkürzung mit Deeplinks oder Universal Links? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
@@ -81,7 +81,7 @@ Die Link-Verkürzung funktioniert nicht mit Deeplinks. Alternativ können Sie Un
 Testen Sie die Nutzererfahrung, bevor Sie die Link-Verkürzung mit Universal Links implementieren, um sicherzustellen, dass sie Ihren Erwartungen entspricht.
 {% endalert %}
 
-### Sind `send_ids` mit SMS-Klick-Events verknüpft? {#are-send_ids-associated-with-sms-click-events}
+### Sind `send_ids` mit Kurzmitteilungsdienst or SMS-Klick-Events verknüpft? {#are-send_ids-associated-with-sms-click-events}
 
 Nein. Sie können `send_ids` jedoch in der Regel Klick-Events zuordnen, indem Sie den [Query Builder]({{site.baseurl}}/query_builder) verwenden, um Currents-Daten mit dieser Abfrage abzufragen:
 

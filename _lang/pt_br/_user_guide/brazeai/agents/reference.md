@@ -11,7 +11,7 @@ page_order: 3
 
 ## Modelos {#models}
 
-Ao configurar um agente, você pode escolher o modelo que ele usa para gerar respostas. Há duas opções: usar um modelo da Braze ou trazer sua própria chave de API.
+Ao configurar um agente, você pode escolher o modelo que ele usa para gerar respostas. Há duas opções: usar um modelo da Braze ou trazer sua própria chave de API or interface de programação do aplicativo (API).
 
 {% alert important %}
 O modelo **Auto** da Braze é otimizado para modelos cujas capacidades de raciocínio são suficientes para executar tarefas como busca em catálogos e pertencimento a Segments. Ao usar outros modelos, recomendamos testar para confirmar que o modelo funciona bem para o seu caso de uso. Pode ser necessário ajustar suas [instruções](#writing-instructions) para fornecer diferentes níveis de detalhamento ou raciocínio passo a passo a modelos com diferentes velocidades e capacidades.
@@ -25,21 +25,21 @@ Esta é a opção mais simples, sem necessidade de configuração adicional. A B
 Se você não vir **Braze Auto** como opção no menu suspenso **Model** ao criar um agente, entre em contato com seu gerente de sucesso do cliente para saber como se tornar elegível para usar o modelo Braze Auto.
 {% endalert %}
 
-### Opção 2: Trazer sua própria chave de API {#option-2-bring-your-own-api-key}
+### Opção 2: Trazer sua própria chave de API or interface de programação do aplicativo (API) {#option-2-bring-your-own-api-key}
 
-Com esta opção, você pode conectar sua conta da Braze a provedores como OpenAI, Anthropic ou Google Gemini. Se você trouxer sua própria chave de API de um provedor de LLM, os custos de tokens são cobrados diretamente pelo seu provedor, não pela Braze.
+Com esta opção, você pode conectar sua conta da Braze a provedores como OpenAI, Anthropic ou Google Gemini. Se você trouxer sua própria chave de API or interface de programação do aplicativo (API) de um provedor de LLM, os custos de tokens são cobrados diretamente pelo seu provedor, não pela Braze.
 
 Recomendamos testar rotineiramente os modelos mais recentes, pois modelos legados podem ser descontinuados ou depreciados após alguns meses. Certifique-se de ter créditos suficientes com seu provedor para executar seus agentes em escala. Você também pode se inscrever para receber notificações do Agent Console em [Preferências de notificação]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para ser alertado quando a Braze detectar que um modelo não está mais disponível ou encontrar problemas de cobrança com seu provedor de LLM.
 
 Para configurar:
 
 1. Acesse **Partner Integrations** > **Technology Partners** e encontre seu provedor.
-2. Insira sua chave de API do provedor.
+2. Insira sua chave de API or interface de programação do aplicativo (API) do provedor.
 3. Selecione **Save**.
 
 Então, você pode retornar ao seu agente e selecionar seu modelo.
 
-Quando você usa um LLM fornecido pela Braze, os provedores de tal modelo atuarão como subprocessadores da Braze, sujeitos aos termos do Adendo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API, o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
+Quando você usa um LLM fornecido pela Braze, os provedores de tal modelo atuarão como subprocessadores da Braze, sujeitos aos termos do Adendo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API or interface de programação do aplicativo (API), o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
 
 #### Níveis de raciocínio {#thinking-levels}
 
@@ -58,7 +58,7 @@ Recomendamos começar com **Mínimo** e testar as respostas do seu agente. Entã
 A Braze usa os mesmos intervalos de IP para chamadas LLM de saída que para Connected Content. Os intervalos estão listados na [lista de IPs permitidos do Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Se seu provedor suporta lista de IPs permitidos, você pode restringir a chave a esses intervalos para que apenas a Braze possa usá-la.
 
 {% alert important %}
-Quando você usa um LLM fornecido pela Braze, os provedores de tal modelo atuarão como subprocessadores da Braze, sujeitos aos termos do Adendo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API, o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
+Quando você usa um LLM fornecido pela Braze, os provedores de tal modelo atuarão como subprocessadores da Braze, sujeitos aos termos do Adendo de Processamento de Dados (DPA) entre você e a Braze. Se você optar por trazer sua própria chave de API or interface de programação do aplicativo (API), o provedor da sua assinatura de LLM é considerado um Provedor Terceiro sob o contrato entre você e a Braze.
 {% endalert %}
 
 #### Determinar qual modelo usar {#determine-which-model-to-use}
@@ -76,7 +76,7 @@ Cada provedor de LLM tem uma combinação ligeiramente diferente de capacidades 
 Os seguintes controles de fluxo de invocação se aplicam por espaço de trabalho:
 
 - **Modelo da Braze:** 5.000 invocações por minuto
-- **Trazendo sua própria chave de API:** 5.000 invocações por minuto
+- **Trazendo sua própria chave de API or interface de programação do aplicativo (API):** 5.000 invocações por minuto
 
 Quando muitos usuários entram em uma etapa do agente ao mesmo tempo, a Braze enfileira as invocações de acordo com esses limites, então o processamento pode levar mais tempo durante envios de alto volume.
 
@@ -275,9 +275,9 @@ Catalog Agents também respeitam a ordem das colunas quando os campos de entrada
 
 Para cenários de implantação e exemplos, consulte [Usar Catalog Agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) e [Práticas recomendadas para Catalog Agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
-## Contexto de associação ao Segment {#segment-membership-context}
+## Contexto de associação ao Segment or segmento {#segment-membership-context}
 
-Você pode selecionar até cinco Segments para que o agente cruze a associação de cada usuário com os Segments quando o agente for usado em um Canvas. Digamos que seu agente tenha a associação ao Segment selecionada para um Segment "Loyalty Users" e que o agente esteja sendo usado em um Canvas. Quando os usuários entram em uma etapa de agente, o agente pode verificar se cada usuário é membro de cada Segment que você especificou no console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
+Você pode selecionar até cinco Segments para que o agente cruze a associação de cada usuário com os Segments quando o agente for usado em um Canvas. Digamos que seu agente tenha a associação ao Segment or segmento selecionada para um Segment or segmento "Loyalty Users" e que o agente esteja sendo usado em um Canvas. Quando os usuários entram em uma etapa de agente, o agente pode verificar se cada usuário é membro de cada Segment or segmento que você especificou no console do agente e usar a associação (ou não associação) de cada usuário como contexto para o LLM.
 
 ![O Segment "Loyalty Users" selecionado para acesso de associação do agente.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 

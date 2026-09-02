@@ -2,7 +2,7 @@
 nav_title: BYO-WhatsApp-Konnektor
 article_title: Bring Your Own WhatsApp-Konnektor
 page_order: 2
-description: "Dieser Referenzartikel bietet eine schrittweise Anleitung zur Einrichtung eines Bring Your Own WhatsApp-Konnektors, der Braze Zugriff auf Ihren Infobip WhatsApp Business Manager gewährt."
+description: "Dieser Referenzartikel bietet eine schrittweise Anleitung zur Einrichtung eines Bring Your Own WhatsApp-Konnektors, der Braze Zugriff auf Ihren Infobip WhatsApp Business Manager:in gewährt."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,7 +10,7 @@ channel:
 
 # Bring Your Own WhatsApp-Konnektor {#bring-your-own-whatsapp-connector}
 
-> Der Bring Your Own (BYO) WhatsApp-Konnektor bietet eine Partnerschaft zwischen Braze und Infobip, bei der Sie Braze Zugriff auf Ihren Infobip WhatsApp Business Manager (WABA) gewähren. So können Sie Messaging-Kosten direkt mit Infobip verwalten und bezahlen, während Sie Braze für Segmentierung, Personalisierung und Campaign-Orchestrierung nutzen. Braze behält alle bestehenden Funktionen bei, die der WhatsApp-Kanal bietet, wie ausgehende Nachrichten, Verarbeitung eingehender Nachrichten, WhatsApp-Flows und Analytics.
+> Der Bring Your Own (BYO) WhatsApp-Konnektor bietet eine Partnerschaft zwischen Braze und Infobip, bei der Sie Braze Zugriff auf Ihren Infobip WhatsApp Business Manager:in (WABA) gewähren. So können Sie Messaging-Kosten direkt mit Infobip verwalten und bezahlen, während Sie Braze für Segmentierung, Personalisierung und Campaign-Orchestrierung nutzen. Braze behält alle bestehenden Funktionen bei, die der WhatsApp-Kanal bietet, wie ausgehende Nachrichten, Verarbeitung eingehender Nachrichten, WhatsApp-Flows und Analytics.
 
 {% alert note %}
 Informationen zur Migration von anderen Business Solution Providern (BSPs) zur Braze-Integration finden Sie unter [Von einem anderen Business Solution Provider migrieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
@@ -47,7 +47,7 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 
 {: start="3"}
 3. Geben Sie dem Schlüssel einen aussagekräftigen Namen, z. B. „Braze - Mein Workspace-Name - Mein WABA-Name“.
-4. Legen Sie ein Ablaufdatum fest, das weit in der Zukunft liegt, um Probleme mit dem Token-Ablauf zu vermeiden.
+4. Legen Sie ein Ablaufdatum fest, das weit in der Zukunft liegt, um Probleme mit dem Token / Textbaustein-Ablauf zu vermeiden.
     - Notieren Sie sich, vor dem Ablaufdatum einen neuen API-Schlüssel zu generieren und Ihr WABA erneut zu verbinden.
 5. Wählen Sie diese Berechtigungen aus:
 - `Message:send`
@@ -82,7 +82,7 @@ Bevor Sie den BYO-WhatsApp-Konnektor einrichten, bestätigen Sie, dass der bishe
 - Sie müssen ein neues WABA erstellen und dürfen kein bestehendes auswählen.
 
 {% alert note %}
-Um den Verifizierungscode zu erhalten, gehen Sie zu Ihrem Infobip-Dashboard > **Analyze** > **Logs** und entnehmen Sie den Code aus der eingehenden SMS-Nachricht.
+Um den Verifizierungscode zu erhalten, gehen Sie zu Ihrem Infobip-Dashboard > **Analyze** > **Logs** und entnehmen Sie den Code aus der eingehenden Kurzmitteilungsdienst or SMS-Nachricht.
 {% endalert %}
 
 ![Nachrichtenprotokolle mit einer eingehenden SMS-Nachricht mit dem Verifizierungscode.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})

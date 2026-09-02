@@ -121,7 +121,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador web.
+A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador de internet or navegador web.
 
 ### Trabalhando com ATS {#working-with-ats}
 
@@ -173,7 +173,7 @@ Você pode desativar o ATS completamente. Note que isso não é uma prática rec
 
 ## Decodificando URLs {#decoding-urls}
 
-O SDK codifica os links em porcentagem para criar `URL`s válidos. Todos os caracteres de link que não são permitidos em um URL devidamente formado, como caracteres Unicode, serão escapados por porcentagem.
+O SDK or kit de desenvolvimento de software codifica os links em porcentagem para criar `URL`s válidos. Todos os caracteres de link que não são permitidos em um URL devidamente formado, como caracteres Unicode, serão escapados por porcentagem.
 
 Para decodificar um link codificado, use a propriedade `String` [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Você também deve retornar `true` em `BrazeDelegate.braze(_:shouldOpenURL:)`. Uma chamada para ação é necessária para disparar o tratamento da URL pelo seu app. Por exemplo, no seu handler [`scene:openURLContexts:`](#step-3-implement-a-handler) da Etapa 3:
 
@@ -243,7 +243,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 ### Personalização padrão do WebView {#default-webview-customization}
 
-A classe `Braze.WebViewController` exibe URLs da web abertas pelo SDK, normalmente quando "Abrir URL da Web Dentro do App" é selecionado para um deep link da web.
+A classe `Braze.WebViewController` exibe URLs da web abertas pelo SDK or kit de desenvolvimento de software, normalmente quando "Abrir URL da Web Dentro do App" é selecionado para um deep link da web.
 
 Você pode personalizar o `Braze.WebViewController` por meio do método delegado [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/).
 
@@ -267,14 +267,14 @@ Para adicionar suporte às compilações do simulador, você pode adicionar o ar
 {% endalert %}
 
 {% alert note %}
-O SDK não consulta o arquivo `apple-app-site-association` dos seus domínios. Ele realiza a diferenciação entre links universais e URLs regulares observando apenas o nome do domínio. Como resultado, o SDK não respeita nenhuma regra de exclusão definida no `apple-app-site-association` conforme [Supporting associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
+O SDK or kit de desenvolvimento de software não consulta o arquivo `apple-app-site-association` dos seus domínios. Ele realiza a diferenciação entre links universais e URLs regulares observando apenas o nome do domínio. Como resultado, o SDK or kit de desenvolvimento de software não respeita nenhuma regra de exclusão definida no `apple-app-site-association` conforme [Supporting associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains).
 {% endalert %}
 
 ## Exemplos {#examples}
 
 ### BrazeDelegate
 
-Aqui está um exemplo usando `BrazeDelegate`. Para saber mais, veja a [referência do SDK Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
+Aqui está um exemplo usando `BrazeDelegate`. Para saber mais, veja a [referência do SDK or kit de desenvolvimento de software Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
 
 {% tabs %}
 {% tab swift %}

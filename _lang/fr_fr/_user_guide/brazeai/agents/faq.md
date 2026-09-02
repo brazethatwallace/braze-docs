@@ -99,7 +99,7 @@ Pour les agents d'étape Canvas, configurez des [valeurs de repli]({{site.baseur
 
 ### Pourquoi mon agent a-t-il bien fonctionné en test mais ne reçoit-il aucune donnée spécifique à l'utilisateur lorsque je le lance dans un Canvas ? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 
-Si votre agent fonctionne correctement pendant les tests mais ne reçoit pas de données spécifiques à l'utilisateur dans un Canvas en direct, essayez les étapes de résolution suivantes :
+Si votre agent fonctionne correctement pendant les tests mais ne reçoit pas de données spécifiques à l'utilisateur dans un Canvas en direct or en ligne/en production/instantané, essayez les étapes de résolution suivantes :
 
 - Assurez-vous que les données spécifiques à l'utilisateur que vous souhaitez transmettre à l'agent sont saisies sous forme de variables Liquid dans les instructions de l'agent.
 - Si vous avez des données importantes dans le contexte Canvas, utilisez l'option **Add all Canvas context** dans la configuration de l'agent pour vous assurer que l'agent reçoit l'intégralité du contexte Canvas.

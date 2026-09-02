@@ -75,7 +75,7 @@ Para Canvas com um disparador de ação como "mudança no valor de atributo pers
 
 Os usuários teste entram na prévia mesmo que não sejam elegíveis na vida real. Se não forem elegíveis, você pode ver por que não atenderam aos critérios. Quando um usuário teste entra na prévia, assumimos que ele atendeu aos critérios do público-alvo e realizou a ação dos critérios de disparo. Por exemplo, para um Canvas que usa eventos personalizados nos critérios de entrada, assume-se que o usuário teste realizou o evento personalizado conforme esperado nos critérios de entrada. No entanto, se o mesmo evento personalizado for usado em outro lugar no Canvas (como nos critérios de saída), considere como isso pode impactar a jornada do usuário.
 
-Eventos, disparos de API, atributos personalizados e propriedades de entrada do Canvas que são assumidos como critérios para permitir que um usuário teste entre no Canvas não são atualizados no perfil de usuário real e não persistem além da execução do teste. Por exemplo, durante o teste, quando um atributo personalizado é usado como disparador do Canvas, os critérios de disparo são aplicados à prévia do usuário **como se** ele tivesse disparado a alteração do atributo personalizado.
+Eventos, disparos de API or interface de programação do aplicativo (API), atributos personalizados e propriedades de entrada do Canvas que são assumidos como critérios para permitir que um usuário teste entre no Canvas não são atualizados no perfil de usuário real e não persistem além da execução do teste. Por exemplo, durante o teste, quando um atributo personalizado é usado como disparador do Canvas, os critérios de disparo são aplicados à prévia do usuário **como se** ele tivesse disparado a alteração do atributo personalizado.
 
 ### Consideração {#consideration}
 
@@ -87,7 +87,7 @@ Neste momento, não é possível selecionar um evento ou propriedade específica
 
 - Para Canvas com variantes de nível superior, selecione uma variante no início do teste.
 - Para jornadas experimentais, selecione a variante pela qual o usuário progride quando o usuário teste encontra a etapa.
-- Para jornadas experimentais que usam Winning Path, a prévia não inclui o período de postergação quando um usuário teste aguarda em uma etapa de mensagem. A Braze assume que o usuário progrediu pela jornada selecionada imediatamente.
+- Para jornadas experimentais que usam Winning jornada, a prévia não inclui o período de postergação quando um usuário teste aguarda em uma etapa de mensagem. A Braze assume que o usuário progrediu pela jornada selecionada imediatamente.
 
 ## Envios de teste {#test-sends}
 

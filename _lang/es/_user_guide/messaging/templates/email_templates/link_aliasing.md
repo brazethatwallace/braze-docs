@@ -40,7 +40,7 @@ Para crear un alias de enlace, abre el cuerpo de tu correo electrónico en la Ca
 ### Editor de arrastrar y soltar {#drag-and-drop-editor}
 
 1. Selecciona **Edit Email Body** para abrir el creador de arrastrar y soltar.
-2. En la barra lateral del creador, selecciona **Content** (junto a **Sending Settings** y **Preview & Test**). Para obtener más información sobre este diseño, consulta [Crear un correo electrónico con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop).
+2. En la barra lateral del creador, selecciona **Content** (junto a **Sending Settings** y **vista previa & Test**). Para obtener más información sobre este diseño, consulta [Crear un correo electrónico con arrastrar y soltar]({{site.baseurl}}/user_guide/channels/email/drag_and_drop).
 3. En el submenú **Content**, selecciona **Link Management** (aparece debajo de **Design and Build**). Si el submenú está contraído, expándelo usando el control de flecha en la barra lateral.
 
 ### Editor HTML {#html-editor}
@@ -280,7 +280,7 @@ Cada `href` distinto en el mensaje se mapea a **un** ID de enlace y un alias de 
 
 Utiliza los siguientes enfoques en Braze primero:
 
-- **Análisis de correo electrónico de Campaign y Canvas:** Revisa los clics agregados por enlace desde **Message Analytics** > **Email Performance** > **Preview & Heatmap** con **Show Heatmap** activado, como se describe en [Dejar de rastrear enlaces](#untracking-links).
+- **Análisis de correo electrónico de Campaign y Canvas:** Revisa los clics agregados por enlace desde **Message Analytics** > **Email Performance** > **vista previa & Heatmap** con **Show Heatmap** activado, como se describe en [Dejar de rastrear enlaces](#untracking-links).
 - **Clics por destinatario en Query Builder:** Ejecuta la [plantilla de Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates) **Email URLs clicked** para una Campaign o un Canvas. La plantilla muestra enlaces despersonalizados para conteos resumidos; la exportación CSV incluye los ID de usuario de quienes hicieron clic, el enlace en el que hicieron clic y una marca de tiempo. (Las URL despersonalizadas eliminan las etiquetas de Liquid para la vista resumida; consulta la descripción de la plantilla para más detalles).
 - **Desgloses por alias en el creador:** Si necesitas que cada destino (por ejemplo, cada `offer_id`) aparezca como su propia fila en **Link Management** y en los informes basados en alias, utiliza valores de `href` separados (y por lo tanto alias separados), por ejemplo, enlaces distintos por rama, en lugar de un solo enlace cuya ruta cambie por usuario.
 

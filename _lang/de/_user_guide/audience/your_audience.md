@@ -11,11 +11,11 @@ description: "Erfahren Sie, wie Braze Ihre Nutzer:innen definiert und verwaltet,
 
 > Erfahren Sie, wie Braze Ihre Nutzer:innen definiert und verwaltet, Nutzer:innen identifiziert und Nutzerdaten für Segmentierung, Personalisierung und kanalübergreifendes Messaging nutzt.
 
-In Braze repräsentiert ein:e Nutzer:in (und das zugehörige Nutzerprofil) eine einzelne Person, der Sie Nachrichten senden und die Sie analysieren können.
+In Braze repräsentiert ein:e Nutzer:in (und das zugehörige Kundenprofil or Nutzerprofil) eine einzelne Person, der Sie Nachrichten senden und die Sie analysieren können.
 
 ## Nutzerprofile {#user-profiles}
 
-Ein [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) dient als zentrale Informationsquelle für alles, was Braze über diese Person weiß, einschließlich:
+Ein [Kundenprofil or Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) dient als zentrale Informationsquelle für alles, was Braze über diese Person weiß, einschließlich:
 
 - Bezeichner (wie Nutzer-IDs oder externe IDs)
 - Geräte und Messaging-Kanäle
@@ -23,7 +23,7 @@ Ein [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_pro
 - Attribute und Präferenzen
 - Verlauf des Nachrichten-Engagements
 
-Ein einzelnes Nutzerprofil kann mit mehreren Geräten und Kanälen verknüpft sein, sodass Sie eine Person plattformübergreifend verstehen und ansprechen können.
+Ein einzelnes Kundenprofil or Nutzerprofil kann mit mehreren Geräten und Kanälen verknüpft sein, sodass Sie eine Person plattformübergreifend verstehen und ansprechen können.
 
 ## Anonyme Nutzer:innen und identifizierte Nutzer:innen {#anonymous-users-and-identified-users}
 
@@ -33,7 +33,7 @@ Nutzer:innen in Braze befinden sich in der Regel in einem von zwei Zuständen.
 
 Ein:e [anonyme:r Nutzer:in]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users) ist jemand, der mit Ihrer App oder Website interagiert hat, dem aber noch kein Bezeichner aus Ihrem System zugewiesen wurde (z. B. eine `external_id`).
 
-- Anonyme Nutzer:innen werden automatisch erstellt, wenn das Braze SDK initialisiert wird
+- Anonyme Nutzer:innen werden automatisch erstellt, wenn das Braze SDK or Software-Development-Kit initialisiert wird
 - Sie können weiterhin Events, Attribute und Nachrichten-Engagement tracken
 - Diese Nutzer:innen können je nach Kanal und Opt-in-Status Nachrichten erhalten
 
@@ -48,7 +48,7 @@ Die Identifizierung von Nutzer:innen ermöglicht Ihnen:
 - Mithilfe langfristiger Nutzerdaten zu segmentieren und zu personalisieren
 - Profile über APIs und Integrationen zu verwalten
 
-Wenn ein:e anonyme:r Nutzer:in später identifiziert wird, führt Braze berechtigte Daten gemäß [diesem Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) in das identifizierte Profil zusammen. Beispielsweise werden Push-Token und der Nachrichtenverlauf übernommen, und viele Felder aus dem anonymen Profil werden nur dann zusammengeführt, wenn sie im identifizierten Profil noch nicht gesetzt sind. Bei Konflikten wird das identifizierte Profil beibehalten.
+Wenn ein:e anonyme:r Nutzer:in später identifiziert wird, führt Braze berechtigte Daten gemäß [diesem Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) in das identifizierte Profil zusammen. Beispielsweise werden Push-Token / Textbaustein und der Nachrichtenverlauf übernommen, und viele Felder aus dem anonymen Profil werden nur dann zusammengeführt, wenn sie im identifizierten Profil noch nicht gesetzt sind. Bei Konflikten wird das identifizierte Profil beibehalten.
 
 ## Nutzer:innen über Kanäle erreichen {#message-users-through-channels}
 
@@ -56,7 +56,7 @@ Ein [Kanal]({{site.baseurl}}/user_guide/channels) ist eine bestimmte Art, wie Br
 
 - [Push (Internet oder Mobilgerät)]({{site.baseurl}}/user_guide/channels/push)
 - [E-Mail]({{site.baseurl}}/user_guide/channels/email)
-- [SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+- [Kurzmitteilungsdienst or SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 - [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp)
 - [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages)
 - [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
@@ -64,9 +64,9 @@ Ein [Kanal]({{site.baseurl}}/user_guide/channels) ist eine bestimmte Art, wie Br
 - [LINE]({{site.baseurl}}/user_guide/channels/line)
 - [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks)
 
-Ein einzelnes Nutzerprofil kann mehrere Kanäle umfassen, z. B. sowohl eine E-Mail-Adresse als auch ein Mobilgerät. Braze nutzt dieses Modell, um Messaging kanalübergreifend zu koordinieren und gleichzeitig eine einheitliche Sicht auf die Nutzer:innen beizubehalten.
+Ein einzelnes Kundenprofil or Nutzerprofil kann mehrere Kanäle umfassen, z. B. sowohl eine E-Mail-Adresse als auch ein Mobilgerät. Braze nutzt dieses Modell, um Messaging kanalübergreifend zu koordinieren und gleichzeitig eine einheitliche Sicht auf die Nutzer:innen beizubehalten.
 
-Jeder Kanal hat eigene Zustellungsregeln, Opt-in-Anforderungen und Metadaten, ist aber immer mit demselben Nutzerprofil verknüpft.
+Jeder Kanal hat eigene Zustellungsregeln, Opt-in-Anforderungen und Metadaten, ist aber immer mit demselben Kundenprofil or Nutzerprofil verknüpft.
 
 ## Wie Nutzer:innen in Braze angelegt werden {#ways-users-enter-braze}
 
@@ -74,24 +74,24 @@ Nutzer:innen werden in Braze angelegt, sobald jemand über eine unterstützte In
 
 {% tabs %}
 {% tab Mobile Apps %}
-- Wenn Nutzer:innen Ihre App zum ersten Mal öffnen, erstellt das Braze SDK ein Nutzerprofil.
-- Geräte und Push-Token werden automatisch registriert.
+- Wenn Nutzer:innen Ihre App zum ersten Mal öffnen, erstellt das Braze SDK or Software-Development-Kit ein Kundenprofil or Nutzerprofil.
+- Geräte und Push-Token / Textbaustein werden automatisch registriert.
 - Events und Attribute können sofort protokolliert werden.
 {% endtab %}
 
 {% tab Internet %}
-- Nutzer:innen werden erstellt, wenn das Web SDK initialisiert wird.
-- Web-Push-Abos registrieren einen Browser als Messaging-Kanal.
+- Nutzer:innen werden erstellt, wenn das Web SDK or Software-Development-Kit initialisiert wird.
+- Web-Push-Abos Registrierung or registrieren einen Browser als Messaging-Kanal.
 {% endtab %}
 
-{% tab E-Mail und SMS %}
+{% tab E-Mail und Kurzmitteilungsdienst or SMS %}
 - Nutzer:innen können erstellt werden, wenn Sie Daten hochladen, APIs aufrufen oder Opt-ins erfassen.
 - E-Mail-Adressen und Telefonnummern werden als Kanalbezeichner gespeichert.
 - Der Opt-in-Status wird pro Kanal und pro Region erfasst.
 {% endtab %}
 
 {% tab APIs und Integrationen %}
-- Sie können Nutzer:innen direkt über [REST APIs]({{site.baseurl}}/api/endpoints/user_data) oder durch [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) erstellen oder aktualisieren.
+- Sie können Nutzer:innen direkt über [Representational State Transfer APIs]({{site.baseurl}}/api/endpoints/user_data) oder durch [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) erstellen oder Update or aktualisieren or aktualisieren.
 - Externe Tools (wie CDPs, CRMs oder Data Warehouses) können Nutzer:innen automatisch mit Braze synchronisieren.
 {% endtab %}
 {% endtabs %}
@@ -120,7 +120,7 @@ Wenn Nutzer:innen mit Ihrer App oder Ihren Nachrichten interagieren, erfasst Bra
 {% tab Ihre Systeme %}
 Sie können Daten aus Ihren eigenen Tools an Braze senden über:
 
-- [REST APIs]({{site.baseurl}}/api/endpoints/user_data)
+- [Representational State Transfer APIs]({{site.baseurl}}/api/endpoints/user_data)
 - [CSV-Uploads]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
 - Geplante Datensynchronisierungen
 
@@ -142,7 +142,7 @@ Braze lässt sich über Integrationen mit Plattformen wie [Segment]({{site.baseu
 
 ## Nutzerdaten verwalten {#manage-user-data}
 
-Sie können Nutzerdaten auf verschiedene Arten hinzufügen, aktualisieren oder entfernen:
+Sie können Nutzerdaten auf verschiedene Arten hinzufügen, Update or aktualisieren or aktualisieren oder entfernen:
 
 - **Dashboard-Tools** für manuelle Bearbeitungen oder CSV-Uploads
 - **APIs** für Realtime- oder programmatische Updates
@@ -153,7 +153,7 @@ Daten können entfernt werden durch:
 
 - Löschen von Attributwerten
 - Entfernen von Tags
-- Aktualisieren von Abo-Status
+- Update or aktualisieren or aktualisieren von Abo-Status
 - Zurücksetzen von Nutzer:innen beim Logout (für anonyme Anwendungsfälle)
 
 ## Features für Zielgruppendaten {#audience-data-features}
@@ -162,9 +162,9 @@ Sobald Nutzerdaten in Braze vorhanden sind, unterstützen sie nahezu jede Engage
 
 | Feature | Beschreibung |
 | ---- | ---- |
-| [Segmentierung]({{site.baseurl}}/user_guide/audience/segments) | Erstellen Sie Zielgruppen basierend auf: {::nomarkdown}<ul><li>Attributen und angepassten Feldern</li> <li>Events und Verhaltensweisen</li> <li>Nachrichten-Engagement</li> <li>Geräte- und Kanaleigenschaften</li></ul>{:/} <br>Segmente können über Campaigns und Canvases hinweg wiederverwendet werden. |
+| [Segmentierung]({{site.baseurl}}/user_guide/audience/segments) | Erstellen Sie Zielgruppen basierend auf: {::nomarkdown}<ul><li>Attributen und angepassten Feldern</li> <li>Events und Verhaltensweisen</li> <li>Nachrichten-Engagement</li> <li>Geräte- und Kanaleigenschaften</li></ul>{:/} <br>Segmente können über Campaigns und Canvase hinweg wiederverwendet werden. |
 | [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) | Nutzen Sie Nutzerdaten, um Inhalte anzupassen, z. B.: {::nomarkdown}<ul><li>Namen und Präferenzen im Nachrichtentext</li> <li>Dynamische Empfehlungen</li> <li>Standort- oder sprachspezifische Inhalte</li></ul>{:/} |
-| Automatisierung und Orchestrierung | Triggern Sie Nachrichten und Journeys basierend auf: {::nomarkdown}<ul><li>Nutzeraktionen</li> <li>Attributänderungen</li> <li>Zeitbasierten Bedingungen</li></ul>{:/} |
+| Automatisierung und Orchestrierung | Trigger or triggern or triggern Sie Nachrichten und Journeys basierend auf: {::nomarkdown}<ul><li>Nutzeraktionen</li> <li>Attributänderungen</li> <li>Zeitbasierten Bedingungen</li></ul>{:/} |
 | Kanalübergreifende Koordination | Erreichen Sie Nutzer:innen auf dem am besten geeigneten Kanal unter Berücksichtigung von: {::nomarkdown}<ul><li>Opt-in-Status</li> <li>Häufigkeitsbegrenzungen</li> <li>Kanalpräferenzen</li></ul>{:/} |
 | [Analytics und Insights]({{site.baseurl}}/user_guide/analytics) | Verstehen Sie das Verhalten verschiedener Zielgruppen durch Analyse von: {::nomarkdown}<ul><li>Engagement-Raten</li> <li>Conversion-Pfaden</li> <li>Segment-Performance im Zeitverlauf</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Features für Zielgruppendaten" }

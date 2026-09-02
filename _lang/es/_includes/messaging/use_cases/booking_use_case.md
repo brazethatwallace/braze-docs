@@ -100,10 +100,10 @@ Cuando un usuario elimina una reserva, utiliza la siguiente estructura para la m
 ```
 {% endraw %}
 {% endtab %}
-{% tab SDK %}
-#### Escribir atributos anidados en los perfiles de usuario a través del SDK {#write-nested-attributes-to-user-profiles-through-the-sdk}
+{% tab SDK or kit de desarrollo de software %}
+#### Escribir atributos anidados en los perfiles de usuario a través del SDK or kit de desarrollo de software {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-Si estás recopilando reservas de citas con tu aplicación, sitio web o ambos y deseas escribir esos datos directamente en un perfil de usuario, puedes utilizar el SDK de Braze para transmitir estos datos. A continuación se muestra un ejemplo utilizando el Web SDK:
+Si estás recopilando reservas de citas con tu aplicación, sitio web o ambos y deseas escribir esos datos directamente en un perfil de usuario, puedes utilizar el SDK or kit de desarrollo de software de Braze para transmitir estos datos. A continuación se muestra un ejemplo utilizando el Web SDK or kit de desarrollo de software:
 
 {% raw %}
 ```json
@@ -193,11 +193,11 @@ Supongamos que, en este caso de uso, un usuario ha actualizado la fecha de su vi
 ```
 {% endraw %}
 {% endtab %}
-{% tab SDK %}
+{% tab SDK or kit de desarrollo de software %}
 
-#### Escribir atributos anidados en los perfiles de usuario a través del SDK
+#### Escribir atributos anidados en los perfiles de usuario a través del SDK or kit de desarrollo de software
 
-Envía eventos personalizados al perfil de usuario a través del SDK. Por ejemplo, si utilizas el Web SDK, podrías enviar:
+Envía eventos personalizados al perfil de usuario a través del SDK or kit de desarrollo de software. Por ejemplo, si utilizas el Web SDK or kit de desarrollo de software, podrías enviar:
 
 {% raw %}
 ```json

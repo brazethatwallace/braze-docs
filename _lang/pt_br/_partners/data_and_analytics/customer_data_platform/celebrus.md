@@ -6,7 +6,7 @@ description: "Integração entre Braze e Celebrus."
 
 # Celebrus
 
-> A Celebrus se integra perfeitamente ao SDK da Braze nos canais de aplicativos móveis e da web, facilitando o preenchimento da Braze com dados de atividade do canal. Isso inclui insights abrangentes sobre o tráfego de visitantes em ativos digitais durante períodos específicos. <br><br>Além disso, a Celebrus captura dados de perfil ricos para cada cliente individual, que podem ser sincronizados com a Braze. Isso permite criar estratégias eficazes de análise de dados e comunicação da Braze com base em dados primários abrangentes, precisos e detalhados. Esse recurso é ainda mais reforçado pelos sinais orientados por machine learning da Celebrus, que permitem a captura de dados sem complicações e sem a necessidade de tag extensa. Com um robusto gráfico de identidade primário implementado, todos os dados se tornam instantaneamente acessíveis para uso imediato.
+> A Celebrus se integra perfeitamente ao SDK or kit de desenvolvimento de software da Braze nos canais de aplicativos móveis e da web, facilitando o preenchimento da Braze com dados de atividade do canal. Isso inclui insights abrangentes sobre o tráfego de visitantes em ativos digitais durante períodos específicos. <br><br>Além disso, a Celebrus captura dados de perfil ricos para cada cliente individual, que podem ser sincronizados com a Braze. Isso permite criar estratégias eficazes de análise de dados e comunicação da Braze com base em dados primários abrangentes, precisos e detalhados. Esse recurso é ainda mais reforçado pelos sinais orientados por machine learning da Celebrus, que permitem a captura de dados sem complicações e sem a necessidade de tag extensa. Com um robusto gráfico de identidade primário implementado, todos os dados se tornam instantaneamente acessíveis para uso imediato.
 
 _Esta integração é mantida pela Celebrus._
 
@@ -16,19 +16,19 @@ _Esta integração é mantida pela Celebrus._
 |---|---|
 | Conta Celebrus | É necessário ter uma conta Celebrus para aproveitar essa parceria. |
 | Data warehouse (opcional) | Ao usar o conector da Celebrus para atributos personalizados da Braze, você deve ter um data warehouse compatível com a integração da Ingestão de dados na nuvem (CDI) da Braze e configurar a CDI no dashboard da Braze. |
-| Definições de configuração do SDK da Braze (opcional) | Ao usar o conector da Celebrus para o SDK da Braze, você deve passar o endpoint de SDK e a Chave da API SDK. |
+| Definições de configuração do SDK or kit de desenvolvimento de software da Braze (opcional) | Ao usar o conector da Celebrus para o SDK or kit de desenvolvimento de software da Braze, você deve passar o endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software e a Chave da API or interface de programação do aplicativo (API) SDK or kit de desenvolvimento de software. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Implementação {#implementation}
-Depois de instalar sua implementação da Celebrus, use os conectores da Celebrus para a Braze para integrar os dados da Celebrus à Braze. Há dois elementos na integração da Celebrus para a Braze: o SDK da Braze e os atributos personalizados da Braze. Você pode implantar um ou ambos, dependendo de como você usa a Braze e dos casos de uso de que precisa.
+Depois de instalar sua implementação da Celebrus, use os conectores da Celebrus para a Braze para integrar os dados da Celebrus à Braze. Há dois elementos na integração da Celebrus para a Braze: o SDK or kit de desenvolvimento de software da Braze e os atributos personalizados da Braze. Você pode implantar um ou ambos, dependendo de como você usa a Braze e dos casos de uso de que precisa.
 
-Se ainda não tiver o SDK da Braze implementado no seu canal da web, você poderá usar a Celebrus para implantar o SDK da Braze. A Celebrus adicionará o SDK da Braze às páginas da web e configurará a identidade da Braze para o visitante da web usando o gráfico de identidade da Celebrus. Os atributos do cliente podem ser sincronizados com a Braze por meio da Ingestão de dados na nuvem (CDI). Isso requer um data warehouse compatível com a CDI da Braze e a configuração da CDI na Braze.
+Se ainda não tiver o SDK or kit de desenvolvimento de software da Braze implementado no seu canal da web, você poderá usar a Celebrus para implantar o SDK or kit de desenvolvimento de software da Braze. A Celebrus adicionará o SDK or kit de desenvolvimento de software da Braze às páginas da web e configurará a identidade da Braze para o visitante da web usando o gráfico de identidade da Celebrus. Os atributos do cliente podem ser sincronizados com a Braze por meio da Ingestão de dados na nuvem (CDI). Isso requer um data warehouse compatível com a CDI da Braze e a configuração da CDI na Braze.
 
-### Conector Celebrus para SDK da Braze {#celebrus-connector-for-braze-sdk}
+### Conector Celebrus para SDK or kit de desenvolvimento de software da Braze {#celebrus-connector-for-braze-sdk}
 
-O conector da Celebrus para o SDK da Braze fornece dados de alto nível de canais de aplicativos móveis e da web para a Braze. No SDK da Braze, o `System Identity` da Celebrus do gráfico de identidade da Celebrus será usado como o identificador para a integração da Braze. Outros identificadores são compatíveis para a sincronização de atributos personalizados por meio do conector Celebrus de atributos personalizados da Braze.
+O conector da Celebrus para o SDK or kit de desenvolvimento de software da Braze fornece dados de alto nível de canais de aplicativos móveis e da web para a Braze. No SDK or kit de desenvolvimento de software da Braze, o `System Identity` da Celebrus do gráfico de identidade da Celebrus será usado como o identificador para a integração da Braze. Outros identificadores são compatíveis para a sincronização de atributos personalizados por meio do conector Celebrus de atributos personalizados da Braze.
 
-O conector implanta e configura o SDK da Braze no seu canal, então você precisará definir algumas configurações no fluxo de dados do SDK da Braze e fornecer os valores para estas três configurações:
+O conector implanta e configura o SDK or kit de desenvolvimento de software da Braze no seu canal, então você precisará definir algumas configurações no fluxo de dados do SDK or kit de desenvolvimento de software da Braze e fornecer os valores para estas três configurações:
 
 ```
     response.addParameter("sdk_endpoint", "sdk.xxxxxx.braze.com");
@@ -37,7 +37,7 @@ O conector implanta e configura o SDK da Braze no seu canal, então você precis
 ```
 
 {% alert important %}
-O conector da Celebrus para o SDK da Braze inserirá e inicializará o SDK da Braze para identificar o usuário e adicionar o identificador ao gráfico de identidade da Celebrus. Esse conector não registrará dados no perfil de usuário nem disparará outros métodos do SDK da Braze. <br><br>Você pode chamar quaisquer métodos desejados diretamente na sua base de código para registrar dados por meio do [SDK da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) ou aproveitar outros recursos compatíveis com o SDK da Braze.
+O conector da Celebrus para o SDK or kit de desenvolvimento de software da Braze inserirá e inicializará o SDK or kit de desenvolvimento de software da Braze para identificar o usuário e adicionar o identificador ao gráfico de identidade da Celebrus. Esse conector não registrará dados no perfil de usuário nem disparará outros métodos do SDK or kit de desenvolvimento de software da Braze. <br><br>Você pode chamar quaisquer métodos desejados diretamente na sua base de código para registrar dados por meio do [SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) ou aproveitar outros recursos compatíveis com o SDK or kit de desenvolvimento de software da Braze.
 {% endalert%}
 
 ### Conector Celebrus para atributos personalizados da Braze {#celebrus-connector-for-braze-custom-attributes}

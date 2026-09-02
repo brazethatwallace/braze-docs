@@ -50,7 +50,7 @@ Como se muestra en la [documentación de Data Push de Oracle Crowdtwist](https:/
 
 En esta sección, verás las plantillas anotadas. El cuerpo de estas plantillas está diseñado para aplicarse al destino `/users/track`. Las anotaciones están marcadas por `//` al inicio de línea y texto en verde, y puedes eliminarlas sin afectar el funcionamiento del código de transformación.
 
-La transformación utiliza JavaScript, que construye un objeto llamado "brazecall". Este objeto es donde creas el cuerpo de la solicitud que se envía a un endpoint de la REST API de Braze. Para obtener orientación sobre las estructuras requeridas de las solicitudes a estos destinos, consulta los enlaces en la sección "destinos".
+La transformación utiliza JavaScript, que construye un objeto llamado "brazecall". Este objeto es donde creas el cuerpo de la solicitud que se envía a un endpoint de la REST or transferencia de estado representacional API de Braze. Para obtener orientación sobre las estructuras requeridas de las solicitudes a estos destinos, consulta los enlaces en la sección "destinos".
 
 {% alert note %}
 Observa que los "valores" de cada "clave" comienzan con `payload.`. El payload representa el objeto de datos recibido de Oracle Crowdtwist. Utiliza la notación de puntos de JavaScript para elegir qué dato deseas usar para completar los elementos de tu objeto de Braze. Por ejemplo, cuando ves `external_id: payload.thirdPartyId`, esto significa que el ID externo de Braze se establece mediante el valor `third_party_id` almacenado en Oracle Crowdtwist. Para obtener más información sobre el esquema o la composición de los objetos procedentes de Oracle Crowdtwist, consulta la [documentación de Oracle](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html).
@@ -236,7 +236,7 @@ return brazecall;
 
 ### Destinos {#destinations}
 
-Las plantillas de esta guía están creadas para entregar al destino "Track Users", pero puedes diseñar tu plantilla para enviar a cualquiera de los endpoints listados en la [guía de transformación de datos de Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), con el apoyo de la [documentación de la REST API]({{site.baseurl}}/api/home) asociada.
+Las plantillas de esta guía están creadas para entregar al destino "Track Users", pero puedes diseñar tu plantilla para enviar a cualquiera de los endpoints listados en la [guía de transformación de datos de Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), con el apoyo de la [documentación de la REST or transferencia de estado representacional API]({{site.baseurl}}/api/home) asociada.
 
 ### Pruebas {#testing}
 
@@ -250,4 +250,4 @@ Encontrarás la URL del webhook de tu transformación de datos en el panel de de
 Los endpoints de transformación de datos de Braze tienen un límite de velocidad de 1000 solicitudes por minuto. Considera la velocidad a la que deseas que estos datos estén disponibles en Braze y habla con tu director de cuentas de Braze si necesitas un límite de velocidad más alto para la transformación de datos.
 {% endalert %}
 
-Las transformaciones de datos son una herramienta muy dinámica y puedes diseñarlas para fines que van más allá de lo descrito en este documento con conocimientos de JavaScript y con la guía de nuestra documentación de la REST API. Para obtener soporte o solución de problemas en cambios complejos a tus plantillas de transformación de datos, habla con tu administrador de éxito de cliente para conocer la orientación disponible para ti.
+Las transformaciones de datos son una herramienta muy dinámica y puedes diseñarlas para fines que van más allá de lo descrito en este documento con conocimientos de JavaScript y con la guía de nuestra documentación de la REST or transferencia de estado representacional API. Para obtener soporte o solución de problemas en cambios complejos a tus plantillas de transformación de datos, habla con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para conocer la orientación disponible para ti.

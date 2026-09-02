@@ -4,7 +4,7 @@ Decisioning Studio bietet zwei Stufen an: Bitte gehen Sie und werden Sie Profi. 
 
 ### Entscheidungsstudio Go
 
-Go eignet sich ideal für Teams, die mit KI-Entscheidungsfindung beginnen. Es umfasst:
+Go eignet sich ideal für Teams, die mit KI or künstliche Intelligenz-Entscheidungsfindung beginnen. Es umfasst:
 
 - Selbstständige kreative Konfiguration mit einem vorgefertigten Entscheidungsagenten
 - Erfolgsmetrik mit Schwerpunkt auf Klicks
@@ -14,7 +14,7 @@ Go eignet sich ideal für Teams, die mit KI-Entscheidungsfindung beginnen. Es um
 
 Pro bietet die vollständige Suite der Decisioning Studio-Funktionen für fortgeschrittene Anwendungsfälle. Zu den wichtigsten Features gehören:
 
-- Ein engagiertes Team für KI-Entscheidungsdienst-Serviceleistungen, das Sie vom Entwurf des Entscheidungsagenten bis zum stabilen Zustand unterstützt.
+- Ein engagiertes Team für KI or künstliche Intelligenz-Entscheidungsdienst-Serviceleistungen, das Sie vom Entwurf des Entscheidungsagenten bis zum stabilen Zustand unterstützt.
 - Erfolgskennzahlen können beliebige Geschäftsmetriken sein (nicht nur Klicks).
 - Möglichkeit, beliebige Kundendatenquellen für Entscheidungsfindungen zu verknüpfen
 - Umfassende Berichts- und Insight-Funktionen

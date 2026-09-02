@@ -23,6 +23,6 @@ Canvas 및 Campaign GET 목록 엔드포인트에 대한 필터 옵션을 사용
 
 새로운 `ad-id`(광고주 ID) 필드를 Currents에 반영하기 위해 [스토리지 연결 설명서]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#content-card-click-events)를 업데이트했습니다.
 
-## BCC 기능 {#bcc-functionality}
+## BCC or 배너 콘텐츠 카드 기능 {#bcc-functionality}
 
-[BCC 주소 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)을 사용하면 Braze에서 발송되는 아웃바운드 이메일 메시지에 추가할 수 있는 BCC 주소를 추가하고 관리할 수 있습니다.
+[BCC or 배너 콘텐츠 카드 주소 설정]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)을 사용하면 Braze에서 발송되는 아웃바운드 이메일 메시지에 추가할 수 있는 BCC or 배너 콘텐츠 카드 주소를 추가하고 관리할 수 있습니다.

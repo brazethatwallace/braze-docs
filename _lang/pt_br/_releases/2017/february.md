@@ -22,4 +22,4 @@ Para um direcionamento de usuário mais personalizado, agora você pode usar "Ú
 
 ## Upgrade do registro de usuários de eventos {#event-user-log-upgrade}
 
-Agora ficou mais fácil ver o que está acontecendo na sua integração SDK com nossos [registros de usuários de eventos]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab) atualizados.
+Agora ficou mais fácil ver o que está acontecendo na sua integração SDK or kit de desenvolvimento de software com nossos [registros de usuários de eventos]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab) atualizados.

@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint \"Ver informações da Central de Preferências\" da Braze."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Ver informações da Central de Preferências {#view-details-for-preference-center}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}
@@ -20,11 +20,11 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Ver informações
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.get`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `preference_center.get`.
 
 ## Limite de frequência {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='get preference center' %}
+{% multi_lang_include rate_limits.md endpoint='get Central de Preferências' %}
 
 ## Parâmetros de caminho {#path-parameters}
 

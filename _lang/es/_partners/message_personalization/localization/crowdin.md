@@ -36,8 +36,8 @@ Crowdin ofrece dos aplicaciones para Braze: [Braze Campaigns & Canvas](https://s
 | --- | --- |
 | **Cuenta de Crowdin** | Se requiere una [cuenta de Crowdin.com](https://accounts.crowdin.com/register) o una [cuenta de Crowdin Enterprise](https://accounts.crowdin.com/workspace/create). |
 | **Proyecto de Crowdin** | Antes de conectar Braze, [crea un proyecto de traducción](https://support.crowdin.com/creating-project/) en Crowdin o Crowdin Enterprise. |
-| **Clave de API REST de Braze** | Una clave de API REST de Braze con permisos para Campaigns, Canvas, Content Blocks, atributos personalizados, correo electrónico y plantillas. |
-| **Endpoint REST de Braze** | La URL de tu endpoint REST de Braze específico (por ejemplo, `https://rest.iad-03.braze.com`). |
+| **Clave de API REST or transferencia de estado representacional de Braze** | Una clave de API REST or transferencia de estado representacional de Braze con permisos para Campaigns, Canvas, Content Blocks, atributos personalizados, correo electrónico y plantillas. |
+| **Endpoint REST or transferencia de estado representacional de Braze** | La URL de tu endpoint REST or transferencia de estado representacional de Braze específico (por ejemplo, `https://rest.iad-03.braze.com`). |
 | **Configuración multilingüe de Braze** | Los locales deben estar configurados en tu panel de Braze en **Configuración** > **Configuración de localización**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -76,8 +76,8 @@ Autoriza la conexión con tus credenciales de API de Braze:
 
 ![Formulario de conexión de Crowdin Braze Campaigns & Canvas con clave de API REST, endpoint REST e Iniciar sesión con Braze Campaigns & Canvas.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
 
-- **Clave de API REST de Braze:** Créala en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**. Otorga los permisos que esta integración necesita (Campaigns, Canvas, Content Blocks y atributos personalizados).
-- **Endpoint REST de Braze:** Introduce la URL de tu instancia de Braze (por ejemplo, `https://rest.iad-03.braze.com`). Para más información, consulta [Endpoints de REST API]({{site.baseurl}}/api/basics#endpoints).
+- **Clave de API REST or transferencia de estado representacional de Braze:** Créala en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**. Otorga los permisos que esta integración necesita (Campaigns, Canvas, Content Blocks y atributos personalizados).
+- **Endpoint REST or transferencia de estado representacional de Braze:** Introduce la URL de tu instancia de Braze (por ejemplo, `https://rest.iad-03.braze.com`). Para más información, consulta [Endpoints de REST or transferencia de estado representacional API]({{site.baseurl}}/api/basics#endpoints).
 
 ![Página de claves de API REST de Braze con Crear clave de API y el control de copia del endpoint REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
@@ -141,7 +141,7 @@ Para confirmar la integración:
 
 1. Abre tu Campaign en el **creador de mensajes de Braze**.
 2. Ve a la pestaña **Test**.
-3. Selecciona **Preview Message as User**.
+3. Selecciona **vista previa Message as User**.
 4. Busca un perfil de usuario que tenga un atributo `language` que coincida con uno de tus locales traducidos.
 5. Confirma que el contenido cambia del idioma de origen a la versión traducida.
 
@@ -168,12 +168,12 @@ Autoriza la conexión con tus credenciales de API de Braze:
 
 ![Formulario de conexión de Crowdin Braze Email Templates con clave de API REST, endpoint REST y Log in with Braze Email Templates.]({% image_buster /assets/img/crowdin/crowdin_email_templates_login.png %}){: style="max-width:85%;"}
 
-1. **Clave de API REST de Braze:** Otorga permisos de `templates.email` y `content_blocks` (lectura y escritura). Crea la clave en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**.
+1. **Clave de API REST or transferencia de estado representacional de Braze:** Otorga permisos de `templates.email` y `content_blocks` (lectura y escritura). Crea la clave en Braze en **Configuración** > **APIs e identificadores** > **Claves de API**.
 
 ![Página de claves de API REST de Braze con Crear clave de API y el control de copia del endpoint REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
 {: start="2"}
-2. Para **endpoint REST de Braze**, usa la URL específica de tu instancia (por ejemplo, `https://rest.iad-03.braze.com`).
+2. Para **endpoint REST or transferencia de estado representacional de Braze**, usa la URL específica de tu instancia (por ejemplo, `https://rest.iad-03.braze.com`).
 3. Selecciona **Log in with Braze Email Templates**.
 
 ### Paso 3: Sincronizar contenido para traducción {#step-3-sync-content-for-translation}

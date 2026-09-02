@@ -12,7 +12,7 @@ channel: email
 
 > Aunque tengas la tentación de enviar campañas a tantos usuarios como puedas, hay situaciones en las que es realmente ventajoso detener los mensajes a los usuarios desvinculados.
 
-En el caso del correo electrónico, la reputación de tu IP de envío y de tu dominio influye en la participación, los informes de correos no deseados, las listas de bloqueo y más. Si la reputación se mantiene baja, los ISP y los filtros de buzones de correo pueden clasificar tus correos en la carpeta de correo no deseado o de baja prioridad para todos los destinatarios, no solo los inactivos. Las políticas de extinción limitan los envíos continuos a usuarios desvinculados, lo que ayuda a proteger la reputación; combínalas con un monitoreo regular para detectar problemas a tiempo.
+En el caso del correo electrónico, la reputación de tu IP de envío y de tu dominio influye en la participación, los informes de correos no deseados, las listas de bloqueo y más. Si la reputación se mantiene baja, los ISP or proveedor de servicios de Internet y los filtros de buzones de correo pueden clasificar tus correos en la carpeta de correo no deseado o de baja prioridad para todos los destinatarios, no solo los inactivos. Las políticas de extinción limitan los envíos continuos a usuarios desvinculados, lo que ayuda a proteger la reputación; combínalas con un monitoreo regular para detectar problemas a tiempo.
 
 ## Monitorea la salud de tu IP y dominio {#monitor-ip-and-domain-health}
 
@@ -43,7 +43,7 @@ Los filtros de segmentación ayudan a evitar que tus mensajes parezcan correo no
 - ¿Enviarás alguna campaña especial a los usuarios antes de excluirlos de tus segmentos?
 - ¿A qué canales de mensajería se aplicará tu política de extinción?
 
-Por ejemplo, si tienes usuarios que optan por la [protección de la privacidad en los correos electrónicos (MPP) de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), considera cómo esto puede afectar tus campañas de correo electrónico y las métricas de capacidad de entrega, y determina cómo estructurar mejor tu política de extinción.
+Por ejemplo, si tienes usuarios que optan por la [MPP or protección de la privacidad en los correos electrónicos or protección de la privacidad en los correos electrónicos (MPP or protección de la privacidad en los correos electrónicos) de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), considera cómo esto puede afectar tus campañas de correo electrónico y las métricas de capacidad de entrega, y determina cómo estructurar mejor tu política de extinción.
 
 Para incorporar políticas de extinción en tus campañas, crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) que excluya automáticamente a los usuarios que han marcado tus correos electrónicos como correo no deseado o que no han interactuado con tus mensajes durante un período de tiempo determinado.
 

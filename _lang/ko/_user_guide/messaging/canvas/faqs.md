@@ -74,7 +74,7 @@ Canvas를 중지하면 다음이 적용됩니다:
 
 ### 사용자 라이프사이클별로 하나의 Canvas를 만들어야 하나요, 아니면 별도의 Canvases를 만들어야 하나요? {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Canvas로 달성하려는 목표에 따라 사용자 여정을 구축하는 방식이 달라질 수 있습니다. Canvas의 유연성을 통해 사용자 라이프사이클의 모든 단계에 맞는 사용자 여정을 매핑할 수 있습니다. 효과적인 사용자 여정을 만들기 위한 다양한 간소화된 접근 방식의 예시는 [Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 확인하세요.
+Canvas로 달성하려는 목표에 따라 사용자 여정을 구축하는 방식이 달라질 수 있습니다. Canvas의 유연성을 통해 사용자 라이프사이클의 모든 단계에 맞는 사용자 여정을 매핑할 수 있습니다. 효과적인 사용자 여정을 만들기 위한 다양한 간소화된 접근 방식의 예시는 [BRAZE 캔버스 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 확인하세요.
 
 ## 메시지 및 전달 {#messages-and-delivery}
 
@@ -98,7 +98,7 @@ Canvas를 중지해도 메시지 수신을 대기 중인 사용자가 사용자 
 
 업스트림 [지연]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) 단계 및 오디언스 확인이 완료된 후, 사용자는 메시지 단계에 도달했을 때만 인앱 메시지 자격을 얻습니다. 메시지가 캘린더 날짜 또는 짧은 **단계가 사용 가능한 후 기간** 창에서 만료되는 경우, 더 느린 분기의 사용자는 만료 후에 도착하여 메시지를 볼 수 없습니다. 만료를 가장 긴 현실적인 경로 지연에 맞추세요. 자세한 내용과 예시는 [인앱 메시지 만료]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration)를 참조하세요.
 
-### "Canvas Entry Properties may not be used in In-App Messages."라는 메시지가 표시되는 이유는 무엇인가요? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+### "Canvas 항목 Properties may not be used in In-App Messages."라는 메시지가 표시되는 이유는 무엇인가요? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
 
 이 메시지는 개인화에서 인앱 메시지가 Canvas에서 확인할 수 없는 필드를 참조할 때 나타납니다. [컨텍스트 및 이벤트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) 및 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에 설명된 대로 `context` 오브젝트를 사용하세요. 레거시 Liquid 네임스페이스 `canvas_entry_properties`는 `context`와 다른 제약 조건을 가지고 있습니다. 여러 단계에 걸쳐 값을 유지해야 하는 경우, Braze 팀과 함께 [원본 Canvas 에디터의 영구 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)를 검토하세요. 사용자가 기기에서 인앱 페이로드를 다운로드하기 전에 Canvas를 나가면 저장된 값은 삭제됩니다.
 

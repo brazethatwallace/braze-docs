@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint `POST /media_library/create`."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Fazer upload de um ativo para a biblioteca de mídia {#upload-an-asset-to-the-media-library}
 {% apimethod post %}
 /media_library/create
@@ -34,7 +34,7 @@ Se você fizer upload de um tipo de arquivo que não está listado aqui, o endpo
 Para arquivos ZIP, cada arquivo dentro do arquivo compactado também deve ser um dos tipos de arquivo suportados listados aqui, e todos os arquivos devem estar na raiz do ZIP (sem subdiretórios). Qualquer arquivo não suportado é ignorado e retornado no array `errors` da resposta, e o restante do arquivo compactado ainda é enviado.
 
 {% alert note %}
-Arquivos de contato virtual (.vcf) e arquivos de vídeo podem ser enviados para a biblioteca de mídia, mas apenas pela interface do dashboard (**Conteúdo** > **Biblioteca de mídia**), não por este endpoint de API.
+Arquivos de contato virtual (.vcf) e arquivos de vídeo podem ser enviados para a biblioteca de mídia, mas apenas pela interface do dashboard (**Conteúdo** > **Biblioteca de mídia**), não por este endpoint de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 {% alert tip %}
@@ -43,7 +43,7 @@ Você também pode chamar este endpoint por meio do [servidor MCP da Braze]({{si
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.create`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.create`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -81,7 +81,7 @@ O corpo da solicitação inclui os seguintes parâmetros:
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corpo da solicitação" }
 
 {% alert important %}
-`asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API.
+`asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ### Nomes de arquivos enviados {#uploaded-file-names}

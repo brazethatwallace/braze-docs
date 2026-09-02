@@ -12,7 +12,7 @@ description: "Saiba como usar catálogos como fonte de dados para personalizar s
 ## Como funciona {#how-it-works}
 
 {% raw %}
-Após importar dados para um catálogo (por CSV ou API), faça referência aos itens do catálogo em suas mensagens usando a Liquid tag `items`. Por exemplo, para buscar o nome de um produto de um catálogo chamado `products`:
+Após importar dados para um catálogo (por CSV ou API or interface de programação do aplicativo (API)), faça referência aos itens do catálogo em suas mensagens usando a Liquid tag `items`. Por exemplo, para buscar o nome de um produto de um catálogo chamado `products`:
 
 ```liquid
 {% catalog_items products {{${product_id}}} %}
@@ -30,7 +30,7 @@ Os catálogos suportam até 1.000 campos por item e podem armazenar milhões de 
 | Listagens de restaurantes ou lojas | Personalize mensagens com detalhes específicos de cada local |
 | Recomendações de conteúdo | Faça referência a artigos, vídeos ou outros itens de mídia |
 | Informações de eventos | Insira datas de eventos, locais e descrições nas mensagens |
-| Ofertas por nível | Associe promoções ao nível de associação ou segmento de um usuário |
+| Ofertas por nível | Associe promoções ao nível de associação ou Segment or segmento or segmento de um usuário |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso comuns" }
 
 ## Gatilhos de catálogo {#catalog-triggers}

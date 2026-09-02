@@ -102,9 +102,9 @@ Angepasste Attribute können auch mit der folgenden Methode aufgehoben werden:
 bool UnsetCustomAttribute(STRING_KEY);
 ```
 
-### Festlegen eines angepassten Attributs über die REST API {#setting-a-custom-attribute-via-the-rest-api}
+### Festlegen eines angepassten Attributs über die Representational State Transfer API {#setting-a-custom-attribute-via-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen. Details finden Sie in der Dokumentation zur [Users API]({{site.baseurl}}/api/endpoints/user_data).
+Sie können auch unsere Representational State Transfer API verwenden, um Nutzerattribute festzulegen. Details finden Sie in der Dokumentation zur [Users API]({{site.baseurl}}/api/endpoints/user_data).
 
 ### Wertbeschränkungen für angepasste Attribute {#custom-attribute-value-limits}
 

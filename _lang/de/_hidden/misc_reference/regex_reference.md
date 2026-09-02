@@ -6,12 +6,12 @@ hidden: true
 
 # Regex-Referenzblatt {#regex-reference-sheet}
 
-Diese Seite dient als Kurzanleitung für reguläre Ausdrücke, einschließlich häufiger Token, Metasequenzen, allgemeiner Token, Gruppenkonstanten und mehr.
+Diese Seite dient als Kurzanleitung für reguläre Ausdrücke, einschließlich häufiger Token / Textbaustein, Metasequenzen, allgemeiner Token / Textbaustein, Gruppenkonstanten und mehr.
 
 {% tabs %}
 {% tab Common tokens %}
 
-| Häufige Token |
+| Häufige Token / Textbaustein |
 | ------------- |
 | Ein einzelnes Zeichen aus: a, b oder c | `[abc]` |
 | Ein Zeichen außer: a, b oder c | `[^abc]` |
@@ -79,7 +79,7 @@ Diese Seite dient als Kurzanleitung für reguläre Ausdrücke, einschließlich h
 {% endtab %}
 {% tab General tokens %}
 
-| Allgemeine Token |
+| Allgemeine Token / Textbaustein |
 | -------------- |
 | Zeilenumbruch | `\n` |
 | Wagenrücklauf | `\r` |

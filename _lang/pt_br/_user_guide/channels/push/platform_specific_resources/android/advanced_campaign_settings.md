@@ -84,7 +84,7 @@ Para notificações por push que incluem imagens, o texto da mensagem será exib
 
 ## URIs personalizadas {#custom-uris}
 
-O recurso **Custom URI** permite especificar uma URL da web ou um recurso Android para navegar quando a notificação é clicada. Se nenhuma URI personalizada for especificada, clicar na notificação levará os usuários ao seu app. Você pode usar a URI personalizada para criar deep links dentro do seu app, bem como direcionar os usuários para recursos que existem fora do seu app. Isso pode ser especificado pela nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) ou na guia **Compose** do criador de push.
+O recurso **Custom URI** permite especificar uma URL da web ou um recurso Android para navegar quando a notificação é clicada. Se nenhuma URI personalizada for especificada, clicar na notificação levará os usuários ao seu app. Você pode usar a URI personalizada para criar deep links dentro do seu app, bem como direcionar os usuários para recursos que existem fora do seu app. Isso pode ser especificado pela nossa [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) ou na guia **Compose** do criador de push.
 
 ![Campo de URI personalizada.]({% image_buster /assets/img_archive/deep_link.png %}){: style="max-width:60%;"}
 
@@ -96,13 +96,13 @@ O nível de prioridade de uma notificação por push afeta como sua notificaçã
 
 Esse recurso é útil para diferenciar suas mensagens com base em quão críticas ou urgentes elas são. Por exemplo, uma notificação sobre condições perigosas nas estradas seria uma boa candidata para receber alta prioridade, enquanto uma notificação sobre uma promoção em andamento deveria receber uma prioridade mais baixa. Você deve considerar se usar uma prioridade disruptiva é realmente necessário para a notificação que está enviando, pois ocupar constantemente o topo da caixa de entrada dos seus usuários ou interromper suas outras atividades pode ter um impacto negativo.
 
-No Android O, a prioridade de notificação tornou-se uma propriedade dos canais de notificação. Você precisará trabalhar com seu desenvolvedor para definir a prioridade de um canal durante sua configuração e, em seguida, usar o dashboard para selecionar o canal adequado ao enviar suas notificações. Para dispositivos com versões do Android anteriores ao O, é possível especificar um nível de prioridade para notificações Android e Fire OS pelo dashboard da Braze e pela API de envio de mensagens.
+No Android O, a prioridade de notificação tornou-se uma propriedade dos canais de notificação. Você precisará trabalhar com seu desenvolvedor para definir a prioridade de um canal durante sua configuração e, em seguida, usar o dashboard para selecionar o canal adequado ao enviar suas notificações. Para dispositivos com versões do Android anteriores ao O, é possível especificar um nível de prioridade para notificações Android e Fire OS pelo dashboard da Braze e pela API or interface de programação do aplicativo (API) de envio de mensagens.
 
 Para enviar mensagens a toda a sua base de usuários com uma prioridade específica, recomendamos que você especifique a prioridade indiretamente por meio da [configuração de canal de notificação](https://developer.android.com/training/notify-user/channels#importance) (para dispositivos O+) e envie a prioridade individual pelo dashboard (para dispositivos &#60;O).
 
 Consulte a tabela a seguir para os níveis de prioridade que você pode definir em notificações por push Android ou Fire OS:
 
-| Prioridade | Descrição | Valor de `priority` (para mensagens de API) |
+| Prioridade | Descrição | Valor de `priority` (para mensagens de API or interface de programação do aplicativo (API)) |
 |------|-----------|----------------------------|
 | Máxima | Mensagens urgentes ou de tempo crítico. | `2` |
 | Alta | Comunicação importante, como uma nova mensagem de um amigo. | `1` |
@@ -166,7 +166,7 @@ No Android O, os sons de notificação tornaram-se uma propriedade dos canais de
 
 Para dispositivos com versões do Android anteriores ao Android O, a Braze permite definir o som de uma mensagem push individual pelo criador no dashboard. Você pode fazer isso especificando um recurso de som local no dispositivo (por exemplo, `android.resource://com.mycompany.myapp/raw/mysound`).
 
-Selecionar **Default** neste campo reproduzirá o som de notificação padrão do dispositivo. Isso pode ser especificado pela nossa [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) ou em **Settings** no criador de push.
+Selecionar **Default** neste campo reproduzirá o som de notificação padrão do dispositivo. Isso pode ser especificado pela nossa [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) ou em **Settings** no criador de push.
 
 ![O campo "Sound".]({% image_buster /assets/img_archive/sound_android.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 

@@ -22,8 +22,8 @@ Alpaco unterstützt [alle Liquid-Variablen](https://shopify.github.io/liquid/) u
 | Anforderung | Beschreibung |
 | ------------| ----------- |
 | Alpaco-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Alpaco-Konto. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Cluster-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) ist auf Ihr Braze-Dashboard und Ihren REST-Endpunkt abgestimmt. <br><br> Wenn Ihre Dashboard-URL zum Beispiel `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Cluster-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) ist auf Ihr Braze-Dashboard und Ihren Representational State Transfer-Endpunkt abgestimmt. <br><br> Wenn Ihre Dashboard-URL zum Beispiel `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -36,7 +36,7 @@ Alpaco unterstützt [alle Liquid-Variablen](https://shopify.github.io/liquid/) u
 
 ## Integration
 
-Stellen Sie dem Customer-Success-Team von Alpaco Ihren Braze-REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
+Stellen Sie dem Customer-Success-Team von Alpaco Ihren Braze-Representational State Transfer-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
 
 {% alert note %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte werden automatisch diesen API-Schlüssel verwenden.
@@ -60,7 +60,7 @@ Als Nächstes gehen Sie in die Alpaco-Lobby und verwenden Ihr Template, um eine 
 
 Wählen Sie **Export**, wählen Sie dann die Braze-Integration und geben Sie an, ob Sie ein E-Mail-Template oder einen Content Block exportieren.
 
-Wenn Sie nach dem Export Änderungen vornehmen, können Sie den Inhalt aus Alpaco erneut exportieren, um ihn in Braze zu aktualisieren.
+Wenn Sie nach dem Export Änderungen vornehmen, können Sie den Inhalt aus Alpaco erneut exportieren, um ihn in Braze zu Update or aktualisieren or aktualisieren.
 
 ![Alpaco-E-Mail exportieren]({% image_buster /assets/img/alpaco/alpaco_3.png %})
 

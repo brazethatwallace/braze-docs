@@ -10,7 +10,7 @@ search_tag: Partner
 
 # BlueConic
 
-> A [BlueConic](https://www.blueconic.com/), a principal plataforma de dados do cliente, libera os dados primários das empresas de sistemas díspares e os torna acessíveis onde e quando forem necessários para transformar os relacionamentos com os clientes e impulsionar o crescimento dos negócios.
+> A [BlueConic](https://www.blueconic.com/), a principal CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente, libera os dados primários das empresas de sistemas díspares e os torna acessíveis onde e quando forem necessários para transformar os relacionamentos com os clientes e impulsionar o crescimento dos negócios.
 
 _Essa integração é mantida pela Blueconic._
 
@@ -27,8 +27,8 @@ Ao usar a integração, a BlueConic enviará deltas (dados alterados) em cada si
 | Requisito | Descrição |
 | --- | --- |
 | Conta BlueConic | É necessário ter uma [conta BlueConic](https://www.blueconic.com/) para usar essa parceria. Você precisará de acesso para [visualizar e editar conexões](https://support.blueconic.com/hc/en-us/articles/202607121-BlueConic-Roles) na sua conta BlueConic para acessar os plug-ins. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `users.export.segment`, `campaigns.list`, `campaigns.details`, `segments.lists` e `segments.details`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância](https://portal.aws.amazon.com/billing/signup#/start). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track`, `users.export.segment`, `campaigns.list`, `campaigns.details`, `segments.lists` e `segments.details`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância](https://portal.aws.amazon.com/billing/signup#/start). |
 | Autenticação S3 | Você precisará de acesso a um servidor Amazon Web Services (S3) para exportar e importar os dados. |
 | ID da chave de acesso<br>Chave de acesso secreta | O ID da chave de acesso e a chave de acesso secreta permitirão que você autentique seu servidor S3 para importação e exportação. |
 | Bucket AWS | Você precisará se conectar ao S3 dentro do plug-in. Após a autenticação, os buckets disponíveis serão exibidos em um menu suspenso. É onde os arquivos a serem importados ou exportados são armazenados. |
@@ -49,7 +49,7 @@ Salve as configurações.
 Para configurar a conexão entre a BlueConic e a Braze, você deve adicionar as credenciais da sua conta da Braze e as informações da conta do Amazon Web Services (S3) para autenticar a conexão.
 
 1. Na BlueConic, selecione **Set up and run** na seção **Setup**.<br><br>
-2. Na página de autenticação da Braze que se abre, insira seu endpoint da API REST da Braze e a chave de API da Braze.<br>
+2. Na página de autenticação da Braze que se abre, insira seu endpoint da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e a chave de API or interface de programação do aplicativo (API) da Braze.<br>
 ![Formulário de configurações de autenticação da BlueConic Braze para endpoint REST e chave de API.]({% image_buster /assets/img/blueconic/braze2.png %}){: style="max-width:80%;"}<br><br>
 3. Na seção de configuração e autenticação do S3, insira estas credenciais: ID da chave de acesso do Amazon Web Services (S3), chave de acesso secreta e bucket S3. Elas precisam ser as [mesmas credenciais]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) que você configurou ao definir a integração entre a Braze e o Amazon S3. Salve as configurações. <br>![Campos de configuração do S3 na BlueConic para chave de acesso, chave secreta e bucket.]({% image_buster /assets/img/blueconic/braze3.png %}){: style="max-width:80%;"}
 

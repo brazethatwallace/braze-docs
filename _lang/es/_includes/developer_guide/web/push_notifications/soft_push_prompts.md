@@ -9,7 +9,7 @@ A menudo es buena idea que los sitios implementen un aviso de push "suave" en el
 Como alternativa, si deseas incluir un manejo personalizado especial, en lugar de llamar a `requestPushPermission()` directamente como se describe en la [integración de push web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-2-browser-registration) estándar, utiliza nuestros [mensajes dentro de la aplicación desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
 
 {% alert tip %}
-Esto se puede hacer sin personalización del SDK utilizando nuestro nuevo [push primer sin código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
+Esto se puede hacer sin personalización del SDK or kit de desarrollo de software utilizando nuestro nuevo [push primer sin código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 {% endalert %}
 
 ## Configuración de avisos de push suave {#setting-up-soft-push-prompts}
@@ -27,7 +27,7 @@ Primero, debes crear una Campaign de mensajería dentro de la aplicación de "Pr
 
 ### Paso 2: Eliminar llamadas {#step-2-remove-calls}
 
-En tu integración de SDK de Braze, busca y elimina cualquier llamada a `automaticallyShowInAppMessages()` dentro de tu fragmento de código de carga.
+En tu integración de SDK or kit de desarrollo de software de Braze, busca y elimina cualquier llamada a `automaticallyShowInAppMessages()` dentro de tu fragmento de código de carga.
 
 ### Paso 3: Actualizar la integración {#step-3-update-integration}
 

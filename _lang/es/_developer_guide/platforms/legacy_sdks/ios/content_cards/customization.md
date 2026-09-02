@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "Personalización de tarjetas de contenido iOS"
 guide_top_text: "La personalización de las Content Cards y de la fuente en la que se encuentran debe hacerse durante el proceso de integración. Antes de personalizar, los desarrolladores deben trabajar con su equipo de marketing para determinar qué enfoque de personalización funciona mejor para las necesidades de tu marca. En Braze, destacamos tres enfoques de personalización basados en el nivel asociado de esfuerzo y flexibilidad proporcionado: gatear, caminar o correr. Obtén más información sobre estos <a href='/docs/user_guide/message_building_by_channel/content_cards/customize#customization-approaches'>enfoques de personalización</a> en nuestra guía del usuario."
-description: "Esta página de destino cubre las opciones de personalización de Content Cards del SDK de Braze para iOS, como el estilo personalizado, la personalización de la fuente, el manejo de los clics, los indicadores no leídos y leídos, y mucho más."
+description: "Esta página de destino cubre las opciones de personalización de Content Cards del SDK or kit de desarrollo de software de Braze para iOS, como el estilo personalizado, la personalización de la fuente, el manejo de los clics, los indicadores no leídos y leídos, y mucho más."
 
 guide_featured_title: "Artículos de sección"
 guide_featured_list:

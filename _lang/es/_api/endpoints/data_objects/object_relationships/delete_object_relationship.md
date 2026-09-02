@@ -113,7 +113,7 @@ La siguiente tabla enumera los errores comunes de este endpoint y cómo resolver
 |---|---|---|
 | `400` | Error de validación | Confirma que el cuerpo de la solicitud incluya valores válidos para `rel_kind`, `related_type_name`, `related_external_id` y `anchor`. |
 | `404` | Relación u objeto del endpoint no encontrado | Confirma que ambos objetos existan y que los valores de la clave de relación coincidan con una arista existente. |
-| `401` | Clave de API REST ausente o no válida | Verifica que el encabezado `Authorization` use `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
+| `401` | Clave de API REST or transferencia de estado representacional ausente o no válida | Verifica que el encabezado `Authorization` use `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
 | `403` | La clave de API no tiene permiso o la solicitud está bloqueada por la lista de permitidos | Confirma que la clave tenga el permiso `data_objects.object_relationships.delete` y que tu IP de origen esté en la lista de permitidos de la clave, si está configurada. |
 | `429` | Límite de velocidad excedido | Reintenta después de `X-RateLimit-Reset` y reduce la frecuencia de solicitudes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de eliminar relación de objetos" }

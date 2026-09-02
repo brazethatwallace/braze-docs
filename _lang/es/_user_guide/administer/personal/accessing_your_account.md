@@ -20,15 +20,15 @@ Si no eres el primer usuario en la cuenta de Braze de tu empresa, ponte en conta
 
 Ya sea la primera vez que inicias sesión o la centésima, aquí te explicamos cómo acceder a tu panel. Si eres el primer usuario de tu empresa, sigue las instrucciones de la sección anterior. De lo contrario, puedes iniciar sesión después de que el administrador de Braze de tu empresa cree tu cuenta.
 
-Puedes iniciar sesión desde el sitio principal de [Braze.com](https://www.braze.com), o usar la URL de tu panel que corresponde a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) específica. Para tu comodidad, Braze ofrece varias opciones de inicio de sesión único (SSO), como:
+Puedes iniciar sesión desde el sitio principal de [Braze.com](https://www.braze.com), o usar la URL de tu panel que corresponde a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) específica. Para tu comodidad, Braze ofrece varias opciones de inicio de sesión único (inicio de sesión único), como:
 
-* [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
+* [SAML inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup)
     * [Aprovisionamiento just-in-time de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning)
-* [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+* [Microsoft Entra inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
 * [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 * [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
 
-Después de iniciar sesión en Braze con SSO, ya no puedes usar tu contraseña para iniciar sesión en el panel. Ambas direcciones de correo electrónico dirigen los correos al mismo buzón de entrada, pero Braze las reconoce como cuentas separadas cuando inicias sesión. Borrar las cookies cierra tu sesión, por lo que se pierde el trabajo no guardado.
+Después de iniciar sesión en Braze con inicio de sesión único, ya no puedes usar tu contraseña para iniciar sesión en el panel. Ambas direcciones de correo electrónico dirigen los correos al mismo buzón de entrada, pero Braze las reconoce como cuentas separadas cuando inicias sesión. Borrar las cookies cierra tu sesión, por lo que se pierde el trabajo no guardado.
 
 ## Navegadores compatibles {#supported-browsers}
 
@@ -60,22 +60,22 @@ Si tu proveedor de correo electrónico no admite el uso de alias con `+`, puedes
 
 La característica de desarrolladores multiempresa permite compartir una única cuenta de usuario entre varias empresas. Los usuarios del panel pueden alternar entre diferentes paneles de empresa desde su menú de perfil de usuario.
 
-Si tienes SSO y quieres configurar desarrolladores multiempresa, necesitas habilitar un ID de entidad SAML personalizado configurando una integración SAML SSO personalizada. Sigue los pasos en [Inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), pero aplica estos cambios:
+Si tienes inicio de sesión único y quieres configurar desarrolladores multiempresa, necesitas habilitar un ID de entidad SAML personalizado configurando una integración SAML inicio de sesión único personalizada. Sigue los pasos en [Inicio de sesión iniciado por el proveedor de servicios (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), pero aplica estos cambios:
 - Cambia el **ID de entidad** a `braze_dashboard_<companyID>` para cada integración de panel.
-- Contacta a tu administrador de éxito de cliente o director de cuentas para habilitar el interruptor de características `saml_sso_custom_entity_id` para cada panel.
+- Contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o director de cuentas para habilitar el interruptor de características `saml_sso_custom_entity_id` para cada panel.
 
 #### Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
 
 El funcionamiento de la 2FA para desarrolladores multiempresa depende de tu método de 2FA:
 
-- **Correo electrónico y SMS:** Tu configuración de 2FA se copia a todas las cuentas de desarrollador vinculadas. Después de configurar la 2FA por correo electrónico o SMS en una cuenta, el mismo método se aplica en todos tus paneles de empresa.
+- **Correo electrónico y servicio de mensajes cortos:** Tu configuración de 2FA se copia a todas las cuentas de desarrollador vinculadas. Después de configurar la 2FA por correo electrónico o servicio de mensajes cortos en una cuenta, el mismo método se aplica en todos tus paneles de empresa.
 - **Contraseña de un solo uso basada en tiempo (TOTP):** La configuración de TOTP no se sincroniza entre cuentas. Si usas una aplicación de autenticación, debes configurar un código separado para cada panel en el que inicies sesión directamente.
 
 Cuando cambias entre cuentas desde el panel, solo necesitas completar la 2FA una vez: la primera vez que inicias sesión en cualquier cuenta vinculada durante esa sesión.
 
-### Consideraciones para el inicio de sesión único (SSO) {#considerations-for-single-sign-on-sso}
+### Consideraciones para el inicio de sesión único (inicio de sesión único) {#considerations-for-single-sign-on-sso}
 
-Si usas inicio de sesión único (SSO), ten en cuenta que tener varias direcciones de correo electrónico diferentes podría generar complicaciones. Confirma que tu configuración de SSO esté correctamente establecida para evitar problemas de acceso.
+Si usas inicio de sesión único (inicio de sesión único), ten en cuenta que tener varias direcciones de correo electrónico diferentes podría generar complicaciones. Confirma que tu configuración de inicio de sesión único esté correctamente establecida para evitar problemas de acceso.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -89,7 +89,7 @@ Para restablecer tu contraseña, selecciona el enlace **¿Olvidaste tu contrase�
 Si solicitaste un restablecimiento de contraseña pero no has recibido el correo electrónico, prueba los siguientes pasos de solución de problemas:
 
 {% alert note %}
-Si tu empresa aplica el [inicio de sesión único (SSO)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), la página de inicio de sesión puede no mostrar **¿Olvidaste tu contraseña?** ni enviar correos electrónicos de restablecimiento de contraseña, porque el inicio de sesión con contraseña está deshabilitado. Inicia sesión a través del proveedor de identidad de tu organización o contacta a tu administrador de Braze.
+Si tu empresa aplica el [inicio de sesión único (inicio de sesión único)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), la página de inicio de sesión puede no mostrar **¿Olvidaste tu contraseña?** ni enviar correos electrónicos de restablecimiento de contraseña, porque el inicio de sesión con contraseña está deshabilitado. Inicia sesión a través del proveedor de identidad de tu organización o contacta a tu administrador de Braze.
 {% endalert %}
 
 1. **Verifica tu dirección de correo electrónico:** Pide a un administrador que compruebe que el correo electrónico de tu cuenta coincide en **Configuración** > **Usuarios de la empresa**. El enlace de restablecimiento se envía al correo electrónico registrado en el sistema.
@@ -154,7 +154,7 @@ Si tienes problemas para iniciar sesión en Braze Learning y te encuentras atrap
 
 1. Si tienes varias cuentas de Braze, iniciar sesión con la cuenta incorrecta dos veces te envía al panel de Braze. Confirma que estás iniciando sesión en la cuenta correcta.
 2. Si tienes un bloqueador de anuncios, confirma que esté desactivado. Puede bloquear las cookies necesarias para la funcionalidad de inicio de sesión único.
-3. Ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** y verifica que el inicio de sesión único (SSO) esté activado.
+3. Ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** y verifica que el inicio de sesión único (inicio de sesión único) esté activado.
 4. Confirma que el perfil de usuario de tu panel incluya tanto un nombre como un apellido. No tener un apellido puede interrumpir el proceso de inicio de sesión.
 5. Accede a Braze Learning desde tu panel yendo a **Soporte** > **Braze Learning**.
 6. Si sigues experimentando problemas, considera recrear tu cuenta. Los usuarios que accedieron a Braze Learning durante la fase de prueba gratuita pueden tener dificultades para acceder ahora.
@@ -257,7 +257,7 @@ Si eres un usuario nuevo de Braze que tiene problemas para iniciar sesión o acc
 
 #### Recibí el correo electrónico, pero estoy atascado configurando la autenticación de dos factores (2FA) {#i-received-the-email-but-im-stuck-setting-up-two-factor-authentication-2fa}
 
-Si seleccionas **Iniciar configuración** durante la configuración de 2FA pero nunca recibes un código de verificación (por SMS o correo electrónico) o no puedes completar la configuración de la aplicación de autenticación, las extensiones del navegador, la configuración de cookies o las restricciones de red pueden estar interfiriendo. Prueba lo siguiente:
+Si seleccionas **Iniciar configuración** durante la configuración de 2FA pero nunca recibes un código de verificación (por servicio de mensajes cortos o correo electrónico) o no puedes completar la configuración de la aplicación de autenticación, las extensiones del navegador, la configuración de cookies o las restricciones de red pueden estar interfiriendo. Prueba lo siguiente:
 
 - Desactiva los bloqueadores de anuncios y habilita las cookies de terceros: Los bloqueadores de anuncios o las extensiones de privacidad pueden bloquear el flujo de verificación de 2FA. Desactívalos temporalmente y confirma que las cookies de terceros estén habilitadas en la configuración de tu navegador.
 - Prueba con un navegador diferente: Cambia a un navegador diferente para descartar problemas específicos del navegador.

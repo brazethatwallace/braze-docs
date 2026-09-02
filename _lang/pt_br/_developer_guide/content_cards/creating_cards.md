@@ -241,7 +241,7 @@ Content Cards podem ser usados para simular um centro de mensagens. Nesse format
 
 #### Exemplo {#example}
 
-Por exemplo, talvez você queira criar dois cartões de mensagem: uma chamada para ação incentivando os usuários a ativar recomendações de leitura e um código de cupom oferecido ao seu Segment de novos inscritos.
+Por exemplo, talvez você queira criar dois cartões de mensagem: uma chamada para ação incentivando os usuários a ativar recomendações de leitura e um código de cupom oferecido ao seu Segment or segmento de novos inscritos.
 
 Chaves como `body`, `title` e `buttonText` podem ter valores de string simples que seus profissionais de marketing podem definir. Chaves como `terms` podem ter valores que fornecem uma pequena coleção de frases aprovadas pelo seu departamento jurídico. Chaves como `style` e `class_type` possuem valores de string que você pode definir para determinar como o cartão é renderizado no seu app ou site.
 
@@ -276,7 +276,7 @@ Pares chave-valor para um cupom de novos inscritos:
 
 {% details Informações adicionais para Android %}
 
-No SDK para Android e FireOS, a lógica do centro de mensagens é controlada pelo valor de `class_type` fornecido pelos pares chave-valor da Braze. Usando o método [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards), você pode filtrar e identificar esses tipos de classe.
+No SDK or kit de desenvolvimento de software para Android e FireOS, a lógica do centro de mensagens é controlada pelo valor de `class_type` fornecido pelos pares chave-valor da Braze. Usando o método [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards), você pode filtrar e identificar esses tipos de classe.
 
 {% tabs local %}
 {% tab Kotlin %}

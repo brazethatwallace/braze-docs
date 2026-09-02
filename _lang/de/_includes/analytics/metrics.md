@@ -1,9 +1,9 @@
-{% if include.metric == "AMP Clicks" %}
-<i>AMP-Klicks</i> ist die Gesamtzahl der Klicks in Ihrer AMP-HTML-E-Mail, kumuliert aus der HTML-, Klartext- und AMP-HTML-Version der E-Mail.
+{% if include.metric == "AMP or Accelerated Mobile Pages Clicks" %}
+<i>AMP or Accelerated Mobile Pages-Klicks</i> ist die Gesamtzahl der Klicks in Ihrer AMP or Accelerated Mobile Pages-HTML-E-Mail, kumuliert aus der HTML-, Klartext- und AMP or Accelerated Mobile Pages-HTML-Version der E-Mail.
 {% endif %}
 
-{% if include.metric == "AMP Opens" %}
-<i>AMP-Öffnungen</i> ist die Gesamtzahl der Öffnungen in Ihrer AMP-HTML-E-Mail und den AMP-HTML-Versionen der E-Mail.
+{% if include.metric == "AMP or Accelerated Mobile Pages Opens" %}
+<i>AMP or Accelerated Mobile Pages-Öffnungen</i> ist die Gesamtzahl der Öffnungen in Ihrer AMP or Accelerated Mobile Pages-HTML-E-Mail und den AMP or Accelerated Mobile Pages-HTML-Versionen der E-Mail.
 {% endif %}
 
 {% if include.metric == "Audience" %}
@@ -19,7 +19,7 @@ Die <i>geschätzten realen Öffnungen</i> sind eine Schätzung der Anzahl der ei
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
+<i>Hilfe</i> bedeutet, dass ein:e Nutzer:in auf Ihre Nachricht mit dem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/Kurzmitteilungsdienst or SMS/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Schlüsselwort HELP</a> geantwortet hat und eine automatische HELP-Antwort erhalten hat.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -34,8 +34,8 @@ Ein <i>Soft Bounce</i> liegt vor, wenn eine E-Mail aufgrund eines vorübergehend
 Eine <i>Zurückstellung</i> liegt vor, wenn eine E-Mail nicht sofort zugestellt werden konnte. Braze versucht jedoch, die E-Mail bis zu 72 Stunden nach diesem vorübergehenden Zustellungsfehler erneut zuzustellen, um die Chancen auf eine erfolgreiche Zustellung zu maximieren, bevor die Versuche für diese spezifische Campaign eingestellt werden.
 {% endif %}
 
-{% if include.metric == "Body Click" %}
-Push-Story-Benachrichtigungen zeichnen einen <i>Body Click</i> auf, wenn die Benachrichtigung angeklickt wird. Er wird nicht aufgezeichnet, wenn eine Nachricht erweitert oder ein Aktions-Button angeklickt wird.
+{% if include.metric == "Body Klick, der or klicken" %}
+Push-Story-Benachrichtigungen zeichnen einen <i>Body Klick, der or klicken</i> auf, wenn die Benachrichtigung angeklickt wird. Er wird nicht aufgezeichnet, wenn eine Nachricht erweitert oder ein Aktions-Button angeklickt wird.
 {% endif %}
 
 {% if include.metric == "Body Clicks" %}
@@ -54,7 +54,7 @@ Push-Story-Benachrichtigungen zeichnen einen <i>Body Click</i> auf, wenn die Ben
 <i>Eingereichte Auswahlen</i> ist die Gesamtzahl der ausgewählten Optionen, wenn ein:e Nutzer:in auf der Seite mit den Umfragefragen einer <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>einfachen Umfrage</a> auf den Button „Senden“ klickt.
 {% endif %}
 
-{% if include.metric == "Click-to-Open Rate" %}
+{% if include.metric == "Klick, der or klicken-to-Open Rate" %}
 Die <i>Klick-Öffnungsrate</i> ist der Prozentsatz der geöffneten E-Mails, die mindestens einmal von einer einzelnen Nutzer:in oder einem Gerät angeklickt wurden, und ist nur im <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>Berichts-Builder</a> verfügbar.
 {% endif %}
 
@@ -103,7 +103,7 @@ Die <i>Gesamtzahl der Konversionen</i> ist die Gesamtzahl der Fälle, in denen e
 {% endif %}
 
 {% if include.metric == "Delivery Failures" %}
-<i>Zustellungsfehler</i> treten auf, wenn die SMS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (SMS werden mit einer höheren Rate gesendet, als Ihre Lang- oder Shortcodes verarbeiten können).
+<i>Zustellungsfehler</i> treten auf, wenn die Kurzmitteilungsdienst or SMS nicht gesendet werden konnte, weil die Warteschlangen überlaufen sind (Kurzmitteilungsdienst or SMS werden mit einer höheren Rate gesendet, als Ihre Lang- oder Shortcodes verarbeiten können).
 {% endif %}
 
 {% if include.metric == "Delivery Failures RCS" %}
@@ -138,8 +138,8 @@ Die <i>Rate der fehlgeschlagenen Zustellungen</i> ist der Prozentsatz der Sendun
 <i>Lifetime-Umsatz</i> ist der gesamte <code>PurchaseEvents</code>-Preiswert (in USD), der seit der Einführung eingenommen wurde.
 {% endif %}
 
-{% if include.metric == "Lifetime Value Per User" %}
-Der <i>Lifetime-Value pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
+{% if include.metric == "LTV or Lifetime-Value or Lifetime-Value Per User" %}
+Der <i>LTV or Lifetime-Value or Lifetime-Value pro Nutzer:in</i> ist der <i>Lifetime-Umsatz</i> geteilt durch Ihre gesamten <i>Nutzer:innen</i> (auf Ihrer Startseite).
 {% endif %}
 
 {% if include.metric == "Average Daily Revenue" %}
@@ -155,9 +155,9 @@ Der <i>Tagesumsatz pro Nutzer:in</i> ist der durchschnittliche Tagesumsatz pro t
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-<i>Automatische Öffnungen</i> umfasst sowohl nicht-menschliche als auch menschliche Öffnungen, die auf eine Öffnung durch eine:n Nutzer:in mit aktiviertem Apple Mail Privacy Protection (MPP) hinweisen. Das bedeutet, dass ein:e Nutzer:in mehrere <i>automatische Öffnungen</i> protokollieren kann. <i>Automatische Öffnungen</i> werden nicht automatisch generiert, wenn das Gerät nicht mit WLAN verbunden ist, sodass ein:e Nutzer:in eine E-Mail in der Apple-Mail-App möglicherweise öffnet, bevor Apple die Bilder vorab abruft, was dennoch als <i>automatische Öffnung</i> protokolliert wird.
+<i>Automatische Öffnungen</i> umfasst sowohl nicht-menschliche als auch menschliche Öffnungen, die auf eine Öffnung durch eine:n Nutzer:in mit aktiviertem Apple E-Mail-Datenschutz or E-Mail-Datenschutz or MPP or E-Mail-Datenschutz or MPP (E-Mail-Datenschutz or MPP) hinweisen. Das bedeutet, dass ein:e Nutzer:in mehrere <i>automatische Öffnungen</i> protokollieren kann. <i>Automatische Öffnungen</i> werden nicht automatisch generiert, wenn das Gerät nicht mit WLAN verbunden ist, sodass ein:e Nutzer:in eine E-Mail in der Apple-Mail-App möglicherweise öffnet, bevor Apple die Bilder vorab abruft, was dennoch als <i>automatische Öffnung</i> protokolliert wird.
 <br><br>
-Für Nutzer:innen mit aktiviertem MPP:
+Für Nutzer:innen mit aktiviertem E-Mail-Datenschutz or MPP:
 <ul>
   <li>1+ <i>automatische Öffnung</i>: Apple hat die Nachricht vorab abgerufen oder die Nutzer:in hat eine E-Mail auf einem iOS-Gerät proaktiv geöffnet</li>
   <li>2+ <i>automatische Öffnungen</i>: Braze hat keinen Einblick in menschliche gegenüber nicht-menschlichen Öffnungen, sodass dies aus mehreren menschlichen Öffnungen (auf einem Apple-Gerät oder mehreren) oder einer Kombination aus menschlichen Öffnungen und einer Öffnung durch Apples Vorabruf der Nachricht bestehen kann</li>
@@ -165,31 +165,31 @@ Für Nutzer:innen mit aktiviertem MPP:
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Andere Öffnungen</i> umfasst menschliche Öffnungen, die nicht von MPP betroffen sind (z. B. wenn ein:e Nutzer:in eine E-Mail in der Gmail-App oder auf Gmail Desktop öffnet, wodurch ein Tracking-Pixel ausgelöst und eine reguläre Öffnung protokolliert wird). <i>Andere Öffnungen</i> sind in der Regel menschliche Öffnungen, es kann jedoch auch Szenarien geben, in denen ein Gerät die E-Mail öffnet (ein Bot oder ein Posteingangs-Dienstleister wie Gmail oder Yahoo). Es ist auch möglich, dass ein:e Nutzer:in eine E-Mail auf einem Nicht-iOS-Gerät öffnet und die <i>andere Öffnung</i> protokolliert wird, bevor eine <i>automatische Öffnung</i> protokolliert wird.
+<i>Andere Öffnungen</i> umfasst menschliche Öffnungen, die nicht von E-Mail-Datenschutz or MPP betroffen sind (z. B. wenn ein:e Nutzer:in eine E-Mail in der Gmail-App oder auf Gmail Desktop öffnet, wodurch ein Tracking-Pixel ausgelöst und eine reguläre Öffnung protokolliert wird). <i>Andere Öffnungen</i> sind in der Regel menschliche Öffnungen, es kann jedoch auch Szenarien geben, in denen ein Gerät die E-Mail öffnet (ein Bot oder ein Posteingangs-Dienstleister wie Gmail oder Yahoo). Es ist auch möglich, dass ein:e Nutzer:in eine E-Mail auf einem Nicht-iOS-Gerät öffnet und die <i>andere Öffnung</i> protokolliert wird, bevor eine <i>automatische Öffnung</i> protokolliert wird.
 <br><br>
-Da <i>automatische Öffnungen</i> nutzergesteuert sein können, ist das Verhältnis zwischen <i>automatischen Öffnungen</i> und <i>anderen Öffnungen</i> nicht menschlich gegenüber nicht-menschlich, sondern vielmehr MPP-betroffen gegenüber nicht MPP-betroffen. Während <i>andere Öffnungen</i> weiterhin herangezogen werden können, um einen Teil der menschlichen Öffnungen zu messen, ist es derzeit nicht möglich, den Prozentsatz der <i>automatischen Öffnungen</i> zu bestimmen, die menschlich gesteuert sind, sodass eine genaue „echte“ Öffnungsrate derzeit nicht ermittelt werden kann.
+Da <i>automatische Öffnungen</i> nutzergesteuert sein können, ist das Verhältnis zwischen <i>automatischen Öffnungen</i> und <i>anderen Öffnungen</i> nicht menschlich gegenüber nicht-menschlich, sondern vielmehr E-Mail-Datenschutz or MPP-betroffen gegenüber nicht E-Mail-Datenschutz or MPP-betroffen. Während <i>andere Öffnungen</i> weiterhin herangezogen werden können, um einen Teil der menschlichen Öffnungen zu messen, ist es derzeit nicht möglich, den Prozentsatz der <i>automatischen Öffnungen</i> zu bestimmen, die menschlich gesteuert sind, sodass eine genaue „echte“ Öffnungsrate derzeit nicht ermittelt werden kann.
 <br><br>
-Für Nutzer:innen mit aktiviertem MPP:
+Für Nutzer:innen mit aktiviertem E-Mail-Datenschutz or MPP:
 <ul>
   <li>+1 <i>andere Öffnung(en)</i>: Die Nutzer:in hat eine E-Mail auf einem Nicht-iOS-Gerät proaktiv geöffnet</li>
   <li>+1 <i>automatische Öffnung(en)</i> und +1 <i>andere Öffnungen</i>: Apple hat die Nachricht vorab abgerufen oder die Nutzer:in hat eine E-Mail auf einem iOS-Gerät proaktiv geöffnet und eine E-Mail auf einem Nicht-iOS-Gerät proaktiv geöffnet</li>
 </ul>
-Für Nutzer:innen ohne aktiviertes MPP:
+Für Nutzer:innen ohne aktiviertes E-Mail-Datenschutz or MPP:
 <ul>
   <li>+1 <i>andere Öffnung(en)</i>: Die Nutzer:in hat eine E-Mail auf einem beliebigen Gerät proaktiv geöffnet</li>
 </ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
-<i>Öffnungen</i> sind Instanzen, die sowohl <i>direkte Öffnungen</i> als auch <i>beeinflusste Öffnungen</i> umfassen, bei denen das Braze SDK mithilfe eines proprietären Algorithmus festgestellt hat, dass eine Push-Benachrichtigung ein:e Nutzer:in zum Öffnen der App veranlasst hat.
+<i>Öffnungen</i> sind Instanzen, die sowohl <i>direkte Öffnungen</i> als auch <i>beeinflusste Öffnungen</i> umfassen, bei denen das Braze SDK or Software-Development-Kit mithilfe eines proprietären Algorithmus festgestellt hat, dass eine Push-Benachrichtigung ein:e Nutzer:in zum Öffnen der App veranlasst hat.
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>Opt-Out</i> liegt vor, wenn ein:e Nutzer:in auf Ihre Nachricht mit einem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Opt-Out-Schlüsselwort</a> geantwortet hat und sich von Ihrem SMS- oder RCS-Programm abgemeldet hat.
+<i>Opt-Out</i> liegt vor, wenn ein:e Nutzer:in auf Ihre Nachricht mit einem <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/Kurzmitteilungsdienst or SMS/keywords/keyword_handling/#default-opt-in-opt-out-keywords">Opt-Out-Schlüsselwort</a> geantwortet hat und sich von Ihrem Kurzmitteilungsdienst or SMS- oder RCS-Programm abgemeldet hat.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
-<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (ESP) aber dennoch versucht hat, sie erneut zuzustellen. Der ESP versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
+<i>Ausstehende Wiederholung</i> ist die Anzahl der Anfragen, die vom empfangenden Server vorübergehend abgelehnt wurden, bei denen der E-Mail-Anbieter (E-Mail-Anbieter or ESP) aber dennoch versucht hat, sie erneut zuzustellen. Der E-Mail-Anbieter or ESP versucht die Zustellung so lange zu wiederholen, bis eine Timeout-Periode erreicht ist (normalerweise nach 72 Stunden).
 {% endif %}
 
 {% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
@@ -205,11 +205,11 @@ Die <i>Leserate</i> ist der Prozentsatz der Sendungen, die zu einem Lesevorgang 
 {% endif %}
 
 {% if include.metric == "Received" %}
-<i>Empfangen</i> wird je nach Kanal unterschiedlich definiert und kann erfolgen, wenn Nutzer:innen die Nachricht ansehen, eine definierte Trigger-Aktion ausführen oder die Nachricht an den Nachrichtenanbieter gesendet wird.
+<i>Empfangen</i> wird je nach Kanal unterschiedlich definiert und kann erfolgen, wenn Nutzer:innen die Nachricht ansehen, eine definierte Trigger or triggern-Aktion ausführen oder die Nachricht an den Nachrichtenanbieter gesendet wird.
 {% endif %}
 
 {% if include.metric == "Rejections" %}
-<i>Ablehnungen</i> liegen vor, wenn die SMS oder RCS vom Netzbetreiber abgelehnt wurde. Dies kann verschiedene Gründe haben, z. B. die Filterung von Inhalten durch den Anbieter, die Verfügbarkeit des Zielgeräts, die Telefonnummer ist nicht mehr in Betrieb und Ähnliches.
+<i>Ablehnungen</i> liegen vor, wenn die Kurzmitteilungsdienst or SMS oder RCS vom Netzbetreiber abgelehnt wurde. Dies kann verschiedene Gründe haben, z. B. die Filterung von Inhalten durch den Anbieter, die Verfügbarkeit des Zielgeräts, die Telefonnummer ist nicht mehr in Betrieb und Ähnliches.
 {% endif %}
 
 {% if include.metric == "Revenue" %}
@@ -221,7 +221,7 @@ Der <i>Umsatz</i> ist der Gesamtumsatz in Dollar von Campaign-Empfänger:innen i
 {% endif %}
 
 {% if include.metric == "Sent" %}
-<i>Gesendet</i> bedeutet, dass eine Campaign oder ein Canvas-Schritt gestartet oder getriggert wurde und eine SMS oder RCS von Braze gesendet wurde. Es ist möglich, dass die SMS oder RCS das Gerät einer Nutzer:in aufgrund von Fehlern nicht erreicht hat.
+<i>Gesendet</i> bedeutet, dass eine Campaign oder ein Canvas-Schritt gestartet oder getriggert wurde und eine Kurzmitteilungsdienst or SMS oder RCS von Braze gesendet wurde. Es ist möglich, dass die Kurzmitteilungsdienst or SMS oder RCS das Gerät einer Nutzer:in aufgrund von Fehlern nicht erreicht hat.
 {% endif %}
 
 {% if include.metric == "Sends" %}

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar tradução em uma campanha\"."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar tradução em uma campanha {#update-translation-in-a-campaign}
 {% apimethod put %}
 /campaigns/translations
@@ -21,7 +21,7 @@ Se você quiser atualizar as traduções após uma campanha ter sido lançada, p
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.translations.update`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.translations.update`.
 
 ## Limite de frequência {#rate-limit}
 

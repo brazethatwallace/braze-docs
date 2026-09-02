@@ -144,7 +144,7 @@ La siguiente es una lista de elementos `fields_to_export` válidos. El uso de `f
 | `braze_id` | Cadena | Identificador único de usuario específico del dispositivo establecido por Braze para este usuario. |
 | `country` | Cadena | País del usuario utilizando la norma [ISO 3166-1 alfa-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). |
 | `created_at` | Cadena | Fecha y hora de creación del perfil de usuario, en formato ISO 8601. |
-| `created_from` | Cadena | Método utilizado para crear el perfil de usuario (por ejemplo, SDK, REST API o importación CSV). |
+| `created_from` | Cadena | Método utilizado para crear el perfil de usuario (por ejemplo, SDK or kit de desarrollo de software, REST or transferencia de estado representacional API o importación CSV). |
 | `custom_attributes` | Objeto | Pares clave-valor de atributos personalizados para este usuario. |
 | `custom_events` | Matriz | Eventos personalizados atribuidos a este usuario en los últimos 90 días. |
 | `devices` | Matriz | Información sobre el dispositivo del usuario, que podría incluir lo siguiente dependiendo de la plataforma:<br><br>- `model`: nombre del modelo del dispositivo<br>- `os`: sistema operativo del dispositivo<br>- `carrier`: operador de servicio del dispositivo, si está disponible<br>- `idfv`: identificador del dispositivo Braze (iOS), el identificador de Apple para el proveedor, si existe<br>- `idfa`: (iOS) identificador de publicidad, si existe<br>- `device_id`: (Android) identificador de dispositivo Braze<br>- `google_ad_id`: (Android) identificador de publicidad de Google Play, si existe<br>- `roku_ad_id`: (Roku) identificador de publicidad de Roku<br>- `ad_tracking_enabled`: si el seguimiento de anuncios está habilitado en el dispositivo, puede ser true o false |

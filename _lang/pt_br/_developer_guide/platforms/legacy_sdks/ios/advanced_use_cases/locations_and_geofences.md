@@ -17,7 +17,7 @@ noindex: true
 Para oferecer suporte a geofences no iOS:
 
 1. Sua integração deve suportar notificações por push em segundo plano.
-2. [É preciso ativar]({{site.baseurl}}/developer_guide/geofences?sdktab=swift) as geofences da Braze pelo SDK, seja implicitamente (com a ativação da coleta de localização) ou explicitamente (com a ativação da coleta de geofence). Elas não estão ativadas por padrão.
+2. [É preciso ativar]({{site.baseurl}}/developer_guide/geofences?sdktab=swift) as geofences da Braze pelo SDK or kit de desenvolvimento de software, seja implicitamente (com a ativação da coleta de localização) ou explicitamente (com a ativação da coleta de geofence). Elas não estão ativadas por padrão.
 
 {% alert important %}
 A partir do iOS 14, as geofences não funcionam de forma confiável para os usuários que optam por conceder permissão de localização aproximada.
@@ -29,7 +29,7 @@ Para utilizar totalmente nossa estratégia de sincronização de geofences, voc�
 
 ## Etapa 2: Ativar geofences {#step-2-enable-geofences}
 
-Por padrão, as geofences são ativadas com base na ativação ou não da coleta automática de localização. Você pode ativar geofences usando o arquivo `Info.plist`. Adicione o dicionário `Braze` ao seu arquivo `Info.plist`. Dentro do dicionário `Braze`, adicione a subentrada booleana `EnableGeofences` e defina o valor como `YES`. Observe que, antes do Braze iOS SDK v4.0.2, a chave de dicionário `Appboy` deve ser usada no lugar de `Braze`.
+Por padrão, as geofences são ativadas com base na ativação ou não da coleta automática de localização. Você pode ativar geofences usando o arquivo `Info.plist`. Adicione o dicionário `Braze` ao seu arquivo `Info.plist`. Dentro do dicionário `Braze`, adicione a subentrada booleana `EnableGeofences` e defina o valor como `YES`. Observe que, antes do Braze iOS SDK or kit de desenvolvimento de software v4.0.2, a chave de dicionário `Appboy` deve ser usada no lugar de `Braze`.
 
 Você também pode ativar geofences no momento da inicialização do app usando o método [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). No dicionário `appboyOptions`, defina `ABKEnableGeofencesKey` como `YES`. Por exemplo:
 
@@ -106,7 +106,7 @@ Para que as localizações funcionem corretamente, você também deve confirmar 
 
 ## Desativando solicitações automáticas de geofences {#disabling-automatic-geofence-requests}
 
-A partir da versão 3.21.3 do SDK para iOS, você pode desativar a solicitação automática de geofences. Para isso, utilize o arquivo `Info.plist`. Adicione o dicionário `Braze` ao seu arquivo `Info.plist`. Dentro do dicionário `Braze`, adicione a subentrada booleana `DisableAutomaticGeofenceRequests` e defina o valor como `YES`.
+A partir da versão 3.21.3 do SDK or kit de desenvolvimento de software para iOS, você pode desativar a solicitação automática de geofences. Para isso, utilize o arquivo `Info.plist`. Adicione o dicionário `Braze` ao seu arquivo `Info.plist`. Dentro do dicionário `Braze`, adicione a subentrada booleana `DisableAutomaticGeofenceRequests` e defina o valor como `YES`.
 
 Você também pode desativar as solicitações automáticas de geofences no momento da inicialização do app por meio do método [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). No dicionário `appboyOptions`, defina `ABKDisableAutomaticGeofenceRequestsKey` como `YES`. Por exemplo:
 
@@ -137,9 +137,9 @@ Se você optar por usar essa opção, será necessário solicitar geofences manu
 
 ## Solicitação manual de geofences {#manually-requesting-geofences}
 
-Quando o SDK da Braze solicita geofences para monitorar a partir do backend, ele informa a localização atual do usuário e recebe geofences consideradas otimamente relevantes com base na localização informada. Há um limite de frequência de uma atualização de geofence por sessão.
+Quando o SDK or kit de desenvolvimento de software da Braze solicita geofences para monitorar a partir do backend, ele informa a localização atual do usuário e recebe geofences consideradas otimamente relevantes com base na localização informada. Há um limite de frequência de uma atualização de geofence por sessão.
 
-Para controlar a localização que o SDK informa para fins de receber as geofences mais relevantes, a partir da versão 3.21.3 do SDK para iOS, você pode solicitar geofences manualmente fornecendo a latitude e a longitude de um local. É recomendável desativar as solicitações automáticas de geofence ao usar esse método. Para isso, use o seguinte código:
+Para controlar a localização que o SDK or kit de desenvolvimento de software informa para fins de receber as geofences mais relevantes, a partir da versão 3.21.3 do SDK or kit de desenvolvimento de software para iOS, você pode solicitar geofences manualmente fornecendo a latitude e a longitude de um local. É recomendável desativar as solicitações automáticas de geofence ao usar esse método. Para isso, use o seguinte código:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

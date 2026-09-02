@@ -7,7 +7,7 @@ layout: dev_guide
 search_rank: 6
 guide_top_header: "統合の概要"
 guide_top_text: ""
-description: "このランディングページでは、CocoaPods、Swift Package Manager、Carthageなどの Braze SDK 統合ガイドについて説明します。"
+description: "このランディングページでは、CocoaPods、Swift Package マネージャー、Carthageなどの Braze SDK 統合ガイドについて説明します。"
 
 guide_featured_title: "基本的な統合オプション"
 guide_featured_list:
@@ -36,7 +36,7 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-Braze iOS SDKをインストールすると、基本的な分析機能（セッション処理）と基本的なアプリ内メッセージが提供されます。追加のチャネルと機能のために統合をさらにカスタマイズする必要があります。<br> <br> Braze iOS SDKは、CocoaPods、Carthage、Swift Package Manager、または手動統合を使用してインストールまたは更新できます。<br> <br> さらに、Braze iOS SDKはRubyMotionアプリを完全にサポートしています。
+Braze iOS SDKをインストールすると、基本的な分析機能（セッション処理）と基本的なアプリ内メッセージが提供されます。追加のチャネルと機能のために統合をさらにカスタマイズする必要があります。<br> <br> Braze iOS SDKは、CocoaPods、Carthage、Swift Package マネージャー、または手動統合を使用してインストールまたは更新できます。<br> <br> さらに、Braze iOS SDKはRubyMotionアプリを完全にサポートしています。
 
 {% alert important %}
 iOS SDKは、APPファイルに加えて、アプリのIPAファイルに1&nbsp;MBから2&nbsp;MB、フレームワークに30&nbsp;MBを追加します。

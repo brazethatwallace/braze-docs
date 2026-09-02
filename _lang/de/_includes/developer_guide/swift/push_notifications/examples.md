@@ -57,7 +57,7 @@ Um eine interaktive Push-Benachrichtigung zu erstellen, müssen Sie eine angepas
 
 ![Zwei iPhones nebeneinander dargestellt. Das erste iPhone zeigt die nicht erweiterte Ansicht der Push-Nachricht. Das zweite iPhone zeigt die erweiterte Version der Push-Nachricht mit einem „Fortschritts“-Überblick, wie weit der Nutzer in einem Kurs ist, dem Namen der nächsten Sitzung und dem Fälligkeitsdatum der nächsten Sitzung.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Content Extension anzeigen. So können Sie nutzerzentrierte Push-Inhalte erstellen, z. B. die Möglichkeit, Ihren Fortschritt über verschiedene Plattformen hinweg zu teilen, freigeschaltete Erfolge anzuzeigen oder Onboarding-Checklisten darzustellen. Dieses Beispiel zeigt eine Push-Benachrichtigung, die einem Nutzer angezeigt wird, nachdem er eine bestimmte Aufgabe im Braze-Lernkurs abgeschlossen hat. Durch das Erweitern der Benachrichtigung kann der Nutzer seinen Fortschritt im Lernpfad sehen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können ausgelöst werden, wenn eine Sitzung abgeschlossen oder eine bestimmte Nutzeraktion durch einen API-Trigger durchgeführt wird.
+Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Content Extension anzeigen. So können Sie nutzerzentrierte Push-Inhalte erstellen, z. B. die Möglichkeit, Ihren Fortschritt über verschiedene Plattformen hinweg zu teilen, freigeschaltete Erfolge anzuzeigen oder Onboarding-Checklisten darzustellen. Dieses Beispiel zeigt eine Push-Benachrichtigung, die einem Nutzer angezeigt wird, nachdem er eine bestimmte Aufgabe im Braze-Lernkurs abgeschlossen hat. Durch das Erweitern der Benachrichtigung kann der Nutzer seinen Fortschritt im Lernpfad sehen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können ausgelöst werden, wenn eine Sitzung abgeschlossen oder eine bestimmte Nutzeraktion durch einen API-Trigger or triggern durchgeführt wird.
 
 ### Dashboard-Konfiguration
 
@@ -110,7 +110,7 @@ func didReceive(_ notification: UNNotification) {
 
 ## Push-Benachrichtigung zur Informationserfassung {#information-capture-push-notification}
 
-Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Content-App-Erweiterung erfassen und erweitern so die Möglichkeiten, was mit einem Push realisierbar ist. Durch die Eingabeaufforderung über Push-Benachrichtigungen können Sie nicht nur grundlegende Informationen wie Name oder E-Mail-Adresse abfragen, sondern auch Nutzer:innen dazu auffordern, Feedback zu geben oder ein unvollständiges Nutzerprofil zu vervollständigen.
+Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Content-App-Erweiterung erfassen und erweitern so die Möglichkeiten, was mit einem Push realisierbar ist. Durch die Eingabeaufforderung über Push-Benachrichtigungen können Sie nicht nur grundlegende Informationen wie Name oder E-Mail-Adresse abfragen, sondern auch Nutzer:innen dazu auffordern, Feedback zu geben oder ein unvollständiges Kundenprofil or Nutzerprofil zu vervollständigen.
 
 {% alert tip %}
 Weitere Informationen finden Sie unter [Push-Benachrichtigungsdaten protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_channel_data/push_notifications).

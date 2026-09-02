@@ -1,10 +1,10 @@
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie mit diesem Tutorial beginnen, überprüfen Sie, ob Ihr Braze SDK die Mindestanforderungen erfüllt:
+Bevor Sie mit diesem Tutorial beginnen, überprüfen Sie, ob Ihr Braze SDK or Software-Development-Kit die Mindestanforderungen erfüllt:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Anzeige von Bannern für das Android SDK {#displaying-banners-for-the-android-sdk}
+## Anzeige von Bannern für das Android SDK or Software-Development-Kit {#displaying-banners-for-the-android-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Android" %}
 
@@ -101,14 +101,14 @@ lines-MainApplication.kt=21-28
 
 ### 2. Banner-Updates abonnieren {#2-subscribe-to-banner-updates}
 
-Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird.
+Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu Registrierung or registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird.
 
 !!step
 lines-MainActivity.kt=10-14
 
-### 3. Platzierungen aktualisieren {#3-refresh-your-placements}
+### 3. Platzierungen Update or aktualisieren or aktualisieren {#3-refresh-your-placements}
 
-Rufen Sie nach der Initialisierung des Braze SDK `requestBannersRefresh(["PLACEMENT_ID"])` auf, um die neuesten Banner-Inhalte für diese Platzierung abzurufen.
+Rufen Sie nach der Initialisierung des Braze SDK or Software-Development-Kit `requestBannersRefresh(["PLACEMENT_ID"])` auf, um die neuesten Banner-Inhalte für diese Platzierung abzurufen.
 
 !!step
 lines-banners.xml=15-19

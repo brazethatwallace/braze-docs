@@ -98,7 +98,7 @@ toc_headers: h2
 
 上流の[遅延]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)ステップとオーディエンスチェックが完了した後、ユーザーはメッセージステップに到達した時点でアプリ内メッセージの対象となります。メッセージがカレンダー日付または**ステップが利用可能になった後の短い期間**で期限切れになる場合、遅いブランチのユーザーは期限切れ後に到達し、メッセージを見ることができない可能性があります。期限切れを最も長い現実的なパス遅延に合わせてください。詳細と例については、[アプリ内メッセージの有効期限]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration)を参照してください。
 
-### 「キャンバス Entry Properties may not be used in In-App Messages.」と表示されるのはなぜですか？ {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+### 「キャンバス エントリ Properties may not be used in In-App Messages.」と表示されるのはなぜですか？ {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
 
 このメッセージは、パーソナライゼーションがキャンバスのアプリ内メッセージでは解決できないフィールドを参照している場合に表示されます。[コンテキストとイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)および[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)に記載されている`context`オブジェクトを使用してください。レガシーのLiquid名前空間`canvas_entry_properties`には、`context`とは異なる制約があります。複数のステップにわたって値を保持する必要がある場合は、Brazeチームと[元のキャンバスエディターでの永続プロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)を確認してください。保存された値は、デバイスがアプリ内ペイロードをダウンロードする前にユーザーがキャンバスを退出すると消去されます。
 

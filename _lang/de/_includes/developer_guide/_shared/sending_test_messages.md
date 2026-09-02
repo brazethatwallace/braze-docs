@@ -139,4 +139,4 @@ Es gibt einige Situationen, in denen Testnachrichten nicht die gleichen Funktion
 
 - Wenn Sie das Braze-[Präferenzzentrum]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#subscription-groups) über **Testnachrichten** aufrufen, ist der Button „Senden“ ausgegraut.
 - Der list-unsubscribe-Header ist in E-Mails, die über die Testnachrichten-Funktionalität gesendet werden, nicht enthalten.
-- Für In-App-Nachrichten und Content Cards muss die/der Zielnutzer:in über ein Push-Token für das Zielgerät verfügen.
+- Für In-App-Nachrichten und Content Cards muss die/der Zielnutzer:in über ein Push-Token / Textbaustein für das Zielgerät verfügen.

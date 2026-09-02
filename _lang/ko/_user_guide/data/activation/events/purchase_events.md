@@ -13,7 +13,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-구매 이벤트는 사용자가 수행한 구매 동작으로, 인앱 구매를 기록하고 각 고객 프로필의 생애주기 가치(LTV)를 설정하는 데 사용됩니다. 이러한 이벤트는 팀에서 설정해야 합니다. 구매 이벤트를 기록하면 수량 및 유형과 같은 속성정보를 추가할 수 있으므로 이러한 속성정보를 기반으로 사용자를 더욱 타겟팅할 수 있습니다.
+구매 이벤트는 사용자가 수행한 구매 동작으로, 인앱 구매를 기록하고 각 고객 프로필의 LTV or 생애주기 가치(LTV)를 설정하는 데 사용됩니다. 이러한 이벤트는 팀에서 설정해야 합니다. 구매 이벤트를 기록하면 수량 및 유형과 같은 속성정보를 추가할 수 있으므로 이러한 속성정보를 기반으로 사용자를 더욱 타겟팅할 수 있습니다.
 
 ## 구매 이벤트 로깅 {#log-purchase-events}
 
@@ -137,8 +137,8 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">사용자당 생애주기 가치</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">사용자당 LTV or 생애주기 가치</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or LTV or 생애주기 가치 Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">일평균 매출</a></td>
@@ -161,13 +161,13 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 #### 생애주기 매출 계산 {#lifetime-revenue-calculation}
 
-Braze는 구매 이벤트를 사용하여 사용자의 생애주기 매출(생애주기 가치 또는 LTV라고도 함)을 계산합니다. 이는 고객과의 전체 미래 관계에 귀속되는 순이익을 예측한 것입니다. 이를 통해 고객 획득 및 유지 전략에 대해 정보에 입각한 의사 결정을 내릴 수 있습니다.
+Braze는 구매 이벤트를 사용하여 사용자의 생애주기 매출(LTV or 생애주기 가치 또는 LTV라고도 함)을 계산합니다. 이는 고객과의 전체 미래 관계에 귀속되는 순이익을 예측한 것입니다. 이를 통해 고객 획득 및 유지 전략에 대해 정보에 입각한 의사 결정을 내릴 수 있습니다.
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
 Braze에서 사용자의 LTV를 파악할 수 있는 주요 위치는 두 곳입니다:
 
-- 각 앱 및 사이트의 *생애주기 매출* 및 *사용자당 생애주기 가치*와 같은 전체 측정기준에 대해서는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)를 참고하세요.
+- 각 앱 및 사이트의 *생애주기 매출* 및 *사용자당 LTV or 생애주기 가치*와 같은 전체 측정기준에 대해서는 [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)를 참고하세요.
 - 특정 사용자의 생애주기 매출을 파악하려면 해당 사용자의 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)을 참고하세요.
 
 ##### 환불이 생애주기 매출에 미치는 영향 {#impact-of-refunds-on-lifetime-revenue}

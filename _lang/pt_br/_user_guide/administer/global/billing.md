@@ -96,7 +96,7 @@ Este gráfico permite avaliar o uso total de pontos de dados de uma empresa por 
 
 #### Uso de pontos de dados do ciclo de faturamento por fonte de evento {#billing-cycle-data-point-usage-by-event-source}
 
-Este gráfico permite visualizar como o uso de pontos de dados está distribuído entre diferentes fontes de eventos, como diferentes atributos de API, eventos personalizados e sessões.
+Este gráfico permite visualizar como o uso de pontos de dados está distribuído entre diferentes fontes de eventos, como diferentes atributos de API or interface de programação do aplicativo (API), eventos personalizados e sessões.
 
 ![Uso de pontos de dados do ciclo de faturamento por fonte de evento exibindo a alocação de pontos de dados entre diferentes fontes de eventos.]({% image_buster /assets/img/event_source_stats.png %})
 

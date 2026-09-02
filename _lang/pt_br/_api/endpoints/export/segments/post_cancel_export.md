@@ -1,24 +1,24 @@
 ---
-nav_title: "POST: Cancelar exportações por segmento"
-article_title: "POST: Cancelar exportações por segmento"
+nav_title: "POST: Cancelar exportações por Segment or segmento or segmento"
+article_title: "POST: Cancelar exportações por Segment or segmento or segmento"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze para cancelar exportações por segmento."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para cancelar exportações por Segment or segmento or segmento."
 
 ---
-{% api %}
-# Cancelar exportações por segmento {#cancel-exports-by-segment}
+{% API or interface de programação do aplicativo (API) %}
+# Cancelar exportações por Segment or segmento or segmento {#cancel-exports-by-segment}
 {% apimethod post %}
 /export/segment/cancel
 {% endapimethod %}
 
-> Use este endpoint para cancelar todas as exportações em andamento com um ID de segmento especificado.
+> Use este endpoint para cancelar todas as exportações em andamento com um ID de Segment or segmento or segmento especificado.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `segments.list`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `segments.list`.
 
 ## Limite de frequência {#rate-limit}
 

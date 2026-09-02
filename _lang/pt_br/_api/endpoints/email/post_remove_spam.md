@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Remover endereços de e-mail da lista de SPAM\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Remover endereços de e-mail da lista de SPAM {#remove-email-addresses-from-spam-list}
 {% apimethod post %}
 /email/spam/remove
@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Remover
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.spam.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.spam.remove`.
 
 ## Limite de frequência {#rate-limit}
 

@@ -25,7 +25,7 @@ Los ajustes de correo electrónico en la sección **Configuración de envío** d
 
 Al configurar tus ajustes de correo electrónico, los ajustes de correo electrónico saliente identifican qué nombre y direcciones de correo electrónico se utilizan cuando Braze envía correos electrónicos a tus usuarios.
 
-Si necesitas añadir un nuevo dominio o grupo de IP (proveedor de envío) a tu espacio de trabajo, o eliminar uno de la lista disponible, ponte en contacto con tu administrador de éxito de cliente para obtener ayuda.
+Si necesitas añadir un nuevo dominio o grupo de IP (proveedor de envío) a tu espacio de trabajo, o eliminar uno de la lista disponible, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para obtener ayuda.
 
 {% tabs local %}
 {% tab Nombre y dirección de visualización %}
@@ -101,7 +101,7 @@ Las direcciones CCO están disponibles para Amazon SES, SendGrid y SparkPost. Co
 
 Después de añadir una dirección, esta estará disponible para seleccionarla al componer un correo electrónico tanto en Campaigns como en pasos en Canvas. Selecciona **Establecer como predeterminada** junto a una dirección para establecerla como seleccionada de forma predeterminada al lanzar una nueva Campaign de correo electrónico o componente de Canvas. Para anular esto a nivel de mensaje, puedes seleccionar **Sin CCO** al configurar tu mensaje.
 
-Si necesitas que todos los mensajes de correo electrónico enviados desde Braze incluyan una dirección CCO, puedes seleccionar la opción **Requerir una dirección CCO para todas tus Campaigns de correo electrónico**. Esto requiere que selecciones una dirección predeterminada, que se selecciona automáticamente en nuevas Campaigns de correo electrónico o pasos en Canvas. La dirección predeterminada también se añade automáticamente a todos los mensajes desencadenados a través de nuestra REST API. No es necesario cambiar la solicitud de API existente para incluir la dirección.
+Si necesitas que todos los mensajes de correo electrónico enviados desde Braze incluyan una dirección CCO, puedes seleccionar la opción **Requerir una dirección CCO para todas tus Campaigns de correo electrónico**. Esto requiere que selecciones una dirección predeterminada, que se selecciona automáticamente en nuevas Campaigns de correo electrónico o pasos en Canvas. La dirección predeterminada también se añade automáticamente a todos los mensajes desencadenados a través de nuestra REST or transferencia de estado representacional API. No es necesario cambiar la solicitud de API existente para incluir la dirección.
 
 #### CCO dinámico {#dynamic-bcc}
 

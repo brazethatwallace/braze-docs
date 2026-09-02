@@ -11,7 +11,7 @@ hidden: true
 
 Braze aplica límites de velocidad de la API de mensajería del dispositivo por espacio de trabajo. Si un espacio de trabajo supera un límite, Braze devuelve un código de estado `429 Too Many Requests`.
 
-Los límites de la API de mensajería del dispositivo son independientes de los límites predeterminados documentados para otros endpoints de la REST API de Braze. No asumas que un límite, ventana de tiempo, tamaño de carga útil o programación de reinicio documentados para otro endpoint se aplican a la API de mensajería del dispositivo.
+Los límites de la API de mensajería del dispositivo son independientes de los límites predeterminados documentados para otros endpoints de la REST or transferencia de estado representacional API de Braze. No asumas que un límite, ventana de tiempo, tamaño de carga útil o programación de reinicio documentados para otro endpoint se aplican a la API de mensajería del dispositivo.
 
 {% alert important %}
 Esta página está en fase beta. Las características y la documentación de la API de mensajería del dispositivo están sujetas a cambios. Ponte en contacto con tu director de cuentas de Braze para solicitar acceso.

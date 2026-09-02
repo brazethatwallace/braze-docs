@@ -57,14 +57,14 @@ Aqui está uma lista de erros que são verificados em nosso editor:
 
 Após terminar de compor seu modelo, você pode testá-lo antes de enviá-lo.
 
-Na parte inferior da tela de visão geral, selecione **Preview and Test**. Aqui, você pode visualizar como seu e-mail aparecerá na caixa de entrada de um cliente. Com **Preview as User** selecionado, você pode visualizar seu e-mail como um usuário aleatório, selecionar um usuário específico ou criar um usuário personalizado. Isso permite testar se suas chamadas de Connected Content e personalização estão funcionando como esperado.
+Na parte inferior da tela de visão geral, selecione **prévia and Test**. Aqui, você pode visualizar como seu e-mail aparecerá na caixa de entrada de um cliente. Com **prévia as User** selecionado, você pode visualizar seu e-mail como um usuário aleatório, selecionar um usuário específico ou criar um usuário personalizado. Isso permite testar se suas chamadas de Connected Content e personalização estão funcionando como esperado.
 
-Em seguida, você pode selecionar **Copy preview link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail aparece para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
+Em seguida, você pode selecionar **Copy prévia link** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail aparece para um usuário aleatório. Para saber mais, consulte [Prévia compartilhável]({{site.baseurl}}/user_guide/messaging/governance/shareable_preview).
 
 Você também pode alternar entre as visualizações de desktop, dispositivo móvel e texto simples para ter uma ideia de como sua mensagem aparece em diferentes contextos.
 
 {% alert tip %}
-Curioso para saber como seu e-mail aparece para usuários no modo escuro? Selecione o botão **Dark Mode Preview** localizado na seção **Preview and Test** (somente no editor de arrastar e soltar).
+Curioso para saber como seu e-mail aparece para usuários no modo escuro? Selecione o botão **Dark Mode prévia** localizado na seção **prévia and Test** (somente no editor de arrastar e soltar).
 {% endalert %}
 
 Quando estiver pronto para uma verificação final, selecione **Test Send** e envie uma mensagem de teste para você mesmo ou para um grupo de testadores de conteúdo para garantir que seu e-mail seja exibido corretamente em diversos dispositivos e clientes de e-mail.
@@ -87,9 +87,9 @@ Você pode visualizar modelos de e-mail em **Templates** > **Email Templates**, 
 
 À medida que você cria mais modelos de e-mail, pode [duplicar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) e [arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates) modelos de e-mail. Saiba mais sobre como criar e gerenciar sua biblioteca de modelos e conteúdo criativo em [Modelos e mídia]({{site.baseurl}}/user_guide/messaging/templates).
 
-### Use seus modelos em Campaigns de API {#use-your-templates-in-api-campaigns}
+### Use seus modelos em Campaigns de API or interface de programação do aplicativo (API) {#use-your-templates-in-api-campaigns}
 
-Para usar seu e-mail em uma Campaign de API, você precisa de um `email_template_id`, que pode ser encontrado na parte inferior de qualquer modelo de e-mail criado na Braze.
+Para usar seu e-mail em uma Campaign de API or interface de programação do aplicativo (API), você precisa de um `email_template_id`, que pode ser encontrado na parte inferior de qualquer modelo de e-mail criado na Braze.
 
 ![Identificador de API localizado na parte inferior de um modelo de e-mail.]({% image_buster /assets/img/email_templates/template5.png %})
 

@@ -14,7 +14,7 @@ description: "Armazene textos, preços e URLs de imagens localizados em catálog
 
 PantsLabyrinth, um varejista de roupas fictício, vende seus produtos na América do Norte e na Europa. Nomes de produtos, preços e imagens principais variam por idioma, mas o marketing quer um único modelo de e-mail ou push que personalize no momento do envio.
 
-Este exemplo cobre três padrões de catálogo que leem o {% raw %}`${language}`{% endraw %} [atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) do usuário (coletado pelo SDK a partir da localidade do dispositivo):
+Este exemplo cobre três padrões de catálogo que leem o {% raw %}`${language}`{% endraw %} [atributo padrão]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) do usuário (coletado pelo SDK or kit de desenvolvimento de software a partir da localidade do dispositivo):
 
 - Campos de objeto JSON: todas as localidades em uma única linha por item
 - Colunas planas por idioma: `header_en`, `header_fr` e assim por diante
@@ -27,7 +27,7 @@ Use catálogos quando o conteúdo localizado for dados estruturados (produtos, p
 - Os exemplos são ilustrativos. Confirme a formatação e o uso de maiúsculas/minúsculas de {% raw %}`${language}`{% endraw %} na sua base de usuários antes de nomear chaves ou sufixos do catálogo.
 - Para os Métodos 1 e 2, se {% raw %}`${language}`{% endraw %} estiver em branco ou não corresponder a uma chave ou campo do catálogo, a saída localizada pode ficar vazia — verifique cada campo de forma independente e recorra a um padrão (por exemplo, inglês).
 - Para o Método 3, crie uma lista de permissão dos códigos de idioma suportados antes de construir o nome do catálogo; um catálogo ausente interrompe a mensagem.
-- [Objetos JSON]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types) em catálogos podem ser criados ou atualizados pela API ou por [Cloud Data Ingestion (CDI) para catálogos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data), e não por upload de CSV.
+- [Objetos JSON]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types) em catálogos podem ser criados ou atualizados pela API or interface de programação do aplicativo (API) ou por [Cloud Data Ingestion (CDI) para catálogos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data), e não por upload de CSV.
 - O Método 2 suporta manutenção por CSV, mas multiplica as colunas conforme os idiomas aumentam. Arquivos CSV suportam até [1.000 colunas]({{site.baseurl}}/user_guide/data/activation/catalogs/create#step-1-review-your-csv-file).
 - O Método 3 requer um catálogo para cada código de idioma que chega à tag `catalog_items`. Se o catálogo não existir, a Braze interrompe a mensagem. Um ID de item ausente em um catálogo existente retorna um array de itens vazio.
 - Liquid tags de catálogo não podem ser usadas [recursivamente]({{site.baseurl}}/user_guide/data/activation/catalogs/use#using-liquid).
@@ -42,7 +42,7 @@ Escolha uma estrutura de catálogo usando a orientação desta tabela.
 
 | Método | Melhor quando | Compensação |
 | --- | --- | --- |
-| Campos de objeto JSON | Catálogo de tamanho médio; uma linha por item; atualizações via API ou CDI | Adicionar um idioma atualiza cada item via API; sem CSV para campos JSON |
+| Campos de objeto JSON | Catálogo de tamanho médio; uma linha por item; atualizações via API or interface de programação do aplicativo (API) ou CDI | Adicionar um idioma atualiza cada item via API or interface de programação do aplicativo (API); sem CSV para campos JSON |
 | Campos planos por idioma | Poucos idiomas e campos; equipes não técnicas usam CSV | Cada novo idioma adiciona colunas; a nomenclatura dos campos precisa ser consistente |
 | Catálogo por idioma | Feeds grandes por localidade ou responsáveis separados por localidade; CSV por idioma | Cada código de idioma na lista de permissão precisa de um catálogo; catálogos ausentes interrompem o envio |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Escolha uma estrutura de catálogo" }
@@ -207,7 +207,7 @@ Defina a seleção no dashboard com filtros na sua coluna `category` e atributos
 
 ### Etapa 4: Prévia e teste {#step-4-preview-and-test}
 
-1. Use **Preview as User** com perfis de usuário que tenham diferentes valores de {% raw %}`${language}`{% endraw %}.
+1. Use **prévia as User** com perfis de usuário que tenham diferentes valores de {% raw %}`${language}`{% endraw %}.
 2. Confirme o conteúdo de fallback quando o idioma estiver ausente ou não for suportado, incluindo localidades parciais (por exemplo, um nome sem preço).
 3. Para o Método 3, confirme que cada idioma na lista de permissão possui um catálogo correspondente e que códigos de idioma não suportados mapeiam para o seu catálogo padrão sem interromper o envio.
 

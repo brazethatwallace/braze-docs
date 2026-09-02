@@ -2,7 +2,7 @@ Um Textblöcken ohne angepassten Code ein bestimmtes Styling zuzuweisen, markier
 
 ![Textfeld mit verschiedenen stilisierten Textabschnitten, z. B. verschiedenen Schriftgrößen und -farben, und einem hervorgehobenen Abschnitt, der eine Symbolleiste mit der Option „Wrap with span for style“ anzeigt.]({% image_buster /assets/img/landing_pages/wrap_with_span.png %}){: style="max-width:50%;"}
 
-Passen Sie die Span-Eigenschaften an, um Ihr Textstyling zu aktualisieren. Dazu gehören:
+Passen Sie die Span-Eigenschaften an, um Ihr Textstyling zu Update or aktualisieren or aktualisieren. Dazu gehören:
 
 - Schriftfamilie, -stärke, -größe
 - Zeilenhöhe

@@ -1,16 +1,16 @@
 ---
 nav_title: Enviar mensajes de correo electrónico
-article_title: Enviar mensajes de correo electrónico usando la API REST
+article_title: Enviar mensajes de correo electrónico usando la API REST or transferencia de estado representacional
 page_order: 3
 page_type: reference
-description: "Este artículo de referencia explica cómo enviar mensajes de correo electrónico usando la API REST de Braze y una Campaña de API."
+description: "Este artículo de referencia explica cómo enviar mensajes de correo electrónico usando la API REST or transferencia de estado representacional de Braze y una Campaña de API."
 channel:
   - email
 ---
 
-# Enviar mensajes de correo electrónico usando la API REST {#sending-email-messages-using-the-rest-api}
+# Enviar mensajes de correo electrónico usando la API REST or transferencia de estado representacional {#sending-email-messages-using-the-rest-api}
 
-> Usa la API REST de Braze para enviar correos electrónicos transaccionales desde tu backend en tiempo real. Este enfoque te permite crear un servicio que envía correos electrónicos de forma programática mientras realizas el seguimiento de los análisis de entrega junto con tus otras campañas y Canvas en el dashboard de Braze.
+> Usa la API REST or transferencia de estado representacional de Braze para enviar correos electrónicos transaccionales desde tu backend en tiempo real. Este enfoque te permite crear un servicio que envía correos electrónicos de forma programática mientras realizas el seguimiento de los análisis de entrega junto con tus otras campañas y Canvas en el dashboard de Braze.
 
 Esto puede ser especialmente útil para la mensajería transaccional en la que el contenido se define en tus sistemas de backend. Por ejemplo, puedes notificar a los consumidores cuando reciben un mensaje de otro usuario, invitándolos a visitar tu sitio web y revisar su buzón de entrada.
 
@@ -22,7 +22,7 @@ Con este enfoque, puedes:
 - Ampliar el caso de uso con características adicionales de Braze, como retrasos en los mensajes y pruebas A/B.
 - Opcionalmente, cambiar a la [entrega desencadenada por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) para definir tus plantillas de correo electrónico en el dashboard de Braze y seguir desencadenando los envíos desde tu backend.
 
-Para enviar un correo electrónico a través de la API REST, necesitas configurar una Campaña de API en el dashboard de Braze y luego usar el punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar el mensaje.
+Para enviar un correo electrónico a través de la API REST or transferencia de estado representacional, necesitas configurar una Campaña de API en el dashboard de Braze y luego usar el punto de conexión [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar el mensaje.
 
 ## Requisitos previos {#prerequisites}
 
@@ -30,10 +30,10 @@ Para completar esta guía, necesitas:
 
 | Requisito | Descripción |
 | --- | --- |
-| Clave de API REST de Braze | Una clave con el permiso `messages.send`. Para crear una, ve a **Configuración** > **API e identificadores** > **Claves de API**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave con el permiso `messages.send`. Para crear una, ve a **Configuración** > **API e identificadores** > **Claves de API**. |
 | ID de aplicación de Braze | El identificador de tu aplicación dentro de tu espacio de trabajo. Para encontrarlo, ve a **Configuración** > **API e identificadores** y consulta la sección **Identificadores de aplicación**. Este valor es obligatorio en el campo `app_id` del objeto de mensajería de correo electrónico. Para más información, consulta [Identificador de aplicación]({{site.baseurl}}/api/identifier_types). |
 | Contenido HTML del correo electrónico | El cuerpo HTML de tu mensaje de correo electrónico, preparado con antelación. |
-| Servicio de backend | Un servicio de backend o entorno de scripting capaz de realizar solicitudes HTTP POST a la API REST de Braze. |
+| Servicio de backend | Un servicio de backend o entorno de scripting capaz de realizar solicitudes HTTP POST a la API REST or transferencia de estado representacional de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Paso 1: Crear una Campaña de API {#step-1-create-an-api-campaign}
@@ -61,7 +61,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.baseurl}}/api/basics#endpoints) de tu espacio de trabajo.
+Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints) de tu espacio de trabajo.
 
 {% raw %}
 ```json
@@ -83,7 +83,7 @@ Reemplaza `YOUR_REST_ENDPOINT` con la [URL del punto de conexión REST]({{site.b
 
 Reemplaza los valores de marcador de posición con tus ID reales. El campo `from` debe usar el formato `"Nombre para mostrar <usuario@ejemplo.com>"`. El campo `body` acepta HTML válido y admite [personalización con Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), por lo que puedes adaptar el contenido del correo electrónico a cada destinatario. Para ver la lista completa de parámetros admitidos por el objeto de mensajería de correo electrónico, consulta [Objeto de correo electrónico]({{site.baseurl}}/api/objects_filters/messaging/email_object).
 
-Después de construir la solicitud, envía la solicitud POST desde tu servicio de backend a la API REST de Braze.
+Después de construir la solicitud, envía la solicitud POST desde tu servicio de backend a la API REST or transferencia de estado representacional de Braze.
 
 ## Paso 3: Verificar tu integración {#step-3-verify-your-integration}
 
@@ -98,4 +98,4 @@ Después de completar la configuración, verifica tu integración:
 
 - Confirma que tus campañas de correo electrónico cumplen con las regulaciones pertinentes, como el RGPD y CAN-SPAM, incluyendo las opciones de cancelación de suscripción y los avisos de privacidad necesarios. Para más información, consulta [Gestión de suscripciones de usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions) y [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices).
 - Usa las [características de personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) de Braze para adaptar el contenido del correo electrónico a consumidores individuales, incluyendo contenido dinámico y datos específicos del usuario.
-- La API REST de Braze ofrece [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging) adicionales para programar mensajes, desencadenar campañas y más.
+- La API REST or transferencia de estado representacional de Braze ofrece [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging) adicionales para programar mensajes, desencadenar campañas y más.

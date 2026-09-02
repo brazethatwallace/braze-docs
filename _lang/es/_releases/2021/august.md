@@ -10,11 +10,11 @@ description: "Este artículo contiene notas de la versión de agosto de 2021."
 
 ## Sincronización de audiencias de Google {#google-audience-sync}
 
-La integración de Braze [de sincronización de audiencia con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) permite a las marcas ampliar el alcance de sus recorridos de clientes multicanal a Google Search, Google Shopping, Gmail, YouTube y Google Display. Utilizando tus datos de clientes propios, puedes entregar de forma segura anuncios basados en desencadenantes dinámicos de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (por ejemplo, push, correo electrónico, SMS, etc.) como parte de un Canvas de Braze puede utilizarse para desencadenar un anuncio dirigido a ese usuario a través de Customer Match de Google.
+La integración de Braze [de sincronización de audiencia con Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) permite a las marcas ampliar el alcance de sus recorridos de clientes multicanal a Google Search, Google Shopping, Gmail, YouTube y Google Display. Utilizando tus datos de clientes propios, puedes entregar de forma segura anuncios basados en desencadenantes dinámicos de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (por ejemplo, push, correo electrónico, servicio de mensajes cortos, etc.) como parte de un Canvas de Braze puede utilizarse para desencadenar un anuncio dirigido a ese usuario a través de Customer Match de Google.
 
-## Guía de buenas prácticas para la integración del SDK de iOS {#best-practice-ios-sdk-integration-guide}
+## Guía de buenas prácticas para la integración del SDK or kit de desarrollo de software de iOS {#best-practice-ios-sdk-integration-guide}
 
-Esta [guía de integración del SDK de iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) opcional te lleva paso a paso por las mejores prácticas de configuración a la hora de integrar por primera vez el SDK de iOS y sus componentes principales en tu aplicación. Esta guía te ayudará a crear un archivo de ayuda `BrazeManager.swift` que desacoplará cualquier dependencia del SDK de Braze para iOS del resto de tu código de producción, dando como resultado un único `import AppboyUI` en toda tu aplicación. Este enfoque limita los problemas que surgen de un exceso de importaciones del SDK, lo que facilita el seguimiento, la depuración y la modificación del código.
+Esta [guía de integración del SDK or kit de desarrollo de software de iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) opcional te lleva paso a paso por las mejores prácticas de configuración a la hora de integrar por primera vez el SDK or kit de desarrollo de software de iOS y sus componentes principales en tu aplicación. Esta guía te ayudará a crear un archivo de ayuda `BrazeManager.swift` que desacoplará cualquier dependencia del SDK or kit de desarrollo de software de Braze para iOS del resto de tu código de producción, dando como resultado un único `import AppboyUI` en toda tu aplicación. Este enfoque limita los problemas que surgen de un exceso de importaciones del SDK or kit de desarrollo de software, lo que facilita el seguimiento, la depuración y la modificación del código.
 
 ## Predictive Purchases
 
@@ -30,11 +30,11 @@ Para dirigirte a usuarios que no tienen un `external_id`, puedes [importar una l
 
 ## Guía de actualización a iOS 15 {#ios-15-upgrade-guide}
 
-Esta [guía de actualización a iOS 15]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) describe los cambios introducidos en iOS 15 (WWDC21) y los pasos de actualización necesarios para tu integración del SDK de Braze para iOS.
+Esta [guía de actualización a iOS 15]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) describe los cambios introducidos en iOS 15 (WWDC21) y los pasos de actualización necesarios para tu integración del SDK or kit de desarrollo de software de Braze para iOS.
 
 ## Guía de actualización a Android 12 {#android-12-upgrade-guide}
 
-Esta [guía de actualización a Android 12]({{site.baseurl}}/developer_guide/platforms/android/android_13/) describe los cambios relevantes introducidos en Android 12 (2021) y los pasos de actualización necesarios para tu integración del SDK de Braze para Android.
+Esta [guía de actualización a Android 12]({{site.baseurl}}/developer_guide/platforms/android/android_13/) describe los cambios relevantes introducidos en Android 12 (2021) y los pasos de actualización necesarios para tu integración del SDK or kit de desarrollo de software de Braze para Android.
 
 ## A2P 10DLC
 
@@ -58,7 +58,7 @@ La asociación entre Braze y [Transcend]({{site.baseurl}}/partners/ecommerce/pay
 
 ### Tinyclues - Importación de cohortes {#tinyclues-cohort-import}
 
-[Tinyclues]({{site.baseurl}}/partners/splio/) es una característica de creación de audiencia que ofrece la capacidad de aumentar el número de campañas y los ingresos sin perjudicar la experiencia del cliente, así como análisis para seguir el rendimiento de las campañas de CRM tanto online como offline. Juntas, la integración de Braze y Tinyclues ofrece a los usuarios un camino hacia una mejor planificación y estrategia de CRM, permitiéndoles enviar campañas más segmentadas, encontrar nuevas oportunidades de productos y elevar los ingresos mediante una interfaz de usuario increíblemente fácil de usar.
+[Tinyclues]({{site.baseurl}}/partners/splio/) es una característica de creación de audiencia que ofrece la capacidad de aumentar el número de campañas y los ingresos sin perjudicar la experiencia del cliente, así como análisis para seguir el rendimiento de las campañas de CRM or administración de las relaciones con el cliente tanto online como offline. Juntas, la integración de Braze y Tinyclues ofrece a los usuarios un camino hacia una mejor planificación y estrategia de CRM or administración de las relaciones con el cliente, permitiéndoles enviar campañas más segmentadas, encontrar nuevas oportunidades de productos y elevar los ingresos mediante una interfaz de usuario increíblemente fácil de usar.
 
 ### optilyz - Correo directo {#optilyz-direct-mail}
 

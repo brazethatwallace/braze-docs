@@ -17,7 +17,7 @@ search_tag: Partner
 | Anforderung            | Beschreibung                                                      |
 |------------------------|------------------------------------------------------------------|
 | **Email Love-Konto** | Ein Email Love-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
-| **Braze REST-API-Schlüssel** | Ein Braze REST-API-Schlüssel mit vollständig aktivierter `Templates`-Berechtigung. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| **Braze Representational State Transfer-API-Schlüssel** | Ein Braze Representational State Transfer-API-Schlüssel mit vollständig aktivierter `Templates`-Berechtigung. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Email Love mit Braze verwenden {#using-email-love-with-braze}

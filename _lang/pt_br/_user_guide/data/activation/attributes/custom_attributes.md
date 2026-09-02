@@ -14,7 +14,7 @@ search_rank: 1
 Quando armazenados na Braze, os atributos personalizados podem ser usados para criar segmentos de público e personalizar o envio de mensagens usando Liquid. Lembre-se de que a Braze não armazena informações de séries temporais para atributos personalizados, portanto, você não poderá gerar gráficos com base neles, como é possível para eventos personalizados.
 
 {% alert important %}
-**Os nomes são correspondências exatas.** As chaves de atributos personalizados são **sensíveis a maiúsculas e minúsculas** — por exemplo, `Home_City` e `home_city` são dois atributos diferentes. Quando você envia dados pela [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou por um SDK, a Braze **remove espaços iniciais e finais** dos nomes de atributos, então `greeting` e ` greeting ` são resolvidos para a mesma chave. Use a mesma ortografia e capitalização em todos os lugares onde você referencia um atributo — em **Data Settings** > **Custom Attributes**, cargas úteis de API e SDK e importações de CSV. Para saber como a Braze converte valores recebidos quando você [força um tipo de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion), consulte [Gerenciando dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
+**Os nomes são correspondências exatas.** As chaves de atributos personalizados são **sensíveis a maiúsculas e minúsculas** — por exemplo, `Home_City` e `home_city` são dois atributos diferentes. Quando você envia dados pela [REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou por um SDK or kit de desenvolvimento de software, a Braze **remove espaços iniciais e finais** dos nomes de atributos, então `greeting` e ` greeting ` são resolvidos para a mesma chave. Use a mesma ortografia e capitalização em todos os lugares onde você referencia um atributo — em **Data Settings** > **Custom Attributes**, cargas úteis de API or interface de programação do aplicativo (API) e SDK or kit de desenvolvimento de software e importações de CSV. Para saber como a Braze converte valores recebidos quando você [força um tipo de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion), consulte [Gerenciando dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 {% endalert %}
 
 ## Casos de uso {#use-cases}
@@ -68,7 +68,7 @@ Para mais detalhes sobre bloqueio e exclusão de dados personalizados, consulte 
 
 ### Marcar como informação de identificação pessoal (IPI) {#mark-as-personally-identifiable-information-pii}
 
-Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
+Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as IPI".
 
 ### Adicionar descrições {#add-descriptions}
 
@@ -83,7 +83,7 @@ Você pode adicionar tags a um atributo personalizado após sua criação, se ti
 Existem duas maneiras de remover atributos personalizados dos perfis de usuário:
 
 * Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes).
-* Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+* Defina o valor `null` na sua solicitação de API or interface de programação do aplicativo (API) para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Exportar dados {#export-data}
 
@@ -93,12 +93,12 @@ Para exportar a lista de atributos personalizados como um arquivo CSV, selecione
 
 ### Pré-requisitos {#prerequisites}
 
-O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou Segment ativo. Se você tentar alterar o tipo de dados enquanto o atributo ainda estiver referenciado, o dashboard exibirá um erro e bloqueará a alteração.
+O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou Segment or segmento ativo. Se você tentar alterar o tipo de dados enquanto o atributo ainda estiver referenciado, o dashboard exibirá um erro e bloqueará a alteração.
 
 ### Alterando o tipo de dados {#changing-the-data-type}
 
 1. Interrompa qualquer Campaign ou Canvas ativo que use o atributo em Segments ou filtros.
-2. Remova o atributo de todos os filtros de Segment, Campaign e Canvas.
+2. Remova o atributo de todos os filtros de Segment or segmento, Campaign e Canvas.
 3. Acesse **Configurações de Dados** > **Atributos Personalizados** (ou **Eventos Personalizados**), encontre o atributo e atualize-o para o tipo de dados desejado.
 4. Atualize os valores do atributo nos perfis de usuário existentes para que correspondam ao novo tipo de dados (por exemplo, usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
 5. Reaplique o atributo aos Segments, Campaigns e Canvas relevantes e, em seguida, reative qualquer Campaign ou Canvas interrompido.
@@ -106,7 +106,7 @@ O atributo personalizado não pode estar em uso em nenhuma Campaign, Canvas ou S
 ### O que saber {#things-to-know}
 
 - **Os dados de usuários não são atualizados retroativamente.** Se um perfil de usuário tinha o atributo com o tipo de dados antigo, esse valor permanece inalterado. O filtro de segmentação procura o novo tipo de dados, então os usuários com o valor antigo são excluídos dos Segments correspondentes até que seus perfis sejam atualizados.
-- **Novos dados devem corresponder ao novo tipo de dados.** Após a alteração, chamadas de API ou eventos do SDK que enviem o tipo de dados anterior para esse atributo não serão aceitos. Somente valores correspondentes ao novo tipo de dados são ingeridos.
+- **Novos dados devem corresponder ao novo tipo de dados.** Após a alteração, chamadas de API or interface de programação do aplicativo (API) ou eventos do SDK or kit de desenvolvimento de software que enviem o tipo de dados anterior para esse atributo não serão aceitos. Somente valores correspondentes ao novo tipo de dados são ingeridos.
 - **Os filtros não são atualizados automaticamente.** Segments e filtros de Campaign que fazem referência ao atributo alterado não são atualizados retroativamente. Você deve removê-los e adicioná-los novamente após a alteração.
 
 ## Ver relatórios de uso {#view-usage-reports}

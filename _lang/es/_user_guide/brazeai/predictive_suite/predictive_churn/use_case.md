@@ -9,7 +9,7 @@ page_type: tutorial
 
 > Este ejemplo muestra cómo una marca ficticia utiliza Predictive Churn para reducir de forma proactiva el abandono de usuarios. En lugar de esperar a que se produzca el abandono, predice qué usuarios están en riesgo y entrega mensajes personalizados mientras aún están activos.
 
-Supongamos que Camila es administradora de CRM en MovieCanon, una plataforma de streaming de películas independientes, documentales y series internacionales.
+Supongamos que Camila es administradora de CRM or administración de las relaciones con el cliente en MovieCanon, una plataforma de streaming de películas independientes, documentales y series internacionales.
 
 El equipo de Camila ha detectado una tendencia preocupante: los usuarios se registran, ven una o dos películas y luego desaparecen. Históricamente, han intentado enviar un correo electrónico genérico con el mensaje «Te echamos de menos» una semana después, pero con una tasa de conversión del 3 %, es demasiado poco y demasiado tarde. La mayoría de los usuarios no vuelven a interactuar, y el abandono se vuelve inevitable.
 

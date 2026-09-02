@@ -14,7 +14,7 @@ Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstelle
 
 ## So funktioniert es {#how-it-works}
 
-1. Definieren Sie Ihre Nachricht, indem Sie entweder eine API-getriggerte Campaign oder ein Canvas im Braze-Dashboard erstellen, oder definieren Sie den Nachrichteninhalt vollständig inline mithilfe der [Messaging-Objekte]({{site.baseurl}}/api/objects_filters#messaging-objects) in Ihrer API-Anfrage. Verwenden Sie [Trigger-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object) oder [Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) für dynamische Personalisierung.
+1. Definieren Sie Ihre Nachricht, indem Sie entweder eine API-getriggerte Campaign oder ein Canvas im Braze-Dashboard erstellen, oder definieren Sie den Nachrichteninhalt vollständig inline mithilfe der [Messaging-Objekte]({{site.baseurl}}/api/objects_filters#messaging-objects) in Ihrer API-Anfrage. Verwenden Sie [Trigger or triggern-Eigenschaften]({{site.baseurl}}/api/objects_filters/trigger_properties_object) oder [Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) für dynamische Personalisierung.
 2. Rufen Sie einen unterstützten Endpunkt auf und fügen Sie Ihre Connected-Audience-Filter im Parameter `audience` ein, oder in `custom_audience` für `/messages/live_activity/start`. Sie können nach angepassten Attributen, Push-Abo-Status, E-Mail-Abo-Status und letzter App-Nutzungszeit filtern.
 3. Braze wertet die Filter zum Sendezeitpunkt aus und stellt die Nachricht nur an Nutzer:innen zu, die Ihren Kriterien entsprechen.
 
@@ -22,7 +22,7 @@ Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstelle
 Eine `campaign_id` ist nicht erforderlich, wenn Sie den Parameter `audience` verwenden. Die Endpunkte [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) und [`/messages/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages) ermöglichen es Ihnen, Nachrichteninhalte inline zu definieren, ohne eine vorab erstellte Campaign. Wenn Sie jedoch Campaign-bezogene Metriken (wie Sends, Klicks oder Bounces) im Dashboard verfolgen möchten, fügen Sie eine `campaign_id` hinzu.
 {% endalert %}
 
-Da die Zielgruppe pro Anfrage definiert wird, können Ihre Backend-Systeme kontextuell relevante Nachrichten als Reaktion auf jedes Geschäftsereignis (eine Preisänderung, eine Wetterwarnung, ein Live-Ergebnis-Update) auslösen – ohne Eingriff über das Dashboard.
+Da die Zielgruppe pro Anfrage definiert wird, können Ihre Backend-Systeme kontextuell relevante Nachrichten als Reaktion auf jedes Geschäftsereignis (eine Preisänderung, eine Wetterwarnung, ein Live-Ergebnis-Update or aktualisieren) auslösen – ohne Eingriff über das Dashboard.
 
 ### Kompatible Endpunkte {#compatible-endpoints}
 

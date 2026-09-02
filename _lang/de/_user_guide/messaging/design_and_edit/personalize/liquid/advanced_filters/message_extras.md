@@ -34,7 +34,7 @@ E-Mail-Extras senden Metadaten an E-Mail-Anbieter und werden nicht in Currents o
 
 ## Unterstützte Kanäle {#supported-channels}
 
-Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis sowie für In-App-Nachricht-Impression-Ereignisse unterstützt. Die Verwendung von `message_extras` mit In-App Messages erfordert bestimmte [SDK-Mindestversionen](#iam-sdk).
+Der `message_extras`-Tag wird für alle Nachrichtentypen mit einem Sendeereignis sowie für In-App-Nachricht-Impression-Ereignisse unterstützt. Die Verwendung von `message_extras` mit In-App Messages erfordert bestimmte [SDK or Software-Development-Kit-Mindestversionen](#iam-sdk).
 
 ## So verwenden Sie den `message_extras`-Tag {#how-to-use-the-message_extras-tag}
 
@@ -82,6 +82,6 @@ Eine `dispatch_id` wird generiert und in Ihren Sendeereignissen bereitgestellt. 
 
 #### Kann ich message_extras mit In-App-Nachrichten verwenden? {#iam-sdk}
 
-Ja, Sie können `message_extras` in Ihren In-App-Nachrichten verwenden, sofern die Geräte Ihrer Nutzer:innen die folgenden Mindest-SDK-Versionen aufweisen:
+Ja, Sie können `message_extras` in Ihren In-App-Nachrichten verwenden, sofern die Geräte Ihrer Nutzer:innen die folgenden Mindest-SDK or Software-Development-Kit-Versionen aufweisen:
 
 {% sdk_min_versions web:5.2.0 android:30.4.0 swift:8.4.0 %}

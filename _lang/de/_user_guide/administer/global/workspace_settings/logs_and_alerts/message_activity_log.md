@@ -28,13 +28,13 @@ Sie können nach den folgenden Inhalten filtern, die im **Nachrichten-Aktivität
 - E-Mail-Fehler
 - API-Nachrichtendatensätze
 - Connected-Content-Fehler
-- REST-API-Connected-Audience-Fehler
+- Representational State Transfer-API-Connected-Audience-Fehler
 - User-Aliasing-Fehler
 - A/B-Test-Fehler
-- SMS/MMS-Fehler
+- Kurzmitteilungsdienst or SMS/MMS-Fehler
 - WhatsApp-Fehler
 - Live-Activity-Fehler
-- Fehler bei fehlerhaften Nutzer-Triggern
+- Fehler bei fehlerhaften Nutzer-Trigger or triggern or triggern
 - Braze-Agents-Fehler bei [täglichem Aufruf-Limit]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#monitor-your-agent)
 - Braze-Agents-Fehler bei nicht verfügbarem [Modell]({{site.baseurl}}/user_guide/brazeai/agents/reference#models)
 
@@ -63,7 +63,7 @@ Die folgenden Nachrichten dienen als Beispiele und stimmen möglicherweise nicht
 |---|---|---|
 | Soft Bounce | The email address same@example.com soft bounced. | Die E-Mail-Adresse war gültig und die E-Mail-Nachricht erreichte den Mailserver des Empfängers, wurde jedoch wegen eines „vorübergehenden“ Problems abgelehnt. <br><br>Häufige Gründe für einen Soft Bounce sind: {::nomarkdown} <ul> <li> Das Postfach war voll (die Nutzer:innen haben ihr Kontingent überschritten) </li> <li> Der Server war nicht erreichbar </li> <li> Die Nachricht war zu groß für den Posteingang des Empfängers </li>  </ul> {:/} Wenn eine E-Mail einen Soft Bounce erhalten hat, wird in der Regel innerhalb von 72 Stunden ein erneuter Zustellversuch unternommen, aber die Anzahl der Wiederholungsversuche variiert je nach Empfänger. |
 | Hard Bounce | The email account that you tried to reach does not exist. Try double-checking the recipient's email address for typos or unnecessary spaces. | Ihre Nachricht hat den Posteingang dieser Person nie erreicht, da kein Posteingang vorhanden war. Wenn Sie tiefer nachforschen möchten, können solche Nachrichten manchmal Links in der Spalte **View Details** enthalten, über die Sie das Profil des beabsichtigten Empfängers einsehen können. |
-| Block | Spam message is rejected because of anti-spam policy. | Ihre Nachricht wurde als Spam eingestuft. Dieser E-Mail-Fehler wird für Nutzer:innen protokolliert, wenn wir vom ESP ein Ereignis erhalten haben, das darauf hinweist, dass die E-Mail verworfen wurde. Es könnte sich nur auf die beabsichtigten Empfänger:innen beziehen, aber wenn Sie diese Nachricht häufig sehen, sollten Sie Ihre Versandgewohnheiten oder den Inhalt Ihrer Nachricht überdenken. Denken Sie auch daran – haben Sie Ihre [IP aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)? Falls nicht, kontaktieren Sie Braze für eine Beratung, um dies in Gang zu bringen. |
+| Block | Spam message is rejected because of anti-spam policy. | Ihre Nachricht wurde als Spam eingestuft. Dieser E-Mail-Fehler wird für Nutzer:innen protokolliert, wenn wir vom E-Mail-Anbieter or ESP ein Ereignis erhalten haben, das darauf hinweist, dass die E-Mail verworfen wurde. Es könnte sich nur auf die beabsichtigten Empfänger:innen beziehen, aber wenn Sie diese Nachricht häufig sehen, sollten Sie Ihre Versandgewohnheiten oder den Inhalt Ihrer Nachricht überdenken. Denken Sie auch daran – haben Sie Ihre [IP aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)? Falls nicht, kontaktieren Sie Braze für eine Beratung, um dies in Gang zu bringen. |
 | Aborted Message Error | {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %} | Wenn ein Versand durch ein Liquid-Tag `abort_message` abgebrochen wird, zeigt die Spalte **Message** das genaue Liquid-Snippet an, das aufgerufen wurde. Andere **Aborted Message Error**-Einträge können unterschiedliche Nachrichten enthalten, die den Abbruchgrund beschreiben. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Häufige Nachrichten" }
 
@@ -73,7 +73,7 @@ Die Nachrichten im Message Activity Log können aus verschiedenen Quellen stamme
 
 Einige mögliche „Block“-Nachrichten könnten zum Beispiel zusätzlich zu der in der obigen Tabelle aufgeführten sein:
 
-- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your Internet Service provider since part of their network is on our block list.
+- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your ISP or Internet-Provider or Internet-Provider since part of their network is on our block list.
 - Message rejected due to local policy.
 - The message was blocked by the receiver as spam.
 - Service unavailable, Client host [_IP_ADDRESS_] blocked using Spamhaus.
@@ -89,15 +89,15 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
     - Connected-Content-Fehler
     - Abort-Message-Fehler
     - Webhook-Fehler
-    - SMS-Ablehnungsfehler
-    - SMS-Zustellungsfehler
+    - Kurzmitteilungsdienst or SMS-Ablehnungsfehler
+    - Kurzmitteilungsdienst or SMS-Zustellungsfehler
     - WhatsApp-Fehler
     - A/B-Test-Fehler
 - Bis zu 20 Push-Benachrichtigungs-Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt und dieselbe App-Kombination für die folgenden Fehlertypen gespeichert:
     - Ungültige Push-Anmeldedaten
-    - Ungültiges Push-Token
+    - Ungültiges Push-Token / Textbaustein
     - Keine Push-Anmeldedaten
-    - Token-Fehler
+    - Token / Textbaustein-Fehler
     - Kontingent überschritten
     - Zeitüberschreitung bei Wiederholungsversuchen
     - Ungültige Nutzlast
@@ -106,7 +106,7 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
     - Live-Activity-Fehler (Keine Push-Anmeldedaten)
     - Live-Activity-Fehler (Ungültige Push-Anmeldedaten)
     - Sonstige Live-Activity-Fehler
-    - APNS-Feedback-Removed-Token-Fehler
+    - APNS-Feedback-Removed-Token / Textbaustein-Fehler
 - Bis zu 100 Fehlerprotokolle desselben Fehlertyps werden für dieselbe Campaign oder denselben Canvas-Schritt innerhalb einer festen Taktungsstunde für die folgenden Fehlertypen gespeichert:
     - E-Mail-Soft-Bounce-Fehler
     - E-Mail-Hard-Bounce-Fehler
@@ -117,7 +117,7 @@ Die Anzahl der gespeicherten Protokolle wird von mehreren Bedingungen beeinfluss
 
 Das **Nachrichtenaktivitätsprotokoll** zeigt Testprotokolle für diese Messaging-Kanäle:
 
-- SMS
+- Kurzmitteilungsdienst or SMS
 - WhatsApp
 - LINE
 - KakaoTalk

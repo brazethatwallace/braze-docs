@@ -26,7 +26,7 @@ El depurador de contenido conectado está disponible para las siguientes áreas:
     - Excluye pies de página y páginas de suscripción
 - Mensajes dentro de la aplicación
 - Notificaciones push
-- SMS/MMS/RCS
+- servicio de mensajes cortos/MMS/RCS
 - Webhooks
     - Incluye plantillas
 - WhatsApp
@@ -40,7 +40,7 @@ El depurador está disponible para la mayoría de los canales, pero aún no para
 Cada vez que ejecutas una vista previa, Braze renderiza automáticamente los resultados de la llamada de contenido conectado en la pestaña **Vista previa**. Para usar el depurador:
 
 1. Configura tu mensaje con la etiqueta {% raw %}`{% connected_content %}`{% endraw %}.
-2. Ve a la sección **Preview & Test**. Si tu mensaje incluye una etiqueta de contenido conectado, puedes ver un resumen con el número de llamadas de contenido conectado y los estados de éxito y error.
+2. Ve a la sección **vista previa & Test**. Si tu mensaje incluye una etiqueta de contenido conectado, puedes ver un resumen con el número de llamadas de contenido conectado y los estados de éxito y error.
 
 ![Sección de contenido conectado en la sección de pruebas.]({% image_buster /assets/img/connected_content/debugger1.png %})
 
@@ -57,7 +57,7 @@ Cada vez que ejecutas una vista previa, Braze renderiza automáticamente los res
 {:start="5"}
 5. Revisa los resultados, ajusta tu etiqueta, encabezados o endpoint según sea necesario. Luego, genera una nueva vista previa para confirmar la corrección.
 
-Si tu plantilla contiene más de una etiqueta {% raw %}`{% connected_content %}`{% endraw %}, el depurador enumera cada llamada que se realizó. Para canales que renderizan múltiples cuerpos de mensaje a partir de una sola plantilla (por ejemplo, correo electrónico, que renderiza cuerpos separados de HTML, texto plano y AMP, o Quick Push, que renderiza cuerpos separados específicos para cada dispositivo), el depurador muestra cada llamada de contenido conectado realizada en todos los cuerpos, no solo en el que estás previsualizando activamente.
+Si tu plantilla contiene más de una etiqueta {% raw %}`{% connected_content %}`{% endraw %}, el depurador enumera cada llamada que se realizó. Para canales que renderizan múltiples cuerpos de mensaje a partir de una sola plantilla (por ejemplo, correo electrónico, que renderiza cuerpos separados de HTML, texto plano y páginas móviles aceleradas, o Quick Push, que renderiza cuerpos separados específicos para cada dispositivo), el depurador muestra cada llamada de contenido conectado realizada en todos los cuerpos, no solo en el que estás previsualizando activamente.
 
 ## Comprender la salida de depuración {#understand-the-debug-output}
 
@@ -101,7 +101,7 @@ Para enviar un `User-Agent` consistente, configúralo en `:headers`. Braze usa t
 
 ## Redacción de credenciales {#credential-redaction}
 
-Si tu etiqueta de contenido conectado utiliza `:basic_auth`, encabezados secretos comunes, claves u otras [opciones de credenciales de autenticación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types), el depurador redacta esos valores en la pestaña **Request** y los reemplaza con una serie de asteriscos (*). Esto te permite confirmar que las credenciales se incluyeron en la solicitud sin exponer los valores en **Preview & Test**.
+Si tu etiqueta de contenido conectado utiliza `:basic_auth`, encabezados secretos comunes, claves u otras [opciones de credenciales de autenticación]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types), el depurador redacta esos valores en la pestaña **Request** y los reemplaza con una serie de asteriscos (*). Esto te permite confirmar que las credenciales se incluyeron en la solicitud sin exponer los valores en **vista previa & Test**.
 
 Los errores de autenticación siguen siendo visibles incluso cuando las credenciales están redactadas: si tu endpoint devuelve un `401` o `403`, ese código de estado aparece normalmente en la pestaña **Response**, de modo que puedes saber que tu solicitud fue rechazada por autenticación aunque la credencial en sí esté oculta.
 

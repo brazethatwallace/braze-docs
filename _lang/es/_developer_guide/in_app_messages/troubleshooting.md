@@ -1,8 +1,8 @@
 ---
 nav_title: Solución de problemas
-article_title: Solución de problemas de mensajes dentro de la aplicación para el SDK de Braze
+article_title: Solución de problemas de mensajes dentro de la aplicación para el SDK or kit de desarrollo de software de Braze
 page_order: 50
-description: "Diagnostica por qué los mensajes dentro de la aplicación no se entregan o no se muestran utilizando un índice de síntomas, una ruta de investigación estándar, notas sobre Canvas e IAM, y comprobaciones específicas del SDK por plataforma."
+description: "Diagnostica por qué los mensajes dentro de la aplicación no se entregan o no se muestran utilizando un índice de síntomas, una ruta de investigación estándar, notas sobre Canvas e IAM, y comprobaciones específicas del SDK or kit de desarrollo de software por plataforma."
 channel:
   - in-app messages
 
@@ -34,7 +34,7 @@ Antes de depurar, añádete como [usuario de prueba]({{site.baseurl}}/user_guide
 Usa este flujo de trabajo para cada incidente. Comienza en el paso 1.
 
 1. Confirma que se registra un **inicio de sesión** para el dispositivo de prueba. Los mensajes dentro de la aplicación se solicitan al inicio de sesión.
-2. Abre los [registros de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) y busca la solicitud del SDK para ese inicio de sesión. En **Response Data**:
+2. Abre los [registros de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) y busca la solicitud del SDK or kit de desarrollo de software para ese inicio de sesión. En **Response Data**:
    - En el JSON sin procesar, confirma que `respond_with` incluye `"triggers": true`.
    - La fila **Requested Responses** debe incluir **`triggers`**.
    - Las filas **Trigger In-App Message** enumeran cada mensaje dentro de la aplicación devuelto para esa solicitud.
@@ -43,7 +43,7 @@ Usa este flujo de trabajo para cada incidente. Comienza en el paso 1.
    - Si hay filas **Trigger In-App Message** pero nada se muestra, ve a [Solución de problemas de visualización específica por plataforma](#platform-specific-display-troubleshooting).
    - Cada carga útil de desencadenante incluye un `type`: `inapp` (estándar) o `templated_iam` (requiere una solicitud de plantilla antes de mostrarse). Consulta [Tipos de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages).
 3. Para la elegibilidad del lado del panel (Segment, reelegibilidad, límites de frecuencia, prioridad, grupos de control), consulta [Solución de problemas de entrega](#delivery-troubleshooting) y las [preguntas frecuentes sobre mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
-4. Para problemas de visualización del lado del dispositivo (delegados, límites de velocidad, orientación, tiempo de espera de sesión), selecciona la pestaña de tu SDK en [Solución de problemas de visualización específica por plataforma](#platform-specific-display-troubleshooting).
+4. Para problemas de visualización del lado del dispositivo (delegados, límites de velocidad, orientación, tiempo de espera de sesión), selecciona la pestaña de tu SDK or kit de desarrollo de software en [Solución de problemas de visualización específica por plataforma](#platform-specific-display-troubleshooting).
 
 ## Mensajes dentro de la aplicación en Canvas {#canvas-in-app-messages}
 
@@ -53,12 +53,12 @@ Tres comportamientos generan la mayoría de los tickets de Canvas y mensajes den
 
 1. **Visualización en la siguiente sesión:** Los mensajes dentro de la aplicación en Canvas son elegibles en el *siguiente* inicio de sesión después de que se procese el paso, no inmediatamente a mitad de sesión. Consulta [¿Cuándo se envían los mensajes dentro de la aplicación en Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) en las preguntas frecuentes de Canvas.
 2. **Validaciones de entrega en la entrada del paso:** Si **Validar audiencia al enviar el mensaje** está habilitado en el paso de mensaje, la pertenencia al Segment y los límites de frecuencia se evalúan cuando el usuario **entra en el paso**, no en el momento de la visualización. Consulta [Validaciones de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
-3. **Retraso y tiempo de espera de sesión:** Si un usuario entra en un paso de retraso más largo que el tiempo de espera de sesión de tu SDK, puede iniciar una nueva sesión antes del paso de mensaje dentro de la aplicación. Es posible que el mensaje no se obtenga en el inicio de sesión cuando esperas que se muestre.
+3. **Retraso y tiempo de espera de sesión:** Si un usuario entra en un paso de retraso más largo que el tiempo de espera de sesión de tu SDK or kit de desarrollo de software, puede iniciar una nueva sesión antes del paso de mensaje dentro de la aplicación. Es posible que el mensaje no se obtenga en el inicio de sesión cuando esperas que se muestre.
 
 Para ventanas de disponibilidad, expiración y cero _Envíos_ en los análisis de Canvas, consulta [Mensajes dentro de la aplicación y entrega]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery) en las preguntas frecuentes de Canvas.
 
 {% alert important %}
-Los mensajes dentro de la aplicación en Canvas solo pueden ser desencadenados por eventos enviados a través del SDK, no por la REST API.
+Los mensajes dentro de la aplicación en Canvas solo pueden ser desencadenados por eventos enviados a través del SDK or kit de desarrollo de software, no por la REST or transferencia de estado representacional API.
 {% endalert %}
 
 ## El mensaje dentro de la aplicación no se mostró para un usuario {#in-app-message-not-shown-for-one-user}
@@ -67,7 +67,7 @@ Los mensajes dentro de la aplicación en Canvas solo pueden ser desencadenados p
 
 Comprueba lo siguiente:
 
-- ¿Estaba el usuario en el Segment al **inicio de sesión**, cuando el SDK solicita nuevos mensajes dentro de la aplicación?
+- ¿Estaba el usuario en el Segment al **inicio de sesión**, cuando el SDK or kit de desarrollo de software solicita nuevos mensajes dentro de la aplicación?
 - ¿Era el usuario elegible o reelegible según las reglas de segmentación de la campaña o Canvas? Consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 - ¿Se aplicó un [límite de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)?
 - ¿Estaba el usuario en un grupo de control de la campaña? Comprueba si la campaña está configurada para pruebas A/B.
@@ -84,9 +84,9 @@ Luego sigue la [ruta de investigación estándar](#standard-investigation-path).
 | Causa probable | Qué comprobar |
 | --- | --- |
 | Objetivo de **Send To** incorrecto | Confirma que la campaña o el paso de Canvas apunta a **Mobile Apps** o **Web Browsers** según corresponda. Una campaña solo para Web no se enviará a dispositivos Android. |
-| Una UI personalizada o un controlador suprime la visualización | Revisa los delegados (móvil) o [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Consulta [Personalización]({{site.baseurl}}/developer_guide/in_app_messages/customization) y la pestaña de tu SDK para tu plataforma. |
+| Una UI personalizada o un controlador suprime la visualización | Revisa los delegados (móvil) o [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Consulta [Personalización]({{site.baseurl}}/developer_guide/in_app_messages/customization) y la pestaña de tu SDK or kit de desarrollo de software para tu plataforma. |
 | La integración nunca funcionó en esta plataforma | Confirma que esta plataforma y versión de la aplicación han mostrado mensajes dentro de la aplicación anteriormente. |
-| El desencadenante no se activó en el dispositivo | El desencadenante debe ocurrir localmente a través del SDK. Una llamada a la REST API no puede desencadenar un mensaje dentro de la aplicación en el SDK. Consulta [Desencadenar mensajes]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
+| El desencadenante no se activó en el dispositivo | El desencadenante debe ocurrir localmente a través del SDK or kit de desarrollo de software. Una llamada a la REST or transferencia de estado representacional API no puede desencadenar un mensaje dentro de la aplicación en el SDK or kit de desarrollo de software. Consulta [Desencadenar mensajes]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
 | `triggers` vacíos en los registros de eventos de usuario | Segment, reelegibilidad, límite de frecuencia o grupo de control. Consulta [Solución de problemas de mensajes no devueltos](#troubleshoot-messages-not-being-returned). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Causa del síntoma por plataforma" }
 
@@ -98,7 +98,7 @@ Comprueba lo siguiente:
 
 - ¿Está la acción desencadenante configurada correctamente en el panel y en la integración de la aplicación?
 - ¿Interceptó un mensaje dentro de la aplicación de mayor prioridad la campaña? Consulta las [preguntas frecuentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session).
-- ¿Estás usando una versión reciente del SDK? Algunos tipos de mensajes dentro de la aplicación tienen requisitos mínimos de SDK.
+- ¿Estás usando una versión reciente del SDK or kit de desarrollo de software? Algunos tipos de mensajes dentro de la aplicación tienen requisitos mínimos de SDK or kit de desarrollo de software.
 - ¿Están las sesiones integradas correctamente? Confirma que los análisis de sesión funcionan para esta aplicación.
 - ¿Está una biblioteca de UI personalizada interfiriendo con la visualización? Consulta [Personalización]({{site.baseurl}}/developer_guide/in_app_messages/customization).
 
@@ -115,7 +115,7 @@ Causas comunes:
 - **Retraso planificado en el panel:** Confirma si hay un retraso configurado en la campaña o el paso.
 - **Condiciones de carrera en la sincronización de desencadenantes:** Si los usuarios registran un evento inmediatamente después del inicio de sesión, es posible que los desencadenantes aún no se hayan sincronizado. Considera desencadenar a partir del inicio de sesión y segmentar por el evento deseado para que la entrega ocurra en la siguiente sesión después del evento.
 - **Mensajes dentro de la aplicación secuenciales:** Si estás aplazando o restaurando mensajes en un recorrido, consulta [Aplazar mensajes dentro de la aplicación desencadenados]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- **Activos grandes o CDN lento:** Optimiza las imágenes y el video para mensajes dentro de la aplicación HTML. En dispositivos móviles, las imágenes pueden descargarse antes de mostrarse en redes lentas; selecciona la pestaña de tu SDK para notas específicas de la plataforma.
+- **Activos grandes o CDN lento:** Optimiza las imágenes y el video para mensajes dentro de la aplicación HTML. En dispositivos móviles, las imágenes pueden descargarse antes de mostrarse en redes lentas; selecciona la pestaña de tu SDK or kit de desarrollo de software para notas específicas de la plataforma.
 
 {% alert note %}
 Si tu mensaje dentro de la aplicación se desencadena por el inicio de sesión y has configurado un tiempo de espera de sesión extendido, cerrar y volver a abrir la aplicación dentro de esa ventana no actualizará la sesión. Por ejemplo, con un tiempo de espera de 300 segundos, un mensaje dentro de la aplicación desencadenado por inicio de sesión no se mostrará hasta que la sesión se actualice realmente. Ajusta el tiempo de espera de sesión o el tipo de desencadenante si esto afecta tu prueba.
@@ -127,14 +127,14 @@ La mayoría de los problemas con mensajes dentro de la aplicación son de **entr
 
 ### Solución de problemas de entrega {#troubleshooting-in-app-message-delivery}
 
-El SDK solicita mensajes dentro de la aplicación a los servidores de Braze al inicio de sesión. Confirma que el SDK está solicitando desencadenantes y que Braze los está devolviendo.
+El SDK or kit de desarrollo de software solicita mensajes dentro de la aplicación a los servidores de Braze al inicio de sesión. Confirma que el SDK or kit de desarrollo de software está solicitando desencadenantes y que Braze los está devolviendo.
 
 #### Comprueba si los mensajes se solicitan y se devuelven {#check-if-messages-are-requested-and-returned}
 
 1. Añádete como [usuario de prueba]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users).
 2. Configura una campaña de mensaje dentro de la aplicación dirigida a tu usuario.
 3. Inicia una nueva sesión en tu aplicación.
-4. En los [registros de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log), busca la solicitud del SDK para el evento de inicio de sesión. En **Response Data**:
+4. En los [registros de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log), busca la solicitud del SDK or kit de desarrollo de software para el evento de inicio de sesión. En **Response Data**:
    - En el JSON sin procesar, confirma que `respond_with` incluye `"triggers": true`.
    - La fila **Requested Responses** enumera las claves de nivel superior en la respuesta. Para mensajes dentro de la aplicación, espera **`triggers`**.
    - Las filas **Trigger In-App Message** enumeran cada mensaje dentro de la aplicación devuelto para esa solicitud.
@@ -146,13 +146,13 @@ El SDK solicita mensajes dentro de la aplicación a los servidores de Braze al i
    - Cada carga útil de desencadenante incluye un `type`: `inapp` (estándar) o `templated_iam` (requiere una solicitud de plantilla antes de mostrarse). Consulta [Tipos de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages).
 5. Confirma que los mensajes dentro de la aplicación correctos aparecen en los datos de respuesta.
 
-![Registro de eventos de usuario con solicitudes del SDK y datos de respuesta.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+![Registro de eventos de usuario con solicitudes del SDK or kit de desarrollo de software y datos de respuesta.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 ##### Solución de problemas de mensajes no solicitados {#troubleshoot-messages-not-being-requested}
 
 Si los mensajes dentro de la aplicación no se están solicitando, es posible que tu aplicación no esté rastreando las sesiones correctamente; los mensajes dentro de la aplicación se actualizan al inicio de sesión. Confirma que la aplicación está iniciando una sesión según la semántica de tiempo de espera de sesión:
 
-![La solicitud del SDK encontrada en los registros de eventos de usuario mostrando un evento de inicio de sesión exitoso.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
+![La solicitud del SDK or kit de desarrollo de software encontrada en los registros de eventos de usuario mostrando un evento de inicio de sesión exitoso.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
 
 ##### Solución de problemas de mensajes no devueltos {#troubleshoot-messages-not-being-returned}
 
@@ -180,7 +180,7 @@ Para campañas archivadas, configuración de desencadenantes y horas tranquilas,
 
 ![Enlace para ver el registro de cambios en la página de detalles de la campaña con siete cambios desde la última vez que el usuario vio la campaña.]({% image_buster /assets/img_archive/trouble4.png %})
 
-Si usas un delegado o un controlador personalizado para mostrar mensajes dentro de la aplicación manualmente, debes registrar las impresiones y los clics tú mismo. Consulta la pestaña de tu SDK en [Solución de problemas de visualización específica por plataforma](#platform-specific-display-troubleshooting) para detalles de Swift y Android, o [Registrar datos de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) para Web.
+Si usas un delegado o un controlador personalizado para mostrar mensajes dentro de la aplicación manualmente, debes registrar las impresiones y los clics tú mismo. Consulta la pestaña de tu SDK or kit de desarrollo de software en [Solución de problemas de visualización específica por plataforma](#platform-specific-display-troubleshooting) para detalles de Swift y Android, o [Registrar datos de mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/logging_message_data) para Web.
 
 ## Configuración de enlace no válida {#invalid-link-setup}
 
@@ -193,12 +193,12 @@ Comprueba lo siguiente:
 - Cambia temporalmente el comportamiento al hacer clic a **Cerrar mensaje**. Si el mensaje se muestra correctamente, es probable que la URL del enlace esté causando el problema.
 - Revisa la configuración de enlaces para tu editor y tipo de mensaje:
   - **HTML personalizado:** [Solución de problemas de enlaces HTML personalizados y comportamiento de cierre]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#troubleshoot-custom-html-links-and-close-behavior)
-  - **Arrastrar y soltar:** [Enlaces y vínculos profundos]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) en las preguntas frecuentes de In-App Messages y [requisitos mínimos de SDK para enlaces de texto]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
+  - **Arrastrar y soltar:** [Enlaces y vínculos profundos]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-should-i-know-when-customizing-drag-and-drop-in-app-messages) en las preguntas frecuentes de In-App Messages y [requisitos mínimos de SDK or kit de desarrollo de software para enlaces de texto]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#more-information-on-minimum-sdks)
   - **Mensajes con botones:** [Personalizar mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/customization) para tu plataforma
 
 ## Solución de problemas de visualización específica por plataforma {#platform-specific-display-troubleshooting}
 
-Si aparecen filas **Trigger In-App Message** en los registros de eventos de usuario pero nada se muestra en el dispositivo, selecciona la pestaña de tu SDK para comprobaciones de visualización (delegados, límites de velocidad, orientación y controladores personalizados).
+Si aparecen filas **Trigger In-App Message** en los registros de eventos de usuario pero nada se muestra en el dispositivo, selecciona la pestaña de tu SDK or kit de desarrollo de software para comprobaciones de visualización (delegados, límites de velocidad, orientación y controladores personalizados).
 
 {% sdktabs %}
 {% sdktab web %}

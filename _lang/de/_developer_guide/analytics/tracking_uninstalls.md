@@ -1,14 +1,14 @@
 ---
 nav_title: Uninstall-Tracking
-article_title: Deinstallationen über das Braze SDK verfolgen
+article_title: Deinstallationen über das Braze SDK or Software-Development-Kit verfolgen
 page_order: 3.5
-description: "Erfahren Sie, wie Sie das Uninstall-Tracking über das Braze SDK einrichten."
+description: "Erfahren Sie, wie Sie das Uninstall-Tracking über das Braze SDK or Software-Development-Kit einrichten."
 
 ---
 
 # Uninstall-Tracking {#track-uninstalls}
 
-> Erfahren Sie, wie Sie das Uninstall-Tracking über das Braze SDK einrichten. Allgemeine Informationen finden Sie unter [Benutzerhandbuch: Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
+> Erfahren Sie, wie Sie das Uninstall-Tracking über das Braze SDK or Software-Development-Kit einrichten. Allgemeine Informationen finden Sie unter [Benutzerhandbuch: Uninstall-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
 {% sdktabs %}
 {% sdktab android %}
@@ -16,11 +16,11 @@ description: "Erfahren Sie, wie Sie das Uninstall-Tracking über das Braze SDK e
 
 ### Schritt 1: FCM einrichten {#step-1-set-up-fcm}
 
-Das Android Braze SDK verwendet Firebase Cloud Messaging (FCM), um stille Push-Benachrichtigungen zu versenden, die zum Sammeln von Analytics für das Uninstall-Tracking verwendet werden. Falls noch nicht geschehen, [richten Sie die]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) Firebase Cloud Messaging API für Push-Benachrichtigungen ein oder [migrieren Sie zu dieser]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+Das Android Braze SDK or Software-Development-Kit verwendet Firebase Cloud Messaging (FCM), um stille Push-Benachrichtigungen zu versenden, die zum Sammeln von Analytics für das Uninstall-Tracking verwendet werden. Falls noch nicht geschehen, [richten Sie die]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) Firebase Cloud Messaging API für Push-Benachrichtigungen ein oder [migrieren Sie zu dieser]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
 
 ### Schritt 2: Manuelles Uninstall-Tracking erkennen (optional) {#step-2-manually-detect-uninstall-tracking-optional}
 
-Standardmäßig erkennt und ignoriert das Android Braze SDK automatisch stille Push-Benachrichtigungen im Zusammenhang mit dem Uninstall-Tracking. Sie können das Tracking jedoch auch manuell mit der [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) Methode erkennen.
+Standardmäßig erkennt und ignoriert das Android Braze SDK or Software-Development-Kit automatisch stille Push-Benachrichtigungen im Zusammenhang mit dem Uninstall-Tracking. Sie können das Tracking jedoch auch manuell mit der [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) Methode erkennen.
 
 {% alert important %}
 Da stille Benachrichtigungen für das Uninstall-Tracking nicht an Push-Callbacks von Braze weitergeleitet werden, können Sie diese Methode nur verwenden, bevor Sie eine Push-Benachrichtigung an Braze übergeben.
@@ -49,11 +49,11 @@ Gehen Sie in Ihrem Xcode-Projekt zu **Capabilities** und stellen Sie sicher, das
 
 ### Schritt 2: Interne Push-Benachrichtigungen ignorieren {#step-2-ignore-internal-push-notifications}
 
-Das Swift Braze SDK verwendet Push-Benachrichtigungen im Hintergrund, um Analytics zum Uninstall-Tracking zu sammeln. Stellen Sie sicher, dass Ihre App [interne Push-Benachrichtigungen ignoriert]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications), damit sie keine unerwünschten Aktionen durchführt, wenn diese gesendet werden.
+Das Swift Braze SDK or Software-Development-Kit verwendet Push-Benachrichtigungen im Hintergrund, um Analytics zum Uninstall-Tracking zu sammeln. Stellen Sie sicher, dass Ihre App [interne Push-Benachrichtigungen ignoriert]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications), damit sie keine unerwünschten Aktionen durchführt, wenn diese gesendet werden.
 
 ### Schritt 3: Senden Sie einen Push zu Testzwecken (optional) {#step-3-send-a-test-push-optional}
 
-Senden Sie sich als Nächstes eine Test-Push-Benachrichtigung vom Braze-Dashboard aus (keine Sorge&#8212;Ihr Nutzerprofil wird dadurch nicht aktualisiert).
+Senden Sie sich als Nächstes eine Test-Push-Benachrichtigung vom Braze-Dashboard aus (keine Sorge&#8212;Ihr Kundenprofil or Nutzerprofil wird dadurch nicht aktualisiert).
 
 1. Gehen Sie zu **Messaging** > **Campaigns** und erstellen Sie eine Push-Benachrichtigungs-Campaign über die entsprechende Plattform.
 2. Gehen Sie zu **Einstellungen** > **App-Einstellungen** und fügen Sie den Schlüssel `appboy_uninstall_tracking` mit dem entsprechenden Wert `true` hinzu, und markieren Sie dann **Add Content-Available Flag**.

@@ -29,7 +29,7 @@ page_type: reference
 기본 메시지는 단계의 시작점입니다. 각 콘텐츠 구성 요소의 배리언트는 **Content Optimizer 설정** 탭에 정의된 조합에 따라 동적으로 삽입됩니다.
 
 {% alert note %}
-베타 기간 동안 지원되는 채널은 이메일, 푸시 알림, SMS/MMS/RCS입니다.
+베타 기간 동안 지원되는 채널은 이메일, 푸시 알림, 단문 메시지 서비스/MMS/RCS입니다.
 {% endalert %}
 
 {% tabs local %}
@@ -59,9 +59,9 @@ Content Optimizer는 이 배리언트에 지정된 선택된 푸시 플랫폼을
 - 메시지
 
 {% endtab %}
-{% tab SMS/MMS/RCS %}
+{% tab 단문 메시지 서비스/MMS/RCS %}
 
-**메시징 채널** 탭에서 **SMS/MMS/RCS**를 선택하고 기본 메시지를 만드세요. 도움이 필요하면 전용 [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) 섹션을 참고하세요.
+**메시징 채널** 탭에서 **단문 메시지 서비스/MMS/RCS**를 선택하고 기본 메시지를 만드세요. 도움이 필요하면 전용 [단문 메시지 서비스/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) 섹션을 참고하세요.
 
 Content Optimizer는 이 배리언트에 지정된 **콘텐츠** 및 **메시지** 세부 정보를 사용하여 모든 메시지를 발송합니다. 새 디자인으로 시작하거나 이 메시지에 기존 템플릿을 선택할 수 있습니다. 이 단계에서 메시지의 어떤 구성 요소를 최적화할지 고려하세요. 이는 [4단계](#step-4)에서 정의합니다.
 
@@ -84,7 +84,7 @@ Content Optimizer는 이 배리언트에 지정된 **콘텐츠** 및 **메시지
 
 - **이메일:** 단계당 최대 3개의 콘텐츠 구성 요소와 구성 요소당 최대 5개의 배리언트를 추가할 수 있으며, 총 125개의 고유 콘텐츠 조합이 가능합니다.
 - **푸시 알림:** 단계당 최대 2개의 구성 요소와 구성 요소당 최대 5개의 배리언트를 추가할 수 있으며, 총 25개의 고유 콘텐츠 조합이 가능합니다.
-- **SMS/MMS/RCS:** 단계당 최대 2개의 콘텐츠 구성 요소와 구성 요소당 최대 5개의 배리언트를 추가할 수 있으며, 총 25개의 고유 콘텐츠 조합이 가능합니다.
+- **단문 메시지 서비스/MMS/RCS:** 단계당 최대 2개의 콘텐츠 구성 요소와 구성 요소당 최대 5개의 배리언트를 추가할 수 있으며, 총 25개의 고유 콘텐츠 조합이 가능합니다.
 
 **AI 제안 생성**을 사용하면 Braze가 배리언트 아이디어를 생성하기 위해 콘텐츠를 OpenAI로 전송합니다. 발송 시점 트래픽 할당은 OpenAI를 사용하지 않습니다. 어떤 데이터가 전송되고 어떻게 사용되는지에 대한 자세한 내용은 [OpenAI 및 Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer)를 참고하세요.
 
@@ -124,14 +124,14 @@ Content Optimizer는 이 배리언트에 지정된 **콘텐츠** 및 **메시지
 ![푸시 최적화를 위해 콘텐츠 구성 요소를 추가하고 구성하는 옵션을 보여주는 Content Optimizer 설정.]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
 
 {% endtab %}
-{% tab SMS/MMS/RCS %}
+{% tab 단문 메시지 서비스/MMS/RCS %}
 
-구독 그룹과 메시지 유형(해당하는 경우)을 선택한 후 SMS/MMS/RCS에 대해 최적화할 구성 요소를 선택합니다. 지원되는 옵션:
+구독 그룹과 메시지 유형(해당하는 경우)을 선택한 후 단문 메시지 서비스/MMS/RCS에 대해 최적화할 구성 요소를 선택합니다. 지원되는 옵션:
 - 훅
 - 본문
 - CTA
 {% alert note %}
-SMS/MMS/RCS Content Optimizer 단계가 시작된 후에는 구독 그룹이나 메시지 유형을 업데이트할 수 없습니다.
+단문 메시지 서비스/MMS/RCS Content Optimizer 단계가 시작된 후에는 구독 그룹이나 메시지 유형을 업데이트할 수 없습니다.
 {% endalert %}
 선택한 각 구성 요소에 대해 해당 콘텐츠의 대안 버전(배리언트) 세트를 정의합니다. 톤, 구조 또는 콘텐츠가 다른 명확하고 구별되는 배리언트를 사용하세요. 이렇게 하면 Content Optimizer가 최고 성과를 내는 배리언트를 더 효과적으로 식별할 수 있습니다. 다음을 수행할 수 있습니다:
   - 수동으로 직접 배리언트를 작성합니다.
@@ -165,9 +165,9 @@ Canvas가 실행되면 Content Optimizer는 구성 요소 간의 배리언트를
 | 이메일 | 기본 CTA | {% raw %}`{% message_component "Primary CTA" %}`{% endraw %} |
 | 푸시 | 타이틀 | {% raw %}`{% message_component "Title" %}`{% endraw %} |
 | 푸시 | 메시지 | {% raw %}`{% message_component "Message" %}`{% endraw %} |
-| SMS/MMS/RCS | 훅 | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
-| SMS/MMS/RCS | 본문 | {% raw %}`{% message_component "Body" %}`{% endraw %} |
-| SMS/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
+| 단문 메시지 서비스/MMS/RCS | 훅 | {% raw %}`{% message_component "Hook" %}`{% endraw %} |
+| 단문 메시지 서비스/MMS/RCS | 본문 | {% raw %}`{% message_component "Body" %}`{% endraw %} |
+| 단문 메시지 서비스/MMS/RCS | CTA | {% raw %}`{% message_component "CTA" %}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid 참조" }
 
 #### 조합 토큰 {#combination-token}
@@ -238,16 +238,16 @@ Braze는 배리언트를 만들 때 인덱스를 할당하며, 해당 단계의 
 푸시 알림의 경우 **열람**에 대해 최적화할 수 있습니다. 이는 수신자가 푸시 알림을 열도록 유도하는 조합에 최적화합니다. 이 최적화 이벤트를 사용하여 타이틀이나 메시지 카피의 변형을 테스트할 수 있습니다.
 
 {% endtab %}
-{% tab SMS/MMS/RCS %}
+{% tab 단문 메시지 서비스/MMS/RCS %}
 
-SMS 및 MMS 메시지의 경우 **클릭**에 대해 최적화할 수 있습니다. RCS 메시지의 경우 **읽음** 또는 **클릭**에 대해 최적화할 수 있습니다.
+단문 메시지 서비스 및 MMS 메시지의 경우 **클릭**에 대해 최적화할 수 있습니다. RCS 메시지의 경우 **읽음** 또는 **클릭**에 대해 최적화할 수 있습니다.
 
 단계에 최적화할 이벤트가 있으려면:
-- SMS 및 MMS 메시지에는 링크가 포함되어야 합니다.
+- 단문 메시지 서비스 및 MMS 메시지에는 링크가 포함되어야 합니다.
 - RCS 메시지에는 링크 또는 제안된 답장이 포함되어야 합니다.
 
 {% alert note %}
-현재 Content Optimizer를 사용한 RCS 메시징은 SMS 대체를 지원하지 않습니다.
+현재 Content Optimizer를 사용한 RCS 메시징은 단문 메시지 서비스 대체를 지원하지 않습니다.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -290,14 +290,14 @@ Braze는 사용자가 콘텐츠 옵티마이저 단계에 진입할 때 각 사�
 - 테스트 중인 구성 요소
 - 최적화 이벤트
 
-SMS/MMS/RCS 단계의 경우, 구독 그룹과 메시지 유형도 런칭 후에는 변경할 수 없습니다.
+단문 메시지 서비스/MMS/RCS 단계의 경우, 구독 그룹과 메시지 유형도 런칭 후에는 변경할 수 없습니다.
 
 ## 모범 사례 {#best-practices}
 
 - 일반적으로 Content Optimizer 단계에서는 테스트하는 구성 요소가 적은 것보다 많은 것이 좋습니다. 예를 들어, 이메일에서 두 개의 구성 요소를 테스트하는 대신 세 개를 테스트하세요.
 - 최소 10개 이상의 조합을 테스트하면 더 나은 결과를 얻을 수 있습니다.
 - 이메일의 경우, 클릭을 최적화하는 단계가 열람을 최적화하는 단계보다 더 나은 성과를 보이는 경향이 있습니다. 클릭이 사용 사례에 적합하다면 최적화 이벤트로 클릭을 선택하세요.
-- Content Optimizer를 처음 사용하는 경우, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 Content Optimizer 단계가 포함된 분기로 진입하도록 하는 것이 좋습니다. 예를 들어, 사용자의 절반은 Content Optimizer 단계가 있는 경로로 보내고, 나머지 절반은 현재 기존 콘텐츠를 담은 메시지 단계를 전송하는 대조 경로로 보낼 수 있습니다. 그런 다음 2~3주간 데이터를 수집하고, Content Optimizer 단계가 있는 경로로 트래픽을 늘리기 전에 핵심 성과 지표(KPI) 또는 반대 측정기준을 비교하세요.
+- Content Optimizer를 처음 사용하는 경우, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 사용하여 오디언스의 일부만 Content Optimizer 단계가 포함된 분기로 진입하도록 하는 것이 좋습니다. 예를 들어, 사용자의 절반은 Content Optimizer 단계가 있는 경로로 보내고, 나머지 절반은 현재 기존 콘텐츠를 담은 메시지 단계를 전송하는 대조 경로로 보낼 수 있습니다. 그런 다음 2~3주간 데이터를 수집하고, Content Optimizer 단계가 있는 경로로 트래픽을 늘리기 전에 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 또는 반대 측정기준을 비교하세요.
   - 효과적인 일대일 비교를 위해, Content Optimizer 단계의 각 구성 요소에서 배리언트 중 하나로 기존 콘텐츠를 포함하세요.
 - Content Optimizer 단계가 일정 기간 동안 최적화 상태에 있은 후 업데이트할 준비가 되면, 성과가 낮은 배리언트를 비활성화하고 최고 성과 배리언트의 특성을 기반으로 한 새로운 배리언트를 추가하세요.
 
@@ -305,7 +305,7 @@ SMS/MMS/RCS 단계의 경우, 구독 그룹과 메시지 유형도 런칭 후에
 
 - Content Optimizer 단계에서는 다국어 설정이 지원되지 않습니다. 대신 언어별로 하나의 Content Optimizer 단계를 사용하고 경로를 개별적으로 분기하세요.
 - Content Optimizer 구성 요소의 Liquid 태그는 메시지 단계에서 지원되지 않으므로, 메시지 단계에서 Liquid가 중단됩니다.
-- Content Optimizer 단계가 시작된 후에는 테스트 중인 구성 요소, 기존 활성 배리언트의 콘텐츠 또는 최적화 이벤트를 변경할 수 없습니다. SMS/MMS/RCS 단계의 경우 구독 그룹과 메시지 유형도 변경할 수 없습니다.
+- Content Optimizer 단계가 시작된 후에는 테스트 중인 구성 요소, 기존 활성 배리언트의 콘텐츠 또는 최적화 이벤트를 변경할 수 없습니다. 단문 메시지 서비스/MMS/RCS 단계의 경우 구독 그룹과 메시지 유형도 변경할 수 없습니다.
 
 ## 분석 {#analytics}
 

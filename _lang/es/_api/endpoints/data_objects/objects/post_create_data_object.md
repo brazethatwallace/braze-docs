@@ -120,7 +120,7 @@ La siguiente tabla enumera los errores comunes para este endpoint y cómo resolv
 | `404` | Tipo no encontrado (`data-object-type-not-found`) | Confirma que `type_name` existe en el espacio de trabajo y coincide exactamente con el nombre de máquina. |
 | `409` | Objeto duplicado (`duplicate-data-object`) | Utiliza un `external_id` diferente, o utiliza `PUT` para reemplazar el objeto existente. |
 | `422` | Límite de registros alcanzado (`data-object-record-limit-exceeded`) | Reduce el número de objetos para el tipo, o contacta con soporte de Braze sobre los límites de tu espacio de trabajo. |
-| `401` | Clave de API REST faltante o no válida | Verifica que el encabezado `Authorization` utilice `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
+| `401` | Clave de API REST or transferencia de estado representacional faltante o no válida | Verifica que el encabezado `Authorization` utilice `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
 | `403` | La clave de API no tiene permisos o la solicitud está bloqueada por la lista de permitidos | Confirma que la clave tiene el permiso `data_objects.create` y que tu IP de origen está en la lista de permitidos de la clave, si está configurada. |
 | `429` | Límite de velocidad excedido | Reintenta después de `X-RateLimit-Reset` y reduce la frecuencia de solicitudes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de crear objeto de datos" }

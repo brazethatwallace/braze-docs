@@ -29,7 +29,7 @@ A integração entre a Braze e o B.Layer permite que você use o construtor de m
 
 ## Casos de uso {#use-cases}
 
-Com o B.Layer, há inúmeras oportunidades para criar e experimentar, incluindo controles deslizantes de recomendação do produto, integração ou pesquisas em várias telas, NPS, captura de e-mail, ofertas especiais e muito mais.
+Com o B.Layer, há inúmeras oportunidades para criar e experimentar, incluindo controles deslizantes de recomendação do produto, integração ou pesquisas em várias telas, Net Promoter Score (NPS), captura de e-mail, ofertas especiais e muito mais.
 
 Eles estão trabalhando com marcas como Lifesum, Blinkist, OnX Hunt e muitas outras para ajudar a melhorar a experiência do usuário sem recursos adicionais. Também estamos entre os finalistas do APS Awards 2022 na categoria de inovação de app.
 
@@ -62,6 +62,6 @@ Na Braze, crie uma mensagem no app com código personalizado. Se você tiver um 
 
 ## Rastreamento de botões {#button-tracking}
 
-Com o B.Layer, é possível registrar interações de botões ou entrada de texto como um atributo da Braze. Isso pode ser feito no editor. Um exemplo popular é uma pesquisa NPS.
+Com o B.Layer, é possível registrar interações de botões ou entrada de texto como um atributo da Braze. Isso pode ser feito no editor. Um exemplo popular é uma pesquisa Net Promoter Score (NPS).
 
 O B.Layer usa o rastreamento de botões da Braze adicionado aos links que você insere (por exemplo, `?button=0`). Dessa forma, você pode ver os cliques no botão na parte de análise de dados da sua Campaign.

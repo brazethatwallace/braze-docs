@@ -6,7 +6,7 @@ Braze proporciona métodos para asignar atributos a los usuarios. Podrás filtra
 
 ### Atributos predeterminados del usuario
 
-Para configurar los atributos de usuario recopilados automáticamente por Braze, puedes utilizar los métodos de configuración que vienen con el SDK.
+Para configurar los atributos de usuario recopilados automáticamente por Braze, puedes utilizar los métodos de configuración que vienen con el SDK or kit de desarrollo de software.
 
 ```javascript
 Braze.setFirstName("Name");

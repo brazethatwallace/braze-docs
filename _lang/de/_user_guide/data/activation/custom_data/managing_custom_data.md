@@ -32,13 +32,13 @@ Bei angepassten Events und angepassten Attributen wird zwischen Groß- und Klein
 
 ## Eigenschaften verwalten {#managing-properties}
 
-Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Campaigns oder Canvases diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) verwenden.
+Nachdem Sie ein angepasstes Event oder Produkt erstellt haben, wählen Sie **Eigenschaften verwalten** für dieses Event oder Produkt aus, um neue Eigenschaften hinzuzufügen, vorhandene Eigenschaften zu blockieren und zu sehen, welche Campaigns oder Canvase diese Eigenschaft in einem [triggernden Event]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) verwenden.
 
 ![Angepasste Eigenschaften für ein angepasstes Event.]({% image_buster /assets/img_archive/manageproperties1.png %}){: style="max-width:80%"}
 
 Um Event- oder Produkt-Eigenschaften zu blockieren, verwenden Sie das Aktionsmenü auf der Eigenschaftenseite. Informationen zum vollständigen Blockieren angepasster Attribute, Events oder Produkte finden Sie unter [Angepasste Daten blockieren]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
-Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigenschaften nachverfolgbar zu machen, müssen Sie Ihr Entwicklerteam bitten, sie im SDK unter genau dem Namen zu erstellen, den Sie zuvor verwendet haben. Alternativ können Sie die Braze [API]({{site.baseurl}}/api/basics) verwenden, um Daten zu diesem Attribut zu importieren. Danach ist das angepasste Attribut, Event oder andere Datenobjekt aktiv und wird auf Ihre Nutzer:innen angewendet.
+Um diese hinzugefügten angepassten Attribute, Events, Produkte oder Event-Eigenschaften nachverfolgbar zu machen, müssen Sie Ihr Entwicklerteam bitten, sie im SDK or Software-Development-Kit unter genau dem Namen zu erstellen, den Sie zuvor verwendet haben. Alternativ können Sie die Braze [API]({{site.baseurl}}/api/basics) verwenden, um Daten zu diesem Attribut zu importieren. Danach ist das angepasste Attribut, Event oder andere Datenobjekt aktiv und wird auf Ihre Nutzer:innen angewendet.
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
@@ -53,7 +53,7 @@ Um dies zu vermeiden, stellen Sie sicher, dass Ihre Integration konsistente Date
 Braze erkennt automatisch die Datentypen für Attributdaten, die gesendet werden. Falls jedoch mehrere Datentypen auf ein einzelnes Attribut angewendet werden, können Sie den Datentyp eines beliebigen Attributs erzwingen, um Braze mitzuteilen, um welchen Typ es sich handelt. Wählen Sie dazu den gewünschten Typ aus dem Dropdown-Menü in der Spalte **Datentyp**.
 
 {% alert note %}
-Ab dem 30. März 2026 setzt die automatische Erkennung einen Datentyp nur noch bei der erstmaligen Aufnahme. Um den Datentyp nach der erstmaligen Aufnahme zu ändern, aktualisieren Sie ihn manuell mit den folgenden Schritten.
+Ab dem 30. März 2026 setzt die automatische Erkennung einen Datentyp nur noch bei der erstmaligen Aufnahme. Um den Datentyp nach der erstmaligen Aufnahme zu ändern, Update or aktualisieren or aktualisieren Sie ihn manuell mit den folgenden Schritten.
 {% endalert %}
 
 {% alert note %}
@@ -68,9 +68,9 @@ Wenn Sie den Datentyp für ein Attribut erzwingen, werden alle eingehenden Daten
 
 ### Vorhandene Daten nach einer Typänderung {#existing-data-after-a-type-change}
 
-Das Erzwingen einer Datentypänderung wirkt sich nur auf neue Daten aus, die in Braze eingehen. Alle Daten, die vor der Typänderung aufgenommen wurden, werden weiterhin als der alte Typ gespeichert und sind möglicherweise nicht mit den Filtern des neuen Typs segmentierbar. In den Profilen der betroffenen Nutzer:innen wird eine Warnung angezeigt. Wenn bei neuen eingehenden Daten ein Wert nicht dem erzwungenen Typ entspricht, kann Braze ihn in den erzwungenen Typ umwandeln (z. B. den String `"100"` in die Zahl `100`); Werte, die nicht umgewandelt werden können, werden ignoriert und aktualisieren das Attribut nicht.
+Das Erzwingen einer Datentypänderung wirkt sich nur auf neue Daten aus, die in Braze eingehen. Alle Daten, die vor der Typänderung aufgenommen wurden, werden weiterhin als der alte Typ gespeichert und sind möglicherweise nicht mit den Filtern des neuen Typs segmentierbar. In den Profilen der betroffenen Nutzer:innen wird eine Warnung angezeigt. Wenn bei neuen eingehenden Daten ein Wert nicht dem erzwungenen Typ entspricht, kann Braze ihn in den erzwungenen Typ umwandeln (z. B. den String `"100"` in die Zahl `100`); Werte, die nicht umgewandelt werden können, werden ignoriert und Update or aktualisieren or aktualisieren das Attribut nicht.
 
-Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie die Attributwerte für diese Nutzer:innen erneut über das SDK, die API oder einen CSV-Import senden. Es gibt keine automatische Massenkonvertierung für vorhandene Daten.
+Wenn alle vorhandenen Nutzerdaten dem neuen Typ entsprechen sollen, müssen Sie die Attributwerte für diese Nutzer:innen erneut über das SDK or Software-Development-Kit, die API oder einen CSV-Import senden. Es gibt keine automatische Massenkonvertierung für vorhandene Daten.
 
 ### Datentypumwandlung {#data-type-coercion}
 

@@ -101,7 +101,7 @@ Les Canvas à fort volume peuvent envoyer des lots plus rapidement car ceux-ci s
 
 Braze enregistre l'activité d'envoi dans des journaux internes à des fins de surveillance et de résolution des problèmes, mais ces horodatages ne sont pas exposés sous forme de champs interrogeables. Une fois que Braze a envoyé un lot à l'API du partenaire, celui-ci traite la mise à jour de l'audience selon ses propres accords de niveau de service, généralement entre 6 et 48 heures.
 
-Braze ne reçoit pas de confirmation de la part des partenaires indiquant que des utilisateurs individuels ont été appariés ou synchronisés. Les réponses des partenaires sont des accusés de réception HTTP, et non des confirmations d'appariement. Pour vérifier qu'une audience a été renseignée, consultez la plateforme publicitaire du partenaire (par exemple Google Ads Audience Manager ou Meta Business Manager).
+Braze ne reçoit pas de confirmation de la part des partenaires indiquant que des utilisateurs individuels ont été appariés ou synchronisés. Les réponses des partenaires sont des accusés de réception HTTP, et non des confirmations d'appariement. Pour vérifier qu'une audience a été renseignée, consultez la plateforme publicitaire du partenaire (par exemple Google Ads Audience gestionnaire ou Meta Business gestionnaire).
 
 ### E-mails d'erreur Audience Sync {#audience-sync-error-emails}
 

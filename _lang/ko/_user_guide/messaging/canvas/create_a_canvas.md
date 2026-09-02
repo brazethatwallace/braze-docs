@@ -222,7 +222,7 @@ Canvas에 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_
 ## 2단계: Canvas 작성하기 {#step-2-build-your-canvas}
 
 {% alert tip %}
-[Braze Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 사용하여 Canvas 작성 시간을 절약하고 프로세스를 간소화하세요! 사전 제작된 템플릿 라이브러리를 둘러보고 사용 사례에 맞는 템플릿을 찾아 특정 요구에 맞게 커스터마이즈할 수 있습니다. 자세한 내용은 [Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates)을 참조하세요.
+[BRAZE 캔버스 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)을 사용하여 Canvas 작성 시간을 절약하고 프로세스를 간소화하세요! 사전 제작된 템플릿 라이브러리를 둘러보고 사용 사례에 맞는 템플릿을 찾아 특정 요구에 맞게 커스터마이즈할 수 있습니다. 자세한 내용은 [Canvas 템플릿]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates)을 참조하세요.
 {% endalert %}
 
 ### 2.1단계: 배리언트 추가 {#step-21-add-a-variant}
@@ -233,7 +233,7 @@ Canvas에 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_
 
 <i class="fas fa-plus-circle"></i> 플러스 버튼을 선택하여 추가 배리언트를 추가할 수 있습니다. 새 배리언트를 추가하면 사용자가 각 배리언트에 어떻게 배분될지 조정할 수 있어, 다양한 인게이지먼트 전략의 효과를 교차 비교하고 분석할 수 있습니다.
 
-![Braze Canvas에 두 개의 예시 배리언트가 있는 화면.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
+![BRAZE 캔버스에 두 개의 예시 배리언트가 있는 화면.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
 기본적으로 Canvas 배리언트 할당은 사용자 ID와 Canvas ID의 결정론적 해시에 의해 결정되며([무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)가 아님), 배리언트 배분 비율이 변경되지 않는 한 특정 사용자는 재진입 시 항상 동일한 배리언트에 할당됩니다. 출시 후 배리언트 배분을 조정하면 Canvas에 재진입할 때 사용자가 다른 배리언트에 할당될 수 있습니다. <br><br>배분 비율이 변경되어도 고정된 할당이 필요한 경우, 단일 Canvas 배리언트를 사용하고 [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 단계로 사용자를 라우팅하세요. 여정의 시작 부분에서 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) 단계를 사용하여 커스텀 속성에 무작위 숫자를 저장한 다음, 오디언스 경로에서 해당 속성으로 필터링합니다.
@@ -273,7 +273,7 @@ Canvas에 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_
 단계를 더 추가하기 시작하면 확대/축소 수준을 전환하여 세부 사항에 집중하거나 전체 사용자 여정을 살펴볼 수 있습니다. <kbd>Shift</kbd> + <kbd>+</kbd>로 확대하거나 <kbd>Shift</kbd> + <kbd>-</kbd>로 축소할 수 있습니다.
 {% endalert %}
 
-![Braze Canvas에 지연 단계를 추가하는 구성요소 검색 창.]({% image_buster /assets/img_archive/add_components_flow.png %}){: style="max-width:80%;"}
+![BRAZE 캔버스에 지연 단계를 추가하는 구성요소 검색 창.]({% image_buster /assets/img_archive/add_components_flow.png %}){: style="max-width:80%;"}
 
 {% alert important %}
 Canvas에 최대 200개의 단계를 추가할 수 있습니다. Canvas가 200단계를 초과하면 로딩 문제가 발생할 수 있습니다.
@@ -351,7 +351,7 @@ Braze는 대조군에 배치된 사용자의 전환을 추적하지만, 해당 �
 
 이 예시에서는 Canvas가 두 개의 배리언트로 나뉘어 있습니다. 배리언트 1에는 사용자의 70%가 배정됩니다. 두 번째 배리언트는 나머지 30%의 사용자로 구성된 대조군입니다.
 
-![Braze Canvas의 배리언트 예시로, 70%가 '배리언트 1'로 이동하여 첫 번째 단계에서 1일 지연 후 두 번째 단계에서 메시지를 보냅니다. 나머지 30%는 후속 단계가 없는 '대조군'으로 이동합니다.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
+![BRAZE 캔버스의 배리언트 예시로, 70%가 '배리언트 1'로 이동하여 첫 번째 단계에서 1일 지연 후 두 번째 단계에서 메시지를 보냅니다. 나머지 30%는 후속 단계가 없는 '대조군'으로 이동합니다.]({% image_buster /assets/img_archive/Canvas_Multivariate_Flow.png %})
 
 ### BrazeAI로 캔버스 배리언트 최적화 {#optimize-canvas-variants-with-brazeai}
 

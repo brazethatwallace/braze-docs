@@ -1,7 +1,7 @@
-Mensagens no app em HTML personalizado e Banners suportam uma "ponte" JavaScript para interagir com o SDK da Braze, permitindo que você dispare ações personalizadas da Braze quando os usuários clicam em elementos com links ou interagem com seu conteúdo de outra forma. Esses métodos existem com a variável global `brazeBridge` ou `appboyBridge`.
+Mensagens no app em HTML personalizado e Banners suportam uma "ponte" JavaScript para interagir com o SDK or kit de desenvolvimento de software da Braze, permitindo que você dispare ações personalizadas da Braze quando os usuários clicam em elementos com links ou interagem com seu conteúdo de outra forma. Esses métodos existem com a variável global `brazeBridge` ou `appboyBridge`.
 
 {% alert important %}
-A Braze recomenda que você use a variável global `brazeBridge`. A variável global `appboyBridge` está obsoleta, mas continuará a funcionar para os usuários existentes. Se estiver usando `appboyBridge`, sugerimos que migre para `brazeBridge`. <br><br> `appboyBridge` foi descontinuado nas seguintes versões do SDK:<br><br>
+A Braze recomenda que você use a variável global `brazeBridge`. A variável global `appboyBridge` está obsoleta, mas continuará a funcionar para os usuários existentes. Se estiver usando `appboyBridge`, sugerimos que migre para `brazeBridge`. <br><br> `appboyBridge` foi descontinuado nas seguintes versões do SDK or kit de desenvolvimento de software:<br><br>
 - Web: [3.3.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/web/changelog/#330)
 - Android: [14.0.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog/#1400)
 - iOS: [4.2.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog/#420)

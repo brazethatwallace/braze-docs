@@ -11,7 +11,7 @@ local_redirect:
 
 # IP-Warming {#ip-warming}
 
-> IP-Warming bedeutet, dass die Anbieter von E-Mail-Postfächern daran gewöhnt werden, Nachrichten von Ihren dedizierten IP-Adressen zu empfangen. Es ist ein äußerst wichtiger Bestandteil des E-Mail-Versands bei jedem E-Mail-Anbieter (ESP) und bei Braze Standardpraxis, um sicherzustellen, dass Ihre Nachrichten den Posteingang mit einer gleichbleibend hohen Rate erreichen. Wenn Sie [automatisiertes IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming) nutzen, lesen Sie die [FAQ zum automatisierten IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq).
+> IP-Warming bedeutet, dass die Anbieter von E-Mail-Postfächern daran gewöhnt werden, Nachrichten von Ihren dedizierten IP-Adressen zu empfangen. Es ist ein äußerst wichtiger Bestandteil des E-Mail-Versands bei jedem E-Mail-Anbieter (E-Mail-Anbieter or ESP) und bei Braze Standardpraxis, um sicherzustellen, dass Ihre Nachrichten den Posteingang mit einer gleichbleibend hohen Rate erreichen. Wenn Sie [automatisiertes IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming) nutzen, lesen Sie die [FAQ zum automatisierten IP-Warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/faq).
 
 IP-Warming soll Ihnen helfen, einen positiven Ruf bei Internet-Providern (ISPs) aufzubauen. Jedes Mal, wenn eine neue IP-Adresse zum Versenden einer E-Mail verwendet wird, überwachen ISPs diese E-Mails programmatisch, um sicherzustellen, dass sie nicht zum Versenden von Spam an Nutzer:innen verwendet wird. Stellen Sie sich Ihre IP- und Domain-Reputation wie einen Kredit-Score vor – ISPs nutzen diese Reputation, um zu entscheiden, ob Ihre E-Mail im Posteingang oder im Spam-Ordner landet. Ähnlich wie bei einem Kredit-Score braucht es Zeit, eine positive Reputation aufzubauen, und noch länger, eine schlechte wiederherzustellen.
 
@@ -33,18 +33,18 @@ Bevor Sie mit dem IP-Warming beginnen:
 
 **IP-Warming ist erforderlich.** Wenn Sie Ihre IPs nicht ordnungsgemäß aufwärmen und das Muster Ihrer E-Mails Verdacht erregt, kann die Zustellgeschwindigkeit Ihrer E-Mails erheblich gedrosselt oder verlangsamt werden. Ihre Domain oder IP kann auch von ISPs blockiert werden, was dazu führen kann, dass Ihre E-Mails direkt im Spam-Ordner des Posteingangs Ihrer Nutzer:innen landen. Daher ist es wichtig, Ihre IPs ordnungsgemäß aufzuwärmen.
 
-ISPs drosseln die E-Mail-Zustellung, wenn ein Spam-Verdacht besteht, um ihre Nutzer:innen zu schützen. Wenn Sie beispielsweise an 100.000 Nutzer:innen senden, könnte der ISP die E-Mail in der ersten Stunde nur an 5.000 dieser Nutzer:innen zustellen. Anschließend überwacht der ISP Engagement-Metriken wie Öffnungsraten, Klickraten, Abmeldungen und Spam-Berichte. Wenn eine erhebliche Anzahl von Spam-Berichten eingeht, kann er sich dafür entscheiden, den Rest dieser Sendung in den Spam-Ordner zu verschieben, anstatt sie in den Posteingang der Nutzer:innen zuzustellen.
+ISPs drosseln die E-Mail-Zustellung, wenn ein Spam-Verdacht besteht, um ihre Nutzer:innen zu schützen. Wenn Sie beispielsweise an 100.000 Nutzer:innen senden, könnte der ISP or Internet-Provider die E-Mail in der ersten Stunde nur an 5.000 dieser Nutzer:innen zustellen. Anschließend überwacht der ISP or Internet-Provider Engagement-Metriken wie Öffnungsraten, Klickraten, Abmeldungen und Spam-Berichte. Wenn eine erhebliche Anzahl von Spam-Berichten eingeht, kann er sich dafür entscheiden, den Representational State Transfer dieser Sendung in den Spam-Ordner zu verschieben, anstatt sie in den Posteingang der Nutzer:innen zuzustellen.
 
-Wenn das Engagement moderat ist, kann der ISP Ihre E-Mails weiterhin drosseln, um mehr Engagement-Daten zu sammeln und mit größerer Sicherheit festzustellen, ob es sich bei der E-Mail um Spam handelt oder nicht. Wenn die E-Mail sehr hohe Engagement-Metriken aufweist, kann der ISP die Drosselung dieser E-Mail vollständig einstellen. Diese Daten werden verwendet, um eine E-Mail-Reputation aufzubauen, die bestimmt, ob Ihre E-Mails automatisch als Spam gefiltert werden.
+Wenn das Engagement moderat ist, kann der ISP or Internet-Provider Ihre E-Mails weiterhin drosseln, um mehr Engagement-Daten zu sammeln und mit größerer Sicherheit festzustellen, ob es sich bei der E-Mail um Spam handelt oder nicht. Wenn die E-Mail sehr hohe Engagement-Metriken aufweist, kann der ISP or Internet-Provider die Drosselung dieser E-Mail vollständig einstellen. Diese Daten werden verwendet, um eine E-Mail-Reputation aufzubauen, die bestimmt, ob Ihre E-Mails automatisch als Spam gefiltert werden.
 
-Wenn Ihre Domain oder IP von einem ISP blockiert wird, enthalten die Nachrichtenprotokolle im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) Informationen darüber, welche Websites Sie besuchen können, um bei diesen ISPs Einspruch einzulegen und von diesen Listen entfernt zu werden.
+Wenn Ihre Domain oder IP von einem ISP or Internet-Provider blockiert wird, enthalten die Nachrichtenprotokolle im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) Informationen darüber, welche Websites Sie besuchen können, um bei diesen ISPs Einspruch einzulegen und von diesen Listen entfernt zu werden.
 
 ## IP-Warming-Zeitpläne {#ip-warming-schedules}
 
 Wir empfehlen dringend, sich strikt an einen IP-Warming-Zeitplan zu halten, um die Zustellbarkeit zu unterstützen. Es ist außerdem wichtig, keine Tage auszulassen, da eine konsistente Skalierung die Zustellmetriken verbessert. Wählen Sie einen Zeitplan basierend auf Ihrem bestehenden E-Mail-Versandverlauf und Ihren Zustellbarkeitsmetriken.
 
 {% alert tip %}
-Wenn Sie an einer dedizierten Zustellbarkeitsressource als Teil Ihres Account-Teams interessiert sind, wenden Sie sich an Ihren Braze Account Manager für weitere Informationen.
+Wenn Sie an einer dedizierten Zustellbarkeitsressource als Teil Ihres Account-Teams interessiert sind, wenden Sie sich an Ihren Braze Account Manager:in für weitere Informationen.
 {% endalert %}
 
 {% tabs local %}
@@ -175,7 +175,7 @@ Sie können alle Konsequenzen eines fehlenden IP-Warmings vermeiden, indem Sie d
 
 ### Beginnen Sie mit kleinen E-Mail-Sendevolumen {#start-with-small-sending-volumes-of-email}
 
-Erhöhen Sie die Menge, die Sie täglich senden, so schrittweise wie möglich. Abrupte E-Mail-Campaigns mit hohem Volumen werden von ISPs am kritischsten betrachtet. Beginnen Sie daher mit dem Versand kleiner E-Mail-Mengen und steigern Sie das Volumen schrittweise bis zu der Menge, die Sie letztendlich senden möchten. Bedenken Sie, dass Sie Ihre IP bei jedem ISP einzeln aufwärmen – ISPs teilen keine Reputationsdaten untereinander. Achten Sie beim Aufbau Ihrer Warming-Volumen darauf, dass Sie das Volumen bei keinem einzelnen ISP zu schnell erhöhen. Unabhängig vom Volumen empfehlen wir, Ihre IP sicherheitshalber aufzuwärmen. Siehe [IP-Warming-Zeitpläne](#ip-warming-schedules).
+Erhöhen Sie die Menge, die Sie täglich senden, so schrittweise wie möglich. Abrupte E-Mail-Campaigns mit hohem Volumen werden von ISPs am kritischsten betrachtet. Beginnen Sie daher mit dem Versand kleiner E-Mail-Mengen und steigern Sie das Volumen schrittweise bis zu der Menge, die Sie letztendlich senden möchten. Bedenken Sie, dass Sie Ihre IP bei jedem ISP or Internet-Provider einzeln aufwärmen – ISPs teilen keine Reputationsdaten untereinander. Achten Sie beim Aufbau Ihrer Warming-Volumen darauf, dass Sie das Volumen bei keinem einzelnen ISP or Internet-Provider zu schnell erhöhen. Unabhängig vom Volumen empfehlen wir, Ihre IP sicherheitshalber aufzuwärmen. Siehe [IP-Warming-Zeitpläne](#ip-warming-schedules).
 
 ### Erstellen Sie ansprechende Einführungsinhalte {#have-engaging-introductory-content}
 

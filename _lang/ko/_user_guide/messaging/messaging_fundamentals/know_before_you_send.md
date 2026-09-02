@@ -1,7 +1,7 @@
 ---
 nav_title: 발송 전 알아두기
 article_title: 발송 전 알아두기
-description: "사전 출시 가이드를 확인한 후, Content Cards, 이메일, 인앱 메시지, 푸시, SMS에 대한 최종 체크리스트 또는 '주의사항'을 참조하세요."
+description: "사전 출시 가이드를 확인한 후, Content Cards, 이메일, 인앱 메시지, 푸시, 단문 메시지 서비스에 대한 최종 체크리스트 또는 '주의사항'을 참조하세요."
 alias: /know_before_send/
 page_order: 7
 tool:
@@ -27,7 +27,7 @@ tool:
 - [**글로벌 컨트롤 그룹**]({{site.baseurl}}/user_guide/audience/global_control_group): 글로벌 컨트롤 그룹을 사용하는 경우, 일정 비율의 사용자가 어떤 Campaigns나 Canvases도 수신하지 않게 됩니다. ([제외 설정]({{site.baseurl}}/user_guide/audience/global_control_group#step-3-assign-exclusion-settings)을 통해 예외를 만들 수 있습니다.) 이러한 사용자 목록을 확인하려면 CSV 또는 [API]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)를 통해 내보내세요.
 - [**Canvas 사용량 제한**]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping): Canvas에서 사용량 제한은 개별 단계가 아닌 전체 Canvas에 적용됩니다. 예를 들어, 여러 단계가 있는 Canvas에 분당 10,000건의 메시지 사용량 제한을 설정하면, 첫 번째 단계에서 이미 제한에 도달하기 때문에 여전히 10,000건의 메시지로 제한됩니다.
 - **최대 게재빈도 설정**:
-  - 최대 게재빈도 설정 규칙은 푸시, 이메일, SMS, 웹훅에 적용되지만, 인앱 메시지 및 Content Cards에는 적용되지 않습니다.
+  - 최대 게재빈도 설정 규칙은 푸시, 이메일, 단문 메시지 서비스, 웹훅에 적용되지만, 인앱 메시지 및 Content Cards에는 적용되지 않습니다.
   - 글로벌 최대 게재빈도 설정은 사용자의 시간대를 기준으로 스케줄되며, 24시간 단위가 아닌 달력 일 기준으로 계산됩니다. 예를 들어, 하루에 Campaign을 1건만 발송하는 최대 게재빈도 설정 규칙을 설정한 경우, 사용자가 현지 시간대로 오후 11시에 메시지를 받을 수 있으며, 1시간 후에 또 다른 메시지를 수신할 자격이 생깁니다.
 
 {% alert tip %}
@@ -98,18 +98,18 @@ Canvas 및 Campaign 문제 해결에 대한 추가 지원이 필요한 경우, �
 - **웹 푸시**: Braze [웹 SDK 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)을 완료했다면 웹 푸시를 활용하여 사용자를 참여시키는 것을 고려해 보세요. 웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)를 확인하세요.
 - **단일 앱 타겟팅**: 단일 앱과 해당 사용자를 타겟팅하기 위한 [세분화 차이점]({{site.baseurl}}/user_guide/get_started/workspaces)을 검토하세요.
 
-## SMS
+## 단문 메시지 서비스
 
 ### 확인할 사항
-- **할당량 및 처리량**: 현재 계정에 연결된 SMS 할당량(짧은 코드, 긴 코드 등)과 [제공되는 처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)을 파악하여 원하는 시간 내에 발송할 수 있는 충분한 처리량이 있는지 확인하세요.
-- **SMS 문구에서 세그먼트 추정**: [SMS 세그먼트 계산기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator)에서 SMS 문구를 테스트하세요. SMS 세그먼트 수는 처리량 능력과 함께 고려해야 합니다. (오디언스 × SMS 세그먼트 = 필요한 처리량). SMS FAQ에서 [초과 요금 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs)를 참조하세요.
-- **SMS 법률 및 규정**: [SMS 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)를 검토하여 모든 관련 법률을 준수하면서 SMS 서비스를 사용하고 있는지 확인하세요. 발송 전에 법률 자문을 구하는 것을 권장합니다.
+- **할당량 및 처리량**: 현재 계정에 연결된 단문 메시지 서비스 할당량(짧은 코드, 긴 코드 등)과 [제공되는 처리량]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)을 파악하여 원하는 시간 내에 발송할 수 있는 충분한 처리량이 있는지 확인하세요.
+- **단문 메시지 서비스 문구에서 세그먼트 추정**: [단문 메시지 서비스 세그먼트 계산기]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator)에서 단문 메시지 서비스 문구를 테스트하세요. 단문 메시지 서비스 세그먼트 수는 처리량 능력과 함께 고려해야 합니다. (오디언스 × 단문 메시지 서비스 세그먼트 = 필요한 처리량). 단문 메시지 서비스 FAQ에서 [초과 요금 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs)를 참조하세요.
+- **단문 메시지 서비스 법률 및 규정**: [단문 메시지 서비스 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)를 검토하여 모든 관련 법률을 준수하면서 단문 메시지 서비스 서비스를 사용하고 있는지 확인하세요. 발송 전에 법률 자문을 구하는 것을 권장합니다.
 
 ### 알아두어야 할 사항
-- **SMS 메시지 기본 설정**: SMS 메시지는 일반적으로 발신자 풀의 짧은 코드에서 발송되도록 기본 설정됩니다.
+- **단문 메시지 서비스 메시지 기본 설정**: 단문 메시지 서비스 메시지는 일반적으로 발신자 풀의 짧은 코드에서 발송되도록 기본 설정됩니다.
 - **영숫자 발신자 ID**: 영숫자 발신자 ID를 사용하면 양방향 메시징이 더 이상 작동하지 않습니다. 이제 단방향 전용입니다.
 - **미국 내 업데이트된 처리량**: 미국 [A2P 10DLC 등록](https://support.twilio.com/hc/en-us/articles/1260803225669-Message-throughput-MPS-and-Trust-Scores-for-A2P-10DLC-in-the-US)으로 인해 미국 내 처리량이 변경되었습니다. 트래픽 혼잡 및 통신사 문제 등 실제 전달률에 영향을 미칠 수 있는 여러 요인으로 인해 발송 속도 SLA를 계약상 보장하지 않는다는 점에 유의하세요.
-- **구독 그룹**: Braze를 통해 SMS Campaign을 시작하려면 구독 그룹을 선택해야 합니다. 또한 국제 [통신 규정 및 가이드라인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)을 준수하기 위해, Braze는 [선택한 구독 그룹에 가입]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#check-a-users-group)하지 않은 사용자에게는 절대 SMS를 발송하지 않습니다.
+- **구독 그룹**: Braze를 통해 단문 메시지 서비스 Campaign을 시작하려면 구독 그룹을 선택해야 합니다. 또한 국제 [통신 규정 및 가이드라인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)을 준수하기 위해, Braze는 [선택한 구독 그룹에 가입]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#check-a-users-group)하지 않은 사용자에게는 절대 단문 메시지 서비스를 발송하지 않습니다.
 
 ## WhatsApp
 

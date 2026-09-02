@@ -83,7 +83,7 @@ Pour pallier cette limitation, lors du [processus de configuration]({{site.baseu
 2. **Choisissez le bon numéro pour votre cas d'usage.** Trois principaux types de numéros de téléphone peuvent envoyer et recevoir des SMS : les codes longs, les codes courts et les identifiants d'expéditeur alphanumériques. Leurs capacités et leur disponibilité selon les régions varient. Réfléchissez à l'avance pour déterminer si un code personnalisé conviendrait mieux à votre entreprise.
 3. **Prêtez attention au timing.** Gardez à l'esprit que les clients sont plus réceptifs aux messages qui leur sont directement adressés. Un peu de personnalisation peut faire toute la différence, comme utiliser le prénom du destinataire ou ajouter une touche conversationnelle reflétant les centres d'intérêt de vos clients.
 4. **Engagez des conversations bidirectionnelles.** Le SMS est un canal si efficace pour interagir avec les clients qu'il est important d'anticiper et de gérer efficacement les réponses à vos messages. 85 % des consommateurs souhaitent non seulement recevoir des informations, mais aussi répondre aux entreprises ou engager une conversation.
-5. **Mesurez ce qui fonctionne.** Contactez-vous les clients au bon moment, à la bonne fréquence, et avec les appels à l'action les plus efficaces ? Utiliser les bons outils de suivi peut fournir des indicateurs directs et mesurables qui démontrent votre ROI.
+5. **Mesurez ce qui fonctionne.** Contactez-vous les clients au bon moment, à la bonne fréquence, et avec les appels à l'action les plus efficaces ? Utiliser les bons outils de suivi peut fournir des indicateurs directs et mesurables qui démontrent votre ROI or retour sur investissement.
 
 ## Envoi à haut volume {#high-volume-sending}
 

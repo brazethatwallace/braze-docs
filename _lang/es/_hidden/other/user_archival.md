@@ -39,7 +39,7 @@ Tanto los usuarios inactivos como los usuarios inactivos prolongados se archivar
 Los "usuarios inactivos" son usuarios a los que no se puede contactar y que probablemente han cancelado. Los usuarios inactivos son aquellos que cumplen todos estos criterios:
 
 - No pueden recibir correo electrónico. Por ejemplo, no tienen una dirección de correo electrónico o han cancelado la suscripción de todas las listas de correo electrónico.
-- No pueden recibir SMS. Por ejemplo, no tienen un número de teléfono válido o han cancelado la suscripción de todos los grupos de suscripción de SMS.
+- No pueden recibir servicio de mensajes cortos. Por ejemplo, no tienen un número de teléfono válido o han cancelado la suscripción de todos los grupos de suscripción de servicio de mensajes cortos.
 - No pueden recibir push. Por ejemplo, han desinstalado la aplicación o han desactivado los permisos de push.
 - No pueden recibir un mensaje de WhatsApp. Por ejemplo, no tienen un número de teléfono válido o han cancelado la suscripción de todos los grupos de suscripción de WhatsApp.
 - No pueden recibir un mensaje de LINE. Por ejemplo, no tienen un ID de LINE o han cancelado la suscripción de todos los grupos de suscripción de LINE.
@@ -80,7 +80,7 @@ Braze bloquea los perfiles de usuario individuales que crecen de forma anormalme
 | Más de 20.000 nombres de productos distintos en compras | Normalmente causado por generar un nuevo `product_id` para cada compra en lugar de reutilizar un conjunto fijo de ID de productos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Umbrales de bloqueo de usuarios ficticios" }
 
-Después de que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes para ese perfil, tanto de los SDK como de la REST API. Las solicitudes a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) que hacen referencia a un identificador bloqueado devuelven el error `"provided external_id is blacklisted and disallowed"`. Este texto se toma literalmente de la respuesta de la API. Braze también notifica a tu director de cuentas de Braze para que pueda plantearte el problema de integración.
+Después de que un perfil es bloqueado, Braze deja de ingerir todos los datos entrantes para ese perfil, tanto de los SDK or kit de desarrollo de software como de la REST or transferencia de estado representacional API. Las solicitudes a [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) que hacen referencia a un identificador bloqueado devuelven el error `"provided external_id is blacklisted and disallowed"`. Este texto se toma literalmente de la respuesta de la API. Braze también notifica a tu director de cuentas de Braze para que pueda plantearte el problema de integración.
 
 Si descubres que esto ha ocurrido con un usuario legítimo, abre un ticket con el [soporte]({{site.baseurl}}/braze_support) de Braze.
 

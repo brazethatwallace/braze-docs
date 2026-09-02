@@ -53,7 +53,7 @@ description: "Navegue por exemplos de prompts para o BrazeAI Operator, organizad
 
 {% include copy_block.html content="Update my abandoned cart Canvas to add a push message after the email reminder." %}
 
-{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
+{% include copy_block.html content="Build a Segment or segmento of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
 
 {% include copy_block.html content="Build me a report which shows my workspace SMS engagement over the last 30 days." %}
 

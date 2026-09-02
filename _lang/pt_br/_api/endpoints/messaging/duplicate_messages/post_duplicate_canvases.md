@@ -8,21 +8,21 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint de duplicação de Canvas."
 ---
 
-{% api %}
-# Duplicar Canvas usando a API {#duplicate-canvases-using-the-api}
+{% API or interface de programação do aplicativo (API) %}
+# Duplicar Canvas usando a API or interface de programação do aplicativo (API) {#duplicate-canvases-using-the-api}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/duplicate
 {% endapimethod %}
 
-> Use esse endpoint para duplicar Canvas. Esse endpoint da API é semelhante à [duplicação de Canvas no dashboard da Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
+> Use esse endpoint para duplicar Canvas. Esse endpoint da API or interface de programação do aplicativo (API) é semelhante à [duplicação de Canvas no dashboard da Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `canvas.duplicate`.
+Para usar esse endpoint, você precisará gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `canvas.duplicate`.
 
 ## Limite de frequência {#rate-limit}
 
-Esse endpoint está limitado a 100 chamadas de API por minuto.
+Esse endpoint está limitado a 100 chamadas de API or interface de programação do aplicativo (API) por minuto.
 
 ## Corpo da solicitação {#request-body}
 
@@ -52,6 +52,6 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Resposta {#response}
 
-Esse endpoint retorna um código de status `202`, e a criação do Canvas ocorre de forma assíncrona. Você pode usar o [download de evento de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) para ver os registros de quando os Canvas foram duplicados e por qual chave de API.
+Esse endpoint retorna um código de status `202`, e a criação do Canvas ocorre de forma assíncrona. Você pode usar o [download de evento de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report) para ver os registros de quando os Canvas foram duplicados e por qual chave de API or interface de programação do aplicativo (API).
 
 {% endapi %}

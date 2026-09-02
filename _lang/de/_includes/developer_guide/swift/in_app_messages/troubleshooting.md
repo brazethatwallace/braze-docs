@@ -1,4 +1,4 @@
-{% multi_lang_include in-app_messages/troubleshooting.md sdk="iOS" %}
+{% multi_lang_include in-app_messages/troubleshooting.md SDK or Software-Development-Kit="iOS" %}
 
 ### Fehlerbehebung beim Laden von Assets (`NSURLError`-Code `-1008`) {#asset-loading}
 

@@ -2,10 +2,10 @@
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de poder usar os Content Cards, você precisará [integrar o Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) ao seu app. No entanto, nenhuma configuração adicional é necessária. Para criar sua própria interface, consulte o [Guia de personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards).
+Antes de poder usar os Content Cards, você precisará [integrar o Braze Web SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) ao seu app. No entanto, nenhuma configuração adicional é necessária. Para criar sua própria interface, consulte o [Guia de personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% alert note %}
-Alguns bloqueadores de anúncios e extensões de privacidade do navegador podem bloquear o script do Braze Web SDK ou solicitações de rede relacionadas, o que pode impedir o carregamento dos Content Cards. Se você estiver usando o método de integração por CDN, considere mudar para o [método de integração por NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), que armazena as bibliotecas do SDK localmente no seu site e pode evitar alguns problemas relacionados a bloqueadores de anúncios.
+Alguns bloqueadores de anúncios e extensões de privacidade do navegador podem bloquear o script do Braze Web SDK or kit de desenvolvimento de software ou solicitações de rede relacionadas, o que pode impedir o carregamento dos Content Cards. Se você estiver usando o método de integração por CDN, considere mudar para o [método de integração por NPM]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web), que armazena as bibliotecas do SDK or kit de desenvolvimento de software localmente no seu site e pode evitar alguns problemas relacionados a bloqueadores de anúncios.
 {% endalert %}
 
 ## Interface do feed padrão {#standard-feed-ui}
@@ -53,14 +53,14 @@ Ao usar os métodos `toggleContentCards(parentNode, filterFunction)` e `showCont
 | `filterFunction` | Uma função de filtro ou classificação para os cartões exibidos nessa visualização. Invocada com o array de objetos `Card`, classificado por `{pinned, date}`. Espera-se que retorne um array de objetos `Card` ordenados para renderizar para esse usuário. Se omitida, todos os cartões serão exibidos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Standard feed UI" }
 
-[Consulte os documentos de referência do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) para saber mais sobre a alternância de Content Cards.
+[Consulte os documentos de referência do SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) para saber mais sobre a alternância de Content Cards.
 
 ## Testando Content Cards na web {#testing-content-cards-on-the-web}
 
 Você pode testar sua integração de Content Cards usando as ferramentas de desenvolvedor do seu navegador.
 
 1. Crie uma Campaign de Content Cards e direcione-a ao seu usuário teste.
-2. Faça login no site que possui sua integração do Web SDK.
+2. Faça login no site que possui sua integração do Web SDK or kit de desenvolvimento de software.
 3. Abra o console do navegador. No Chrome, clique com o botão direito na página, selecione **Inspect** e depois selecione a guia **Console**.
 4. Execute estes comandos no console:
    - `window.braze.getCachedContentCards()`
@@ -68,7 +68,7 @@ Você pode testar sua integração de Content Cards usando as ferramentas de des
 
 ## Tipos e propriedades do cartão {#card-types-and-properties}
 
-O modelo de dados dos Content Cards está disponível no Web SDK e oferece os seguintes tipos de Content Cards: [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) e [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). Cada tipo herda propriedades comuns de um modelo base [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) e tem as seguintes propriedades adicionais.
+O modelo de dados dos Content Cards está disponível no Web SDK or kit de desenvolvimento de software e oferece os seguintes tipos de Content Cards: [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) e [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). Cada tipo herda propriedades comuns de um modelo base [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) e tem as seguintes propriedades adicionais.
 
 {% alert tip %}
 Para registrar dados de Content Cards, consulte [Registro de análise de dados]({{site.baseurl}}/developer_guide/content_cards/logging_analytics).
@@ -149,7 +149,7 @@ Se você usar o feed padrão dos Content Cards, as impressões e os cliques ser�
 
 Se você usar uma integração personalizada para Content Cards, precisará [registrar impressões]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) quando um cartão de controle tiver sido visto. Nesse caso, lide com os cartões de controle ao registrar impressões em um teste A/B. Esses cartões estão em branco e, embora não sejam vistos pelos usuários, você ainda deve registrar as impressões para comparar o desempenho deles com os cartões que não são de controle.
 
-Para determinar se um Content Card está no grupo de controle de um teste A/B, verifique a propriedade `card.isControl` (Web SDK v4.5.0+) ou verifique se o cartão é uma instância `ControlCard` (`card instanceof braze.ControlCard`).
+Para determinar se um Content Card está no grupo de controle de um teste A/B, verifique a propriedade `card.isControl` (Web SDK or kit de desenvolvimento de software v4.5.0+) ou verifique se o cartão é uma instância `ControlCard` (`card instanceof braze.ControlCard`).
 
 ## Métodos do cartão {#card-methods}
 
@@ -179,7 +179,7 @@ Use estes métodos ao criar sua própria interface de Content Cards:
 | [`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard) | Descarta programaticamente um cartão, removendo-o do feed do usuário. Use isso para permitir que os usuários descartem cartões na sua interface personalizada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Custom feed methods" }
 
-Para mais informações, consulte a [documentação de referência do SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
+Para mais informações, consulte a [documentação de referência do SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 ## Práticas recomendadas {#best-practices}
 
@@ -280,7 +280,7 @@ O argumento passado para `logContentCardClick()` deve ser um objeto `Card` origi
 
 ## Usando o Google Tag Manager {#using-google-tag-manager}
 
-O Google Tag Manager funciona injetando o [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (uma versão do nosso Web SDK) diretamente no código do seu site, o que significa que todos os métodos do SDK estão disponíveis como se você tivesse integrado o SDK sem o Google Tag Manager, exceto ao implementar Content Cards.
+O Google Tag Manager funciona injetando o [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (uma versão do nosso Web SDK or kit de desenvolvimento de software) diretamente no código do seu site, o que significa que todos os métodos do SDK or kit de desenvolvimento de software estão disponíveis como se você tivesse integrado o SDK or kit de desenvolvimento de software sem o Google Tag Manager, exceto ao implementar Content Cards.
 
 ### Configuração de Content Cards {#setting-up-content-cards}
 
@@ -306,7 +306,7 @@ Ao implementar a [interface de feed padrão]({{site.baseurl}}/developer_guide/pl
 {% endsubtab %}
 
 {% subtab custom feed %}
-Para o estilo de [feed personalizado]({{site.baseurl}}/developer_guide/content_cards/creating_cards), as etapas são as mesmas que se você tivesse integrado o SDK sem o GTM. Por exemplo, se quiser personalizar a largura do feed de Content Cards, você pode colar o seguinte no seu arquivo CSS:
+Para o estilo de [feed personalizado]({{site.baseurl}}/developer_guide/content_cards/creating_cards), as etapas são as mesmas que se você tivesse integrado o SDK or kit de desenvolvimento de software sem o GTM. Por exemplo, se quiser personalizar a largura do feed de Content Cards, você pode colar o seguinte no seu arquivo CSS:
 
 {% raw %}
 ```css
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### Fazendo upgrade de modelos {#upgrading}
 
-Para fazer upgrade para a versão mais recente do Braze Web SDK, siga as três etapas a seguir no seu dashboard do Google Tag Manager:
+Para fazer upgrade para a versão mais recente do Braze Web SDK or kit de desenvolvimento de software, siga as três etapas a seguir no seu dashboard do Google Tag Manager:
 
 1. **Atualizar modelo de tag**<br>Acesse a página **Templates** no seu espaço de trabalho. Aqui você verá um ícone indicando que há uma atualização disponível.<br><br>![Página de modelos mostrando que uma atualização está disponível]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Clique nesse ícone e, após revisar a alteração, clique em **Accept Update**.<br><br>![Uma tela comparando os modelos de tag antigos e novos com um botão para "Accept Update"]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **Atualizar o número da versão**<br>Depois que seu modelo de tag tiver sido atualizado, edite a tag de inicialização da Braze e atualize a versão do SDK para a versão mais recente `major.minor`. Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Você pode ver uma lista das versões do SDK no nosso [changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md).<br><br>![Modelo de inicialização da Braze com um campo de entrada para alterar a versão do SDK]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **QA e publicação**<br>Verifique se a nova versão do SDK está funcionando usando a [ferramenta de depuração](https://support.google.com/tagmanager/answer/6107056?hl=en) do Google Tag Manager antes de publicar uma atualização no seu contêiner de tags.
+3. **QA e publicação**<br>Verifique se a nova versão do SDK or kit de desenvolvimento de software está funcionando usando a [ferramenta de depuração](https://support.google.com/tagmanager/answer/6107056?hl=en) do Google Tag Manager antes de publicar uma atualização no seu contêiner de tags.
 
 ### Solução de problemas {#troubleshooting}
 
@@ -352,13 +352,13 @@ Se eventos personalizados ou outras ações não estiverem sendo registrados na 
 2. Em **Advanced Settings** > **Tag Sequencing**, selecione **A tag that fires before \[this tag\]**.
 3. Escolha sua tag de **Braze Initialization** como a tag de configuração.
 
-Isso garante que o SDK esteja totalmente inicializado antes que qualquer tag de ação tente enviar dados para a Braze.
+Isso garante que o SDK or kit de desenvolvimento de software esteja totalmente inicializado antes que qualquer tag de ação tente enviar dados para a Braze.
 
 #### Ativar o registro detalhado {#enable-verbose-logging}
 
 Para capturar registros detalhados para solução de problemas, você pode ativar o registro detalhado na sua integração com o Google Tag Manager. Esses registros serão exibidos na guia **Console** das [ferramentas de desenvolvedor](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) do seu navegador.
 
-Na sua integração do Google Tag Manager, navegue até a tag de inicialização da Braze e selecione **Enable Web SDK Logging**.
+Na sua integração do Google Tag Manager, navegue até a tag de inicialização da Braze e selecione **Enable Web SDK or kit de desenvolvimento de software Logging**.
 
 ![A página de resumo da tag de inicialização da Braze com a opção de ativar o registro do Web SDK.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 

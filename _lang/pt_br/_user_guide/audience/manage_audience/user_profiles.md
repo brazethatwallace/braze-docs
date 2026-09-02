@@ -24,10 +24,10 @@ Para acessar o perfil de um usuário, acesse a página **Search Users** e pesqui
 - Token por push
 - Alias de usuário no formato "[user_alias]:[alias_name]", como "amplitude_id:user_123"
 
-Se uma correspondência for encontrada, você poderá visualizar as informações registradas para esse usuário com o SDK da Braze. Caso contrário, se a pesquisa retornar vários perfis de usuário, você poderá mesclar cada perfil individualmente ou realizar uma mesclagem de usuários em massa. Para um passo a passo completo, consulte [Mesclar usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
+Se uma correspondência for encontrada, você poderá visualizar as informações registradas para esse usuário com o SDK or kit de desenvolvimento de software da Braze. Caso contrário, se a pesquisa retornar vários perfis de usuário, você poderá mesclar cada perfil individualmente ou realizar uma mesclagem de usuários em massa. Para um passo a passo completo, consulte [Mesclar usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
 
 {% alert note %}
-**Search Users** não é o mesmo que **User Lookup** no criador de Segment ou Campaign. **User Lookup** testa se um usuário específico corresponde ao seu público e aceita apenas `external_id` ou `braze_id`. **Search Users** nesta página aceita e-mail, telefone, token por push e alias de usuário. Para saber mais, consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
+**Search Users** não é o mesmo que **User Lookup** no criador de Segment or segmento ou Campaign. **User Lookup** testa se um usuário específico corresponde ao seu público e aceita apenas `external_id` ou `braze_id`. **Search Users** nesta página aceita e-mail, telefone, token por push e alias de usuário. Para saber mais, consulte [Testando segmentos]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 {% endalert %}
 
 {% alert important %}
@@ -42,7 +42,7 @@ Os perfis de usuário são um ótimo recurso para solução de problemas e teste
 
 Por exemplo, se um usuário relatar um problema e você não tiver certeza de qual dispositivo e sistema operacional ele está usando, você pode usar a [guia Visão geral](#overview-tab) para encontrar essa informação (desde que você tenha o e-mail ou o ID do usuário). Você também pode visualizar o idioma de um usuário, o que pode ser útil se estiver solucionando problemas em uma [campanha multilíngue]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) que não se comportou como esperado.
 
-Você pode usar a [guia Engajamento](#engagement-tab) para verificar se um determinado usuário recebeu uma Campaign. Além disso, se esse usuário específico recebeu a Campaign, você pode ver quando ele a recebeu. Também é possível verificar se um usuário está em um determinado Segment e se ele aceitou receber push, e-mail ou ambos. Essas informações são úteis para fins de solução de problemas. Por exemplo, você deve verificar essas informações se um usuário não receber uma Campaign que você esperava que ele recebesse ou se receber uma Campaign que você não esperava que ele recebesse.
+Você pode usar a [guia Engajamento](#engagement-tab) para verificar se um determinado usuário recebeu uma Campaign. Além disso, se esse usuário específico recebeu a Campaign, você pode ver quando ele a recebeu. Também é possível verificar se um usuário está em um determinado Segment or segmento e se ele aceitou receber push, e-mail ou ambos. Essas informações são úteis para fins de solução de problemas. Por exemplo, você deve verificar essas informações se um usuário não receber uma Campaign que você esperava que ele recebesse ou se receber uma Campaign que você não esperava que ele recebesse.
 
 ## Elementos do perfil de usuário {#elements-of-user-profile}
 
@@ -71,7 +71,7 @@ A guia **Visão geral** contém informações básicas sobre um usuário e suas 
 | Compras | Receita total atribuída a este usuário, sua última compra, número total de compras e uma lista de cada compra. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Guia Visão geral #overview-tab" }
 
-Para saber mais sobre esses dados, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Para saber mais sobre esses dados, consulte [Coleta de dados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 {% endtab %}
 <a id="engagement-tab"></a>
@@ -85,7 +85,7 @@ A guia **Engajamento** contém informações sobre as interações de um usuári
 | --- | --- |
 | Configurações de contato | Status de inscrição para e-mail, SMS e push, e os grupos de inscrições aos quais este usuário está associado para esses três canais. Esta seção também inclui informações de changelog para tokens por push. Consulte [e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) e [push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) para informações sobre como inscrições e aceitações são configuradas. |
 | Campaigns recebidas | **Campaigns recebidas** reflete o momento de envio e visualização específico de cada canal. A maioria dos canais registra um envio quando a Braze passa a mensagem para o provedor de entrega, mesmo quando a mensagem não é efetivamente entregue. **Content Cards** são diferentes: as Campaigns aparecem aqui somente depois que o usuário visualiza o cartão no app. Para um detalhamento por canal, consulte [Quando as Campaigns aparecem em Campaigns recebidas](#when-campaigns-appear-in-campaigns-received). <br><br>Quando uma mensagem é recebida, aberta ou clicada, a Braze atualiza os dados de todos os perfis que compartilham o mesmo identificador de canal do perfil que registrou a interação (por exemplo, o mesmo endereço de e-mail para e-mail, ou o mesmo número de telefone para SMS ou WhatsApp). Usuários que compartilham um identificador com alguém que recebeu, abriu ou clicou na mensagem podem corresponder a esse filtro mesmo que não estivessem originalmente na Campaign ou não tenham recebido a mensagem diretamente.<br><br>Essas listas usam [dados de interação com mensagens]({{site.baseurl}}/api/data_retention/messaging_interaction_data) (incluindo regras de expiração) para determinar o que aparece para redirecionamento e histórico.<br><br> Selecione uma Campaign da lista para visualizá-la. |
-| Segments | Segments nos quais este usuário está incluído. Selecione um Segment da lista para visualizá-lo. |
+| Segments | Segments nos quais este usuário está incluído. Selecione um Segment or segmento da lista para visualizá-lo. |
 | Estatísticas de comunicação | Quando este usuário recebeu mensagens de você pela última vez em cada canal. |
 | Atribuição de instalação | Informações sobre como e quando um usuário instalou seu app. Saiba mais sobre [entender as instalações de usuários]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution). |
 | Diversos | O [número de bucket aleatório]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) do usuário. |
@@ -100,7 +100,7 @@ A guia **Engajamento** contém informações sobre as interações de um usuári
 ### Guia Histórico de eventos {#event-history-tab}
 
 {% alert note %}
-Para visualizar a guia **Histórico de eventos**, você precisa das [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Search Users**, **View User Event Properties** e **View PII**, pois as propriedades de eventos podem conter dados pessoais.
+Para visualizar a guia **Histórico de eventos**, você precisa das [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) **Search Users**, **View User Event Properties** e **View IPI**, pois as propriedades de eventos podem conter dados pessoais.
 {% endalert %}
 
 A guia **Histórico de eventos** mostra os eventos personalizados e as compras que um usuário registrou. Use-a para verificar se os dados de eventos estão chegando corretamente e solucionar problemas no nível do usuário diretamente no dashboard, sem necessidade de exportações de dados ou ferramentas externas.
@@ -141,7 +141,7 @@ Essas descrições cobrem quando um envio é registrado para **Campaigns recebid
 
 A guia **Histórico de mensagens** do perfil do usuário mostra eventos recentes relacionados a mensagens (cerca de 40) para um usuário individual nos últimos 30 dias. Esses eventos incluem as mensagens que o usuário recebeu, com as quais interagiu e mais.
 
-Os dados nesta guia não são atualizados após a mesclagem de um usuário. Além disso, quaisquer eventos associados a mensagens enviadas via API (por exemplo, o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) não aparecem nesta guia se não houver um ID de Campaign especificado nesses envios.
+Os dados nesta guia não são atualizados após a mesclagem de um usuário. Além disso, quaisquer eventos associados a mensagens enviadas via API or interface de programação do aplicativo (API) (por exemplo, o [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)) não aparecem nesta guia se não houver um ID de Campaign especificado nesses envios.
 
 {% alert important %}
 Eventos de RCS não são suportados atualmente na guia **Histórico de mensagens**.
@@ -202,7 +202,7 @@ Embora as estatísticas de abertura de e-mail possam ser úteis em agregado, por
 Alguns campos podem estar ausentes na guia **Histórico de mensagens** de um usuário nos seguintes cenários:
 
 - Quando um evento não possui dados para **Mensagem enviada**, isso indica que a Campaign não tem nenhuma variação de mensagem.
-- Quando um evento não possui dados para **Campaign/Canvas** e **Mensagem enviada**, isso indica que essa mensagem foi enviada por uma Campaign de API (não Campaigns disparadas por API) que não especificou o `campaign_id` e o `message_variation_id`. Esses campos são opcionais e podem ser omitidos do corpo da requisição. Quando esses campos são especificados, essas informações são preenchidas nos registros do histórico de mensagens.
+- Quando um evento não possui dados para **Campaign/Canvas** e **Mensagem enviada**, isso indica que essa mensagem foi enviada por uma Campaign de API or interface de programação do aplicativo (API) (não Campaigns disparadas por API or interface de programação do aplicativo (API)) que não especificou o `campaign_id` e o `message_variation_id`. Esses campos são opcionais e podem ser omitidos do corpo da requisição. Quando esses campos são especificados, essas informações são preenchidas nos registros do histórico de mensagens.
    - Se uma mensagem específica estiver ausente do histórico de mensagens, mas aparecer no registro de **Campaigns recebidas**, é provável que o usuário tenha recebido a Campaign antes de ser identificado como o usuário atual. Se um perfil existente for órfão, o registro de **Campaigns recebidas** é transferido, mas o histórico de mensagens não.
 - Quando dados estão ausentes para **Campaign/Canvas**, um teste manual pode ter sido enviado. Testes manuais são registrados na guia **Histórico de mensagens**, mas a Campaign ou o Canvas que foi enviado não será registrado.
 - Quando um usuário está em um grupo de teste ou outro público de teste interno, o **Histórico de mensagens** pode exibir metadados limitados da Campaign ou do Canvas em comparação com envios de produção.
@@ -213,7 +213,7 @@ A Braze não impõe um limite geral sobre o tamanho total de um perfil de usuár
 
 ### Arrays de atributos personalizados {#custom-attribute-arrays}
 
-Os arrays de atributos personalizados (incluindo arrays de objetos) têm uma capacidade de 100 KB. Quando você envia um array que excede essa capacidade, o atributo personalizado não é processado. A API retorna uma resposta de sucesso (201), mas o array não aparece no perfil de usuário e os dados existentes para esse atributo não são atualizados.
+Os arrays de atributos personalizados (incluindo arrays de objetos) têm uma capacidade de 100 KB. Quando você envia um array que excede essa capacidade, o atributo personalizado não é processado. A API or interface de programação do aplicativo (API) retorna uma resposta de sucesso (201), mas o array não aparece no perfil de usuário e os dados existentes para esse atributo não são atualizados.
 
 Se seus arrays estiverem se aproximando dessa capacidade, considere limitar o número de objetos que você preenche para manter o tamanho total dentro de 100 KB.
 

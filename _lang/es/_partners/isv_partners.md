@@ -1,11 +1,11 @@
 ---
-nav_title: Socios ISV
+nav_title: Socios proveedor de software independiente
 layout: dev_guide
 page_order: 9
 hidden: true
 
-guide_top_header: "Socios ISV"
-guide_top_text: "Los siguientes artículos se facilitan a nuestros socios ISV de Alloys como referencia a la hora de desarrollar una integración de mercado con la plataforma Braze. ¡Visita la documentación de integración del socio correspondiente para empezar!"
+guide_top_header: "Socios proveedor de software independiente"
+guide_top_text: "Los siguientes artículos se facilitan a nuestros socios proveedor de software independiente de Alloys como referencia a la hora de desarrollar una integración de mercado con la plataforma Braze. ¡Visita la documentación de integración del socio correspondiente para empezar!"
 
 guide_featured_title: "Documentación para socios"
 guide_featured_list:

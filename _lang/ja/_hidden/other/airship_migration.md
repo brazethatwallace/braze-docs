@@ -53,7 +53,7 @@ Brazeは、Braze SDKがインストールされたアプリケーションを更
 Braze SDKへの移行プロセス中も継続する必要があるライフサイクル固有のキャンペーンの場合、Brazeが有効なプッシュトークンを受信していれば、ユーザーはBrazeとAirshipの両方から通知を受け取る資格がある場合があります。
 
 #### メッセージセンター {#message-center}
-Airshipのメッセージセンターキャンペーン機能を置き換えるには、プッシュ通知と[Content Card]({{site.baseurl}}/user_guide/channels/content_cards)で構成されるマルチチャネルキャンペーンを作成することをお勧めします。メッセージセンター形式でContent Cardsを使用する方法の詳細については、[iOS Content Cards実装ガイド]({{site.baseurl}}/developer_guide/content_cards/creating_cards#message-inbox)をご覧ください。
+Airshipのメッセージセンターキャンペーン機能を置き換えるには、プッシュ通知と[Content カード]({{site.baseurl}}/user_guide/channels/content_cards)で構成されるマルチチャネルキャンペーンを作成することをお勧めします。メッセージセンター形式でContent Cardsを使用する方法の詳細については、[iOS Content Cards実装ガイド]({{site.baseurl}}/developer_guide/content_cards/creating_cards#message-inbox)をご覧ください。
 
 ### セグメンテーション {#segmentation}
 Brazeは、顧客に充実したユーザー体験を提供するために、複数の[セグメンテーション]({{site.baseurl}}/user_guide/audience/segments)フィルターを提供しています。

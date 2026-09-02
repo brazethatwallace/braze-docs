@@ -1,21 +1,21 @@
-{% if include.section == "SDK requirements" %}
+{% if include.section == "SDK or kit de desarrollo de software requirements" %}
 
 ## Requisitos previos {#prerequisites}
 
-### Versiones mínimas del SDK {#minimum-sdk-versions}
+### Versiones mínimas del SDK or kit de desarrollo de software {#minimum-sdk-versions}
 
-Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios de las siguientes versiones mínimas del SDK. Para más información, consulta [Crear un mensaje dentro de la aplicación con arrastrar y soltar: Requisitos previos]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#prerequisites).
+Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios de las siguientes versiones mínimas del SDK or kit de desarrollo de software. Para más información, consulta [Crear un mensaje dentro de la aplicación con arrastrar y soltar: Requisitos previos]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/drag_and_drop/create#prerequisites).
 
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
-### Versiones del SDK para enlaces de texto {#sdk-versions-for-text-links}
+### Versiones del SDK or kit de desarrollo de software para enlaces de texto {#sdk-versions-for-text-links}
 
-Para incluir enlaces de texto que no descarten el mensaje, se necesitan las siguientes versiones mínimas del SDK:
+Para incluir enlaces de texto que no descarten el mensaje, se necesitan las siguientes versiones mínimas del SDK or kit de desarrollo de software:
 
 {% sdk_min_versions swift:6.2.0 android:26.0.0 %}
 
 {% alert warning %}
-Si incluyes un enlace en tu mensaje dentro de la aplicación que redirija a una URL y el usuario no está en las versiones mínimas del SDK especificadas, al hacer clic en el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
+Si incluyes un enlace en tu mensaje dentro de la aplicación que redirija a una URL y el usuario no está en las versiones mínimas del SDK or kit de desarrollo de software especificadas, al hacer clic en el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
 {% endalert %}
 
 {% endif %}

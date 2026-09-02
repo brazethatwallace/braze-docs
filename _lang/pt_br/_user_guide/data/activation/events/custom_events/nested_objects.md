@@ -19,9 +19,9 @@ Você pode usar objetos aninhados — objetos que estão dentro de outro objeto 
 - Esquemas de propriedades de evento não podem ser gerados para eventos de compra.
 - Esquemas de propriedades de evento são gerados por amostragem de eventos personalizados das últimas 24 horas.
 
-### Versões mínimas do SDK {#minimum-sdk-versions}
+### Versões mínimas do SDK or kit de desenvolvimento de software {#minimum-sdk-versions}
 
-As seguintes versões do SDK são compatíveis com objetos aninhados:
+As seguintes versões do SDK or kit de desenvolvimento de software são compatíveis com objetos aninhados:
 
 {% sdk_min_versions swift:5.0.0 android:20.0.0 web:3.3.0 %}
 
@@ -41,19 +41,19 @@ Se novas propriedades forem enviadas no futuro, elas não estarão no esquema at
 
 Você pode referenciar os dados aninhados durante a segmentação e personalização. Um esquema não é obrigatório. Consulte as seções a seguir para exemplos de uso:
 
-- [Corpo da requisição de API](#api-request-body)
+- [Corpo da requisição de API or interface de programação do aplicativo (API)](#api-request-body)
 - [Modelos Liquid](#liquid-templating)
 - [Disparo de mensagens](#message-triggering)
 - [Segmentação](#segmentation)
 - [Personalização](#personalization)
 
-### Corpo da requisição de API {#api-request-body}
+### Corpo da requisição de API or interface de programação do aplicativo (API) {#api-request-body}
 
 {% tabs %}
 {% tab Music Example %}
 
 A seguir, um exemplo de `/users/track` com um evento personalizado "Created Playlist". Depois que uma playlist for criada, capture as propriedades da playlist enviando:
-- Uma requisição de API que lista "songs" como uma propriedade
+- Uma requisição de API or interface de programação do aplicativo (API) que lista "songs" como uma propriedade
 - Um array das propriedades aninhadas das músicas
 
 ```
@@ -84,7 +84,7 @@ A seguir, um exemplo de `/users/track` com um evento personalizado "Created Play
 {% tab Restaurant Example%}
 
 A seguir, um exemplo de `/users/track` com um evento personalizado "Ordered". Depois que um pedido for concluído, capture as propriedades desse pedido enviando:
-- Uma requisição de API que lista `r_details` como uma propriedade
+- Uma requisição de API or interface de programação do aplicativo (API) que lista `r_details` como uma propriedade
 - As propriedades aninhadas desse pedido
 
 ```
@@ -110,7 +110,7 @@ Para propriedades de eventos personalizados aninhadas, se o ano for menor que 0 
 
 ### Modelos Liquid {#liquid-templating}
 
-A seguir, veja como criar um modelo Liquid que referencia as propriedades aninhadas solicitadas na [requisição de API anterior](#api-request-body).
+A seguir, veja como criar um modelo Liquid que referencia as propriedades aninhadas solicitadas na [requisição de API or interface de programação do aplicativo (API) anterior](#api-request-body).
 
 {% tabs %}
 {% tab Music Example %}
@@ -167,13 +167,13 @@ Se a propriedade do seu evento contiver os caracteres `[]` ou `.`, faça o escap
 
 ### Segmentação {#segmentation}
 
-Para segmentar usuários com base em propriedades de evento aninhadas, você deve usar [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Depois de gerar um esquema, o explorador de objetos aninhados será exibido na seção de segmentação.
+Para segmentar usuários com base em propriedades de evento aninhadas, você deve usar [Extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension). Depois de gerar um esquema, o explorador de objetos aninhados será exibido na seção de segmentação.
 
 ![Captura de tela relacionada à segmentação.]({% image_buster /assets/img_archive/nested_event_properties_segmentation.png %})
 
 A segmentação usa a mesma notação do disparo (consulte [Disparo de mensagens](#message-triggering)).
 
-Para editar ou criar extensões de segmento, você precisará da permissão "Editar segmentos".
+Para editar ou criar extensões de Segment or segmento or segmento, você precisará da permissão "Editar segmentos".
 
 ### Personalização {#personalization}
 
@@ -187,7 +187,7 @@ A ferramenta **Pré-visualização e teste** do dashboard não permite adicionar
 
 ### Atributos personalizados aninhados {#nested-custom-attributes}
 
-1. Importe os atributos aninhados para o perfil do usuário teste por meio da API.
+1. Importe os atributos aninhados para o perfil do usuário teste por meio da API or interface de programação do aplicativo (API).
 2. Na sua Campaign ou Canvas, acesse **Pré-visualização e teste**.
 3. Selecione **Pré-visualizar como usuário** e pesquise o usuário teste. O Liquid será resolvido usando os atributos aninhados reais no perfil desse usuário.
 
@@ -197,14 +197,14 @@ As propriedades de evento aninhadas não podem ser pré-visualizadas no dashboar
 
 1. Crie uma Campaign ou etapa do Canvas que tenha como alvo apenas seus usuários teste e seja disparada pelo (ou referencie o) evento personalizado com propriedades aninhadas.
 2. Lance a Campaign para seu público de teste.
-3. Registre o evento personalizado com a carga útil do objeto aninhado no perfil do seu usuário teste (usando a API ou o SDK).
+3. Registre o evento personalizado com a carga útil do objeto aninhado no perfil do seu usuário teste (usando a API or interface de programação do aplicativo (API) ou o SDK or kit de desenvolvimento de software).
 4. Verifique se a mensagem é renderizada corretamente com os valores das propriedades aninhadas.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
 ### O uso de objetos aninhados registra pontos de dados adicionais? {#does-using-nested-objects-log-additional-data-points}
 
-Não há mudança na forma como registramos pontos de dados com a adição dessa funcionalidade. A segmentação baseada em objetos aninhados usa extensões de segmento, que não consomem pontos de dados adicionais.
+Não há mudança na forma como registramos pontos de dados com a adição dessa funcionalidade. A segmentação baseada em objetos aninhados usa extensões de Segment or segmento or segmento, que não consomem pontos de dados adicionais.
 
 ### Quantos dados aninhados podem ser enviados? {#how-much-nested-data-can-be-sent}
 

@@ -7,7 +7,7 @@ page_order: 4.5
 page_type: reference
 description: "Este artigo detalha o endpoint síncrono de rastreamento de usuários da Braze."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Criar e atualizar usuários (síncrono) {#create-and-update-users-synchronous}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
@@ -19,11 +19,11 @@ description: "Este artigo detalha o endpoint síncrono de rastreamento de usuár
 Este endpoint está atualmente em **beta limitado**. Embora não estejamos adicionando novos clientes ao beta neste momento, informe ao seu gerente de conta da Braze se você acha que esse recurso pode ser útil para a sua integração com a Braze.
 {% endalert %}
 
-## Chamadas síncronas e assíncronas à API {#synchronous-and-asynchronous-api-calls}
+## Chamadas síncronas e assíncronas à API or interface de programação do aplicativo (API) {#synchronous-and-asynchronous-api-calls}
 
-Em uma chamada assíncrona, a API retorna o código de status `201`, indicando que sua solicitação foi recebida, compreendida e aceita com sucesso. No entanto, isso não significa que sua solicitação tenha sido totalmente concluída.
+Em uma chamada assíncrona, a API or interface de programação do aplicativo (API) retorna o código de status `201`, indicando que sua solicitação foi recebida, compreendida e aceita com sucesso. No entanto, isso não significa que sua solicitação tenha sido totalmente concluída.
 
-Em uma chamada síncrona, a API retorna o código de status `201`, indicando que sua solicitação foi recebida, compreendida, aceita e concluída com sucesso. A resposta da chamada mostra campos selecionados do perfil do usuário como resultado da operação.
+Em uma chamada síncrona, a API or interface de programação do aplicativo (API) retorna o código de status `201`, indicando que sua solicitação foi recebida, compreendida, aceita e concluída com sucesso. A resposta da chamada mostra campos selecionados do perfil do usuário como resultado da operação.
 
 Esse endpoint tem um limite de frequência menor do que o endpoint `/users/track` (consulte [Limite de frequência](#rate-limit)). Cada solicitação `/users/track/sync` pode conter apenas um objeto de evento, um objeto de atributo **ou** um objeto de compra. Esse endpoint deve ser reservado para atualizações de perfil de usuário em que uma chamada síncrona é necessária. Para uma implementação saudável, recomendamos usar `/users/track/sync` e `/users/track` juntos.
 
@@ -31,13 +31,13 @@ Por exemplo, se você estiver enviando solicitações consecutivas para o mesmo 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.track.sync`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.track.sync`.
 
-Os clientes que usam a API para chamadas de servidor para servidor podem precisar adicionar `rest.iad-01.braze.com` à lista de permissões se estiverem protegidos por um firewall.
+Os clientes que usam a API or interface de programação do aplicativo (API) para chamadas de servidor para servidor podem precisar adicionar `rest.iad-01.braze.com` à lista de permissões se estiverem protegidos por um firewall.
 
 ## Limite de frequência {#rate-limit}
 
-{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/user_track_custom_attributes_data_points.md endpoint="/users/track/sync" %}
 
 Aplicamos um limite de velocidade base de 500 solicitações por minuto para esse endpoint para todos os clientes. Cada solicitação `/users/track/sync` pode conter até um objeto de evento, um objeto de atributo ou um objeto de compra. Cada objeto (evento, atributo e arrays de compra) pode atualizar um usuário cada.
 
@@ -276,7 +276,7 @@ Para a maioria das atualizações de perfil, o endpoint `/users/track` funciona 
 
 ### O tempo de resposta é diferente do endpoint `/users/track`? {#does-the-response-time-differ-from-the-userstrack-endpoint}
 
-Com uma chamada síncrona, a API espera até que a Braze conclua a solicitação para retornar uma resposta. Como resultado, solicitações síncronas levam mais tempo em média do que solicitações assíncronas para `/users/track`. Para a maioria das solicitações, você pode esperar uma resposta em segundos.
+Com uma chamada síncrona, a API or interface de programação do aplicativo (API) espera até que a Braze conclua a solicitação para retornar uma resposta. Como resultado, solicitações síncronas levam mais tempo em média do que solicitações assíncronas para `/users/track`. Para a maioria das solicitações, você pode esperar uma resposta em segundos.
 
 ### Posso enviar várias solicitações ao mesmo tempo? {#can-i-send-multiple-requests-at-the-same-time}
 

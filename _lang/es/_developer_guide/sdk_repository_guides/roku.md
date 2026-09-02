@@ -1,25 +1,25 @@
 ---
-nav_title: SDK de Roku
-article_title: Guía del repositorio del SDK de Roku
+nav_title: SDK or kit de desarrollo de software de Roku
+article_title: Guía del repositorio del SDK or kit de desarrollo de software de Roku
 page_order: 8
-description: "Referencia del README del SDK de Roku de Braze reflejada desde GitHub."
+description: "Referencia del README del SDK or kit de desarrollo de software de Roku de Braze reflejada desde GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guía del repositorio del SDK de Roku {#roku-sdk-repository-guide}
+# Guía del repositorio del SDK or kit de desarrollo de software de Roku {#roku-sdk-repository-guide}
 
-## Acerca del SDK de Roku de Braze {#about-the-braze-roku-sdk}
+## Acerca del SDK or kit de desarrollo de software de Roku de Braze {#about-the-braze-roku-sdk}
 
-El SDK de Roku de Braze te ayuda a integrar las capacidades de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
+El SDK or kit de desarrollo de software de Roku de Braze te ayuda a integrar las capacidades de mensajería, análisis y participación de usuarios de Braze en tu aplicación.
 
 Para empezar, consulta los siguientes recursos:
 
 - [Guía del usuario de Braze](https://www.braze.com/docs/user_guide/introduction/)
 - [Guía del desarrollador de Braze](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
-## Integración inicial del SDK {#initial-sdk-integration}
+## Integración inicial del SDK or kit de desarrollo de software {#initial-sdk-integration}
 
-El SDK de Roku de Braze te proporcionará una API para reportar información que se utilizará en análisis, segmentación y participación.
+El SDK or kit de desarrollo de software de Roku de Braze te proporcionará una API para reportar información que se utilizará en análisis, segmentación y participación.
 
 ## Paso 1: Añadir archivos {#step-1-add-files}
 
@@ -127,15 +127,15 @@ Después de procesar un mensaje dentro de la aplicación, debes borrar el campo:
 m.BrazeTask.BrazeInAppMessage = invalid
 ```
 
-## Integración básica del SDK completada {#basic-sdk-integration-complete}
+## Integración básica del SDK or kit de desarrollo de software completada {#basic-sdk-integration-complete}
 
-Braze debería estar recopilando datos de tu aplicación. Consulta nuestra documentación pública sobre cómo registrar atributos, eventos y compras en nuestro SDK. La escena `MainScene.brs` de nuestra aplicación de ejemplo también contiene ejemplos de uso de la API.
+Braze debería estar recopilando datos de tu aplicación. Consulta nuestra documentación pública sobre cómo registrar atributos, eventos y compras en nuestro SDK or kit de desarrollo de software. La escena `MainScene.brs` de nuestra aplicación de ejemplo también contiene ejemplos de uso de la API.
 
 `BrazeInAppMessage.brs` y `CustomSideBySideInAppMessage.brs` muestran ejemplos de manejo de In-App Messages. `onInAppMessageTriggered()` en `MainScene.brs` muestra cómo admitir múltiples diseños.
 
 ## Referencia adicional {#additional-reference}
 
-El directorio `torchietv` contiene una aplicación de ejemplo con el SDK de Braze integrado.
+El directorio `torchietv` contiene una aplicación de ejemplo con el SDK or kit de desarrollo de software de Braze integrado.
 <!-- END GENERATED README CONTENT -->
 
 Para detalles del repositorio y proyectos de ejemplo, consulta [https://github.com/braze-inc/braze-roku-sdk](https://github.com/braze-inc/braze-roku-sdk).

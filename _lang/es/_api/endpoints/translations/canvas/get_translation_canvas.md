@@ -12,7 +12,7 @@ description: "En este artículo se describen los detalles del endpoint Ver la tr
 {% api %}
 # Ver la traducción de un Canvas {#view-translation-for-a-canvas}
 {% apimethod get %}
-/canvas/translations
+/Canvas/translations
 {% endapimethod %}
 
 > Utiliza este endpoint para obtener una vista previa de un mensaje traducido para un Canvas. Consulta [Locales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.

@@ -164,7 +164,7 @@ Fullstoryの[Activation Streams](https://help.fullstory.com/hc/en-us/articles/36
 
 Fullstoryによってトリガーされるキャンバスに[エージェントステップ]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)を作成し、このセクションで説明したContextステップを含めることで、エージェント内でFullstoryのセッションサマリーデータを参照できます。
 
-この例では、このデータを使用してBrazeエージェントがContent Cardで使用する適切なメッセージコピーを生成し、ユーザーに放棄カートに戻るよう促すことができます。
+この例では、このデータを使用してBrazeエージェントがContent カードで使用する適切なメッセージコピーを生成し、ユーザーに放棄カートに戻るよう促すことができます。
 
 ![プロンプトが入力されたBrazeエージェントのコンテキストクリエイターのスクリーンショット]({% image_buster /assets/img/fullstory/4.png %})
 

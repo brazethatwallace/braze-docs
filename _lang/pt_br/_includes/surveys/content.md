@@ -77,7 +77,7 @@ Você pode adicionar os seguintes blocos de formulário a pesquisas:
 - Caixa de seleção única
 - Grupo de caixas de seleção
 - Escala de avaliação
-- NPS
+- Net Promoter Score (NPS)
 
 ### Randomizar opções de resposta {#randomize-answer-choices}
 

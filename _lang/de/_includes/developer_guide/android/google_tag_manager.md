@@ -1,14 +1,14 @@
 {% multi_lang_include developer_guide/prerequisites/android.md %}
 
-## Google Tag Manager für Android verwenden
+## Google Tag Manager:in für Android verwenden
 
-Im folgenden Beispiel möchte eine App für das Streamen von Musik verschiedene Ereignisse protokollieren, wenn Nutzer:innen Lieder anhören. Mit dem Google Tag Manager für Android können sie kontrollieren, welche der Braze-Drittanbieter dieses Ereignis erhalten, und Tags speziell für Braze erstellen.
+Im folgenden Beispiel möchte eine App für das Streamen von Musik verschiedene Ereignisse protokollieren, wenn Nutzer:innen Lieder anhören. Mit dem Google Tag Manager:in für Android können sie kontrollieren, welche der Braze-Drittanbieter dieses Ereignis erhalten, und Tags speziell für Braze erstellen.
 
-### Schritt 1: Erstellen Sie einen Trigger für angepasste Events
+### Schritt 1: Erstellen Sie einen Trigger or triggern für angepasste Events
 
 Benutzerdefinierte Ereignisse werden protokolliert, wenn `actionType` auf `logEvent` eingestellt ist. Der Anbieter der angepassten Tags von Braze erwartet in diesem Beispiel, dass der Name des angepassten Events mit `eventName` festgelegt wird.
 
-Um zu beginnen, erstellen Sie einen Trigger, der nach dem "event name" namens `played song` sucht.
+Um zu beginnen, erstellen Sie einen Trigger or triggern, der nach dem "event name" namens `played song` sucht.
 
 ![Ein angepasster Trigger im Google Tag Manager:in, der für einige Events triggert, wenn "Ereignisname" gleich "abgespielter Song" ist.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_trigger.png %})
 
@@ -22,13 +22,13 @@ In den angepassten Parametern des Tags (auch bekannt als Schlüssel-Wert-Paare) 
 Wenn Sie ein angepasstes Event senden, stellen Sie sicher, dass `actionType` auf `logEvent` eingestellt ist, und legen Sie einen Wert für `eventName` fest, damit Braze den richtigen Eventnamen und die richtige Aktion erhält.
 {% endalert %}
 
-Sie können dem Tag auch zusätzliche Schlüssel-Wert-Paar-Argumente hinzufügen, die als Eigenschaften des angepassten Events an Braze gesendet werden. `eventName` und `actionType` werden für angepasste Event-Eigenschaften nicht ignoriert. Im folgenden Beispiel-Tag wird `genre` übergeben und über eine Tag-Variable im Google Tag Manager definiert, die aus dem angepassten Event stammt, das in der App protokolliert wird.
+Sie können dem Tag auch zusätzliche Schlüssel-Wert-Paar-Argumente hinzufügen, die als Eigenschaften des angepassten Events an Braze gesendet werden. `eventName` und `actionType` werden für angepasste Event-Eigenschaften nicht ignoriert. Im folgenden Beispiel-Tag wird `genre` übergeben und über eine Tag-Variable im Google Tag Manager:in definiert, die aus dem angepassten Event stammt, das in der App protokolliert wird.
 
-Da Google Tag Manager für Android Firebase als Datenschicht verwendet, wird die Eigenschaft `genre` als "Firebase - Event Parameter" an Google Tag Manager:in gesendet.
+Da Google Tag Manager:in für Android Firebase als Datenschicht verwendet, wird die Eigenschaft `genre` als "Firebase - Event Parameter" an Google Tag Manager:in:in gesendet.
 
 ![Eine Variable im Google Tag Manager, bei der "genre" als Ereignisparameter für den Tag "Braze - Played Song Event" hinzugefügt wird.]({% image_buster /assets/img/android_google_tag_manager/gtm_android_eventname_variable.png %})
 
-Wenn ein Nutzer:in der App einen Song abspielt, wird ein Ereignis über Firebase und Google Tag Manager protokolliert. Dabei wird der Name des Analytics-Ereignisses verwendet, der mit dem Triggernamen des Tags übereinstimmt: `played song`:
+Wenn ein Nutzer:in der App einen Song abspielt, wird ein Ereignis über Firebase und Google Tag Manager:in protokolliert. Dabei wird der Name des Analytics-Ereignisses verwendet, der mit dem Triggernamen des Tags übereinstimmt: `played song`:
 
 {% tabs %}
 {% tab JAVA %}
@@ -107,15 +107,15 @@ mFirebaseAnalytics.logEvent("changeUser", params)
 
 ### Schritt 4: Einen angepassten Tag-Anbieter hinzufügen {#adding-android-google-tag-provider}
 
-Wenn Sie die Tags und Auslöser eingerichtet haben, müssen Sie auch den Google Tag Manager in Ihrer Android-App implementieren, den Sie in der [Dokumentation](https://developers.google.com/tag-manager/android/v5/) von Google finden.
+Wenn Sie die Tags und Auslöser eingerichtet haben, müssen Sie auch den Google Tag Manager:in in Ihrer Android-App implementieren, den Sie in der [Dokumentation](https://developers.google.com/tag-manager/android/v5/) von Google finden.
 
-Nachdem der Google Tag Manager in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um die SDK-Methoden von Braze auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager konfiguriert haben.
+Nachdem der Google Tag Manager:in in Ihrer App installiert ist, fügen Sie einen angepassten Tag-Anbieter hinzu, um die SDK or Software-Development-Kit-Methoden von Braze auf der Grundlage der Tags aufzurufen, die Sie im Google Tag Manager:in konfiguriert haben.
 
-Achten Sie darauf, den "Klassenpfad" der Datei zu notieren. Diesen geben Sie ein, wenn Sie ein Tag in der [Google Tag Manager-Konsole](https://tagmanager.google.com/) einrichten.
+Achten Sie darauf, den "Klassenpfad" der Datei zu notieren. Diesen geben Sie ein, wenn Sie ein Tag in der [Google Tag Manager:in-Konsole](https://tagmanager.google.com/) einrichten.
 
-Dieses Beispiel zeigt eine der vielen Möglichkeiten, wie Sie Ihren angepassten Tag-Anbieter strukturieren können. Insbesondere wird gezeigt, wie Sie anhand des vom GTM Tag gesendeten Schlüssel-Wert-Paares `actionType` ermitteln, welche Methode des Braze SDK aufgerufen werden soll.
+Dieses Beispiel zeigt eine der vielen Möglichkeiten, wie Sie Ihren angepassten Tag-Anbieter strukturieren können. Insbesondere wird gezeigt, wie Sie anhand des vom GTM Tag gesendeten Schlüssel-Wert-Paares `actionType` ermitteln, welche Methode des Braze SDK or Software-Development-Kit aufgerufen werden soll.
 
-Die in diesem Beispiel gezeigten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager:in behandelt.
+Die in diesem Beispiel gezeigten `actionType` sind `logEvent`, `customAttribute` und `changeUser`, aber Sie können es vorziehen, zu ändern, wie Ihr Tag-Anbieter Daten von Google Tag Manager:in:in behandelt.
 
 {% tabs %}
 {% tab JAVA %}

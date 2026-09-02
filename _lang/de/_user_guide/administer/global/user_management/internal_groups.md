@@ -3,13 +3,13 @@ nav_title: Interne Gruppen
 article_title: Interne Gruppen
 page_order: 4
 page_type: reference
-description: "Dieser Referenzartikel beschreibt interne Gruppen – eine hervorragende Möglichkeit, Einblicke in die SDK- oder API-Protokolle Ihres Testgeräts zu erhalten, wenn Sie die SDK-Integration testen."
+description: "Dieser Referenzartikel beschreibt interne Gruppen – eine hervorragende Möglichkeit, Einblicke in die SDK or Software-Development-Kit- oder API-Protokolle Ihres Testgeräts zu erhalten, wenn Sie die SDK or Software-Development-Kit-Integration testen."
 
 ---
 
 # Interne Gruppen {#internal-groups}
 
-> Interne Gruppen sind eine hervorragende Möglichkeit, interne oder externe Testgruppen zu erstellen und zu organisieren. Sie bieten Einblicke in Ihre SDK- oder API-Protokolle und sind nützlich beim Testen Ihrer SDK-Integration. Sie können eine unbegrenzte Anzahl angepasster interner Gruppen mit bis zu 1.000 Nutzer:innen erstellen.
+> Interne Gruppen sind eine hervorragende Möglichkeit, interne oder externe Testgruppen zu erstellen und zu organisieren. Sie bieten Einblicke in Ihre SDK or Software-Development-Kit- oder API-Protokolle und sind nützlich beim Testen Ihrer SDK or Software-Development-Kit-Integration. Sie können eine unbegrenzte Anzahl angepasster interner Gruppen mit bis zu 1.000 Nutzer:innen erstellen.
 
 {% alert tip %}
 Wir empfehlen außerdem, unseren Braze-Lernkurs [Testen und Fehlerbehebung](https://learning.braze.com/path/developer/testing-and-troubleshooting) zu besuchen, der erklärt, wie Sie interne Gruppen für Ihre eigene Fehlerbehebung und Fehlersuche nutzen können.
@@ -30,8 +30,8 @@ Um interne Gruppen zu erstellen und zu verwalten, benötigen Sie die folgenden [
 - API-Limits anzeigen
 - API-Nutzungswarnungen anzeigen
 - API-Nutzungswarnungen bearbeiten
-- SDK-Debugger bearbeiten
-- SDK-Debugger anzeigen
+- SDK or Software-Development-Kit-Debugger bearbeiten
+- SDK or Software-Development-Kit-Debugger anzeigen
 
 ## Erstellen einer internen Gruppe {#creating-an-internal-group}
 
@@ -44,7 +44,7 @@ So erstellen Sie eine interne Gruppe:
 
 | Gruppentyp | Beschreibung |
 |--------------------|---------------------------------------------------------------------------------------------|
-| **User-Event-Gruppe** | Verwenden Sie diese, um Ereignisse oder Protokolle von Ihrem Testgerät zu überprüfen.<br><br>Um SDK- und REST API-Protokolle für Gruppenmitglieder zu erfassen, aktivieren Sie das Kontrollkästchen **User Events**. Ohne diese Einstellung werden für Nutzer:innen, die der Gruppe hinzugefügt wurden, keine Protokolle im [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) angezeigt. |
+| **User-Event-Gruppe** | Verwenden Sie diese, um Ereignisse oder Protokolle von Ihrem Testgerät zu überprüfen.<br><br>Um SDK or Software-Development-Kit- und Representational State Transfer API-Protokolle für Gruppenmitglieder zu erfassen, aktivieren Sie das Kontrollkästchen **User Events**. Ohne diese Einstellung werden für Nutzer:innen, die der Gruppe hinzugefügt wurden, keine Protokolle im [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) angezeigt. |
 | **Content-Testgruppe** | Verwenden Sie diese für Push, E-Mail und In-App-Nachrichten, um eine gerenderte Kopie der Nachricht zu senden. |
 | **Seed-Gruppe** | Sendet beim Versand automatisch eine Kopie der E-Mail an alle Mitglieder der Seed-Gruppe. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Erstellen einer internen Gruppe" }
@@ -68,10 +68,10 @@ Nachdem Sie Ihre interne Gruppe erstellt haben, fügen Sie Testnutzer:innen als 
 
 ### Content-Testgruppen {#content-test-groups}
 
-Ähnlich wie beim Senden einer Vorschau-Testnachricht spart die Content-Testgruppe Zeit und ermöglicht es Ihnen, Tests gleichzeitig an eine vordefinierte Liste von Braze-Nutzer:innen zu senden. Dies ist für Push, In-App-Nachrichten, SMS, E-Mail und Content Cards in Braze verfügbar. Nur Gruppen, die als Content-Testgruppen gekennzeichnet sind, stehen im Vorschaubereich einer Nachricht zur Verfügung.
+Ähnlich wie beim Senden einer Vorschau-Testnachricht spart die Content-Testgruppe Zeit und ermöglicht es Ihnen, Tests gleichzeitig an eine vordefinierte Liste von Braze-Nutzer:innen zu senden. Dies ist für Push, In-App-Nachrichten, Kurzmitteilungsdienst or SMS, E-Mail und Content Cards in Braze verfügbar. Nur Gruppen, die als Content-Testgruppen gekennzeichnet sind, stehen im Vorschaubereich einer Nachricht zur Verfügung.
 
 {% alert note %}
-[SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)-Testnachrichten können nur an gültige Telefonnummern in der Datenbank gesendet werden.
+[Kurzmitteilungsdienst or SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)-Testnachrichten können nur an gültige Telefonnummern in der Datenbank gesendet werden.
 {% endalert %}
 
 Wählen Sie einzelne Braze-Nutzer:innen oder eine beliebige Anzahl interner Gruppen aus, an die die Nachricht gesendet werden soll. Wenn Ihre Nachricht Liquid oder andere dynamische Personalisierung enthält, verwendet Braze die für jede:n Nutzer:in verfügbaren Attribute, um den Nachrichteninhalt zu personalisieren. Für Nutzer:innen ohne Attribute verwendet Braze den festgelegten Standardwert.
@@ -94,7 +94,7 @@ Seed-E-Mails haben `[SEED]` vor der Betreffzeile. Beachten Sie, dass Seed-E-Mail
 
 - Die Sendezähler in den Dashboard-Analytics erhöhen.
 - E-Mail-Analytics oder Retargeting beeinflussen.
-- Die Liste **Campaign erhalten** eines Nutzerprofils aktualisieren.
+- Die Liste **Campaign erhalten** eines Nutzerprofils Update or aktualisieren or aktualisieren.
 - Frequency-Capping beeinflussen.
 - Die Rate-Limits für die Zustellgeschwindigkeit berücksichtigen oder beeinflussen.
 

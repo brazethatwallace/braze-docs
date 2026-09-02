@@ -38,7 +38,7 @@ Después de crear un evento personalizado o un producto, selecciona **Administra
 
 Para bloquear propiedades de eventos o productos, usa el menú de acciones en la página de propiedades. Para bloquear atributos personalizados, eventos o productos por completo, consulta [Bloquear datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
-Para que estos atributos personalizados, eventos, productos o propiedades del evento añadidos sean rastreables, debes pedir a tu equipo de desarrollo que los cree en el SDK utilizando el nombre exacto que usaste para añadirlos anteriormente. O puedes utilizar la [API]({{site.baseurl}}/api/basics) de Braze para importar datos sobre ese atributo. Después de eso, el atributo personalizado, evento u otro será accionable y se aplicará a tus usuarios.
+Para que estos atributos personalizados, eventos, productos o propiedades del evento añadidos sean rastreables, debes pedir a tu equipo de desarrollo que los cree en el SDK or kit de desarrollo de software utilizando el nombre exacto que usaste para añadirlos anteriormente. O puedes utilizar la [API]({{site.baseurl}}/api/basics) de Braze para importar datos sobre ese atributo. Después de eso, el atributo personalizado, evento u otro será accionable y se aplicará a tus usuarios.
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
@@ -70,7 +70,7 @@ Si eliges forzar el tipo de datos de un atributo, cualquier dato que entre y no 
 
 Forzar un cambio de tipo de datos solo afecta a los nuevos datos que llegan a Braze. Cualquier dato ingerido antes del cambio de tipo seguirá almacenándose como el tipo antiguo y puede no ser segmentable con los filtros del nuevo tipo. Aparecerá una advertencia en los perfiles de los usuarios afectados. Para los nuevos datos entrantes, si un valor no coincide con el tipo forzado, Braze puede convertirlo al tipo forzado (por ejemplo, la cadena `"100"` al número `100`); los valores que no se puedan convertir se ignoran y no actualizan el atributo.
 
-Si necesitas que todos los datos de usuario existentes coincidan con el nuevo tipo, debes reenviar los valores del atributo para esos usuarios a través del SDK, la API o una importación CSV. No existe una conversión masiva automática para los datos existentes.
+Si necesitas que todos los datos de usuario existentes coincidan con el nuevo tipo, debes reenviar los valores del atributo para esos usuarios a través del SDK or kit de desarrollo de software, la API o una importación CSV. No existe una conversión masiva automática para los datos existentes.
 
 ### Coerción de tipos de datos {#data-type-coercion}
 

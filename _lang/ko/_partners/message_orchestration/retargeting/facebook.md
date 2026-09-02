@@ -30,7 +30,7 @@ Meta 워크 계정 베타 테스트에 참여 중인 경우, [Facebook 파트너
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
+| [Facebook Business 매니저](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
 | [Facebook 광고 계정](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Braze 커스텀 오디언스에 사용하려는 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 매니저 관리자가 Braze에서 사용할 Facebook 광고 계정에 대한 관리자 권한을 부여했는지, 그리고 광고 계정 이용약관에 동의했는지 확인하세요. 그렇지 않으면 Braze 내에서 Facebook 광고 계정에 접근할 수 없습니다. |
 | [Facebook 커스텀 오디언스 약관](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Braze에서 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의해야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
@@ -49,7 +49,7 @@ Meta 워크 계정 베타 테스트에 참여 중인 경우, [Facebook 파트너
 
 {: start="4"}
 4. Braze가 Facebook 계정에 연결되면, Braze 워크스페이스 내에서 동기화할 광고 계정을 선택합니다. <br><br>![Facebook에 연결할 수 있는 사용 가능한 광고 계정 목록.]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> 연결이 완료되면 파트너 페이지로 돌아가며, 여기에서 연결된 계정을 확인하고 기존 계정의 연결을 해제할 수 있습니다. <br><br> ![연결된 광고 계정이 표시된 업데이트된 Facebook 기술 파트너 페이지.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
-<br> Facebook 연결은 Braze 워크스페이스 수준에서 적용됩니다. Facebook 관리자가 Facebook Business Manager에서 사용자를 제거하거나 연결된 Facebook 계정에 대한 액세스를 취소하면, Braze가 유효하지 않은 토큰을 감지합니다. 그 결과 Facebook 오디언스 단계를 사용하는 활성 Canvases에 오류가 표시되며, Braze가 사용자를 동기화할 수 없게 됩니다.
+<br> Facebook 연결은 Braze 워크스페이스 수준에서 적용됩니다. Facebook 관리자가 Facebook Business 매니저에서 사용자를 제거하거나 연결된 Facebook 계정에 대한 액세스를 취소하면, Braze가 유효하지 않은 토큰을 감지합니다. 그 결과 Facebook 오디언스 단계를 사용하는 활성 Canvases에 오류가 표시되며, Braze가 사용자를 동기화할 수 없게 됩니다.
 
 {% alert important %}
 이전에 [광고 관리](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) 및 [광고 관리 표준 액세스](https://developers.facebook.com/docs/marketing-api/access#standard)에 대한 Facebook 앱 검토 프로세스를 완료한 고객의 경우, 시스템 사용자 토큰은 Facebook 오디언스 단계에 여전히 유효합니다. Facebook 파트너 페이지를 통해 Facebook 시스템 사용자 토큰을 편집하거나 취소할 수 없습니다. 대신, Facebook 계정을 연결하여 Braze 워크스페이스 내에서 Facebook 시스템 사용자 토큰을 대체할 수 있습니다.

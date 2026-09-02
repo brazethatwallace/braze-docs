@@ -76,7 +76,7 @@ Weitere Informationen zu den Push-Protokollstandards und der Browserunterstützu
 Browser und Push-Dienste können **410 Gone** (oder ähnliche Fehler wie „Endpunkt nicht gültig“) zurückgeben, wenn ein Web-Push-Abo nicht mehr akzeptiert wird. Häufige Ursachen sind:
 
 - Die Nutzer:innen haben Benachrichtigungen für Ihre Website in den Browser- oder Betriebssystemeinstellungen deaktiviert.
-- Ein anderes Nutzerprofil hat sich im selben Browserprofil angemeldet, sodass der Endpunkt auf den/die neue:n Abonnent:in rotiert wurde.
+- Ein anderes Kundenprofil or Nutzerprofil hat sich im selben Browserprofil angemeldet, sodass der Endpunkt auf den/die neue:n Abonnent:in rotiert wurde.
 - Das Abo ist nach einer langen Zeit ohne Engagement abgelaufen – nachdem die Nutzer:innen erneut zugestimmt haben, wird in der nächsten Sitzung ein neues Abo erstellt.
 
 Nachdem die Nutzer:innen Benachrichtigungen wieder aktiviert haben, lösen Sie den normalen Web-Push-Registrierungsablauf Ihrer Website erneut aus, damit Braze den neuen Abo-Endpunkt speichert.

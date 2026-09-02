@@ -25,7 +25,7 @@ Antes de comenzar, revisa lo siguiente:
 | Requisito             | Descripción |
 |-----------------------|-------------|
 | **Cambios críticos**  | Asegúrate de haber revisado todos los cambios importantes del conector legacy al nuevo conector en [Resumen de actualización de Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection). |
-| **Prerrequisitos de actualización** | Asegúrate de haber completado todos los [prerrequisitos de actualización]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necesarios con tus equipos de ingeniería y marketing. Para actualizar tu tienda headless de Shopify con Braze, necesitas completar dos pasos fundamentales:<br><br>- Inicializar y cargar el SDK Web de Braze para habilitar el seguimiento en el sitio<br>- Actualizar tu tienda existente a través de la experiencia de actualización dentro del producto |
+| **Prerrequisitos de actualización** | Asegúrate de haber completado todos los [prerrequisitos de actualización]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necesarios con tus equipos de ingeniería y marketing. Para actualizar tu tienda headless de Shopify con Braze, necesitas completar dos pasos fundamentales:<br><br>- Inicializar y cargar el SDK or kit de desarrollo de software Web de Braze para habilitar el seguimiento en el sitio<br>- Actualizar tu tienda existente a través de la experiencia de actualización dentro del producto |
 | **Cambios incompatibles**  | Revisa y corrige todos los cambios incompatibles señalados en Braze. Para una guía completa, continúa a [Corrección de cambios incompatibles](#fixing-breaking-changes-fixing-breaking-changes). |
 {: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
@@ -63,7 +63,7 @@ Para obtener más información, revisa [Eventos de Shopify compatibles]({{site.b
 {% endtab %}
 
 {% tab Listas de suscriptores %}
-Si estás recopilando suscriptores de correo electrónico o SMS desde Shopify a través de la integración, confirma que tus mensajes activos incluyan las listas de suscriptores correspondientes para tu tienda Shopify.
+Si estás recopilando suscriptores de correo electrónico o servicio de mensajes cortos desde Shopify a través de la integración, confirma que tus mensajes activos incluyan las listas de suscriptores correspondientes para tu tienda Shopify.
 
 Cuando la actualización esté completa, se crearán nuevos grupos de suscripción predeterminados para tu integración, los cuales necesitarás aprovechar como parte de tu mensajería activa. Para más información sobre los cambios, consulta [Recopilación de suscriptores]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
@@ -75,9 +75,9 @@ Cuando la actualización esté completa, se crearán nuevos grupos de suscripci�
 Es esencial que [corrijas todos los cambios importantes](#fixing-breaking-changes) antes de iniciar la actualización.
 {% endalert %}
 
-### Paso 1: Inicializar y cargar el SDK Web de Braze para habilitar el seguimiento en el sitio {#step-1}
+### Paso 1: Inicializar y cargar el SDK or kit de desarrollo de software Web de Braze para habilitar el seguimiento en el sitio {#step-1}
 
-Si aún no lo has hecho, inicializa y carga el SDK Web de Braze para habilitar el seguimiento en el sitio. Para una guía completa, consulta [Configuración de integración personalizada de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
+Si aún no lo has hecho, inicializa y carga el SDK or kit de desarrollo de software Web de Braze para habilitar el seguimiento en el sitio. Para una guía completa, consulta [Configuración de integración personalizada de Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
 - Crear una aplicación web de Braze
 - Añadir subdominio y variables de entorno
 - Habilitar el seguimiento en el sitio

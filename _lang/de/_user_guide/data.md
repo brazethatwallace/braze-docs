@@ -38,7 +38,7 @@ Daten spielen eine entscheidende Rolle bei der Verbesserung Ihrer Engagement-Str
 {% details Ihre Daten effektiver nutzen %}
 - **Flexibel und komponentenbasiert:** Unser übergeordnetes Ziel ist es, Ihnen zu helfen, Ihre Daten effektiver und umfassender zu nutzen. Dank einer modularen Architektur können Sie die Technologien nutzen, die Sie brauchen, um mehr aus Ihren Daten herauszuholen – ohne unnötige Middleware.
 - **Partnerintegrationen:** Braze priorisiert Integrationen mit erstklassigen Ökosystem-Technologien (und bietet APIs), die Realtime-Datenaustausch in beide Richtungen unkompliziert machen.
-- **Stream-Processing-Architektur:** Sie können Aktionen auf Basis jedes in Braze aufgenommenen Datenpunkts für Segmentierung, Orchestrierung und Personalisierung triggern.
+- **Stream-Processing-Architektur:** Sie können Aktionen auf Basis jedes in Braze aufgenommenen Datenpunkts für Segmentierung, Orchestrierung und Personalisierung Trigger or triggern or triggern.
 {% enddetails %}
 
 {% details Datenagilität steigern, um Performance zu verbessern %}

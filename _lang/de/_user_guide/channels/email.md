@@ -11,7 +11,7 @@ search_rank: 2
 
 # E-Mail {#email}
 
-> Mit E-Mail bei Braze erstellen Sie angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvases, die Nutzer:innen außerhalb Ihrer App oder Website erreichen. Dieser Hub behandelt die E-Mail-Einrichtung, Drag-and-Drop- und HTML-Editoren, Abo-Management, Templates und Tests, damit Sie konforme, markengerechte E-Mail-Programme starten können. Nutzen Sie Braze-E-Mail-Templates oder benutzerdefiniertes HTML, um Ihre Markenstimme und Ihr Layout umzusetzen. Beginnen Sie mit der [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup), wenn Sie eine neue Versanddomain konfigurieren. Beispiele für E-Mail-Campaigns finden Sie in den Braze-[Fallstudien](https://www.braze.com/customers/).
+> Mit E-Mail bei Braze erstellen Sie angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvase, die Nutzer:innen außerhalb Ihrer App oder Website erreichen. Dieser Hub behandelt die E-Mail-Einrichtung, Drag-and-Drop- und HTML-Editoren, Abo-Management, Templates und Tests, damit Sie konforme, markengerechte E-Mail-Programme starten können. Nutzen Sie Braze-E-Mail-Templates oder benutzerdefiniertes HTML, um Ihre Markenstimme und Ihr Layout umzusetzen. Beginnen Sie mit der [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup), wenn Sie eine neue Versanddomain konfigurieren. Beispiele für E-Mail-Campaigns finden Sie in den Braze-[Fallstudien](https://www.braze.com/customers/).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -45,7 +45,7 @@ Sie können Ihr E-Mail-Messaging auf verschiedene Arten anpassen, unter anderem 
 
 ## E-Mail-Dienste {#email-services}
 
-Wenn Sie zusätzliche Unterstützung für Ihr E-Mail-Programm benötigen, bietet Braze wiederkehrende und einmalige Serviceleistungen gegen Aufpreis an. Kontaktieren Sie Ihren Braze Account Manager für weitere Informationen.
+Wenn Sie zusätzliche Unterstützung für Ihr E-Mail-Programm benötigen, bietet Braze wiederkehrende und einmalige Serviceleistungen gegen Aufpreis an. Kontaktieren Sie Ihren Braze Account Manager:in für weitere Informationen.
 
 ### E-Mail-Zustellbarkeitsdienste {#email-deliverability-services}
 

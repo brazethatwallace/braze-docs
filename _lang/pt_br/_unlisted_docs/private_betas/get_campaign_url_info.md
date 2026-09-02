@@ -14,7 +14,7 @@ tool:
 
 description: "Este artigo descreve detalhes sobre o endpoint Listar alias de link da Braze."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Listar alias de link para campaign {#list-link-alias-for-campaign}
 
 {% apimethod get %}
@@ -29,8 +29,8 @@ description: "Este artigo descreve detalhes sobre o endpoint Listar alias de lin
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `campaign_id` | Obrigatório | String | Consulte [identificador de API da campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). |
-| `message_variation_id ` | Obrigatório | String | Identificador de API da variante de mensagem. Você pode encontrá-lo na página de detalhes da campaign, na seção **API Identifier**. |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de API or interface de programação do aplicativo (API) da campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). |
+| `message_variation_id ` | Obrigatório | String | Identificador de API or interface de programação do aplicativo (API) da variante de mensagem. Você pode encontrá-lo na página de detalhes da campaign, na seção **API or interface de programação do aplicativo (API) Identifier**. |
 | `includes_link_id` | Opcional | String | Um identificador de link específico (conforme atribuído pela Braze) ou `null`. Usado para filtrar os resultados por um `link_id` específico. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
@@ -66,8 +66,8 @@ A tabela a seguir lista possíveis erros retornados e as etapas de solução de 
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `Missing/Invalid Campaign ID` | O ID de API da campaign deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar lista de Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) ou fazendo login no dashboard. |
-| `Missing/Invalid Message Variant ID` | O ID de API da variante de mensagem deve ser um identificador de API. Você pode encontrá-lo usando o [endpoint Exportar detalhes da campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) ou fazendo login no dashboard. |
+| `Missing/Invalid Campaign ID` | O ID de API or interface de programação do aplicativo (API) da campaign deve ser um identificador de API or interface de programação do aplicativo (API). Você pode encontrá-lo usando o [endpoint Exportar lista de Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) ou fazendo login no dashboard. |
+| `Missing/Invalid Message Variant ID` | O ID de API or interface de programação do aplicativo (API) da variante de mensagem deve ser um identificador de API or interface de programação do aplicativo (API). Você pode encontrá-lo usando o [endpoint Exportar detalhes da campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) ou fazendo login no dashboard. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 

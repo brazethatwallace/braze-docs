@@ -1,6 +1,6 @@
 ---
 nav_title: "Objeto de alias de usuário"
-article_title: Objeto de alias de usuário da API
+article_title: Objeto de alias de usuário da API or interface de programação do aplicativo (API)
 page_order: 11
 page_type: reference
 description: "Este artigo de referência explica os diferentes componentes do objeto de alias de usuário."

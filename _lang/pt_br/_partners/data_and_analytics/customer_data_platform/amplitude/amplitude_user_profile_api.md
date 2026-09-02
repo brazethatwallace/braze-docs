@@ -4,18 +4,18 @@ article_title: Amplitude e Conteúdo conectado
 page_order: 0
 alias: /partners/amplitude_api_endpoints/
 page_type: partner
-description: "A API de Perfil de usuário da Amplitude fornece perfis de usuário da Amplitude. Isso inclui propriedades do usuário, propriedades computadas do usuário, uma lista de IDs de coortes que incluem o usuário e recomendações."
+description: "A API or interface de programação do aplicativo (API) de Perfil de usuário da Amplitude fornece perfis de usuário da Amplitude. Isso inclui propriedades do usuário, propriedades computadas do usuário, uma lista de IDs de coortes que incluem o usuário e recomendações."
 search_tag: Partner
 
 ---
 
 # Amplitude e Conteúdo conectado {#amplitude-and-connected-content}
 
-> A API de perfil de usuário da Amplitude fornece perfis de usuário da Amplitude. Isso inclui propriedades do usuário, propriedades computadas do usuário, uma lista de IDs de coortes que incluem o usuário e recomendações. A seguir, estão listados os endpoints comuns da API da Amplitude que podem ser usados com Conteúdo conectado.
+> A API or interface de programação do aplicativo (API) de perfil de usuário da Amplitude fornece perfis de usuário da Amplitude. Isso inclui propriedades do usuário, propriedades computadas do usuário, uma lista de IDs de coortes que incluem o usuário e recomendações. A seguir, estão listados os endpoints comuns da API or interface de programação do aplicativo (API) da Amplitude que podem ser usados com Conteúdo conectado.
 
 ## Parâmetros do endpoint {#endpoint-parameters}
 
-A tabela a seguir apresenta os parâmetros que podem ser usados em suas chamadas para a API de perfil de usuário.
+A tabela a seguir apresenta os parâmetros que podem ser usados em suas chamadas para a API or interface de programação do aplicativo (API) de perfil de usuário.
 
 | Parâmetro | Obrigatório | Descrição |
 | --------- | -------- | ----------- |

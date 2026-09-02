@@ -25,7 +25,7 @@ Este artículo de referencia te ayudará a comprender los casos de uso que ofrec
 
 | Requisito | Descripción |
 | --- | --- |
-| Cuenta de Amazon Web Service | Se necesita una cuenta de AWS para beneficiarse de esta asociación. Después de tener una cuenta de AWS, puedes acceder a Amazon Personalize a través de la consola de Amazon Personalize, la interfaz de línea de comandos de AWS (CLI de AWS) o los SDK de AWS. |
+| Cuenta de Amazon Web Service | Se necesita una cuenta de AWS para beneficiarse de esta asociación. Después de tener una cuenta de AWS, puedes acceder a Amazon Personalize a través de la consola de Amazon Personalize, la interfaz de línea de comandos de AWS (CLI de AWS) o los SDK or kit de desarrollo de software de AWS. |
 | Casos de uso definidos | Antes de crear un modelo, debes determinar tu caso de uso para esta integración. Consulta la siguiente lista de casos de uso comunes. |
 | Conjuntos de datos | Los modelos de recomendación de Amazon Personalize requieren tres tipos diferentes de conjuntos de datos: interacciones, usuarios y artículos. Consulta los siguientes detalles para ver los requisitos de cada conjunto de datos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -92,7 +92,7 @@ Una vez finalizado el entrenamiento de una solución, estás listo para evaluarl
 
 Una vez que hayas creado una versión de la solución con la que estés satisfecho, es hora de poner en práctica las recomendaciones. Hay dos formas de acceder a las recomendaciones:
 
-1. Campaña en tiempo real<br>Una campaña es una versión de la solución desplegada con un rendimiento mínimo de transacciones definido. Una transacción es una única llamada a la API para obtener la salida de la recomendación, y se define como TPS, o transacciones por segundo, con un valor mínimo de uno. La campaña escalará recursos en caso de un aumento de la carga, pero no caerá por debajo de tu valor mínimo. Puedes consultar las recomendaciones en la consola, en la CLI de AWS o a través de los SDK de AWS en tu código.<br><br>
+1. Campaña en tiempo real<br>Una campaña es una versión de la solución desplegada con un rendimiento mínimo de transacciones definido. Una transacción es una única llamada a la API para obtener la salida de la recomendación, y se define como TPS, o transacciones por segundo, con un valor mínimo de uno. La campaña escalará recursos en caso de un aumento de la carga, pero no caerá por debajo de tu valor mínimo. Puedes consultar las recomendaciones en la consola, en la CLI de AWS o a través de los SDK or kit de desarrollo de software de AWS en tu código.<br><br>
 2. Trabajo por lotes<br>Un trabajo por lotes exporta las recomendaciones a un contenedor de S3. La tarea toma como entrada un archivo JSON con una lista de ID de usuario para los que deseas exportar las recomendaciones. A continuación, tras especificar los permisos correctos y el destino de salida, estarás listo para ejecutar el trabajo. El tiempo de ejecución depende del tamaño de los conjuntos de datos y de la longitud de la lista de recomendaciones.
 
 ### Filtros {#filters}

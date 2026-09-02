@@ -8,7 +8,7 @@
 | `EXTERNAL_USER_ID` | VARCHAR | Tu propio identificador de usuario (si está configurado) |
 | `TIME` | NUMBER | Marca de tiempo unix (segundos) de la actualización del perfil |
 | `TIME_MS` | NUMBER | Marca de tiempo unix (milisegundos) de la actualización del perfil |
-| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK, panel, etc.) |
+| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK or kit de desarrollo de software, panel, etc.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Cuándo se actualizaron los datos por última vez en Snowflake |
 | `CUSTOM_ATTRIBUTES` | VARIANT | Objeto JSON que contiene todos los atributos personalizados (pares clave-valor) |
 | `ARCHIVED` | BOOLEAN | Si el perfil de usuario está archivado |
@@ -25,7 +25,7 @@
 | `EXTERNAL_USER_ID` | VARCHAR | Tu propio identificador de usuario (si está configurado) |
 | `TIME` | NUMBER | Marca de tiempo unix (segundos) de la actualización del perfil |
 | `TIME_MS` | NUMBER | Marca de tiempo unix (milisegundos) de la actualización del perfil |
-| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK, panel, etc.) |
+| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK or kit de desarrollo de software, panel, etc.) |
 | `ARCHIVED` | BOOLEAN | Si el perfil de usuario está archivado |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Cuándo se actualizaron los datos por última vez en Snowflake |
 | `APP_ID` | VARCHAR | La aplicación específica dentro de tu espacio de trabajo |

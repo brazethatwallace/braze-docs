@@ -68,7 +68,7 @@ Recomendamos seleccionar una experiencia de edición por Campaign de correo elec
 
 ## Paso 3: Redacta tu correo electrónico {#step-3-compose-your-email}
 
-Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico donde puedes ir directamente al editor en pantalla completa para redactar tu correo electrónico, cambiar tu información de envío y ver advertencias sobre la capacidad de entrega o el cumplimiento legal. Puedes alternar entre las pestañas HTML, clásico, texto plano y [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) mientras redactas.
+Después de seleccionar tu plantilla, verás un resumen de tu correo electrónico donde puedes ir directamente al editor en pantalla completa para redactar tu correo electrónico, cambiar tu información de envío y ver advertencias sobre la capacidad de entrega o el cumplimiento legal. Puedes alternar entre las pestañas HTML, clásico, texto plano y [páginas móviles aceleradas]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) mientras redactas.
 
 ![El botón "Regenerar desde HTML".]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -162,7 +162,7 @@ Evita usar las siguientes claves:
 </thead>
 <tbody>
   <tr>
-    <td>BCC</td>
+    <td>tarjeta de contenido de banner</td>
     <td>dkim-signature</td>
     <td>Reply-To</td>
   </tr>

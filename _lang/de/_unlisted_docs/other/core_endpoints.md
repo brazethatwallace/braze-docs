@@ -9,7 +9,7 @@ layout: dev_guide
 
 <!-- This article is linked in our standard credits SLA exhibit, and was created to clarify what endpoints that are covered for SLA purposes. -->
 
-Die Kern-API-Endpunkte von Braze sind spezifische Endpunkte in der REST API von Braze, die eine zulässige Ausfallzeit gemäß dem Service Level Agreement (SLA) eines Braze-Kontos haben. Weitere Informationen finden Sie in Ihrer SLA-Dokumentation oder wenden Sie sich an Ihre:n Account Manager:in.
+Die Kern-API-Endpunkte von Braze sind spezifische Endpunkte in der Representational State Transfer API von Braze, die eine zulässige Ausfallzeit gemäß dem Service Level Agreement (SLA) eines Braze-Kontos haben. Weitere Informationen finden Sie in Ihrer SLA-Dokumentation oder wenden Sie sich an Ihre:n Account Manager:in:in.
 
 Die Kern-Endpunkte umfassen:
 - [`/users/track`][1]

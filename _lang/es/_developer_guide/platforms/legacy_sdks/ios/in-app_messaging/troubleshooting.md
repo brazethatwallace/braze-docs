@@ -30,14 +30,14 @@ La mayoría de los problemas con los mensajes dentro de la aplicación se pueden
 
 ### Entrega del mensaje dentro de la aplicación {#troubleshooting-in-app-message-delivery}
 
-El SDK solicita los mensajes dentro de la aplicación a los servidores de Braze al inicio de la sesión. Para comprobar si los mensajes dentro de la aplicación se están entregando a tu dispositivo, deberás asegurarte de que los mensajes dentro de la aplicación están siendo tanto solicitados por el SDK como devueltos por los servidores de Braze.
+El SDK or kit de desarrollo de software solicita los mensajes dentro de la aplicación a los servidores de Braze al inicio de la sesión. Para comprobar si los mensajes dentro de la aplicación se están entregando a tu dispositivo, deberás asegurarte de que los mensajes dentro de la aplicación están siendo tanto solicitados por el SDK or kit de desarrollo de software como devueltos por los servidores de Braze.
 
 #### Comprueba si los mensajes se solicitan y se devuelven {#check-if-messages-are-requested-and-returned}
 
 1. Añádete como [usuario de prueba]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users) en el panel.
 2. Configura una campaña de mensajes dentro de la aplicación dirigida a tu usuario.
 3. Asegúrate de que se produzca una nueva sesión en tu aplicación.
-4. Usa los [registros de usuarios del evento]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar que tu dispositivo está solicitando mensajes dentro de la aplicación al inicio de la sesión. Encuentra la solicitud del SDK asociada con el evento de inicio de sesión de tu usuario de prueba.
+4. Usa los [registros de usuarios del evento]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar que tu dispositivo está solicitando mensajes dentro de la aplicación al inicio de la sesión. Encuentra la solicitud del SDK or kit de desarrollo de software asociada con el evento de inicio de sesión de tu usuario de prueba.
   - Si tu aplicación debía solicitar mensajes dentro de la aplicación activados, deberías ver `trigger` en el campo **Requested Responses** bajo **Response Data**.
   - Si tu aplicación debía solicitar mensajes dentro de la aplicación originales, deberías ver `in_app` en el campo **Requested Responses** bajo **Response Data**.
 5. Usa los [registros de usuarios del evento]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar si los mensajes dentro de la aplicación correctos se están devolviendo en los datos de respuesta.<br>![Entradas del registro de usuarios del evento para solicitudes de mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
@@ -46,7 +46,7 @@ El SDK solicita los mensajes dentro de la aplicación a los servidores de Braze 
 
 Si tus mensajes dentro de la aplicación no se están solicitando, es posible que tu aplicación no esté rastreando las sesiones correctamente, ya que los mensajes dentro de la aplicación se actualizan al inicio de la sesión. También asegúrate de que tu aplicación esté realmente iniciando una sesión según la semántica de tiempo de espera de sesión de tu aplicación:
 
-![La solicitud del SDK encontrada en los registros de usuarios del evento que muestra un evento de inicio de sesión exitoso.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
+![La solicitud del SDK or kit de desarrollo de software encontrada en los registros de usuarios del evento que muestra un evento de inicio de sesión exitoso.]({% image_buster /assets/img_archive/event_user_log_session_start.png %})
 
 ### Solucionar problemas cuando los mensajes no se devuelven {#troubleshoot-messages-not-being-returned}
 

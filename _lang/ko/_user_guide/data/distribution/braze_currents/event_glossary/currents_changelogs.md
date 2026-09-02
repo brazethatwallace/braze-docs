@@ -280,13 +280,13 @@ tool: Currents
 * 새 이벤트 유형 `users.messages.rcs.Send`가 추가되었습니다.
 
 * 이벤트 유형 `users.messages.sms.Delivery`의 필드 변경 사항:
-    * 새 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 이 메시지는 전달, 전달 실패 또는 거부가 될 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS Rejection 이벤트와 연결할 수 있습니다.
+    * 새 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 단문 메시지 서비스 대체 메시지가 전송되었음을 나타냅니다. 이 메시지는 전달, 전달 실패 또는 거부가 될 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS Rejection 이벤트와 연결할 수 있습니다.
 
 * 이벤트 유형 `users.messages.sms.DeliveryFailure`의 필드 변경 사항:
-    * 새 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 이 메시지는 전달, 전달 실패 또는 거부가 될 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS Rejection 이벤트와 연결할 수 있습니다.
+    * 새 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 단문 메시지 서비스 대체 메시지가 전송되었음을 나타냅니다. 이 메시지는 전달, 전달 실패 또는 거부가 될 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS Rejection 이벤트와 연결할 수 있습니다.
 
 * 이벤트 유형 `users.messages.sms.Rejection`의 필드 변경 사항:
-    * 새 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 SMS 대체 메시지가 전송되었음을 나타냅니다. 이 메시지는 전달, 전달 실패 또는 거부가 될 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS Rejection 이벤트와 연결할 수 있습니다.
+    * 새 `boolean` 필드 `is_sms_fallback` 추가: 거부된 RCS 메시지로 인해 단문 메시지 서비스 대체 메시지가 전송되었음을 나타냅니다. 이 메시지는 전달, 전달 실패 또는 거부가 될 수 있습니다. 전송 ID 및 디스패치 ID를 통해 RCS Rejection 이벤트와 연결할 수 있습니다.
 
 * 이벤트 유형 `users.messages.whatsapp.Delivery`의 필드 변경 사항:
     * 새 `string` 필드 `flow_id` 추가: WhatsApp 매니저에서 Flow의 고유 ID입니다. 메시지에 WhatsApp Flow에 응답하기 위한 CTA가 포함된 경우 존재합니다.

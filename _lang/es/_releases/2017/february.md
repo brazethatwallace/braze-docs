@@ -22,4 +22,4 @@ Para una segmentación de usuarios más personalizada, ahora puedes utilizar "Ú
 
 ## Actualización del registro de usuarios del evento {#event-user-log-upgrade}
 
-Ahora te resultará más fácil ver lo que ocurre en tu integración de SDK con nuestros [registros de usuarios del evento]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab) actualizados.
+Ahora te resultará más fácil ver lo que ocurre en tu integración de SDK or kit de desarrollo de software con nuestros [registros de usuarios del evento]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab) actualizados.

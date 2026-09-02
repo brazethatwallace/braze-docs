@@ -1,5 +1,5 @@
 ---
-nav_title: SDK-Ersteinrichtung mit Eclipse
+nav_title: SDK or Software-Development-Kit-Ersteinrichtung mit Eclipse
 permalink: /eclipse_setup/
 layout: redirect
 redirect_to: /docs/help/release_notes/deprecations/#eclipse

@@ -13,14 +13,14 @@ search_tag: Partner
 
 A Kickbox permite que você valide a qualidade dos endereços de e-mail dos seus usuários no momento em que um perfil de usuário é atualizado na Braze. Isso é alcançado por meio de um Canvas ou fluxo de trabalho de Campaign dedicado, que é acionado pelo preenchimento do campo `email` de um perfil.
 
-O Canvas ou Campaign enviará um webhook para a Kickbox, compartilhando o endereço de e-mail do usuário. A Kickbox validará o endereço de e-mail e usará o endpoint da REST API da Braze para atualizar o perfil do usuário com um atributo personalizado detalhando sua qualidade.
+O Canvas ou Campaign enviará um webhook para a Kickbox, compartilhando o endereço de e-mail do usuário. A Kickbox validará o endereço de e-mail e usará o endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze para atualizar o perfil do usuário com um atributo personalizado detalhando sua qualidade.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | --------------------------------------|-------------------------------------------------------------------------------|
 | Conta da Kickbox | Uma conta ativa da Kickbox é necessária para usar esta integração. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze acessando **Configurações** > **APIs e identificadores** > **Chaves de API** |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze acessando **Configurações** > **APIs e identificadores** > **Chaves de API or interface de programação do aplicativo (API)** |
 | Solicitar acesso à integração. | Peça à equipe de suporte da Kickbox para conceder acesso à integração da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -87,7 +87,7 @@ Isso significa que você pode criar Segments de público com usuários que possu
 
 Para fazer isso, siga estas etapas:
 
-1. Na Braze, acesse **Público** > **Segments** > **Criar segmento**.
+1. Na Braze, acesse **Público** > **Segments** > **Criar Segment or segmento or segmento**.
 2. Na seção **Grupo de filtros**, adicione o filtro **Atributo personalizado** e selecione "result" no menu suspenso.
 
-Dependendo do seu caso de uso, pode ser apropriado criar um Segment onde o atributo personalizado da Kickbox "result" exista em um perfil de usuário, ou onde seu valor seja igual a "deliverable". Esse filtro pode ser usado sozinho para criar um Segment, ou pode ser parte de todos os Segments futuros para validar todos os usuários dentro deles.
+Dependendo do seu caso de uso, pode ser apropriado criar um Segment or segmento onde o atributo personalizado da Kickbox "result" exista em um perfil de usuário, ou onde seu valor seja igual a "deliverable". Esse filtro pode ser usado sozinho para criar um Segment or segmento, ou pode ser parte de todos os Segments futuros para validar todos os usuários dentro deles.

@@ -27,7 +27,7 @@ Você também pode usar ferramentas externas como [Sender Score](https://www.sen
 
 ## Use listas de supressão {#use-suppression-lists}
 
-[Listas de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists) são grupos de usuários definidos com filtros de segmento que não recebem Campaigns ou Canvas por padrão, mesmo quando aparecem no segmento de destino. Para destinatários inativos ou desengajados, uma lista de supressão funciona como uma proteção em nível de espaço de trabalho. Quando os usuários atendem aos seus critérios de inatividade, eles param de receber a maioria das mensagens sem que você precise editar cada segmento ou Campaign.
+[Listas de supressão]({{site.baseurl}}/user_guide/audience/suppression_lists) são grupos de usuários definidos com filtros de Segment or segmento or segmento que não recebem Campaigns ou Canvas por padrão, mesmo quando aparecem no Segment or segmento or segmento de destino. Para destinatários inativos ou desengajados, uma lista de supressão funciona como uma proteção em nível de espaço de trabalho. Quando os usuários atendem aos seus critérios de inatividade, eles param de receber a maioria das mensagens sem que você precise editar cada Segment or segmento or segmento ou Campaign.
 
 Para alinhar com uma política de sunset, crie a lista de supressão com filtros que capturem usuários que não devem mais receber e-mails promocionais contínuos (por exemplo, `Last Engaged With Message` ou outros filtros em **Redirecionamento**) usando a mesma janela de retrospectiva e as mesmas opções de canal que você usa para definir "desengajado" na sua política. A associação é dinâmica: os usuários entram quando atendem aos filtros e saem quando voltam a interagir.
 
@@ -43,15 +43,15 @@ Os filtros de segmentação ajudam a evitar que seu envio de mensagens pareça S
 - Você vai enviar alguma Campaign especial para os usuários antes de excluí-los dos seus segmentos?
 - A quais canais de envio de mensagens sua política de sunset se aplicará?
 
-Por exemplo, se você tem usuários que optaram pela [proteção de privacidade de e-mail (MPP) da Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), considere como isso pode afetar suas campanhas de e-mail e métricas de entregabilidade e determine a melhor forma de estruturar sua política de sunset.
+Por exemplo, se você tem usuários que optaram pela [MPP or proteção de privacidade de e-mail or proteção de privacidade de e-mail (MPP or proteção de privacidade de e-mail) da Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), considere como isso pode afetar suas campanhas de e-mail e métricas de entregabilidade e determine a melhor forma de estruturar sua política de sunset.
 
-Para incorporar políticas de sunset às suas campanhas, crie um [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) que exclua automaticamente os usuários que marcaram seus e-mails como SPAM ou que não interagiram com suas mensagens por um determinado período de tempo.
+Para incorporar políticas de sunset às suas campanhas, crie um [Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) que exclua automaticamente os usuários que marcaram seus e-mails como SPAM ou que não interagiram com suas mensagens por um determinado período de tempo.
 
 Para configurar esses segmentos, escolha os filtros `Has Marked You As Spam` e `Last Engaged With Message` localizados na seção **Redirecionamento** no menu suspenso de filtros.
 
-Ao aplicar o filtro `Last Engaged With Message`, especifique o tipo de mensagem (push, e-mail ou notificação no app) com a qual o usuário interagiu ou não, bem como o número de dias desde a última interação. Depois de criar um segmento, escolha direcionar esse segmento com qualquer [canal de envio de mensagens]({{site.baseurl}}/user_guide/channels).
+Ao aplicar o filtro `Last Engaged With Message`, especifique o tipo de mensagem (push, e-mail ou notificação no app) com a qual o usuário interagiu ou não, bem como o número de dias desde a última interação. Depois de criar um Segment or segmento or segmento, escolha direcionar esse Segment or segmento or segmento com qualquer [canal de envio de mensagens]({{site.baseurl}}/user_guide/channels).
 
-![Página de detalhes do segmento com o filtro "Last Engaged with Message" selecionado.]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
+![Página de detalhes do Segment or segmento or segmento com o filtro "Last Engaged with Message" selecionado.]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
 
 Embora a Braze pare automaticamente de enviar e-mails para usuários que marcaram você como SPAM, o filtro `Has Marked You As Spam` permite que você também envie mensagens push direcionadas e notificações no app para esses usuários. Esse filtro é útil para [campanhas de redirecionamento]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns). Por exemplo, você pode enviar mensagens para usuários desengajados lembrando-os dos recursos e ofertas que estão perdendo ao não abrir seus e-mails.
 

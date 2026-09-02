@@ -27,15 +27,15 @@ Depois que essas informações forem importadas, você pode começar a acessá-l
 
 A tabela a seguir lista os tipos de dados de catálogo suportados e como eles podem ser criados ou atualizados.
 
-| Tipo de dado | Descrição | Disponível via upload de CSV | Disponível via API e CDI |
+| Tipo de dado | Descrição | Disponível via upload de CSV | Disponível via API or interface de programação do aplicativo (API) e CDI |
 |--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
 | String | Uma sequência de caracteres. | ✅ Sim | ✅ Sim |
 | Número | Um valor numérico, inteiro ou decimal. | ✅ Sim | ✅ Sim |
 | Booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
 | Hora | Uma string formatada no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | ✅ Sim | ✅ Sim |
 | Geolocalização | Um array de coordenadas `[longitude, latitude]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180. Por exemplo, `[-73.988103, 40.779109]`. | ✅ Sim | ✅ Sim |
-| Objeto JSON | Um objeto aninhado com pares chave-valor. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ⛔ Não | ✅ Sim |
-| Array de strings | Uma lista de strings. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ⛔ Não | ✅ Sim |
+| Objeto JSON | Um objeto aninhado com pares chave-valor. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API or interface de programação do aplicativo (API) ou CDI. | ⛔ Não | ✅ Sim |
+| Array de strings | Uma lista de strings. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API or interface de programação do aplicativo (API) ou CDI. Máximo de 100 elementos. | ⛔ Não | ✅ Sim |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Criando um catálogo {#creating-a-catalog}
@@ -55,7 +55,7 @@ Antes de fazer upload do arquivo CSV, verifique se ele atende aos seguintes requ
 | Tamanho do arquivo | Para planos Free, o tamanho total de todos os arquivos CSV em uma empresa é limitado a 500 MB. Para planos Pro, o tamanho máximo de um único arquivo CSV é de 2 GB. |
 | Valores de campo | Cada célula (valor de campo) pode conter até 5.000 caracteres. |
 | Caracteres válidos | A coluna `id` e todos os valores de cabeçalho podem conter apenas letras, números, hífens e underscores. |
-| Tipos de dados | Os tipos de dados compatíveis para uploads de CSV incluem string, número, booleano, horário e geolocalização. Para a lista completa de tipos de dados, incluindo os disponíveis apenas pela API e CDI, consulte [Tipos de dados compatíveis](#supported-data-types). |
+| Tipos de dados | Os tipos de dados compatíveis para uploads de CSV incluem string, número, booleano, horário e geolocalização. Para a lista completa de tipos de dados, incluindo os disponíveis apenas pela API or interface de programação do aplicativo (API) e CDI, consulte [Tipos de dados compatíveis](#supported-data-types). |
 | Formatação | Formate todo o texto em letras minúsculas para manter a consistência. |
 | Codificação | Salve e faça upload do arquivo CSV usando codificação UTF-8. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -193,17 +193,17 @@ A Braze processa valores de horário com base no fuso horário do dashboard. Por
 
 ## Tipos de dados do catálogo {#catalog-data-types}
 
-Os catálogos suportam vários tipos de dados para ajudar você a organizar e estruturar seus dados de forma eficaz. A tabela a seguir descreve cada tipo de dado suportado e como ele é mapeado para nomes de tipo em CSV e API:
+Os catálogos suportam vários tipos de dados para ajudar você a organizar e estruturar seus dados de forma eficaz. A tabela a seguir descreve cada tipo de dado suportado e como ele é mapeado para nomes de tipo em CSV e API or interface de programação do aplicativo (API):
 
 | Tipo de dados | Formato | Exemplo | Descrição |
 |-----------|--------|---------|-------------|
-| String | Texto | `"Hello World"` | Qualquer sequência de caracteres usada para dados de texto, como nomes, descrições e IDs. Equivalente ao tipo `string` em importações via CSV e API. |
-| Time | ISO 8601 ou Unix timestamp (segundos) | `"2024-03-15T14:30:00Z"` | Valores de data e hora formatados como ISO 8601 ou Unix timestamp em segundos. Equivalente ao tipo `time` na API e ao tipo `datetime` em importações via CSV. |
-| Boolean | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações via CSV e API. |
-| Number | Inteiro ou decimal | `42` ou `19.99` | Valores numéricos incluindo inteiros e números de ponto flutuante para preços, quantidades, avaliações e mais. Equivalente aos tipos `integer` e `float` em importações via CSV e ao tipo `number` na API. |
-| Geolocation | Array `[longitude, latitude]` | `[-73.988103, 40.779109]` | Um par de coordenadas representando uma localização geográfica. A longitude deve estar entre -180 e 180; a latitude deve estar entre -90 e 90. O valor de `type` na API é `geo`. Pode ser adicionado pelo painel **Add Fields** na interface de catálogos, por upload de CSV ou pela REST API. |
-| Object | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados aninhadas e complexas. O valor de `type` na API é `object`. Exibido como JSON Object no dashboard. Disponível apenas via API ou ingestão de dados na nuvem (CDI). |
-| Array | Array de strings | `["red", "blue", "green"]` | Listas de valores de string. O valor de `type` na API é `array`. Exibido como String array no dashboard. Disponível apenas pela API ou CDI. |
+| String | Texto | `"Hello World"` | Qualquer sequência de caracteres usada para dados de texto, como nomes, descrições e IDs. Equivalente ao tipo `string` em importações via CSV e API or interface de programação do aplicativo (API). |
+| Time | ISO 8601 ou Unix timestamp (segundos) | `"2024-03-15T14:30:00Z"` | Valores de data e hora formatados como ISO 8601 ou Unix timestamp em segundos. Equivalente ao tipo `time` na API or interface de programação do aplicativo (API) e ao tipo `datetime` em importações via CSV. |
+| Boolean | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações via CSV e API or interface de programação do aplicativo (API). |
+| Number | Inteiro ou decimal | `42` ou `19.99` | Valores numéricos incluindo inteiros e números de ponto flutuante para preços, quantidades, avaliações e mais. Equivalente aos tipos `integer` e `float` em importações via CSV e ao tipo `number` na API or interface de programação do aplicativo (API). |
+| Geolocation | Array `[longitude, latitude]` | `[-73.988103, 40.779109]` | Um par de coordenadas representando uma localização geográfica. A longitude deve estar entre -180 e 180; a latitude deve estar entre -90 e 90. O valor de `type` na API or interface de programação do aplicativo (API) é `geo`. Pode ser adicionado pelo painel **Add Fields** na interface de catálogos, por upload de CSV ou pela REST or transferir estado representacional API or interface de programação do aplicativo (API). |
+| Object | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados aninhadas e complexas. O valor de `type` na API or interface de programação do aplicativo (API) é `object`. Exibido como JSON Object no dashboard. Disponível apenas via API or interface de programação do aplicativo (API) ou ingestão de dados na nuvem (CDI). |
+| Array | Array de strings | `["red", "blue", "green"]` | Listas de valores de string. O valor de `type` na API or interface de programação do aplicativo (API) é `array`. Exibido como String array no dashboard. Disponível apenas pela API or interface de programação do aplicativo (API) ou CDI. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Usando modelos em nomes de catálogo {#template-catalog-names}
@@ -225,11 +225,11 @@ Ao nomear seu catálogo, você também pode usar modelos em um nome de catálogo
 
 Para atualizar seu catálogo após enviar um CSV ou criar um catálogo no navegador, selecione **Update Catalog > Upload CSV** e, em seguida, escolha se deseja atualizar, adicionar ou excluir itens do seu catálogo.
 
-### Usando a REST API {#using-the-rest-api}
+### Usando a REST or transferir estado representacional API or interface de programação do aplicativo (API) {#using-the-rest-api}
 
 À medida que você cria mais catálogos, também pode usar o [endpoint Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para retornar uma lista dos catálogos em um espaço de trabalho.
 
-A REST API oferece suporte a todos os [tipos de dados de catálogo](#supported-data-types), incluindo objetos JSON e arrays de strings. Objetos JSON e arrays de strings só podem ser criados ou atualizados por meio da REST API.
+A REST or transferir estado representacional API or interface de programação do aplicativo (API) oferece suporte a todos os [tipos de dados de catálogo](#supported-data-types), incluindo objetos JSON e arrays de strings. Objetos JSON e arrays de strings só podem ser criados ou atualizados por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API).
 
 ### Usando a ingestão de dados na nuvem {#using-cloud-data-ingestion}
 

@@ -10,7 +10,7 @@ description: "Este artículo describe en detalle el endpoint de Braze para envia
 {% api %}
 # Enviar mensajes Canvas mediante entrega desencadenada por API {#send-canvas-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/trigger/send
+/Canvas/trigger/send
 {% endapimethod %}
 
 > Utiliza este endpoint para enviar mensajes Canvas con entrega desencadenada por la API.
@@ -168,7 +168,7 @@ Ten en cuenta lo siguiente al realizar llamadas a la API para enviar mensajes de
 - **Envío a usuarios existentes**: Cuando `send_to_existing_only` se establece en `true` (el valor predeterminado), el mensaje solo se envía a los usuarios existentes en Braze.
 - **Creación de nuevos usuarios**: Cuando `send_to_existing_only` se establece en `false`, debes incluir un objeto `attributes`. Si no existe un usuario con el ID especificado, Braze crea un usuario con ese ID y esos atributos antes de enviar el mensaje.
 - **Los perfiles nuevos necesitan `attributes` con `send_to_existing_only: false`.** Braze ejecuta la creación o actualización previa al envío a partir del objeto `attributes` en el mismo destinatario. Si estableces `send_to_existing_only` en `false` pero omites `attributes` (o envías un objeto vacío), Braze no hidrata los datos del perfil de la misma manera, por lo que no obtienes el comportamiento combinado de "crear o actualizar usuario y luego enviar" para el que está diseñado este patrón.
-- **Direccionamiento de correo electrónico y SMS.** Para la mayoría de los envíos desencadenados por API de correo electrónico o SMS a alguien que aún no está en Braze, incluye los campos de entrega que necesitas dentro de `attributes` (por ejemplo, `email`, o los atributos de teléfono que tu espacio de trabajo utiliza para SMS). También puedes establecer la pertenencia a un grupo de suscripción o el estado de suscripción allí cuando el estado de adhesión voluntaria deba cambiar en la misma llamada.
+- **Direccionamiento de correo electrónico y servicio de mensajes cortos.** Para la mayoría de los envíos desencadenados por API de correo electrónico o servicio de mensajes cortos a alguien que aún no está en Braze, incluye los campos de entrega que necesitas dentro de `attributes` (por ejemplo, `email`, o los atributos de teléfono que tu espacio de trabajo utiliza para servicio de mensajes cortos). También puedes establecer la pertenencia a un grupo de suscripción o el estado de suscripción allí cuando el estado de adhesión voluntaria deba cambiar en la misma llamada.
 - **Elegibilidad del Canvas.** Después de que el perfil exista o se actualice, ese usuario aún debe coincidir con el público objetivo del Canvas en el panel y las reglas de envío del canal (por ejemplo, adhesión voluntaria para correo electrónico) o Braze no envía el mensaje.
 - **Limitación de alias de usuario**: El indicador `send_to_existing_only` no se puede utilizar con alias de usuario. Para enviar a un usuario que solo tiene un alias, este debe existir ya en Braze.
 - **Segmentación por segmentos**: El parámetro `segment_id` no es compatible con este endpoint. Para dirigirte a un segmento, configúralo en los ajustes de público objetivo del Canvas en el panel de Braze y utiliza `broadcast: true`, o utiliza el parámetro `audience` con los filtros de [audiencia conectada]({{site.baseurl}}/api/objects_filters/connected_audience).

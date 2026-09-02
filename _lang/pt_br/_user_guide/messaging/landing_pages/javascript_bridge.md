@@ -8,7 +8,7 @@ description: "Saiba como usar a ponte JavaScript brazeBridge para registrar even
 
 # Ponte JavaScript para landing pages {#javascript-bridge-for-landing-pages}
 
-> As landing pages suportam uma "ponte" JavaScript para conectar seu código personalizado (HTML, CSS e JavaScript) ao SDK da Braze.
+> As landing pages suportam uma "ponte" JavaScript para conectar seu código personalizado (HTML, CSS e JavaScript) ao SDK or kit de desenvolvimento de software da Braze.
 
 Acesse a ponte usando `brazeBridge` em um bloco de código personalizado para registrar eventos, definir atributos personalizados, identificar usuários e muito mais quando um visitante interage com sua landing page.
 
@@ -30,9 +30,9 @@ A ponte de landing page é assíncrona; cada método retorna uma Promise. Isso d
 
 Quando um visitante abre sua landing page, `brazeBridge` já está disponível no JavaScript do seu **código personalizado**. Chame os métodos da ponte diretamente nas landing pages — você não precisa aguardar um evento de prontidão separado como as mensagens no app usam com `ab.BridgeReady`.
 
-Ter o objeto da ponte disponível não significa que o SDK da Braze está inicializado para aquele visitante. O SDK é inicializado para uma visita à landing page em qualquer um destes casos:
+Ter o objeto da ponte disponível não significa que o SDK or kit de desenvolvimento de software da Braze está inicializado para aquele visitante. O SDK or kit de desenvolvimento de software é inicializado para uma visita à landing page em qualquer um destes casos:
 
-- O visitante abre a página por meio de uma [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) enviada por um canal da Braze (e-mail, SMS, push, etc.). O SDK é inicializado automaticamente quando a página carrega.
+- O visitante abre a página por meio de uma [Liquid tag de landing page]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) enviada por um canal da Braze (e-mail, SMS, push, etc.). O SDK or kit de desenvolvimento de software é inicializado automaticamente quando a página carrega.
 - O visitante envia o formulário da página — por exemplo, clicando em um botão **Enviar** que envia os dados do formulário. Isso inclui chamadas `brazeBridge` feitas dentro dos callbacks `registerFormInput` de um [bloco de formulário personalizado]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks), já que eles são executados como parte do envio do formulário.
 
 Se um visitante abrir a landing page diretamente, sem uma Liquid tag de landing page, e nunca enviar o formulário, a página será anônima para a Braze, e as chamadas de métodos da ponte não terão efeito.

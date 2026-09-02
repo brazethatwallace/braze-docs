@@ -111,16 +111,16 @@ Braze는 iOS 앱, Android 앱, 웹 앱 등을 지원합니다. React Native 또�
 * 일반적인 데이터 관리 기술
 * DNS 레코드 설정
 
-### CDP 통합 파트너 {#cdp-integration-partners}
+### 고객 데이터 플랫폼 통합 파트너 {#cdp-integration-partners}
 
-많은 고객이 Braze 온보딩을 통합 파트너로서 고객 데이터 플랫폼(CDP)과도 통합할 수 있는 기회로 활용합니다. Braze는 데이터 추적 및 분석을 제공하며, CDP는 추가적인 데이터 라우팅 및 오케스트레이션을 제공할 수 있습니다. Braze는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 등 다양한 CDP와 원활하게 통합할 수 있습니다.
+많은 고객이 Braze 온보딩을 통합 파트너로서 고객 데이터 플랫폼(고객 데이터 플랫폼)과도 통합할 수 있는 기회로 활용합니다. Braze는 데이터 추적 및 분석을 제공하며, 고객 데이터 플랫폼는 추가적인 데이터 라우팅 및 오케스트레이션을 제공할 수 있습니다. Braze는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 등 다양한 고객 데이터 플랫폼와 원활하게 통합할 수 있습니다.
 
-CDP와 병렬 통합을 수행하는 경우, CDP의 SDK에서 Braze SDK로 호출을 매핑합니다. 기본적으로 다음을 수행합니다:
+고객 데이터 플랫폼와 병렬 통합을 수행하는 경우, 고객 데이터 플랫폼의 SDK에서 Braze SDK로 호출을 매핑합니다. 기본적으로 다음을 수행합니다:
 * `changeUser`([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [웹](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser))에 식별 호출을 매핑하고 속성을 설정합니다.
 * `requestImmediateDataFlush`([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [웹](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush))에 데이터 플러시 호출을 매핑합니다.
 * 커스텀 이벤트 또는 구매를 기록합니다.
 
-선택한 플랫폼에 따라 Braze SDK와 선택한 CDP 간의 통합 예제를 사용할 수 있습니다. 자세한 내용은 [CDP 기술 파트너 목록]({{site.baseurl}}/partners/data_and_analytics)을 참조하세요.
+선택한 플랫폼에 따라 Braze SDK와 선택한 고객 데이터 플랫폼 간의 통합 예제를 사용할 수 있습니다. 자세한 내용은 [고객 데이터 플랫폼 기술 파트너 목록]({{site.baseurl}}/partners/data_and_analytics)을 참조하세요.
 
 ### Braze SDK 통합 {#braze-sdk-integration}
 
@@ -137,7 +137,7 @@ Braze SDK는 두 가지 중요한 기능을 제공합니다: 사용자 데이터
 SDK를 구현하는 동안 다음을 수행합니다:
 
 * 지원하려는 각 플랫폼에 대한 SDK 통합 코드를 작성합니다.
-* 각 플랫폼에 대한 메시징 채널을 활성화하여 이메일, SMS, 푸시 알림 및 기타 채널에서 고객과의 상호 작용 데이터를 Braze SDK가 추적하도록 합니다.
+* 각 플랫폼에 대한 메시징 채널을 활성화하여 이메일, 단문 메시지 서비스, 푸시 알림 및 기타 채널에서 고객과의 상호 작용 데이터를 Braze SDK가 추적하도록 합니다.
 * 계획된 UI 구성요소 커스터마이징(예: 커스텀 Content Cards)을 생성합니다. 완전한 커스텀 콘텐츠의 경우 SDK의 자동 데이터 수집이 새 구성요소를 인식하지 못하므로 분석을 기록해야 합니다. 기본 구성요소를 참고하여 이 구현을 패턴화할 수 있습니다.
 
 ### Braze API 사용 {#using-the-braze-api}
@@ -225,7 +225,7 @@ Braze를 온보딩할 때 데이터, 고객 프로필, 범위 내 통합과 범�
 
 ## 유지 관리 {#maintenance}
 
-마케터에게 인계한 후에도 유지 관리를 위한 리소스 역할을 계속 수행합니다. Braze SDK에 영향을 줄 수 있는 iOS 및 Android 업데이트에 주의를 기울이고 타사 공급업체가 최신 상태인지 확인해야 합니다.
+마케터에게 인계한 후에도 유지 관리를 위한 리소스 역할을 계속 수행합니다. Braze SDK에 영향을 줄 수 있는 iOS 및 Android 업데이트에 주의를 기울이고 서드파티 업체 or 위탁 업체 or 타사 공급업체가 최신 상태인지 확인해야 합니다.
 
 Braze [GitHub](https://github.com/braze-inc/)를 통해 Braze 플랫폼의 업데이트를 추적합니다. 때때로 관리자가 긴급 업데이트 및 버그 수정에 대한 이메일을 Braze에서 직접 받기도 합니다.
 

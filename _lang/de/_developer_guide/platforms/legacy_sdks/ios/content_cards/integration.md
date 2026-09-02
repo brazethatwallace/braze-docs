@@ -16,11 +16,11 @@ noindex: true
 
 ## Content-Cards-Datenmodell {#content-cards-data-model}
 
-Das Content-Cards-Datenmodell ist im iOS SDK verfügbar.
+Das Content-Cards-Datenmodell ist im iOS SDK or Software-Development-Kit verfügbar.
 
 ### Abrufen der Daten {#getting-the-data}
 
-Um auf das Content-Cards-Datenmodell zuzugreifen, abonnieren Sie die Update-Events für Content Cards:
+Um auf das Content-Cards-Datenmodell zuzugreifen, abonnieren Sie die Update or aktualisieren-Events für Content Cards:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -65,7 +65,7 @@ NotificationCenter.default.addObserver(self, selector:
 {% endtab %}
 {% endtabs %}
 
-Wenn Sie die Kartendaten ändern möchten, nachdem sie von Braze gesendet wurden, empfehlen wir Ihnen, eine Tiefenkopie der Kartendaten lokal zu speichern, die Daten zu aktualisieren und sie selbst anzuzeigen. Die Karten sind über [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html) zugänglich.
+Wenn Sie die Kartendaten ändern möchten, nachdem sie von Braze gesendet wurden, empfehlen wir Ihnen, eine Tiefenkopie der Kartendaten lokal zu speichern, die Daten zu Update or aktualisieren or aktualisieren und sie selbst anzuzeigen. Die Karten sind über [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html) zugänglich.
 
 ## Content-Card-Modell {#content-card-model}
 
@@ -87,13 +87,13 @@ Braze bietet drei Content-Card-Typen: Banner, Bild mit Bildunterschrift und klas
 | `extras` | Ein optionales `NSDictionary` von `NSString`-Werten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
-### Banner-Content-Card-Eigenschaften – ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
+### BCC or Banner-Content-Card or Banner-Content-Card-Eigenschaften – ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
 
 | Eigenschaft | Beschreibung |
 |---|---|
 | `image` | Diese Eigenschaft ist die URL des Bildes der Karte. |
 | `imageAspectRatio` | Diese Eigenschaft ist das Seitenverhältnis des Kartenbildes und dient als Hinweis, bevor das Laden des Bildes abgeschlossen ist. Beachten Sie, dass die Eigenschaft unter bestimmten Umständen nicht übermittelt werden kann. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="BCC or Banner-Content-Card or Banner-Content-Card properties - ABKBannerContentCard" }
 
 ### Eigenschaften von Content Cards mit Bildunterschriften – ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 
@@ -121,8 +121,8 @@ Braze bietet drei Content-Card-Typen: Banner, Bild mit Bildunterschrift und klas
 | Methode | Beschreibung |
 |---|---|
 | `logContentCardImpression` | Protokollieren Sie manuell eine Impression in Braze für eine bestimmte Karte. |
-| `logContentCardClicked` | Protokollieren Sie manuell einen Klick in Braze für eine bestimmte Karte. Das SDK protokolliert einen Klick auf die Karte nur, wenn die Eigenschaft `url` einen gültigen Wert hat. |
-| `logContentCardDismissed` | Protokollieren Sie manuell eine Karten-Ausblendung in Braze für eine bestimmte Karte. Das SDK protokolliert eine Karten-Ausblendung nur, wenn die Eigenschaft `dismissed` der Karte nicht bereits auf `true` gesetzt ist. |
+| `logContentCardClicked` | Protokollieren Sie manuell einen Klick in Braze für eine bestimmte Karte. Das SDK or Software-Development-Kit protokolliert einen Klick auf die Karte nur, wenn die Eigenschaft `url` einen gültigen Wert hat. |
+| `logContentCardDismissed` | Protokollieren Sie manuell eine Karten-Ausblendung in Braze für eine bestimmte Karte. Das SDK or Software-Development-Kit protokolliert eine Karten-Ausblendung nur, wenn die Eigenschaft `dismissed` der Karte nicht bereits auf `true` gesetzt ist. |
 | `isControlCard` | Bestimmen Sie, ob eine Karte die Kontrollkarte für einen A/B-Test ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 

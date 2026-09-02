@@ -46,12 +46,12 @@ Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und de
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Datentransformationsebenen" }
 
 {% alert important %}
-Um ein Upgrade auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren Braze Account Manager oder wählen Sie den Button **Request Upgrade** im Braze-Dashboard.
+Um ein Upgrade or upgraden auf Data Transformation Pro anzufordern, wenden Sie sich an Ihren Braze Account Manager:in oder wählen Sie den Button **Request Upgrade or upgraden** im Braze-Dashboard.
 {% endalert %}
 
 ### Rate-Limits {#rate-limits}
 
-Das Rate-Limit für Braze Datentransformationen liegt bei 1.000 eingehenden Anfragen pro Minute und Workspace. Wenn Sie Data Transformation Pro haben und ein höheres Rate-Limit benötigen, wenden Sie sich an Ihren Braze Account Manager.
+Das Rate-Limit für Braze Datentransformationen liegt bei 1.000 eingehenden Anfragen pro Minute und Workspace. Wenn Sie Data Transformation Pro haben und ein höheres Rate-Limit benötigen, wenden Sie sich an Ihren Braze Account Manager:in.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -65,7 +65,7 @@ Wir würden uns freuen, wenn auch Entwickler:innen dieses Feature nutzen würden
 
 ### Kann ich Braze Datentransformation auch dann verwenden, wenn meine externe Plattform als Bezeichner nur eine E-Mail-Adresse oder Telefonnummer angibt? {#can-i-still-use-braze-data-transformation-if-my-external-platform-only-gives-an-email-address-or-phone-number-as-an-identifier}
 
-Ja. Sie können Ihre Transformationen zum Update des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address) verwenden.
+Ja. Sie können Ihre Transformationen zum Update or aktualisieren des Endpunkts `/users/track` mit der [E-Mail-Adresse oder Telefonnummer als Bezeichner]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-email-address) verwenden.
 
 Dies funktioniert, indem Sie `email` oder `phone` als Bezeichner-Eigenschaft im Transformationscode anstelle von `external_id` oder `braze_id` verwenden. Der [Beispiel-Transformationscode]({{site.baseurl}}/user_guide/data/unification/data_transformation/use_cases#example-transformation-code) verwendet diese Funktionalität.
 
@@ -79,4 +79,4 @@ Ja, in den meisten Fällen. Braze Datentransformation erstellt letztlich einen `
 
 ### Wie kann ich Hilfe bei der Einrichtung meines Anwendungsfalls oder bei meinem Transformationscode erhalten? {#how-can-i-get-help-setting-up-my-use-case-or-with-my-transformation-code}
 
-Wenden Sie sich an Ihren Braze Account Manager, wenn Sie weitere Hilfe benötigen.
+Wenden Sie sich an Ihren Braze Account Manager:in, wenn Sie weitere Hilfe benötigen.

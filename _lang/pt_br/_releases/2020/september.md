@@ -14,7 +14,7 @@ O Funnel Reporting oferece um relatório visual que permite analisar as jornadas
 
 ## Guia para fazer upgrade do iOS 14 {#ios-14-upgrade-guide}
 
-De acordo com as alterações anunciadas no novo iOS 14 da Apple, há algumas alterações relacionadas à Braze e itens de ação necessários para as integrações do SDK da Braze para iOS. Para saber mais, dê uma olhada neste [guia de upgrade]({{site.baseurl}}/ios_14/).
+De acordo com as alterações anunciadas no novo iOS 14 da Apple, há algumas alterações relacionadas à Braze e itens de ação necessários para as integrações do SDK or kit de desenvolvimento de software da Braze para iOS. Para saber mais, dê uma olhada neste [guia de upgrade]({{site.baseurl}}/ios_14/).
 
 ## Alterações no IDFA e no IDFV para iOS 14 {#changes-to-idfa-and-idfv-for-ios-14}
 

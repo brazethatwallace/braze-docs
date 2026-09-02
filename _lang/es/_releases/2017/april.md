@@ -30,13 +30,13 @@ Hemos añadido "Influenced Opens" a nuestra lista de estadísticas estándar de 
 
 ## Actualización a grupos internos {#upgrade-to-internal-groups}
 
-Ahora puedes crear varios grupos internos y asignar propiedades que indiquen si el grupo se utilizará para el registro del SDK, el registro de la REST API o la comprobación del contenido de los mensajes. Más información sobre [los registros de eventos de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab).
+Ahora puedes crear varios grupos internos y asignar propiedades que indiquen si el grupo se utilizará para el registro del SDK or kit de desarrollo de software, el registro de la REST or transferencia de estado representacional API o la comprobación del contenido de los mensajes. Más información sobre [los registros de eventos de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab).
 
 > Actualización: Los grupos internos también pueden utilizarse para [enviar correos electrónicos semilla]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console#seed-groups).
 
 ## Nuevas opciones para las URL web {#new-options-for-web-urls}
 
-Ahora tienes la opción de abrir URL web en un navegador web externo para mensajes push, mensajes dentro de la aplicación y en el navegador, y tarjetas de News Feed. La acción "Vínculo profundo a la aplicación" ahora también es compatible con los vínculos profundos HTTP/HTTPS. Si utilizas un partner como Branch o Universal Links de Apple, necesitarás personalizar el SDK. Más información sobre [vinculación en profundidad]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
+Ahora tienes la opción de abrir URL web en un navegador web externo para mensajes push, mensajes dentro de la aplicación y en el navegador, y tarjetas de News Feed. La acción "Vínculo profundo a la aplicación" ahora también es compatible con los vínculos profundos HTTP/HTTPS. Si utilizas un partner como Branch o Universal Links de Apple, necesitarás personalizar el SDK or kit de desarrollo de software. Más información sobre [vinculación en profundidad]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Nuevo evento "Conversión realizada" en Canvas {#new-performed-conversion-event-canvas}
 

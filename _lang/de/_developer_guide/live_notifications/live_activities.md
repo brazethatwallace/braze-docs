@@ -2,22 +2,22 @@
 nav_title: Live-Aktivitäten für Swift
 article_title: Live-Aktivitäten für Swift
 page_order: 0.2
-description: "Erfahren Sie, wie Sie Live-Aktivitäten für das Swift Braze SDK einrichten."
+description: "Erfahren Sie, wie Sie Live-Aktivitäten für das Swift Braze SDK or Software-Development-Kit einrichten."
 platform:
   - Swift
 ---
 
 # Live-Aktivitäten für Swift {#live-activities-for-swift}
 
-> Erfahren Sie, wie Sie Live-Aktivitäten für das Swift Braze SDK implementieren. Live-Aktivitäten sind persistente, interaktive Benachrichtigungen, die direkt auf dem Sperrbildschirm angezeigt werden und es Nutzer:innen ermöglichen, dynamische Realtime-Updates zu erhalten&#8212;ohne ihr Gerät zu entsperren.
+> Erfahren Sie, wie Sie Live-Aktivitäten für das Swift Braze SDK or Software-Development-Kit implementieren. Live-Aktivitäten sind persistente, interaktive Benachrichtigungen, die direkt auf dem Sperrbildschirm angezeigt werden und es Nutzer:innen ermöglichen, dynamische Realtime-Updates zu erhalten&#8212;ohne ihr Gerät zu entsperren.
 
 ## So funktioniert es {#how-it-works}
 
 ![Eine Liefertracker-Live-Activity auf dem iPhone-Sperrbildschirm. Eine Statusleiste mit einem Auto ist fast zur Hälfte gefüllt. Der Text lautet „2 min until pickup“]({% image_buster /assets/img/swift/live_activities/example_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-Live Activities zeigen eine Kombination aus statischen und dynamischen Informationen an, die Sie aktualisieren. Sie können zum Beispiel eine Live Activity erstellen, die einen Status-Tracker für eine Lieferung bereitstellt. Diese Live Activity enthält den Namen Ihres Unternehmens als statische Information sowie eine dynamische „Lieferzeit“, die sich aktualisiert, wenn sich der Lieferfahrer dem Ziel nähert.
+Live Activities zeigen eine Kombination aus statischen und dynamischen Informationen an, die Sie Update or aktualisieren or aktualisieren. Sie können zum Beispiel eine Live Activity erstellen, die einen Status-Tracker für eine Lieferung bereitstellt. Diese Live Activity enthält den Namen Ihres Unternehmens als statische Information sowie eine dynamische „Lieferzeit“, die sich aktualisiert, wenn sich der Lieferfahrer dem Ziel nähert.
 
-Als Entwickler:in können Sie Braze nutzen, um die Lebenszyklen Ihrer Live Activities zu verwalten, Aufrufe an die Braze REST API zu senden, um Live-Activity-Updates durchzuführen, und alle abonnierten Geräte so schnell wie möglich das Update erhalten zu lassen. Und da Sie Live Activities über Braze verwalten, können Sie sie zusammen mit Ihren anderen Messaging-Kanälen einsetzen – Push-Benachrichtigungen, In-App Messages, Content Cards –, um die Akzeptanz zu steigern.
+Als Entwickler:in können Sie Braze nutzen, um die Lebenszyklen Ihrer Live Activities zu verwalten, Aufrufe an die Braze Representational State Transfer API zu senden, um Live-Activity-Updates durchzuführen, und alle abonnierten Geräte so schnell wie möglich das Update or aktualisieren erhalten zu lassen. Und da Sie Live Activities über Braze verwalten, können Sie sie zusammen mit Ihren anderen Messaging-Kanälen einsetzen – Push-Benachrichtigungen, In-App Messages, Content Cards –, um die Akzeptanz zu steigern.
 
 ## Sequenzdiagramm {#sequence-diagram}
 
@@ -73,7 +73,7 @@ sequenceDiagram
 - Stellen Sie sicher, dass Ihr Projekt auf iOS 16.1 oder höher abzielt.
 - Fügen Sie die Berechtigung `Push Notification` unter **Signing & Capabilities** in Ihrem Xcode-Projekt hinzu.
 - Stellen Sie sicher, dass `.p8`-Schlüssel zum Senden von Benachrichtigungen verwendet werden. Ältere Dateien wie `.p12` oder `.pem` werden nicht unterstützt.
-- Ab Version 8.2.0 des Braze Swift SDK können Sie [eine Live Activity remote registrieren](#swift_step-2-start-the-activity). Um dieses Feature zu nutzen, ist iOS 17.2 oder höher erforderlich.
+- Ab Version 8.2.0 des Braze Swift SDK or Software-Development-Kit können Sie [eine Live Activity remote Registrierung or registrieren](#swift_step-2-start-the-activity). Um dieses Feature zu nutzen, ist iOS 17.2 oder höher erforderlich.
 
 {% alert note %}
 Obwohl Live Activities und Push-Benachrichtigungen ähnlich sind, sind ihre Systemberechtigungen separat. Standardmäßig sind alle Live-Activity-Features aktiviert, aber Nutzer:innen können dieses Feature pro App deaktivieren.
@@ -87,7 +87,7 @@ Stellen Sie zunächst sicher, dass Sie [Displaying live data with Live Activitie
 
 Da die genaue Art Ihrer Live Activity von Ihrem Geschäftsfall abhängt, richten Sie die [Activity](https://developer.apple.com/documentation/activitykit/activityattributes)-Objekte ein und initialisieren Sie sie. Definieren Sie dabei insbesondere:
 * `ActivityAttributes`: Dieses Protokoll definiert die statischen (unveränderlichen) und dynamischen (veränderlichen) Inhalte, die in Ihrer Live Activity angezeigt werden.
-* `ActivityAttributes.ContentState`: Dieser Typ definiert die dynamischen Daten, die sich im Laufe der Aktivität aktualisieren.
+* `ActivityAttributes.ContentState`: Dieser Typ definiert die dynamischen Daten, die sich im Laufe der Aktivität Update or aktualisieren or aktualisieren.
 
 Sie verwenden auch SwiftUI, um die UI-Darstellung des Sperrbildschirms und der Dynamic Island auf unterstützten Geräten zu erstellen.
 
@@ -120,15 +120,15 @@ struct SportsActivityAttributes: ActivityAttributes {
 
 ### Schritt 2: Die Aktivität starten {#start-the-activity}
 
-Wählen Sie zunächst, wie Sie Ihre Aktivität registrieren möchten:
+Wählen Sie zunächst, wie Sie Ihre Aktivität Registrierung or registrieren möchten:
 
-- **Remote:** Verwenden Sie die Methode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) früh im Lifecycle Ihrer Nutzer:innen und bevor das Push-to-Start-Token benötigt wird, und starten Sie dann eine Aktivität über den Endpunkt [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
-- **Lokal:** Erstellen Sie eine Instanz Ihrer Live Activity und verwenden Sie dann die Methode [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>), um Push-Token zu erstellen, die Braze für Sie verwaltet.
+- **Remote:** Verwenden Sie die Methode [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>) früh im Lifecycle Ihrer Nutzer:innen und bevor das Push-to-Start-Token / Textbaustein benötigt wird, und starten Sie dann eine Aktivität über den Endpunkt [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start).
+- **Lokal:** Erstellen Sie eine Instanz Ihrer Live Activity und verwenden Sie dann die Methode [`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>), um Push-Token / Textbaustein zu erstellen, die Braze für Sie verwaltet.
 
 {% tabs local %}
 {% tab remote %}
 {% alert important %}
-Um eine Live Activity remote zu registrieren, ist iOS 17.2 oder höher erforderlich.
+Um eine Live Activity remote zu Registrierung or registrieren, ist iOS 17.2 oder höher erforderlich.
 {% endalert %}
 
 #### Schritt 2.1: BrazeKit zur Widget-Erweiterung hinzufügen {#step-21-add-brazekit-to-your-widget-extension}
@@ -168,12 +168,12 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 }
 ```
 
-#### Schritt 2.3: Für Push-to-Start registrieren {#step-23-register-for-push-to-start}
+#### Schritt 2.3: Für Push-to-Start Registrierung or registrieren {#step-23-register-for-push-to-start}
 
-Registrieren Sie als Nächstes den Live-Activity-Typ, damit Braze alle Push-to-Start-Token und Live-Activity-Instanzen nachverfolgen kann, die mit diesem Typ verknüpft sind.
+Registrierung or registrieren Sie als Nächstes den Live-Activity-Typ, damit Braze alle Push-to-Start-Token / Textbaustein und Live-Activity-Instanzen nachverfolgen kann, die mit diesem Typ verknüpft sind.
 
 {% alert warning %}
-Das iOS-Betriebssystem generiert Push-to-Start-Token nur bei der ersten App-Installation nach einem Geräteneustart. Um sicherzustellen, dass Ihre Token zuverlässig registriert werden, rufen Sie `registerPushToStart` in Ihrer `didFinishLaunchingWithOptions`-Methode auf.
+Das iOS-Betriebssystem generiert Push-to-Start-Token / Textbaustein nur bei der ersten App-Installation nach einem Geräteneustart. Um sicherzustellen, dass Ihre Token / Textbaustein zuverlässig registriert werden, rufen Sie `registerPushToStart` in Ihrer `didFinishLaunchingWithOptions`-Methode auf.
 {% endalert %}
 
 ##### Beispiel
@@ -208,14 +208,14 @@ Senden Sie eine remote Push-to-Start-Benachrichtigung über den Endpunkt [`/mess
 {% endtab %}
 
 {% tab lokal %}
-Sie können [Apples ActivityKit-Framework](https://developer.apple.com/documentation/activitykit) verwenden, um ein Push-Token zu erhalten, das das Braze SDK für Sie verwalten kann. So können Sie Live Activities über die Braze API aktualisieren, da Braze das Push-Token im Backend an den Apple Push Notification Service (APNs) sendet.
+Sie können [Apples ActivityKit-Framework](https://developer.apple.com/documentation/activitykit) verwenden, um ein Push-Token / Textbaustein zu erhalten, das das Braze SDK or Software-Development-Kit für Sie verwalten kann. So können Sie Live Activities über die Braze API Update or aktualisieren or aktualisieren, da Braze das Push-Token / Textbaustein im Backend an den Apple Push Notification Service (APNs) sendet.
 
 1. Erstellen Sie eine Instanz Ihrer Live-Activity-Implementierung mithilfe der ActivityKit-APIs von Apple.
 2. Setzen Sie den Parameter `pushType` auf `.token`.
 3. Übergeben Sie die von Ihnen definierten `ActivitiesAttributes` und `ContentState` der Live Activities.
-4. Registrieren Sie Ihre Aktivität bei Ihrer Braze-Instanz, indem Sie sie an [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class) übergeben. Der Parameter `pushTokenTag` ist ein benutzerdefinierter String, den Sie festlegen. Er sollte für jede erstellte Live Activity eindeutig sein.
+4. Registrierung or registrieren Sie Ihre Aktivität bei Ihrer Braze-Instanz, indem Sie sie an [`launchActivity(pushTokenTag:activity:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class) übergeben. Der Parameter `pushTokenTag` ist ein benutzerdefinierter String, den Sie festlegen. Er sollte für jede erstellte Live Activity eindeutig sein.
 
-Nachdem Sie die Live Activity registriert haben, extrahiert das Braze SDK die Push-Token und überwacht deren Änderungen.
+Nachdem Sie die Live Activity registriert haben, extrahiert das Braze SDK or Software-Development-Kit die Push-Token / Textbaustein und überwacht deren Änderungen.
 
 #### Beispiel
 
@@ -264,7 +264,7 @@ Um sicherzustellen, dass Braze Ihre Live Activity beim App-Start nachverfolgt:
 2. Importieren Sie das `ActivityKit`-Modul, falls es verfügbar ist.
 3. Rufen Sie [`resumeActivities(ofType:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/resumeactivities(oftype:)) in `application(_:didFinishLaunchingWithOptions:)` für alle `ActivityAttributes`-Typen auf, die Sie in Ihrer Anwendung registriert haben.
 
-Dadurch kann Braze Aufgaben fortsetzen, um Push-Token-Aktualisierungen für alle aktiven Live Activities zu verfolgen. Beachten Sie, dass Braze die Live Activity nicht mehr nachverfolgt, wenn Nutzer:innen sie auf ihrem Gerät explizit geschlossen haben — sie gilt dann als entfernt.
+Dadurch kann Braze Aufgaben fortsetzen, um Push-Token / Textbaustein-Aktualisierungen für alle aktiven Live Activities zu verfolgen. Beachten Sie, dass Braze die Live Activity nicht mehr nachverfolgt, wenn Nutzer:innen sie auf ihrem Gerät explizit geschlossen haben — sie gilt dann als entfernt.
 
 #### Beispiel
 
@@ -297,13 +297,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-### Schritt 4: Die Aktivität aktualisieren {#update-the-activity}
+### Schritt 4: Die Aktivität Update or aktualisieren or aktualisieren {#update-the-activity}
 
 ![Eine Live Activity auf einem iPhone-Sperrbildschirm mit den Punkteständen zweier Teams. Der Wild Bird Fund hat 2 Punkte und das Owl Rehab-Team hat 4 Punkte.]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-Der Endpunkt [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) ermöglicht es Ihnen, eine Live Activity über Push-Benachrichtigungen zu aktualisieren, die über die Braze REST API gesendet werden. Verwenden Sie diesen Endpunkt, um den `ContentState` Ihrer Live Activity zu aktualisieren.
+Der Endpunkt [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) ermöglicht es Ihnen, eine Live Activity über Push-Benachrichtigungen zu Update or aktualisieren or aktualisieren, die über die Braze Representational State Transfer API gesendet werden. Verwenden Sie diesen Endpunkt, um den `ContentState` Ihrer Live Activity zu Update or aktualisieren or aktualisieren.
 
-Wenn Sie Ihren `ContentState` aktualisieren, zeigt Ihr Live-Activity-Widget die neuen Informationen an. So sieht die Superb-Owl-Show am Ende der ersten Hälfte aus.
+Wenn Sie Ihren `ContentState` Update or aktualisieren or aktualisieren, zeigt Ihr Live-Activity-Widget die neuen Informationen an. So sieht die Superb-Owl-Show am Ende der ersten Hälfte aus.
 
 Alle Details finden Sie in unserem Artikel zum [`/messages/live_activity/update`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/live_activity/update).
 
@@ -318,12 +318,12 @@ Um die Zuverlässigkeit beim Beenden einer Live Activity zu verbessern, führen 
 
 #### Automatische Ausblendung einrichten {#arranging-automatic-dismissal}
 
-Um eine automatische Ausblendung einzurichten, planen Sie eine Folgeanfrage an den Update-Endpunkt, nachdem Sie die Live Activity gestartet haben.
+Um eine automatische Ausblendung einzurichten, planen Sie eine Folgeanfrage an den Update or aktualisieren-Endpunkt, nachdem Sie die Live Activity gestartet haben.
 
 1. Senden Sie eine `/messages/live_activity/start`-Anfrage mit einer `activity_id`, die Sie nachverfolgen können.
 2. Speichern Sie diese `activity_id` und Ihre Ziel-Endzeit in Ihrem Backend-Scheduler.
 3. Senden Sie zur Ziel-Endzeit eine `/messages/live_activity/update`-Anfrage mit `end_activity` auf `true` gesetzt.
-4. Konfigurieren Sie das Ausblendungsdatum in derselben Update-Anfrage. Details finden Sie beim [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)-Endpunkt.
+4. Konfigurieren Sie das Ausblendungsdatum in derselben Update or aktualisieren-Anfrage. Details finden Sie beim [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)-Endpunkt.
 
 Beachten Sie, dass der Zeitpunkt der Ausblendung von iOS gesteuert wird. Auch nachdem Sie eine gültige Beendigungsanfrage gesendet haben, kann die Entfernung vom Sperrbildschirm oder der Dynamic Island verzögert sein oder sich je nach Bedingungen auf Betriebssystemebene anders verhalten.
 
@@ -336,10 +336,10 @@ Alle Details finden Sie in unserem Artikel zum [`/messages/live_activity/update`
 
 ## Live Activities tracken {#tracking-live-activities}
 
-Live-Activity-Ereignisse sind in Currents, Snowflake Data Sharing und im Query Builder verfügbar. Die folgenden Ereignisse können Ihnen helfen, den Lebenszyklus Ihrer Live Activities zu verstehen und zu überwachen, die Token-Verfügbarkeit zu verfolgen und Probleme unabhängig zu diagnostizieren oder Zustellungsstatus zu überprüfen.
+Live-Activity-Ereignisse sind in Currents, Snowflake Data Sharing und im Query Builder verfügbar. Die folgenden Ereignisse können Ihnen helfen, den Lebenszyklus Ihrer Live Activities zu verstehen und zu überwachen, die Token / Textbaustein-Verfügbarkeit zu verfolgen und Probleme unabhängig zu diagnostizieren oder Zustellungsstatus zu überprüfen.
 
-- [Live Activity Push To Start Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events): Erfasst, wenn ein Push-to-Start-Token (PTS) in Braze hinzugefügt oder aktualisiert wird, und ermöglicht es Ihnen, Token-Registrierungen und Verfügbarkeit pro Nutzer:in zu tracken.
-- [Live Activity Update Token Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events): Verfolgt das Hinzufügen, Aktualisieren oder Entfernen von Live Activity Update (LAU)-Token.
+- [Live Activity Push To Start Token / Textbaustein Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events): Erfasst, wenn ein Push-to-Start-Token / Textbaustein (PTS) in Braze hinzugefügt oder aktualisiert wird, und ermöglicht es Ihnen, Token / Textbaustein-Registrierungen und Verfügbarkeit pro Nutzer:in zu tracken.
+- [Live Activity Update or aktualisieren Token / Textbaustein Change]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events): Verfolgt das Hinzufügen, Update or aktualisieren or aktualisieren oder Entfernen von Live Activity Update or aktualisieren (LAU)-Token / Textbaustein.
 - [Live Activity Send]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events): Protokolliert jedes Mal, wenn eine Live Activity von Braze gestartet, aktualisiert oder beendet wird.
 - [Live Activity Outcome]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events): Gibt den endgültigen Zustellungsstatus an den Apple Push Notification Service (APNs) für jede von Braze gesendete Live Activity an.
 
@@ -358,9 +358,9 @@ Prüfen Sie die folgenden Live-Activity-Ereignisse, um den Lebenszyklus und die 
 - **Live Activity Send:** Wird jedes Mal protokolliert, wenn eine Live Activity von Braze gestartet, aktualisiert oder beendet wird.
 - **Live Activity Outcome:** Der endgültige Zustellungsstatus an APNs für jede gesendete Live Activity.
 
-Optional können Sie auch die Verfügbarkeit von Token-Signalen prüfen:
-- **Live Activity Push To Start Token Change**
-- **Live Activity Update Token Change**
+Optional können Sie auch die Verfügbarkeit von Token / Textbaustein-Signalen prüfen:
+- **Live Activity Push To Start Token / Textbaustein Change**
+- **Live Activity Update or aktualisieren Token / Textbaustein Change**
 
 ### API-Nutzungs-Dashboard {#api-usage-dashboard}
 
@@ -382,10 +382,10 @@ Abonnieren Sie diese ActivityKit-Streams nicht direkt über Apple, da dies mit d
 Verwenden Sie stattdessen die in diesem Abschnitt beschriebenen Abos.
 {% endalert %}
 
-Das Braze SDK bietet zwei Abo-Methoden auf `braze.liveActivities`, um den gesamten Lebenszyklus von Live-Aktivitäten zu beobachten. Eine vollständige Schritt-für-Schritt-Anleitung finden Sie im [Live Activities Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
+Das Braze SDK or Software-Development-Kit bietet zwei Abo-Methoden auf `braze.liveActivities`, um den gesamten Lebenszyklus von Live-Aktivitäten zu beobachten. Eine vollständige Schritt-für-Schritt-Anleitung finden Sie im [Live Activities Tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
 
-- [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Liefert Lebenszyklus-Ereignisse sowohl für die Push-to-Start-Token-Registrierung als auch für laufende Aktivitätsinstanzen.
-- [`subscribeToErrors(_:)`](#subscribe-to-errors): Liefert SDK- und serverseitige Fehler, die beim Tracking von Live-Aktivitäten auftreten.
+- [`subscribeToStateUpdates(_:)`](#subscribe-to-state-updates): Liefert Lebenszyklus-Ereignisse sowohl für die Push-to-Start-Token / Textbaustein-Registrierung als auch für laufende Aktivitätsinstanzen.
+- [`subscribeToErrors(_:)`](#subscribe-to-errors): Liefert SDK or Software-Development-Kit- und serverseitige Fehler, die beim Tracking von Live-Aktivitäten auftreten.
 
 {% alert note %}
 Beide Methoden geben ein [`Braze.Cancellable`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/cancellable-swift.typealias) zurück. Das Abo bleibt aktiv, solange der zurückgegebene Wert durch eine starke Referenz gehalten wird (speichern Sie ihn z. B. in einer Eigenschaft mit demselben Lebenszyklus wie Ihre `Braze`-Instanz).
@@ -431,7 +431,7 @@ Callbacks werden nur für zukünftige Live-Aktivitäts-Ereignisse ausgelöst –
 
 `subscribeToStateUpdates(_:)` liefert `UpdateEvent`-Werte, die den gesamten Lebenszyklus von Live-Aktivitäten abdecken. Ereignisse sind in zwei Bereiche unterteilt:
 
-- `.activityType(ActivityType)`: Ereignisse auf Typebene für die Push-to-Start-Token-Registrierung (iOS 17.2+). Es existiert noch keine Aktivitätsinstanz.
+- `.activityType(ActivityType)`: Ereignisse auf Typebene für die Push-to-Start-Token / Textbaustein-Registrierung (iOS 17.2+). Es existiert noch keine Aktivitätsinstanz.
 - `.activityInstance(ActivityInstance)`: Ereignisse auf Instanzebene für eine bestimmte laufende Aktivität.
 
 Mehrere Abonnent:innen werden unterstützt – jedes aktive Abo erhält jede Emission unabhängig.
@@ -440,8 +440,8 @@ Mehrere Abonnent:innen werden unterstützt – jedes aktive Abo erhält jede Emi
 
 | Ereignis | Wann es ausgelöst wird |
 | ----- | ------------- |
-| `.pushToStartTokenRead(activityType:)` | Ein Push-to-Start-Token wurde vom Betriebssystem gelesen. Braze kann jetzt remote eine neue Aktivität dieses Typs starten. |
-| `.pushToStartTokenFlushed(activityType:)` | Das Token wurde an den Braze-Server gesendet. Braze kann Push-to-Start-Benachrichtigungen für diesen Typ senden. |
+| `.pushToStartTokenRead(activityType:)` | Ein Push-to-Start-Token / Textbaustein wurde vom Betriebssystem gelesen. Braze kann jetzt remote eine neue Aktivität dieses Typs starten. |
+| `.pushToStartTokenFlushed(activityType:)` | Das Token / Textbaustein wurde an den Braze-Server gesendet. Braze kann Push-to-Start-Benachrichtigungen für diesen Typ senden. |
 | `.pushToStartOptedOut(activityType:)` | Die Nutzer:innen haben sich über `optOutPushToStart(type:)` von Push-to-Start für diesen Aktivitätstyp abgemeldet. |
 | `.pushToStartOptOutFlushed(activityType:)` | Die Abmeldung wurde an den Braze-Server gesendet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse auf Typebene" }
@@ -450,15 +450,15 @@ Mehrere Abonnent:innen werden unterstützt – jedes aktive Abo erhält jede Emi
 
 | Ereignis | Wann es ausgelöst wird |
 | ----- | ------------- |
-| `.started(activityId:activityType:pushTokenTag:launchSource:)` | Das SDK hat begonnen, diese Aktivität über `launchActivity(pushTokenTag:activity:)` zu verfolgen. Der Wert `launchSource` ist `.local` für app-initiierte Aktivitäten oder `.pushToStart` für remote gestartete Aktivitäten. |
-| `.resumed(activityId:activityType:pushTokenTag:)` | Das SDK hat das Tracking dieser Aktivität über `resumeActivities(ofType:)` wieder aufgenommen. |
-| `.pushTokenFlushed(activityId:activityType:pushTokenTag:)` | Das Push-Token der Aktivität wurde vom Braze-Server akzeptiert – die Aktivität kann jetzt Remote-Updates empfangen. |
+| `.started(activityId:activityType:pushTokenTag:launchSource:)` | Das SDK or Software-Development-Kit hat begonnen, diese Aktivität über `launchActivity(pushTokenTag:activity:)` zu verfolgen. Der Wert `launchSource` ist `.local` für app-initiierte Aktivitäten oder `.pushToStart` für remote gestartete Aktivitäten. |
+| `.resumed(activityId:activityType:pushTokenTag:)` | Das SDK or Software-Development-Kit hat das Tracking dieser Aktivität über `resumeActivities(ofType:)` wieder aufgenommen. |
+| `.pushTokenFlushed(activityId:activityType:pushTokenTag:)` | Das Push-Token / Textbaustein der Aktivität wurde vom Braze-Server akzeptiert – die Aktivität kann jetzt Remote-Updates empfangen. |
 | `.active(activityId:activityType:)` | Die Aktivität ist derzeit aktiv und für die Nutzer:innen sichtbar. |
 | `.stale(activityId:activityType:staleDate:)` | Der Inhalt der Aktivität ist veraltet. Wird nur unter iOS 16.2 und höher ausgegeben. |
 | `.dismissed(activityId:activityType:)` | Die Nutzer:innen haben die Aktivität manuell ausgeblendet. |
 | `.ended(activityId:activityType:)` | Die Aktivität wurde beendet. |
 | `.contentUpdated(activityId:activityType:)` | Der Inhaltsstatus der Aktivität wurde aktualisiert (iOS 16.2+). Verwenden Sie benutzerdefinierte Logik, um die `Activity<T>` anhand der ID aus `Activity.activities` nachzuschlagen und über `activity.content.state` auf den typisierten Zustand zuzugreifen. |
-| `.pushTokenUpdated(activityId:activityType:)` | ActivityKit hat das Push-Token der Aktivität rotiert. |
+| `.pushTokenUpdated(activityId:activityType:)` | ActivityKit hat das Push-Token / Textbaustein der Aktivität rotiert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisse auf Instanzebene" }
 
 ##### Beispiel
@@ -506,20 +506,20 @@ func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
 - `.activityType(ActivityType)`: Fehler auf Typebene bei fehlgeschlagener Push-to-Start-Registrierung.
 - `.activityInstance(ActivityInstance)`: Fehler auf Instanzebene für eine laufende Aktivität.
 
-Verwenden Sie das Flag `isTransient`, um zu bestimmen, ob ein erneuter Versuch sinnvoll ist. Das SDK wiederholt vorübergehende Fehler automatisch.
+Verwenden Sie das Flag `isTransient`, um zu bestimmen, ob ein erneuter Versuch sinnvoll ist. Das SDK or Software-Development-Kit wiederholt vorübergehende Fehler automatisch.
 
 #### Fehler auf Typebene {#type-scoped-errors}
 
 | Fehler | Wann er ausgelöst wird |
 | ----- | ------------- |
-| `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | Das Push-to-Start-Token konnte den Braze-Server nicht erreichen. |
+| `.pushToStartRegistrationFailed(activityType:isTransient:reason:)` | Das Push-to-Start-Token / Textbaustein konnte den Braze-Server nicht erreichen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehler auf Typebene" }
 
 #### Fehler auf Instanzebene {#instance-scoped-errors}
 
 | Fehler | Wann er ausgelöst wird |
 | ----- | ------------- |
-| `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | Das Push-Token der Aktivität konnte nicht bei Braze registriert werden. |
+| `.registrationFailed(activityId:activityType:pushTokenTag:isTransient:reason:)` | Das Push-Token / Textbaustein der Aktivität konnte nicht bei Braze registriert werden. |
 | `.activityNotFound(activityId:activityType:)` | `resumeActivities(ofType:)` hat eine gespeicherte Zuordnung für eine Aktivität gefunden, die nicht mehr läuft – sie wurde wahrscheinlich beendet, während die App geschlossen war. |
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)` wurde mit einem ungültigen Tag aufgerufen. Tags müssen nicht leer und unter 256 Bytes sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehler auf Instanzebene" }
@@ -643,15 +643,15 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 Derzeit sind Live-Aktivitäten ein Feature, das speziell für iOS und iPadOS verfügbar ist. Standardmäßig werden Aktivitäten, die auf einem iPhone oder iPad gestartet werden, zusätzlich auf allen gekoppelten Geräten mit watchOS 11+ oder macOS 26+ angezeigt.
 
-Braze bietet derzeit keine native Unterstützung für Live-Aktivitäten auf Android. Für Android können Sie Live-Update-Erlebnisse über Braze-Push-Benachrichtigungen und benutzerdefiniertes Benachrichtigungs-Rendering erstellen.
+Braze bietet derzeit keine native Unterstützung für Live-Aktivitäten auf Android. Für Android können Sie Live-Update or aktualisieren-Erlebnisse über Braze-Push-Benachrichtigungen und benutzerdefiniertes Benachrichtigungs-Rendering erstellen.
 
 ![Ein Screenshot einer macOS-Menüleiste, in der eine Live-Aktivität als Benachrichtigung angezeigt wird.]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-Der Artikel zu Live-Aktivitäten beschreibt die [Voraussetzungen]({{site.baseurl}}/developer_guide/live_notifications/live_activities#implementing-a-live-activity) für die Verwaltung von Live-Aktivitäten über das Braze Swift SDK.
+Der Artikel zu Live-Aktivitäten beschreibt die [Voraussetzungen]({{site.baseurl}}/developer_guide/live_notifications/live_activities#implementing-a-live-activity) für die Verwaltung von Live-Aktivitäten über das Braze Swift SDK or Software-Development-Kit.
 
 #### Unterstützen React Native-Apps Live-Aktivitäten? {#do-react-native-apps-support-live-activities}
 
-Ja, React Native SDK 3.0.0+ unterstützt Live-Aktivitäten über das Braze Swift SDK. Das bedeutet, dass Sie React Native iOS-Code direkt auf Basis des Braze Swift SDK schreiben müssen.
+Ja, React Native SDK or Software-Development-Kit 3.0.0+ unterstützt Live-Aktivitäten über das Braze Swift SDK or Software-Development-Kit. Das bedeutet, dass Sie React Native iOS-Code direkt auf Basis des Braze Swift SDK or Software-Development-Kit schreiben müssen.
 
 Es gibt keine React Native-spezifische JavaScript-Convenience-API für Live-Aktivitäten, da die von Apple bereitgestellten Features für Live-Aktivitäten Sprachen verwenden, die nicht in JavaScript übersetzbar sind (z. B. Swift Concurrency, Generics, SwiftUI).
 
@@ -671,7 +671,7 @@ Live-Aktivitäten und Push-Benachrichtigungen belegen unterschiedliche Bereiche 
 
 Obwohl Live-Aktivitäten auf Push-Benachrichtigungen für Aktualisierungen angewiesen sind, werden sie durch unterschiedliche Nutzereinstellungen gesteuert. Nutzer:innen können sich für Live-Aktivitäten anmelden und für Push-Benachrichtigungen abmelden – und umgekehrt.
 
-Live-Activity-Update-Token verfallen nach acht Stunden.
+Live-Activity-Update or aktualisieren-Token / Textbaustein verfallen nach acht Stunden.
 
 #### Sind für Live-Aktivitäten Push-Primer erforderlich? {#do-live-activities-require-push-primers}
 
@@ -695,11 +695,11 @@ Um zu überprüfen, ob Ihre Push-to-Start-Benachrichtigung erfolgreich auf dem G
 
 Nachdem Sie eine Push-to-Start-Benachrichtigung für eine Live-Aktivität erhalten haben, überprüfen Sie, ob eine ausgehende Netzwerkanfrage an den Endpunkt `/push_token_tag` Ihrer Braze-URL zu sehen ist und ob diese die korrekte Aktivitäts-ID unter dem Feld `"tag"` enthält.
 
-Stellen Sie abschließend sicher, dass der Attributtyp der Live-Aktivität in Ihrer Update-Payload genau mit dem String und der Klasse übereinstimmt, die in Ihrem SDK-Methodenaufruf von `registerPushToStart` verwendet werden. Verwenden Sie Konstanten, um Tippfehler zu vermeiden.
+Stellen Sie abschließend sicher, dass der Attributtyp der Live-Aktivität in Ihrer Update or aktualisieren-Payload genau mit dem String und der Klasse übereinstimmt, die in Ihrem SDK or Software-Development-Kit-Methodenaufruf von `registerPushToStart` verwendet werden. Verwenden Sie Konstanten, um Tippfehler zu vermeiden.
 
 #### Ich erhalte die Antwort „Access Denied“, wenn ich versuche, den Endpunkt `live_activity/update` zu verwenden. Warum? {#i-am-receiving-an-access-denied-response-when-i-try-to-use-the-live_activityupdate-endpoint-why}
 
-Die von Ihnen verwendeten API-Schlüssel müssen die richtigen Berechtigungen für den Zugriff auf die verschiedenen Braze-API-Endpunkte besitzen. Wenn Sie einen zuvor erstellten API-Schlüssel verwenden, haben Sie möglicherweise versäumt, dessen Berechtigungen zu aktualisieren. Weitere Informationen finden Sie in unserer [Übersicht zur Sicherheit von API-Schlüsseln]({{site.baseurl}}/api/basics#rest-api-key-security).
+Die von Ihnen verwendeten API-Schlüssel müssen die richtigen Berechtigungen für den Zugriff auf die verschiedenen Braze-API-Endpunkte besitzen. Wenn Sie einen zuvor erstellten API-Schlüssel verwenden, haben Sie möglicherweise versäumt, dessen Berechtigungen zu Update or aktualisieren or aktualisieren. Weitere Informationen finden Sie in unserer [Übersicht zur Sicherheit von API-Schlüsseln]({{site.baseurl}}/api/basics#rest-api-key-security).
 
 #### Teilt der Endpunkt `messages/send` die Rate-Limits mit dem Endpunkt `messages/live_activity/update`? {#does-the-messagessend-endpoint-share-rate-limits-with-the-messageslive_activityupdate-endpoint}
 

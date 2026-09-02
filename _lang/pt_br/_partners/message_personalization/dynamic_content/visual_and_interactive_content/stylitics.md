@@ -49,9 +49,9 @@ A Stylitics fornecerá apenas os dados do pacote para os itens. Entre você e se
 
 As três abordagens a seguir permitem incluir pacotes da Stylitics nos seus e-mails acionados.
 
-### 1. Abordagem de API (recomendada) {#1-api-approach-recommended}
+### 1. Abordagem de API or interface de programação do aplicativo (API) (recomendada) {#1-api-approach-recommended}
 
-Você ou seu ESP podem fazer uma chamada de API por item para preencher os dados do pacote no seu e-mail. A Stylitics recomenda usar a API dela para fazer chamadas de API, pois está pronta para uso imediato.
+Você ou seu ESP podem fazer uma chamada de API or interface de programação do aplicativo (API) por item para preencher os dados do pacote no seu e-mail. A Stylitics recomenda usar a API or interface de programação do aplicativo (API) dela para fazer chamadas de API or interface de programação do aplicativo (API), pois está pronta para uso imediato.
 
 {% alert note %}
 Se você executar um teste A/B gerenciado pela Stylitics, os parâmetros `styliticsCID` e `styliticsoverride` devem ser anexados às URLs do PDP dos itens da Stylitics em que o usuário clica no e-mail.
@@ -100,7 +100,7 @@ A Stylitics fornece os dados do pacote para este tipo de programa de e-mail. Por
 
 Entre em contato com o gerente de conta da Stylitics para coordenar os próximos passos e prazos para o programa de e-mail. Alguns próximos passos incluem:
 - Decidir quais e-mails você gostaria de usar
-- Conectar a Stylitics com seu ESP para discutir a troca de dados e decidir entre a opção de API ou a opção de arquivo plano
+- Conectar a Stylitics com seu ESP para discutir a troca de dados e decidir entre a opção de API or interface de programação do aplicativo (API) ou a opção de arquivo plano
 - Criar mockups com seu ESP
 - Alinhar a análise de dados
 - Alinhar o cronograma de lançamento

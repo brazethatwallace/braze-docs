@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para rastreamento de usuários."
 toc_headers: h2
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Criar e atualizar usuários {#create-and-update-users}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track
@@ -16,9 +16,9 @@ toc_headers: h2
 
 > Use esse endpoint para registrar eventos personalizados e compras, além de atualizar atributos do perfil de usuário.
 
-{% multi_lang_include api/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/user_track_custom_attributes_data_points.md endpoint="/users/track" %}
 
-A Braze processa os dados passados por meio da API pelo valor nominal, e você deve passar apenas deltas (dados alterados) para minimizar o registro desnecessário de pontos de dados.
+A Braze processa os dados passados por meio da API or interface de programação do aplicativo (API) pelo valor nominal, e você deve passar apenas deltas (dados alterados) para minimizar o registro desnecessário de pontos de dados.
 
 ## Precisa atualizar usuários em massa? {#need-to-update-users-in-bulk}
 
@@ -28,9 +28,9 @@ Use o [endpoint `/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/po
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.track`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.track`.
 
-Os clientes que usam a API para chamadas de servidor para servidor podem precisar incluir `rest.iad-01.braze.com` na lista de permissões se estiverem protegidos por um firewall.
+Os clientes que usam a API or interface de programação do aplicativo (API) para chamadas de servidor para servidor podem precisar incluir `rest.iad-01.braze.com` na lista de permissões se estiverem protegidos por um firewall.
 
 ## Limite de taxa {#rate-limit}
 
@@ -249,7 +249,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 
 ## Respostas {#responses}
 
-Ao usar qualquer uma das solicitações de API mencionadas acima, você deve receber uma das três respostas gerais a seguir: uma [mensagem de sucesso](#successful-message), uma [mensagem de sucesso com erros não fatais](#successful-message-with-non-fatal-errors) ou uma [mensagem com erros fatais](#message-with-fatal-errors).
+Ao usar qualquer uma das solicitações de API or interface de programação do aplicativo (API) mencionadas acima, você deve receber uma das três respostas gerais a seguir: uma [mensagem de sucesso](#successful-message), uma [mensagem de sucesso com erros não fatais](#successful-message-with-non-fatal-errors) ou uma [mensagem com erros fatais](#message-with-fatal-errors).
 
 ### Mensagem de sucesso {#successful-message}
 
@@ -337,9 +337,9 @@ Se o `external_id` existir, a Braze priorizará o perfil atualizado mais recente
 A Braze cria um perfil e um usuário somente de e-mail e define o campo de e-mail como test@example.com, conforme indicado no exemplo de solicitação para atualizar um perfil de usuário por endereço de e-mail. A Braze não cria um alias.
 
 ### Como usar o `/users/track` para importar dados de usuários antigos? {#how-do-you-use-userstrack-to-import-legacy-user-data}
-Você pode enviar dados por meio da API da Braze para um usuário que ainda não tenha usado seu app móvel para gerar um perfil de usuário. Se o usuário usar o aplicativo posteriormente, todas as informações após a identificação usando o SDK serão mescladas com o perfil de usuário existente que você criou usando a chamada da API. Qualquer comportamento de usuário registrado anonimamente pelo SDK antes da identificação é perdido ao ser mesclado com o perfil de usuário existente gerado pela API.
+Você pode enviar dados por meio da API or interface de programação do aplicativo (API) da Braze para um usuário que ainda não tenha usado seu app móvel para gerar um perfil de usuário. Se o usuário usar o aplicativo posteriormente, todas as informações após a identificação usando o SDK or kit de desenvolvimento de software serão mescladas com o perfil de usuário existente que você criou usando a chamada da API or interface de programação do aplicativo (API). Qualquer comportamento de usuário registrado anonimamente pelo SDK or kit de desenvolvimento de software antes da identificação é perdido ao ser mesclado com o perfil de usuário existente gerado pela API or interface de programação do aplicativo (API).
 
-A ferramenta de segmentação inclui esses usuários independentemente de terem interagido com o app. Se você quiser excluir usuários enviados usando a API de Usuário que ainda não interagiram com o app, adicione o filtro `Session Count > 0`.
+A ferramenta de segmentação inclui esses usuários independentemente de terem interagido com o app. Se você quiser excluir usuários enviados usando a API or interface de programação do aplicativo (API) de Usuário que ainda não interagiram com o app, adicione o filtro `Session Count > 0`.
 
 ### Como evitar a criação de perfis de usuário duplicados? {#how-do-i-avoid-creating-duplicate-user-profiles}
 
@@ -360,13 +360,13 @@ Quando um atributo personalizado aninhado contém valores inválidos (como forma
 
 ### As solicitações ao `/users/track` são garantidamente processadas em ordem? {#are-requests-to-userstrack-guaranteed-to-be-processed-in-order}
 
-Quando você faz várias chamadas de API separadas ao `/users/track` em rápida sucessão, a Braze não pode garantir que as solicitações sejam processadas na ordem exata em que foram enviadas ou recebidas. Isso ocorre porque a Braze usa processamento assíncrono para maximizar velocidade e flexibilidade.
+Quando você faz várias chamadas de API or interface de programação do aplicativo (API) separadas ao `/users/track` em rápida sucessão, a Braze não pode garantir que as solicitações sejam processadas na ordem exata em que foram enviadas ou recebidas. Isso ocorre porque a Braze usa processamento assíncrono para maximizar velocidade e flexibilidade.
 
 Por exemplo, se você enviar várias solicitações de atualização para o mesmo usuário em poucos segundos — algumas com valores de atributo nulos e outras com valores válidos — as solicitações contendo valores nulos podem ser processadas após as solicitações com valores válidos, mesmo que tenham sido enviadas antes. Isso pode fazer com que os valores dos atributos pareçam reverter ou não refletir a atualização enviada mais recentemente.
 
 Para evitar condições de corrida ao atualizar dados de usuários:
 
-- **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API, em vez de fazer chamadas consecutivas separadas.
+- **Agrupe atualizações em uma única solicitação:** inclua todas as atualizações de atributos de um usuário em uma única chamada de API or interface de programação do aplicativo (API), em vez de fazer chamadas consecutivas separadas.
 - **Adicione intervalos entre solicitações:** se você precisar fazer chamadas separadas para o mesmo usuário, adicione um intervalo (alguns segundos) entre as solicitações para permitir que a primeira seja processada antes de enviar a próxima.
 - **Evite atualizações sobrepostas para o mesmo campo:** se duas solicitações atualizam o mesmo atributo com valores diferentes, envie essas atualizações em uma única solicitação ou separe-as com um intervalo para reduzir a chance de resultados fora de ordem.
 
@@ -374,7 +374,7 @@ Para saber mais sobre condições de corrida e práticas recomendadas, consulte 
 
 ### Por que a resposta do `/users/track` está mais lenta do que eu esperava? {#why-is-my-userstrack-response-slower-than-i-expect}
 
-Chamadas bem-sucedidas ao `/users/track` geralmente são aceitas rapidamente, mas a Braze ainda processa atualizações de atributos, eventos e compras de forma assíncrona. A latência percebida pode aumentar quando as cargas úteis são grandes ou quando o roteamento de rede até o seu [endpoint REST]({{site.baseurl}}/api/basics#endpoints) é lento. Se você precisar de uma confirmação síncrona por usuário ou de uma ordenação mais rigorosa entre chamadas, consulte [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) (**beta limitado**).
+Chamadas bem-sucedidas ao `/users/track` geralmente são aceitas rapidamente, mas a Braze ainda processa atualizações de atributos, eventos e compras de forma assíncrona. A latência percebida pode aumentar quando as cargas úteis são grandes ou quando o roteamento de rede até o seu [endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints) é lento. Se você precisar de uma confirmação síncrona por usuário ou de uma ordenação mais rigorosa entre chamadas, consulte [`/users/track/sync`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous) (**beta limitado**).
 
 ### Como os limites de taxa afetam o `/users/track`? {#how-do-rate-limits-affect-userstrack}
 
@@ -393,7 +393,7 @@ Para os clientes que adquiriram Monthly Active Users CY 24-25, Universal MAU, We
 - Além do limite por hora, a Braze impõe um limite de burst no número de solicitações que podem ser enviadas a cada três segundos.
 - Cada solicitação pode conter até 75 atualizações combinadas entre objetos de atributo, evento ou compra.
 
-Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Configurações** > **APIs e identificadores** > **API Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
+Os limites atuais baseados na ingestão esperada podem ser encontrados no dashboard em **Configurações** > **APIs e identificadores** > **API or interface de programação do aplicativo (API) Usage Dashboard**. Podemos modificar os limites de taxa para proteger a estabilidade do sistema ou permitir um aumento na taxa de transferência de dados na sua conta. Entre em contato com o suporte da Braze ou com o seu gerente de sucesso do cliente em caso de dúvidas ou preocupações relacionadas ao limite de solicitações por hora ou por segundo e às necessidades da sua empresa.
 
 ### Cabeçalhos de limite de taxa para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU {#rate-limit-headers-for-monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau}
 

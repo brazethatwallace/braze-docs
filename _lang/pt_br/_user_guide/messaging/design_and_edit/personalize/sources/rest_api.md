@@ -1,13 +1,13 @@
 ---
-nav_title: API REST
-article_title: API REST
+nav_title: API or interface de programação do aplicativo (API) REST or transferir estado representacional
+article_title: API or interface de programação do aplicativo (API) REST or transferir estado representacional
 page_order: 1
-description: "Saiba como usar o Conteúdo conectado para buscar dados de APIs REST e inseri-los nas suas mensagens para personalização em tempo real."
+description: "Saiba como usar o Conteúdo conectado para buscar dados de APIs REST or transferir estado representacional e inseri-los nas suas mensagens para personalização em tempo real."
 ---
 
-# API REST {#rest-api}
+# API or interface de programação do aplicativo (API) REST or transferir estado representacional {#rest-api}
 
-> Busque dados de APIs REST externas diretamente nas suas mensagens no momento do envio usando o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Isso permite personalizar mensagens com informações em tempo real dos seus próprios servidores, serviços de terceiros ou qualquer endpoint de API acessível publicamente.
+> Busque dados de APIs REST or transferir estado representacional externas diretamente nas suas mensagens no momento do envio usando o [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Isso permite personalizar mensagens com informações em tempo real dos seus próprios servidores, serviços de terceiros ou qualquer endpoint de API or interface de programação do aplicativo (API) acessível publicamente.
 
 ## Como funciona {#how-it-works}
 
@@ -35,9 +35,9 @@ O Conteúdo conectado suporta requisições GET e POST. A Braze exige que o serv
 
 ## Autenticação {#authentication}
 
-A Braze suporta autenticação básica, autenticação por token e OAuth para requisições de Conteúdo conectado. Você pode armazenar credenciais de forma segura no dashboard da Braze em **Configurações** > **Conteúdo conectado** e referenciá-las nas suas chamadas de API.
+A Braze suporta autenticação básica, autenticação por token e OAuth para requisições de Conteúdo conectado. Você pode armazenar credenciais de forma segura no dashboard da Braze em **Configurações** > **Conteúdo conectado** e referenciá-las nas suas chamadas de API or interface de programação do aplicativo (API).
 
-Para saber mais, consulte [Fazendo uma chamada de API de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types).
+Para saber mais, consulte [Fazendo uma chamada de API or interface de programação do aplicativo (API) de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types).
 
 ## Tratamento de erros {#error-handling}
 

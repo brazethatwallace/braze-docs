@@ -42,8 +42,8 @@ Use a IA da LILT para obter traduções imediatas e alinhadas à marca para comu
 | Requisito       | Descrição |
 |-----------------------|-----------------|
 | Uma conta LILT   | É necessário ter uma conta LILT para aproveitar essa parceria.  |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com as seguintes permissões:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Crie essa chave no dashboard da Braze em **Settings** > **API Keys**. |
-| Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância.  |
+| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze  | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Crie essa chave no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
+| Um endpoint REST or transferir estado representacional da Braze | [A URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 
@@ -62,8 +62,8 @@ Use a IA da LILT para obter traduções imediatas e alinhadas à marca para comu
 
 {: start="3"}
 3. Insira e verifique os detalhes de configuração necessários:
-- Sua chave de API da Braze
-- Endpoint REST da Braze
+- Sua chave de API or interface de programação do aplicativo (API) da Braze
+- Endpoint REST or transferir estado representacional da Braze
 
 ![Credenciais de API completas.]({% image_buster /assets/img/lilt/image_3_api_creds.png %})
 

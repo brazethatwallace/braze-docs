@@ -22,8 +22,8 @@ Com a integração da Braze e da Yotpo, você pode extrair e exibir dinamicament
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Yotpo | É necessário ter uma conta na Yotpo para aproveitar essa parceria. |
-| Chave de API de avaliações da Yotpo | Esta API será implementada no snippet de código do Conteúdo conectado.<br><br>Para saber mais, consulte como [encontrar sua chave do app Yotpo e a chave secreta](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
-| Chave de API de fidelidade da Yotpo | Esta chave de API e o identificador globalmente único (GUID) serão implementados no snippet de código do Conteúdo conectado.<br><br>Para saber mais, consulte como [encontrar sua chave de API e GUID de fidelidade e indicações](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
+| Chave de API or interface de programação do aplicativo (API) de avaliações da Yotpo | Esta API or interface de programação do aplicativo (API) será implementada no snippet de código do Conteúdo conectado.<br><br>Para saber mais, consulte como [encontrar sua chave do app Yotpo e a chave secreta](https://support.yotpo.com/en/article/finding-your-yotpo-app-key-and-secret-key). |
+| Chave de API or interface de programação do aplicativo (API) de fidelidade da Yotpo | Esta chave de API or interface de programação do aplicativo (API) e o identificador globalmente único (GUID) serão implementados no snippet de código do Conteúdo conectado.<br><br>Para saber mais, consulte como [encontrar sua chave de API or interface de programação do aplicativo (API) e GUID de fidelidade e indicações](https://support.yotpo.com/en/article/finding-your-loyalty-referrals-api-key-and-guid)|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Antes de continuar, confirme se o ID do produto Yotpo é igual ao `product_id` que será extraído dinamicamente da Braze. Isso é obrigatório para que a integração funcione.
@@ -69,7 +69,7 @@ The average rating for this product is:
 ```
 {% endraw %}
 
-Substitua `<YOTPO-API-KEY>` pela sua chave de API de avaliações da Yotpo. O `product_id` será extraído dinamicamente da Braze. Para que a integração funcione, o `product_id` na Braze deve corresponder ao ID do produto na Yotpo (normalmente o ID do produto pai do eCommerce).
+Substitua `<YOTPO-API-KEY>` pela sua chave de API or interface de programação do aplicativo (API) de avaliações da Yotpo. O `product_id` será extraído dinamicamente da Braze. Para que a integração funcione, o `product_id` na Braze deve corresponder ao ID do produto na Yotpo (normalmente o ID do produto pai do eCommerce).
 
 ![Substitua YOTPO-API-KEY pela sua chave de API de avaliações da Yotpo]({% image_buster /assets/img/yotpo/image2.png %})
 
@@ -92,7 +92,7 @@ Recent 5 Star Review for this product:
 ```
 {% endraw %}
 
-Substitua `<YOTPO-API-KEY>` pela sua chave de API de avaliações da Yotpo. O `product_id` será extraído dinamicamente da Braze. Para que a integração funcione, o `product_id` na Braze deve corresponder ao ID do produto na Yotpo (normalmente o ID do produto pai do eCommerce).
+Substitua `<YOTPO-API-KEY>` pela sua chave de API or interface de programação do aplicativo (API) de avaliações da Yotpo. O `product_id` será extraído dinamicamente da Braze. Para que a integração funcione, o `product_id` na Braze deve corresponder ao ID do produto na Yotpo (normalmente o ID do produto pai do eCommerce).
 
 Veja a seguir como o snippet ficará no seu editor de e-mail:
 
@@ -121,7 +121,7 @@ Image return NULL
 ```
 {% endraw %}
 
-Substitua `<YOTPO-API-KEY>` pela sua chave de API de avaliações da Yotpo. O `product_id` será extraído dinamicamente da Braze. Para que a integração funcione, o `product_id` na Braze deve corresponder ao ID do produto na Yotpo (normalmente o ID do produto pai do eCommerce).
+Substitua `<YOTPO-API-KEY>` pela sua chave de API or interface de programação do aplicativo (API) de avaliações da Yotpo. O `product_id` será extraído dinamicamente da Braze. Para que a integração funcione, o `product_id` na Braze deve corresponder ao ID do produto na Yotpo (normalmente o ID do produto pai do eCommerce).
 
 O snippet ficará assim:
 
@@ -169,7 +169,7 @@ Se você não tiver nenhuma imagem para um produto (por exemplo, se a resposta d
 
 ### Posso personalizar a aparência ou extrair outros campos de dados da Yotpo? {#can-i-customize-the-look-and-feel-or-pull-other-data-fields-from-yotpo}
 
-Sim! Para descobrir outros pontos de dados e opções de personalização disponíveis, consulte [Fazer uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/). Talvez você precise da ajuda de um desenvolvedor de front-end para fazer isso.
+Sim! Para descobrir outros pontos de dados e opções de personalização disponíveis, consulte [Fazer uma chamada de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/). Talvez você precise da ajuda de um desenvolvedor de front-end para fazer isso.
 
 {% alert note %}
 A Yotpo não oferece suporte a requisitos personalizados além do que está descrito neste guia.

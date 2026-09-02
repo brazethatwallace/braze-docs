@@ -1,7 +1,7 @@
 ---
 nav_title: Amazon Bedrock
 article_title: Amazon Bedrock
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Amazon Bedrock, mit der Sie Bedrock-Modelle mit Braze verbinden können, um sie mit angepassten KI-Agenten zu verwenden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Amazon Bedrock, mit der Sie Bedrock-Modelle mit Braze verbinden können, um sie mit angepassten KI or künstliche Intelligenz-Agenten zu verwenden."
 alias: /partners/amazon_bedrock/
 page_type: partner
 search_tag: Partner
@@ -10,13 +10,13 @@ search_tag: Partner
 
 # Amazon Bedrock
 
-> [Amazon Bedrock](https://aws.amazon.com/bedrock/) ist ein vollständig verwalteter AWS-Dienst, der über eine einheitliche API Zugang zu Foundation-Modellen führender KI-Unternehmen bietet, sodass Marken generative KI-Anwendungen auf AWS erstellen und skalieren können.
+> [Amazon Bedrock](https://aws.amazon.com/bedrock/) ist ein vollständig verwalteter AWS-Dienst, der über eine einheitliche API Zugang zu Foundation-Modellen führender KI or künstliche Intelligenz-Unternehmen bietet, sodass Marken generative KI or künstliche Intelligenz-Anwendungen auf AWS erstellen und skalieren können.
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Amazon Bedrock integration' %}
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Amazon Bedrock ermöglicht es Ihnen, Ihre Amazon Bedrock-Zugangsdaten mit Braze zu verbinden, sodass Sie Bedrock-gehostete Modelle beim Erstellen benutzerdefinierter KI-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe von Modellen aktualisieren, die über Amazon Bedrock verfügbar sind.
+Die Integration von Braze und Amazon Bedrock ermöglicht es Ihnen, Ihre Amazon Bedrock-Zugangsdaten mit Braze zu verbinden, sodass Sie Bedrock-gehostete Modelle beim Erstellen benutzerdefinierter KI or künstliche Intelligenz-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte generieren, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe von Modellen Update or aktualisieren or aktualisieren, die über Amazon Bedrock verfügbar sind.
 
 Wenn Sie Amazon Bedrock verbinden, zeigt Braze eine kuratierte Auswahl an Bedrock-Modellen für benutzerdefinierte Agenten an. Die in Braze verfügbaren Modelle können sich vom vollständigen Katalog in Ihrem AWS-Konto unterscheiden.
 
@@ -31,7 +31,7 @@ Braze verwendet für diese Integration den `bedrock-mantle`-Endpunkt von Amazon 
 | Ein AWS-Konto mit Amazon-Bedrock-Zugang | Ein AWS-Konto mit Zugang zu Amazon Bedrock in der AWS-Region, in der Ihre Modelle gehostet werden. Wenden Sie sich bei Fragen an Ihre:n Administrator:in oder den [AWS Support](https://aws.amazon.com/support). |
 | Zugang zu Amazon-Bedrock-Modellen | Zugang in Ihrem AWS-Konto zu den Bedrock-Modellen, die Sie verwenden möchten. Für einige Modelle, z. B. von Anthropic, muss der Zugang in Ihrem AWS-Konto gewährt werden. Nicht alle Modelle sind in jeder AWS-Region verfügbar – prüfen Sie die regionale Verfügbarkeit jedes Modells in der Amazon-Bedrock-Konsole oder unter [Regionale Verfügbarkeit nach Modellen](https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html), bevor Sie eine Verbindung herstellen. |
 | Zugangsdaten für die Authentifizierung | Entweder ein langfristiger [Amazon-Bedrock-API-Schlüssel](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html) oder – wenn die IAM-Rollenauthentifizierung für Ihren Workspace aktiviert ist – eine IAM-Rolle, die Braze übernehmen kann. |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

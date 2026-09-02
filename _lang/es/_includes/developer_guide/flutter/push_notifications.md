@@ -73,14 +73,14 @@ pushEventsStreamSubscription.cancel();
 #### Campos de eventos de notificaciones push {#push-notification-event-fields}
 
 {% alert note %}
-Debido a limitaciones de la plataforma en iOS, el SDK de Braze solo puede procesar cargas útiles push mientras la aplicación está en primer plano. Los listeners solo se activarán para el tipo de evento `push_opened` en iOS después de que un usuario haya interactuado con una notificación push.
+Debido a limitaciones de la plataforma en iOS, el SDK or kit de desarrollo de software de Braze solo puede procesar cargas útiles push mientras la aplicación está en primer plano. Los listeners solo se activarán para el tipo de evento `push_opened` en iOS después de que un usuario haya interactuado con una notificación push.
 {% endalert %}
 
 Para una lista completa de los campos de notificaciones push, consulta la siguiente tabla:
 
 | Nombre del campo    | Tipo      | Descripción |
 | ------------------ | --------- | ----------- |
-| `payloadType`     | String    | Especifica el tipo de carga útil de la notificación. Los dos valores que envía el SDK Flutter de Braze son `push_opened` y `push_received`. Solo los eventos `push_opened` son compatibles en iOS. |
+| `payloadType`     | String    | Especifica el tipo de carga útil de la notificación. Los dos valores que envía el SDK or kit de desarrollo de software Flutter de Braze son `push_opened` y `push_received`. Solo los eventos `push_opened` son compatibles en iOS. |
 | `url`              | String    | Especifica la URL que fue abierta por la notificación. |
 | `useWebview`      | Boolean   | Si es `true`, la URL se abre dentro de la aplicación en un webview modal. Si es `false`, la URL se abre en el navegador del dispositivo. |
 | `title`            | String    | Representa el título de la notificación. |
@@ -89,7 +89,7 @@ Para una lista completa de los campos de notificaciones push, consulta la siguie
 | `badgeCount`      | Number   | Representa el recuento de señales de la notificación. |
 | `timestamp`        | Number | Representa la hora en que la carga útil fue recibida por la aplicación. |
 | `isSilent`        | Boolean   | Si es `true`, la carga útil se recibe de forma silenciosa. Para más detalles sobre el envío de notificaciones push silenciosas en Android, consulta [Notificaciones push silenciosas en Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para más detalles sobre el envío de notificaciones push silenciosas en iOS, consulta [Notificaciones push silenciosas en iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal`| Boolean   | Es `true` si la carga útil de la notificación fue enviada para una característica interna del SDK, como la sincronización de conmutadores de características o Uninstall Tracking. La carga útil se recibe de forma silenciosa para el usuario. |
+| `isBrazeInternal`| Boolean   | Es `true` si la carga útil de la notificación fue enviada para una característica interna del SDK or kit de desarrollo de software, como la sincronización de conmutadores de características o Uninstall Tracking. La carga útil se recibe de forma silenciosa para el usuario. |
 | `imageUrl`        | String    | Especifica la URL asociada con la imagen de la notificación. |
 | `brazeProperties` | Object    | Representa las propiedades de Braze asociadas con la Campaign (pares clave-valor). |
 | `ios`              | Object    | Representa campos específicos de iOS. |
@@ -112,7 +112,7 @@ A partir de Xcode 14, puedes probar notificaciones push remotas en un simulador 
 ### Paso 4: Añadir vínculos profundos (Android) {#step-4-add-deep-links-android}
 
 {% alert warning %}
-En Android, `com_braze_handle_push_deep_links_automatically` tiene como valor predeterminado `false`. Con el valor predeterminado, al tocar una notificación push se envía un evento `push_opened` a tu listener de Dart, pero el SDK nativo no lleva tu aplicación al primer plano ni abre el destino del vínculo profundo automáticamente. Si tu aplicación no se abre al tocar una notificación, esta opción es la causa más probable.
+En Android, `com_braze_handle_push_deep_links_automatically` tiene como valor predeterminado `false`. Con el valor predeterminado, al tocar una notificación push se envía un evento `push_opened` a tu listener de Dart, pero el SDK or kit de desarrollo de software nativo no lleva tu aplicación al primer plano ni abre el destino del vínculo profundo automáticamente. Si tu aplicación no se abre al tocar una notificación, esta opción es la causa más probable.
 {% endalert %}
 
 Para habilitar que Braze abra automáticamente tu aplicación y cualquier vínculo profundo cuando se toque una notificación push, establece `com_braze_handle_push_deep_links_automatically` en `true` en tu `braze.xml`:

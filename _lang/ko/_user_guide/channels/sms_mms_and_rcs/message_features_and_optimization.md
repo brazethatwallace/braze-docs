@@ -1,13 +1,13 @@
 ---
 nav_title: 기능 및 최적화
-article_title: SMS, MMS, RCS 기능 및 최적화
+article_title: 단문 메시지 서비스, MMS, RCS 기능 및 최적화
 page_order: 3
 layout: dev_guide
 guide_top_header: "기능 및 최적화"
-guide_top_text: "링크 단축, 커스텀 도메인, 키워드 처리, 사용자 리타겟팅, 봇 클릭 필터링으로 SMS, MMS, RCS 메시지를 최적화하세요."
+guide_top_text: "링크 단축, 커스텀 도메인, 키워드 처리, 사용자 리타겟팅, 봇 클릭 필터링으로 단문 메시지 서비스, MMS, RCS 메시지를 최적화하세요."
 
 page_type: landing
-description: "Braze에서 링크 단축, 키워드 처리 등을 활용하여 SMS, MMS, RCS 메시지를 최적화하세요."
+description: "Braze에서 링크 단축, 키워드 처리 등을 활용하여 단문 메시지 서비스, MMS, RCS 메시지를 최적화하세요."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:

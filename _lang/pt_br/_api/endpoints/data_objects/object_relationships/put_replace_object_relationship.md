@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Substituir relacionamento de objeto."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Substituir relacionamento de objeto {#replace-object-relationship}
 {% apimethod put %}
 /data_objects/objects/{type_name}/{external_id}/object_relationships
@@ -16,12 +16,12 @@ description: "Este artigo descreve detalhes sobre o endpoint Substituir relacion
 > Use este endpoint para criar ou substituir um relacionamento de objeto.
 
 {% alert important %}
-Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API de Data Objects apareçam em **Configurações** > **Chaves de API**.
+Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de Data Objects apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.object_relationships.update`.
+Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.object_relationships.update`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -127,8 +127,8 @@ A tabela a seguir lista erros comuns para este endpoint e como resolvê-los.
 | `400` | Erro de validação | Confirme se `rel_kind`, `anchor` e `attributes` são válidos para o tipo de relacionamento. |
 | `404` | Relacionamento ou objetos do endpoint não encontrados (`data-object-relationship-not-found`) | Confirme se ambos os objetos e os nomes de tipos relacionados existem no espaço de trabalho. |
 | `422` | Limite de relacionamento por objeto atingido (`data-object-relationship-limit-exceeded`) | Reduza a contagem de relacionamentos do objeto ou entre em contato com o suporte da Braze sobre os limites do espaço de trabalho. |
-| `401` | Chave da REST API ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave tem a permissão `data_objects.object_relationships.update` e se o IP de origem está na lista de permissões da chave, se configurada. |
+| `401` | Chave da REST or transferir estado representacional API or interface de programação do aplicativo (API) ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave tem a permissão `data_objects.object_relationships.update` e se o IP de origem está na lista de permissões da chave, se configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência de solicitações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros do endpoint substituir relacionamento de objeto" }
 {% endapi %}

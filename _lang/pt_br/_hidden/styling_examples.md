@@ -140,7 +140,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 
 {% tabs %}
 {% tab Styling %}
-| Instância | URL do dashboard                                                      | Endpoint REST                   |
+| Instância | URL do dashboard                                                      | Endpoint REST or transferir estado representacional                   |
 | -------- | --------------------------------------------------------------------- | ------------------------------- |
 | US-01    | `https://dashboard.braze.com` ou<br> `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` |
 | US-02    | `https://dashboard-02.braze.com`                                      | `https://rest.iad-02.braze.com` |
@@ -582,7 +582,7 @@ Dentro do seu arquivo `AppDelegate.m`, adicione o seguinte trecho no método `ap
 {% endtab %}
 {% tab swift %}
 
-Se você está integrando o SDK da Braze com CocoaPods ou Carthage, adicione a seguinte linha de código ao seu arquivo `AppDelegate.swift`:
+Se você está integrando o SDK or kit de desenvolvimento de software da Braze com CocoaPods ou Carthage, adicione a seguinte linha de código ao seu arquivo `AppDelegate.swift`:
 
 ```swift
 {% if include.platform == 'iOS' %}#import Appboy_iOS_SDK{% else %}#import AppboyTVOSKit{% endif %}

@@ -87,7 +87,7 @@ guide_menu_list3:
 
 ## URL base y autenticación {#base-url-and-authentication}
 
-Usa el endpoint REST de tu espacio de trabajo y envía `Authorization: Bearer YOUR_REST_API_KEY`. Esta sección explica dónde están alojados los endpoints de objetos de datos y cómo se autentican las solicitudes.
+Usa el endpoint REST or transferencia de estado representacional de tu espacio de trabajo y envía `Authorization: Bearer YOUR_REST_API_KEY`. Esta sección explica dónde están alojados los endpoints de objetos de datos y cómo se autentican las solicitudes.
 
 - Para los hosts de los endpoints, consulta [Resumen de la API de Braze]({{site.baseurl}}/api/basics#endpoints).
 - Todas las cargas útiles de solicitud y respuesta son JSON.

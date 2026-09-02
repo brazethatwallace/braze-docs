@@ -224,7 +224,7 @@ Por exemplo, digamos que você queira filtrar usuários por número de telefone 
 
 ### Qual é a diferença da correspondência regex entre Segments e propriedades de disparo de eventos personalizados? {#how-does-regex-matching-differ-between-segments-and-custom-event-trigger-properties}
 
-Os filtros de Segment aplicam automaticamente correspondência sem distinção entre maiúsculas e minúsculas (equivalente ao modificador `/gi`). As propriedades de disparo de eventos personalizados e os filtros de disparo usam correspondência com distinção entre maiúsculas e minúsculas (equivalente apenas ao `/g`).
+Os filtros de Segment or segmento aplicam automaticamente correspondência sem distinção entre maiúsculas e minúsculas (equivalente ao modificador `/gi`). As propriedades de disparo de eventos personalizados e os filtros de disparo usam correspondência com distinção entre maiúsculas e minúsculas (equivalente apenas ao `/g`).
 
 Se você precisar de correspondência sem distinção entre maiúsculas e minúsculas em uma propriedade de disparo, use flags inline no seu padrão — por exemplo, `(?i)STOP(?-i)` para corresponder a `stop`, `STOP` ou `Stop`.
 

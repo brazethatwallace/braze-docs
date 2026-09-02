@@ -9,9 +9,9 @@ description: "In diesem Artikel werden Aliasnamen zur Identifizierung der Objekt
 
 # Aliasnamen zur Identifizierung des Objekts {#aliases-to-identify-object}
 
-Eine API-Anfrage mit einem beliebigen Feld im Attribute-Objekt erstellt oder aktualisiert ein Attribut dieses Namens mit dem angegebenen Wert im angegebenen Nutzerprofil.
+Eine API-Anfrage mit einem beliebigen Feld im Attribute-Objekt erstellt oder aktualisiert ein Attribut dieses Namens mit dem angegebenen Wert im angegebenen Kundenprofil or Nutzerprofil.
 
-Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet oder alle im Abschnitt für [Braze-Nutzerprofilfelder]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) aufgelisteten), um diese speziellen Werte im Nutzerprofil im Dashboard zu aktualisieren, oder fügen Sie Ihre eigenen angepassten Attributdaten für die Nutzer:innen hinzu.
+Verwenden Sie die Feldnamen des Braze-Nutzerprofils (wie nachfolgend aufgelistet oder alle im Abschnitt für [Braze-Nutzerprofilfelder]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) aufgelisteten), um diese speziellen Werte im Kundenprofil or Nutzerprofil im Dashboard zu Update or aktualisieren or aktualisieren, oder fügen Sie Ihre eigenen angepassten Attributdaten für die Nutzer:innen hinzu.
 
 ## Objektkörper {#object-body}
 

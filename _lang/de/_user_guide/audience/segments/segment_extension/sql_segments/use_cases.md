@@ -123,7 +123,7 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-Wählen Sie Nutzer:innen aus, denen eine SMS-Campaign oder ein Canvas gesendet wurde, die Nachricht aber nicht beim Carrier angekommen ist. Beispielsweise könnte die Nachricht durch einen Warteschlangenüberlauf gestoppt worden sein.
+Wählen Sie Nutzer:innen aus, denen eine Kurzmitteilungsdienst or SMS-Campaign oder ein Canvas gesendet wurde, die Nachricht aber nicht beim Carrier angekommen ist. Beispielsweise könnte die Nachricht durch einen Warteschlangenüberlauf gestoppt worden sein.
 
 ```sql
 SELECT
@@ -139,7 +139,7 @@ HAVING COUNT(id) > 0;
 {% endapi %}
 
 {% api %}
-## Alle SMS-Nachrichten finden, die gesendet, aber wegen Warteschlangenüberlauf nicht an den Carrier übermittelt wurden {#find-all-sms-messages-that-were-sent-but-didnt-reach-the-carrier-because-of-queue-overflow}
+## Alle Kurzmitteilungsdienst or SMS-Nachrichten finden, die gesendet, aber wegen Warteschlangenüberlauf nicht an den Carrier übermittelt wurden {#find-all-sms-messages-that-were-sent-but-didnt-reach-the-carrier-because-of-queue-overflow}
 {% apitags %}
 Message, Carrier
 {% endapitags %}
@@ -180,7 +180,7 @@ WHERE f.VALUE::STRING = 'Bacon'
 Error, Delivery
 {% endapitags %}
 
-Dies ist hilfreich, um Situationen zu lösen, in denen Sie den Versand an Nutzer:innen stoppen möchten, die keine Nachrichten empfangen, aber nicht als ungültig markiert werden, weil sie nicht den erforderlichen Fehlercode haben. Sie können diese Nutzer:innen entweder erneut ansprechen, um ihre Telefonnummer zu aktualisieren, oder sie abmelden.
+Dies ist hilfreich, um Situationen zu lösen, in denen Sie den Versand an Nutzer:innen stoppen möchten, die keine Nachrichten empfangen, aber nicht als ungültig markiert werden, weil sie nicht den erforderlichen Fehlercode haben. Sie können diese Nutzer:innen entweder erneut ansprechen, um ihre Telefonnummer zu Update or aktualisieren or aktualisieren, oder sie abmelden.
 
 Diese Abfrage verwendet den inkrementellen Editor und sucht nach Nutzer:innen mit drei oder mehr abgelehnten Sendungen in den letzten 90 Tagen und null Zustellungen.
 
@@ -345,7 +345,7 @@ FROM user_daily_average;
 ```
 
 {% alert tip %}
-Ersetzen Sie für SMS-Nachrichten `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage. Ersetzen Sie für Push-Benachrichtigungen `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage.
+Ersetzen Sie für Kurzmitteilungsdienst or SMS-Nachrichten `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage. Ersetzen Sie für Push-Benachrichtigungen `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage.
 {% endalert %}
 {% endapi %}
 
@@ -383,6 +383,6 @@ SELECT
 FROM user_weekly_average;
 ```
 {% alert tip %}
-Ersetzen Sie für SMS-Nachrichten `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage. Ersetzen Sie für Push-Benachrichtigungen `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage.
+Ersetzen Sie für Kurzmitteilungsdienst or SMS-Nachrichten `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage. Ersetzen Sie für Push-Benachrichtigungen `USERS_MESSAGES_EMAIL_SEND_SHARED` durch `USERS_MESSAGES_SMS_SEND_SHARED` in der Abfrage.
 {% endalert %}
 {% endapi %}

@@ -47,9 +47,9 @@ Brazeは、キャッシュされていないランディングページに対し
 
 キャッシュされたランディングページのビューは、この制限にカウントされません。キャッシュがトラフィックに与える影響については、[ランディングページは高トラフィックのシナリオに対応できますか？](#can-landing-pages-handle-high-traffic-scenarios)を参照してください。
 
-## ランディングページへのGoogle Tag Managerの追加 {#adding-google-tag-manager-to-a-landing-page}
+## ランディングページへのGoogle Tag マネージャーの追加 {#adding-google-tag-manager-to-a-landing-page}
 
-ランディングページにGoogle Tag Managerを追加するには、ドラッグ＆ドロップエディターでランディングページに**カスタムコード**ブロックを追加し、Tag Managerのコードをブロックに挿入します。以下の例のように、Tag Managerのコードの前にデータレイヤーを必ず追加してください。
+ランディングページにGoogle Tag マネージャーを追加するには、ドラッグ＆ドロップエディターでランディングページに**カスタムコード**ブロックを追加し、Tag マネージャーのコードをブロックに挿入します。以下の例のように、Tag マネージャーのコードの前にデータレイヤーを必ず追加してください。
 
 ```
 <script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Google Tag Managerの実装の詳細については、[Googleのドキュメント](https://developers.google.com/tag-platform/tag-manager/datalayer#installation)を参照してください。
+Google Tag マネージャーの実装の詳細については、[Googleのドキュメント](https://developers.google.com/tag-platform/tag-manager/datalayer#installation)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

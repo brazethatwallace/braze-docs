@@ -2,7 +2,7 @@
 nav_title: "Banner erstellen"
 article_title: "Banner erstellen"
 page_order: 1
-description: "Dieser Referenzartikel beschreibt, wie Sie Banner mit Braze-Campaigns und Canvases erstellen, verfassen, konfigurieren und senden."
+description: "Dieser Referenzartikel beschreibt, wie Sie Banner mit Braze-Campaigns und Canvase erstellen, verfassen, konfigurieren und senden."
 tool:
   - Campaigns
 channel:
@@ -11,7 +11,7 @@ channel:
 
 # Banner erstellen {#create-a-banner}
 
-> Erfahren Sie, wie Sie Banner erstellen, wenn Sie Campaigns und Canvases in Braze aufbauen. Allgemeine Informationen finden Sie unter [Über Banner]({{site.baseurl}}/user_guide/channels/banners).
+> Erfahren Sie, wie Sie Banner erstellen, wenn Sie Campaigns und Canvase in Braze aufbauen. Allgemeine Informationen finden Sie unter [Über Banner]({{site.baseurl}}/user_guide/channels/banners).
 
 ## Voraussetzungen {#prerequisites}
 
@@ -23,7 +23,7 @@ Bevor Sie Ihr Banner starten können, muss Ihr Entwicklungsteam [Placements in I
 
 ### Schritt 2: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-2-choose-where-to-build-your-message}
 
-Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User Journeys geeignet sind.
+Sie sind sich nicht sicher, ob Ihre Nachricht über eine Campaign oder ein Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvase besser für mehrstufige User Journeys geeignet sind.
 
 {% tabs %}
 {% tab Campaign %}
@@ -126,7 +126,7 @@ Die vollständige JavaScript-Bridge-Referenz finden Sie unter [Benutzerdefiniert
 #### Schritt 3.3: Schließen-Verhalten konfigurieren (optional) {#dismiss-behavior}
 
 {% alert important %}
-Für das Schließen von Bannern sind die folgenden Mindest-SDK-Versionen erforderlich. Ältere SDK-Versionen rendern keine Banner mit aktiviertem Schließen.
+Für das Schließen von Bannern sind die folgenden Mindest-SDK or Software-Development-Kit-Versionen erforderlich. Ältere SDK or Software-Development-Kit-Versionen rendern keine Banner mit aktiviertem Schließen.
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 reactnative:22.0.0 flutter:20.0.0 %}
 {% endalert %}
 
@@ -164,7 +164,7 @@ Die vollständige JavaScript-Bridge-Referenz finden Sie unter [Benutzerdefiniert
 
 #### Schritt 3.4: Benutzerdefinierte Eigenschaften hinzufügen (optional) {#custom-properties}
 
-Sie können einem Banner benutzerdefinierte Eigenschaften hinzufügen, um strukturierte Metadaten wie Strings oder JSON-Objekte anzuhängen. Diese Eigenschaften beeinflussen nicht die Darstellung des Banners, können aber [über das Braze SDK abgerufen werden]({{site.baseurl}}/developer_guide/banners/placements), um das Verhalten oder Erscheinungsbild Ihrer App zu ändern. Sie könnten zum Beispiel:
+Sie können einem Banner benutzerdefinierte Eigenschaften hinzufügen, um strukturierte Metadaten wie Strings oder JSON-Objekte anzuhängen. Diese Eigenschaften beeinflussen nicht die Darstellung des Banners, können aber [über das Braze SDK or Software-Development-Kit abgerufen werden]({{site.baseurl}}/developer_guide/banners/placements), um das Verhalten oder Erscheinungsbild Ihrer App zu ändern. Sie könnten zum Beispiel:
 
 {% multi_lang_include banners/metadata_use_cases.md %}
 
@@ -177,7 +177,7 @@ Füllen Sie für jede Eigenschaft, die Sie hinzufügen möchten, folgende Felder
 | Feld | Beschreibung | Beispiel |
 |-------|-------------|---------|
 | Eigenschaftstyp | Der Datentyp für die Eigenschaft. Unterstützte Typen sind String, Boolean, Nummer, Zeitstempel, Bild-URL und JSON-Objekt. | String |
-| Eigenschaftsschlüssel | Der eindeutige Bezeichner für die Eigenschaft. Dieser Schlüssel wird im SDK verwendet, um auf die Eigenschaft zuzugreifen. | `color` |
+| Eigenschaftsschlüssel | Der eindeutige Bezeichner für die Eigenschaft. Dieser Schlüssel wird im SDK or Software-Development-Kit verwendet, um auf die Eigenschaft zuzugreifen. | `color` |
 | Wert | Der der Eigenschaft zugewiesene Wert. Muss dem ausgewählten Eigenschaftstyp entsprechen. | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 3.4: Benutzerdefinierte Eigenschaften hinzufügen (optional)" }
 
@@ -201,7 +201,7 @@ Für optimale Ergebnisse:
 - Vermeiden Sie verkettete Aufrufe, bei denen eine Connected-Content-Antwort die URL für den nächsten Aufruf bestimmt. Jeder zusätzliche Aufruf belastet das gemeinsame Budget.
 - Verwenden Sie Liquid-Schutzanweisungen oder den [`default`-Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values), um null-Ergebnisse zu behandeln und leere Banner zu vermeiden.
 
-### Schritt 4: Den Rest Ihrer Campaign oder Ihres Canvas erstellen {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+### Schritt 4: Den Representational State Transfer Ihrer Campaign oder Ihres Canvas erstellen {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}

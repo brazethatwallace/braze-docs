@@ -14,13 +14,13 @@ noindex: true
 
 # Testes {#push-testing}
 
-Se você quiser testar notificações no app e notificações por push pela linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
+Se você quiser testar notificações no app e notificações por push pela linha de comando, pode enviar uma única notificação pelo terminal via CURL e a [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging). Você precisará substituir os seguintes campos pelos valores corretos para o seu caso de teste:
 
 Campos obrigatórios:
 
-- `YOUR-API-KEY-HERE` — disponível em **Configurações** > **Chaves de API**. Confira se a chave está autorizada a enviar mensagens pelo endpoint `/messages/send` da REST API.
+- `YOUR-API-KEY-HERE` — disponível em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. Confira se a chave está autorizada a enviar mensagens pelo endpoint `/messages/send` da REST or transferir estado representacional API or interface de programação do aplicativo (API).
 - `EXTERNAL_USER_ID` — disponível na página **Pesquisar usuários**.
-- `REST_API_ENDPOINT_URL` — listado nas [Instâncias]({{site.baseurl}}/api/basics#endpoints. Ensure using the endpoint corresponds to the Braze instance your workspace is on.
+- `REST_API_ENDPOINT_URL` — listado nas [Instâncias]({{site.baseurl}}/API or interface de programação do aplicativo (API)/basics#endpoints. Ensure using the endpoint corresponds to the Braze instance your workspace is on.
 
 Optional fields:
 - `YOUR_KEY1` (optional) da Braze. Certifique-se de que o endpoint corresponde à instância da Braze em que seu espaço de trabalho está.

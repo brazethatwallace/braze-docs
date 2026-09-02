@@ -26,7 +26,7 @@ Para obtener ayuda a la hora de elegir el enfoque de vinculación en profundidad
 
 ## Integración {#integration}
 
-Sigue [la guía de integración de SDK de Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview) para poner en marcha tu integración de Branch. Consulta a continuación otros casos de uso.
+Sigue [la guía de integración de SDK or kit de desarrollo de software de Branch](https://help.branch.io/developers-hub/docs/native-sdks-overview) para poner en marcha tu integración de Branch. Consulta a continuación otros casos de uso.
 
 ### Compatibilidad con enlaces universales de iOS {#support-ios-universal-links}
 
@@ -49,7 +49,7 @@ Si utilizas un dominio personalizado de Branch, añádelo también.
 
 #### Paso 3: Reenviar enlaces universales en Braze {#step-3-forward-universal-links-in-braze}
 
-Establece `forwardUniversalLinks` en `true` en la configuración de tu SDK de Braze para que el SDK reenvíe los enlaces universales al `AppDelegate` de tu aplicación:
+Establece `forwardUniversalLinks` en `true` en la configuración de tu SDK or kit de desarrollo de software de Braze para que el SDK or kit de desarrollo de software reenvíe los enlaces universales al `AppDelegate` de tu aplicación:
 
 {% tabs %}
 {% tab swift %}
@@ -130,7 +130,7 @@ Abre el enlace de Branch desde la aplicación Notas en un dispositivo iOS físic
 
 ### Habilitar el registro dual {#enable-dual-logging}
 
-1. **Braze**: [Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) y busca entradas `Opening '<URL>':`. Esto confirma que el SDK recibió el enlace.
+1. **Braze**: [Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/) y busca entradas `Opening '<URL>':`. Esto confirma que el SDK or kit de desarrollo de software recibió el enlace.
 2. **Branch**: Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking) y comprueba en el dashboard de Branch los eventos de clic en enlaces.
 3. **Compara**: Si Braze registra el enlace pero Branch no detecta un clic, es probable que la lógica de enrutamiento de `BrazeDelegate` no esté interceptando el enlace correctamente. Comprueba que la coincidencia de dominio en `shouldOpenURL` incluya tu dominio de Branch.
 

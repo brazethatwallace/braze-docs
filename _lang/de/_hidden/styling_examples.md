@@ -140,7 +140,7 @@ Lorem ipsum dolor ``sit amet, consectetur adipiscing elit``. Sed nec tortor at l
 
 {% tabs %}
 {% tab Styling %}
-| Instanz  | Dashboard-URL                                                         | REST-Endpunkt                   |
+| Instanz  | Dashboard-URL                                                         | Representational State Transfer-Endpunkt                   |
 | -------- | --------------------------------------------------------------------- | ------------------------------- |
 | US-01    | `https://dashboard.braze.com` oder<br> `https://dashboard-01.braze.com` | `https://rest.iad-01.braze.com` |
 | US-02    | `https://dashboard-02.braze.com`                                      | `https://rest.iad-02.braze.com` |
@@ -196,7 +196,7 @@ Ersetzen Sie `NUM` durch die entsprechende Spaltennummer, bis zu maximal 4 Spalt
 {% tabs local %}
 {% tab Vorher %}
 
-| Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
+| Event Name                                                       | Feed Type              | Description                                                  | angepasste Attribute                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Eine E-Mail wurde erfolgreich an den Mailserver einer Nutzer:in zugestellt. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | Nutzer:in hat eine E-Mail geöffnet.                          | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
@@ -205,7 +205,7 @@ Ersetzen Sie `NUM` durch die entsprechende Spaltennummer, bis zu maximal 4 Spalt
 {% endtab %}
 {% tab Nachher %}
 
-| Event Name                                                       | Feed Type              | Description                                                  | Custom Attributes                                                             |
+| Event Name                                                       | Feed Type              | Description                                                  | angepasste Attribute                                                             |
 | ---------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | UNBROKENWORDTHATISVERYLONGUNBROKENWORDTHATISVERYLONG             | Unbound Feed           | Eine E-Mail wurde erfolgreich an den Mailserver einer Nutzer:in zugestellt. | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
 | `UNBROKENHIGHLIGHTTHATISVERYLONGUNBROKENHIGHLIGHTTHATISVERYLONG` | Unbound Feed           | Nutzer:in hat eine E-Mail geöffnet.                          | `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`           |
@@ -381,7 +381,7 @@ class Foo:
 
 {% alert warning %}Dies ist eine Warnung{% endalert %}
 
-{% alert update %}Dies ist ein Update{% endalert %}
+{% alert Update or aktualisieren %}Dies ist ein Update or aktualisieren{% endalert %}
 
 {% endtab %}
 {% tab Markdown %}
@@ -582,7 +582,7 @@ Fügen Sie in Ihrer `AppDelegate.m`-Datei das folgende Snippet innerhalb Ihrer `
 {% endtab %}
 {% tab swift %}
 
-Wenn Sie das Braze SDK mit CocoaPods oder Carthage integrieren, fügen Sie die folgende Codezeile zu Ihrer `AppDelegate.swift`-Datei hinzu:
+Wenn Sie das Braze SDK or Software-Development-Kit mit CocoaPods oder Carthage integrieren, fügen Sie die folgende Codezeile zu Ihrer `AppDelegate.swift`-Datei hinzu:
 
 ```swift
 {% if include.platform == 'iOS' %}#import Appboy_iOS_SDK{% else %}#import AppboyTVOSKit{% endif %}

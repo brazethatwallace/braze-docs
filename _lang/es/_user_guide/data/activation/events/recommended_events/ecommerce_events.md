@@ -59,7 +59,7 @@ Braze ofrece tres formas de segmentar usuarios basándose en datos de eCommerce:
 - **Extensiones de segmento:** Para segmentar con propiedades de eventos anidados, incluyendo el array de productos anidados o las propiedades de los objetos de metadatos, usa las [extensiones de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) con el filtrado de propiedades de eventos anidados. Esto te permite crear audiencias como "usuarios que compraron el producto SKU-123 en los últimos 90 días" o combinar criterios en diferentes propiedades del mismo pedido.
 
 {% alert important %}
-Las extensiones de segmento para eventos recomendados de eCommerce son una característica de pago y en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador de éxito de cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
+Las extensiones de segmento para eventos recomendados de eCommerce son una característica de pago y en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente. Confirma que tu plan incluye acceso antes de recomendar la segmentación por propiedades anidadas a tu equipo.
 {% endalert %}
 
 ### Desencadenamiento {#triggering}
@@ -148,7 +148,7 @@ Usa esta plantilla cuando quieras optimizar la comunicación posterior a la comp
 
 Estas plantillas están diseñadas como punto de partida. Las personalizaciones más comunes incluyen:
   - **Personalizar el correo electrónico:** Cada plantilla incluye un correo electrónico preconfigurado creado con el editor de arrastrar y soltar, totalmente editable para adaptarse a tu marca y contenido.
-  - **Añadir canales:** Combina el correo electrónico con push, SMS o mensajes dentro de la aplicación para un refuerzo multicanal.
+  - **Añadir canales:** Combina el correo electrónico con push, servicio de mensajes cortos o mensajes dentro de la aplicación para un refuerzo multicanal.
   - **Añadir retrasos y divisiones de decisiones:** Divide a los usuarios por comportamiento (por ejemplo, carrito de alto valor frente a carrito de bajo valor) o periodos de espera entre mensajes.
   - **Cambiar el creativo:** Reemplaza la plantilla de correo electrónico incluida con el estilo visual de tu marca.
   - **Usar bloques de producto:** Usa bloques de producto de arrastrar y soltar (en el programa de acceso anticipado) para representar dinámicamente el contenido de carritos abandonados o productos visitados sin escribir Liquid personalizado.
@@ -162,7 +162,7 @@ Los eventos recomendados de eCommerce potencian las mismas superficies de ingres
 | Informe                                      | Qué muestra                             |
 |---------------------------------------------|-------------------------------------------|
 | Informe de ingresos                              | Ingresos totales, ingresos diarios promedio, compras diarias e ingresos por usuario a lo largo del tiempo en todas las fuentes para el rango de fechas y las aplicaciones seleccionadas.                                                                                     |
-| Panel de ingresos de atribución de último toque     | Ingresos atribuidos a la última Campaign o Canvas con la que un usuario interactuó antes de realizar un pedido. Los eventos de contacto incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de SMS o WhatsApp. |
+| Panel de ingresos de atribución de último toque     | Ingresos atribuidos a la última Campaign o Canvas con la que un usuario interactuó antes de realizar un pedido. Los eventos de contacto incluyen clics en correo electrónico, aperturas de push, clics en tarjetas de contenido, clics en mensajes dentro de la aplicación y clics en enlaces cortos de servicio de mensajes cortos o WhatsApp. |
 | Análisis de Campaign y Canvas                | Ingresos totales atribuidos a una Campaign o Canvas específica dentro de la ventana de conversión primaria.                                                                                   |
 | Informe de conversiones                          | Ingresos vinculados a eventos de conversión en Campaigns y Canvas.<br> **Nota:** Para contabilizar los ingresos de `ecommerce.order_placed`, la Campaign o Canvas debe usar el tipo de evento de conversión "Place Order" como su evento de conversión.                                                                                    |
 | Información del segmento                            | Comparaciones de ingresos entre segmentos en el panel de información del segmento.                                                               |

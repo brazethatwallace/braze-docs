@@ -1,7 +1,7 @@
 ---
 nav_title: DinMo
 article_title: DinMo
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und DinMo, einer Composable Customer Data Platform, die Reverse-ETL nutzt, um Data-Warehouse-Daten in Braze zu synchronisieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und DinMo, einer Composable Customer Data Platform, die Reverse-ETL or Extract, Transform, Load nutzt, um Data-Warehouse-Daten in Braze zu synchronisieren."
 alias: /partners/dinmo/
 page_type: partner
 search_tag: Partner
@@ -10,20 +10,20 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/) ist eine Composable Customer Data Platform (CDP), die Ihr Cloud Data Warehouse über Reverse Extract, Transform, Load (ETL) mit Braze verbindet. Marketing-Teams können Zielgruppen-Segmente aus Data-Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status ohne CSV-Uploads oder technischen Support aktuell halten.
+> [DinMo](https://www.dinmo.com/) ist eine Composable Customer Data Platform (Customer Data Platform (CDP)), die Ihr Cloud Data Warehouse über Reverse ETL or Extract, Transform, Load or Extract, Transform, Load (ETL or Extract, Transform, Load) mit Braze verbindet. Marketing-Teams können Zielgruppen-Segmente aus Data-Warehouse-Daten erstellen, Nutzerattribute und Events in Braze synchronisieren und Abo-Status ohne CSV-Uploads oder technischen Support aktuell halten.
 
 _Diese Integration wird von DinMo verwaltet._
 
-Die Integration von Braze und DinMo überträgt Segmente und Datenmodelle aus Ihrem Data Warehouse über die Braze REST API in Braze. Wenn Sie ein Braze-Ziel in DinMo verbinden, senden Aktivierungen Daten aus Ihren Modellen oder Segmenten an Braze.
+Die Integration von Braze und DinMo überträgt Segmente und Datenmodelle aus Ihrem Data Warehouse über die Braze Representational State Transfer API in Braze. Wenn Sie ein Braze-Ziel in DinMo verbinden, senden Aktivierungen Daten aus Ihren Modellen oder Segmenten an Braze.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
 | DinMo-Konto | Ein [DinMo-Konto](https://www.dinmo.com/) mit der Berechtigung, Ziele zu erstellen, ist erforderlich, um diese Partnerschaft nutzen zu können. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den für die Ziel-Dienste, die Sie nutzen möchten, [erforderlichen Berechtigungen](#api-key-permissions). Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von den [API-Endpunkten]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) Ihrer Braze-Instanz ab. |
-| Braze-Dashboard-URL | Ihre Braze-Dashboard-URL für Ihre Instanz (zum Beispiel `https://dashboard.iad-01.braze.com`). Weitere Informationen finden Sie unter [Verfügbare SDK-Endpunkte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den für die Ziel-Dienste, die Sie nutzen möchten, [erforderlichen Berechtigungen](#api-key-permissions). Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von den [API-Endpunkten]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) Ihrer Braze-Instanz ab. |
+| Braze-Dashboard-URL | Ihre Braze-Dashboard-URL für Ihre Instanz (zum Beispiel `https://dashboard.iad-01.braze.com`). Weitere Informationen finden Sie unter [Verfügbare SDK or Software-Development-Kit-Endpunkte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 | Data Warehouse und Datenmodell | Bevor Sie mit der Integration beginnen, verbinden Sie Ihr Data Warehouse in DinMo und definieren Sie ein Modell oder Segment für die Daten, die Sie mit Braze synchronisieren möchten. Weitere Informationen finden Sie im [DinMo-Braze-Integrationsleitfaden](https://docs.dinmo.io/integrations/destination-platforms/braze). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -31,14 +31,14 @@ Die Integration von Braze und DinMo überträgt Segmente und Datenmodelle aus Ih
 
 Mit dieser Integration können Sie:
 
-* Nutzerattribute aus Ihrem Data Warehouse mit Braze synchronisieren, um Campaigns und Canvases zu personalisieren.
+* Nutzerattribute aus Ihrem Data Warehouse mit Braze synchronisieren, um Campaigns und Canvase zu personalisieren.
 * Angepasste Events und Kauf-Events aus Data-Warehouse-Daten an Braze senden, um verhaltensbasiertes Targeting zu ermöglichen.
 * Die Mitgliedschaft in Braze-Abo-Gruppen mit den in DinMo definierten Zielgruppen-Segmenten abgleichen.
 * DinMo-Segmente als Braze-Nutzerattribute exportieren und daraus Braze-Segments erstellen.
 
 ## API-Schlüssel-Berechtigungen {#api-key-permissions}
 
-Gewähren Sie die folgenden Berechtigungen für Ihren Braze REST-API-Schlüssel basierend auf den von Ihnen verwendeten Ziel-Diensten:
+Gewähren Sie die folgenden Berechtigungen für Ihren Braze Representational State Transfer-API-Schlüssel basierend auf den von Ihnen verwendeten Ziel-Diensten:
 
 | Berechtigung | Erforderlich für |
 | --- | --- |
@@ -57,13 +57,13 @@ Gewähren Sie die folgenden Berechtigungen für Ihren Braze REST-API-Schlüssel 
 2. Wählen Sie **Add a new destination** > **Connect a new platform** > **Braze**.
 3. Geben Sie im Verbindungsformular die folgenden Details ein:
    * **Platform Name**: Zum Beispiel `Braze – Ihr Unternehmen`
-   * **REST API URL**: Ihr Instanz-REST-Endpunkt (zum Beispiel `https://rest.eu-01.braze.com`)
+   * **Representational State Transfer API URL**: Ihr Instanz-Representational State Transfer-Endpunkt (zum Beispiel `https://rest.eu-01.braze.com`)
    * **Dashboard URL**: Ihre Instanz-Dashboard-URL (zum Beispiel `https://dashboard.eu-01.braze.com`)
    * **API Key**: Der Schlüssel, den Sie aus Braze kopiert haben
 4. Wählen Sie **Connect**, um Ihre Zugangsdaten zu validieren.
 
 {% alert note %}
-Sie müssen sowohl die REST-API-URL als auch die Dashboard-URL angeben. Fügen Sie keinen abschließenden Schrägstrich an die REST-API-URL an.
+Sie müssen sowohl die Representational State Transfer-API-URL als auch die Dashboard-URL angeben. Fügen Sie keinen abschließenden Schrägstrich an die Representational State Transfer-API-URL an.
 {% endalert %}
 
 ### Schritt 2: Verbindung überprüfen {#step-2-verify-the-connection}
@@ -72,7 +72,7 @@ Nachdem Sie das Ziel gespeichert haben, führt DinMo einen Testaufruf durch (zum
 
 Wenn die Validierung fehlschlägt, überprüfen Sie Folgendes:
 
-* Die REST-API-URL ist korrekt und hat keinen abschließenden Schrägstrich.
+* Die Representational State Transfer-API-URL ist korrekt und hat keinen abschließenden Schrägstrich.
 * Der API-Schlüssel ist gültig und verfügt über die erforderlichen Berechtigungen.
 * Wenn Ihr Braze-Workspace eine IP-Zulassungsliste verwendet, sind die IP-Adressen von DinMo enthalten.
 
@@ -84,7 +84,7 @@ Die folgenden Zieldienste stehen zur Verfügung:
 
 | Zieldienst | Beschreibung |
 | --- | --- |
-| [Nutzerattribute synchronisieren](https://docs.dinmo.io/integrations/destination-platforms/braze/synchronize-users-attributes) | Aktualisieren Sie Nutzerprofilattribute in Braze und fügen Sie optional neue Nutzer:innen ein. |
+| [Nutzerattribute synchronisieren](https://docs.dinmo.io/integrations/destination-platforms/braze/synchronize-users-attributes) | Update or aktualisieren or aktualisieren Sie Nutzerprofilattribute in Braze und fügen Sie optional neue Nutzer:innen ein. |
 | [Track-Events senden](https://docs.dinmo.io/integrations/destination-platforms/braze/send-track-events) | Senden Sie angepasste Events und Kauf-Events an Braze. |
 | [Abo-Status synchronisieren](https://docs.dinmo.io/integrations/destination-platforms/braze/synchronize-subscription-statuses) | Abonnieren oder melden Sie Nutzer:innen in einer Braze-Abo-Gruppe basierend auf der DinMo-Segmentzugehörigkeit ab. |
 | [Nutzerlisten exportieren](https://docs.dinmo.io/integrations/destination-platforms/braze/export-user-lists) | Synchronisieren Sie die Segmentzugehörigkeit mit einem Braze-Nutzerattribut zur Verwendung in der Braze-Segmentierung. |
@@ -92,7 +92,7 @@ Die folgenden Zieldienste stehen zur Verfügung:
 
 ### Nutzerattribute synchronisieren {#synchronize-user-attributes}
 
-Verwenden Sie diesen Zieldienst, um Attribute auf bestehenden Braze-Nutzerprofilen zu aktualisieren und optional neue Nutzer:innen einzufügen.
+Verwenden Sie diesen Zieldienst, um Attribute auf bestehenden Braze-Nutzerprofilen zu Update or aktualisieren or aktualisieren und optional neue Nutzer:innen einzufügen.
 
 Wenn Sie eine Aktivierung ausführen:
 
@@ -107,7 +107,7 @@ Die folgenden Synchronisierungsmodi stehen für Nutzerattribut-Aktivierungen zur
 
 | Synchronisierungsmodus | Beschreibung |
 | --- | --- |
-| UPDATE | Aktualisiert geänderte Datensätze für Nutzer:innen, die bereits in Braze vorhanden sind. Fügt keine Datensätze ein und löscht keine. |
+| Update or aktualisieren | Aktualisiert geänderte Datensätze für Nutzer:innen, die bereits in Braze vorhanden sind. Fügt keine Datensätze ein und löscht keine. |
 | UPSERT | Fügt neue Datensätze ein und aktualisiert geänderte Datensätze. Löscht keine Datensätze. |
 | MIRROR | Fügt Datensätze ein, aktualisiert und löscht sie in Braze, um die Quelle zu spiegeln. Erfordert Konnektor-Unterstützung für Löschvorgänge. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Synchronisierungsmodi für Nutzerattribute" }
@@ -137,7 +137,7 @@ Verwenden Sie diesen Zieldienst, um eine Braze-Abo-Gruppe mit einem DinMo-Segmen
 
 Bevor Sie diesen Dienst aktivieren:
 
-1. Erstellen Sie die Ziel-Abo-Gruppe (SMS oder E-Mail) in Braze.
+1. Erstellen Sie die Ziel-Abo-Gruppe (Kurzmitteilungsdienst or SMS oder E-Mail) in Braze.
 2. Erstellen Sie ein DinMo-Modell oder -Segment mit den Nutzer:innen, die zu dieser Abo-Gruppe gehören sollen.
 
 Geben Sie während der Aktivierungseinrichtung die genaue Abo-Gruppen-ID aus Braze ein. Um mehrere Abo-Gruppen zu synchronisieren, erstellen Sie eine Aktivierung pro Gruppe.

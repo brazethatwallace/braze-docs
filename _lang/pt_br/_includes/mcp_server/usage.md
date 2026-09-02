@@ -39,7 +39,7 @@ Use `Marketing - Production` para prompts de análise de dados de Campaigns em p
 {% endtab %}
 {% endtabs %}
 
-Para saber mais, consulte [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#workspaces){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#workspaces){% endif %}.
+Para saber mais, consulte [Funções de API or interface de programação do aplicativo (API) disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#workspaces){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#workspaces){% endif %}.
 
 ### Mostre o desempenho de Campaigns da última semana {#show-me-campaign-performance-for-last-week}
 
@@ -63,7 +63,7 @@ Posso detalhar por Campaign, canal ou dia, se necessário.
 {% endtab %}
 {% endtabs %}
 
-Para saber mais, consulte [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#campaigns){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#campaigns){% endif %}.
+Para saber mais, consulte [Funções de API or interface de programação do aplicativo (API) disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#campaigns){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#campaigns){% endif %}.
 
 ### Criar um modelo de e-mail {#create-an-email-template}
 
@@ -82,7 +82,7 @@ Usei `create_email_template` e criei o seu modelo.
 {% endtab %}
 {% endtabs %}
 
-Para saber mais, consulte [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
+Para saber mais, consulte [Funções de API or interface de programação do aplicativo (API) disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/#templates){% endif %}.
 
 ## Exemplos de fluxos de trabalho {#example-workflows}
 
@@ -150,7 +150,7 @@ Quando você envia uma solicitação, algumas etapas acontecem nos bastidores:
 
 1. **Você faz um prompt no seu cliente.** Você digita uma solicitação em linguagem natural, como pedir o desempenho de Campaigns da última semana.
 2. **O modelo do cliente seleciona ferramentas.** O modelo de IA no seu cliente interpreta sua solicitação e a traduz em uma ou mais chamadas de ferramentas da Braze, como `get_campaign_list` e `get_campaign_dataseries`.
-3. **A Braze executa a chamada de ferramenta.** O servidor MCP remoto recebe cada chamada de ferramenta pela sua sessão OAuth autenticada, aplica o espaço de trabalho que você especificou e a executa no endpoint correspondente da REST API da Braze.
+3. **A Braze executa a chamada de ferramenta.** O servidor MCP remoto recebe cada chamada de ferramenta pela sua sessão OAuth autenticada, aplica o espaço de trabalho que você especificou e a executa no endpoint correspondente da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze.
 4. **A Braze retorna o resultado.** O servidor envia os dados de volta para o seu cliente, que os formata e apresenta para você.
 
 Seu acesso é a interseção de duas coisas:

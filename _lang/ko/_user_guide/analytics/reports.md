@@ -56,7 +56,7 @@ guide_menu_list:
 | [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder) | 크로스 캠페인 비교 | 여러 Campaigns 또는 Canvases의 결과를 커스텀 측정기준 및 드릴다운과 함께 단일 뷰에서 비교합니다. |
 | [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder) | 커스텀 SQL 분석 | Snowflake에서 Braze 데이터에 대해 커스텀 SQL 쿼리를 작성하거나, 일반적인 분석을 위한 사전 구축 템플릿을 사용합니다. |
 | [참여 보고서]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports) | 스케줄 이메일 내보내기 | 선택한 Campaigns 및 Canvases에 대한 참여 통계를 반복적으로 CSV로 내보내도록 설정합니다. |
-| [사용자 지정 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) | 커스텀 이벤트 트렌드 | 커스텀 이벤트 빈도를 시간 경과에 따라 Segment별 또는 KPI 공식으로 정규화하여 모니터링합니다. |
+| [사용자 지정 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) | 커스텀 이벤트 트렌드 | 커스텀 이벤트 빈도를 시간 경과에 따라 Segment별 또는 KPI or 핵심 성과 지표(KPI) 공식으로 정규화하여 모니터링합니다. |
 | [매출 보고서]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) | 매출 및 구매 | 매출, 구매, 제품 분류를 시간 경과에 따라 추적하며, 선택적으로 Segment 필터를 적용할 수 있습니다. |
 | [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) | 전환 퍼널 분석 | 고객이 Campaign 또는 Canvas를 수신한 후 거치는 여정을 이탈 지점을 포함하여 분석합니다. |
 | [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) | 장기 리텐션 영향 | Campaign 또는 Canvas가 시간 경과에 따라(최대 30일) 사용자를 얼마나 효과적으로 재참여시키는지 측정합니다. |

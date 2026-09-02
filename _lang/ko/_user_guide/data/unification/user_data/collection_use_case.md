@@ -20,7 +20,7 @@ StyleRyde의 목표는 간단합니다. 사용자가 앱을 통해 택시를 호
 ## 사례 질문 2: 앱 설치 후 해당 목표에 도달하기 위한 단계는 무엇인가요? {#case-question-2-what-are-the-steps-to-reach-that-goal-after-app-installation}
 
 1. StyleRyde는 사용자가 등록 프로세스를 시작하고 개인 정보를 입력해야 합니다.
-2. StyleRyde는 사용자가 SMS를 통해 받은 코드를 앱에 입력하여 등록 프로세스를 완료하고 인증해야 합니다.
+2. StyleRyde는 사용자가 단문 메시지 서비스를 통해 받은 코드를 앱에 입력하여 등록 프로세스를 완료하고 인증해야 합니다.
 3. StyleRyde는 사용자가 택시를 호출하도록 해야 합니다.
 4. StyleRyde는 사용자가 택시를 호출할 때 이용 가능해야 합니다.
 

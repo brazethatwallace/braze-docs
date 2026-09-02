@@ -26,7 +26,7 @@ Para campos de mensagem, limites de caracteres, personalização, mídia e encur
 
 ### Entenda os segmentos de mensagem e os limites de caracteres {#understand-message-segments-and-character-limits}
 
-As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por segmento de mensagem. Para regras de codificação, tamanhos de segmento e a calculadora de segmentos, consulte [Calculadoras de cobrança de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
+As mensagens SMS usam codificação GSM-7 ou UCS-2 e são cobradas por Segment or segmento or segmento de mensagem. Para regras de codificação, tamanhos de Segment or segmento or segmento e a calculadora de segmentos, consulte [Calculadoras de cobrança de SMS e RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 
 ### Personalização de palavras-chave (opcional) {#keyword-customization-optional}
 

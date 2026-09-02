@@ -30,7 +30,7 @@ La limitación de frecuencia global utiliza la zona horaria del usuario y cuenta
 
 ### ¿Se aplica la limitación de frecuencia global a los mensajes dentro de la aplicación desencadenados? {#does-global-frequency-capping-apply-to-triggered-in-app-messages}
 
-No, la limitación de frecuencia global solo se aplica a mensajes push, correo electrónico, SMS, webhook, WhatsApp y LINE.
+No, la limitación de frecuencia global solo se aplica a mensajes push, correo electrónico, servicio de mensajes cortos, webhook, WhatsApp y LINE.
 
 ### ¿La limitación de frecuencia limita las campañas recibidas o los mensajes individuales dentro de un envío? {#does-frequency-capping-limit-campaigns-received-or-individual-messages-inside-a-send}
 

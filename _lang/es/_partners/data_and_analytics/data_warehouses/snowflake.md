@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Snowflake
 
-> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) es un almacén de datos SQL en la nube creado específicamente y proporcionado como software como servicio (SaaS). Snowflake proporciona un almacén de datos más rápido, fácil de usar y mucho más flexible que las ofertas tradicionales de almacén de datos. Con la arquitectura única y patentada de Snowflake, es fácil acumular todos tus datos, habilitar análisis rápidos y obtener información basada en datos para todos tus usuarios.
+> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) es un almacén de datos SQL en la nube creado específicamente y proporcionado como software como servicio (software como servicio (SaaS)). Snowflake proporciona un almacén de datos más rápido, fácil de usar y mucho más flexible que las ofertas tradicionales de almacén de datos. Con la arquitectura única y patentada de Snowflake, es fácil acumular todos tus datos, habilitar análisis rápidos y obtener información basada en datos para todos tus usuarios.
 
 Braze ofrece dos integraciones con Snowflake. Juntas, proporcionan un pipeline de datos bidireccional completo entre tus entornos de Braze y Snowflake.
 
@@ -35,7 +35,7 @@ La [ingesta de datos en la nube (CDI)]({{site.baseurl}}/user_guide/data/unificat
 - Sincronizar atributos de usuario de Snowflake con perfiles de usuario de Braze
 - Enviar datos de eventos o compras desde Snowflake a Braze
 - Mantener Braze sincronizado con las transformaciones de datos que ocurren en tu almacén de datos
-- Evitar construir y mantener canalizaciones ETL personalizadas desde Snowflake a Braze
+- Evitar construir y mantener canalizaciones ETL or extraer, transformar, cargar personalizadas desde Snowflake a Braze
 
 Para obtener más información sobre el uso compartido de datos de Snowflake, consulta [Introducción a Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
 
@@ -45,7 +45,7 @@ Antes de poder utilizar esta característica, tendrás que completar lo siguient
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta de Braze o tu administrador de éxito de cliente. |
+| Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta de Braze o tu CSM or administrador de éxito de cliente or administrador de éxito de cliente. |
 | Cuenta de Snowflake | Una cuenta de Snowflake con permisos de `admin`. Para clientes que no están bajo HIPAA, se admite Snowflake Standard o Enterprise Edition. Para el uso compartido de datos con conformidad HIPAA, se requiere Business Critical Edition. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -143,6 +143,6 @@ Los datos de eventos en las vistas de uso compartido de datos (por ejemplo, `USE
 
 La velocidad, el rendimiento y el coste de cualquier consulta ejecutada sobre los datos están determinados por el tamaño del almacén que uses para consultar los datos. En algunos casos, dependiendo de la cantidad de datos a los que accedas para análisis, puede que necesites usar un almacén de mayor tamaño para que la consulta se ejecute correctamente. Snowflake tiene excelentes recursos disponibles sobre cómo determinar qué tamaño usar, incluidos [Resumen de almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) y [Consideraciones sobre almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
-> Para ver un conjunto de consultas de ejemplo como referencia al configurar Snowflake, consulta nuestros ejemplos de [consultas de muestra]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) y [configuración del canal de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
+> Para ver un conjunto de consultas de ejemplo como referencia al configurar Snowflake, consulta nuestros ejemplos de [consultas de muestra]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) y [configuración del canal de eventos ETL or extraer, transformar, cargar]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 
 Para obtener instrucciones de configuración, consulta [Ingesta de datos en la nube: integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).

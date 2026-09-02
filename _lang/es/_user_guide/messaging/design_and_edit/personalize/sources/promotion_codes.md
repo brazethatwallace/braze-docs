@@ -58,7 +58,7 @@ Los códigos promocionales están disponibles en campañas de mensajes dentro de
 
 ### ¿Qué canales de mensajería puedo usar con los códigos promocionales? {#which-messaging-channels-can-i-use-with-promotion-codes}
 
-Los códigos promocionales son compatibles con correo electrónico, push móvil, notificación push web, Content Cards, webhook, SMS y WhatsApp. Las campañas de mensajes dentro de la aplicación son compatibles con los códigos promocionales como característica de acceso anticipado. Las campañas de correo electrónico transaccional de Braze y los mensajes dentro de la aplicación en Canvas no son compatibles con los códigos promocionales.
+Los códigos promocionales son compatibles con correo electrónico, push móvil, notificación push web, Content Cards, webhook, servicio de mensajes cortos y WhatsApp. Las campañas de mensajes dentro de la aplicación son compatibles con los códigos promocionales como característica de acceso anticipado. Las campañas de correo electrónico transaccional de Braze y los mensajes dentro de la aplicación en Canvas no son compatibles con los códigos promocionales.
 
 ### ¿Los envíos de prueba y los envíos de grupo semilla cuentan para el uso? {#do-test-and-seed-sends-count-towards-usage}
 

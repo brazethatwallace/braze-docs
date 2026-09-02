@@ -9,7 +9,7 @@ channel: push
 
 # Solução de problemas de push {#troubleshoot-push}
 
-> Use esta página para solucionar problemas de entrega de push, comportamento ao clicar e credenciais. Para configuração específica do SDK, consulte [Solução de problemas de notificações por push para o SDK da Braze]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting). Para códigos de erro, consulte [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
+> Use esta página para solucionar problemas de entrega de push, comportamento ao clicar e credenciais. Para configuração específica do SDK or kit de desenvolvimento de software, consulte [Solução de problemas de notificações por push para o SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting). Para códigos de erro, consulte [Mensagens de erro comuns de push]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
 
@@ -61,17 +61,17 @@ Pushes só podem ser enviados para usuários inscritos ou que optaram por recebe
 Você também pode exportar perfis de usuário usando os endpoints de exportação da Braze:
 
 - [Usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
-- [Usuários por segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
+- [Usuários por Segment or segmento or segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 Ambos os endpoints retornam um objeto de token por push que inclui informações de ativação de push por dispositivo.
 
-### Segment {#segment}
+### Segment or segmento {#segment}
 
-Confirme que você faz parte do segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você pode ver em quais segmentos o usuário está atualmente incluído. A associação ao segmento é atualizada em tempo real.
+Confirme que você faz parte do Segment or segmento or segmento que está sendo direcionado (se for uma campanha ativa e não um teste). No **Perfil de usuário**, você pode ver em quais segmentos o usuário está atualmente incluído. A associação ao Segment or segmento or segmento é atualizada em tempo real.
 
 ![Lista de Segments]({% image_buster /assets/img_archive/trouble2.png %})
 
-Você também pode confirmar que o usuário faz parte do segmento usando a **Pesquisa de usuário** ao criar um segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, consulte [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
+Você também pode confirmar que o usuário faz parte do Segment or segmento or segmento usando a **Pesquisa de usuário** ao criar um Segment or segmento or segmento. A **Pesquisa de usuário** aceita apenas `external_id` ou `braze_id` — não endereços de e-mail ou números de telefone. Para pesquisar por e-mail, telefone, token por push ou alias de usuário, consulte [**Pesquisar usuários**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![Seção de pesquisa de usuário com um campo de busca.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
@@ -92,13 +92,13 @@ Se você tiver um limite de frequência definido para sua Campaign ou Canvas, po
 Se for uma Campaign de canal único ou um Canvas com grupo de controle, é possível que você esteja no grupo de controle.
 
   1. Verifique a [distribuição de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants) para ver se há um grupo de controle.
-  2. Se houver, crie um segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) e depois [exporte o segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) e verifique se o ID do seu usuário está nessa lista.
+  2. Se houver, crie um Segment or segmento or segmento filtrando por [no grupo de controle da Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) e depois [exporte o Segment or segmento or segmento]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) e verifique se o ID do seu usuário está nessa lista.
 
 ### Token por push válido {#valid-push-token}
 
 Um token por push é um identificador que os remetentes usam para direcionar um dispositivo específico com uma notificação por push. Sem um token por push válido, a Braze não consegue enviar um push para esse dispositivo.
 
-A Braze armazena até 20 dispositivos por perfil de usuário. Quando um 21º dispositivo é registrado, o dispositivo mais antigo é removido (primeiro a entrar, primeiro a sair, ou FIFO). Chamar [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) no SDK registra novamente o dispositivo atual no perfil.
+A Braze armazena até 20 dispositivos por perfil de usuário. Quando um 21º dispositivo é registrado, o dispositivo mais antigo é removido (primeiro a entrar, primeiro a sair, ou FIFO). Chamar [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) no SDK or kit de desenvolvimento de software registra novamente o dispositivo atual no perfil.
 
 ### Tipo de notificação por push {#push-notification-type}
 
@@ -121,22 +121,22 @@ Se você está enviando mensagens push com imagens no Android, o FCM pode, às v
 
 **Sintoma:** O push para Android falha com um erro `MismatchSenderID`.
 
-MismatchSenderID indica uma falha de autenticação com o Firebase Cloud Messaging (FCM). Confirme se o ID do remetente do Firebase e a chave de API do FCM estão corretos.
+MismatchSenderID indica uma falha de autenticação com o Firebase Cloud Messaging (FCM). Confirme se o ID do remetente do Firebase e a chave de API or interface de programação do aplicativo (API) do FCM estão corretos.
 
 Para encontrar a chave de servidor correta do Firebase e substituí-la:
 
 1. Acesse o console do Firebase do seu app.
 2. Em **Project Overview**, selecione **Project Settings**.
-3. Na guia **Cloud Messaging**, verifique se o ID do remetente listado com as chaves de API corresponde ao que está na Braze (em **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. Na guia **Cloud Messaging**, verifique se o ID do remetente listado com as chaves de API or interface de programação do aplicativo (API) corresponde ao que está na Braze (em **Settings** > **App Settings** > **Cloud Messaging API or interface de programação do aplicativo (API) Key**).
 
 {% alert warning %}
 Não altere o ID do remetente no seu dashboard da Braze. Fazer isso invalida os registros de push existentes. Se o ID do remetente não corresponder, você deve encontrar o projeto do Firebase com o ID do remetente correspondente.
 {% endalert %}
 
 4. Copie a **Server Key** em **Project credentials**.
-5. Na Braze, acesse **Settings** > **App Settings**, selecione seu app e cole a chave do servidor no campo **Cloud Messaging API Key** (substituindo a chave desatualizada).
+5. Na Braze, acesse **Settings** > **App Settings**, selecione seu app e cole a chave do servidor no campo **Cloud Messaging API or interface de programação do aplicativo (API) Key** (substituindo a chave desatualizada).
 6. Selecione **Save**.
-7. Para verificar, envie um push de teste para um dispositivo antes e depois de alterar a chave de API sem abrir o aplicativo. Isso ajuda a confirmar que os usuários continuam recebendo notificações por push sem a necessidade de gerar um novo ID de registro de push (token por push).
+7. Para verificar, envie um push de teste para um dispositivo antes e depois de alterar a chave de API or interface de programação do aplicativo (API) sem abrir o aplicativo. Isso ajuda a confirmar que os usuários continuam recebendo notificações por push sem a necessidade de gerar um novo ID de registro de push (token por push).
 
 ## Cenários de solução de problemas {#troubleshooting-scenarios}
 
@@ -172,7 +172,7 @@ Se clicar em uma notificação por push não abre seu app, verifique o seguinte 
 
 1. **Verifique o comportamento ao clicar:** Confirme que a Campaign está configurada para abrir o app ao ser clicada.
 2. **Verifique o tratamento de deep links:** No seu arquivo `braze.xml`, verifique se `com_braze_handle_push_deep_links_automatically` está definido como `true` ou `false`.
-   - Se definido como `true`, o SDK da Braze trata os deep links diretamente e o app deve abrir conforme esperado.
+   - Se definido como `true`, o SDK or kit de desenvolvimento de software da Braze trata os deep links diretamente e o app deve abrir conforme esperado.
    - Se definido como `false`, seu app precisa de um broadcast receiver para escutar e tratar os intents de push recebido e aberto. Verifique se esse receiver está implementado corretamente.
 3. **Colete logs detalhados:** [Ative o registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduza o problema e forneça os logs junto com seus arquivos `braze.xml` e `AndroidManifest.xml` ao suporte da Braze.
 
@@ -184,15 +184,15 @@ Se clicar em uma notificação por push não abre seu app, verifique o seguinte 
 
 ## Cliques em push abrem inesperadamente no app {#push-clicks-unexpectedly-open-in-app}
 
-**Sintoma:** Links em notificações por push abrem dentro do app em vez do navegador web do dispositivo.
+**Sintoma:** Links em notificações por push abrem dentro do app em vez do navegador de internet or navegador web do dispositivo.
 
-Se você está enfrentando problemas com links em notificações por push que abrem inesperadamente no seu app em vez do navegador web, pode haver um problema com a configuração da sua Campaign ou com a implementação do SDK. Consulte as etapas a seguir para obter ajuda.
+Se você está enfrentando problemas com links em notificações por push que abrem inesperadamente no seu app em vez do navegador de internet or navegador web, pode haver um problema com a configuração da sua Campaign ou com a implementação do SDK or kit de desenvolvimento de software. Consulte as etapas a seguir para obter ajuda.
 
 ### Verifique o comportamento ao clicar {#verify-on-click-behavior}
 
 Na sua Campaign ou etapa do Canvas, verifique novamente se **Open web URL inside mobile app** não está selecionado. Se estiver, desmarque a seleção e relance.
 
-A interação padrão para o comportamento ao clicar "Open web URL" difere por versão do SDK. Para as versões do SDK iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web são abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador web padrão do dispositivo.
+A interação padrão para o comportamento ao clicar "Open web URL" difere por versão do SDK or kit de desenvolvimento de software. Para as versões do SDK or kit de desenvolvimento de software iOS 2.29.0 e Android 2.0.0 e superiores, essa opção é selecionada por padrão e as URLs da web são abertas em uma web view dentro do app. Antes dessas versões, essa opção é desmarcada por padrão e as URLs da web abrem no navegador de internet or navegador web padrão do dispositivo.
 
 Se esse não for o problema, pode haver um problema com sua implementação de push.
 
@@ -231,7 +231,7 @@ Quando você substitui um certificado `.p12` por uma chave `.p8` (ou faz upload 
 
 Em **Configurações** > **Configurações do app** > **Configurações das notificações por push**, confirme que **App Bundle ID**, **Team ID** e **Key ID** (para chaves `.p8`) correspondem aos valores na sua conta de desenvolvedor da Apple. Vários espaços de trabalho da Braze podem usar a mesma credencial de push da Apple quando o **bundle ID** do app iOS é idêntico; o ambiente da credencial (desenvolvimento versus produção) deve corresponder à forma como o app foi compilado.
 
-Apps com [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou posterior podem usar o [gerenciamento dinâmico de gateway APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), que roteia tokens para o ambiente APNs correto automaticamente.
+Apps com [Braze Swift SDK or kit de desenvolvimento de software 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) ou posterior podem usar o [gerenciamento dinâmico de gateway APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), que roteia tokens para o ambiente APNs correto automaticamente.
 
 ## As notificações por web push não estão funcionando como esperado {#web-push-notifications-are-not-behaving-as-expected}
 

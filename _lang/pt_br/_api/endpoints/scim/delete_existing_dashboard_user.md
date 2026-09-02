@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Remover conta de usuário do dashboard\"."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Remover conta de usuário do dashboard {#remove-dashboard-user-account}
 {% apimethod delete %}
 /scim/v2/Users/{id}

@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie mit Braze einfaches Lead Scoring, externes L
 
 # Einen Lead-Scoring-Workflow erstellen {#create-a-lead-scoring-workflow}
 
-> Dieser Anwendungsfall zeigt, wie Sie mit Braze die Lead-Bewertungen von Nutzer:innen in Echtzeit aktualisieren und Leads automatisch an Ihre Vertriebsteams übergeben können.
+> Dieser Anwendungsfall zeigt, wie Sie mit Braze die Lead-Bewertungen von Nutzer:innen in Echtzeit Update or aktualisieren or aktualisieren und Leads automatisch an Ihre Vertriebsteams übergeben können.
 
 Die Erstellung eines Lead-Scoring-Workflows in Braze umfasst zwei wesentliche Schritte:
 
@@ -56,7 +56,7 @@ Gehen Sie unter **Entry Controls** wie folgt vor:
 
 ![Abschnitt „Entry Controls“ mit Auswahlmöglichkeiten für „Allow users to re-enter this Canvas“ in einem „Specified Window“ von 0 Sekunden.]({% image_buster /assets/img/b2b/entry_controls_simple.png %}){: style="max-width:80%;"}
 
-#### Schritt 3c: Sendeeinstellungen aktualisieren {#step-3c-update-send-settings}
+#### Schritt 3c: Sendeeinstellungen Update or aktualisieren or aktualisieren {#step-3c-update-send-settings}
 
 Angesichts der operativen Natur dieses Canvas und der Tatsache, dass keine Nachrichten an diese Nutzer:innen gesendet werden, müssen Sie sich nicht an den Abo-Status halten.
 
@@ -87,7 +87,7 @@ Fügen Sie die folgenden Gruppen zu Ihrem Aktionspfad hinzu:
 
 #### Schritt 4c: Jede Gruppe mit den relevanten Ereignissen konfigurieren {#step-4c-configure-each-group-to-include-the-relevant-events}
 
-Wählen Sie in jeder Aktionsgruppe **Trigger auswählen** und wählen Sie das Ereignis, das die Anzahl der Punkte für die jeweilige Aktionsgruppe hinzufügen wird. Fügen Sie weitere Trigger hinzu, um alle Ereignisse zu berücksichtigen, die den Lead Score um eins erhöhen. Nutzer:innen könnten beispielsweise ihren Punktestand um eins erhöhen, wenn sie eine Sitzung in einer beliebigen App starten oder ein angepasstes Event durchführen (z. B. die Registrierung oder Teilnahme an einem Webinar).
+Wählen Sie in jeder Aktionsgruppe **Trigger or triggern auswählen** und wählen Sie das Ereignis, das die Anzahl der Punkte für die jeweilige Aktionsgruppe hinzufügen wird. Fügen Sie weitere Trigger or triggern hinzu, um alle Ereignisse zu berücksichtigen, die den Lead Score um eins erhöhen. Nutzer:innen könnten beispielsweise ihren Punktestand um eins erhöhen, wenn sie eine Sitzung in einer beliebigen App starten oder ein angepasstes Event durchführen (z. B. die Registrierung oder Teilnahme an einem Webinar).
 
 ![Aktionsgruppe zum Hinzufügen eines Punktes mit den Triggern „Starting Session in Any App“ und „Performing Custom Event“.]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
 
@@ -149,7 +149,7 @@ Mit der Cloud-Datenaufnahme erstellen Ihre internen Teams eine neue Tabelle oder
 
 Unser empfohlener Ansatz für Lead-Übergaben besteht darin, allen Nutzer:innen in Braze einen entsprechenden Lead oder Kontakt zuzuordnen. Diese Leads würden in die Warteschlange Ihres Vertriebsteams gelangen, wenn ihr Lead-Status in ein MQL-Stadium wechselt. Zu diesem Zeitpunkt würde Salesforce einen Lead-Routing- oder Zuweisungsworkflow starten.
 
-Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisieren, empfehlen wir die Verwendung eines getriggerten Webhook-Templates.
+Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu Update or aktualisieren or aktualisieren, empfehlen wir die Verwendung eines getriggerten Webhook-Templates.
 
 ### 1. Schritt: Eine Webhook-Kampagne erstellen {#step-1-create-a-webhook-campaign}
 
@@ -157,11 +157,11 @@ Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisier
 
 #### Schritt 2a: Webhook verfassen {#step-2a-compose-webhook}
 
-1. Geben Sie Ihrer Webhook-Kampagne einen Namen, z. B. „Salesforce > Lead auf MQL aktualisieren“.
+1. Geben Sie Ihrer Webhook-Kampagne einen Namen, z. B. „Salesforce > Lead auf MQL Update or aktualisieren or aktualisieren“.
 
 2. Geben Sie Ihre Webhook-URL im Format {% raw %}`https://YOUR_SALESFORCE_INSTANCE.my.salesforce.com/services/data/v60.0/sobjects/Lead/{{${user_id}}}`{% endraw %} ein. Die Braze-Nutzer-ID {% raw %}`{{${user_id}}}`{% endraw %} sollte mit Ihrer Salesforce-Kontakt-ID übereinstimmen. Falls nicht, verwenden Sie einen Alias anstelle von {% raw %}`{{${user_id}}}`{% endraw %}.
 
-3. Aktualisieren Sie die **HTTP Method** auf **PATCH**.
+3. Update or aktualisieren or aktualisieren Sie die **HTTP Method** auf **PATCH**.
 
 4. Konfigurieren Sie Ihren Payload so, dass der Lead-Datensatz in Salesforce nur dann aktualisiert wird, wenn der Lead Score dieses Leads Ihren vordefinierten Schwellenwert überschreitet. Im folgenden Beispiel-Anfragetext wird ein Lead Score von mehr als 100 verwendet.
 
@@ -182,7 +182,7 @@ Um den Lead-Datensatz in Salesforce mit dem Lead-Status aus Braze zu aktualisier
 
 | Header | Inhalt |
 | --- | --- |
-| Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Um ein Token abzurufen, [konfigurieren Sie eine Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) für den OAuth 2.0 Client-Credentials-Flow und verwenden Sie dann Connected-Content, um den Bearer von Salesforce abzurufen: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
+| Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Um ein Token / Textbaustein abzurufen, [konfigurieren Sie eine Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) für den OAuth 2.0 Client-Credentials-Flow und verwenden Sie dann Connected-Content, um den Bearer von Salesforce abzurufen: <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/Token / Textbaustein <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2a: Webhook verfassen" }
 
@@ -194,7 +194,7 @@ Die Kampagne sollte immer dann getriggert werden, wenn sich der Lead Score von N
 
 Wählen Sie im Schritt **Schedule Delivery** Folgendes aus:
 - Einen **aktionsbasierten** Zustellungstyp
-- Eine Trigger-Aktion von **Change Custom Attribute Value** mit dem Namen Ihres Lead-Scoring-Attributs und einer Aktion mit einem **beliebigen neuen Wert**
+- Eine Trigger or triggern-Aktion von **Change Custom Attribute Value** mit dem Namen Ihres Lead-Scoring-Attributs und einer Aktion mit einem **beliebigen neuen Wert**
 
 #### Schritt 2c: Zielgruppe identifizieren {#step-2c-identify-target-audience}
 

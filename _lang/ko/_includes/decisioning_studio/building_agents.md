@@ -14,7 +14,7 @@ AI 의사결정 에이전트는 특정 비즈니스 목표를 달성하기 위�
 
 - BrazeAI<sup>TM</sup>가 최적화할 성공 지표(예: 매출, 전환, ARPU)를 선택합니다.
 - 테스트할 차원(예: 오퍼, 제목란, 크리에이티브, 채널, 발송 시간)을 정의합니다.
-- 각 차원의 옵션(예: 이메일 대 SMS, 또는 일일 대 주간 빈도)을 선택합니다.
+- 각 차원의 옵션(예: 이메일 대 단문 메시지 서비스, 또는 일일 대 주간 빈도)을 선택합니다.
 
 ![추천 이메일을 위한 Decisioning Studio 에이전트 예시 다이어그램]({% image_buster /assets/img/offerfit/example_use_cases_referral_email.png %})
 

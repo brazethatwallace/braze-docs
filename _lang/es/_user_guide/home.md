@@ -18,7 +18,7 @@ user_menu_list:
     image: /assets/img/braze_icons/log-in-04-braze-pink-dark.svg
     bg_color: '#F8D3E8'
     link: /docs/user_guide/administer/personal/accessing_your_account
-    description: Inicia sesión con SSO o tu URL de Braze y soluciona problemas
+    description: Inicia sesión con inicio de sesión único o tu URL de Braze y soluciona problemas
   - name: Crea un Canvas
     bg_color: '#FFD4BC'
     link: /docs/user_guide/messaging/canvas/create_a_canvas

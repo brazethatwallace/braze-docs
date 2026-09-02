@@ -20,7 +20,7 @@ Ao criar uma campanha de push, na etapa de composição, selecione **Configuraç
 
 ## Extração de dados de pares de valores-chave push {#extracting-data-from-push-key-value-pairs}
 
-A Braze permite que você envie pares de valores de string personalizados, conhecidos como `extras`, juntamente com uma notificação por push para o seu aplicativo. Os extras podem ser definidos por meio do dashboard ou da API e estarão disponíveis como pares de valores-chave no dicionário `notification` passado para suas implementações de delegados push.
+A Braze permite que você envie pares de valores de string personalizados, conhecidos como `extras`, juntamente com uma notificação por push para o seu aplicativo. Os extras podem ser definidos por meio do dashboard ou da API or interface de programação do aplicativo (API) e estarão disponíveis como pares de valores-chave no dicionário `notification` passado para suas implementações de delegados push.
 
 ## Opções de alerta {#alert-options}
 

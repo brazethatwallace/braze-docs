@@ -20,7 +20,7 @@ Braze détecte les désinstallations en envoyant un push silencieux aux applicat
 
 ## Améliorations des tests de webhook {#added-webhook-testing-enhancements}
 
-Vous pouvez maintenant envoyer un webhook de test en direct à partir de Braze avant de lancer une campagne. L'envoi d'un message de test vous permettra de vérifier que vos messages et vos endpoints serveur ont été configurés correctement dans un environnement sandbox sécurisé. En savoir plus sur les [webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook).
+Vous pouvez maintenant envoyer un webhook de test en direct or en ligne/en production/instantané à partir de Braze avant de lancer une campagne. L'envoi d'un message de test vous permettra de vérifier que vos messages et vos endpoints serveur ont été configurés correctement dans un environnement sandbox sécurisé. En savoir plus sur les [webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook).
 
 ## Ajout de la variation de message reçue à l'exportation CSV des destinataires de campagne {#added-message-variation-received-to-campaign-recipients-csv-export}
 

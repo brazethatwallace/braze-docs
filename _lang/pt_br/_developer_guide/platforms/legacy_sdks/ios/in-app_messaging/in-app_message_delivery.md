@@ -19,12 +19,12 @@ noindex: true
 Nosso produto de In-App Messages permite disparar a exibição de mensagens no app como resultado de diversos tipos de evento: `Any Purchase`, `Specific Purchase`, `Session Start`, `Custom Event` e `Push Click`. Além disso, os gatilhos `Specific Purchase` e `Custom Event` contam com filtros robustos de propriedades.
 
 {% alert note %}
-As mensagens no app disparadas só funcionam com eventos personalizados registrados por meio do SDK da Braze. As mensagens no app não podem ser disparadas pela API ou por eventos da API (como eventos de compra). Se você está trabalhando com iOS, acesse nosso artigo sobre [rastreamento de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift) para saber mais.
+As mensagens no app disparadas só funcionam com eventos personalizados registrados por meio do SDK or kit de desenvolvimento de software da Braze. As mensagens no app não podem ser disparadas pela API or interface de programação do aplicativo (API) ou por eventos da API or interface de programação do aplicativo (API) (como eventos de compra). Se você está trabalhando com iOS, acesse nosso artigo sobre [rastreamento de eventos personalizados]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift) para saber mais.
 {% endalert %}
 
 ## Semântica de entrega {#delivery-semantics}
 
-Todas as mensagens no app para as quais um usuário é elegível são entregues ao dispositivo do usuário no início da sessão. Quando duas mensagens no app são disparadas por um mesmo evento, a mensagem no app com maior prioridade será exibida. Para saber mais sobre a semântica de início de sessão do SDK, leia sobre nosso [ciclo de vida da sessão]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/analytics/tracking_sessions#session-lifecycle). Ao serem entregues, o SDK fará o pré-carregamento dos ativos para que estejam disponíveis imediatamente no momento do disparo, minimizando a latência de exibição.
+Todas as mensagens no app para as quais um usuário é elegível são entregues ao dispositivo do usuário no início da sessão. Quando duas mensagens no app são disparadas por um mesmo evento, a mensagem no app com maior prioridade será exibida. Para saber mais sobre a semântica de início de sessão do SDK or kit de desenvolvimento de software, leia sobre nosso [ciclo de vida da sessão]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/analytics/tracking_sessions#session-lifecycle). Ao serem entregues, o SDK or kit de desenvolvimento de software fará o pré-carregamento dos ativos para que estejam disponíveis imediatamente no momento do disparo, minimizando a latência de exibição.
 
 Quando um evento-gatilho tem mais de uma mensagem no app elegível associada a ele, apenas a mensagem no app com a maior prioridade será entregue.
 

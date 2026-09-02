@@ -18,7 +18,7 @@ _Diese Integration wird von Ketch gepflegt._
 Die Integration von Braze und Ketch ermöglicht es Ihnen, die Kommunikationspräferenzen Ihrer Kund:innen im Ketch-Präferenzzentrum zu steuern und diese Änderungen automatisch an Braze weiterzugeben.
 
 {% alert note %}
-Sie suchen eine Anleitung zur Erstellung von Abo-Gruppen? Sehen Sie sich unsere Artikel für <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>SMS-Abo-Gruppen</a> und <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>E-Mail-Abo-Gruppen</a> an.
+Sie suchen eine Anleitung zur Erstellung von Abo-Gruppen? Sehen Sie sich unsere Artikel für <a href='/docs/user_guide/message_building_by_channel/Kurzmitteilungsdienst or SMS/sms_subscription_group/'>Kurzmitteilungsdienst or SMS-Abo-Gruppen</a> und <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>E-Mail-Abo-Gruppen</a> an.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -26,7 +26,7 @@ Sie suchen eine Anleitung zur Erstellung von Abo-Gruppen? Sehen Sie sich unsere 
 | Anforderungen | Beschreibung |
 |---|---|
 | Ketch-Konto | Zum Aktivieren dieser Integration ist ein [Ketch-Konto](https://www.ketch.com) mit Admin-Rechten erforderlich. |
-| Braze-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit den Berechtigungen `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe` und `email.blacklist`. <br><br> Dieser kann im Braze-Dashboard erstellt werden (**Entwicklungskonsole** > **REST-API-Schlüssel** > **Neuen API-Schlüssel erstellen**). |
+| Braze-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track`, `subscription.status.get`, `subscription.status.set`, `users.delete`, `users.alias.new`, `users.export.ids`, `email.unsubscribe` und `email.blacklist`. <br><br> Dieser kann im Braze-Dashboard erstellt werden (**Entwicklungskonsole** > **Representational State Transfer-API-Schlüssel** > **Neuen API-Schlüssel erstellen**). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integration

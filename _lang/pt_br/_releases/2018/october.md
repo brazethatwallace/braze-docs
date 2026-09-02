@@ -13,7 +13,7 @@ description: "Este artigo contém notas de versão de outubro de 2018."
   A caixa Intelligent Selection agora tem uma caixa de seleção que permite [ativar ou desativar o uso de um grupo de controle]({{site.baseurl}}/user_guide/engagement_tools/campaigns/testing_and_more/multivariate_testing#including-a-control-group). Quando ativado, o grupo de controle será 20% do tamanho do público e mudará à medida que o recurso Intelligent Selection otimizar os tamanhos de público por variante.
   Assistente de configurações de entrada de canvas (Beta)
   A interface do usuário do Canva será simplificada para evitar a perda de tarefas e os erros resultantes. As configurações de canvas, especificamente, agora serão exibidas em um assistente, semelhante ao design do assistente de campanhas. No momento, isso não está refletido em nossa documentação, pois está sendo implementado gradualmente. Volte em breve para saber mais sobre isso!
-  API do grupo de inscrições (oculto)
+  API or interface de programação do aplicativo (API) do grupo de inscrições (oculto)
   O Braze disponibilizou uma nova chamada GET para ativar a solicitação com base em um ID ou endereço de e-mail externo. Em seguida, serão fornecidos todos os grupos de inscrições associados a esse usuário.
 {% endcomment %}
 

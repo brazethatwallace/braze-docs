@@ -22,7 +22,7 @@ Die Intelligence Suite bietet leistungsstarke Features zur Analyse des Nutzerver
 
 ### Reisen {#travel}
 
-- **Reiseangebote:** Verwenden Sie den intelligenten Kanalfilter, um personalisierte Reiseangebote über den aktivsten Kanal der Nutzer:innen zu versenden, z. B. E-Mail oder SMS, und so die Wahrscheinlichkeit zu maximieren, dass sie mit Ihrem Messaging interagieren.
+- **Reiseangebote:** Verwenden Sie den intelligenten Kanalfilter, um personalisierte Reiseangebote über den aktivsten Kanal der Nutzer:innen zu versenden, z. B. E-Mail oder Kurzmitteilungsdienst or SMS, und so die Wahrscheinlichkeit zu maximieren, dass sie mit Ihrem Messaging interagieren.
 
 ### Unterhaltung {#entertainment}
 

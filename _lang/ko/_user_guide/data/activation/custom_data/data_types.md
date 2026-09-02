@@ -95,7 +95,7 @@ toc_headers: h2
 
 ### 개인 식별 정보(PII)로 표시 {#marking-as-personally-identifiable-information-pii}
 
-관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View Custom Attributes Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
+관리자는 이 페이지에서 커스텀 속성을 생성하고 PII로 표시할 수도 있습니다. 이러한 속성은 관리자와 "View 커스텀 속성 Marked as PII" 권한이 있는 대시보드 사용자에게만 표시됩니다.
 
 ### 설명 추가 {#adding-descriptions}
 
@@ -376,7 +376,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 권장 이벤트에는 설정된 데이터 유형이 포함된 사전 정의된 스키마가 있습니다. 자세한 내용은 [이커머스 권장 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)를 참조하세요.
 {% endalert %}
 
-구매 이벤트를 기록하면 각 고객 프로필에 대한 생애주기 가치(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
+구매 이벤트를 기록하면 각 고객 프로필에 대한 LTV or 생애주기 가치(LTV)가 설정되며, 이 데이터는 매출 페이지에서 시계열로 확인할 수 있습니다. 지출 금액, 마지막 구매 날짜, 기간 내 구매 횟수 등으로 세분화할 수 있습니다.
 
 ### 구매 이벤트 속성정보 데이터 유형 {#purchase-event-property-data-types}
 
@@ -390,7 +390,7 @@ SDK 중심의 배열 동작 예시는 [분석 개요]({{site.baseurl}}/developer
 
 커스텀 속성 또는 이벤트의 데이터 유형을 변경하려면:
 
-1. **Data Settings**로 이동하여 **Custom Attributes** 또는 **Custom Events**를 선택합니다.
+1. **Data Settings**로 이동하여 **커스텀 속성** 또는 **Custom Events**를 선택합니다.
 2. 목록에서 속성 또는 이벤트를 찾고 <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **More actions**를 선택합니다.
 3. 드롭다운에서 새 **Data type**을 선택합니다.
 4. **Save**를 선택합니다.

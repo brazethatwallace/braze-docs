@@ -23,7 +23,7 @@ Para criar uma divisão de decisão no seu fluxo de trabalho, adicione uma etapa
 
 ### Defina sua divisão {#define-your-split}
 
-Como você deseja dividir seus usuários? Você pode usar [Segments]({{site.baseurl}}/user_guide/audience/segments) e filtros para traçar a linha. Essencialmente, você está criando uma consulta `true` ou `false` que avaliará seus usuários e os direcionará para uma etapa ou outra. Você deve usar pelo menos um Segment ou um filtro. Não é necessário usar ambos.
+Como você deseja dividir seus usuários? Você pode usar [Segments]({{site.baseurl}}/user_guide/audience/segments) e filtros para traçar a linha. Essencialmente, você está criando uma consulta `true` ou `false` que avaliará seus usuários e os direcionará para uma etapa ou outra. Você deve usar pelo menos um Segment or segmento ou um filtro. Não é necessário usar ambos.
 
 ![Uma etapa de divisão de decisão com o filtro "Foreground Push Enabled is true" selecionado.]({% image_buster /assets/img/define-split-2.png %})
 
@@ -39,7 +39,7 @@ Para Canvas com reentrada ativada, use uma etapa de [jornadas de ação]({{site.
 
 ## Use sua divisão de decisão {#use-your-split}
 
-Usar uma divisão de decisão pode ajudar você a distinguir jornadas para seus usuários com base no Segment ou nos atributos deles, e até mesmo se eles usam determinados canais de envio de mensagens para receber suas mensagens!
+Usar uma divisão de decisão pode ajudar você a distinguir jornadas para seus usuários com base no Segment or segmento ou nos atributos deles, e até mesmo se eles usam determinados canais de envio de mensagens para receber suas mensagens!
 
 Digamos que você esteja criando um fluxo de integração. Você pode começar com um e-mail de boas-vindas no momento do cadastro. Depois, dois dias mais tarde, você quer enviar uma mensagem push, mas apenas para usuários que têm push ativado. Após isso, todos os usuários recebem outro e-mail três dias depois do cadastro. Você também pode usar sua divisão de decisão para enviar uma mensagem no app aos usuários que não têm push ativado, incentivando-os a ativar o push.
 

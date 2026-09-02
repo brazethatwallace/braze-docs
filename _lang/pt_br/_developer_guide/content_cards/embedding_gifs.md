@@ -2,7 +2,7 @@
 nav_title: Incorporar GIFs
 article_title: Incorporar GIFs em Cartões de Conteúdo
 page_order: 5
-description: "Aprenda como incorporar GIFs em Cartões de Conteúdo usando o SDK do Braze."
+description: "Aprenda como incorporar GIFs em Cartões de Conteúdo usando o SDK or kit de desenvolvimento de software do Braze."
 channel:
   - content cards
 platform:
@@ -14,7 +14,7 @@ platform:
 
 # Incorporar GIFs em Cartões de Conteúdo
 
-> Aprenda como incorporar GIFs em Cartões de Conteúdo usando o SDK do Braze.
+> Aprenda como incorporar GIFs em Cartões de Conteúdo usando o SDK or kit de desenvolvimento de software do Braze.
 
 {% alert note %}
 Para SDKs wrapper não listados, use o método nativo relevante do Android ou Swift. Lembre-se de que os SDKs do Braze para Android e Swift não suportam GIFs animados nativamente, então você implementará GIFs em Cartões de Conteúdo usando ferramentas de terceiros.
@@ -22,7 +22,7 @@ Para SDKs wrapper não listados, use o método nativo relevante do Android ou Sw
 
 {% sdktabs %}
 {% sdktab web %}
-O suporte a GIF está incluído por padrão na integração do SDK Web.
+O suporte a GIF está incluído por padrão na integração do SDK or kit de desenvolvimento de software Web.
 {% endsdktab %}
 
 {% sdktab android %}

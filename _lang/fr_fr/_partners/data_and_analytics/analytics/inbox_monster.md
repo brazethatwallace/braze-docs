@@ -2,7 +2,7 @@
 nav_title: Inbox Monster
 article_title: Inbox Monster
 alias: /partners/inbox_monster/
-description: "Cet article de référence présente le partenariat entre Braze et Inbox Monster, un outil d'e-mail marketing en ligne qui permet aux clients de Braze d'obtenir de puissantes informations sur la livrabilité et des analyses créatives pour améliorer les performances de leur boîte de réception."
+description: "Cet article de référence présente le partenariat entre Braze et Inbox Monster, un outil d'e-mail marketing or e-mail marketing or e-mailing en ligne qui permet aux clients de Braze d'obtenir de puissantes informations sur la livrabilité et des analyses créatives pour améliorer les performances de leur boîte de réception."
 page_type: partner
 search_tag: Partner
 

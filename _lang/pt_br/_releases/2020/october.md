@@ -16,11 +16,11 @@ O [Report Builder]({{site.baseurl}}/report_builder) permite comparar os resultad
 
 ## Guia para fazer upgrade do iOS 14 {#ios-14-upgrade-guide}
 
-O guia de upgrade do iOS 14 descreve as alterações relacionadas à Braze introduzidas no iOS 14 e as etapas de atualização necessárias para a integração do SDK da Braze para iOS. Algumas alterações importantes incluem os futuros requisitos de permissão do IDFA, o suporte a geofences e as atualizações necessárias do Xcode. Confira nosso [guia de upgrade]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) para saber mais.
+O guia de upgrade do iOS 14 descreve as alterações relacionadas à Braze introduzidas no iOS 14 e as etapas de atualização necessárias para a integração do SDK or kit de desenvolvimento de software da Braze para iOS. Algumas alterações importantes incluem os futuros requisitos de permissão do IDFA, o suporte a geofences e as atualizações necessárias do Xcode. Confira nosso [guia de upgrade]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) para saber mais.
 
 ## Guia de atualização do Android 11 {#android-11-upgrade-guide}
 
-O guia do Android 11 descreve as alterações relevantes introduzidas na versão Android 11 e as etapas de upgrade necessárias para a integração do SDK da Braze para Android. Algumas alterações estão relacionadas a deep links, mensagens no app em HTML e permissões de local. Confira nosso [guia de upgrade]({{site.baseurl}}/developer_guide/platforms/android/android_13) para saber mais.
+O guia do Android 11 descreve as alterações relevantes introduzidas na versão Android 11 e as etapas de upgrade necessárias para a integração do SDK or kit de desenvolvimento de software da Braze para Android. Algumas alterações estão relacionadas a deep links, mensagens no app em HTML e permissões de local. Confira nosso [guia de upgrade]({{site.baseurl}}/developer_guide/platforms/android/android_13) para saber mais.
 
 ## Parceiros de atribuição — Guia de rastreamento de cliques {#attribution-partners-click-tracking-guide}
 

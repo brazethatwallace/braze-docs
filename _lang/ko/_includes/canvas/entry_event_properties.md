@@ -1,7 +1,7 @@
 Canvas 사용자 여정에서 Canvas 항목 속성정보와 이벤트 속성정보를 사용할 수 있습니다.
 
 {% tabs local %}
-{% tab Canvas Entry Properties %}
+{% tab Canvas 항목 Properties %}
 
 [Canvas 항목 속성정보]({{site.baseurl}}/api/objects_filters/context_object)는 실행 기반 또는 API로 트리거되는 Canvases에 매핑하는 속성정보입니다. `canvas_entry_properties` 오브젝트의 최대 크기 제한은 50KB입니다.
 

@@ -113,7 +113,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 |---|---|---|
 | `400` | Validierungsfehler | Stellen Sie sicher, dass der Anfragebody gültige Werte für `rel_kind`, `related_type_name`, `related_external_id` und `anchor` enthält. |
 | `404` | Beziehung oder Endpunktobjekt nicht gefunden | Stellen Sie sicher, dass beide Objekte existieren und die Beziehungsschlüsselwerte mit einer vorhandenen Kante übereinstimmen. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Zulassungsliste blockiert | Stellen Sie sicher, dass der Schlüssel die Berechtigung `data_objects.object_relationships.delete` hat und Ihre Quell-IP auf der Schlüssel-Zulassungsliste steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie die Anfrage nach `X-RateLimit-Reset` und reduzieren Sie die Anfragefrequenz. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Löschen von Objektbeziehungen" }

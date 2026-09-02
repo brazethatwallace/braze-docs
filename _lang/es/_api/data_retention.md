@@ -40,7 +40,7 @@ Un usuario puede tener varios perfiles, y es posible que necesites eliminar vari
 Cada semana, Braze ejecuta un proceso para eliminar a los usuarios inactivos y los usuarios perdidos de los servicios de Braze. En general, se trata de usuarios a los que no se puede contactar (por ejemplo, no tienen dirección de correo electrónico, ni número de teléfono, ni token de notificaciones push, no utilizan tus aplicaciones ni visitan tus sitios web), no tienen actividad registrada en su perfil de usuario, y no han recibido mensajes ni se ha interactuado con ellos a través de Braze. Esto se hace para cumplir con los principios y las mejores prácticas del RGPD. Puedes obtener más información sobre este proceso en nuestra página de <a href="/docs/user_archival">definiciones de archivado de usuarios</a>.
 
 {% alert note %}
-Los clientes tienen control total sobre si un usuario es inactivo o perdido, y pueden evitar el archivado de perfiles de usuario registrando un punto de datos a intervalos regulares. Braze Canvas ofrece la posibilidad de hacer esto de forma automática, lo que te permite desactivar eficazmente esta funcionalidad para algunos o todos tus usuarios inactivos o perdidos.
+Los clientes tienen control total sobre si un usuario es inactivo o perdido, y pueden evitar el archivado de perfiles de usuario registrando un punto de datos a intervalos regulares. BRAZE Canvas ofrece la posibilidad de hacer esto de forma automática, lo que te permite desactivar eficazmente esta funcionalidad para algunos o todos tus usuarios inactivos o perdidos.
 {% endalert %}
 
 ### Datos de interacción de Campaigns y Canvas {#campaign-and-canvas-interactions-data}

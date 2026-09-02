@@ -37,10 +37,10 @@ Wenn Sie bemerken, dass Ihre Zielgruppe kleiner als erwartet ist, versuchen Sie,
 
 Eine Race-Condition kann auftreten, wenn Sie dieselben Entry-Kriterien sowohl in Ihren Einstellungen für **Entry Schedule** als auch für **Target Audience** verwendet haben.
 
-Wenn Sie einen aktionsbasierten Entry verwenden, überprüfen Sie, ob Sie hier nicht dieselbe Trigger-Aktion wie in Ihrer Zielgruppe verwendet haben. Eine Race-Condition kann auftreten, bei der sich die Nutzer:innen zum Zeitpunkt des Trigger-Events nicht in der Zielgruppe befinden, sodass sie nicht in das Canvas eintreten.
+Wenn Sie einen aktionsbasierten Entry verwenden, überprüfen Sie, ob Sie hier nicht dieselbe Trigger or triggern-Aktion wie in Ihrer Zielgruppe verwendet haben. Eine Race-Condition kann auftreten, bei der sich die Nutzer:innen zum Zeitpunkt des Trigger or triggern-Events nicht in der Zielgruppe befinden, sodass sie nicht in das Canvas eintreten.
 
 {% alert tip %}
-Lesen Sie die [Best Practices]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters) zur Vermeidung dieser Race-Condition, wenn Sie ein aktionsbasiertes Canvas mit demselben Trigger wie dem Zielgruppenfilter einrichten.
+Lesen Sie die [Best Practices]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters) zur Vermeidung dieser Race-Condition, wenn Sie ein aktionsbasiertes Canvas mit demselben Trigger or triggern wie dem Zielgruppenfilter einrichten.
 {% endalert %}
 
 ### Canvas-Entry-Eigenschaften und Event-Eigenschaften prüfen {#check-canvas-entry-properties-and-event-properties}
@@ -53,7 +53,7 @@ Event-Eigenschaften hingegen können nur im ersten Nachrichtenschritt nach einem
 
 ### Nachrichtenschritte für den Fortschritt der Nutzer:innen überprüfen {#review-message-steps-for-user-advancement}
 
-Standardmäßig durchlaufen Nutzer:innen alle Nachrichtenschritte, unabhängig davon, ob sie die Nachricht erhalten haben. Wenn Sie nur die Nutzer:innen voranbringen möchten, die eine bestimmte Nachricht erhalten haben, können Sie dies tun, indem Sie einen Decision-Split-Schritt direkt nach Ihrer Nachrichtenkomponente hinzufügen. Fügen Sie den Filter „Received Message from Canvas Step“ als zusätzlichen Filter hinzu und wählen Sie dann das Canvas und den Nachrichtenschritt aus.
+Standardmäßig durchlaufen Nutzer:innen alle Nachrichtenschritte, unabhängig davon, ob sie die Nachricht erhalten haben. Wenn Sie nur die Nutzer:innen voranbringen möchten, die eine bestimmte Nachricht erhalten haben, können Sie dies tun, indem Sie einen Decision-Split-Schritt direkt nach Ihrer Nachrichtenkomponente hinzufügen. Fügen Sie den Filter „Received Message from Canvas-Schritt“ als zusätzlichen Filter hinzu und wählen Sie dann das Canvas und den Nachrichtenschritt aus.
 
 Bei Nachrichtenschritten mit In-App-Nachrichten sollten Sie eine Aktionspfad-Komponente anstelle der Decision-Split-Komponente verwenden. Dadurch können Sie Nutzer:innen basierend darauf voranbringen, ob sie Ihre In-App-Nachricht gesehen haben. Definieren Sie eine Aktionsgruppe, indem Sie den Filter „Interact with Step“ hinzufügen und **View in app message** auswählen. Setzen Sie dann das Bewertungsfenster des Schritts auf das Ablaufzeitfenster der In-App-Nachricht.
 

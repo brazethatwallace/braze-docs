@@ -22,10 +22,10 @@ Sie wissen nicht, wo Sie anfangen sollen? [Operator]({{site.baseurl}}/user_guide
 
 ## Schritt 1: Einen Alert erstellen {#step-1-create-an-alert}
 
-Alerts werden auf Canvas-Ebene festgelegt, und Sie können sie sowohl für aktive als auch für Entwurfs-Canvases konfigurieren. Um die Seite **Alerts verwalten** für ein Canvas zu öffnen, haben Sie zwei Möglichkeiten:
+Alerts werden auf Canvas-Ebene festgelegt, und Sie können sie sowohl für aktive als auch für Entwurfs-Canvase konfigurieren. Um die Seite **Alerts verwalten** für ein Canvas zu öffnen, haben Sie zwei Möglichkeiten:
 
 - Gehen Sie zu **Messaging** > **Canvas** und wählen Sie im Kontextmenü eines einzelnen Canvas **Alerts verwalten** aus.
-- Öffnen Sie bei aktiven Canvases **Canvas Analytics** und wählen Sie **Alerts verwalten** aus.
+- Öffnen Sie bei aktiven Canvase **Canvas Analytics** und wählen Sie **Alerts verwalten** aus.
 
 Wählen Sie auf der Seite **Alerts verwalten** die Option **Alert konfigurieren** aus, um einen neuen Alert zu erstellen.
 
@@ -110,5 +110,5 @@ Durch das Speichern einer Benachrichtigung wird diese nicht aktiviert. Um sie ei
 
 ## Überlegungen {#considerations}
 
-- **Canvases im Entwurf:** Sie können eine Schwellenwert-Benachrichtigung für ein Canvas einrichten, das sich noch im Entwurf befindet, aber die Benachrichtigung beginnt erst dann mit der Überprüfung Ihrer Regeln, wenn das Canvas gestartet wird.
+- **Canvase im Entwurf:** Sie können eine Schwellenwert-Benachrichtigung für ein Canvas einrichten, das sich noch im Entwurf befindet, aber die Benachrichtigung beginnt erst dann mit der Überprüfung Ihrer Regeln, wenn das Canvas gestartet wird.
 - **Prozentuale Basislinie:** Prozentuale Regeln benötigen sieben vollständige vorherige Zeitfenster desselben Typs nach dem Start des Canvas. Solange diese Zeitfenster nicht vorhanden sind oder die durchschnittliche Basislinie null beträgt (keine Aktivität in den vorherigen Zeitfenstern), lösen prozentuale Regeln keine Benachrichtigung aus.

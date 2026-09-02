@@ -38,7 +38,7 @@ Agents, die aus Profilattributen und aktuellem Verhalten die Interessen oder Mot
 
 ### Datenstandardisierung {#data-standardization}
 
-Agents, die unstrukturierte Eingaben in konsistente, strukturierte Felder für nachgelagerte Tools und Automatisierungen umwandeln. Beispiele umfassen die Klassifizierung von Umfrage-Sentiment und -Thema für eine CRM-Übergabe oder die Normalisierung eingehender SMS- oder Chat-Nachrichten in Absicht, Entitäten und Compliance-Flags.
+Agents, die unstrukturierte Eingaben in konsistente, strukturierte Felder für nachgelagerte Tools und Automatisierungen umwandeln. Beispiele umfassen die Klassifizierung von Umfrage-Sentiment und -Thema für eine CRM or Customer-Relationship-Management [-System] (CRM)-Übergabe oder die Normalisierung eingehender Kurzmitteilungsdienst or SMS- oder Chat-Nachrichten in Absicht, Entitäten und Compliance-Flags.
 
 ### Klassifizierung und Routing {#classification-and-routing}
 
@@ -63,7 +63,7 @@ Jedes Beispiel fordert das Modell auf, neben der Ausgabe ein `explanation`-Feld 
 ## Personalisiertes Messaging basierend auf dem Kontext von Nutzer:innen verfassen {#write-personalized-messaging-based-on-a-users-context}
 
 {% apitags %}
-Content generation, canvas step agent
+Content generation, Canvas-Schritt agent
 {% endapitags %}
 
 Verwenden Sie diesen Canvas-Schritt-Agent, um koordinierte E-Mail-Betreffzeilen, Preheader sowie Push-Benachrichtigungstitel und -Texte für Nutzer:innen zu generieren, die in der App gesucht, aber nicht gebucht haben. Das Ziel ist, sie in einer Canvas Journey mit lokalisiertem, markenkonformem Messaging erneut anzusprechen, das zum Checkout führt und dabei die Zeichenlimits jedes Kanals einhält.
@@ -144,10 +144,10 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 ## Nutzerfeedback analysieren, um nächste Schritte zu bestimmen {#analyze-user-feedback-to-determine-next-steps}
 
 {% apitags %}
-Data standardization, canvas step agent
+Data standardization, Canvas-Schritt agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM-Plattform zu bestimmen.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM or Customer-Relationship-Management [-System] (CRM)-Plattform zu bestimmen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -212,7 +212,7 @@ Input & Output Example:
 ## Nutzer:innen anhand vorhandener Attribute in Interessen-Buckets kategorisieren {#categorize-users-into-interest-buckets-from-existing-attributes}
 
 {% apitags %}
-Affinity agent, canvas step agent
+Affinity agent, Canvas-Schritt agent
 {% endapitags %}
 
 Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzer:innen anhand vorhandener angepasster Attribute und Verhaltenssignale mit hoher Kaufabsicht in spezifische Interessen-Buckets einordnen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, Nutzer:innen zu präzise zugeschnittenen Erlebnissen weiterzuleiten – wie Warenkorb-Recovery oder kategoriespezifische Empfehlungen – ausschließlich basierend auf verifizierten Daten, ohne Attribute zu halluzinieren, die nicht vorhanden sind.
@@ -291,7 +291,7 @@ Recent Search: "cordless drill"
 ## Nutzer:innen basierend auf aktuellem Verhalten zum relevantesten Canvas-Pfad weiterleiten {#route-users-to-the-most-relevant-canvas-path-from-recent-behavior}
 
 {% apitags %}
-Affinity agent, canvas step agent
+Affinity agent, Canvas-Schritt agent
 {% endapitags %}
 
 Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent die aktuelle Motivation von Nutzer:innen aus dem jüngsten Verhalten und Kontext ableiten kann – wie kürzlich favorisierte Artikel oder Suchverlauf – und den besten Route-Schlüssel für den nächsten Schritt zurückgibt. Das Ziel ist, jede:n Nutzer:in ohne manuelle Segmentierung auf den relevantesten Canvas-Pfad zu leiten.
@@ -303,7 +303,7 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 
 - Nutzerattribute wie Vorname, Land, Branche, Rolle, Fachgebiet und kürzlich genutzte Produkte
 - Engagement-Verlauf, einschließlich kürzlicher Campaign-Öffnungen, Klicks und Conversions sowie der Nachrichten, die diese ausgelöst haben (nicht Engagement-Häufigkeit oder Zeitstempel der letzten Aktivität)
-- Kontextvariablen für die zulässigen Route-Schlüssel, kürzlich favorisierte Artikel, aktuelle Suchbegriffe und Trigger-spezifische Event-Eigenschaften
+- Kontextvariablen für die zulässigen Route-Schlüssel, kürzlich favorisierte Artikel, aktuelle Suchbegriffe und Trigger or triggern-spezifische Event-Eigenschaften
 - **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
@@ -363,7 +363,7 @@ Recently Engaged Products: Drill bits
 ## Nutzer:innen anhand von Echtzeit-Aktionen mit hoher Kaufabsicht Interessenkategorien zuweisen {#assign-users-to-interest-categories-from-real-time-high-intent-actions}
 
 {% apitags %}
-Affinity agent, canvas step agent
+Affinity agent, Canvas-Schritt agent
 {% endapitags %}
 
 Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas-Kontext übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer Customer Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
@@ -445,7 +445,7 @@ Recent Search: "18v cordless drill"
 ## Eingehende Nachrichten auf Opt-out-Absicht klassifizieren {#classify-inbound-messages-for-opt-out-intent}
 
 {% apitags %}
-Classification and routing, canvas step agent
+Classification and routing, Canvas-Schritt agent
 {% endapitags %}
 
 Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent jeweils eine eingehende Kundennachricht auswerten und zurückgeben kann, ob sie als Anfrage zum Opt-out aus zukünftigem Messaging behandelt werden soll (z. B. STOP, Abmeldung oder Widerruf der Einwilligung). Das Ziel ist die Ausgabe eines strikten booleschen Werts, damit Sie Journeys konservativ verzweigen können – um das Risiko zu reduzieren, nach einem Widerruf weiter Nachrichten zu senden, und gleichzeitig Fehlalarme zu vermeiden, wenn Nutzer:innen offensichtlich eine Frage stellen oder weiterhin interagieren.
@@ -459,7 +459,7 @@ Opt-out- und Einwilligungsverarbeitung unterliegt rechtlichen Verpflichtungen, d
 
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
-- Eingehender Nachrichtentext, der dem Agent zur Verfügung steht (z. B. eine Kontextvariable für die letzte SMS-Antwort oder einen anderen eingehenden Text der Nutzer:innen)
+- Eingehender Nachrichtentext, der dem Agent zur Verfügung steht (z. B. eine Kontextvariable für die letzte Kurzmitteilungsdienst or SMS-Antwort oder einen anderen eingehenden Text der Nutzer:innen)
 - **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
@@ -527,10 +527,10 @@ Input: “This sucks—what’s the promo code?” → false
 ## Eingehende Nachrichten in strukturierte Daten für die Automatisierung standardisieren {#standardize-inbound-messages-into-structured-data-for-automation}
 
 {% apitags %}
-Data standardization, canvas step agent
+Data standardization, Canvas-Schritt agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte, unordentliche eingehende SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
+Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte, unordentliche eingehende Kurzmitteilungsdienst or SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -818,7 +818,7 @@ existing_category: "hydration"
 ## Unstrukturierte Eingaben mit ungefährem Katalogabgleich standardisieren {#standardize-unstructured-input-with-approximate-catalog-matching}
 
 {% apitags %}
-Data standardization, canvas step agent
+Data standardization, Canvas-Schritt agent
 {% endapitags %}
 
 Dieses Beispiel beschreibt, wie ein Canvas-Schritt-Agent unstrukturierte Nutzereingaben – wie manuell eingegebenen Text mit Tippfehlern oder Variationen – verarbeiten und mithilfe von LLM-gestütztem Abgleich gegen Katalogsuchergebnisse anhand bekannter Katalogartikel standardisieren kann. Das Ziel ist, aus der ungenauen Eingabe zu erkennen, was die Nutzer:innen tatsächlich gemeint haben – besonders nützlich, wenn Liquid-Lookups keine ungefähren Übereinstimmungen verarbeiten können.

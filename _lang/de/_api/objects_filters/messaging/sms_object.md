@@ -1,15 +1,15 @@
 ---
-nav_title: "SMS-Objekt"
-article_title: SMS-Messaging-Objekt
+nav_title: "Kurzmitteilungsdienst or SMS-Objekt"
+article_title: Kurzmitteilungsdienst or SMS-Messaging-Objekt
 page_order: 10
 page_type: reference
 channel: SMS
-description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten des Braze SMS-Objekts."
+description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten des Braze Kurzmitteilungsdienst or SMS-Objekts."
 
 ---
-# SMS-Objekt {#sms-object}
+# Kurzmitteilungsdienst or SMS-Objekt {#sms-object}
 
-> Mit dem `sms`-Objekt können Sie über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) SMS-Nachrichten ändern oder erstellen.
+> Mit dem `sms`-Objekt können Sie über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) Kurzmitteilungsdienst or SMS-Nachrichten ändern oder erstellen.
 
 ```json
 {

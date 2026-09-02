@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Wunderkind (Signals)
 
-> [Wunderkind](https://www.wunderkind.co) est une plateforme de performance e-commerce qui utilise une technologie d'identification propriétaire pour reconnaître les visiteurs anonymes d'un site web et les associer à des adresses e-mail exploitables. En moyenne, Wunderkind fait passer l'identification de 3 à 5 % du trafic d'un site web à 40 à 60 %, permettant aux marques de déclencher des messages personnalisés et individuels à grande échelle via leur ESP existant.
+> [Wunderkind](https://www.wunderkind.co) est une plateforme de performance e-commerce qui utilise une technologie d'identification propriétaire pour reconnaître les visiteurs anonymes d'un site web et les associer à des adresses e-mail exploitables. En moyenne, Wunderkind fait passer l'identification de 3 à 5 % du trafic d'un site web à 40 à 60 %, permettant aux marques de déclencher des messages personnalisés et individuels à grande échelle via leur fournisseur de services d'e-mailing existant.
 
 *Cette intégration est maintenue par Wunderkind. Pour obtenir de l'assistance, rendez-vous sur [support.wunderkind.co](https://support.wunderkind.co).*
 

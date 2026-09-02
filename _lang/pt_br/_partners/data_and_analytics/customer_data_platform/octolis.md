@@ -10,7 +10,7 @@ search_tag: Octolis
 
 # Octolis
 
-> A [Octolis](http://octolis.com) é uma poderosa plataforma de ativação de dados (ou CDP headless). Sobreposta a um banco de dados de sua propriedade, a Octolis é uma maneira fácil de unificar, preparar, pontuar e sincronizar dados em suas ferramentas de negócios.
+> A [Octolis](http://octolis.com) é uma poderosa plataforma de ativação de dados (ou CDP or plataforma de dados do cliente headless). Sobreposta a um banco de dados de sua propriedade, a Octolis é uma maneira fácil de unificar, preparar, pontuar e sincronizar dados em suas ferramentas de negócios.
 
 _Essa integração é mantida pela Octolis._
 
@@ -28,9 +28,9 @@ A integração da Braze com a Octolis atua como middleware entre suas fontes de 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Octolis | É necessário ter uma conta Octolis para usar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track). <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Chave do app da Braze | A chave do identificador do seu app. Ela pode ser encontrada em **Braze Dashboard > Manage Settings > API Key**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track). <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave do app da Braze | A chave do identificador do seu app. Ela pode ser encontrada em **Braze Dashboard > Manage Settings > API or interface de programação do aplicativo (API) Key**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -48,7 +48,7 @@ Esses públicos precisam ser criados com base em várias fontes de dados. Uma fo
 - Um objeto do Zendesk (tickets)
 - Um arquivo dentro de um SFTP (arquivo CSV contendo alguns contatos, arquivo JSON contendo eventos...)
 - Uma tabela/visualização de um banco de dados.
-- Um dos seus sistemas envia registros por meio de webhooks ou chamadas de API.
+- Um dos seus sistemas envia registros por meio de webhooks ou chamadas de API or interface de programação do aplicativo (API).
 
 ### Etapa 2: Adicionar a Braze como destino {#step-2-add-braze-as-a-destination}
 
@@ -58,7 +58,7 @@ Em seguida, para definir a Braze como um novo destino, selecione **+ Add more** 
 
 Depois de selecionado, forneça o seguinte:
 
-- Sua chave de API da Braze: isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**.
+- Sua chave de API or interface de programação do aplicativo (API) da Braze: isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
 - Período: a Octolis aplicará o limite de frequência no período determinado.
 - Volume de solicitações: número de solicitações que você pode fazer dentro desse período.
 - Atributos personalizados: especifique aqui os novos campos que você enviará para a Braze, seu formato (string, integer, float) e marque a opção **Required for syncs** se quiser que um deles seja obrigatório para uma sincronização.
@@ -86,7 +86,7 @@ Aqui está uma definição específica dos campos de configuração.
 | --- | --- |
 | Para onde você deseja sincronizar o público? | A entidade Braze onde você criará ou atualizará registros. |
 | Qual campo é usado para identificar um registro? | O campo que a Octolis usará para identificar um registro caso ele já exista na Braze. |
-| Com que frequência você deseja enviar cada registro? | Por padrão, a sincronização será incremental para todas as integrações (API, banco de dados, FTP). Isso significa que somente os novos valores desde a última atualização serão atualizados. Caso necessário, você também pode enviar tabelas inteiras em intervalos regulares. Ao iniciar, a Octolis enviará a tabela completa. |
+| Com que frequência você deseja enviar cada registro? | Por padrão, a sincronização será incremental para todas as integrações (API or interface de programação do aplicativo (API), banco de dados, FTP). Isso significa que somente os novos valores desde a última atualização serão atualizados. Caso necessário, você também pode enviar tabelas inteiras em intervalos regulares. Ao iniciar, a Octolis enviará a tabela completa. |
 | Quais campos devem ser sincronizados? | Mapeamento de campos da Octolis para a Braze. A lista de todos os campos disponíveis aparece no menu suspenso. Para enviar um campo computado para a Braze, você deve primeiro garantir que criou a coluna correspondente na sua entidade Braze. |
 | Quando você deseja sincronizar o público? | Como os dados serão enviados à Braze: manualmente, em tempo real ou em períodos programados.  |
 | Sincronizar quando o registro é... | Criar: para aceitações, é importante que a tabela da Braze continue sendo a principal. Não é ideal que a Octolis dispare uma sincronização quando o campo for atualizado.<br><br>Atualizar: por outro lado, para um campo de nome, por exemplo, é recomendável atualizar o campo na tabela da Braze sempre que um cliente informar uma nova entrada. |

@@ -11,7 +11,7 @@ description: "Este artigo de referência aborda como usar o Depurador de Connect
 
 ## Sobre o depurador {#about-the-debugger}
 
-O Connected Content permite enriquecer mensagens com dados em tempo real, fazendo uma chamada HTTP a uma API externa no momento da renderização e inserindo a resposta na sua mensagem com Liquid. Como essa chamada acontece fora da Braze, pode ser difícil ver exatamente qual solicitação a Braze enviou, o que o endpoint retornou ou por que uma chamada falhou, antes que uma Campaign ou Canvas esteja ativa.
+O Connected Content permite enriquecer mensagens com dados em tempo real, fazendo uma chamada HTTP a uma API or interface de programação do aplicativo (API) externa no momento da renderização e inserindo a resposta na sua mensagem com Liquid. Como essa chamada acontece fora da Braze, pode ser difícil ver exatamente qual solicitação a Braze enviou, o que o endpoint retornou ou por que uma chamada falhou, antes que uma Campaign ou Canvas esteja ativa.
 
 O Depurador de Connected Content ajuda a solucionar esses problemas antes do lançamento. Ele mostra a solicitação e a resposta em tempo real para cada chamada de Connected Content na sua mensagem, na seção **Prévia e Teste**. Dessa forma, você pode confirmar que seu endpoint, cabeçalhos e Liquid tags estão configurados corretamente, tudo dentro do dashboard da Braze.
 
@@ -37,10 +37,10 @@ O depurador está disponível para a maioria dos canais, mas ainda não para Kak
 
 ## Usar o depurador {#use-the-debugger}
 
-Cada vez que você executa uma prévia, a Braze renderiza automaticamente os resultados da chamada de Connected Content na guia **Preview**. Para usar o depurador:
+Cada vez que você executa uma prévia, a Braze renderiza automaticamente os resultados da chamada de Connected Content na guia **prévia**. Para usar o depurador:
 
 1. Configure sua mensagem com a tag {% raw %}`{% connected_content %}`{% endraw %}.
-2. Acesse a seção **Preview & Test**. Se sua mensagem incluir uma tag de Connected Content, você pode ver um resumo com o número de chamadas de Connected Content e os status de sucesso e erro.
+2. Acesse a seção **prévia & Test**. Se sua mensagem incluir uma tag de Connected Content, você pode ver um resumo com o número de chamadas de Connected Content e os status de sucesso e erro.
 
 ![Seção de Connected Content na seção de teste.]({% image_buster /assets/img/connected_content/debugger1.png %})
 
@@ -101,7 +101,7 @@ Para enviar um `User-Agent` consistente, defina-o em `:headers`. A Braze usa o s
 
 ## Redação de credenciais {#credential-redaction}
 
-Se a sua tag de Connected Content usar `:basic_auth`, cabeçalhos secretos comuns, chaves ou outras [opções de credenciais de autenticação]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types), o depurador oculta esses valores na guia **Request** e os substitui por uma série de asteriscos (*). Isso permite que você confirme que as credenciais foram incluídas na solicitação sem expor os valores em **Preview & Test**.
+Se a sua tag de Connected Content usar `:basic_auth`, cabeçalhos secretos comuns, chaves ou outras [opções de credenciais de autenticação]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types), o depurador oculta esses valores na guia **Request** e os substitui por uma série de asteriscos (*). Isso permite que você confirme que as credenciais foram incluídas na solicitação sem expor os valores em **prévia & Test**.
 
 Falhas de autenticação ainda ficam visíveis mesmo quando as credenciais estão ocultas: se o seu endpoint retornar um `401` ou `403`, esse código de status aparece normalmente na guia **Response**, para que você saiba que sua solicitação foi rejeitada por falha de autenticação, mesmo que a credencial em si esteja oculta.
 
@@ -124,6 +124,6 @@ Verifique o campo **Served from cache** na guia **Response**. Se ele mostrar `Ye
 ## Artigos relacionados {#related-articles}
 
 - [Referência de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)
-- [Fazer uma chamada de API de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)
+- [Fazer uma chamada de API or interface de programação do aplicativo (API) de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)
 - [Cabeçalhos de solicitação de saída]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#outgoing-request-headers)
 - [Solucionar problemas de webhooks e solicitações de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)

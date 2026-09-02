@@ -13,7 +13,7 @@ description: "Este artigo de referência lista e explica os diferentes objetos A
 
 ## Objeto de push para Android {#android-push-object}
 
-Você deve incluir um objeto de push para Android em `messages` se quiser que os usuários segmentados recebam uma notificação push em seus dispositivos Android. O número total de bytes na string `alert` e no objeto `extra` não deve exceder 4.000. A API de envio de mensagens retorna um erro se você exceder o tamanho de mensagem permitido pelo Google.
+Você deve incluir um objeto de push para Android em `messages` se quiser que os usuários segmentados recebam uma notificação push em seus dispositivos Android. O número total de bytes na string `alert` e no objeto `extra` não deve exceder 4.000. A API or interface de programação do aplicativo (API) de envio de mensagens retorna um erro se você exceder o tamanho de mensagem permitido pelo Google.
 
 ```json
 {

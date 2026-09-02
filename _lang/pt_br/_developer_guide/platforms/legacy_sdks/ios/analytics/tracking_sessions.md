@@ -12,7 +12,7 @@ noindex: true
 
 # Rastreamento de sessão para iOS
 
-O Braze SDK informa os dados da sessão usados pelo dashboard do Braze para calcular o engajamento do usuário e outras análises essenciais para entender seus usuários. Nosso SDK gera pontos de dados de "início de sessão" e "encerramento de sessão" que contabilizam a duração da sessão e a contagem de sessões visualizáveis no dashboard do Braze com base na seguinte semântica de sessão.
+O Braze SDK or kit de desenvolvimento de software informa os dados da sessão usados pelo dashboard do Braze para calcular o engajamento do usuário e outras análises essenciais para entender seus usuários. Nosso SDK or kit de desenvolvimento de software gera pontos de dados de "início de sessão" e "encerramento de sessão" que contabilizam a duração da sessão e a contagem de sessões visualizáveis no dashboard do Braze com base na seguinte semântica de sessão.
 
 ## Ciclo de vida da sessão
 
@@ -24,7 +24,7 @@ Se precisar forçar uma nova sessão, basta mudar de usuário.
 
 ## Personalização do tempo limite da sessão
 
-A partir do SDK da Braze para iOS v3.14.1, você pode definir o tempo limite da sessão usando o arquivo Info.plist. Adicione o dicionário `Braze` ao seu arquivo `Info.plist`. No dicionário `Braze`, adicione a subentrada `SessionTimeout` number e defina o valor como seu tempo limite de sessão personalizado. Note que, antes do SDK da Braze para iOS v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
+A partir do SDK or kit de desenvolvimento de software da Braze para iOS v3.14.1, você pode definir o tempo limite da sessão usando o arquivo Info.plist. Adicione o dicionário `Braze` ao seu arquivo `Info.plist`. No dicionário `Braze`, adicione a subentrada `SessionTimeout` number e defina o valor como seu tempo limite de sessão personalizado. Note que, antes do SDK or kit de desenvolvimento de software da Braze para iOS v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
 
 Como alternativa, você pode definir a chave `ABKSessionTimeoutKey` como o valor inteiro desejado em seu objeto `appboyOptions` passado para [`startWithApiKey`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#afd911d60dfe7e5361afbfb364f5d20f9).
 

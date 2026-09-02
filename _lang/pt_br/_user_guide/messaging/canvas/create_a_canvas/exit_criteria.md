@@ -67,7 +67,7 @@ Se uma etapa do Canvas é disparada por um evento, o último envio agendado enfi
 
 ### Usando Segments e filtros {#using-segments-and-filters}
 
-Você também pode adicionar Segments e filtros nos critérios de saída. Isso significa que os usuários que corresponderem ao Segment e ao filtro sairão do Canvas e não receberão mais mensagens.
+Você também pode adicionar Segments e filtros nos critérios de saída. Isso significa que os usuários que corresponderem ao Segment or segmento e ao filtro sairão do Canvas e não receberão mais mensagens.
 
 Por exemplo, se a primeira etapa de um Canvas é uma etapa de postergação com cinco dias de espera, os critérios de saída são avaliados quando essa etapa é concluída. Se um usuário atender aos critérios de saída enquanto estiver na etapa de postergação, ele será marcado para sair imediatamente, mas deixará o Canvas completamente ao final dos cinco dias (e não avançará para nenhuma etapa após a postergação).
 

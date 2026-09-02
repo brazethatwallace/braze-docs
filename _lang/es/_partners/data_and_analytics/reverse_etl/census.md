@@ -12,15 +12,15 @@ search_tag: Partner
 
 > [Census](https://www.getcensus.com/) es una plataforma de activación de datos que conecta almacenes de datos en la nube como Snowflake y BigQuery con Braze. Los equipos de marketing pueden liberar la potencia de sus datos propios para crear segmentos de audiencia dinámicos, sincronizar los atributos de los clientes para personalizar campañas y mantener actualizados todos sus datos en Braze. Ahora es más fácil que nunca actuar con datos fiables y procesables, sin necesidad de cargar archivos CSV ni hacer favores de ingeniería.
 
-La integración de Braze y Census te permite importar dinámicamente audiencias o datos de productos a Braze para enviar campañas personalizadas. Por ejemplo, puedes crear una cohorte en Braze para "Suscriptores de boletines con CLV > 1000" para dirigirte a clientes de alto valor o "Usuarios activos en los últimos 30 días" para dirigirte a usuarios específicos y probar una próxima función beta.
+La integración de Braze y Census te permite importar dinámicamente audiencias o datos de productos a Braze para enviar campañas personalizadas. Por ejemplo, puedes crear una cohorte en Braze para "Suscriptores de boletines con valor del ciclo de vida del cliente > 1000" para dirigirte a clientes de alto valor o "Usuarios activos en los últimos 30 días" para dirigirte a usuarios específicos y probar una próxima función beta.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta Census | Se necesita una [cuenta en Census](https://www.getcensus.com/) para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de datos de usuario (excepto `users.delete`) y permisos de `segments.list`. El conjunto de permisos puede cambiar a medida que Census añada compatibilidad con más objetos de Braze, por lo que es posible que quieras conceder más permisos ahora o planificar la actualización de estos permisos en el futuro. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos de datos de usuario (excepto `users.delete`) y permisos de `segments.list`. El conjunto de permisos puede cambiar a medida que Census añada compatibilidad con más objetos de Braze, por lo que es posible que quieras conceder más permisos ahora o planificar la actualización de estos permisos en el futuro. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 | Almacén de datos y modelo de datos | Antes de comenzar la integración, debes tener un almacén de datos configurado en Census y definir un modelo del subconjunto de datos que deseas sincronizar con Braze. Visita la [documentación de Census](https://docs.getcensus.com/destinations/braze) para obtener una lista de los orígenes de datos disponibles y orientación sobre la creación de modelos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -30,7 +30,7 @@ La integración de Braze y Census te permite importar dinámicamente audiencias 
 
 Para integrar Census en la plataforma Census, ve a la pestaña **Conexiones** y selecciona **Nuevo destino** para crear una nueva conexión de servicio Braze.
 
-En la ventana que aparece, asigna un nombre a esta conexión e indica la URL de tu endpoint de Braze y la clave de API REST de Braze (y, opcionalmente, tu clave de importación de datos para sincronizar cohortes).
+En la ventana que aparece, asigna un nombre a esta conexión e indica la URL de tu endpoint de Braze y la clave de API REST or transferencia de estado representacional de Braze (y, opcionalmente, tu clave de importación de datos para sincronizar cohortes).
 
 ![Diálogo de nuevo destino de Census configurado para las credenciales de conexión de Braze.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 

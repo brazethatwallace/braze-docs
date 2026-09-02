@@ -2,7 +2,7 @@
 
 ## Usando o Expo para ativar notificações por push ricas
 
-Para o SDK do React Native, **notificações por push ricas estão disponíveis para Android por padrão**.
+Para o SDK or kit de desenvolvimento de software do React Native, **notificações por push ricas estão disponíveis para Android por padrão**.
 
 Para ativar notificações por push avançadas no iOS usando o Expo, configure a propriedade `enableBrazeIosRichPush` como `true` em seu objeto `expo.plugins` em `app.json`:
 

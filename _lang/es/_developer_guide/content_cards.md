@@ -2,7 +2,7 @@
 page_order: 2.2
 nav_title: Content Cards
 article_title: Content Cards
-description: "Aprende a implementar Content Cards con el SDK de Braze, incluidos los modelos de datos, tipos de tarjetas y opciones de personalización para tus aplicaciones móviles y web."
+description: "Aprende a implementar Content Cards con el SDK or kit de desarrollo de software de Braze, incluidos los modelos de datos, tipos de tarjetas y opciones de personalización para tus aplicaciones móviles y web."
 channel:
   - content cards
 platform:
@@ -14,7 +14,7 @@ platform:
 
 # Content Cards {#content-cards}
 
-> Aprende sobre las Content Cards del SDK de Braze, incluidos los diferentes modelos de datos y las propiedades específicas de las tarjetas disponibles para tu aplicación.
+> Aprende sobre las Content Cards del SDK or kit de desarrollo de software de Braze, incluidos los diferentes modelos de datos y las propiedades específicas de las tarjetas disponibles para tu aplicación.
 
 {% multi_lang_include banners/content_card_alert.md %}
 
@@ -26,7 +26,7 @@ platform:
 {% sdktab android %}
 ## Requisitos previos {#prerequisites}
 
-Antes de poder usar las Content Cards de Braze, debes integrar el [SDK de Braze para Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android) en tu aplicación. Sin embargo, no se requiere configuración adicional.
+Antes de poder usar las Content Cards de Braze, debes integrar el [SDK or kit de desarrollo de software de Braze para Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android) en tu aplicación. Sin embargo, no se requiere configuración adicional.
 
 ## Fragmentos de Google {#google-fragments}
 
@@ -36,7 +36,7 @@ Para aprender cómo añadir un fragmento a una actividad, consulta la [documenta
 
 ## Tipos de tarjetas y propiedades {#card-types-and-properties}
 
-El modelo de datos de Content Cards está disponible en el SDK de Android y ofrece los siguientes tipos únicos de Content Cards. Cada tipo comparte un modelo base, lo que les permite heredar propiedades comunes del modelo base, además de tener sus propias propiedades únicas. Para la documentación de referencia completa, consulta [`com.braze.models.cards`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html).
+El modelo de datos de Content Cards está disponible en el SDK or kit de desarrollo de software de Android y ofrece los siguientes tipos únicos de Content Cards. Cada tipo comparte un modelo base, lo que les permite heredar propiedades comunes del modelo base, además de tener sus propias propiedades únicas. Para la documentación de referencia completa, consulta [`com.braze.models.cards`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html).
 
 ### Modelo de tarjeta base {#base-card-for-android}
 
@@ -120,17 +120,17 @@ Todos los objetos del modelo de datos [`Card`](https://braze-inc.github.io/braze
 {% multi_lang_include developer_guide/flutter/content_cards.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/content_cards.md %}
 {% endsdktab %}
 
 {% sdktab tvos %}
 ## Requisitos previos
 
-Antes de poder usar Content Cards, integra el [SDK Swift de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) en tu aplicación. Luego completa los pasos para configurar tu aplicación tvOS.
+Antes de poder usar Content Cards, integra el [SDK or kit de desarrollo de software Swift de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) en tu aplicación. Luego completa los pasos para configurar tu aplicación tvOS.
 
 {% alert important %}
-Implementa tu propia interfaz personalizada, ya que las Content Cards son compatibles a través de una interfaz headless usando el SDK Swift&#8212;que no incluye ninguna interfaz ni vistas predeterminadas para tvOS.
+Implementa tu propia interfaz personalizada, ya que las Content Cards son compatibles a través de una interfaz headless usando el SDK or kit de desarrollo de software Swift&#8212;que no incluye ninguna interfaz ni vistas predeterminadas para tvOS.
 {% endalert %}
 
 ## Configurar tu aplicación tvOS {#setting-up-your-tvos-app}
@@ -153,11 +153,11 @@ En la configuración de tu aplicación, selecciona tu nueva aplicación tvOS y t
 
 ### Paso 3: Integrar BrazeKit {#step-3-integrate-brazekit}
 
-Usa la clave de API de tu aplicación para integrar el [SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk) en tu proyecto tvOS en Xcode. Solo necesitas integrar BrazeKit del SDK Swift de Braze.
+Usa la clave de API de tu aplicación para integrar el [SDK or kit de desarrollo de software Swift de Braze](https://github.com/braze-inc/braze-swift-sdk) en tu proyecto tvOS en Xcode. Solo necesitas integrar BrazeKit del SDK or kit de desarrollo de software Swift de Braze.
 
 ### Paso 4: Crear tu interfaz personalizada {#step-4-create-your-custom-ui}
 
-Dado que Braze no proporciona una interfaz predeterminada para Content Cards en tvOS, personalízala tú mismo. Para un recorrido completo, consulta nuestro tutorial paso a paso: [Personalizar Content Cards para tvOS](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/content-cards-customization/). Para un proyecto de ejemplo, consulta los [ejemplos del SDK Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#contentcards-custom-ui).
+Dado que Braze no proporciona una interfaz predeterminada para Content Cards en tvOS, personalízala tú mismo. Para un recorrido completo, consulta nuestro tutorial paso a paso: [Personalizar Content Cards para tvOS](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/content-cards-customization/). Para un proyecto de ejemplo, consulta los [ejemplos del SDK or kit de desarrollo de software Swift de Braze](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#contentcards-custom-ui).
 
 {% endsdktab %}
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Bluedot
 
-> [Bluedot](https://bluedot.io/) es una plataforma de ubicación que proporciona una plataforma de geovallado precisa y sencilla para tus aplicaciones. Usa el SDK de Bluedot para enviar mensajes de forma más inteligente, automatizar el registro de pedidos móviles, optimizar los flujos de trabajo y crear experiencias sin fricciones.
+> [Bluedot](https://bluedot.io/) es una plataforma de ubicación que proporciona una plataforma de geovallado precisa y sencilla para tus aplicaciones. Usa el SDK or kit de desarrollo de software de Bluedot para enviar mensajes de forma más inteligente, automatizar el registro de pedidos móviles, optimizar los flujos de trabajo y crear experiencias sin fricciones.
 
 _Esta integración está mantenida por Bluedot._
 
@@ -37,17 +37,17 @@ La información de ubicación de eventos personalizados proporcionada por Bluedo
 ### Paso 1: Crear un proyecto Bluedot {#step-1-create-a-bluedot-project}
 Configura tu cuenta de Bluedot e inicia sesión en tu [dashboard de Bluedot Canvas](https://docs.bluedot.io/canvas/). Visita la [documentación de Bluedot](https://docs.bluedot.io/canvas/creating-a-new-project/) para saber cómo crear un nuevo proyecto.
 
-### Paso 2: Integrar los SDK {#step-2-integrate-the-sdks}
-Integra el SDK de Bluedot Point y el SDK de Braze en tu aplicación siguiendo los pasos indicados en la documentación de [integración Bluedot-Braze](https://docs.bluedot.io/integrations/braze-integration/).
+### Paso 2: Integrar los SDK or kit de desarrollo de software {#step-2-integrate-the-sdks}
+Integra el SDK or kit de desarrollo de software de Bluedot Point y el SDK or kit de desarrollo de software de Braze en tu aplicación siguiendo los pasos indicados en la documentación de [integración Bluedot-Braze](https://docs.bluedot.io/integrations/braze-integration/).
 
-### Paso 3: Autenticar el SDK de Bluedot {#step-3-authenticate-the-bluedot-sdk}
-Usa el `projectId` creado en el paso 1 para autenticar el SDK de Bluedot Point.
+### Paso 3: Autenticar el SDK or kit de desarrollo de software de Bluedot {#step-3-authenticate-the-bluedot-sdk}
+Usa el `projectId` creado en el paso 1 para autenticar el SDK or kit de desarrollo de software de Bluedot Point.
 
 ### Paso 4: Usar eventos Bluedot en Braze {#step-4-use-bluedot-events-in-braze}
 
 #### Desencadenar mensajes {#triggering-messages}
 
-Puedes configurar una Campaign push o un Canvas que actúe a partir de eventos de ubicación generados por el SDK de Bluedot. Esta ruta de integración es ideal para la mensajería en tiempo real justo cuando los usuarios entran en un local o lugar de interés, o para la comunicación de seguimiento diferida después de que se hayan marchado.
+Puedes configurar una Campaign push o un Canvas que actúe a partir de eventos de ubicación generados por el SDK or kit de desarrollo de software de Bluedot. Esta ruta de integración es ideal para la mensajería en tiempo real justo cuando los usuarios entran en un local o lugar de interés, o para la comunicación de seguimiento diferida después de que se hayan marchado.
 
 Configura una Campaign basada en acciones dentro de Braze que enviará mensajes basados en una ubicación establecida. Para tu desencadenador, usa un evento personalizado de `bluedot_entry` o `bluedot_exit` como se muestra en la siguiente captura de pantalla:
 

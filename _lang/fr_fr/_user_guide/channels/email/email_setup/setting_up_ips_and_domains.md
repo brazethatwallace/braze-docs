@@ -16,7 +16,7 @@ description: "Cet article pratique vous explique comment configurer les adresses
 <br>
 
 {% alert important %}
-À partir de 2026, Braze utilise Amazon Simple Email Service (SES) comme fournisseur de services d'e-mailing (ESP) par défaut pour les nouvelles configurations d'e-mail. Pour plus de détails, consultez [Configuration d'Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
+À partir de 2026, Braze utilise Amazon Simple Email Service (SES) comme fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) par défaut pour les nouvelles configurations d'e-mail. Pour plus de détails, consultez [Configuration d'Amazon SES]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses).
 {% endalert %}
 
 ## Méthode 1 : Configuration en libre-service des e-mails {#method-1-self-service-email-setup}
@@ -51,7 +51,7 @@ Un domaine d'envoi est utilisé dans l'adresse « from » lors de l'envoi d'un e
 {: start="3"}
 3. Retournez dans le tableau de bord de Braze et sélectionnez **Verify**.
 
-Demandez à vos ingénieurs et développeurs d'ajouter ces enregistrements DNS là où c'est nécessaire. Pour des explications détaillées sur le fonctionnement des enregistrements DNS au sein des fournisseurs de services d'e-mailing de Braze, notamment SPF, DKIM, DMARC et les structures d'enregistrements spécifiques à chaque fournisseur, consultez [Comprendre les enregistrements DNS]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records).
+Demandez à vos ingénieurs et développeurs d'ajouter ces enregistrements DNS là où c'est nécessaire. Pour des explications détaillées sur le fonctionnement des enregistrements DNS au sein des fournisseurs de services d'e-mail marketing or e-mailing de Braze, notamment SPF, DKIM, DMARC et les structures d'enregistrements spécifiques à chaque fournisseur, consultez [Comprendre les enregistrements DNS]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/understanding_dns_records).
 
 {% multi_lang_include channels/email/dns_records.md %}
 
@@ -77,7 +77,7 @@ Pour ajouter ou modifier vos adresses IP pour un pool d'IP, contactez l'assistan
 
 #### Pools d'IP avec plus d'une IP dédiée {#ip-pools-with-more-than-one-dedicated-ip}
 
-Lorsqu'un pool d'IP contient plusieurs adresses IP dédiées, Braze et votre fournisseur de services d'e-mailing répartissent les envois volumineux entre ces IP pour optimiser la capacité et la livrabilité. La répartition est approximative : chaque message d'une Campaign n'utilise pas nécessairement toutes les IP, et les envois plus petits peuvent sembler inégalement répartis entre les adresses. SendGrid traite souvent les e-mails par lots (de l'ordre d'environ 1 500 messages par lot), de sorte que le volume ne se divise pas toujours selon un ratio strict un pour un entre les IP. Si vous envoyez régulièrement un volume quotidien très élevé, discutez du dimensionnement du pool avec votre contact d'onboarding ou de satisfaction client chez Braze.
+Lorsqu'un pool d'IP contient plusieurs adresses IP dédiées, Braze et votre fournisseur de services d'e-mail marketing or e-mailing répartissent les envois volumineux entre ces IP pour optimiser la capacité et la livrabilité. La répartition est approximative : chaque message d'une Campaign n'utilise pas nécessairement toutes les IP, et les envois plus petits peuvent sembler inégalement répartis entre les adresses. SendGrid traite souvent les e-mails par lots (de l'ordre d'environ 1 500 messages par lot), de sorte que le volume ne se divise pas toujours selon un ratio strict un pour un entre les IP. Si vous envoyez régulièrement un volume quotidien très élevé, discutez du dimensionnement du pool avec votre contact d'onboarding ou de satisfaction client chez Braze.
 
 ### Étapes suivantes {#next-steps}
 

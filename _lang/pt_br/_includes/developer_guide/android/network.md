@@ -1,8 +1,8 @@
 ## Modo off-line de rede
 
-[O modo offline de rede](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/outbound-network-requests-offline.html?query=var%20outboundNetworkRequestsOffline:%20Boolean) é um recurso opcional que pausa ou retoma as solicitações de rede de saída do SDK da Braze em qualquer ponto durante o tempo de execução. Os eventos não são perdidos durante o estado off-line. Este artigo de referência aborda como integrar esse modo.
+[O modo offline de rede](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/outbound-network-requests-offline.html?query=var%20outboundNetworkRequestsOffline:%20Boolean) é um recurso opcional que pausa ou retoma as solicitações de rede de saída do SDK or kit de desenvolvimento de software da Braze em qualquer ponto durante o tempo de execução. Os eventos não são perdidos durante o estado off-line. Este artigo de referência aborda como integrar esse modo.
 
-Para ativar o modo offline de rede no SDK da Braze, consulte o exemplo a seguir:
+Para ativar o modo offline de rede no SDK or kit de desenvolvimento de software da Braze, consulte o exemplo a seguir:
 
 {% tabs %}
 {% tab JAVA %}

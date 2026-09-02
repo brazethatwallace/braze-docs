@@ -12,11 +12,11 @@ description: "Este artigo descreve como a Braze suporta acessibilidade."
 
 > Este artigo fornece uma visão geral de como a Braze suporta acessibilidade na sua integração.
 
-O SDK Web da Braze suporta os padrões fornecidos pelas [Diretrizes de Acessibilidade para Conteúdo da Web (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Mantemos uma [pontuação de 100/100 no Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) para Content Cards e mensagens no app em todas as nossas novas versões para manter nosso padrão de acessibilidade.
+O SDK or kit de desenvolvimento de software Web da Braze suporta os padrões fornecidos pelas [Diretrizes de Acessibilidade para Conteúdo da Web (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Mantemos uma [pontuação de 100/100 no Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) para Content Cards e mensagens no app em todas as nossas novas versões para manter nosso padrão de acessibilidade.
 
 ## Pré-requisitos {#prerequisites}
 
-A versão mínima do SDK que atende à WCAG 2.1 é próxima da v3.4.0. No entanto, recomendamos a atualização para pelo menos a v6.0.0 para correções importantes de tags de imagem.
+A versão mínima do SDK or kit de desenvolvimento de software que atende à WCAG 2.1 é próxima da v3.4.0. No entanto, recomendamos a atualização para pelo menos a v6.0.0 para correções importantes de tags de imagem.
 
 ### Correções notáveis de acessibilidade {#notable-accessibility-fixes}
 
@@ -41,9 +41,9 @@ Suportamos esses recursos para Content Cards e mensagens no app:
 - Anúncios para leitores de tela
 - Suporte a texto alternativo para imagens
 
-## Diretrizes de acessibilidade para integrações de SDK {#accessibility-guidelines-for-sdk-integrations}
+## Diretrizes de acessibilidade para integrações de SDK or kit de desenvolvimento de software {#accessibility-guidelines-for-sdk-integrations}
 
-Consulte [Crie mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para diretrizes gerais de acessibilidade. Este guia fornece dicas e boas práticas para máxima acessibilidade ao integrar o SDK Web da Braze em sua aplicação web.
+Consulte [Crie mensagens acessíveis na Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) para diretrizes gerais de acessibilidade. Este guia fornece dicas e boas práticas para máxima acessibilidade ao integrar o SDK or kit de desenvolvimento de software Web da Braze em sua aplicação web.
 
 ### Content Cards
 
@@ -92,7 +92,7 @@ Não coloque informações importantes em mensagens no app do tipo slide up, poi
 
 #### Design responsivo {#responsive-design}
 
-O SDK inclui pontos de interrupção responsivos. Confirme que suas personalizações funcionam em diferentes tamanhos de tela, como neste exemplo:
+O SDK or kit de desenvolvimento de software inclui pontos de interrupção responsivos. Confirme que suas personalizações funcionam em diferentes tamanhos de tela, como neste exemplo:
 
 {% raw %}
 ```css
@@ -130,9 +130,9 @@ Teste manualmente a acessibilidade completando estas tarefas:
 
 Para evitar problemas comuns de acessibilidade, faça o seguinte:
 
-1. **Mantenha os estilos de foco:** Os indicadores de foco do SDK são essenciais para usuários de teclado.
+1. **Mantenha os estilos de foco:** Os indicadores de foco do SDK or kit de desenvolvimento de software são essenciais para usuários de teclado.
 2. **Use `display: none` apenas em elementos não interativos:** Use `visibility: hidden` ou `opacity: 0` para ocultar elementos interativos.
-3. **Não substitua atributos ARIA:** O SDK define funções e rótulos ARIA apropriados.
+3. **Não substitua atributos ARIA:** O SDK or kit de desenvolvimento de software define funções e rótulos ARIA apropriados.
 4. **Use atributos `tabindex`:** Eles controlam a ordem de navegação pelo teclado.
 5. **Forneça rolagem se você definir `overflow: hidden`:** Confirme que o conteúdo rolável permanece acessível.
 6. **Não interfira nos manipuladores de teclado integrados:** Confirme que a navegação existente pelo teclado funciona.

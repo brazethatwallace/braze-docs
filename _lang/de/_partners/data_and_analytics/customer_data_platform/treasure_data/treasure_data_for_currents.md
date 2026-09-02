@@ -1,7 +1,7 @@
 ---
 nav_title: Treasure Data für Currents
 article_title: Treasure Data für Currents
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Treasure Data, einer Customer Data Platform (CDP) für Unternehmen, die Braze-Ereignisdaten in Treasure Data streamt, um sie dort zu analysieren und zu aktivieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Treasure Data, einer Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, die Braze-Ereignisdaten in Treasure Data streamt, um sie dort zu analysieren und zu aktivieren."
 page_type: partner
 tool: Currents
 alias: /partners/treasure_data_for_currents/
@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Treasure Data für Currents {#treasure-data-for-currents}
 
-> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Ziele in Ihrem Marketing Stack weiterleitet.
+> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (Customer Data Platform (CDP)), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Ziele in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und Treasure Data erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen zu steuern. Mit Currents können Sie Braze-Ereignisdaten in Treasure Data streamen und über den gesamten Growth Stack hinweg nutzbar machen.
 
@@ -62,7 +62,7 @@ Die Option **Treasure Data Export** in der Braze-Currents-UI verwendet die veral
 1. Navigieren Sie in Braze zu **Partnerintegrationen** > **Data Export**.
 2. Wählen Sie **Create New Current** > **Custom Currents Export** aus.
 3. Geben Sie einen Integrationsnamen und eine Kontakt-E-Mail für Fehlerbenachrichtigungen ein.
-4. Geben Sie unter **Credentials** die Endpunkt-URL für Ihre Treasure Data-Region ein. Geben Sie Ihren Treasure Data Write-API-Schlüssel als **Bearer Token** ein.
+4. Geben Sie unter **Credentials** die Endpunkt-URL für Ihre Treasure Data-Region ein. Geben Sie Ihren Treasure Data Write-API-Schlüssel als **Bearer Token / Textbaustein** ein.
 
 | Region | Endpunkt-URL |
 | ------ | ------------ |

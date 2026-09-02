@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint Exportar 
 {% api %}
 # Exportar nuevos usuarios diarios por fecha {#export-daily-new-users-by-date}
 {% apimethod get %}
-/kpi/new_users/data_series
+/indicador clave de rendimiento/new_users/data_series
 {% endapimethod %}
 
 > Utiliza este endpoint para recuperar una serie diaria del número total de nuevos usuarios en cada fecha.

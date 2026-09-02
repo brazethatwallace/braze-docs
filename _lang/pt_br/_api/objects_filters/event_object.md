@@ -1,6 +1,6 @@
 ---
 nav_title: "Objeto de evento"
-article_title: Objeto de evento da API
+article_title: Objeto de evento da API or interface de programação do aplicativo (API)
 page_order: 6
 page_type: reference
 description: "Este artigo de referência aborda o objeto de evento, o que ele é e como é uma parte crucial das estratégias de Campaign baseadas em eventos."
@@ -12,7 +12,7 @@ description: "Este artigo de referência aborda o objeto de evento, o que ele é
 
 ## O que é um objeto de evento? {#what-is-an-event-object}
 
-Um objeto de evento é um objeto passado pela API quando um evento específico ocorre. Os objetos de evento ficam armazenados em um array de eventos. Cada objeto de evento no array de eventos representa uma única ocorrência de um evento personalizado realizado por um usuário específico no valor de tempo designado. O objeto de evento possui diversos campos que permitem personalizar ao definir e usar propriedades de evento em mensagens, coleta de dados e personalização.
+Um objeto de evento é um objeto passado pela API or interface de programação do aplicativo (API) quando um evento específico ocorre. Os objetos de evento ficam armazenados em um array de eventos. Cada objeto de evento no array de eventos representa uma única ocorrência de um evento personalizado realizado por um usuário específico no valor de tempo designado. O objeto de evento possui diversos campos que permitem personalizar ao definir e usar propriedades de evento em mensagens, coleta de dados e personalização.
 
 Para saber como configurar eventos personalizados para uma plataforma específica, consulte o Guia de Integração de Plataforma no [Guia do Desenvolvedor]({{site.baseurl}}/developer_guide/home). Consulte o artigo relevante com base na sua plataforma:
 
@@ -87,7 +87,7 @@ As seguintes chaves são reservadas e não podem ser usadas como propriedades de
 - `event_name`
 
 {% alert important %}
-Usar chaves reservadas como nomes de propriedades de evento personalizado resultará em erros de API ao enviar solicitações para o endpoint `/users/track`.
+Usar chaves reservadas como nomes de propriedades de evento personalizado resultará em erros de API or interface de programação do aplicativo (API) ao enviar solicitações para o endpoint `/users/track`.
 {% endalert %}
 
 ### Persistência de propriedades de evento {#event-property-persistence}

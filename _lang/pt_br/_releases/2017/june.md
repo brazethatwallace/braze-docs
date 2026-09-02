@@ -8,9 +8,9 @@ description: "Este artigo contém notas de versão para junho de 2017."
 
 # Junho de 2017 {#june-2017}
 
-## Atualização da API externa {#update-to-external-api}
+## Atualização da API or interface de programação do aplicativo (API) externa {#update-to-external-api}
 
-Atualizamos a API externa para oferecer suporte ao campo `collapse_id` para o Apple push, permitindo que você envie mensagens aos seus clientes com precisão. Saiba mais sobre a [API de envio de mensagens da Braze]({{site.baseurl}}/api/endpoints/messaging/).
+Atualizamos a API or interface de programação do aplicativo (API) externa para oferecer suporte ao campo `collapse_id` para o Apple push, permitindo que você envie mensagens aos seus clientes com precisão. Saiba mais sobre a [API or interface de programação do aplicativo (API) de envio de mensagens da Braze]({{site.baseurl}}/api/endpoints/messaging/).
 
 ## Atualização das notificações por push na web {#update-to-web-push-notifications}
 

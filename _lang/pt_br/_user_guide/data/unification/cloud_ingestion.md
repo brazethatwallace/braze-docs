@@ -13,7 +13,7 @@ toc_headers: h2
 
 ## Como funciona {#how-it-works}
 
-Com a Ingestão de Dados na Nuvem (CDI) da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada conforme um cronograma que você define, e cada integração pode ter um cronograma diferente. As sincronizações podem ocorrer com frequência de até 15 minutos ou com pouca frequência, como uma vez por mês. Se você precisar que as sincronizações ocorram com mais frequência do que a cada 15 minutos, entre em contato com seu gerente de sucesso do cliente ou considere usar chamadas da REST API para ingestão de dados em tempo real.
+Com a Ingestão de Dados na Nuvem (CDI) da Braze, você configura uma integração entre sua instância de data warehouse e o espaço de trabalho da Braze para sincronizar dados de forma recorrente. Essa sincronização é executada conforme um cronograma que você define, e cada integração pode ter um cronograma diferente. As sincronizações podem ocorrer com frequência de até 15 minutos ou com pouca frequência, como uma vez por mês. Se você precisar que as sincronizações ocorram com mais frequência do que a cada 15 minutos, entre em contato com seu gerente de sucesso do cliente ou considere usar chamadas da REST or transferir estado representacional API or interface de programação do aplicativo (API) para ingestão de dados em tempo real.
 
 As integrações de armazenamento de arquivos do Amazon S3 são orientadas a eventos. A Braze ingere novos arquivos quando as notificações do S3/SQS chegam. Para detalhes de configuração, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
 
@@ -25,7 +25,7 @@ Quando uma sincronização é executada, a Braze se conecta diretamente à sua i
 
 ### Encontrando o ID da sua integração {#finding-your-integration-id}
 
-Você pode encontrar o ID da sua integração na URL ao visualizar uma integração no dashboard da Braze. Navegue até **Data Settings** > **Cloud Data Ingestion** e selecione uma integração. O ID da integração aparece na URL no formato `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Por exemplo, se a sua URL for `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, o ID da sua integração é `abc123xyz`. Você pode usar esse ID ao fazer chamadas de API para disparar sincronizações ou verificar o status da sincronização.
+Você pode encontrar o ID da sua integração na URL ao visualizar uma integração no dashboard da Braze. Navegue até **Data Settings** > **Cloud Data Ingestion** e selecione uma integração. O ID da integração aparece na URL no formato `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`. Por exemplo, se a sua URL for `https://dashboard-01.braze.com/integrations/cloud_data_ingestion/abc123xyz`, o ID da sua integração é `abc123xyz`. Você pode usar esse ID ao fazer chamadas de API or interface de programação do aplicativo (API) para disparar sincronizações ou verificar o status da sincronização.
 
 ## Casos de uso {#use-cases}
 
@@ -75,7 +75,7 @@ Ao sincronizar dados de usuários por meio da Ingestão de Dados na Nuvem, você
 |------------|-------------|
 | `EXTERNAL_ID` | O ID externo que identifica o perfil de usuário a ser criado ou atualizado. Deve corresponder ao valor `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador exclusivo, e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`. |
-| `BRAZE_ID` | O identificador de usuário da Braze gerado pelo SDK da Braze. Não é possível criar novos usuários usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID externo de usuário ou um alias de usuário. |
+| `BRAZE_ID` | O identificador de usuário da Braze gerado pelo SDK or kit de desenvolvimento de software da Braze. Não é possível criar novos usuários usando um Braze ID por meio da Ingestão de Dados na Nuvem. Para criar novos usuários, especifique um ID externo de usuário ou um alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade nas atualizações. Se você incluir e-mail e telefone, o e-mail será usado como identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade nas atualizações. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuário para ingestão de dados" }
@@ -89,7 +89,7 @@ Para instruções de configuração específicas por fonte e exemplos de SQL, co
 Para clientes com cobrança baseada em pontos de dados, a cobrança de pontos de dados da Ingestão de Dados na Nuvem é equivalente à cobrança por atualizações feitas pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Consulte [Pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points) para saber mais.
 
 {% alert important %}
-A Ingestão de Dados na Nuvem da Braze conta para o limite de frequência disponível. Portanto, se você estiver enviando dados por outro método, o limite de frequência será combinado entre a API da Braze e a Ingestão de Dados na Nuvem.
+A Ingestão de Dados na Nuvem da Braze conta para o limite de frequência disponível. Portanto, se você estiver enviando dados por outro método, o limite de frequência será combinado entre a API or interface de programação do aplicativo (API) da Braze e a Ingestão de Dados na Nuvem.
 {% endalert %}
 
 ## Limitações do produto {#product-limitations}

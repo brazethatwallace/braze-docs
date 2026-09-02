@@ -10,7 +10,7 @@ description: "Esta página aborda como usar o editor de arrastar e soltar de men
 
 > Use o editor de arrastar e soltar de mensagens no app para promover uma oferta ou promoção sazonal e impulsionar o engajamento dos usuários.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
 
 ## Criando uma promoção sazonal com imagem de fundo {#creating-a-seasonal-promotion-with-a-background-image}
 

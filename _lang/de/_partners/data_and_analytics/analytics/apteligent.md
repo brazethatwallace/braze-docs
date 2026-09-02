@@ -31,9 +31,9 @@ Diese Integration wird derzeit nur auf iOS unterstützt.
 
 ## Integration {#apteligent-ios-integration}
 
-### 1. Schritt: Einen Observer registrieren {#step-1-register-an-observer}
+### 1. Schritt: Einen Observer Registrierung or registrieren {#step-1-register-an-observer}
 
-Zunächst müssen Sie einen Observer registrieren. Stellen Sie sicher, dass dies geschieht, bevor Sie Apteligent initialisieren.
+Zunächst müssen Sie einen Observer Registrierung or registrieren. Stellen Sie sicher, dass dies geschieht, bevor Sie Apteligent initialisieren.
 
 ```objc
 [[NSNotificationCenter defaultCenter] addObserver:self
@@ -44,9 +44,9 @@ Zunächst müssen Sie einen Observer registrieren. Stellen Sie sicher, dass dies
 
 ### 2. Schritt: Angepasste Absturz-Analytics protokollieren {#step-2-log-custom-crash-analytics}
 
-Das Apteligent SDK löst eine Benachrichtigung aus, wenn Nutzer:innen die Anwendung nach einem Absturz laden. Die Benachrichtigung enthält den Namen des Absturzes, den Grund und das Datum des Vorkommens.
+Das Apteligent SDK or Software-Development-Kit löst eine Benachrichtigung aus, wenn Nutzer:innen die Anwendung nach einem Absturz laden. Die Benachrichtigung enthält den Namen des Absturzes, den Grund und das Datum des Vorkommens.
 
-Nach Erhalt der Benachrichtigung protokollieren Sie ein angepasstes Absturz-Event und aktualisieren die Nutzerattribute mit den Absturzberichten von Apteligent:
+Nach Erhalt der Benachrichtigung protokollieren Sie ein angepasstes Absturz-Event und Update or aktualisieren or aktualisieren die Nutzerattribute mit den Absturzberichten von Apteligent:
 
 ```objc
 - (void)crashDidOccur:(NSNotification*)notification {

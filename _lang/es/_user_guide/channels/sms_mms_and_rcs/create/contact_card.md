@@ -2,7 +2,7 @@
 nav_title: Tarjetas de contacto
 article_title: Tarjetas de contacto
 page_order: 3
-description: "Este artículo de referencia explica cómo crear una tarjeta de contacto para incluir en tus mensajes MMS y SMS."
+description: "Este artículo de referencia explica cómo crear una tarjeta de contacto para incluir en tus mensajes MMS y servicio de mensajes cortos."
 page_type: reference
 alias: /mms_contact_cards/
 channel:
@@ -24,7 +24,7 @@ Las tarjetas de contacto se pueden crear [programáticamente](https://www.twilio
 
 ### Paso 1: Asignar nombre {#step-1-assign-name}
 
-Las tarjetas de contacto se pueden crear desde el creador de mensajes SMS y MMS. Selecciona la pestaña **Contact Card Generator** para comenzar.
+Las tarjetas de contacto se pueden crear desde el creador de mensajes servicio de mensajes cortos y MMS. Selecciona la pestaña **Contact Card Generator** para comenzar.
 
 A continuación, se te pedirá que introduzcas el nombre o apodo de tu empresa. Este es el nombre que tus usuarios verán cuando guarden la tarjeta. Se aplica un límite de 20 caracteres para asegurar que el usuario pueda ver el nombre completo de tu empresa o alias en sus contactos y aplicación de mensajería.
 

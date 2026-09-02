@@ -74,7 +74,7 @@ https://example.com/{{url_var}}
 ```
 {% endraw %}
 
-A Braze encurta URLs que são renderizadas por Liquid, incluindo aquelas incluídas em propriedades de disparo por API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa uma URL válida, a Braze encurtará e rastreará essa URL antes de enviar a mensagem do KakaoTalk.
+A Braze encurta URLs que são renderizadas por Liquid, incluindo aquelas incluídas em propriedades de disparo por API or interface de programação do aplicativo (API). Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa uma URL válida, a Braze encurtará e rastreará essa URL antes de enviar a mensagem do KakaoTalk.
 
 ## Testes {#testing}
 
@@ -119,9 +119,9 @@ Sim, tanto parâmetros estáticos quanto dinâmicos podem ser adicionados.
 
 URLs personalizadas são válidas por dois meses a partir do momento do registro da URL.
 
-### O SDK da Braze precisa estar instalado para encurtar URLs? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
+### O SDK or kit de desenvolvimento de software da Braze precisa estar instalado para encurtar URLs? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
 
-Não, o rastreamento de cliques funciona sem nenhuma integração de SDK.
+Não, o rastreamento de cliques funciona sem nenhuma integração de SDK or kit de desenvolvimento de software.
 
 ### Eu sei quais usuários individuais estão clicando em uma URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 
@@ -129,4 +129,4 @@ Sim. Quando o rastreamento de cliques está ativado, você pode redirecionar usu
 
 ### O rastreamento de cliques funciona com deep links ou links universais? {#does-click-tracking-work-with-deep-links-or-universal-links}
 
-O rastreamento de cliques se aplica a URLs da web. Para deep links, você pode definir um deep link diretamente como o tipo de ação ao clicar para botões no KakaoTalk — esses não passam por encurtamento de URL ou rastreamento de cliques. Se você preferir usar links universais de provedores como Branch ou Appsflyer, eles podem ser encurtados, mas a Braze não consegue solucionar problemas que possam surgir (como quebra de atribuição ou falha no redirecionamento).
+O rastreamento de cliques se aplica a URLs da web. Para deep links, você pode definir um deep link diretamente como o tipo de ação ao clicar para botões no KakaoTalk — esses não passam por encurtamento de URL ou rastreamento de cliques. Se você preferir usar links universais de provedores como Branch or ramificação ou Appsflyer, eles podem ser encurtados, mas a Braze não consegue solucionar problemas que possam surgir (como quebra de atribuição ou falha no redirecionamento).

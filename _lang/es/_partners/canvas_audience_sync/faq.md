@@ -25,7 +25,7 @@ Los campos específicos utilizados para cada partner pueden variar en función d
 
 Por ejemplo, cuando configuras una sincronización de audiencia con Facebook, puedes utilizar una amplia variedad de campos de datos propios, como correo electrónico, teléfono, nombre y apellidos, mientras que, con Snapchat, solo puedes seleccionar correo electrónico, teléfono o ID de anunciante móvil.
 
-Es importante tener en cuenta que los campos de usuario que puedes seleccionar para sincronizar se correlacionan con los atributos estándar de Braze y los ID de publicidad móvil. Debes asegurarte de que transmites adecuadamente estos datos a través de nuestros SDK o API.
+Es importante tener en cuenta que los campos de usuario que puedes seleccionar para sincronizar se correlacionan con los atributos estándar de Braze y los ID de publicidad móvil. Debes asegurarte de que transmites adecuadamente estos datos a través de nuestros SDK or kit de desarrollo de software o API.
 
 ## ¿Qué ocurre cuando se procesan mis datos para enviarlos a cada partner de Audience Sync? {#what-happens-when-my-data-is-being-processed-to-send-to-each-audience-sync-partner}
 

@@ -11,7 +11,7 @@ description: "이 문서에서는 일일 활성 사용자 내보내기 Braze 엔
 {% api %}
 # 날짜별 일일 활성 사용자 내보내기 {#export-daily-active-users-by-date}
 {% apimethod get %}
-/kpi/dau/data_series
+/KPI or 핵심 성과 지표(KPI)/일일 활성 사용자/data_series
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 각 날짜의 총 고유 활성 사용자 수에 대한 일일 시계열을 검색할 수 있습니다.

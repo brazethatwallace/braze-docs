@@ -112,7 +112,7 @@ Operatorのダッシュボード全体での機能は定期的に拡張されて
 - メール
 - SMS/MMS/RCS
 - アプリ内メッセージ
-- Content Card
+- Content カード
 - バナー
 - プッシュ
 - Webhook

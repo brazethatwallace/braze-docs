@@ -102,9 +102,9 @@ Atributos personalizados também podem ser removidos usando o seguinte método:
 bool UnsetCustomAttribute(STRING_KEY);
 ```
 
-### Definindo um atributo personalizado via REST API {#setting-a-custom-attribute-via-the-rest-api}
+### Definindo um atributo personalizado via REST or transferir estado representacional API or interface de programação do aplicativo (API) {#setting-a-custom-attribute-via-the-rest-api}
 
-Você também pode usar nossa REST API para definir atributos de usuário. Consulte a documentação da [API de usuários]({{site.baseurl}}/api/endpoints/user_data) para mais detalhes.
+Você também pode usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para definir atributos de usuário. Consulte a documentação da [API or interface de programação do aplicativo (API) de usuários]({{site.baseurl}}/api/endpoints/user_data) para mais detalhes.
 
 ### Limites de valores de atributos personalizados {#custom-attribute-value-limits}
 

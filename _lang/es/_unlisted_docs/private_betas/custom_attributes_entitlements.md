@@ -171,7 +171,7 @@ Los atributos de matriz son buenos para almacenar listas de información relacio
 
 De forma predeterminada, la longitud máxima de una matriz para un atributo está establecida en 25 y puede aumentarse a 100 para una matriz individual. Por ejemplo, si estás enviando un atributo como "Películas vistas" y está configurado en 100, cuando un usuario ve la película número 101, la primera película se eliminará de la matriz y la película más reciente se añadirá.
 
-Si deseas que este máximo se aumente, contacta a tu administrador de éxito de cliente. Tu administrador del panel puede entonces aumentar la longitud máxima para matrices individuales a más de 100 desde la pestaña **Custom Attributes** de la página **Manage Settings**.
+Si deseas que este máximo se aumente, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente. Tu administrador del panel puede entonces aumentar la longitud máxima para matrices individuales a más de 100 desde la pestaña **Custom Attributes** de la página **Manage Settings**.
 
 Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también buscará esos mismos espacios.
 
@@ -252,7 +252,7 @@ Hemos consolidado la lista de operadores disponibles para usar en filtros de atr
 
 ## Seguimiento de compras e ingresos {#purchase-revenue-tracking}
 
-Usar nuestros métodos de compra para registrar compras dentro de la aplicación establece el valor de duración del ciclo de vida (LTV) para cada perfil de usuario individual. Estos datos se pueden ver en nuestra página de ingresos en series temporales.
+Usar nuestros métodos de compra para registrar compras dentro de la aplicación establece el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida (LTV or valor de duración del ciclo de vida) para cada perfil de usuario individual. Estos datos se pueden ver en nuestra página de ingresos en series temporales.
 
 | Opciones de segmentación | Filtro desplegable | Opciones de entrada | Ejemplos |
 | ---------------------| --------------- | ------------- | -------- |

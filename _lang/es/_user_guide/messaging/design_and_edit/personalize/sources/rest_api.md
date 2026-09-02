@@ -1,13 +1,13 @@
 ---
-nav_title: API REST
-article_title: API REST
+nav_title: API REST or transferencia de estado representacional
+article_title: API REST or transferencia de estado representacional
 page_order: 1
-description: "Aprende a usar contenido conectado para extraer datos de las API REST e incluirlos en tus mensajes para personalización en tiempo real."
+description: "Aprende a usar contenido conectado para extraer datos de las API REST or transferencia de estado representacional e incluirlos en tus mensajes para personalización en tiempo real."
 ---
 
-# API REST {#rest-api}
+# API REST or transferencia de estado representacional {#rest-api}
 
-> Extrae datos de API REST externas directamente en tus mensajes en el momento del envío usando [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Esto te permite personalizar mensajes con información en tiempo real de tus propios servidores, servicios de terceros o cualquier punto de conexión de API accesible públicamente.
+> Extrae datos de API REST or transferencia de estado representacional externas directamente en tus mensajes en el momento del envío usando [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Esto te permite personalizar mensajes con información en tiempo real de tus propios servidores, servicios de terceros o cualquier punto de conexión de API accesible públicamente.
 
 ## Cómo funciona {#how-it-works}
 

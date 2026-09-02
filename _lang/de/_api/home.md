@@ -5,7 +5,7 @@ article_title: Braze API-Leitfaden
 layout: api_glossary
 glossary_top_header: "Braze API-Leitfaden"
 glossary_top_text: "Braze bietet eine leistungsstarke REST API, mit der Sie Nutzer:innen verfolgen, Nachrichten versenden, Daten exportieren und Campaigns, Canvases, Kataloge und vieles mehr verwalten können. Verwenden Sie dieses Glossar, um Endpunkte nach Typ zu durchsuchen, Referenzartikel für Anfrage- und Antwortdetails zu öffnen und Links zu Authentifizierung, Rate-Limits und Objektdokumentation zu finden."
-description: "Durchsuchen Sie die Braze REST API-Endpunkte nach Typ, mit Links zu Authentifizierung, Rate-Limits und Objektreferenz-Dokumentation."
+description: "Durchsuchen Sie die Braze Representational State Transfer API-Endpunkte nach Typ, mit Links zu Authentifizierung, Rate-Limits und Objektreferenz-Dokumentation."
 page_type: glossary
 glossary_tag_name: Endpunkttyp
 
@@ -62,7 +62,7 @@ glossary_tags:
 
 glossaries:
   - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
-    description: Die Push-Zugangsdaten für eine einzelne App aktualisieren.
+    description: Die Push-Zugangsdaten für eine einzelne App Update or aktualisieren or aktualisieren.
     tags:
       - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
@@ -70,11 +70,11 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_users_alias_update'>/users/alias/update</a>
-    description: Bestehende Nutzer-Alias-Namen auf neue Nutzer-Alias-Namen aktualisieren.
+    description: Bestehende Nutzer-Alias-Namen auf neue Nutzer-Alias-Namen Update or aktualisieren or aktualisieren.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_user_delete'>/users/delete</a>
-    description: Ein beliebiges Nutzerprofil löschen, indem ein bekannter Nutzer-Bezeichner angegeben wird.
+    description: Ein beliebiges Kundenprofil or Nutzerprofil löschen, indem ein bekannter Nutzer-Bezeichner angegeben wird.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_global_control_group'>/users/export/global_control_group</a>
@@ -82,7 +82,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_identifier'>/users/export/ids</a>
-    description: Daten aus einem beliebigen Nutzerprofil exportieren, indem ein Nutzer-Bezeichner angegeben wird.
+    description: Daten aus einem beliebigen Kundenprofil or Nutzerprofil exportieren, indem ein Nutzer-Bezeichner angegeben wird.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_segment'>/users/export/segment</a>
@@ -102,11 +102,11 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_user_track'>/users/track</a>
-    description: Angepasste Events und Käufe erfassen sowie Nutzerprofilattribute aktualisieren.
+    description: Angepasste Events und Käufe erfassen sowie Nutzerprofilattribute Update or aktualisieren or aktualisieren.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/user_data/post_users_merge'>/users/merge</a>
-    description: Ein Nutzerprofil mit einem anderen zusammenführen.
+    description: Ein Kundenprofil or Nutzerprofil mit einem anderen zusammenführen.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/data_objects'>/data_objects/*</a>
@@ -134,11 +134,11 @@ glossaries:
     tags:
       - Data Objects
   - name: <a href='/docs/api/endpoints/data_objects/objects/get_data_object'>/data_objects/objects/{type_name}/{external_id}</a>
-    description: Ein Data Object abrufen oder es ersetzen, aktualisieren und löschen.
+    description: Ein Data Object abrufen oder es ersetzen, Update or aktualisieren or aktualisieren und löschen.
     tags:
       - Data Objects
   - name: <a href='/docs/api/endpoints/data_objects/object_relationships/get_list_object_relationships'>/data_objects/objects/{type_name}/{external_id}/object_relationships</a>
-    description: Objekt-zu-Objekt-Beziehungen auflisten, erstellen, ersetzen, aktualisieren und löschen.
+    description: Objekt-zu-Objekt-Beziehungen auflisten, erstellen, ersetzen, Update or aktualisieren or aktualisieren und löschen.
     tags:
       - Data Objects
   - name: <a href='/docs/api/endpoints/data_objects/user_relationships/get_list_user_relationships'>/data_objects/objects/{type_name}/{external_id}/user_relationships</a>
@@ -146,7 +146,7 @@ glossaries:
     tags:
       - Data Objects
   - name: <a href='/docs/api/endpoints/data_objects/user_relationships/post_create_user_relationship'>/data_objects/objects/{type_name}/{external_id}/users</a>
-    description: Nutzer-zu-Objekt-Beziehungen erstellen, ersetzen, aktualisieren und löschen.
+    description: Nutzer-zu-Objekt-Beziehungen erstellen, ersetzen, Update or aktualisieren or aktualisieren und löschen.
     tags:
       - Data Objects
   - name: <a href='/docs/api/endpoints/messaging/send_messages/post_send_triggered_campaigns'>/campaigns/trigger/send</a>
@@ -186,7 +186,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns'>/campaigns/trigger/schedule/update</a>
-    description: Im Dashboard erstellte geplante API-getriggerte Campaigns aktualisieren.
+    description: Im Dashboard erstellte geplante API-getriggerte Campaigns Update or aktualisieren or aktualisieren.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases'>/canvas/trigger/schedule/delete</a>
@@ -198,7 +198,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages'>/messages/schedule/update</a>
-    description: Geplante Nachrichten aktualisieren. Dieser Endpunkt akzeptiert Updates entweder für den <code>schedule</code>- oder <code>messages</code>-Parameter oder für beide.
+    description: Geplante Nachrichten Update or aktualisieren or aktualisieren. Dieser Endpunkt akzeptiert Updates entweder für den <code>schedule</code>- oder <code>messages</code>-Parameter oder für beide.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages'>/messages/schedule/delete</a>
@@ -210,23 +210,23 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases'>/canvas/trigger/schedule/update</a>
-    description: Im Dashboard erstellte geplante API-getriggerte Canvases aktualisieren.
+    description: Im Dashboard erstellte geplante API-getriggerte Canvase Update or aktualisieren or aktualisieren.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
-    description: Eine JSON-Liste mit Informationen über geplante Campaigns und Entry-Canvases zwischen jetzt und einer in der Anfrage angegebenen <code>end_time</code> zurückgeben.
+    description: Eine JSON-Liste mit Informationen über geplante Campaigns und Entry-Canvase zwischen jetzt und einer in der Anfrage angegebenen <code>end_time</code> zurückgeben.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>
-    description: Eine iOS-Live-Aktivität aktualisieren.
+    description: Eine iOS-Live-Aktivität Update or aktualisieren or aktualisieren.
     tags:
       - Live Activity
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status'>/subscription/status/set</a>
-    description: Den Abo-Status von bis zu 50 Nutzer:innen im Braze-Dashboard per Batch aktualisieren.
+    description: Den Abo-Status von bis zu 50 Nutzer:innen im Braze-Dashboard per Batch Update or aktualisieren or aktualisieren.
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2'>/v2/subscription/status/set</a>
-    description: Den Abo-Status von bis zu 50 Nutzer:innen im Braze-Dashboard per Batch aktualisieren.
+    description: Den Abo-Status von bis zu 50 Nutzer:innen im Braze-Dashboard per Batch Update or aktualisieren or aktualisieren.
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status'>/subscription/status/get</a>
@@ -258,7 +258,7 @@ glossaries:
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/templates/email_templates/post_update_email_template'>/templates/email/update</a>
-    description: E-Mail-Templates im Braze-Dashboard aktualisieren.
+    description: E-Mail-Templates im Braze-Dashboard Update or aktualisieren or aktualisieren.
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/email/get_list_hard_bounces'>/email/hard_bounces</a>
@@ -286,7 +286,7 @@ glossaries:
     tags:
       - Webhook Templates
   - name: <a href='/docs/api/endpoints/translations/webhook_templates/put_update_webhook_template'>/templates/webhook/translations</a>
-    description: Übersetzungen für ein Webhook-Template aktualisieren.
+    description: Übersetzungen für ein Webhook-Template Update or aktualisieren or aktualisieren.
     tags:
       - Webhook Templates
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaign_analytics'>/campaigns/data_series</a>
@@ -318,7 +318,7 @@ glossaries:
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/canvas/get_canvases'>/canvas/list</a>
-    description: Eine Liste von Canvases exportieren, einschließlich des Namens, des Canvas-API-Bezeichners und der zugehörigen Tags.
+    description: Eine Liste von Canvase exportieren, einschließlich des Namens, des Canvas-API-Bezeichners und der zugehörigen Tags.
     tags:
       - Canvas
   - name: <a href='/docs/api/endpoints/export/segments/get_segment_analytics'>/segments/data_series</a>
@@ -362,7 +362,7 @@ glossaries:
     tags:
       - Content Blocks
   - name: <a href='/docs/api/endpoints/templates/content_blocks_templates/post_update_content_block'>/content_blocks/update</a>
-    description: Einen E-Mail-Content-Block aktualisieren.
+    description: Einen E-Mail-Content-Block Update or aktualisieren or aktualisieren.
     tags:
       - Content Blocks
   - name: <a href='/docs/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information'>/content_blocks/info</a>
@@ -426,7 +426,7 @@ glossaries:
     tags:
       - Preference Center
   - name: <a href='/docs/api/endpoints/preference_center/put_update_preference_center'>/preference_center/v1/{preferenceCenterExternalId}</a>
-    description: Ein Präferenzzentrum aktualisieren.
+    description: Ein Präferenzzentrum Update or aktualisieren or aktualisieren.
     tags:
       - Preference Center
   - name: <a href='/docs/api/endpoints/catalogs/catalog_items/asynchronous/delete_catalog_items_bulk'>/catalogs/{catalog_name}/items</a>
@@ -506,7 +506,7 @@ glossaries:
     tags:
       - SCIM
   - name: <a href='/docs/post_update_existing_user_account'>/scim/v2/Users/{id}</a>
-    description: Ein bestehendes Dashboard-Nutzer:innen-Konto aktualisieren, indem E-Mail, Vor- und Nachname sowie Berechtigungen (für die Festlegung von Berechtigungen auf Unternehmens-, Workspace- und Teamebene) angegeben werden.
+    description: Ein bestehendes Dashboard-Nutzer:innen-Konto Update or aktualisieren or aktualisieren, indem E-Mail, Vor- und Nachname sowie Berechtigungen (für die Festlegung von Berechtigungen auf Unternehmens-, Workspace- und Teamebene) angegeben werden.
     tags:
       - SCIM
   - name: <a href='/docs/delete_existing_dashboard_user'>/scim/v2/Users/{id}</a>
@@ -522,7 +522,7 @@ glossaries:
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/cdi/post_job_sync'>/cdi/integrations/{integration_id}/sync</a>
-    description: Eine Synchronisierung für eine bestimmte Integration triggern.
+    description: Eine Synchronisierung für eine bestimmte Integration Trigger or triggern or triggern.
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/cdi/get_job_sync_status'>/cdi/integrations/{integration_id}/job_sync_status</a>
@@ -530,19 +530,19 @@ glossaries:
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/sdk_authentication/post_create_sdk_authentication_key'>/app_group/sdk_authentication/create</a>
-    description: Einen neuen SDK-Authentifizierungsschlüssel für Ihre App erstellen.
+    description: Einen neuen SDK or Software-Development-Kit-Authentifizierungsschlüssel für Ihre App erstellen.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/get_sdk_authentication_keys'>/app_group/sdk_authentication/keys</a>
-    description: SDK-Authentifizierungsschlüssel für Ihre App auflisten.
+    description: SDK or Software-Development-Kit-Authentifizierungsschlüssel für Ihre App auflisten.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key'>/app_group/sdk_authentication/primary</a>
-    description: Einen SDK-Authentifizierungsschlüssel als Primärschlüssel für Ihre App festlegen.
+    description: Einen SDK or Software-Development-Kit-Authentifizierungsschlüssel als Primärschlüssel für Ihre App festlegen.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/delete_sdk_authentication_key'>/app_group/sdk_authentication/delete</a>
-    description: Einen SDK-Authentifizierungsschlüssel für Ihre App löschen.
+    description: Einen SDK or Software-Development-Kit-Authentifizierungsschlüssel für Ihre App löschen.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/media_library/manage_assets/create'>/media_library/create</a>

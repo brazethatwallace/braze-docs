@@ -18,7 +18,7 @@ search_tag: OtherLevels
 
 Die Integration von Braze und OtherLevels ermöglicht es Ihnen, angepasste GenAI-Videos über API-Aufrufe an die OtherLevels Experience Platform zu erstellen und diese Videos dann als iOS-Push-Videos über [Braze Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) an Ihre Nutzer:innen zu senden.
 
-Bieten Sie Ihren Nutzer:innen ein besseres Erlebnis mit den KI-gestützten Erfahrungen von OtherLevels. Transformieren Sie vorhandene und Drittanbieter-Inhalte in hochskalierbare Videos und Rich Media für Zielgruppen, die Inhalte bereits anders konsumieren und stark auf kontextuell personalisierte Erlebnisse reagieren.
+Bieten Sie Ihren Nutzer:innen ein besseres Erlebnis mit den KI or künstliche Intelligenz-gestützten Erfahrungen von OtherLevels. Transformieren Sie vorhandene und Drittanbieter-Inhalte in hochskalierbare Videos und Rich Media für Zielgruppen, die Inhalte bereits anders konsumieren und stark auf kontextuell personalisierte Erlebnisse reagieren.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -27,8 +27,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung          | Beschreibung                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein OtherLevels-Konto   | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein OtherLevels-Konto erforderlich.                                                                     |
-| Ein Braze-REST-API-Schlüssel  | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
+| Ein Braze-Representational State Transfer-API-Schlüssel  | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Ein Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 Diese Integration erfordert den Aufruf der OtherLevels Experience Platform API als Teil des Video-Generierungsprozesses, bevor Nachrichten von Braze an Ihre Nutzer:innen gesendet werden können. cURL-Beispiele werden als Teil dieser Dokumentation bereitgestellt, wir empfehlen jedoch die Verwendung von API-Clients wie Postman, um die API-Aufrufe zu automatisieren.
@@ -174,8 +174,8 @@ Ersetzen Sie Folgendes:
 
 | Platzhalter             | Beschreibung                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | Die URL des Braze-REST-Endpunkts Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
-| `BRAZE_API_KEY`         | Ihr Braze-REST-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
+| `BRAZE_API_ENDPOINT`    | Die URL des Braze-Representational State Transfer-Endpunkts Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [Representational State Transfer-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
+| `BRAZE_API_KEY`         | Ihr Braze-Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
 | `USER_ID`              | Die Nutzer-ID der Person, die dieses Video erhalten soll. Weitere Beispiele für verwendbare Bezeichner finden Sie unter [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).                                                                                                                                                  |
 | `RECIPE_ID`       | Die `recipe_id`, die Sie aus der OtherLevels-API-Antwort in [Schritt 1](#step-1) erhalten haben.                                                                                                                                                                            |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Festlegen der recipe_id als angepasstes Attribut" }
@@ -197,7 +197,7 @@ Ersetzen Sie anschließend `OTHERLEVELS_PROJECT_KEY` durch den von OtherLevels b
 
 {: start="3"}
 3. Wählen Sie im Dropdown-Menü für **URL file format** die Option **MP4** aus.
-4. Konfigurieren Sie den Rest der Campaign (z. B. Nachrichteninhalt, Versandzeitplan und Zielgruppe) nach Ihren Wünschen.
+4. Konfigurieren Sie den Representational State Transfer der Campaign (z. B. Nachrichteninhalt, Versandzeitplan und Zielgruppe) nach Ihren Wünschen.
 
 ![Beispiel für Asset-Felder bei Connected Content.]({% image_buster /assets/img/otherlevels/1.png %})
 

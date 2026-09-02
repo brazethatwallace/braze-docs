@@ -67,7 +67,7 @@ Se o seu Canvas está configurado para **Inserir usuários neste Canvas no fuso 
 Você lança um Canvas, mas percebe um erro de digitação em uma das mensagens. Pare o Canvas, edite a mensagem no modo de rascunho e depois retome. Usuários que ainda não receberam a mensagem receberão a versão corrigida. Usuários que já a receberam não a receberão novamente.
 
 **Cenário 2: Problema de direcionamento**
-Você percebe que o Canvas está direcionando o Segment errado. Pare o Canvas imediatamente para evitar que mais usuários entrem. Quaisquer usuários atualmente em etapas de postergação sairão quando o período de postergação terminar. Você pode então criar um novo Canvas com o direcionamento correto.
+Você percebe que o Canvas está direcionando o Segment or segmento errado. Pare o Canvas imediatamente para evitar que mais usuários entrem. Quaisquer usuários atualmente em etapas de postergação sairão quando o período de postergação terminar. Você pode então criar um novo Canvas com o direcionamento correto.
 
 **Cenário 3: Cenário de postergação estendida**
 Você tem um Canvas com uma etapa de postergação de sete dias. Você para o Canvas após três dias. Usuários que estavam na etapa de postergação continuam aguardando, mas quando o período de postergação termina enquanto o Canvas ainda está parado, eles saem do Canvas. Se você retomar o Canvas antes que a postergação deles termine, eles continuam pela jornada.

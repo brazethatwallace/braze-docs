@@ -151,7 +151,7 @@ Cuando un usuario coincide con los criterios del segmento, filtro y aplicación,
 
 ### Enviar a estos usuarios {#send-to-these-users}
 
-Para canales basados en suscripción (correo electrónico, SMS y similares), usa **Send to these users** para enviar tu campaña solo a usuarios que tengan un estado de suscripción específico, como aquellos que están suscritos y han optado por recibir correo electrónico.
+Para canales basados en suscripción (correo electrónico, servicio de mensajes cortos y similares), usa **Send to these users** para enviar tu campaña solo a usuarios que tengan un estado de suscripción específico, como aquellos que están suscritos y han optado por recibir correo electrónico.
 
 ### Limitar el volumen de envío {#limit-send-volume}
 
@@ -169,7 +169,7 @@ Para Campaigns de envío único y envío múltiple compatibles, activa [Optimiza
 
 ## Paso 4: Asignar eventos de conversión {#step-4-assign-conversion-events}
 
-Los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) miden los resultados después de que un usuario recibe tu campaña (o entra en el grupo de control). Braze establece por defecto **Inicia sesión** dentro de una ventana corta (tres días). Puedes definir eventos de conversión que coincidan con tus KPI, hasta cuatro eventos por campaña.
+Los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) miden los resultados después de que un usuario recibe tu campaña (o entra en el grupo de control). Braze establece por defecto **Inicia sesión** dentro de una ventana corta (tres días). Puedes definir eventos de conversión que coincidan con tus indicador clave de rendimiento, hasta cuatro eventos por campaña.
 
 Después del lanzamiento, usa el [panel de conversiones]({{site.baseurl}}/user_guide/analytics/dashboards/conversions) para analizar tendencias de conversión en múltiples campañas o Canvas, comparar canales y ajustar rangos de fechas, métodos de atribución y desgloses en un solo lugar.
 

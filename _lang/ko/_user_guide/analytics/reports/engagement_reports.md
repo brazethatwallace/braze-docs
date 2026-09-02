@@ -76,7 +76,7 @@ tool:
 | 웹 푸시 | 발송, 열람, 반송, 본문 클릭 |
 | 인앱 메시지 | 노출 횟수, 클릭, 첫 번째 버튼 클릭, 두 번째 버튼 클릭 |
 | 웹훅  |  발송, 오류 |
-| SMS | 발송, 통신사 전송, 전달 확인, 전달 실패, 거부 |
+| 단문 메시지 서비스 | 발송, 통신사 전송, 전달 확인, 전달 실패, 거부 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 통계 추가 #add-statistics-to-your-reports" }
 
 ### 4단계: 보고서 설정 완료 {#step-4-complete-report-setup}

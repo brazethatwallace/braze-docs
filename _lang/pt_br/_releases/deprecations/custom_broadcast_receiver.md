@@ -146,6 +146,6 @@ val myExtra = extras.getString("my_key")
 {% endtabs %}
 
 {% alert note %}
-Para obter a documentação sobre as chaves de dados push da Braze, consulte o [SDK do Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html?query=object%20Constants).
+Para obter a documentação sobre as chaves de dados push da Braze, consulte o [SDK or kit de desenvolvimento de software do Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html?query=object%20Constants).
 {% endalert %}
 

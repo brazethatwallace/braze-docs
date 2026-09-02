@@ -12,21 +12,21 @@ search_tag: Partner
 
 > O [Looker](https://looker.com/), uma plataforma de business intelligence e análise de big data, permite que você explore, analise e compartilhe análises de negócios em tempo real de forma integrada.
 
-A integração entre a Braze e o Looker permite que os usuários da empresa aproveitem a sinalização de usuários dos [blocos do Looker](#looker-blocks) e das [Looker Actions](#looker-actions) por meio da REST API. Esses usuários sinalizados podem ser adicionados a segmentos para [direcionar](#segment-users) futuras Campaigns ou Canvas da Braze. Para usar o Looker com a Braze, recomendamos enviar seus dados da Braze para um [data warehouse usando o Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e, em seguida, usar os blocos do Looker da Braze para modelar e visualizar rapidamente seus dados da Braze no Looker.
+A integração entre a Braze e o Looker permite que os usuários da empresa aproveitem a sinalização de usuários dos [blocos do Looker](#looker-blocks) e das [Looker Actions](#looker-actions) por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API). Esses usuários sinalizados podem ser adicionados a segmentos para [direcionar](#segment-users) futuras Campaigns ou Canvas da Braze. Para usar o Looker com a Braze, recomendamos enviar seus dados da Braze para um [data warehouse usando o Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e, em seguida, usar os blocos do Looker da Braze para modelar e visualizar rapidamente seus dados da Braze no Looker.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 |---|---|
 | Conta Looker | É necessário ter uma [conta Looker](https://looker.com/) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | A URL do seu endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ### Considerações {#considerations}
 
 - Esse processo só funciona com dados que não tenham sido pivotados.
-- A API processa um máximo de 100.000 linhas por vez.
+- A API or interface de programação do aplicativo (API) processa um máximo de 100.000 linhas por vez.
 - A contagem final da sinalização de um usuário pode ser menor devido a duplicatas ou não usuários.
 
 ## Integração {#integration}
@@ -60,7 +60,7 @@ Esteja ciente das diferentes convenções de nomenclatura! Nomes personalizados 
 
 ### Looker Actions {#looker-actions}
 
-As Looker Actions permitem que você sinalize usuários na Braze por meio do endpoint da REST API a partir de um Looker Look. As ações exigem que uma dimensão seja marcada com `braze_id`. A ação anexará o valor sinalizado ao atributo personalizado `looker_export` do usuário.
+As Looker Actions permitem que você sinalize usuários na Braze por meio do endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) a partir de um Looker Look. As ações exigem que uma dimensão seja marcada com `braze_id`. A ação anexará o valor sinalizado ao atributo personalizado `looker_export` do usuário.
 
 {% alert important %}
 Somente os usuários existentes serão sinalizados. Não é possível usar Looks pivotados ao sinalizar dados na Braze.
@@ -68,7 +68,7 @@ Somente os usuários existentes serão sinalizados. Não é possível usar Looks
 
 #### Etapa 1: Configurar uma ação do Looker da Braze {#step-1-set-up-a-braze-looker-action}
 
-Configure uma ação do Looker da Braze com sua chave da API REST e o endpoint REST da Braze.
+Configure uma ação do Looker da Braze com sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e o endpoint REST or transferir estado representacional da Braze.
 
 ![A página de configuração do Looker Braze. Aqui você pode encontrar campos para a chave de API e o endpoint da API REST da Braze.]({% image_buster /assets/img/braze-looker-action.png %})
 
@@ -108,9 +108,9 @@ Observe as seguintes limitações:
 4. Dê um nome à exportação. Se nenhum for fornecido, `LOOKER_EXPORT` será usado.
 5. Em **Advanced Options**, selecione **Results in Table** ou **All Results** e, em seguida, **Send**.<br><br>![Caixa de diálogo de envio do Looker com a ação da Braze e as opções avançadas selecionadas.]({% image_buster /assets/img/send-looker-action.png %})<br><br>Se a exportação tiver sido enviada corretamente, `LOOKER_EXPORT` deverá aparecer no perfil do usuário como um atributo personalizado com o valor inserido na ação.<br><br>![Perfil de usuário da Braze mostrando o valor do atributo personalizado LOOKER_EXPORT.]({% image_buster /assets/img/custom-attributes-looker.png %})
 
-##### Exemplo de chamada de API de saída {#example-outgoing-api}
+##### Exemplo de chamada de API or interface de programação do aplicativo (API) de saída {#example-outgoing-api}
 
-A seguir, um exemplo de uma chamada de API de saída, que será enviada para o [endpoint `/users/track/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+A seguir, um exemplo de uma chamada de API or interface de programação do aplicativo (API) de saída, que será enviada para o [endpoint `/users/track/`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ###### Cabeçalho {#header}
 ```
@@ -143,22 +143,22 @@ Authorization: Bearer [API_KEY]
 
 ### Segmentar usuários na Braze {#segment-users}
 
-Na Braze, para criar um segmento desses usuários sinalizados, navegue até **Segments** em **Engagement**, nomeie seu segmento e selecione **Looker_Export** como o filtro. Em seguida, use a opção "includes value" e forneça o sinalizador de atributo personalizado que você atribuiu no Looker.
+Na Braze, para criar um Segment or segmento or segmento desses usuários sinalizados, navegue até **Segments** em **Engagement**, nomeie seu Segment or segmento or segmento e selecione **Looker_Export** como o filtro. Em seguida, use a opção "includes value" e forneça o sinalizador de atributo personalizado que você atribuiu no Looker.
 
 ![No criador de segmentos da Braze, o filtro "looker_export" está definido como "includes_value" e "Looker".]({% image_buster /assets/img/braze_segments.png %})
 
-Depois de salvo, você pode fazer referência a esse segmento durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
+Depois de salvo, você pode fazer referência a esse Segment or segmento or segmento durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
 
 ## Solução de problemas {#troubleshooting}
 Se estiver tendo problemas com as Looker Actions, adicione um usuário teste aos [grupos internos]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) e verifique o seguinte:
 
-* A chave de API tem as permissões `users.track`.
-* O endpoint REST correto foi inserido, como `https://rest.iad-01.braze.com`.
+* A chave de API or interface de programação do aplicativo (API) tem as permissões `users.track`.
+* O endpoint REST or transferir estado representacional correto foi inserido, como `https://rest.iad-01.braze.com`.
 * Uma tag `braze_id` está definida na visualização da dimensão.
 * Sua consulta inclui a dimensão ou o atributo de ID como uma coluna.
 * Os resultados do Looker não são pivotados.
 * A chave exclusiva foi selecionada corretamente. Normalmente, o `external_id`.
-* O `braze_id` na dimensão é diferente do `braze_id` na API. O `braze_id` na dimensão é usado para indicar que é o campo `id` para a API da Braze. Para a maioria das finalidades, o `external_id` é a chave primária no ato do envio.
+* O `braze_id` na dimensão é diferente do `braze_id` na API or interface de programação do aplicativo (API). O `braze_id` na dimensão é usado para indicar que é o campo `id` para a API or interface de programação do aplicativo (API) da Braze. Para a maioria das finalidades, o `external_id` é a chave primária no ato do envio.
 * O usuário com o `external_id` existe na plataforma da Braze.
 * O campo `looker_export` está definido como `Automatically Detect` em `Braze Platform > Settings > Manage Settings > Custom Attributes`.
 * As alterações foram confirmadas para a produção. As Looker Actions funcionam em configurações de produção.

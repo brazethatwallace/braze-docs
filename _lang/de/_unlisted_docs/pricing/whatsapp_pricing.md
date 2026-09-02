@@ -61,7 +61,7 @@ WhatsApp nimmt ab dem 1. Juli 2025 zwei weitere Änderungen an der Preisgestaltu
 
 #### Warum wird diese Änderung vorgenommen? {#why-are-they-making-this-change}
 
-Meta wechselt zu einem „Pro-Nachricht“-Modell, um Marken die Berechnung des Return-on-Investment (ROI) zu vereinfachen. Diese Änderung erleichtert es Marken außerdem, direkte ROI-Vergleiche mit anderen Kanälen anzustellen, die pro Nachricht abgerechnet werden.
+Meta wechselt zu einem „Pro-Nachricht“-Modell, um Marken die Berechnung des Return-on-Investment (Kapitalrendite or ROI) zu vereinfachen. Diese Änderung erleichtert es Marken außerdem, direkte Kapitalrendite or ROI-Vergleiche mit anderen Kanälen anzustellen, die pro Nachricht abgerechnet werden.
 
 #### Wie wirkt sich das auf meine aktuelle WhatsApp-Nutzung aus? {#how-will-this-affect-my-current-whatsapp-usage}
 
@@ -113,19 +113,19 @@ Wir empfehlen die folgenden bewährten Vorgehensweisen, um diese Änderungen zu 
 
 ### Utility-Conversations
 
-Am 1. August 2024 hat Meta die Preise für Utility-Conversations gesenkt, um Marken dazu zu ermutigen, mehr Post-Purchase-Customer-Journeys auf der Plattform umzusetzen. Wir haben diese Kostensenkungen anteilig an Ihre Message-Credits oder WhatsApp-Credits weitergegeben. Dieses Update trat am selben Tag wie das von Meta in Kraft (1. August).
+Am 1. August 2024 hat Meta die Preise für Utility-Conversations gesenkt, um Marken dazu zu ermutigen, mehr Post-Purchase-Customer-Journeys auf der Plattform umzusetzen. Wir haben diese Kostensenkungen anteilig an Ihre Message-Credits oder WhatsApp-Credits weitergegeben. Dieses Update or aktualisieren trat am selben Tag wie das von Meta in Kraft (1. August).
 
 #### Was sind Utility-Conversations? {#what-are-utility-conversations}
 
 Utility-Conversations ermöglichen es Ihnen, auf bestimmte Aktionen oder Anfragen von Kund:innen zu reagieren. Beispiele umfassen Opt-in-Bestätigungen, Bestellaktualisierungen und -bestätigungen, Kontoaktualisierungen oder Benachrichtigungen (z. B. Zahlungserinnerungen) oder Feedback-Umfragen.
 
-#### Wie können Sie von diesem Update profitieren? {#how-can-you-benefit-from-this-update}
+#### Wie können Sie von diesem Update or aktualisieren profitieren? {#how-can-you-benefit-from-this-update}
 
-Wir empfehlen Ihnen, dieses Update zu nutzen, indem Sie WhatsApp für transaktionales Messaging einsetzen. Sie können auch in Betracht ziehen, einige Ihrer transaktionalen SMS-Nachrichten auf WhatsApp umzustellen, wenn es für Ihre Marke sinnvoll ist (basierend auf Ihrer Zielgruppenreichweite und dem Engagement auf jedem Kanal). Dies kann zum Beispiel eine gute Option für Kund:innen in Asien, Lateinamerika und Europa sein, wo WhatsApp ein stark genutzter Kanal ist.
+Wir empfehlen Ihnen, dieses Update or aktualisieren zu nutzen, indem Sie WhatsApp für transaktionales Messaging einsetzen. Sie können auch in Betracht ziehen, einige Ihrer transaktionalen Kurzmitteilungsdienst or SMS-Nachrichten auf WhatsApp umzustellen, wenn es für Ihre Marke sinnvoll ist (basierend auf Ihrer Zielgruppenreichweite und dem Engagement auf jedem Kanal). Dies kann zum Beispiel eine gute Option für Kund:innen in Asien, Lateinamerika und Europa sein, wo WhatsApp ein stark genutzter Kanal ist.
 
 ### Marketing-Conversations
 
-Am 1. Oktober 2024 hat Meta die Preise für Marketing-Conversations im Vereinigten Königreich um 25 % gesenkt, um die aktuelle Nachfrage widerzuspiegeln. Wir haben diese Kostensenkungen anteilig an Ihre Message-Credits oder WhatsApp-Credits weitergegeben. Dieses Update trat am selben Tag wie das von Meta in Kraft (1. Oktober).
+Am 1. Oktober 2024 hat Meta die Preise für Marketing-Conversations im Vereinigten Königreich um 25 % gesenkt, um die aktuelle Nachfrage widerzuspiegeln. Wir haben diese Kostensenkungen anteilig an Ihre Message-Credits oder WhatsApp-Credits weitergegeben. Dieses Update or aktualisieren trat am selben Tag wie das von Meta in Kraft (1. Oktober).
 
 #### Was sind Marketing-Conversations? {#what-are-marketing-conversations}
 
@@ -139,7 +139,7 @@ Ab dem 1. November 2024 sind alle Service-Conversations kostenlos. Service-Conve
 
 Service-Conversations ermöglichen es Ihnen, auf Kundenanfragen zu reagieren. Dazu gehören Unterhaltungen, die von Endnutzer:innen gestartet werden und bei denen die Marke mit einer [Antwortnachricht]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) statt einer Template-Nachricht antwortet.
 
-#### Wie können Sie von diesem Update profitieren?
+#### Wie können Sie von diesem Update or aktualisieren profitieren?
 
 Einige Unterhaltungen, die zuvor als „Service“ berechnet wurden, sind jetzt kostenlos. Dazu gehören:
 
@@ -186,4 +186,4 @@ Detaillierte Informationen zur Senkung der Utility-Conversations finden Sie im f
 | Vereinigtes Königreich                     | 44,7 %                   |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Um besser zu verstehen, wie Sie von diesen Updates profitieren können, wenden Sie sich an Ihren Customer-Success-Manager.
+Um besser zu verstehen, wie Sie von diesen Updates profitieren können, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.

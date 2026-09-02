@@ -13,13 +13,13 @@ search_tag: Partner
 
 La fonctionnalité Data Push d'Oracle Crowdtwist permet de transmettre les métadonnées d'un utilisateur ou d'un événement à chaque fois qu'une mise à jour se produit dans la plateforme de Crowdtwist.
 
-Ce guide explique comment intégrer les flux Live Push du profil utilisateur, de l'activité utilisateur et de l'échange de récompenses utilisateur d'Oracle Crowdtwist dans votre environnement Braze. Deux types de Data Push supplémentaires sont disponibles mais ne sont pas explicitement traités dans cette documentation ; leur configuration suit les mêmes principes que ceux décrits dans ce guide.
+Ce guide explique comment intégrer les flux en direct or en ligne/en production/instantané Push du profil utilisateur, de l'activité utilisateur et de l'échange de récompenses utilisateur d'Oracle Crowdtwist dans votre environnement Braze. Deux types de Data Push supplémentaires sont disponibles mais ne sont pas explicitement traités dans cette documentation ; leur configuration suit les mêmes principes que ceux décrits dans ce guide.
 
-* [Live Push Profil utilisateur](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html) : comprend la création de nouveaux profils et la mise à jour des profils existants.
+* [en direct or en ligne/en production/instantané Push Profil utilisateur](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html) : comprend la création de nouveaux profils et la mise à jour des profils existants.
 
-* [Live Push Activité utilisateur](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html) : comprend des données sur l'achèvement des activités des utilisateurs.
+* [en direct or en ligne/en production/instantané Push Activité utilisateur](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html) : comprend des données sur l'achèvement des activités des utilisateurs.
 
-* [Live Push Échange de récompenses utilisateur](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserRedemption.html) : comprend des données sur l'échange de récompenses par les utilisateurs.
+* [en direct or en ligne/en production/instantané Push Échange de récompenses utilisateur](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserRedemption.html) : comprend des données sur l'échange de récompenses par les utilisateurs.
 
 En utilisant un modèle de Transformation des données Braze, vous pouvez filtrer les éléments du Data Push qui ne sont pas pertinents pour Braze, et attribuer les valeurs nécessaires dans Braze afin qu'elles puissent être exploitées par les « destinations » disponibles.
 

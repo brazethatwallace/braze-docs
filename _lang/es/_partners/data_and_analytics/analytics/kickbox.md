@@ -13,14 +13,14 @@ search_tag: Partner
 
 Kickbox te permite validar la calidad de las direcciones de correo electrónico de tus usuarios en el momento en que se actualiza un perfil de usuario en Braze. Esto se consigue mediante un flujo de trabajo Canvas o Campaign específico, que se desencadena al poblar el campo `email` de un perfil.
 
-El Canvas o la Campaign enviará un webhook a Kickbox, compartiendo la dirección de correo electrónico del usuario. Kickbox validará la dirección de correo electrónico y utilizará el punto de conexión de la REST API de Braze para actualizar el perfil de usuario con un atributo personalizado que detalle su calidad.
+El Canvas o la Campaign enviará un webhook a Kickbox, compartiendo la dirección de correo electrónico del usuario. Kickbox validará la dirección de correo electrónico y utilizará el punto de conexión de la REST or transferencia de estado representacional API de Braze para actualizar el perfil de usuario con un atributo personalizado que detalle su calidad.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --------------------------------------|-------------------------------------------------------------------------------|
 | Cuenta Kickbox | Se requiere una cuenta activa de Kickbox para utilizar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br>Se puede crear en el dashboard de Braze yendo a **Configuración** > **API e identificadores** > **Claves de API** |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br>Se puede crear en el dashboard de Braze yendo a **Configuración** > **API e identificadores** > **Claves de API** |
 | Solicita acceso a la integración. | Pide al equipo de soporte de Kickbox que te conceda acceso a la integración de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

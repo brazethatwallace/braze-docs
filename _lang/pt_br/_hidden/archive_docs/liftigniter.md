@@ -23,12 +23,12 @@ A integração da LiftIgniter com a Braze usa Conteúdo conectado para permitir 
 | Requisito | Descrição |
 | --- | --- |
 | Conta LiftIgniter | É necessário ter uma [conta da LiftIgniter](https://console.liftigniter.com/login) para usar essa parceria. |
-| Integração da API da LiftIgniter | Você deve [integrar](https://support.liftigniter.com/support/solutions/articles/30000024667-api-integration-overview) a LiftIgniter ao seu site ou app para extrair recomendações. |
+| Integração da API or interface de programação do aplicativo (API) da LiftIgniter | Você deve [integrar](https://support.liftigniter.com/support/solutions/articles/30000024667-api-integration-overview) a LiftIgniter ao seu site ou app para extrair recomendações. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-Use a [REST API da LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389) para inserir conteúdo personalizado nas suas mensagens. Depois de ter sua conta da LiftIgniter e de integrar a LiftIgniter ao seu app, adicione o seguinte modelo ao seu criador de mensagens para chamar o conteúdo das mensagens, substituindo as informações conforme necessário (`x-api-key`, `theapikey`, etc.).
+Use a [REST or transferir estado representacional API or interface de programação do aplicativo (API) da LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389) para inserir conteúdo personalizado nas suas mensagens. Depois de ter sua conta da LiftIgniter e de integrar a LiftIgniter ao seu app, adicione o seguinte modelo ao seu criador de mensagens para chamar o conteúdo das mensagens, substituindo as informações conforme necessário (`x-api-key`, `theapikey`, etc.).
 
 {% raw %}
 ```

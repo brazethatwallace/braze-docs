@@ -19,7 +19,7 @@ Vous pouvez également fournir un payload POST en spécifiant `:body` suivi d'un
 Par défaut, le contenu connecté ne met pas non plus en cache les appels POST. Vous pouvez modifier ce comportement en ajoutant `:cache_max_age` à l'appel POST du contenu connecté.
 
 {% tabs %}
-{% tab Content-type par défaut %}
+{% tab Content-Type par défaut %}
 
 {% raw %}
 ```js

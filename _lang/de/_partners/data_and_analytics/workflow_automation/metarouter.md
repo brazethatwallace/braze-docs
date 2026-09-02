@@ -30,8 +30,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Anforderung           | Beschreibung                                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein MetaRouter-Konto  | Ein [MetaRouter Enterprise-Konto](https://enterprise.metarouter.io/).                                                                                |
-| Braze REST-API-Schlüssel    | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Um einen zu erstellen, gehen Sie zu **Einstellungen** > **API-Schlüssel**.                                                |
-| Ein Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze Representational State Transfer-API-Schlüssel    | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. Um einen zu erstellen, gehen Sie zu **Einstellungen** > **API-Schlüssel**.                                                |
+| Ein Braze Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## MetaRouter einrichten {#setting-up-metarouter}
@@ -40,7 +40,7 @@ So richten Sie MetaRouter für Ihre Integration in Braze ein:
 
 1. Gehen Sie zu MetaRouter und erstellen Sie einen neuen Cluster.
 2. Wählen Sie die Events aus, die Sie tracken möchten.
-3. Installieren Sie ein MetaRouter SDK und integrieren Sie Events in Ihre Website.
+3. Installieren Sie ein MetaRouter SDK or Software-Development-Kit und integrieren Sie Events in Ihre Website.
 4. Verbinden Sie Ihren Cluster mit der UI Ihrer Website.
 5. Erstellen Sie eine neue Pipeline.
 6. Überprüfen Sie, ob Ihre Website Events an MetaRouter sendet.

@@ -6,7 +6,7 @@ Braze bietet Methoden für die Zuweisung von Attributen an Benutzer. Auf dem Das
 
 ### Standard-Nutzerattribute
 
-Um Nutzer:innen-Attribute zu setzen, die von Braze automatisch gesammelt werden, können Sie die Setter-Methoden verwenden, die mit dem SDK geliefert werden.
+Um Nutzer:innen-Attribute zu setzen, die von Braze automatisch gesammelt werden, können Sie die Setter-Methoden verwenden, die mit dem SDK or Software-Development-Kit geliefert werden.
 
 ```javascript
 Braze.setFirstName("Name");

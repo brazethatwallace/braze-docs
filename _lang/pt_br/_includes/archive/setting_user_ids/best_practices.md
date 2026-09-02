@@ -3,7 +3,7 @@
 | Contexto de identificação | Comportamento de preservação |
 | ---------------------- | -------------------------- |
 | O usuário **não foi** identificado anteriormente | O histórico anônimo **é mesclado** com o perfil do usuário após a identificação. |
-| O usuário **foi** previamente identificado no app ou via API | O histórico anônimo **não é mesclado** com o perfil do usuário após a identificação. |
+| O usuário **foi** previamente identificado no app ou via API or interface de programação do aplicativo (API) | O histórico anônimo **não é mesclado** com o perfil do usuário após a identificação. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preservação automática do histórico do usuário anônimo" }
 
 Consulte [Perfis de usuários identificados]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#identified-user-profiles) para saber mais sobre o que ocorre quando você identifica usuários anônimos.

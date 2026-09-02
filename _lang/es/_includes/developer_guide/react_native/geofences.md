@@ -1,5 +1,5 @@
 {% alert important %}
-Las geovallas son compatibles **tanto con iOS como con Android** en el SDK de React Native. El método `requestLocationInitialization` es exclusivo de Android y no es necesario para iOS. El método `requestGeofences` está disponible en ambas plataformas. De forma predeterminada, el SDK puede solicitar y supervisar automáticamente las geovallas cuando la ubicación está disponible; puedes confiar en esta configuración automática o llamar a `requestGeofences` para solicitarlo manualmente.
+Las geovallas son compatibles **tanto con iOS como con Android** en el SDK or kit de desarrollo de software de React Native. El método `requestLocationInitialization` es exclusivo de Android y no es necesario para iOS. El método `requestGeofences` está disponible en ambas plataformas. De forma predeterminada, el SDK or kit de desarrollo de software puede solicitar y supervisar automáticamente las geovallas cuando la ubicación está disponible; puedes confiar en esta configuración automática o llamar a `requestGeofences` para solicitarlo manualmente.
 {% endalert %}
 
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
@@ -12,7 +12,7 @@ Las geovallas son compatibles **tanto con iOS como con Android** en el SDK de Re
 
 ### Paso 2: Completar la configuración nativa de Android {#step-2-complete-native-android-setup}
 
-Dado que el SDK de React Native utiliza el SDK nativo de Braze para Android, completa la configuración de geovallas nativas de Android para tu proyecto. El equivalente en iOS de estos pasos se describe en la guía nativa de geovallas del SDK de Swift ([pasos 2.2 a 3.1]({{site.baseurl}}/developer_guide/geofences/?sdktab=swift#swift_step-21-add-the-brazelocation-module); el paso 2.1 (Añadir el módulo BrazeLocation) no es necesario para React Native, ya que BrazeLocation ya está incluido implícitamente en el SDK de Braze React Native.
+Dado que el SDK or kit de desarrollo de software de React Native utiliza el SDK or kit de desarrollo de software nativo de Braze para Android, completa la configuración de geovallas nativas de Android para tu proyecto. El equivalente en iOS de estos pasos se describe en la guía nativa de geovallas del SDK or kit de desarrollo de software de Swift ([pasos 2.2 a 3.1]({{site.baseurl}}/developer_guide/geofences/?sdktab=swift#swift_step-21-add-the-brazelocation-module); el paso 2.1 (Añadir el módulo BrazeLocation) no es necesario para React Native, ya que BrazeLocation ya está incluido implícitamente en el SDK or kit de desarrollo de software de Braze React Native.
 
 1. **Actualiza `build.gradle`:** Añade `android-sdk-location` y la ubicación de Google Play Services. Consulta [geovallas de Android]({{site.baseurl}}/developer_guide/geofences/?sdktab=android).
 2. **Actualiza el manifiesto:** Añade permisos de ubicación y el receptor de arranque de Braze. Consulta [geovallas de Android]({{site.baseurl}}/developer_guide/geofences/?sdktab=android).
@@ -20,13 +20,13 @@ Dado que el SDK de React Native utiliza el SDK nativo de Braze para Android, com
 
 ### Paso 3: Completar la configuración nativa de iOS {#step-3-complete-native-ios-setup}
 
-Dado que el SDK de React Native utiliza el SDK nativo de Braze para iOS, completa la configuración de geovallas nativas de iOS para tu proyecto siguiendo las instrucciones del SDK nativo de Swift a partir del paso 2.2: actualiza tu `Info.plist` con descripciones del uso de la ubicación (paso 2.2) y habilita las geovallas en tu configuración de Braze, incluyendo `automaticGeofenceRequests = true` (paso 3); opcionalmente, habilita los informes en segundo plano (paso 3.1). El paso 2.1 (Añadir el módulo BrazeLocation) no es necesario, ya que BrazeLocation ya está incluido implícitamente en el SDK de Braze React Native. Consulta [geovallas de iOS, pasos 2.2 a 3.1]({{site.baseurl}}/developer_guide/geofences/?sdktab=swift#swift_step-21-add-the-brazelocation-module).
+Dado que el SDK or kit de desarrollo de software de React Native utiliza el SDK or kit de desarrollo de software nativo de Braze para iOS, completa la configuración de geovallas nativas de iOS para tu proyecto siguiendo las instrucciones del SDK or kit de desarrollo de software nativo de Swift a partir del paso 2.2: actualiza tu `Info.plist` con descripciones del uso de la ubicación (paso 2.2) y habilita las geovallas en tu configuración de Braze, incluyendo `automaticGeofenceRequests = true` (paso 3); opcionalmente, habilita los informes en segundo plano (paso 3.1). El paso 2.1 (Añadir el módulo BrazeLocation) no es necesario, ya que BrazeLocation ya está incluido implícitamente en el SDK or kit de desarrollo de software de Braze React Native. Consulta [geovallas de iOS, pasos 2.2 a 3.1]({{site.baseurl}}/developer_guide/geofences/?sdktab=swift#swift_step-21-add-the-brazelocation-module).
 
 ### Paso 4: Solicitar geovallas desde JavaScript {#step-4-request-geofences-from-javascript}
 
 **En Android:** Después de que el usuario conceda los permisos de ubicación, llama a `requestLocationInitialization()` para inicializar las características de ubicación de Braze y solicitar geovallas a los servidores de Braze. Este método no es compatible con iOS y no es necesario para iOS.
 
-**En iOS:** El equivalente es habilitar la configuración `automaticGeofenceRequests` en tu configuración nativa de Swift u Objective-C de Braze (consulta el paso 3). Con esta opción habilitada, el SDK solicita y supervisa automáticamente las geovallas cuando la ubicación está disponible; no se requiere ninguna llamada JavaScript equivalente a `requestLocationInitialization`.
+**En iOS:** El equivalente es habilitar la configuración `automaticGeofenceRequests` en tu configuración nativa de Swift u Objective-C de Braze (consulta el paso 3). Con esta opción habilitada, el SDK or kit de desarrollo de software solicita y supervisa automáticamente las geovallas cuando la ubicación está disponible; no se requiere ninguna llamada JavaScript equivalente a `requestLocationInitialization`.
 
 ```javascript
 import Braze from '@braze/react-native-sdk';
@@ -49,5 +49,5 @@ Braze.requestGeofences(33.078947, -116.601356);
 ```
 
 {% alert important %}
-Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK o manualmente con este método.
+Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK or kit de desarrollo de software o manualmente con este método.
 {% endalert %}

@@ -32,23 +32,23 @@ Lesen Sie [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/cre
 
 ### Entry-Zielgruppenfilter überprüfen {#review-entry-audience-filters}
 
-Vermeiden Sie es generell, einen aktionsbasierten oder API-getriggerten Canvas mit demselben Trigger wie dem Zielgruppenfilter zu konfigurieren. Nachdem ein Canvas gestartet wurde, werden Nutzer:innen, die eine bestimmte Aktion ausführen, beispielsweise automatisch in die Entry-Zielgruppe aufgenommen – daher ist es nicht nötig, das Event zusätzlich als Zielgruppenfilter hinzuzufügen.
+Vermeiden Sie es generell, einen aktionsbasierten oder API-getriggerten Canvas mit demselben Trigger or triggern wie dem Zielgruppenfilter zu konfigurieren. Nachdem ein Canvas gestartet wurde, werden Nutzer:innen, die eine bestimmte Aktion ausführen, beispielsweise automatisch in die Entry-Zielgruppe aufgenommen – daher ist es nicht nötig, das Event zusätzlich als Zielgruppenfilter hinzuzufügen.
 
 Weitere Details zu verfügbaren Segmentierungsfiltern für die Zielgruppenansprache finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ### Mehrere API-Anfragen bündeln {#batch-multiple-api-requests}
 
-Fassen Sie Ihre Anfragen in einem einzigen API-Aufruf zusammen, anstatt mehrere Aufrufe zu verwenden, um sicherzustellen, dass das Nutzerprofil zuerst erstellt oder aktualisiert wird. Weitere Beispiele finden Sie unter [Mehrere Endpunkte verwenden]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints).
+Fassen Sie Ihre Anfragen in einem einzigen API-Aufruf zusammen, anstatt mehrere Aufrufe zu verwenden, um sicherzustellen, dass das Kundenprofil or Nutzerprofil zuerst erstellt oder aktualisiert wird. Weitere Beispiele finden Sie unter [Mehrere Endpunkte verwenden]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints).
 
 ### Eine Verzögerung hinzufügen {#add-a-delay}
 
 Eine weitere Möglichkeit, Race-Conditions zu vermeiden, besteht darin, den Delay-Schritt (idealerweise auf 5 Minuten eingestellt) als ersten Schritt Ihres Canvas zu verwenden.
 
-So bleibt ausreichend Zeit, damit Attribute, E-Mail-Adressen und Push-Token für neue Nutzerprofile verarbeitet werden, bevor diese für die nachfolgenden Canvas-Schritte angesprochen werden. Ohne diesen Delay-Schritt kann es vorkommen, dass eine E-Mail an Nutzer:innen gesendet wird, deren E-Mail-Adresse noch nicht aktualisiert wurde.
+So bleibt ausreichend Zeit, damit Attribute, E-Mail-Adressen und Push-Token / Textbaustein für neue Nutzerprofile verarbeitet werden, bevor diese für die nachfolgenden Canvas-Schritte angesprochen werden. Ohne diesen Delay-Schritt kann es vorkommen, dass eine E-Mail an Nutzer:innen gesendet wird, deren E-Mail-Adresse noch nicht aktualisiert wurde.
 
 ## Zustellungszeiten {#delivery-times}
 
-Das Festlegen einer Canvas-Zustellungszeit in Realtime kann zu einer Steigerung von Engagement und Konversionsraten führen. Achten Sie darauf, welche Zustellungszeit Sie für Ihr Canvas eingestellt haben. Um Engagement und Konversionsraten zu steigern, ist es am besten, Canvases in Realtime zu triggern, anstatt sie auf geplanter, wiederkehrender Basis zu versenden.
+Das Festlegen einer Canvas-Zustellungszeit in Realtime kann zu einer Steigerung von Engagement und Konversionsraten führen. Achten Sie darauf, welche Zustellungszeit Sie für Ihr Canvas eingestellt haben. Um Engagement und Konversionsraten zu steigern, ist es am besten, Canvase in Realtime zu Trigger or triggern or triggern, anstatt sie auf geplanter, wiederkehrender Basis zu versenden.
 
 Wenn Sie eine geplante Zustellung für Ihr Canvas ausgewählt haben, empfiehlt Braze, Ihr Canvas mindestens 24 Stunden vor dem gewünschten Start zu planen, damit genügend Zeit für Anpassungen an Ihrem Canvas bleibt.
 
@@ -81,14 +81,14 @@ Der [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_compone
 
 ## Testen vor dem Start {#testing-before-launch}
 
-Nachdem Sie die Details Ihres Canvas überprüft haben, finden Sie unter [Test-Canvases senden]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) verschiedene Methoden, die Sie nutzen können, um Ihren Canvas mit Testnutzer:innen zu testen.
+Nachdem Sie die Details Ihres Canvas überprüft haben, finden Sie unter [Test-Canvase senden]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) verschiedene Methoden, die Sie nutzen können, um Ihren Canvas mit Testnutzer:innen zu testen.
 
 ## Checkliste für den Start {#launch-checklist}
 
 ### Nutzerverfügbarkeit prüfen {#check-user-availability}
 
 - Stellen Sie sicher, dass Ihre Nutzer:innen Ihre Segmentierungskriterien erfüllen.
-- Bestätigen Sie, dass der Abo-Status „subscribed“ oder „opted-in“ ist und das Push-Token vorhanden ist. Wenn Sie diese als Canvas-Eintrittsregeln hinzugefügt haben, ist es möglich, dass sich Nutzer:innen zwischen dem Eintritt in Ihren Canvas und dem Empfang des Nachrichtenschritts abgemeldet haben.
+- Bestätigen Sie, dass der Abo-Status „subscribed“ oder „opted-in“ ist und das Push-Token / Textbaustein vorhanden ist. Wenn Sie diese als Canvas-Eintrittsregeln hinzugefügt haben, ist es möglich, dass sich Nutzer:innen zwischen dem Eintritt in Ihren Canvas und dem Empfang des Nachrichtenschritts abgemeldet haben.
 - Bestätigen Sie, dass sie mit Ihren Canvas-Sendeeinstellungen übereinstimmen. (Wenn Nutzer:innen „subscribed“ sind, aber die Einstellungen auf „Opted-in“ gesetzt sind, werden Nutzer:innen für den Kanal nicht aktiviert.)
 - Wenn globales Frequency-Capping für Ihren Canvas aktiviert ist, prüfen Sie, ob Ihre Regeln einschränken, wie oft jede:r Nutzer:in eine Nachricht von einem bestimmten Kanal erhalten kann.
 - Wenn Ruhezeiten aktiviert sind, kann die Sendezeit Ihrer Nachricht beeinflusst werden, was bedeutet, dass Ihre Nachricht zum nächsten verfügbaren Zeitpunkt (wenn die Ruhezeiten enden) gesendet oder ganz storniert werden kann.

@@ -19,7 +19,7 @@ Para evitar que estos datos se envíen a Braze, puedes incluir un objeto de dato
 ### Elegir entre lista de bloqueo o eliminación {#choosing-blocklisting-or-deletion}
 
 - **Lista de bloqueo** mantiene los atributos personalizados, eventos o compras existentes en los perfiles de usuario, pero Braze ya no procesa datos nuevos para esos objetos.
-- **Eliminación** borra esos datos de los perfiles de usuario. Los atributos personalizados y eventos eliminados pasan al estado **Papelera** durante siete días, período en el que puedes restaurarlos. Después de siete días, Braze los elimina de forma permanente. La eliminación no impide que lleguen datos nuevos, así que confirma que tu SDK, API o importaciones CSV ya no envíen esos datos antes de eliminarlos.
+- **Eliminación** borra esos datos de los perfiles de usuario. Los atributos personalizados y eventos eliminados pasan al estado **Papelera** durante siete días, período en el que puedes restaurarlos. Después de siete días, Braze los elimina de forma permanente. La eliminación no impide que lleguen datos nuevos, así que confirma que tu SDK or kit de desarrollo de software, API o importaciones CSV ya no envíen esos datos antes de eliminarlos.
 
 La lista de bloqueo envía información de bloqueo al dispositivo de cada usuario y puede consumir muchos datos. Incluir en la lista de bloqueo una cantidad muy grande de atributos, eventos o compras (por ejemplo, más de 100) puede afectar el rendimiento de la aplicación. Si ya no planeas enviar esos datos a Braze, la eliminación suele ser el enfoque más adecuado después de que hayas detenido el envío desde la integración.
 
@@ -71,7 +71,7 @@ Para incluir datos personalizados en la lista de bloqueo, necesitas los [permiso
 
 {% enddetails %}
 
-Los datos incluidos en la lista de bloqueo no son enviados por el SDK, y el panel de Braze no procesa datos bloqueados de otras fuentes (por ejemplo, la API). Sin embargo, incluir en la lista de bloqueo no elimina datos de los perfiles de usuario ni reduce retroactivamente la cantidad de puntos de datos generados por ese objeto de datos personalizado. Los datos bloqueados están ocultos y aún pueden usarse para la creación de plantillas Liquid.
+Los datos incluidos en la lista de bloqueo no son enviados por el SDK or kit de desarrollo de software, y el panel de Braze no procesa datos bloqueados de otras fuentes (por ejemplo, la API). Sin embargo, incluir en la lista de bloqueo no elimina datos de los perfiles de usuario ni reduce retroactivamente la cantidad de puntos de datos generados por ese objeto de datos personalizado. Los datos bloqueados están ocultos y aún pueden usarse para la creación de plantillas Liquid.
 
 ### Incluir en la lista de bloqueo atributos personalizados, eventos personalizados y productos {#blocklisting-custom-attributes-custom-events-and-products}
 
@@ -87,7 +87,7 @@ Para dejar de rastrear un atributo personalizado, evento o producto específico,
 
 ![Varios atributos personalizados seleccionados que se incluyen en la lista de bloqueo en la página de atributos personalizados.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-Puedes incluir en la lista de bloqueo hasta 300 atributos personalizados y 300 eventos personalizados. Para evitar la recopilación de ciertos atributos de dispositivo, consulta nuestra [guía del SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
+Puedes incluir en la lista de bloqueo hasta 300 atributos personalizados y 300 eventos personalizados. Para evitar la recopilación de ciertos atributos de dispositivo, consulta nuestra [guía del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
 
 {% alert important %}
 Los atributos personalizados o eventos personalizados con estado **Papelera** cuentan para el límite de la lista de bloqueo hasta que se eliminen.
@@ -107,7 +107,7 @@ Para lograr esto, Braze envía la información de bloqueo a cada dispositivo. Es
 
 Incluir en la lista de bloqueo una gran cantidad de eventos y atributos es posible, pero no recomendable. Esto se debe a que cada vez que se realiza un evento o se envía (potencialmente) un atributo a Braze, ese evento o atributo debe verificarse contra toda la lista de bloqueo.
 
-Se envían hasta 300 elementos al SDK para la lista de bloqueo. Si incluyes en la lista de bloqueo más de 300 elementos, estos datos se envían desde el SDK. Si no necesitas usar el evento o atributo en el futuro, considera eliminarlo del código de tu aplicación en la próxima versión. Los cambios en la lista de bloqueo pueden tardar unos minutos en propagarse. Puedes volver a habilitar cualquier evento o atributo bloqueado en cualquier momento.
+Se envían hasta 300 elementos al SDK or kit de desarrollo de software para la lista de bloqueo. Si incluyes en la lista de bloqueo más de 300 elementos, estos datos se envían desde el SDK or kit de desarrollo de software. Si no necesitas usar el evento o atributo en el futuro, considera eliminarlo del código de tu aplicación en la próxima versión. Los cambios en la lista de bloqueo pueden tardar unos minutos en propagarse. Puedes volver a habilitar cualquier evento o atributo bloqueado en cualquier momento.
 
 ## Eliminar datos personalizados {#deleting-custom-data}
 

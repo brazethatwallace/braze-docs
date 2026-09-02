@@ -2,13 +2,13 @@
 nav_title: Objetos e filtros
 article_title: Objetos e filtros
 page_order: 1.5
-description: "Esta landing page lista os objetos e filtros da API da Braze usados em suas chamadas à API da Braze."
+description: "Esta landing page lista os objetos e filtros da API or interface de programação do aplicativo (API) da Braze usados em suas chamadas à API or interface de programação do aplicativo (API) da Braze."
 
 ---
 
 # Objetos e filtros {#objects-and-filters}
 
-> Esta página lista os objetos e filtros da API da Braze usados em suas chamadas à API da Braze.
+> Esta página lista os objetos e filtros da API or interface de programação do aplicativo (API) da Braze usados em suas chamadas à API or interface de programação do aplicativo (API) da Braze.
 
 ## Objetos e filtros
 

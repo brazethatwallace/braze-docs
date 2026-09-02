@@ -445,7 +445,7 @@ hide_toc: true
                 Anfragetyp
                 </label>
               <select id="doc_urgent" name="Request_Type" class="drop-down-sel">
-              <option value="urgent">Dringend: Ich melde ein Problem in Braze Docs oder habe ein Update mit hoher Priorität</option>
+              <option value="urgent">Dringend: Ich melde ein Problem in Braze Docs oder habe ein Update or aktualisieren mit hoher Priorität</option>
               <option value="feature">Feature: Ich habe ein neues Feature oder ein neues Verhalten für ein bestehendes Feature</option>
               <option value="suggestion" selected="selected">Vorschlag: Ich habe eine Verbesserungsidee oder benötige eine Klarstellung für einen Artikel</option>
               </select>
@@ -457,7 +457,7 @@ hide_toc: true
               <div id="disclosure-warning" class="alert alert-important" role="alert">
                 <div class="alert-msg">
                   <b>Wichtig: </b>
-                  KI unterstützt bei der Erstellung dieses Vorschlags, der vom Docs-Team und anderen internen Stakeholdern vor der Veröffentlichung geprüft wird. Bestätigen Sie, dass <strong>keine kundenspezifischen Informationen</strong> oder <strong>Kund:innen-Links</strong> enthalten sind.
+                  KI or künstliche Intelligenz unterstützt bei der Erstellung dieses Vorschlags, der vom Docs-Team und anderen internen Stakeholdern vor der Veröffentlichung geprüft wird. Bestätigen Sie, dass <strong>keine kundenspezifischen Informationen</strong> oder <strong>Kund:innen-Links</strong> enthalten sind.
                 </div>
               </div>
               </div>
@@ -491,15 +491,15 @@ hide_toc: true
               <div class="form-group">
 
                 <label for="doc_description" id="doc_description_label" style="margin-bottom:6px;line-height:1.2;">Beschreibung</label>
-                <div class="sublabel" style="margin-bottom:6px;">Geben Sie so viele Details wie möglich zum gewünschten Update an.</div>
-                <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
+                <div class="sublabel" style="margin-bottom:6px;">Geben Sie so viele Details wie möglich zum gewünschten Update or aktualisieren an.</div>
+                <textarea name="Description" class="form-control" id="doc_description" data-toggle="popover" data-Trigger or triggern="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
 
               <div class="form-group" id="resource_urls">
                 <label for="resource_urls" id="resource_urls_label">Ressourcen-URLs</label>
                  <div class="sublabel" style="margin-bottom:6px;">Fügen Sie URLs von Confluence, Productboard, Google Docs, Jira oder anderen Ressourcen zu diesem Feature hinzu.</div>
-                <textarea name="Resource_Urls" class="form-control" id="resource_urls" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
+                <textarea name="Resource_Urls" class="form-control" id="resource_urls" data-toggle="popover" data-Trigger or triggern="focus" data-placement="top" data-content=""
                   rows="2" ></textarea>
 
               </div>
@@ -508,7 +508,7 @@ hide_toc: true
 
                 <label for="doc_snippet" id="doc_snippet_label" style="margin-bottom:6px;line-height:1.2;">Code-Snippets (optional)</label>
                 <div class="sublabel" style="margin-bottom:6px;">Dies ist nützlich, wenn Sie Entwickler:in sind. Geben Sie Kontext an und stellen Sie sicher, dass die verwendete Programmiersprache klar erkennbar ist.</div>
-                <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-trigger="focus" data-placement="top" data-content=""
+                <textarea name="Snippet" class="form-control" id="doc_snippet" data-toggle="popover" data-Trigger or triggern="focus" data-placement="top" data-content=""
                   rows="7"></textarea>
               </div>
               <div class="form-group" id="doc_verify_div">

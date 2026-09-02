@@ -14,7 +14,7 @@ noindex: true
 
 # Configuración de Push Stories {#push-story-setup}
 
-La función Push Stories requiere el framework `UNNotification` e iOS 10. La función solo está disponible a partir de la versión 3.2.1 del SDK de iOS.
+La función Push Stories requiere el framework `UNNotification` e iOS 10. La función solo está disponible a partir de la versión 3.2.1 del SDK or kit de desarrollo de software de iOS.
 
 ## Paso 1: Habilitar push en tu aplicación {#step-1-enable-push-in-your-app}
 
@@ -63,9 +63,9 @@ Si no añades tu aplicación a un grupo de aplicaciones, es posible que tu aplic
 ## Paso 4: Añadir el framework de Push Stories a tu aplicación {#step-4-adding-the-push-story-framework-to-your-app}
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package Administrador %}
 
-Después de seguir la [guía de integración de Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), añade `AppboyPushStory` a tu `Notification Content Extension`:
+Después de seguir la [guía de integración de Swift Package Administrador]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), añade `AppboyPushStory` a tu `Notification Content Extension`:
 
 ![En Xcode, en frameworks y bibliotecas, selecciona el icono "+" para añadir un framework.]({% image_buster /assets/img/ios/push_story/spm1.png %})
 
@@ -236,7 +236,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 #### Opción 2: Info.plist {#option-2-infoplist}
 
-Alternativamente, para configurar el espacio de trabajo de Push Stories desde tu archivo `Info.plist`, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade una subentrada de tipo cadena `PushStoryAppGroup` y establece el valor en el identificador de tu espacio de trabajo. Ten en cuenta que, antes de la versión 4.0.2 del SDK de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
+Alternativamente, para configurar el espacio de trabajo de Push Stories desde tu archivo `Info.plist`, añade un diccionario llamado `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade una subentrada de tipo cadena `PushStoryAppGroup` y establece el valor en el identificador de tu espacio de trabajo. Ten en cuenta que, antes de la versión 4.0.2 del SDK or kit de desarrollo de software de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
 
 ## Próximos pasos {#next-steps}
 

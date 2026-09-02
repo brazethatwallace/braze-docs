@@ -58,7 +58,7 @@ UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdent
 ```
 
 {% alert important %}
-Hierfür ist kein SDK-Update erforderlich.
+Hierfür ist kein SDK or Software-Development-Kit-Update or aktualisieren erforderlich.
 {% endalert %}
 
 {% alert tip %}
@@ -71,15 +71,15 @@ Geben Sie dann den Bezeichner der Zusammenfassungskategorie ein, den Sie in Ihre
 
 ### Vorläufige Push-Authentifizierung und stille Benachrichtigungen {#provisional-push}
 
-Apple bietet Marken die Möglichkeit, stille Push-Benachrichtigungen an die Benachrichtigungszentren ihrer Nutzer:innen zu senden, bevor diese offiziell und ausdrücklich zugestimmt haben. So erhalten Sie die Chance, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Sie müssen lediglich die [vorläufige Push-Benachrichtigung einrichten](#set-up-provisional-push-notifications) in Ihrer App – danach erhalten alle Nutzer:innen mit einem vorläufigen Push-Token Ihre Nachrichten.
+Apple bietet Marken die Möglichkeit, stille Push-Benachrichtigungen an die Benachrichtigungszentren ihrer Nutzer:innen zu senden, bevor diese offiziell und ausdrücklich zugestimmt haben. So erhalten Sie die Chance, den Wert Ihrer Nachrichten frühzeitig zu demonstrieren. Sie müssen lediglich die [vorläufige Push-Benachrichtigung einrichten](#set-up-provisional-push-notifications) in Ihrer App – danach erhalten alle Nutzer:innen mit einem vorläufigen Push-Token / Textbaustein Ihre Nachrichten.
 
-Im Gegensatz zu einem herkömmlichen iOS-Push-Token fungiert ein vorläufiges Push-Token als eine Art „Probezugang“, der es Marken ermöglicht, neue Nutzer:innen zu erreichen, bevor diese die native Push-Opt-in-Aufforderung von Apple gesehen und angeklickt haben. Mit diesem Feature wird Ihre Push-Benachrichtigung direkt in der Benachrichtigungsleiste Ihrer neuen Nutzer:innen zugestellt – mit der Option, zukünftige Benachrichtigungen zu „behalten“ oder „abzuschalten“. Anstatt einen „Opt-in“-Prozess zu durchlaufen, erleben Nutzer:innen eher einen „Opt-out“-Prozess.
+Im Gegensatz zu einem herkömmlichen iOS-Push-Token / Textbaustein fungiert ein vorläufiges Push-Token / Textbaustein als eine Art „Probezugang“, der es Marken ermöglicht, neue Nutzer:innen zu erreichen, bevor diese die native Push-Opt-in-Aufforderung von Apple gesehen und angeklickt haben. Mit diesem Feature wird Ihre Push-Benachrichtigung direkt in der Benachrichtigungsleiste Ihrer neuen Nutzer:innen zugestellt – mit der Option, zukünftige Benachrichtigungen zu „behalten“ oder „abzuschalten“. Anstatt einen „Opt-in“-Prozess zu durchlaufen, erleben Nutzer:innen eher einen „Opt-out“-Prozess.
 
 {% alert tip %}
 Die vorläufige Autorisierung hat das Potenzial, Ihre Opt-in-Rate drastisch zu erhöhen – allerdings nur, wenn Nutzer:innen Wert in Ihren Nachrichten erkennen. Stellen Sie sicher, dass Sie unsere Features für [Nutzersegmentierung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), [Standort-Targeting]({{site.baseurl}}/user_guide/audience/locations_and_geofences) und [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) nutzen, um sicherzustellen, dass die richtigen Nutzer:innen diese „Probe“-Benachrichtigungen zur richtigen Zeit erhalten. Anschließend können Sie Nutzer:innen ermutigen, sich vollständig für Ihre Push-Benachrichtigungen zu entscheiden, in dem Wissen, dass diese einen Mehrwert für das App-Erlebnis Ihrer Nutzer:innen bieten.
 {% endalert %}
 
-Unabhängig von der Wahl der Nutzer:innen wird das entsprechende Token oder der entsprechende [Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) in ihren [Kontakteinstellungen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) im Tab **Engagement** ihres Nutzerprofils hinzugefügt.
+Unabhängig von der Wahl der Nutzer:innen wird das entsprechende Token / Textbaustein oder der entsprechende [Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) in ihren [Kontakteinstellungen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) im Tab **Engagement** ihres Nutzerprofils hinzugefügt.
 
 ![Kontakteinstellungen mit einem Push-Abo-Status „subscribed“.]({% image_buster /assets/img/profile-push-prov-auth.png %}){: width="50%"}
 
@@ -97,7 +97,7 @@ Wenn Sie zusätzliche Push-Aufforderungen oder [In-App-Push-Primer](https://www.
 
 #### Vorläufige Push-Benachrichtigungen einrichten {#set-up-provisional-push-notifications}
 
-Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu registrieren, indem Sie Ihren Code im Token-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK-Implementierung aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass diese die [vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
+Braze ermöglicht es Ihnen, sich für die vorläufige Authentifizierung zu Registrierung or registrieren, indem Sie Ihren Code im Token / Textbaustein-Registrierungs-Snippet innerhalb Ihrer Braze iOS SDK or Software-Development-Kit-Implementierung Update or aktualisieren or aktualisieren. Verwenden Sie die folgenden Snippets als Beispiel (senden Sie diese an Ihre Entwickler:innen oder stellen Sie sicher, dass diese die [vorläufige Push-Authentifizierung während des Integrationsprozesses implementieren]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)).
 
 {% alert warning %}
 Die Implementierung der vorläufigen Push-Authentifizierung unterstützt nur iOS 12+ und gibt bei einem früheren Deployment-Target einen Fehler aus. Weitere Informationen finden Sie [in unserer ausführlicheren Implementierungsdokumentation hier]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift).
@@ -141,7 +141,7 @@ Um die Unterbrechungsstufe für eine iOS-Push-Benachrichtigung zu ändern, wähl
 
 ![Dropdown-Menü zur Auswahl der Unterbrechungsstufe.]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
-Dieses Feature hat keine Mindestanforderungen an die SDK-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
+Dieses Feature hat keine Mindestanforderungen an die SDK or Software-Development-Kit-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
 
 Bedenken Sie, dass die Nutzer:innen letztlich die Kontrolle über ihren Fokus haben und selbst wenn eine zeitkritische Benachrichtigung zugestellt wird, können sie festlegen, welche Apps ihren Fokus nicht durchbrechen dürfen.
 
@@ -169,7 +169,7 @@ Um die Relevanzbewertung einer iOS-Benachrichtigung festzulegen, geben Sie im Ta
 
 ![Relevanzbewertung von „0.5“.]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
-Dieses Feature hat keine Mindestanforderungen an die SDK-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
+Dieses Feature hat keine Mindestanforderungen an die SDK or Software-Development-Kit-Version, wird jedoch nur auf Geräten mit iOS 15+ angewendet.
 
 Weitere Informationen zu maximalen Nachrichtenlängen für verschiedene Nachrichtentypen finden Sie in den folgenden Ressourcen:
 

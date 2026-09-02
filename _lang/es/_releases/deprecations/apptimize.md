@@ -25,27 +25,27 @@ Ponte en contacto con tu representante de Braze o Apptimize si tienes más pregu
 que permite a los clientes una rápida iteración durante el proceso de desarrollo de la aplicación.
 
 Apptimize puede utilizarse junto con Braze para complementar tu crecimiento
-estrategias de marketing / CRM con pruebas de interfaz de usuario de producto sincronizando experimentos y
+estrategias de marketing / CRM or administración de las relaciones con el cliente con pruebas de interfaz de usuario de producto sincronizando experimentos y
 datos en ambas plataformas.
 
 ## Ejemplos
 
 Con Braze y Apptimize juntos, puedes utilizar ambas plataformas para crear potentes experiencias de extremo a extremo:
 
-* Sincroniza las experiencias de marketing in-app y CRM para una promoción personalizada.
+* Sincroniza las experiencias de marketing in-app y CRM or administración de las relaciones con el cliente para una promoción personalizada.
 * Prueba una nueva experiencia de incorporación en Apptimize, y utiliza Braze para nutrir a los usuarios a lo largo del nuevo flujo.
 * Prueba simultáneamente las configuraciones de las características del producto junto con sus mensajes de usuario apropiados.
 * Adapta las experiencias dentro de la aplicación y sus mensajes adecuados a los distintos segmentos de usuarios.
 
 ## Cómo funciona
 
-Braze y Apptimize pueden integrarse en conjunto para pasar datos de SDK a SDK.
+Braze y Apptimize pueden integrarse en conjunto para pasar datos de SDK or kit de desarrollo de software a SDK or kit de desarrollo de software.
 Puedes sincronizar los grupos de pruebas A/B de Apptimize activos con Braze, lo que te permitirá
 reorientar a los usuarios de una prueba concreta de Apptimize dentro de Braze mediante push, correo electrónico,
 o Mensajería dentro de la aplicación.
 
 Disponemos de un código de integración de ejemplo que demuestra cómo funcionan Braze y Apptimize
-Los SDK pueden pasar datos para potenciar la segmentación personalizada en Braze basada en
+Los SDK or kit de desarrollo de software pueden pasar datos para potenciar la segmentación personalizada en Braze basada en
 Apptimiza los datos del experimento.
 
 Esta integración de muestra establecerá atributos personalizados en el Usuario Braze de tus usuarios

@@ -1,28 +1,28 @@
 ---
-nav_title: "POST: Geplante API-getriggerte Canvases aktualisieren"
-article_title: "POST: Geplante API-getriggerte Canvases aktualisieren"
+nav_title: "POST: Geplante API-getriggerte Canvase Update or aktualisieren or aktualisieren"
+article_title: "POST: Geplante API-getriggerte Canvase Update or aktualisieren or aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Geplante API-getriggerte Canvases aktualisieren“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Geplante API-getriggerte Canvase Update or aktualisieren or aktualisieren“."
 
 ---
 {% api %}
-# Geplante API-getriggerte Canvases aktualisieren {#update-scheduled-api-triggered-canvases}
+# Geplante API-getriggerte Canvase Update or aktualisieren or aktualisieren {#update-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/trigger/schedule/update
+/Canvas/Trigger or triggern/schedule/Update or aktualisieren
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um geplante, API-getriggerte Canvases zu aktualisieren, die im Dashboard erstellt wurden.
+> Verwenden Sie diesen Endpunkt, um geplante, API-getriggerte Canvase zu Update or aktualisieren or aktualisieren, die im Dashboard erstellt wurden.
 
-So können Sie festlegen, welche Aktion den Versand der Nachricht triggern soll. Sie können `trigger_properties` übergeben, die Braze in die Nachricht selbst einfügt.
+So können Sie festlegen, welche Aktion den Versand der Nachricht Trigger or triggern or triggern soll. Sie können `trigger_properties` übergeben, die Braze in die Nachricht selbst einfügt.
 
 Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine Canvas-ID benötigen, die beim Erstellen eines [Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier) generiert wird.
 
-Jeder Zeitplan überschreibt den Zeitplan, den Sie in der ursprünglichen Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Aktualisieren des Zeitplans angegeben haben, vollständig.
-  - Wenn Sie z. B. ursprünglich `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` angeben und dann in Ihrem Update `"schedule" : {"time" : "2015-02-20T14:14:47"}` übergeben, sendet Braze Ihre Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit der Nutzer:innen.
-  - Geplante Trigger, die Sie kurz vor oder während des vorgesehenen Sendezeitpunkts aktualisieren, werden nach bestem Bemühen aktualisiert, sodass Braze möglicherweise in letzter Sekunde Änderungen an allen, einigen oder keinen Ihrer Zielnutzer:innen vornimmt.
+Jeder Zeitplan überschreibt den Zeitplan, den Sie in der ursprünglichen Anfrage zum Erstellen des Zeitplans oder in früheren Anfragen zum Update or aktualisieren or aktualisieren des Zeitplans angegeben haben, vollständig.
+  - Wenn Sie z. B. ursprünglich `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` angeben und dann in Ihrem Update or aktualisieren `"schedule" : {"time" : "2015-02-20T14:14:47"}` übergeben, sendet Braze Ihre Nachricht zur angegebenen Zeit in UTC, nicht in der Ortszeit der Nutzer:innen.
+  - Geplante Trigger or triggern, die Sie kurz vor oder während des vorgesehenen Sendezeitpunkts Update or aktualisieren or aktualisieren, werden nach bestem Bemühen aktualisiert, sodass Braze möglicherweise in letzter Sekunde Änderungen an allen, einigen oder keinen Ihrer Zielnutzer:innen vornimmt.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#8fdf158b-ce20-41d8-80e4-a9300a6706d4 {% endapiref %}
 

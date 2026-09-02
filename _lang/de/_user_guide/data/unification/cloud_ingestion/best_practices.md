@@ -9,7 +9,7 @@ description: "Diese Seite bietet eine Übersicht über die Cloud-Datenaufnahme, 
 
 # Best Practices {#best-practices}
 
-> Mit Braze Cloud Data Ingestion können Sie eine direkte Verbindung von Ihrem Data Warehouse oder Dateispeichersystem zu Braze einrichten, um relevante Nutzer- oder Katalogdaten zu synchronisieren. Wenn Sie diese Daten mit Braze synchronisieren, können Sie sie für Anwendungsfälle wie Personalisierung, Triggern oder Segmentierung nutzen.
+> Mit Braze Cloud Data Ingestion können Sie eine direkte Verbindung von Ihrem Data Warehouse oder Dateispeichersystem zu Braze einrichten, um relevante Nutzer- oder Katalogdaten zu synchronisieren. Wenn Sie diese Daten mit Braze synchronisieren, können Sie sie für Anwendungsfälle wie Personalisierung, Trigger or triggern or triggern oder Segmentierung nutzen.
 
 ## Die Spalte `UPDATED_AT` verstehen {#understanding-the-updated_at-column}
 
@@ -52,7 +52,7 @@ Wenn Sie CDI verwenden, um Daten aus externen Quellen (wie Databricks oder Snowf
 
 Informationen zum Erzwingen oder Ändern von Datentypen für angepasste Attribute im Braze-Dashboard finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
-Sie können Nutzerdaten anhand der externen ID, des Nutzer-Alias, der Braze-ID, der E-Mail-Adresse oder der Telefonnummer aktualisieren. Sie können Nutzer:innen anhand der externen ID, des Nutzer-Alias oder der Braze-ID löschen.
+Sie können Nutzerdaten anhand der externen ID, des Nutzer-Alias, der Braze-ID, der E-Mail-Adresse oder der Telefonnummer Update or aktualisieren or aktualisieren. Sie können Nutzer:innen anhand der externen ID, des Nutzer-Alias oder der Braze-ID löschen.
 
 ## Was synchronisiert wird {#what-gets-synced}
 
@@ -119,7 +119,7 @@ Fügen Sie in Ihrem Data Warehouse die folgenden Nutzer:innen und Attribute zu I
   </tbody>
 </table>
 
-Während der nächsten geplanten Synchronisierung synchronisiert Braze alle Zeilen mit einem `UPDATED_AT`-Zeitstempel, der später als der zuletzt synchronisierte Zeitstempel ist. Braze aktualisiert oder fügt Felder hinzu, sodass Sie nicht jedes Mal das vollständige Nutzerprofil synchronisieren müssen. Nach der Synchronisierung spiegeln die Nutzerprofile die neuen Aktualisierungen wider:
+Während der nächsten geplanten Synchronisierung synchronisiert Braze alle Zeilen mit einem `UPDATED_AT`-Zeitstempel, der später als der zuletzt synchronisierte Zeitstempel ist. Braze aktualisiert oder fügt Felder hinzu, sodass Sie nicht jedes Mal das vollständige Kundenprofil or Nutzerprofil synchronisieren müssen. Nach der Synchronisierung spiegeln die Nutzerprofile die neuen Aktualisierungen wider:
 
 **Wiederkehrende Synchronisierung, zweiter Durchlauf am 20. Juli 2022 um 12 Uhr**
 
@@ -418,7 +418,7 @@ Nichts davon wurde bisher mit Braze synchronisiert, also fügen Sie alles der Qu
   </tbody>
 </table>
 
-Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle verfügbaren Daten bis zum Zeitpunkt „2023-03-16 15:00:00“ synchronisiert haben. Am Morgen des 2. Tages wird dann ein ETL ausgeführt und einige Felder in Ihrer Nutzertabelle werden aktualisiert (mit * gekennzeichnet):
+Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle verfügbaren Daten bis zum Zeitpunkt „2023-03-16 15:00:00“ synchronisiert haben. Am Morgen des 2. Tages wird dann ein ETL or Extract, Transform, Load ausgeführt und einige Felder in Ihrer Nutzertabelle werden aktualisiert (mit * gekennzeichnet):
 
 <table aria-label="Beispiel: Verwaltung nachfolgender Updates">
   <caption>Beispiel: Verwaltung nachfolgender Updates. * kennzeichnet ein Feld, das seit der letzten Synchronisierung aktualisiert wurde.</caption>
@@ -470,7 +470,7 @@ Eine Synchronisierung wird durchgeführt und Braze hält fest, dass Sie alle ver
     </tbody>
 </table>
 
-Jetzt müssen Sie nur noch die geänderten Werte in die CDI-Quelltabelle einfügen. Diese Zeilen können angehängt werden, anstatt die alten Zeilen zu aktualisieren. Die Tabelle sieht nun wie folgt aus:
+Jetzt müssen Sie nur noch die geänderten Werte in die CDI-Quelltabelle einfügen. Diese Zeilen können angehängt werden, anstatt die alten Zeilen zu Update or aktualisieren or aktualisieren. Die Tabelle sieht nun wie folgt aus:
 
 <table role="presentation">
   <thead>
@@ -540,9 +540,9 @@ CDI synchronisiert nur die neuen Zeilen. Bei der nächsten Synchronisierung werd
 
 ### Nur neue oder aktualisierte Attribute schreiben, um den Verbrauch zu minimieren {#only-write-new-or-updated-attributes-to-minimize-consumption}
 
-Bei jeder Synchronisierung sucht Braze nach Zeilen, die zuvor noch nicht synchronisiert wurden. Dies wird anhand der `UPDATED_AT`-Spalte in Ihrer Tabelle oder Ansicht überprüft. Braze wählt alle Zeilen aus und importiert sie, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten `UPDATED_AT`-Wert liegt – unabhängig davon, ob sie mit dem übereinstimmen, was aktuell im Nutzerprofil gespeichert ist. Zeilen am Grenz-Timestamp können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Timestamp aufweisen. Daher empfehlen wir, nur Attribute zu synchronisieren, die Sie hinzufügen oder aktualisieren möchten.
+Bei jeder Synchronisierung sucht Braze nach Zeilen, die zuvor noch nicht synchronisiert wurden. Dies wird anhand der `UPDATED_AT`-Spalte in Ihrer Tabelle oder Ansicht überprüft. Braze wählt alle Zeilen aus und importiert sie, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten `UPDATED_AT`-Wert liegt – unabhängig davon, ob sie mit dem übereinstimmen, was aktuell im Kundenprofil or Nutzerprofil gespeichert ist. Zeilen am Grenz-Timestamp können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Timestamp aufweisen. Daher empfehlen wir, nur Attribute zu synchronisieren, die Sie hinzufügen oder Update or aktualisieren or aktualisieren möchten.
 
-Der Datenpunkt-Verbrauch ist bei CDI identisch mit anderen Aufnahmemethoden wie REST APIs oder SDKs. Stellen Sie daher sicher, dass Sie nur neue oder aktualisierte Attribute in Ihre Quelltabellen aufnehmen.
+Der Datenpunkt-Verbrauch ist bei CDI identisch mit anderen Aufnahmemethoden wie Representational State Transfer APIs oder SDKs. Stellen Sie daher sicher, dass Sie nur neue oder aktualisierte Attribute in Ihre Quelltabellen aufnehmen.
 
 ### `EXTERNAL_ID` von der `PAYLOAD`-Spalte trennen {#separate-external_id-from-payload-column}
 
@@ -557,7 +557,7 @@ Sie können es auf `null` setzen, wenn Sie ein Attribut aus dem Profil einer Nut
 Führen Sie inkrementelle Aktualisierungen Ihrer Daten durch, um unbeabsichtigte Überschreibungen bei gleichzeitigen Aktualisierungen zu verhindern.
 
 {% alert important %}
-* **Aktualisierungen verschiedener Attribute:** In der großen Mehrheit der Fälle haben zwei Aktualisierungen, die nicht dieselben Attribute betreffen, völlig unabhängige Ergebnisse. Wenn Sie beispielsweise das `Color`-Attribut und separat das `Size`-Attribut aktualisieren, sollten beide Aktualisierungen korrekt angewendet werden, auch wenn sie innerhalb von Sekunden aufeinanderfolgen.
+* **Aktualisierungen verschiedener Attribute:** In der großen Mehrheit der Fälle haben zwei Aktualisierungen, die nicht dieselben Attribute betreffen, völlig unabhängige Ergebnisse. Wenn Sie beispielsweise das `Color`-Attribut und separat das `Size`-Attribut Update or aktualisieren or aktualisieren, sollten beide Aktualisierungen korrekt angewendet werden, auch wenn sie innerhalb von Sekunden aufeinanderfolgen.
 * **Aktualisierungen desselben Attributs:** Race-Conditions können auftreten, wenn mehrere Aktualisierungen innerhalb eines einzelnen Synchronisierungslaufs dasselbe Attribut betreffen. In diesen seltenen Fällen kann eine Aktualisierung eine andere überschreiben. Der beste Weg, dieses Verhalten zu verhindern, besteht darin sicherzustellen, dass die Quelldaten Ihrer CDI-Synchronisierung nur den aktuellsten Zustand jeder Nutzerin oder jedes Nutzers widerspiegeln oder dass alle Aktualisierungen für eine:n bestimmte:n Nutzer:in oder eine Nutzer:in-Attribut-Kombination in einer einzelnen Zeile enthalten sind.
 * **Objekt-Array-Operatoren:** Die einzigen Ausnahmen von unabhängigen Aktualisierungen sind die Operatoren `$add`, `$remove` und `$update` für Objekt-Arrays, bei denen Aktualisierungen desselben Arrays sich gegenseitig beeinflussen können.
 * **Events:** Race-Conditions betreffen keine Events, da jedes Event eindeutig ist und einen zugehörigen Timestamp hat.
@@ -710,7 +710,7 @@ Wir empfehlen, Abfragen innerhalb einer Stunde abzuschließen, um eine optimale 
 | Einschränkung | Beschreibung |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Anzahl der Integrationen | Es gibt keine Begrenzung für die Anzahl der Integrationen, die Sie einrichten können. Sie können jedoch nur eine Integration pro Tabelle oder Ansicht einrichten. |
-| Anzahl der Zeilen | Standardmäßig kann jeder Durchlauf bis zu 500 Millionen Zeilen synchronisieren. Braze stoppt alle Synchronisierungen mit mehr als 500 Millionen neuen Zeilen. Wenn Sie ein höheres Limit benötigen, wenden Sie sich an Ihren Braze Customer-Success-Manager oder den Braze-Support. |
+| Anzahl der Zeilen | Standardmäßig kann jeder Durchlauf bis zu 500 Millionen Zeilen synchronisieren. Braze stoppt alle Synchronisierungen mit mehr als 500 Millionen neuen Zeilen. Wenn Sie ein höheres Limit benötigen, wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in oder den Braze-Support. |
 | Attribute pro Zeile | Jede Zeile sollte eine einzelne Nutzer-ID und ein JSON-Objekt mit bis zu 250 Attributen enthalten. Jeder Schlüssel im JSON-Objekt zählt als ein Attribut (d. h. ein Array zählt als ein Attribut). |
 | Payload-Größe | Jede Zeile kann eine Payload von bis zu 1 MB enthalten. Braze lehnt Payloads ab, die größer als 1&nbsp;MB sind, und protokolliert den Fehler „Payload was greater than 1MB“ im Synchronisierungsprotokoll zusammen mit der zugehörigen externen ID und der gekürzten Payload. |
 | Datentyp | Sie können Nutzerattribute, Events und Käufe über die Cloud-Datenaufnahme synchronisieren. |

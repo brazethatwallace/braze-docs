@@ -1,6 +1,6 @@
 ---
 nav_title: Funnel-Berichte
-article_title: Funnel-Berichte für Campaigns und Canvases
+article_title: Funnel-Berichte für Campaigns und Canvase
 page_order: 8
 page_type: reference
 description: "Diese Seite behandelt die Vorteile von Funnel-Berichten, wie Sie diese einrichten und wie Sie Ihren Bericht interpretieren."
@@ -30,7 +30,7 @@ Funnel-Berichte können Fragen beantworten wie:
 
 ![Funnel-Bericht 5]({% image_buster /assets/img/funnel_report/canvas_campaign.png %}){: style="float:right;max-width:40%;border:0;margin-left:15px;"}
 
-Sie können Funnel-Berichte für bestehende aktive Campaigns und Canvases erstellen. Diese Berichte zeigen eine Reihe von Events, die ein:e Campaign-Empfänger:in über einen Zeitraum von 1–30 Tagen ab dem Datum des Eintritts in den Canvas oder die Campaign durchläuft. Ein:e Nutzer:in gilt als durch einen Schritt im Funnel konvertiert, wenn er/sie das Event in der angegebenen Reihenfolge ausführt.
+Sie können Funnel-Berichte für bestehende aktive Campaigns und Canvase erstellen. Diese Berichte zeigen eine Reihe von Events, die ein:e Campaign-Empfänger:in über einen Zeitraum von 1–30 Tagen ab dem Datum des Eintritts in den Canvas oder die Campaign durchläuft. Ein:e Nutzer:in gilt als durch einen Schritt im Funnel konvertiert, wenn er/sie das Event in der angegebenen Reihenfolge ausführt.
 
 Funnel-Berichte sind an folgenden Stellen im Dashboard verfügbar:
 

@@ -147,5 +147,5 @@ Appboy.sharedInstance()?.shutdownServerCommunication();
 {% endtab %}
 {% endtabs %}
 
-Après avoir employé cette méthode, vous devez réinitialiser le mode de traitement de demande sur automatique. C’est pourquoi nous vous recommandons de ne l’utiliser que si le système d’exploitation vous oblige à arrêter les tâches d’arrière-plan ou quelque chose de similaire.
+Après avoir employé or salarié cette méthode, vous devez réinitialiser le mode de traitement de demande sur automatique. C’est pourquoi nous vous recommandons de ne l’utiliser que si le système d’exploitation vous oblige à arrêter les tâches d’arrière-plan ou quelque chose de similaire.
 

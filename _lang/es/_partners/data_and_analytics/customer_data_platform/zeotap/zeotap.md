@@ -1,6 +1,6 @@
 ---
 nav_title: Zeotap
-description: "Este artículo de referencia describe la asociación entre Braze y Zeotap, una plataforma de datos de los clientes de nueva generación que proporciona resolución de identidades, información y enriquecimiento."
+description: "Este artículo de referencia describe la asociación entre Braze y Zeotap, una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes de nueva generación que proporciona resolución de identidades, información y enriquecimiento."
 page_type: partner
 search_tag: Partner
 page_order: 1
@@ -8,7 +8,7 @@ page_order: 1
 
 # Zeotap
 
-> [Zeotap](https://zeotap.com/) es una plataforma de datos de los clientes de nueva generación que te ayuda a descubrir y comprender a tu audiencia móvil proporcionando resolución de identidades, información y enriquecimiento de datos.
+> [Zeotap](https://zeotap.com/) es una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes de nueva generación que te ayuda a descubrir y comprender a tu audiencia móvil proporcionando resolución de identidades, información y enriquecimiento de datos.
 
 Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de tus campañas sincronizando los segmentos de clientes de Zeotap para asignar los datos de usuario a las cuentas de usuario de Braze. Después, puedes actuar en función de estos datos y ofrecer experiencias personalizadas a tus usuarios.
 
@@ -17,7 +17,7 @@ Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de 
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta Zeotap | Se necesita una [cuenta Zeotap](https://zeotap.com/) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
 | Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze para tu instancia]({% image_buster /assets/img/zeotap/zeotap1.png %}). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -27,14 +27,14 @@ Con la integración de Zeotap y Braze, puedes ampliar la escala y el alcance de 
 
 1. Desde la plataforma Zeotap Unity, navega hasta la aplicación **DESTINATIONS**.
 2. En **All Channels**, selecciona **Braze**.
-3. En el mensaje que aparece, asigna un nombre a tu destino e indica tu nombre de cliente y la clave de API REST de Braze asociada a tu cuenta de Braze.
+3. En el mensaje que aparece, asigna un nombre a tu destino e indica tu nombre de cliente y la clave de API REST or transferencia de estado representacional de Braze asociada a tu cuenta de Braze.
 4. Por último, selecciona tu instancia de endpoint REST de Braze en el menú desplegable y guarda el destino. <br><br>![Configuración del destino Zeotap Braze con el menú desplegable de instancia de endpoint.]({% image_buster /assets/img/zeotap/zeotap1.png %})
 
 ### Paso 2: Crea y vincula un segmento Zeotap a tu destino {#step-2-create-and-link-a-zeotap-segment-to-your-destination}
 
 1. Desde la plataforma Zeotap Unity, navega hasta la aplicación **CONNECT**.
 2. Crea un segmento y selecciona el destino Braze creado en el paso 1.
-3. Selecciona un identificador de salida compatible: MAID, dirección de correo electrónico con hash SHA256 o cualquier identificador de cliente 1P reconocido por Braze (si deseas utilizar un identificador personalizado para tu cuenta de Braze, ponte en contacto con Zeotap para que se habilite en tu cuenta). Solo se puede utilizar un identificador de salida para la integración con Braze. Estos identificadores deben ser los mismos que el ID externo establecido al recopilar los datos del SDK de Braze.
+3. Selecciona un identificador de salida compatible: MAID, dirección de correo electrónico con hash SHA256 o cualquier identificador de cliente 1P reconocido por Braze (si deseas utilizar un identificador personalizado para tu cuenta de Braze, ponte en contacto con Zeotap para que se habilite en tu cuenta). Solo se puede utilizar un identificador de salida para la integración con Braze. Estos identificadores deben ser los mismos que el ID externo establecido al recopilar los datos del SDK or kit de desarrollo de software de Braze.
 4. Guarda el segmento.
 
 ![Configuración de segmento en Zeotap CONNECT vinculado al destino Braze.]({% image_buster /assets/img/zeotap/zeotap2.png %})

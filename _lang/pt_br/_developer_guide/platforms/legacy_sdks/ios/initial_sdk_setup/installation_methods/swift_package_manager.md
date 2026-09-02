@@ -3,7 +3,7 @@ nav_title: Swift Package Manager
 article_title: Integração do Swift Package Manager para iOS
 platform: iOS
 page_order: 3
-description: "Este tutorial cobre a instalação do SDK da Braze usando o Swift Package Manager para iOS."
+description: "Este tutorial cobre a instalação do SDK or kit de desenvolvimento de software da Braze usando o Swift Package Manager para iOS."
 
 noindex: true
 ---
@@ -12,7 +12,7 @@ noindex: true
 
 # Integração do Swift Package Manager {#swift-package-manager-integration}
 
-Instalar o iOS SDK via [Swift Package Manager](https://swift.org/package-manager/) (SPM) automatiza a maior parte do processo de instalação para você. Antes de começar este processo, certifique-se de usar o Xcode 12 ou superior.
+Instalar o iOS SDK or kit de desenvolvimento de software via [Swift Package Manager](https://swift.org/package-manager/) (SPM) automatiza a maior parte do processo de instalação para você. Antes de começar este processo, certifique-se de usar o Xcode 12 ou superior.
 
 {% alert note %}
 tvOS não está disponível atualmente via Swift Package Manager.
@@ -20,19 +20,19 @@ tvOS não está disponível atualmente via Swift Package Manager.
 
 ## Etapa 1: Adicionando a dependência ao seu projeto {#step-1-adding-the-dependency-to-your-project}
 
-### Importar versão do SDK {#import-sdk-version}
+### Importar versão do SDK or kit de desenvolvimento de software {#import-sdk-version}
 
 Abra seu projeto e navegue até as configurações do seu projeto. Selecione a guia **Swift Packages** e clique no botão adicionar <i class="fas fa-plus" aria-label="Adicionar"></i> abaixo da lista de pacotes.
 
 ![Configurações do projeto no Xcode com a guia Swift Packages selecionada.]({% image_buster /assets/img/ios/spm/swiftpackages.png %})
 
-Ao importar a versão `3.33.1` do SDK ou posterior, insira a URL do nosso repositório de SDK para iOS (`https://github.com/braze-inc/braze-ios-sdk`) no campo de texto e clique em **Next**.
+Ao importar a versão `3.33.1` do SDK or kit de desenvolvimento de software ou posterior, insira a URL do nosso repositório de SDK or kit de desenvolvimento de software para iOS (`https://github.com/braze-inc/braze-ios-sdk`) no campo de texto e clique em **Next**.
 
 Para versões `3.29.0` até `3.32.0`, use a URL `https://github.com/Appboy/Appboy-ios-sdk`.
 
 ![Diálogo de adição de dependência de pacote no Xcode para a URL do repositório do SDK iOS da Braze.]({% image_buster /assets/img/ios/spm/importsdk_example.png %})
 
-Na próxima tela, selecione a versão do SDK e clique em **Next**. As versões `3.29.0` e posteriores são compatíveis com o Swift Package Manager.
+Na próxima tela, selecione a versão do SDK or kit de desenvolvimento de software e clique em **Next**. As versões `3.29.0` e posteriores são compatíveis com o Swift Package Manager.
 
 ![Seleção de versão do pacote no Xcode para o SDK iOS da Braze.]({% image_buster /assets/img/ios/spm/select_version.png %})
 
@@ -53,12 +53,12 @@ Selecione o pacote que melhor atende às suas necessidades e clique em **Finish*
 
 ## Etapa 2: Configurando seu projeto {#step-2-configuring-your-project}
 
-Em seguida, navegue até as **configurações de build** do seu projeto e adicione a flag `-ObjC` à configuração **Other Linker Flags**. Essa flag deve ser adicionada e quaisquer [erros](https://developer.apple.com/library/archive/qa/qa1490/_index.html) resolvidos para integrar o SDK corretamente.
+Em seguida, navegue até as **configurações de build** do seu projeto e adicione a flag `-ObjC` à configuração **Other Linker Flags**. Essa flag deve ser adicionada e quaisquer [erros](https://developer.apple.com/library/archive/qa/qa1490/_index.html) resolvidos para integrar o SDK or kit de desenvolvimento de software corretamente.
 
 ![Configurações de build do Xcode mostrando o campo Other Linker Flags.]({% image_buster /assets/img/ios/spm/buildsettings.png %})
 
 {% alert note %}
-Se você não adicionar a flag `-ObjC`, partes da API podem ficar ausentes e o comportamento será indefinido. Você pode encontrar erros inesperados, como "unrecognized selector sent to class", falhas no aplicativo e outros problemas.
+Se você não adicionar a flag `-ObjC`, partes da API or interface de programação do aplicativo (API) podem ficar ausentes e o comportamento será indefinido. Você pode encontrar erros inesperados, como "unrecognized selector sent to class", falhas no aplicativo e outros problemas.
 {% endalert %}
 
 ## Etapa 3: Editando o esquema do alvo {#step-3-editing-the-targets-scheme}

@@ -89,7 +89,7 @@ CSV出力には、エクスポート時にセグメントに含まれる各ユ�
 | user_aliases                | ユーザーエイリアス（ある場合）                                          |
 | windows_ad_ids              | Windows広告ID                       |
 | Custom events               | エクスポート時の選択に基づく                             |
-| Custom attributes           | エクスポート時の選択に基づく                             |
+| カスタム属性           | エクスポート時の選択に基づく                             |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSVエクスポートのユーザーデータ" }
 
 {% alert note %}

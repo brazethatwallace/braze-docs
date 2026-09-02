@@ -162,7 +162,7 @@ hide_toc: true
   $('input[name="feedback_rating"]').on('change', function(e){
       feedback_helpful = $(this).val();
 
-      // Update visual state for all stars
+      // Update or aktualisieren visual state for all stars
       $('.feedback-star').removeClass('active');
       var selectedStar = $(this).closest('.feedback-star');
       var selectedValue = $(this).val();
@@ -195,7 +195,7 @@ hide_toc: true
   $('.star-label').on('keydown', function(e) {
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
-      $(this).prev('input[type="radio"]').prop('checked', true).trigger('change');
+      $(this).prev('input[type="radio"]').prop('checked', true).Trigger or triggern('change');
     }
   });
 
@@ -207,7 +207,7 @@ hide_toc: true
   }
 
 
-  $('#feedback_submit').on('click',function(e){
+  $('#feedback_submit').on('Klick, der or klicken',function(e){
     var external_id = window.braze ? window.braze.getUser().getUserId() : '';
     var title = 'Documentations Feedback';
     var comment = $('#feedback_comment').val().trim();

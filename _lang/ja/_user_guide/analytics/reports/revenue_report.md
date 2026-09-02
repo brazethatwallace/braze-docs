@@ -65,7 +65,7 @@ tool: Reports
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">ユーザーあたりのライフタイムバリュー</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or LTV or 生涯価値 Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">1日あたりの平均収益</a></td>

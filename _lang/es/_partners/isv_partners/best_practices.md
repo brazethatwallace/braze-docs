@@ -8,7 +8,7 @@ hidden: true
 ## Recopilación de datos {#data-collection}
 
 Obtén más información sobre cómo Braze recopila datos:
-- [Recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
+- [Recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
 - [Buenas prácticas de recopilación de datos]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)
 - [Ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 
@@ -40,7 +40,7 @@ Para un caso de uso en el que necesites crear o actualizar un perfil de usuario 
 }
 ```
 
-Si un usuario existe en Braze con ese correo electrónico o teléfono, se devolverá su perfil. De lo contrario, se devolverá un array de "users" vacío. La ventaja de usar el endpoint de exportación para determinar si ya existe un usuario con esa dirección de correo electrónico es que te permite identificar si hay perfiles de usuarios anónimos asociados con ese usuario. Por ejemplo, un perfil anónimo creado a través del SDK (que tendrá un `braze_id`) o un perfil de alias de usuario creado previamente.
+Si un usuario existe en Braze con ese correo electrónico o teléfono, se devolverá su perfil. De lo contrario, se devolverá un array de "users" vacío. La ventaja de usar el endpoint de exportación para determinar si ya existe un usuario con esa dirección de correo electrónico es que te permite identificar si hay perfiles de usuarios anónimos asociados con ese usuario. Por ejemplo, un perfil anónimo creado a través del SDK or kit de desarrollo de software (que tendrá un `braze_id`) o un perfil de alias de usuario creado previamente.
 
 Si la solicitud no devuelve un perfil de usuario, puedes optar por crear un alias de usuario o crear un usuario solo con correo electrónico:
 

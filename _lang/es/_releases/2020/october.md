@@ -16,11 +16,11 @@ El [generador de informes]({{site.baseurl}}/report_builder) te permite comparar 
 
 ## Guía de actualización a iOS 14 {#ios-14-upgrade-guide}
 
-En la guía de actualización a iOS 14 se describen los cambios relacionados con Braze introducidos en iOS 14 y los pasos de actualización necesarios para tu integración del SDK para iOS de Braze. Algunos cambios a tener en cuenta son los futuros requisitos de permisos IDFA, la compatibilidad con las geovallas y las actualizaciones necesarias de Xcode. Consulta nuestra [guía de actualización]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) para obtener más información.
+En la guía de actualización a iOS 14 se describen los cambios relacionados con Braze introducidos en iOS 14 y los pasos de actualización necesarios para tu integración del SDK or kit de desarrollo de software para iOS de Braze. Algunos cambios a tener en cuenta son los futuros requisitos de permisos IDFA, la compatibilidad con las geovallas y las actualizaciones necesarias de Xcode. Consulta nuestra [guía de actualización]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) para obtener más información.
 
 ## Guía de actualización a Android 11 {#android-11-upgrade-guide}
 
-La guía de Android 11 describe los cambios relevantes introducidos en la versión Android 11 y los pasos de actualización necesarios para tu integración del SDK de Android de Braze. Algunos cambios están relacionados con los vínculos profundos, los mensajes HTML dentro de la aplicación y los permisos de ubicación. Consulta nuestra [guía de actualización]({{site.baseurl}}/developer_guide/platforms/android/android_13) para obtener más información.
+La guía de Android 11 describe los cambios relevantes introducidos en la versión Android 11 y los pasos de actualización necesarios para tu integración del SDK or kit de desarrollo de software de Android de Braze. Algunos cambios están relacionados con los vínculos profundos, los mensajes HTML dentro de la aplicación y los permisos de ubicación. Consulta nuestra [guía de actualización]({{site.baseurl}}/developer_guide/platforms/android/android_13) para obtener más información.
 
 ## Partners de atribución - Guía de seguimiento de clics {#attribution-partners-click-tracking-guide}
 

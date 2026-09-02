@@ -181,7 +181,7 @@ Braze CurrentをSalesWingsに接続すると、SalesWingsは、メールアド�
 | 顧客行動イベント | 初回セッション | `[User Action] Today marks the user's first session` |
 | 顧客行動イベント | インストールアトリビューション | `[User Action] User installed app from $source` |
 | 顧客行動イベント | 購入イベント | `[Purchase] Customer purchased $product_id for $price $currency` |
-| メッセージイベント | Content Cardのクリック | `[Content Card engagement] Clicked on $campaign_name content card` |
+| メッセージイベント | Content カードのクリック | `[Content Card engagement] Clicked on $campaign_name content card` |
 | メッセージイベント | メールバウンス | `[Alerting or negative] Email hard-bounced. This person's email appears to be no longer valid` |
 | メッセージイベント | メールのクリック | `[Email campaign engagement] Clicked in email $campaign_name on $url` |
 | メッセージイベント | メール配信 | `[Nurturing] Received email $campaign_name` |

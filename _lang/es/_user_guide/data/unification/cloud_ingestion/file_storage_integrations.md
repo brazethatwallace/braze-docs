@@ -170,7 +170,7 @@ Para completar la configuración en AWS, crea un rol IAM y adjúntale la políti
 ![El botón "Create role".]({% image_buster /assets/img/create_role_1_list.png %})
 
 {: start="2"}
-2. En AWS, selecciona **Another AWS Account** como tipo de selector de entidad de confianza. Proporciona tu ID de cuenta de Braze. Selecciona la casilla **Require external ID**.
+2. En AWS, selecciona **Another AWS Account** como tipo de SELECTOR de entidad de confianza. Proporciona tu ID de cuenta de Braze. Selecciona la casilla **Require external ID**.
 3. En Braze, ve a **Configuración de datos** > **Ingesta de datos en la nube** > **Orígenes**, selecciona **Añadir origen de datos** y selecciona **Amazon S3** en la sección de orígenes de archivos.
 4. Copia el **ID de cuenta de Braze** generado automáticamente.
 
@@ -472,7 +472,7 @@ Para las sincronizaciones de datos de usuario (atributos, eventos personalizados
 | --- | --- |
 | `EXTERNAL_ID` | Identifica al usuario que deseas actualizar. Debe coincidir con el valor `external_id` utilizado en Braze. |
 | `ALIAS_NAME` y `ALIAS_LABEL` | Estas dos columnas crean un objeto de alias de usuario. `alias_name` debe ser un identificador único, y `alias_label` especifica el tipo de alias. Los usuarios pueden tener múltiples alias con diferentes etiquetas, pero solo un `alias_name` por cada `alias_label`. |
-| `BRAZE_ID` | El identificador de usuario de Braze. Es generado por el SDK de Braze, y no se pueden crear nuevos usuarios utilizando un Braze ID a través de la ingesta de datos en el cloud. Para crear nuevos usuarios, especifica un ID externo o un alias de usuario. |
+| `BRAZE_ID` | El identificador de usuario de Braze. Es generado por el SDK or kit de desarrollo de software de Braze, y no se pueden crear nuevos usuarios utilizando un Braze ID a través de la ingesta de datos en el cloud. Para crear nuevos usuarios, especifica un ID externo o un alias de usuario. |
 | `EMAIL` | La dirección de correo electrónico del usuario. Si existen múltiples perfiles con la misma dirección de correo electrónico, se prioriza el perfil actualizado más recientemente. Si incluyes tanto correo electrónico como teléfono, Braze utiliza el correo electrónico como identificador principal. |
 | `PHONE` | El número de teléfono del usuario. Si existen múltiples perfiles con el mismo número de teléfono, se prioriza el perfil actualizado más recientemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuario" }

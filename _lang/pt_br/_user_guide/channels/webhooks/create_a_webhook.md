@@ -74,7 +74,7 @@ Se você estiver adicionando texto em um idioma escrito da direita para a esquer
 
 A URL do webhook, ou URL HTTP, especifica seu endpoint. O endpoint é o lugar para onde você enviará as informações que está capturando no webhook.
 
-Se quiser enviar informações para um fornecedor, o fornecedor deve fornecer essa URL na documentação da API dele. Se estiver enviando informações para seus próprios sistemas, verifique com sua equipe de desenvolvimento ou engenharia se está usando a URL correta.
+Se quiser enviar informações para um fornecedor, o fornecedor deve fornecer essa URL na documentação da API or interface de programação do aplicativo (API) dele. Se estiver enviando informações para seus próprios sistemas, verifique com sua equipe de desenvolvimento ou engenharia se está usando a URL correta.
 
 A Braze só permite URLs que se comunicam pelas portas padrão `80` (HTTP) e `443` (HTTPS).
 
@@ -173,7 +173,7 @@ Em seguida, crie o restante da sua campanha. Consulte as seções a seguir para 
 
 ### Escolha o cronograma de entrega ou o disparo {#choose-delivery-schedule-or-trigger}
 
-Os webhooks podem ser entregues com base em um horário agendado, uma ação ou um disparo de API. Para saber mais, consulte [Agendamento da sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Os webhooks podem ser entregues com base em um horário agendado, uma ação ou um disparo de API or interface de programação do aplicativo (API). Para saber mais, consulte [Agendamento da sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Para entrega baseada em ação, você também pode definir a duração da campanha e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
@@ -181,7 +181,7 @@ Nessa etapa, você também pode especificar controles de entrega, como permitir 
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
-Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Nessa etapa, você seleciona o público mais amplo dos seus segmentos e, se desejar, refina ainda mais esse segmento com nossos filtros. Você recebe automaticamente uma prévia de como é a população aproximada desse segmento. Lembre-se de que a contagem exata de membros do segmento é sempre calculada antes do envio da mensagem.
+Em seguida, você deve [direcionar os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros para refinar seu público. Nessa etapa, você seleciona o público mais amplo dos seus segmentos e, se desejar, refina ainda mais esse Segment or segmento or segmento com nossos filtros. Você recebe automaticamente uma prévia de como é a população aproximada desse Segment or segmento or segmento. Lembre-se de que a contagem exata de membros do Segment or segmento or segmento é sempre calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -206,7 +206,7 @@ Depois de terminar de criar a última parte da sua Campaign ou Canvas, revise os
 
 ### Erros, lógica de repetição e tempos limite {#errors-retry-logic-and-timeouts}
 
-Webhooks dependem dos servidores da Braze para fazer solicitações a um endpoint externo, e erros podem ocorrer ocasionalmente. Os erros mais comuns incluem erros de sintaxe, chaves de API expiradas, limites de frequência e problemas inesperados no lado do servidor. Antes de enviar uma campanha de webhook:
+Webhooks dependem dos servidores da Braze para fazer solicitações a um endpoint externo, e erros podem ocorrer ocasionalmente. Os erros mais comuns incluem erros de sintaxe, chaves de API or interface de programação do aplicativo (API) expiradas, limites de frequência e problemas inesperados no lado do servidor. Antes de enviar uma campanha de webhook:
 
 - Teste seu webhook para verificar erros de sintaxe
 - Certifique-se de que variáveis personalizadas tenham valores padrão
@@ -215,7 +215,7 @@ Se o envio do webhook falhar, uma mensagem de erro será registrada no [Registro
 
 ![Erro de webhook com a mensagem "An active access token must be used to query information about the current user".]({% image_buster /assets/img_archive/webhook-error.png %})
 
-Se a mensagem de erro não for clara o suficiente sobre a origem do erro, consulte a documentação do endpoint da API que você está usando. Normalmente, ela fornece uma explicação dos códigos de erro usados pelo endpoint e suas causas mais comuns.
+Se a mensagem de erro não for clara o suficiente sobre a origem do erro, consulte a documentação do endpoint da API or interface de programação do aplicativo (API) que você está usando. Normalmente, ela fornece uma explicação dos códigos de erro usados pelo endpoint e suas causas mais comuns.
 
 #### Códigos de resposta e lógica de repetição {#response-codes-and-retry-logic}
 
@@ -245,7 +245,7 @@ Se os envios de webhook parecerem ausentes na análise de dados, abra o [Registr
 
 #### 403 Forbidden e lista de permissões de IP {#403-forbidden-and-ip-allowlisting}
 
-Respostas `403 Forbidden` significam que seu endpoint recebeu a solicitação, mas a recusou. As causas comuns incluem autenticação inválida ou ausente, permissões de API insuficientes e regras de rede (como um firewall ou firewall de aplicação web) que bloqueiam os endereços IP de saída da Braze.
+Respostas `403 Forbidden` significam que seu endpoint recebeu a solicitação, mas a recusou. As causas comuns incluem autenticação inválida ou ausente, permissões de API or interface de programação do aplicativo (API) insuficientes e regras de rede (como um firewall ou firewall de aplicação web) que bloqueiam os endereços IP de saída da Braze.
 
 Se as solicitações de webhook retornarem consistentemente `403` e seus cabeçalhos de autenticação estiverem corretos, adicione os IPs da Braze à lista de permissões do seu cluster no servidor que recebe o webhook. Consulte [Lista de permissões de IP](#ip-allowlisting). As solicitações de Connected Content usam os mesmos IPs de saída; consulte [Lista de permissões de IP do Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting).
 
@@ -267,7 +267,7 @@ Para explicações detalhadas, etapas de solução de problemas e orientações 
 
 Quando um webhook é enviado pela Braze, os servidores da Braze fazem solicitações de rede para os servidores dos nossos clientes ou de terceiros. Com a lista de permissões de IP, você pode verificar se as solicitações de webhook estão vindo da Braze, adicionando uma camada de segurança.
 
-A Braze enviará webhooks a partir dos IPs a seguir. Os IPs listados são adicionados automática e dinamicamente a quaisquer chaves de API que tenham optado pela lista de permissões.
+A Braze enviará webhooks a partir dos IPs a seguir. Os IPs listados são adicionados automática e dinamicamente a quaisquer chaves de API or interface de programação do aplicativo (API) que tenham optado pela lista de permissões.
 
 {% alert important %}
 Se você estiver fazendo um webhook de Braze para Braze e usando lista de permissões, deverá adicionar todos os IPs a seguir à lista de permissões, incluindo `127.0.0.1`.
@@ -277,6 +277,6 @@ Se você estiver fazendo um webhook de Braze para Braze e usando lista de permis
 
 ### Excluir usuários {#delete-users}
 
-Para excluir um usuário individual ou um Segment de usuários, acesse **Público** > **Gerenciar público** > **Excluir usuários**. O dashboard aceita exclusão em massa de Segments (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome limites de frequência compartilhados da REST API. Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
+Para excluir um usuário individual ou um Segment or segmento de usuários, acesse **Público** > **Gerenciar público** > **Excluir usuários**. O dashboard aceita exclusão em massa de Segments (até 10 milhões de perfis), inclui uma janela de cancelamento de 7 dias e não consome limites de frequência compartilhados da REST or transferir estado representacional API or interface de programação do aplicativo (API). Para etapas, limites e permissões, consulte [Excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users).
 
 Para exclusão programática em lotes menores, use o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) em vez de uma campanha de webhook.

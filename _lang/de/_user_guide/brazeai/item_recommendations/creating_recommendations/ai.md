@@ -1,25 +1,25 @@
 ---
-nav_title: KI-Empfehlungen
-article_title: KI-Artikelempfehlungen erstellen
-description: "Dieser Artikel beschreibt, wie Sie eine KI-Artikelempfehlung für Artikel in einem Katalog erstellen."
+nav_title: KI or künstliche Intelligenz-Empfehlungen
+article_title: KI or künstliche Intelligenz-Artikelempfehlungen erstellen
+description: "Dieser Artikel beschreibt, wie Sie eine KI or künstliche Intelligenz-Artikelempfehlung für Artikel in einem Katalog erstellen."
 page_order: 1
 ---
 
-# KI-Artikelempfehlungen erstellen {#create-ai-item-recommendations}
+# KI or künstliche Intelligenz-Artikelempfehlungen erstellen {#create-ai-item-recommendations}
 
-> Erfahren Sie, wie Sie ein KI-Empfehlungssystem aus Artikeln in Ihrem Katalog erstellen.
+> Erfahren Sie, wie Sie ein KI or künstliche Intelligenz-Empfehlungssystem aus Artikeln in Ihrem Katalog erstellen.
 
-## Über KI-Artikelempfehlungen {#about-ai-item-recommendations}
+## Über KI or künstliche Intelligenz-Artikelempfehlungen {#about-ai-item-recommendations}
 
-Verwenden Sie KI-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs) zu erstellen. Nachdem Sie Ihre Empfehlung erstellt haben, können Sie Personalisierung nutzen, um diese Produkte in Ihre Nachrichten einzufügen.
+Verwenden Sie KI or künstliche Intelligenz-Artikelempfehlungen, um die beliebtesten Produkte zu berechnen oder personalisierte KI or künstliche Intelligenz-Empfehlungen für einen bestimmten [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs) zu erstellen. Nachdem Sie Ihre Empfehlung erstellt haben, können Sie Personalisierung nutzen, um diese Produkte in Ihre Nachrichten einzufügen.
 
 {% alert tip %}
-[KI-Personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen Hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
+[KI or künstliche Intelligenz-Personalisierte Empfehlungen](#recommendation-types) funktionieren am besten mit mindestens einigen Hundert Katalogartikeln, höchstens 100.000 Katalogartikeln und in der Regel mindestens 30.000 Nutzer:innen mit Kauf- oder Interaktionsdaten. Dies ist nur ein grober Richtwert und kann variieren. Die anderen Empfehlungstypen können mit weniger Daten arbeiten, auch wenn **Beliebteste** als Fallback verwendet wird.
 {% endalert %}
 
-{% multi_lang_include brazeai/recommendations/ai.md section="Plan-specific features" %}
+{% multi_lang_include brazeai/recommendations/KI or künstliche Intelligenz.md section="Plan-specific features" %}
 
-## KI-Artikelempfehlung erstellen {#creating-an-ai-item-recommendation}
+## KI or künstliche Intelligenz-Artikelempfehlung erstellen {#creating-an-ai-item-recommendation}
 
 ### Voraussetzungen {#prerequisites}
 
@@ -30,12 +30,12 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 ### Schritt 1: Neue Empfehlung erstellen {#step-1-create-a-new-recommendation}
 
-Sie können eine KI-Artikelempfehlung an zwei Stellen im Dashboard erstellen:
+Sie können eine KI or künstliche Intelligenz-Artikelempfehlung an zwei Stellen im Dashboard erstellen:
 
 {% tabs local %}
 {% tab Über das Navigationsmenü %}
-1. Gehen Sie zu **Analytics** > **KI-Artikelempfehlung**.
-2. Wählen Sie **Prognose erstellen** > **KI-Artikelempfehlung**.
+1. Gehen Sie zu **Analytics** > **KI or künstliche Intelligenz-Artikelempfehlung**.
+2. Wählen Sie **Prognose erstellen** > **KI or künstliche Intelligenz-Artikelempfehlung**.
 {% endtab %}
 
 {% tab Über einen Katalog %}
@@ -54,18 +54,18 @@ Geben Sie Ihrer Empfehlung einen Namen und eine optionale Beschreibung.
 Wählen Sie einen Empfehlungstyp aus. Jeder Typ verwendet die Interaktionsdaten der letzten sechs Monate, z. B. Käufe, aufgegebene Bestellungen oder angepasste Event-Daten. Ausführliche Informationen und Anwendungsfälle für die einzelnen Typen finden Sie unter [Typen und Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
-Bei der Verwendung von **Neueste** oder **KI-Personalisiert** erhalten Nutzer:innen mit unzureichenden Daten für individuelle Empfehlungen als Fallback die **Beliebtesten** Artikel. Der **Beliebteste**-Fallback gibt nur Artikel zurück, die im verknüpften Katalog vorhanden sind.<br><br>Für **KI-Personalisiert**-Empfehlungen können Sie auf der **Analytics**-Seite die **Personalisierungsrate** einsehen – also den Prozentsatz der Nutzer:innen, die das konfigurierte Event in den letzten 24 Monaten durchgeführt haben und für die personalisierte Empfehlungen in ihrem Profil gespeichert sind. Für **Neueste**-Empfehlungen zeigt die **Analytics**-Seite den Anteil der Nutzer:innen, die **Neueste**-Empfehlungen erhalten, im Vergleich zum **Beliebteste**-Fallback.
+Bei der Verwendung von **Neueste** oder **KI or künstliche Intelligenz-Personalisiert** erhalten Nutzer:innen mit unzureichenden Daten für individuelle Empfehlungen als Fallback die **Beliebtesten** Artikel. Der **Beliebteste**-Fallback gibt nur Artikel zurück, die im verknüpften Katalog vorhanden sind.<br><br>Für **KI or künstliche Intelligenz-Personalisiert**-Empfehlungen können Sie auf der **Analytics**-Seite die **Personalisierungsrate** einsehen – also den Prozentsatz der Nutzer:innen, die das konfigurierte Event in den letzten 24 Monaten durchgeführt haben und für die personalisierte Empfehlungen in ihrem Profil gespeichert sind. Für **Neueste**-Empfehlungen zeigt die **Analytics**-Seite den Anteil der Nutzer:innen, die **Neueste**-Empfehlungen erhalten, im Vergleich zum **Beliebteste**-Fallback.
 {% endalert %}
 
 #### Schritt 3.1: Frühere Käufe oder Interaktionen ausschließen (optional) {#step-31-exclude-prior-purchases-or-interactions-optional}
 
-Um keine Artikel vorzuschlagen, die Nutzer:innen bereits gekauft oder mit denen sie bereits interagiert haben, wählen Sie **Artikel, mit denen Nutzer:innen bereits interagiert haben, nicht empfehlen**. Diese Option ist nur verfügbar, wenn der Empfehlungs-**Typ** auf **KI-Personalisiert** eingestellt ist.
+Um keine Artikel vorzuschlagen, die Nutzer:innen bereits gekauft oder mit denen sie bereits interagiert haben, wählen Sie **Artikel, mit denen Nutzer:innen bereits interagiert haben, nicht empfehlen**. Diese Option ist nur verfügbar, wenn der Empfehlungs-**Typ** auf **KI or künstliche Intelligenz-Personalisiert** eingestellt ist.
 
 ![Schritt „Empfehlung definieren“ mit „KI-Personalisiert“ als Typ und aktivierter Option „Artikel, mit denen Nutzer:innen bereits interagiert haben, nicht empfehlen“.]({% image_buster /assets/img/item_recs_2-3.png %})
 
-Diese Einstellung verhindert, dass Nachrichten Artikel wiederverwenden, die Nutzer:innen bereits gekauft oder mit denen sie interagiert haben, vorausgesetzt, die Empfehlung wurde kürzlich aktualisiert. Artikel, die zwischen Empfehlungs-Updates gekauft oder mit denen interagiert wurde, können dennoch erscheinen. Bei der kostenlosen Version der Artikelempfehlungen erfolgen Updates wöchentlich. Bei der Pro-Version der KI-Artikelempfehlungen erfolgen Updates alle 24 Stunden.
+Diese Einstellung verhindert, dass Nachrichten Artikel wiederverwenden, die Nutzer:innen bereits gekauft oder mit denen sie interagiert haben, vorausgesetzt, die Empfehlung wurde kürzlich aktualisiert. Artikel, die zwischen Empfehlungs-Updates gekauft oder mit denen interagiert wurde, können dennoch erscheinen. Bei der kostenlosen Version der Artikelempfehlungen erfolgen Updates wöchentlich. Bei der Pro-Version der KI or künstliche Intelligenz-Artikelempfehlungen erfolgen Updates alle 24 Stunden.
 
-Wenn beispielsweise bei der Pro-Version der KI-Artikelempfehlungen eine Nutzerin etwas kauft und dann innerhalb von 30 Minuten eine Marketing-E-Mail erhält, ist der gerade gekaufte Artikel möglicherweise nicht rechtzeitig aus der E-Mail ausgeschlossen. Nachrichten, die nach 24 Stunden gesendet werden, enthalten diesen Artikel jedoch nicht mehr.
+Wenn beispielsweise bei der Pro-Version der KI or künstliche Intelligenz-Artikelempfehlungen eine Nutzerin etwas kauft und dann innerhalb von 30 Minuten eine Marketing-E-Mail erhält, ist der gerade gekaufte Artikel möglicherweise nicht rechtzeitig aus der E-Mail ausgeschlossen. Nachrichten, die nach 24 Stunden gesendet werden, enthalten diesen Artikel jedoch nicht mehr.
 
 #### Schritt 3.2: Katalog auswählen {#step-32-select-a-catalog}
 
@@ -86,7 +86,7 @@ Wenn Sie Ihre Selektion nicht finden können, stellen Sie sicher, dass sie zuers
 Wählen Sie das Event aus, für das diese Empfehlung optimiert werden soll. Dieses Event ist in der Regel ein Kauf, kann aber auch jede andere Interaktion mit einem Artikel sein.
 
 {% alert tip %}
-Bei der Konfiguration von KI-Artikelempfehlungen ist die Wahl des Events wichtig. Ihr auslösendes Event bestimmt, wer eine KI-generierte Empfehlung erhält – KI-Artikelempfehlungen werden für Nutzer:innen generiert, die das von Ihnen konfigurierte Event durchgeführt haben, sodass diese Wahl direkt bestimmt, wer Empfehlungen erhält. Wählen Sie ein Event, das das gesamte Zielgruppen-Segment abdeckt, das Sie erreichen möchten.<br><br>Gleichzeitig sollten Sie Abdeckung und Relevanz gegeneinander abwägen. Events am Anfang des Funnels (wie „Produkt angesehen“) erfassen tendenziell ein breiteres Publikum, sind aber weniger mit Geschäftsergebnissen verbunden, während Events am Ende des Funnels (wie „Gekauft“) gezieltere, geschäftsrelevantere Empfehlungen liefern. Das beste Event ist eines, das Abdeckung und Einfluss auf das Geschäftsergebnis in Einklang bringt.
+Bei der Konfiguration von KI or künstliche Intelligenz-Artikelempfehlungen ist die Wahl des Events wichtig. Ihr auslösendes Event bestimmt, wer eine KI or künstliche Intelligenz-generierte Empfehlung erhält – KI or künstliche Intelligenz-Artikelempfehlungen werden für Nutzer:innen generiert, die das von Ihnen konfigurierte Event durchgeführt haben, sodass diese Wahl direkt bestimmt, wer Empfehlungen erhält. Wählen Sie ein Event, das das gesamte Zielgruppen-Segment abdeckt, das Sie erreichen möchten.<br><br>Gleichzeitig sollten Sie Abdeckung und Relevanz gegeneinander abwägen. Events am Anfang des Funnels (wie „Produkt angesehen“) erfassen tendenziell ein breiteres Publikum, sind aber weniger mit Geschäftsergebnissen verbunden, während Events am Ende des Funnels (wie „Gekauft“) gezieltere, geschäftsrelevantere Empfehlungen liefern. Das beste Event ist eines, das Abdeckung und Einfluss auf das Geschäftsergebnis in Einklang bringt.
 {% endalert %}
 
 Sie können optimieren für:
@@ -101,7 +101,7 @@ Wenn Sie **Angepasstes Event** wählen, wählen Sie Ihr Event aus der Liste aus.
 ![Das angepasste Event „purchase“ ist als aktuell getracktes Event ausgewählt.]({% image_buster /assets/img/item_recs_3.png %})
 
 {% alert note %}
-Angepasste Events müssen über ausreichend Daten verfügen, bevor sie in der Event-Liste erscheinen. Wenn Ihr angepasstes Event nicht angezeigt wird, liegt es möglicherweise daran, dass das Braze-Backend es noch nicht verarbeitet hat oder nicht genügend Daten für das Modelltraining vorhanden sind. KI-Empfehlungen basieren auf historischen Daten, um Insights zu generieren, sodass neu erstellte oder selten ausgelöste Events erst verfügbar sind, wenn mehr Daten erfasst wurden.
+Angepasste Events müssen über ausreichend Daten verfügen, bevor sie in der Event-Liste erscheinen. Wenn Ihr angepasstes Event nicht angezeigt wird, liegt es möglicherweise daran, dass das Braze-Backend es noch nicht verarbeitet hat oder nicht genügend Daten für das Modelltraining vorhanden sind. KI or künstliche Intelligenz-Empfehlungen basieren auf historischen Daten, um Insights zu generieren, sodass neu erstellte oder selten ausgelöste Events erst verfügbar sind, wenn mehr Daten erfasst wurden.
 {% endalert %}
 
 ### Schritt 5: Entsprechenden Eigenschaftsnamen wählen {#property-name}
@@ -110,7 +110,7 @@ Um eine Empfehlung zu erstellen, müssen Sie Braze mitteilen, welches Feld Ihres
 
 Wählen Sie dieses Feld für den **Eigenschaftsnamen** aus.
 
-Das Feld **Eigenschaftsname** wird mit einer Liste von Feldern vorbelegt, die über das SDK an Braze gesendet werden. Wenn ausreichend Daten vorhanden sind, werden diese Eigenschaften auch nach der Wahrscheinlichkeit sortiert, die korrekte Eigenschaft zu sein. Wählen Sie diejenige aus, die dem `id`-Feld des Katalogs entspricht.
+Das Feld **Eigenschaftsname** wird mit einer Liste von Feldern vorbelegt, die über das SDK or Software-Development-Kit an Braze gesendet werden. Wenn ausreichend Daten vorhanden sind, werden diese Eigenschaften auch nach der Wahrscheinlichkeit sortiert, die korrekte Eigenschaft zu sein. Wählen Sie diejenige aus, die dem `id`-Feld des Katalogs entspricht.
 
 ![Der Eigenschaftsname „purchase_item“ ist ausgewählt, der den Artikel-IDs im Katalog entspricht.]({% image_buster /assets/img/item_recs_4.png %})
 

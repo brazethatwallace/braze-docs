@@ -6,7 +6,7 @@ O Braze fornece métodos para atribuir atribuições aos usuários. Você poder�
 
 ### Atribuições padrão do usuário
 
-Para definir atributos de usuário coletados automaticamente pelo Braze, você pode usar métodos de configuração que vêm com o SDK.
+Para definir atributos de usuário coletados automaticamente pelo Braze, você pode usar métodos de configuração que vêm com o SDK or kit de desenvolvimento de software.
 
 ```javascript
 Braze.setFirstName("Name");

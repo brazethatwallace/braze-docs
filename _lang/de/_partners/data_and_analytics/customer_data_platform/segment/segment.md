@@ -18,7 +18,7 @@ search_tag: Partner
 Die Integration von Braze und Segment ermöglicht es Ihnen, Ihre Nutzer:innen zu tracken und Daten an verschiedene Anbieter von Analytics weiterzuleiten. Segment ermöglicht Ihnen:
 
 - [Segment Engage]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_engage) mit Braze zu synchronisieren, um es in Braze-Campaigns und Canvas-Segmentierung zu verwenden.
-- [Daten zwischen den beiden Plattformen zu importieren](#integration-options). Wir bieten eine Side-by-side-SDK-Integration für Ihre Android-, iOS- und Web-Anwendungen sowie eine Server-zu-Server-Integration zur Synchronisierung Ihrer Daten mit den Braze REST APIs.
+- [Daten zwischen den beiden Plattformen zu importieren](#integration-options). Wir bieten eine Side-by-side-SDK or Software-Development-Kit-Integration für Ihre Android-, iOS- und Web-Anwendungen sowie eine Server-zu-Server-Integration zur Synchronisierung Ihrer Daten mit den Braze Representational State Transfer APIs.
 - [Daten über Currents mit Segment zu verbinden]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment_for_currents).
 
 ## Voraussetzungen {#prerequisites}
@@ -49,27 +49,27 @@ Die Wahl des Verbindungsmodus hängt von der Art der Quelle ab, für die das Zie
 
 | Integration | Details |
 | ----------- | ------- |
-| [Side-by-side<br>(Gerätemodus)](#side-by-side-sdk-integration) | Verwendet das SDK von Segment, um Events in native Braze-Aufrufe zu übersetzen, was den Zugriff auf tiefere Features und eine umfassendere Nutzung von Braze als bei der Server-zu-Server-Integration ermöglicht.<br><br>Beachten Sie, dass Segment nicht alle Braze-Methoden unterstützt (z. B. Content Cards). Um eine Braze-Methode zu verwenden, die nicht durch eine entsprechende Abbildung abgedeckt ist, müssen Sie die Methode aufrufen, indem Sie Ihrer Codebasis nativen Braze-Code hinzufügen. |
-| [Server-zu-Server<br>(Cloud-Modus)](#server-to-server-integration) | Leitet Daten von Segment an Braze REST API-Endpunkte weiter.<br><br>Unterstützt keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen. Es gibt auch automatisch erfasste Daten, wie z. B. Felder auf Geräteebene, die mit dieser Methode nicht verfügbar sind.<br><br>Ziehen Sie eine Side-by-side-Integration in Betracht, wenn Sie diese Features nutzen möchten. |
+| [Side-by-side<br>(Gerätemodus)](#side-by-side-sdk-integration) | Verwendet das SDK or Software-Development-Kit von Segment, um Events in native Braze-Aufrufe zu übersetzen, was den Zugriff auf tiefere Features und eine umfassendere Nutzung von Braze als bei der Server-zu-Server-Integration ermöglicht.<br><br>Beachten Sie, dass Segment nicht alle Braze-Methoden unterstützt (z. B. Content Cards). Um eine Braze-Methode zu verwenden, die nicht durch eine entsprechende Abbildung abgedeckt ist, müssen Sie die Methode aufrufen, indem Sie Ihrer Codebasis nativen Braze-Code hinzufügen. |
+| [Server-zu-Server<br>(Cloud-Modus)](#server-to-server-integration) | Leitet Daten von Segment an Braze Representational State Transfer API-Endpunkte weiter.<br><br>Unterstützt keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen. Es gibt auch automatisch erfasste Daten, wie z. B. Felder auf Geräteebene, die mit dieser Methode nicht verfügbar sind.<br><br>Ziehen Sie eine Side-by-side-Integration in Betracht, wenn Sie diese Features nutzen möchten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Ziel-Framework und Verbindungstyp wählen" }
 
 {% alert note %}
 Besuchen Sie [Segment](https://segment.com/docs/destinations/#connection-modes), um mehr über die beiden Integrationsmöglichkeiten (Verbindungsmodi) zu erfahren, einschließlich der jeweiligen Vorteile.
 {% endalert %}
 
-#### Side-by-side-SDK-Integration {#side-by-side-sdk-integration}
+#### Side-by-side-SDK or Software-Development-Kit-Integration {#side-by-side-sdk-integration}
 
-Diese Integration, die auch als Gerätemodus bezeichnet wird, bildet das SDK und die [Methoden](#methods) von Segment auf das Braze SDK ab und ermöglicht so den Zugriff auf alle Features, die unser SDK bietet, wie Push, In-App-Nachrichten und andere native Braze-Methoden.
+Diese Integration, die auch als Gerätemodus bezeichnet wird, bildet das SDK or Software-Development-Kit und die [Methoden](#methods) von Segment auf das Braze SDK or Software-Development-Kit ab und ermöglicht so den Zugriff auf alle Features, die unser SDK or Software-Development-Kit bietet, wie Push, In-App-Nachrichten und andere native Braze-Methoden.
 
 {% alert note %}
-Wenn Sie den Gerätemodus von Segment verwenden, lassen Sie Segment Braze initialisieren. Initialisieren Sie das Braze SDK nicht zusätzlich in Ihrer App. Das Ziel-Plugin konfiguriert Braze und öffnet Sitzungen; eine zweite native Initialisierung kann doppelte Sitzungen protokollieren. Verwenden Sie Segment `identify`, um die Nutzer-ID festzulegen. Das Plugin bildet diesen Aufruf auf `changeUser()` ab.
+Wenn Sie den Gerätemodus von Segment verwenden, lassen Sie Segment Braze initialisieren. Initialisieren Sie das Braze SDK or Software-Development-Kit nicht zusätzlich in Ihrer App. Das Ziel-Plugin konfiguriert Braze und öffnet Sitzungen; eine zweite native Initialisierung kann doppelte Sitzungen protokollieren. Verwenden Sie Segment `identify`, um die Nutzer-ID festzulegen. Das Plugin bildet diesen Aufruf auf `changeUser()` ab.
 {% endalert %}
 
 {% alert important %}
-Für Gerätemodus-Integrationen auf Mobilgeräten müssen Sie das Braze-Ziel-Plugin zusätzlich zur Konfiguration des Ziels im Segment-Dashboard zu Ihrer App hinzufügen. Das Segment SDK enthält das Braze-Plugin nicht standardmäßig – ohne dieses kann das Segment SDK keine Daten oder abgebildeten Methodenaufrufe an Braze weiterleiten, und Features wie Push, In-App-Nachrichten und Content Cards funktionieren nicht. Installationsanweisungen finden Sie in den plattformspezifischen Tabs in diesem Abschnitt.
+Für Gerätemodus-Integrationen auf Mobilgeräten müssen Sie das Braze-Ziel-Plugin zusätzlich zur Konfiguration des Ziels im Segment-Dashboard zu Ihrer App hinzufügen. Das Segment SDK or Software-Development-Kit enthält das Braze-Plugin nicht standardmäßig – ohne dieses kann das Segment SDK or Software-Development-Kit keine Daten oder abgebildeten Methodenaufrufe an Braze weiterleiten, und Features wie Push, In-App-Nachrichten und Content Cards funktionieren nicht. Installationsanweisungen finden Sie in den plattformspezifischen Tabs in diesem Abschnitt.
 {% endalert %}
 
-Bei der Verwendung einer Gerätemodus-Verbindung weist das Braze SDK, ähnlich wie bei der nativen Integration des Braze SDK, jedem/jeder Nutzer:in eine `device_id` und einen Backend-Bezeichner, `braze_id`, zu. Dies ermöglicht es Braze, anonyme Aktivitäten des Geräts zu erfassen, indem diese Bezeichner anstelle von `userId` abgeglichen werden.
+Bei der Verwendung einer Gerätemodus-Verbindung weist das Braze SDK or Software-Development-Kit, ähnlich wie bei der nativen Integration des Braze SDK or Software-Development-Kit, jedem/jeder Nutzer:in eine `device_id` und einen Backend-Bezeichner, `braze_id`, zu. Dies ermöglicht es Braze, anonyme Aktivitäten des Geräts zu erfassen, indem diese Bezeichner anstelle von `userId` abgeglichen werden.
 
 {% alert note %}
 Wenn Sie [Zielfilter](https://segment.com/docs/connections/destinations/destination-filters/) mit Gerätemodus-Zielen (Kotlin oder Swift) verwenden, müssen Sie das Ziel-Plugin mit aktivierter Filterunterstützung konfigurieren. Weitere Informationen zu unterstützten Plugin-Versionen finden Sie in der [Dokumentation zu Zielfiltern](https://segment.com/docs/connections/destinations/destination-filters/) von Segment.
@@ -79,47 +79,47 @@ Wenn Sie [Zielfilter](https://segment.com/docs/connections/destinations/destinat
 {% tab Android %}
 
 {% alert important %}
-Der Quellcode für die Android-Gerätemodus-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK-Versionen zu berücksichtigen.
+Der Quellcode für die Android-Gerätemodus-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK or Software-Development-Kit-Versionen zu berücksichtigen.
 
 <br>
-Welches Braze SDK Sie verwenden, hängt davon ab, welches Segment SDK Sie verwenden:
+Welches Braze SDK or Software-Development-Kit Sie verwenden, hängt davon ab, welches Segment SDK or Software-Development-Kit Sie verwenden:
 
-| | Segment SDK | Braze SDK |
+| | Segment SDK or Software-Development-Kit | Braze SDK or Software-Development-Kit |
 | - | ----------- | --------- |
 | Bevorzugt | [Analytics-Kotlin](https://github.com/segmentio/analytics-kotlin) | [Braze Segment Kotlin](https://github.com/braze-inc/braze-segment-kotlin) |
 | Legacy | [Analytics-Android](https://github.com/segmentio/analytics-android) | [Braze Segment Android](https://github.com/braze-inc/braze-segment-android) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side-SDK-Integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side-SDK or Software-Development-Kit-Integration" }
 
 
 {% endalert %}
 
 Um Braze als Gerätemodus-Ziel für Ihre Android-Quelle einzurichten, wählen Sie **Actions** als **Destination framework** und dann **Save**.
 
-Um die Side-by-side-Integration abzuschließen, müssen Sie das [Braze Kotlin-Ziel-Plugin](https://segment.com/docs/connections/sources/catalog/libraries/mobile/kotlin-android/destination-plugins/braze-kotlin-android/) zu Ihrer Android-App hinzufügen. Dieses Plugin verbindet das Segment SDK mit dem Braze SDK und ermöglicht den Datenfluss im Gerätemodus zu Braze. Folgen Sie den Installationsanweisungen von Segment, um die Plugin-Abhängigkeit hinzuzufügen und es mit Ihrer Segment-Analytics-Instanz zu initialisieren.
+Um die Side-by-side-Integration abzuschließen, müssen Sie das [Braze Kotlin-Ziel-Plugin](https://segment.com/docs/connections/sources/catalog/libraries/mobile/kotlin-android/destination-plugins/braze-kotlin-android/) zu Ihrer Android-App hinzufügen. Dieses Plugin verbindet das Segment SDK or Software-Development-Kit mit dem Braze SDK or Software-Development-Kit und ermöglicht den Datenfluss im Gerätemodus zu Braze. Folgen Sie den Installationsanweisungen von Segment, um die Plugin-Abhängigkeit hinzuzufügen und es mit Ihrer Segment-Analytics-Instanz zu initialisieren.
 
-Der Quellcode für die [Android-Gerätemodus](https://github.com/braze-inc/braze-segment-kotlin)-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK-Versionen zu berücksichtigen.
+Der Quellcode für die [Android-Gerätemodus](https://github.com/braze-inc/braze-segment-kotlin)-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK or Software-Development-Kit-Versionen zu berücksichtigen.
 
 {% endtab %}
 {% tab iOS %}
 
 {% alert important %}
-Der Quellcode für die iOS-Gerätemodus-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK-Versionen zu berücksichtigen.
+Der Quellcode für die iOS-Gerätemodus-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK or Software-Development-Kit-Versionen zu berücksichtigen.
 
 <br>
-Welches Braze SDK Sie verwenden, hängt davon ab, welches Segment SDK Sie verwenden:
+Welches Braze SDK or Software-Development-Kit Sie verwenden, hängt davon ab, welches Segment SDK or Software-Development-Kit Sie verwenden:
 
-| | Segment SDK | Braze SDK |
+| | Segment SDK or Software-Development-Kit | Braze SDK or Software-Development-Kit |
 | - | ----------- | --------- |
 | Bevorzugt | [Analytics-Swift](https://github.com/segmentio/analytics-swift) | [Braze Segment Swift](https://github.com/braze-inc/braze-segment-swift) |
 | Legacy | [Analytics-iOS](https://github.com/segmentio/analytics-ios) | [Braze Segment iOS](https://github.com/Appboy/appboy-segment-ios) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side-SDK-Integration" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Side-by-side-SDK or Software-Development-Kit-Integration" }
 {% endalert %}
 
 Um Braze als Gerätemodus-Ziel für Ihre iOS-Quelle einzurichten, wählen Sie **Actions** als **Destination framework** und dann **Save**.
 
-Um die Side-by-side-Integration abzuschließen, müssen Sie das [Braze Swift-Ziel-Plugin](https://segment.com/docs/connections/sources/catalog/libraries/mobile/apple/destination-plugins/braze-swift/) zu Ihrer iOS-App hinzufügen. Dieses Plugin verbindet das Segment SDK mit dem Braze SDK und ermöglicht den Datenfluss im Gerätemodus zu Braze. Folgen Sie den Installationsanweisungen von Segment, um die Plugin-Abhängigkeit (über den Swift-Paketmanager oder CocoaPods) hinzuzufügen und es mit Ihrer Segment-Analytics-Instanz zu initialisieren.
+Um die Side-by-side-Integration abzuschließen, müssen Sie das [Braze Swift-Ziel-Plugin](https://segment.com/docs/connections/sources/catalog/libraries/mobile/apple/destination-plugins/braze-swift/) zu Ihrer iOS-App hinzufügen. Dieses Plugin verbindet das Segment SDK or Software-Development-Kit mit dem Braze SDK or Software-Development-Kit und ermöglicht den Datenfluss im Gerätemodus zu Braze. Folgen Sie den Installationsanweisungen von Segment, um die Plugin-Abhängigkeit (über den Swift-Paketmanager oder CocoaPods) hinzuzufügen und es mit Ihrer Segment-Analytics-Instanz zu initialisieren.
 
-Der Quellcode für die [iOS-Gerätemodus](https://github.com/braze-inc/braze-segment-swift)-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK-Versionen zu berücksichtigen.
+Der Quellcode für die [iOS-Gerätemodus](https://github.com/braze-inc/braze-segment-swift)-Integration wird von Braze gepflegt und regelmäßig aktualisiert, um neue Braze SDK or Software-Development-Kit-Versionen zu berücksichtigen.
 
 {% endtab %}
 {% tab Web oder JavaScript %}
@@ -132,16 +132,16 @@ Wählen Sie in Segment **Actions** als Ziel-Framework und **Device Mode** als Ve
 
 {% endtab %}
 {% tab React Native %}
-Der Quellcode für das [React Native Braze Plugin](https://github.com/segmentio/analytics-react-native/tree/master/packages/plugins/plugin-braze) wird von Segment gepflegt und regelmäßig aktualisiert, um neue Braze SDK-Versionen zu berücksichtigen.
+Der Quellcode für das [React Native Braze Plugin](https://github.com/segmentio/analytics-react-native/tree/master/packages/plugins/plugin-braze) wird von Segment gepflegt und regelmäßig aktualisiert, um neue Braze SDK or Software-Development-Kit-Versionen zu berücksichtigen.
 
 Wenn Sie eine React Native Segment-Quelle mit Braze verbinden, müssen Sie eine Quelle und ein Ziel pro Betriebssystem einrichten. Zum Beispiel die Einrichtung eines iOS-Ziels und eines Android-Ziels.
 
-Innerhalb Ihrer App-Codebasis initialisieren Sie das Segment SDK bedingt nach Gerätetyp, indem Sie den jeweiligen, mit jeder App verbundenen Quell-Schreibschlüssel verwenden.
+Innerhalb Ihrer App-Codebasis initialisieren Sie das Segment SDK or Software-Development-Kit bedingt nach Gerätetyp, indem Sie den jeweiligen, mit jeder App verbundenen Quell-Schreibschlüssel verwenden.
 
-Wenn ein Push-Token von einem Gerät registriert und an Braze gesendet wird, wird es mit dem App-Bezeichner verknüpft, der bei der Initialisierung des SDK verwendet wurde. Die gerätetypabhängige Initialisierung stellt sicher, dass alle an Braze gesendeten Push-Token mit der entsprechenden App verknüpft sind.
+Wenn ein Push-Token / Textbaustein von einem Gerät registriert und an Braze gesendet wird, wird es mit dem App-Bezeichner verknüpft, der bei der Initialisierung des SDK or Software-Development-Kit verwendet wurde. Die gerätetypabhängige Initialisierung stellt sicher, dass alle an Braze gesendeten Push-Token / Textbaustein mit der entsprechenden App verknüpft sind.
 
 {% alert important %}
-Wenn die React Native App Braze mit demselben Braze-App-Bezeichner für alle Geräte initialisiert, werden alle React Native Nutzer:innen in Braze als Android- oder iOS-Nutzer:innen betrachtet, und alle Push-Token werden mit diesem Betriebssystem assoziiert.
+Wenn die React Native App Braze mit demselben Braze-App-Bezeichner für alle Geräte initialisiert, werden alle React Native Nutzer:innen in Braze als Android- oder iOS-Nutzer:innen betrachtet, und alle Push-Token / Textbaustein werden mit diesem Betriebssystem assoziiert.
 {% endalert %}
 
 Um Braze als Gerätemodus-Ziel für jede Quelle einzurichten, wählen Sie **Actions** als **Destination framework** und dann **Save**.
@@ -151,11 +151,11 @@ Um Braze als Gerätemodus-Ziel für jede Quelle einzurichten, wählen Sie **Acti
 
 #### Server-zu-Server-Integration {#server-to-server-integration}
 
-Diese auch als Cloud-Modus bezeichnete Integration leitet Daten von Segment an die Braze REST APIs weiter. Verwenden Sie das [Braze Cloud Mode (Actions)](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/) Framework von Segment, um ein Cloud-Modus-Ziel für jede Ihrer Quellen einzurichten.
+Diese auch als Cloud-Modus bezeichnete Integration leitet Daten von Segment an die Braze Representational State Transfer APIs weiter. Verwenden Sie das [Braze Cloud Mode (Actions)](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/) Framework von Segment, um ein Cloud-Modus-Ziel für jede Ihrer Quellen einzurichten.
 
-Im Gegensatz zur Side-by-side-Integration unterstützt die Server-zu-Server-Integration keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder die automatische Registrierung von Push-Token. Es gibt auch [automatisch erfasste]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection#user-data-collection) Daten (wie anonyme Nutzer:innen und Felder auf Geräteebene), die nicht über den Cloud-Modus verfügbar sind.
+Im Gegensatz zur Side-by-side-Integration unterstützt die Server-zu-Server-Integration keine Braze-UI-Features wie In-App-Nachrichten, Content Cards oder die automatische Registrierung von Push-Token / Textbaustein. Es gibt auch [automatisch erfasste]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection#user-data-collection) Daten (wie anonyme Nutzer:innen und Felder auf Geräteebene), die nicht über den Cloud-Modus verfügbar sind.
 
-Wenn Sie diese Daten und Features nutzen möchten, sollten Sie die Side-by-side-SDK-Integration (Gerätemodus) verwenden.
+Wenn Sie diese Daten und Features nutzen möchten, sollten Sie die Side-by-side-SDK or Software-Development-Kit-Integration (Gerätemodus) verwenden.
 
 Der Quellcode für das [Braze Cloud Mode (Actions)-Ziel](https://github.com/segmentio/action-destinations/tree/main/packages/destination-actions/src/destinations/braze) wird von Segment verwaltet.
 
@@ -169,9 +169,9 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | Einstellung | Beschreibung |
 | ------- | ----------- |
 | App-Bezeichner | Der App-Bezeichner, der verwendet wird, um die spezifische App zu referenzieren. Diesen finden Sie im Braze-Dashboard unter **Einstellungen verwalten**. |
-| Angepasster API-Endpunkt<br>(SDK-Endpunkt) | Ihr Braze SDK-Endpunkt, der Ihrer Instanz entspricht (z. B. `sdk.iad-01.braze.com`) |
+| Angepasster API-Endpunkt<br>(SDK or Software-Development-Kit-Endpunkt) | Ihr Braze SDK or Software-Development-Kit-Endpunkt, der Ihrer Instanz entspricht (z. B. `sdk.iad-01.braze.com`) |
 | Endpunkt-Region | Ihre Braze-Instanz (z. B. US 01, US 02, EU 01 usw.) |
-| Automatische Registrierung von In-App-Nachrichten aktivieren | Deaktivieren Sie dies, wenn Sie In-App-Nachrichten manuell registrieren möchten. |
+| Automatische Registrierung von In-App-Nachrichten aktivieren | Deaktivieren Sie dies, wenn Sie In-App-Nachrichten manuell Registrierung or registrieren möchten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Einstellungen" }
 
 {% endtab %}
@@ -180,9 +180,9 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | Einstellung | Beschreibung |
 | ------- | ----------- |
 | App-Bezeichner | Der App-Bezeichner, der verwendet wird, um die spezifische App zu referenzieren. Diesen finden Sie im Braze-Dashboard unter **Einstellungen verwalten**. |
-| Angepasster API-Endpunkt<br>(SDK-Endpunkt) | Ihr Braze SDK-Endpunkt, der Ihrer Instanz entspricht (z. B. `sdk.iad-01.braze.com`) |
+| Angepasster API-Endpunkt<br>(SDK or Software-Development-Kit-Endpunkt) | Ihr Braze SDK or Software-Development-Kit-Endpunkt, der Ihrer Instanz entspricht (z. B. `sdk.iad-01.braze.com`) |
 | Safari Website Push ID | Wenn Sie Safari Push unterstützen, müssen Sie diese Option mit der Website Push ID angeben, die Sie Apple bei der Erstellung Ihres Safari Push-Zertifikats mitgeteilt haben (beginnt mit `web`, zum Beispiel `web.com.example.domain`). |
-| Braze Web SDK Version | Die Version des Braze Web SDK, die Sie verwenden möchten |
+| Braze Web SDK or Software-Development-Kit Version | Die Version des Braze Web SDK or Software-Development-Kit, die Sie verwenden möchten |
 | In-App-Nachrichten automatisch senden | Standardmäßig werden alle In-App-Nachrichten, für die Nutzer:innen berechtigt sind, automatisch zugestellt. Deaktivieren Sie dies, wenn Sie In-App-Nachrichten manuell anzeigen möchten. |
 | Font Awesome nicht laden | Braze verwendet Font Awesome für In-App-Nachrichten-Symbole. Standardmäßig lädt Braze FontAwesome automatisch aus dem FontAwesome CDN. Um dieses Verhalten zu deaktivieren (z. B. weil Ihre Website eine angepasste Version von FontAwesome verwendet), setzen Sie diese Option auf `TRUE`. Beachten Sie, dass Sie in diesem Fall dafür verantwortlich sind, dass FontAwesome auf Ihrer Website geladen ist – andernfalls werden In-App-Nachrichten möglicherweise nicht korrekt dargestellt. |
 | HTML-In-App-Nachrichten aktivieren | Wenn Sie diese Option aktivieren, können Nutzer:innen des Braze-Dashboards HTML-In-App-Nachrichten verwenden. |
@@ -191,20 +191,20 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | Explizites Schließen von In-App-Nachrichten verlangen | Standardmäßig wird eine In-App-Nachricht durch Drücken der Escape-Taste oder einen Klick auf den ausgegrauten Hintergrund der Seite geschlossen. Setzen Sie diese Option auf true, um dieses Verhalten zu verhindern und einen expliziten Button-Klick zum Schließen von Nachrichten zu verlangen. |
 | Mindestabstand zwischen triggernden Aktionen in Sekunden | Der Standardwert ist 30.<br>Standardmäßig wird eine triggernde Aktion nur ausgelöst, wenn seit der letzten triggernden Aktion mindestens 30 Sekunden vergangen sind. Geben Sie einen Wert für diese Konfigurationsoption an, um diesen Standard mit einem eigenen Wert zu überschreiben. Wir empfehlen, diesen Wert nicht kleiner als 10 zu wählen, um Nutzer:innen nicht mit Benachrichtigungen zu überhäufen. |
 | Service-Worker-Speicherort | Standardmäßig sucht Braze bei der Registrierung von Nutzer:innen für Web-Push-Benachrichtigungen nach der erforderlichen Service-Worker-Datei im Stammverzeichnis Ihres Webservers unter `/service-worker.js`. Wenn Sie Ihren Service Worker unter einem anderen Pfad auf diesem Server hosten möchten, geben Sie für diese Option einen Wert an, der dem absoluten Pfad zur Datei entspricht (zum Beispiel `/mycustompath/my-worker.js`). Beachten Sie, dass die Festlegung eines Wertes hier den Umfang der Push-Benachrichtigungen auf Ihrer Website einschränkt. Im obigen Beispiel kann `requestPushPermission`, da sich die Service-Worker-Datei im Verzeichnis `/mycustompath/` befindet, nur von Webseiten aufgerufen werden, die mit `http://yoursite.com/mycustompath/` beginnen. |
-| Push-Token-Wartung deaktivieren | Standardmäßig synchronisieren Nutzer:innen, die bereits eine Web-Push-Berechtigung erteilt haben, ihr Push-Token bei neuen Sitzungen automatisch mit dem Braze-Backend, um die Zustellbarkeit zu gewährleisten. Um dieses Verhalten zu deaktivieren, setzen Sie diese Option auf `FALSE`. |
-| Service Worker extern verwalten | Wenn Sie Ihren eigenen Service Worker haben, den Sie registrieren und dessen Lebenszyklus Sie kontrollieren, setzen Sie diese Option auf `TRUE`, und das Braze SDK wird keinen Service Worker registrieren oder deregistrieren. Wenn Sie diese Option auf `TRUE` setzen, müssen Sie den Service Worker selbst registrieren, bevor Sie `requestPushPermission` aufrufen, und sicherstellen, dass er den Braze-Service-Worker-Code enthält, entweder mit `self.importScripts('https://js.appboycdn.com/web-sdk-develop/4.1/service-worker.js');` oder indem Sie den Inhalt dieser Datei direkt einfügen. Wenn diese Option `TRUE` ist, ist die Option `serviceWorkerLocation` irrelevant und wird ignoriert. |
-| Content-Security-Nonce | Wenn Sie einen Wert für diese Option angeben, fügt das Braze SDK die Nonce zu allen vom SDK erstellten `<script>`- und `<style>`-Elementen hinzu. Dies ermöglicht es dem Braze SDK, mit der Content-Security-Policy Ihrer Website zu arbeiten. Zusätzlich zur Einstellung dieser Nonce müssen Sie eventuell auch das Laden von FontAwesome zulassen. Dies können Sie tun, indem Sie `use.fontawesome.com` zur Zulässigkeitsliste Ihrer Content-Security-Policy hinzufügen oder indem Sie die Option `doNotLoadFontAwesome` verwenden und FontAwesome manuell laden. |
-| Crawler-Aktivität zulassen | Standardmäßig ignoriert das Braze Web SDK Aktivitäten von bekannten Spidern oder Web-Crawlern, wie z. B. Google, basierend auf dem User-Agent-String. Dies spart Datenpunkte, macht Analytics genauer und kann das Seitenranking verbessern. Wenn Sie jedoch möchten, dass Braze stattdessen die Aktivitäten dieser Crawler protokolliert, können Sie diese Option auf `TRUE` setzen. |
+| Push-Token / Textbaustein-Wartung deaktivieren | Standardmäßig synchronisieren Nutzer:innen, die bereits eine Web-Push-Berechtigung erteilt haben, ihr Push-Token / Textbaustein bei neuen Sitzungen automatisch mit dem Braze-Backend, um die Zustellbarkeit zu gewährleisten. Um dieses Verhalten zu deaktivieren, setzen Sie diese Option auf `FALSE`. |
+| Service Worker extern verwalten | Wenn Sie Ihren eigenen Service Worker haben, den Sie Registrierung or registrieren und dessen Lebenszyklus Sie kontrollieren, setzen Sie diese Option auf `TRUE`, und das Braze SDK or Software-Development-Kit wird keinen Service Worker Registrierung or registrieren oder deregistrieren. Wenn Sie diese Option auf `TRUE` setzen, müssen Sie den Service Worker selbst Registrierung or registrieren, bevor Sie `requestPushPermission` aufrufen, und sicherstellen, dass er den Braze-Service-Worker-Code enthält, entweder mit `self.importScripts('https://js.appboycdn.com/web-sdk-develop/4.1/service-worker.js');` oder indem Sie den Inhalt dieser Datei direkt einfügen. Wenn diese Option `TRUE` ist, ist die Option `serviceWorkerLocation` irrelevant und wird ignoriert. |
+| Content-Security-Nonce | Wenn Sie einen Wert für diese Option angeben, fügt das Braze SDK or Software-Development-Kit die Nonce zu allen vom SDK or Software-Development-Kit erstellten `<script>`- und `<style>`-Elementen hinzu. Dies ermöglicht es dem Braze SDK or Software-Development-Kit, mit der Content-Security-Policy Ihrer Website zu arbeiten. Zusätzlich zur Einstellung dieser Nonce müssen Sie eventuell auch das Laden von FontAwesome zulassen. Dies können Sie tun, indem Sie `use.fontawesome.com` zur Zulässigkeitsliste Ihrer Content-Security-Policy hinzufügen oder indem Sie die Option `doNotLoadFontAwesome` verwenden und FontAwesome manuell laden. |
+| Crawler-Aktivität zulassen | Standardmäßig ignoriert das Braze Web SDK or Software-Development-Kit Aktivitäten von bekannten Spidern oder Web-Crawlern, wie z. B. Google, basierend auf dem User-Agent-String. Dies spart Datenpunkte, macht Analytics genauer und kann das Seitenranking verbessern. Wenn Sie jedoch möchten, dass Braze stattdessen die Aktivitäten dieser Crawler protokolliert, können Sie diese Option auf `TRUE` setzen. |
 | Protokollierung aktivieren | Setzen Sie diese Option auf `TRUE`, um die Protokollierung standardmäßig zu aktivieren. Beachten Sie, dass Braze dadurch in der JavaScript-Konsole protokolliert, was für alle Nutzer:innen sichtbar ist. Bevor Sie Ihre Seite in Produktion bringen, sollten Sie dies entfernen oder einen alternativen Logger mit `setLogger` bereitstellen. |
-| Vom/von der Nutzer:in bereitgestelltes JavaScript zulassen | Standardmäßig lässt das Braze Web SDK keine vom/von der Nutzer:in bereitgestellten JavaScript-Klick-Aktionen zu, da es Nutzer:innen des Braze-Dashboards erlaubt, JavaScript auf Ihrer Website auszuführen. Um anzugeben, dass Sie den Nutzer:innen des Braze-Dashboards zutrauen, nicht bösartige JavaScript-Klick-Aktionen zu schreiben, setzen Sie diese Eigenschaft auf `TRUE`. Wenn `enableHtmlInAppMessages` auf `TRUE` steht, wird diese Option ebenfalls auf `TRUE` gesetzt. |
+| Vom/von der Nutzer:in bereitgestelltes JavaScript zulassen | Standardmäßig lässt das Braze Web SDK or Software-Development-Kit keine vom/von der Nutzer:in bereitgestellten JavaScript-Klick-Aktionen zu, da es Nutzer:innen des Braze-Dashboards erlaubt, JavaScript auf Ihrer Website auszuführen. Um anzugeben, dass Sie den Nutzer:innen des Braze-Dashboards zutrauen, nicht bösartige JavaScript-Klick-Aktionen zu schreiben, setzen Sie diese Eigenschaft auf `TRUE`. Wenn `enableHtmlInAppMessages` auf `TRUE` steht, wird diese Option ebenfalls auf `TRUE` gesetzt. |
 | App-Version | Wenn Sie einen Wert für diese Option angeben, werden an Braze gesendete Nutzer:innen-Events mit der angegebenen Version assoziiert, die für die Segmentierung von Nutzer:innen verwendet werden kann. |
 | Sitzungs-Timeout in Sekunden | Der Standardwert ist 30.<br>Standardmäßig werden Sitzungen nach 30 Minuten Inaktivität beendet. Geben Sie einen Wert für diese Konfigurationsoption an, um diesen Standard mit einem eigenen Wert zu überschreiben. |
-| Geräteeigenschaften-Allowlist | Standardmäßig erkennt und sammelt das Braze SDK automatisch alle Geräteeigenschaften in `DeviceProperties`. Um dieses Verhalten zu überschreiben, geben Sie ein Array von `DeviceProperties` an. Beachten Sie, dass ohne einige Eigenschaften nicht alle Features ordnungsgemäß funktionieren. Zum Beispiel funktioniert die Zustellung zur Ortszeit nicht ohne die Zeitzone. |
-| Lokalisierung | Standardmäßig werden alle vom SDK erzeugten, für Nutzer:innen sichtbaren Nachrichten in der Browsersprache angezeigt. Geben Sie einen Wert für diese Option an, um dieses Verhalten zu überschreiben und eine bestimmte Sprache zu erzwingen. Der Wert für diese Option sollte ein ISO 639-1 Sprachcode sein. |
-| Keine Cookies | Standardmäßig speichert das Braze SDK kleine Datenmengen (Nutzer-IDs, Sitzungs-IDs) in Cookies. Dies ermöglicht es Braze, Nutzer:innen und Sitzungen über verschiedene Subdomänen Ihrer Website hinweg zu erkennen. Wenn dies für Sie ein Problem darstellt, geben Sie `TRUE` für diese Option ein, um die Cookie-Speicherung zu deaktivieren und sich vollständig auf HTML 5 localStorage zu verlassen, um Nutzer:innen und Sitzungen zu identifizieren. |
+| Geräteeigenschaften-Allowlist | Standardmäßig erkennt und sammelt das Braze SDK or Software-Development-Kit automatisch alle Geräteeigenschaften in `DeviceProperties`. Um dieses Verhalten zu überschreiben, geben Sie ein Array von `DeviceProperties` an. Beachten Sie, dass ohne einige Eigenschaften nicht alle Features ordnungsgemäß funktionieren. Zum Beispiel funktioniert die Zustellung zur Ortszeit nicht ohne die Zeitzone. |
+| Lokalisierung | Standardmäßig werden alle vom SDK or Software-Development-Kit erzeugten, für Nutzer:innen sichtbaren Nachrichten in der Browsersprache angezeigt. Geben Sie einen Wert für diese Option an, um dieses Verhalten zu überschreiben und eine bestimmte Sprache zu erzwingen. Der Wert für diese Option sollte ein ISO 639-1 Sprachcode sein. |
+| Keine Cookies | Standardmäßig speichert das Braze SDK or Software-Development-Kit kleine Datenmengen (Nutzer-IDs, Sitzungs-IDs) in Cookies. Dies ermöglicht es Braze, Nutzer:innen und Sitzungen über verschiedene Subdomänen Ihrer Website hinweg zu erkennen. Wenn dies für Sie ein Problem darstellt, geben Sie `TRUE` für diese Option ein, um die Cookie-Speicherung zu deaktivieren und sich vollständig auf HTML 5 localStorage zu verlassen, um Nutzer:innen und Sitzungen zu identifizieren. |
 | Alle Seiten tracken | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Dadurch werden alle [Seitenaufrufe](https://segment.com/docs/spec/page/) an Braze als Event „Loaded/Viewed a Page“ gesendet. |
 | Nur benannte Seiten tracken | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Dadurch werden nur Seitenaufrufe an Braze gesendet, die mit einem Namen verknüpft sind. |
-| Kauf protokollieren, wenn Umsatz vorhanden ist | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Wenn diese Option aktiviert ist, triggern alle Track-Aufrufe mit der Umsatz-Eigenschaft ein Kauf-Event. |
+| Kauf protokollieren, wenn Umsatz vorhanden ist | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Wenn diese Option aktiviert ist, Trigger or triggern or triggern alle Track-Aufrufe mit der Umsatz-Eigenschaft ein Kauf-Event. |
 | Nur bekannte Nutzer:innen tracken | **Nur klassisches Ziel Web-Gerätemodus (Wartung)**<br><br>Segment empfiehlt die Migration zum Web Actions Framework-Ziel, wo diese Einstellung durch Abbildungen aktiviert werden kann.<br><br>Falls aktiviert, verzögert diese Einstellung den Aufruf von `window.braze.initialize`, bis eine gültige `userId` vorliegt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Einstellungen" }
 
@@ -214,9 +214,9 @@ Definieren Sie die Einstellungen für Ihr Ziel. Nicht alle Einstellungen gelten 
 | Einstellung | Beschreibung |
 | ------- | ----------- |
 | App-Bezeichner | Der App-Bezeichner, der verwendet wird, um die spezifische App zu referenzieren. Diesen finden Sie im Braze-Dashboard unter **Einstellungen verwalten**. |
-| REST-API-Schlüssel | Diesen finden Sie in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
-| Angepasster REST API-Endpunkt | Ihr Braze REST-Endpunkt, der Ihrer Instanz entspricht (z. B. rest.iad-01.braze.com). |
-| Nur vorhandene Nutzer:innen aktualisieren | **Nur klassisches Ziel Cloud-Modus (Wartung)**<br><br>Segment empfiehlt die Migration zum Cloud Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Legt fest, ob nur bestehende Nutzer:innen aktualisiert werden sollen. |
+| Representational State Transfer-API-Schlüssel | Diesen finden Sie in Ihrem Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
+| Angepasster Representational State Transfer API-Endpunkt | Ihr Braze Representational State Transfer-Endpunkt, der Ihrer Instanz entspricht (z. B. Representational State Transfer.iad-01.braze.com). |
+| Nur vorhandene Nutzer:innen Update or aktualisieren or aktualisieren | **Nur klassisches Ziel Cloud-Modus (Wartung)**<br><br>Segment empfiehlt die Migration zum Cloud Actions Framework-Ziel, wo diese Einstellung [durch Abbildungen aktiviert](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#braze-web-settings-mapping) werden kann.<br><br>Legt fest, ob nur bestehende Nutzer:innen aktualisiert werden sollen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Einstellungen" }
 
 {% endtab %}
@@ -354,10 +354,10 @@ Alle anderen Traits werden als [angepasste Attribute]({{site.baseurl}}/user_guid
 | Identify mit Nutzer-ID und Traits | Segment: Externe ID und Attribut setzen | Kombinieren Sie die vorangegangenen Methoden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Attribute" }
 
-In den Zielen [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) und [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) können diese Abbildungen mit der Aktion „Nutzerprofil aktualisieren“ eingestellt werden.
+In den Zielen [Web Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-web-device-mode-actions/#update-user-profile) und [Cloud Mode Actions](https://segment.com/docs/connections/destinations/catalog/braze-cloud-mode-actions/#update-user-profile) können diese Abbildungen mit der Aktion „Kundenprofil or Nutzerprofil Update or aktualisieren or aktualisieren“ eingestellt werden.
 
 {% alert important %}
-Stellen Sie bei der Übergabe von Nutzer:innen-Attributdaten sicher, dass Sie nur Werte für Attribute übergeben, die sich seit dem letzten Update geändert haben. So stellen Sie sicher, dass Sie nicht unnötigerweise Datenpunkte protokollieren. Für clientseitige Quellen verwenden Sie das Open-Source-[Middleware](https://github.com/segmentio/segment-braze-mobile-middleware)-Tool von Segment, um Ihre Integration zu optimieren und die Datenpunkt-Nutzung zu begrenzen, indem Sie doppelte `identify()`-Aufrufe von Segment entprellen.
+Stellen Sie bei der Übergabe von Nutzer:innen-Attributdaten sicher, dass Sie nur Werte für Attribute übergeben, die sich seit dem letzten Update or aktualisieren geändert haben. So stellen Sie sicher, dass Sie nicht unnötigerweise Datenpunkte protokollieren. Für clientseitige Quellen verwenden Sie das Open-Source-[Middleware](https://github.com/segmentio/segment-braze-mobile-middleware)-Tool von Segment, um Ihre Integration zu optimieren und die Datenpunkt-Nutzung zu begrenzen, indem Sie doppelte `identify()`-Aufrufe von Segment entprellen.
 
 {% endalert %}
 {% endtab %}
@@ -391,16 +391,16 @@ In den Zielen [Web Mode Actions](https://segment.com/docs/connections/destinatio
 
 Der [Page](https://segment.com/docs/spec/page/)-Aufruf ermöglicht es Ihnen, aufzuzeichnen, wann immer Nutzer:innen eine Seite Ihrer Website sehen, zusammen mit allen optionalen Eigenschaften der Seite.
 
-Dieser Event-Typ kann als Trigger in den Zielen Web Mode Actions und Cloud Actions verwendet werden, um ein angepasstes Event in Braze zu protokollieren.
+Dieser Event-Typ kann als Trigger or triggern in den Zielen Web Mode Actions und Cloud Actions verwendet werden, um ein angepasstes Event in Braze zu protokollieren.
 {% endtab %}
 
 {% endtabs %}
 
 ### Schritt 5: Integration testen {#step-5-test-your-integration}
 
-Wenn Sie die Side-by-side-Integration (Gerätemodus) verwenden, können Ihre [Übersichtsmetriken]({{site.baseurl}}/user_guide/analytics/dashboards/home) (Lifetime-Sitzungen, MAU, DAU, Kundenbindung, tägliche Sitzungen und tägliche Sitzungen pro MAU) verwendet werden, um sicherzustellen, dass Braze Daten von Segment erhält.
+Wenn Sie die Side-by-side-Integration (Gerätemodus) verwenden, können Ihre [Übersichtsmetriken]({{site.baseurl}}/user_guide/analytics/dashboards/home) (Lifetime-Sitzungen, MAU or monatlich aktive:r Nutzer:in, täglich aktive:r Nutzer:in; täglich aktiv, Kundenbindung, tägliche Sitzungen und tägliche Sitzungen pro MAU or monatlich aktive:r Nutzer:in) verwendet werden, um sicherzustellen, dass Braze Daten von Segment erhält.
 
-Sie können Ihre Daten auf den Seiten für [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data#custom-event-data) oder [Umsatz]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) einsehen oder [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment). Auf der Dashboard-Seite **Angepasste Events** können Sie die Anzahl der angepassten Events im Zeitverlauf anzeigen. Beachten Sie, dass Sie keine [Formeln]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula#creating-a-formula) verwenden können, die MAU- und DAU-Statistiken enthalten, wenn Sie eine Server-zu-Server-Integration (Cloud-Modus) verwenden.
+Sie können Ihre Daten auf den Seiten für [angepasste Events]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/export_custom_event_data#custom-event-data) oder [Umsatz]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data) einsehen oder [ein Segment erstellen]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment#creating-a-segment). Auf der Dashboard-Seite **Angepasste Events** können Sie die Anzahl der angepassten Events im Zeitverlauf anzeigen. Beachten Sie, dass Sie keine [Formeln]({{site.baseurl}}/user_guide/data_and_analytics/creating_a_formula#creating-a-formula) verwenden können, die MAU or monatlich aktive:r Nutzer:in- und täglich aktive:r Nutzer:in; täglich aktiv-Statistiken enthalten, wenn Sie eine Server-zu-Server-Integration (Cloud-Modus) verwenden.
 
 Wenn Sie Kaufdaten an Braze senden (siehe „Bestellung abgeschlossen“ im Tab **Track** in [Schritt 4](#methods)), können Sie auf der [Umsatz]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data)-Seite Daten zu Umsatz oder Käufen in bestimmten Zeiträumen oder den Gesamtumsatz Ihrer App einsehen.
 
@@ -434,26 +434,26 @@ Segment begrenzt **nicht** die Anzahl der Datenelemente, die Kund:innen an sie s
 
 {% enddetails %}
 
-{% details Verstehen Sie den Unterschied zwischen dem Custom API Endpoint und dem Custom REST API Endpoint in den Mobile-Device-Mode-Zieleinstellungen. %}
+{% details Verstehen Sie den Unterschied zwischen dem Custom API Endpoint und dem Custom Representational State Transfer API Endpoint in den Mobile-Device-Mode-Zieleinstellungen. %}
 
 | Braze-Terminologie | Segment-Entsprechung |
 | ----------------- | ------------------ |
-| Braze-SDK-Endpunkt | Custom API Endpoint |
-| Braze-REST-Endpunkt | Custom REST API Endpoint |
+| Braze-SDK or Software-Development-Kit-Endpunkt | Custom API Endpoint |
+| Braze-Representational State Transfer-Endpunkt | Custom Representational State Transfer API Endpoint |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Best Practices" }
 
-Ihr Braze-API-Endpunkt (in Segment „Custom API Endpoint“ genannt) ist der SDK-Endpunkt, den Braze für Ihr SDK einrichtet (zum Beispiel `sdk.iad-03.braze.com`). Ihr Braze-REST-API-Endpunkt (in Segment „Custom REST API Endpoint“ genannt) ist der REST-API-Endpunkt (zum Beispiel `https://rest.iad-03.braze.com`).
+Ihr Braze-API-Endpunkt (in Segment „Custom API Endpoint“ genannt) ist der SDK or Software-Development-Kit-Endpunkt, den Braze für Ihr SDK or Software-Development-Kit einrichtet (zum Beispiel `sdk.iad-03.braze.com`). Ihr Braze-Representational State Transfer-API-Endpunkt (in Segment „Custom Representational State Transfer API Endpoint“ genannt) ist der Representational State Transfer-API-Endpunkt (zum Beispiel `https://rest.iad-03.braze.com`).
 {% enddetails %}
 
 {% details Stellen Sie sicher, dass Ihr Custom API Endpoint korrekt in den Mobile-Device-Mode-Zieleinstellungen eingegeben ist. %}
 
 | Braze-Terminologie | Segment-Entsprechung |
 | ----------------- | ------------------ |
-| Braze-SDK-Endpunkt | Custom API Endpoint |
-| Braze-REST-Endpunkt | Custom REST API Endpoint |
+| Braze-SDK or Software-Development-Kit-Endpunkt | Custom API Endpoint |
+| Braze-Representational State Transfer-Endpunkt | Custom Representational State Transfer API Endpoint |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Best Practices" }
 
-Sie müssen das richtige Format einhalten, um Ihren Braze-SDK-Endpunkt korrekt einzugeben. Ihr Braze-SDK-Endpunkt darf kein `https://` enthalten (zum Beispiel `sdk.iad-03.braze.com`), da andernfalls die Braze-Integration fehlschlägt. Der Grund dafür ist, dass Segment Ihrem Endpunkt automatisch `https://` voranstellt, was dazu führen würde, dass Braze mit einem ungültigen Endpunkt `https://https://sdk.iad-03.braze.com` initialisiert wird.
+Sie müssen das richtige Format einhalten, um Ihren Braze-SDK or Software-Development-Kit-Endpunkt korrekt einzugeben. Ihr Braze-SDK or Software-Development-Kit-Endpunkt darf kein `https://` enthalten (zum Beispiel `SDK or Software-Development-Kit.iad-03.braze.com`), da andernfalls die Braze-Integration fehlschlägt. Der Grund dafür ist, dass Segment Ihrem Endpunkt automatisch `https://` voranstellt, was dazu führen würde, dass Braze mit einem ungültigen Endpunkt `https://https://sdk.iad-03.braze.com` initialisiert wird.
 
 {% enddetails %}
 
@@ -478,25 +478,25 @@ Szenarien, in denen Daten nicht wie erwartet übermittelt werden:
 
 Es gibt verschiedene Möglichkeiten, Braze anzupassen: Push, In-App-Nachrichten, Content Cards und Initialisierung. Bei einer Side-by-side-Integration können Sie Push, In-App-Nachrichten und Content Cards weiterhin so anpassen wie bei einer direkten Braze-Integration.
 
-Allerdings kann es schwierig und manchmal unmöglich sein, den Zeitpunkt der Integration des Braze SDK anzupassen oder Initialisierungskonfigurationen festzulegen. Das liegt daran, dass Segment das Braze SDK für Sie initialisiert, wenn die Segment-Initialisierung erfolgt.
+Allerdings kann es schwierig und manchmal unmöglich sein, den Zeitpunkt der Integration des Braze SDK or Software-Development-Kit anzupassen oder Initialisierungskonfigurationen festzulegen. Das liegt daran, dass Segment das Braze SDK or Software-Development-Kit für Sie initialisiert, wenn die Segment-Initialisierung erfolgt.
 
 {% enddetails %}
 
 {% details Senden Sie Deltas an Braze. %}
 
-Wenn Sie Nutzerattributdaten übermitteln, stellen Sie sicher, dass Sie nur Werte für Attribute übergeben, die sich seit dem letzten Update geändert haben. So vermeiden Sie das Protokollieren unnötiger Datenpunkte. Für clientseitige Quellen können Sie das Open-Source-Tool [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) von Segment verwenden, um Ihre Integration zu optimieren und die Datenpunkt-Nutzung durch Deduplizierung doppelter `identify()`-Aufrufe von Segment zu begrenzen.
+Wenn Sie Nutzerattributdaten übermitteln, stellen Sie sicher, dass Sie nur Werte für Attribute übergeben, die sich seit dem letzten Update or aktualisieren geändert haben. So vermeiden Sie das Protokollieren unnötiger Datenpunkte. Für clientseitige Quellen können Sie das Open-Source-Tool [Middleware](https://github.com/segmentio/segment-braze-mobile-middleware) von Segment verwenden, um Ihre Integration zu optimieren und die Datenpunkt-Nutzung durch Deduplizierung doppelter `identify()`-Aufrufe von Segment zu begrenzen.
 
 {% enddetails %}
 
 {% details Verwenden Sie das richtige Braze-Rechenzentrum. %}
 
-Segment nutzt Ihr Braze-Rechenzentrum, um den passenden Braze-REST-Endpunkt abzurufen (zum Beispiel `https://rest.iad-01.braze.com`) für Server-zu-Server-Aufrufe.
+Segment nutzt Ihr Braze-Rechenzentrum, um den passenden Braze-Representational State Transfer-Endpunkt abzurufen (zum Beispiel `https://rest.iad-01.braze.com`) für Server-zu-Server-Aufrufe.
 
 {% enddetails %}
 
-{% details Entfernen Sie den Custom REST API Endpoint, wenn Sie den Event Tester von Segment verwenden. %}
+{% details Entfernen Sie den Custom Representational State Transfer API Endpoint, wenn Sie den Event Tester von Segment verwenden. %}
 
-Der Event Tester von Segment sendet Events an den Braze-REST-API-Endpunkt `/users/track` und gibt einen Fehler `401 Invalid API Key` aus, wenn in den Braze-Zieleinstellungen ein Custom REST API Endpoint konfiguriert ist – selbst wenn dieser Endpunkt korrekt ist. Entfernen Sie den Wert des Custom REST API Endpoint in Segment, damit der Event Tester ordnungsgemäß funktioniert.
+Der Event Tester von Segment sendet Events an den Braze-Representational State Transfer-API-Endpunkt `/users/track` und gibt einen Fehler `401 Invalid API Key` aus, wenn in den Braze-Zieleinstellungen ein Custom Representational State Transfer API Endpoint konfiguriert ist – selbst wenn dieser Endpunkt korrekt ist. Entfernen Sie den Wert des Custom Representational State Transfer API Endpoint in Segment, damit der Event Tester ordnungsgemäß funktioniert.
 
 {% enddetails %}
 

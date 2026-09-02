@@ -1,23 +1,23 @@
 ---
-nav_title: Configuración inicial del SDK
-article_title: Configuración inicial del SDK para Windows Universal
+nav_title: Configuración inicial del SDK or kit de desarrollo de software
+article_title: Configuración inicial del SDK or kit de desarrollo de software para Windows Universal
 platform: Windows Universal
 page_order: 0
-description: "En este artículo de referencia se cubren los pasos iniciales de integración del SDK para integrar el SDK de Braze en tu plataforma Windows Universal."
+description: "En este artículo de referencia se cubren los pasos iniciales de integración del SDK or kit de desarrollo de software para integrar el SDK or kit de desarrollo de software de Braze en tu plataforma Windows Universal."
 search_rank: 1
 hidden: true
 ---
 
-# Integración inicial del SDK {#initial-sdk-integration}
+# Integración inicial del SDK or kit de desarrollo de software {#initial-sdk-integration}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-El SDK de Braze te proporcionará una API para reportar información que se utilizará en análisis, segmentación e interacción, así como la capacidad de registrar usuarios para push y recibir notificaciones.
+El SDK or kit de desarrollo de software de Braze te proporcionará una API para reportar información que se utilizará en análisis, segmentación e interacción, así como la capacidad de registrar usuarios para push y recibir notificaciones.
 
->  El SDK de Windows Universal también es compatible con aplicaciones .NET MAUI para Windows.
+>  El SDK or kit de desarrollo de software de Windows Universal también es compatible con aplicaciones .NET MAUI para Windows.
 
-## Paso 1: Instala el SDK mediante el administrador de paquetes NuGet {#step-1-install-the-sdk-via-the-nuget-package-manager}
+## Paso 1: Instala el SDK or kit de desarrollo de software mediante el administrador de paquetes NuGet {#step-1-install-the-sdk-via-the-nuget-package-manager}
 
-El SDK de Windows Universal se instala a través del [administrador de paquetes NuGet](http://www.nuget.org/). Para instalar el SDK de Braze para Windows a través de NuGet:
+El SDK or kit de desarrollo de software de Windows Universal se instala a través del [administrador de paquetes NuGet](http://www.nuget.org/). Para instalar el SDK or kit de desarrollo de software de Braze para Windows a través de NuGet:
 
 1. Haz clic con el botón derecho en el archivo del proyecto
 2. Haz clic en "Manage NuGet Packages"
@@ -72,8 +72,8 @@ Appboy.SharedInstance.OpenSession();
 Appboy.SharedInstance.CloseSession();
 ```
 
-## Integración básica del SDK completa {#basic-sdk-integration-complete}
+## Integración básica del SDK or kit de desarrollo de software completa {#basic-sdk-integration-complete}
 
-Ahora Braze debería estar recopilando datos de tu aplicación. Consulta los siguientes artículos sobre cómo registrar [atributos]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/), [eventos]({{site.baseurl}}/developer_guide/analytics/logging_events/) y [compras]({{site.baseurl}}/developer_guide/analytics/logging_purchases/) en nuestro SDK y cómo instrumentar la mensajería push.
+Ahora Braze debería estar recopilando datos de tu aplicación. Consulta los siguientes artículos sobre cómo registrar [atributos]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/), [eventos]({{site.baseurl}}/developer_guide/analytics/logging_events/) y [compras]({{site.baseurl}}/developer_guide/analytics/logging_purchases/) en nuestro SDK or kit de desarrollo de software y cómo instrumentar la mensajería push.
 
 >  Si estás utilizando el proyecto Unity de Braze en la misma aplicación, puede que tengas que cualificar completamente las llamadas a Braze como "AppboyPlatform.Universal.Appboy"

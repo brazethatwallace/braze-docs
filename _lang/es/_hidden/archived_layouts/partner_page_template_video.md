@@ -57,7 +57,7 @@ Los siguientes requisitos son requisitos típicos que podrías necesitar de Braz
 
 | Requisito | Origin | Acceso | Descripción |
 |---|---|---|---|
-| Clave de API REST del espacio de trabajo de Braze | Plataforma Braze | Página **Configuración** > **Configuración de la aplicación** | Esta descripción debe indicarte qué hacer con la clave de API REST del espacio de trabajo. |
+| Clave de API REST or transferencia de estado representacional del espacio de trabajo de Braze | Plataforma Braze | Página **Configuración** > **Configuración de la aplicación** | Esta descripción debe indicarte qué hacer con la clave de API REST or transferencia de estado representacional del espacio de trabajo. |
 | Endpoint de API de Braze | Plataforma Braze | Consulta nuestros [endpoints listados]({{site.baseurl}}/api/basics#endpoints) o abre un [ticket de soporte]({{site.baseurl}}/braze_support). | Descripción pendiente. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Requisitos o prerrequisitos" }
 

@@ -108,7 +108,7 @@ Excluir e recriar uma conta de usuário redefine suas permissões e pode afetar 
 
 ### Limpando o cache e os cookies do seu navegador {#clearing-your-browser-cache-and-cookies}
 
-Se você está tendo problemas com o desempenho do dashboard, como o dashboard ou a lista de desempenho de Segment não carregando, tente limpar o cache e os cookies do seu navegador seguindo as etapas do respectivo navegador.
+Se você está tendo problemas com o desempenho do dashboard, como o dashboard ou a lista de desempenho de Segment or segmento não carregando, tente limpar o cache e os cookies do seu navegador seguindo as etapas do respectivo navegador.
 
 {% alert important %}
 Limpar os cookies encerra sua sessão, então trabalhos não salvos serão perdidos.

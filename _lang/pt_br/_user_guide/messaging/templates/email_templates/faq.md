@@ -43,7 +43,7 @@ Para salvar esse novo link, a tag padrão de cancelamento de inscrição da Braz
 
 Os modelos de e-mail servem como ponto de partida ao criar um e-mail em uma Campaign ou Canvas. Quando você seleciona um modelo, pode editá-lo dentro da Campaign ou Canvas, e essas alterações são independentes do modelo original.
 
-Edições feitas em um modelo existente não serão refletidas em Campaigns ou Canvas que foram criados usando versões anteriores desse modelo. Da mesma forma, alterações feitas no e-mail dentro de uma Campaign ou Canvas não serão sincronizadas de volta ao modelo original. Para Campaigns de API que incluem um `email_template_id` no corpo da solicitação, a Braze usa a versão mais recente do modelo no momento do envio.
+Edições feitas em um modelo existente não serão refletidas em Campaigns ou Canvas que foram criados usando versões anteriores desse modelo. Da mesma forma, alterações feitas no e-mail dentro de uma Campaign ou Canvas não serão sincronizadas de volta ao modelo original. Para Campaigns de API or interface de programação do aplicativo (API) que incluem um `email_template_id` no corpo da solicitação, a Braze usa a versão mais recente do modelo no momento do envio.
 
 ## Modelos de link {#link-templates}
 

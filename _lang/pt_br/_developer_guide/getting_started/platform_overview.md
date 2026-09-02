@@ -20,22 +20,22 @@ platform:
 > Este artigo aborda as partes básicas e os recursos da plataforma Braze. Os links deste artigo se conectam a tópicos essenciais da Braze.
 
 {% alert tip %}
-Confira nosso curso gratuito [Developer Learning Path](https://learning.braze.com/path/developer) junto com estes artigos.
+Confira nosso curso gratuito [Developer Learning jornada](https://learning.braze.com/path/developer) junto com estes artigos.
 {% endalert %}
 
 ## O que é a Braze? {#what-is-braze}
 
-A Braze é uma plataforma de engajamento com clientes. Ela consome dados de usuários, exibe ações e comportamentos dos usuários e permite que você aja sobre eles. A plataforma tem três componentes principais: o SDK, o dashboard e a REST API.
+A Braze é uma plataforma de engajamento com clientes. Ela consome dados de usuários, exibe ações e comportamentos dos usuários e permite que você aja sobre eles. A plataforma tem três componentes principais: o SDK or kit de desenvolvimento de software, o dashboard e a REST or transferir estado representacional API or interface de programação do aplicativo (API).
 
 Se você for um profissional de marketing e estiver procurando uma visão geral mais ampla da Braze, consulte a [seção Primeiros passos para profissionais de marketing]({{site.baseurl}}/user_guide/get_started).
 
 ![A Braze tem diferentes camadas. No total, ela é formada pelo SDK, a API, o dashboard e as integrações com parceiros. Cada uma delas contribui com partes de uma camada de ingestão de dados, uma camada de classificação, uma camada de orquestração, uma camada de personalização e uma camada de ação. A camada de ação tem vários canais, incluindo push, mensagens no app, catálogo conectado, webhook, SMS e e-mail.]({% image_buster /assets/img/getting-started/getting-started-vertically-integrated-stack.png %}){: style="max-width:55%;float:right;margin-left:15px;"}
 
-### SDK
+### SDK or kit de desenvolvimento de software
 
 Os [SDKs da Braze](#integrating-braze) podem ser integrados aos seus aplicativos móveis e da web para fornecer ferramentas poderosas de marketing, gerenciamento de usuários e análise de dados.
 
-Em resumo, quando está totalmente integrado, o SDK:
+Em resumo, quando está totalmente integrado, o SDK or kit de desenvolvimento de software:
 
 * Coleta e sincroniza dados de usuários em um perfil de usuário consolidado
 * Coleta automaticamente dados da sessão, informações do dispositivo e tokens por push
@@ -48,15 +48,15 @@ Em resumo, quando está totalmente integrado, o SDK:
 
 ### Interface de usuário do dashboard {#dashboard-user-interface}
 
-O dashboard é a interface do usuário que controla todos os dados e interações no coração da plataforma Braze. Os profissionais de marketing usarão o dashboard para fazer seu trabalho e criar conteúdo. Os desenvolvedores usam o dashboard para gerenciar as configurações de integração de apps, como chaves de API e credenciais de notificação por push.
+O dashboard é a interface do usuário que controla todos os dados e interações no coração da plataforma Braze. Os profissionais de marketing usarão o dashboard para fazer seu trabalho e criar conteúdo. Os desenvolvedores usam o dashboard para gerenciar as configurações de integração de apps, como chaves de API or interface de programação do aplicativo (API) e credenciais de notificação por push.
 
 Se estiver apenas começando, o administrador da sua equipe deve adicionar você (e todos os outros membros da equipe que precisam de acesso à Braze) como [usuários no seu dashboard]({{site.baseurl}}/user_guide/administer/personal).
 
-### REST API
+### REST or transferir estado representacional API or interface de programação do aplicativo (API)
 
-A API da Braze permite que você mova dados para dentro e para fora da Braze em escala. Use a API para trazer atualizações do seu back-end, data warehouses e outras fontes primárias e de terceiros. Além disso, use a API para adicionar eventos personalizados para fins de segmentação diretamente de aplicativos baseados na web. Você pode disparar e enviar mensagens por meio da API, permitindo que os recursos técnicos incluam metadados JSON complexos como parte das suas campanhas.
+A API or interface de programação do aplicativo (API) da Braze permite que você mova dados para dentro e para fora da Braze em escala. Use a API or interface de programação do aplicativo (API) para trazer atualizações do seu back-end, data warehouses e outras fontes primárias e de terceiros. Além disso, use a API or interface de programação do aplicativo (API) para adicionar eventos personalizados para fins de segmentação diretamente de aplicativos baseados na web. Você pode disparar e enviar mensagens por meio da API or interface de programação do aplicativo (API), permitindo que os recursos técnicos incluam metadados JSON complexos como parte das suas campanhas.
 
-A API também fornece um serviço da web em que é possível registrar as ações realizadas pelos usuários diretamente via HTTP, em vez de usar os SDKs móveis e da web. Combinado com webhooks, isso significa que você pode rastrear ações e disparar atividades para usuários dentro e fora da experiência no app. O [guia da API]({{site.baseurl}}/api/home) lista os endpoints da API da Braze disponíveis e seus usos.
+A API or interface de programação do aplicativo (API) também fornece um serviço da web em que é possível registrar as ações realizadas pelos usuários diretamente via HTTP, em vez de usar os SDKs móveis e da web. Combinado com webhooks, isso significa que você pode rastrear ações e disparar atividades para usuários dentro e fora da experiência no app. O [guia da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/home) lista os endpoints da API or interface de programação do aplicativo (API) da Braze disponíveis e seus usos.
 
 Para saber mais sobre as partes e peças da Braze, confira: [Primeiros passos: Visão geral da arquitetura]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
@@ -72,13 +72,13 @@ O dashboard da Braze exibe gráficos atualizados em tempo real com base em métr
 
 ### Segmentação de usuários {#user-segmentation}
 
-A segmentação permite criar grupos de usuários com base em filtros poderosos de seu comportamento no app, dados demográficos e similares. A Braze também permite que você defina qualquer ação do usuário no app como um "evento personalizado" se a ação desejada não for capturada por padrão. O mesmo se aplica às características do usuário por meio de "atributos personalizados". Depois que um segmento de usuários for criado no dashboard, seus usuários entrarão e sairão do segmento à medida que atenderem (ou não atenderem) aos critérios definidos. Por exemplo, você pode criar um segmento que inclua todos os usuários que gastaram dinheiro no app e que usaram o aplicativo pela última vez há mais de duas semanas.
+A segmentação permite criar grupos de usuários com base em filtros poderosos de seu comportamento no app, dados demográficos e similares. A Braze também permite que você defina qualquer ação do usuário no app como um "evento personalizado" se a ação desejada não for capturada por padrão. O mesmo se aplica às características do usuário por meio de "atributos personalizados". Depois que um Segment or segmento or segmento de usuários for criado no dashboard, seus usuários entrarão e sairão do Segment or segmento or segmento à medida que atenderem (ou não atenderem) aos critérios definidos. Por exemplo, você pode criar um Segment or segmento or segmento que inclua todos os usuários que gastaram dinheiro no app e que usaram o aplicativo pela última vez há mais de duas semanas.
 
 Para saber mais sobre nossos modelos de dados, confira: [Primeiros passos: Visão geral da análise de dados]({{site.baseurl}}/developer_guide/getting_started/architecture_overview).
 
 ## Mensagens em vários canais {#multichannel-messaging}
 
-Depois de definir um segmento, as ferramentas de envio de mensagens da Braze permitem o engajamento com seus usuários de forma dinâmica e personalizada. A Braze foi projetada com um modelo de dados independente de canal e centrado no usuário. O envio de mensagens é feito dentro do seu aplicativo ou site (como o envio de mensagens no app ou por meio de elementos gráficos como carrosséis e banners do Content Cards) ou fora da experiência no app (como o envio de notificações por push ou e-mails). Por exemplo, seus profissionais de marketing podem enviar uma notificação por push e um e-mail para o segmento de exemplo definido na seção anterior.
+Depois de definir um Segment or segmento or segmento, as ferramentas de envio de mensagens da Braze permitem o engajamento com seus usuários de forma dinâmica e personalizada. A Braze foi projetada com um modelo de dados independente de canal e centrado no usuário. O envio de mensagens é feito dentro do seu aplicativo ou site (como o envio de mensagens no app ou por meio de elementos gráficos como carrosséis e banners do Content Cards) ou fora da experiência no app (como o envio de notificações por push ou e-mails). Por exemplo, seus profissionais de marketing podem enviar uma notificação por push e um e-mail para o Segment or segmento or segmento de exemplo definido na seção anterior.
 
 ![Crie e dispare mensagens personalizadas em qualquer canal, seja fora ou dentro do seu app ou site.]({% image_buster /assets/img/getting-started/messaging-channels.png %}){: style="border:none" }
 
@@ -117,15 +117,15 @@ Como um recurso técnico, você estará envolvido em muitos dos detalhes básico
 
 | Recurso | O que você aprenderá |
 |---|---|
-| [Depurando o SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) | Ao solucionar problemas da sua integração, a ferramenta de debug do SDK será uma ferramenta útil. Certifique-se de tê-la à mão! |
+| [Depurando o SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging) | Ao solucionar problemas da sua integração, a ferramenta de debug do SDK or kit de desenvolvimento de software será uma ferramenta útil. Certifique-se de tê-la à mão! |
 | [GitHub público da Braze](https://github.com/braze-inc/) | Você encontrará informações detalhadas sobre integração e exemplos de código em nosso repositório do GitHub. |
-| [Repositório GitHub do Android SDK](https://github.com/braze-inc/braze-android-sdk/) | O repositório GitHub do Android SDK. |
-| [Referência do Android SDK](https://appboy.github.io/appboy-android-sdk/kdoc/index.html) | Documentação de classe para o Android SDK. |
-| [Repositório GitHub do SDK do iOS (Swift)](https://github.com/braze-inc/braze-swift-sdk) | O repositório GitHub do Swift SDK. |
-| [Referência do SDK do iOS (Swift)](https://braze-inc.github.io/braze-swift-sdk/) | Documentação de classe para o SDK do iOS. |
-| [Repositório GitHub do Web SDK](https://github.com/braze-inc/braze-web-sdk) | O repositório GitHub do Web SDK. |
-| [Referência do Web SDK](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Documentação de classe para o Web SDK. |
-| [Changelogs do SDK]({{site.baseurl}}/developer_guide/changelogs) | A Braze tem lançamentos mensais previsíveis, além de lançamentos para quaisquer problemas críticos e atualizações importantes do sistema operacional. |
-| [Coleção Postman da API da Braze](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Baixe nossa coleção Postman aqui.  |
+| [Repositório GitHub do Android SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-android-sdk/) | O repositório GitHub do Android SDK or kit de desenvolvimento de software. |
+| [Referência do Android SDK or kit de desenvolvimento de software](https://appboy.github.io/appboy-android-sdk/kdoc/index.html) | Documentação de classe para o Android SDK or kit de desenvolvimento de software. |
+| [Repositório GitHub do SDK or kit de desenvolvimento de software do iOS (Swift)](https://github.com/braze-inc/braze-swift-sdk) | O repositório GitHub do Swift SDK or kit de desenvolvimento de software. |
+| [Referência do SDK or kit de desenvolvimento de software do iOS (Swift)](https://braze-inc.github.io/braze-swift-sdk/) | Documentação de classe para o SDK or kit de desenvolvimento de software do iOS. |
+| [Repositório GitHub do Web SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-web-sdk) | O repositório GitHub do Web SDK or kit de desenvolvimento de software. |
+| [Referência do Web SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/5.0/doc/modules/braze.html) | Documentação de classe para o Web SDK or kit de desenvolvimento de software. |
+| [Changelogs do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/changelogs) | A Braze tem lançamentos mensais previsíveis, além de lançamentos para quaisquer problemas críticos e atualizações importantes do sistema operacional. |
+| [Coleção Postman da API or interface de programação do aplicativo (API) da Braze](https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest) | Baixe nossa coleção Postman aqui.  |
 | [Monitor de status do sistema Braze](https://braze.statuspage.io/) | Nossa página de status é atualizada sempre que há incidentes ou interrupções. Acesse esta página para se inscrever para receber alertas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Recursos para adicionar aos favoritos" }

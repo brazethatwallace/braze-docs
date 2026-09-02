@@ -25,7 +25,7 @@ Nosso sistema analisa user agents associados a rastreadores web, prévias de lin
 As seguintes métricas e fluxos de trabalho da Braze são impactados por cliques de bots:
 
 - **_Total de cliques_:** As análises de dados de Campaigns e Canvas excluem cliques de bots, refletindo apenas interações humanas.
-- **Filtros de segmentação:** Os filtros de Segment que fazem referência a interações de links de SMS excluem cliques de bots para um redirecionamento mais preciso em Campaigns e Canvas.
+- **Filtros de segmentação:** Os filtros de Segment or segmento que fazem referência a interações de links de SMS excluem cliques de bots para um redirecionamento mais preciso em Campaigns e Canvas.
 - **Orquestração:** Os cliques de bots são filtrados de disparos baseados em ação e jornadas de ação do Canvas que fazem referência a interações de links de SMS, permitindo que os disparos reflitam o comportamento humano.
 - **Braze Intelligence:**
     - **Otimizar com BrazeAI<sup>TM</sup>:** Exclui cliques de bots ao otimizar a seleção de variantes.

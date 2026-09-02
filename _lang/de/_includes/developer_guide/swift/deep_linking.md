@@ -6,7 +6,7 @@ Für Unterstützung bei der Auswahl zwischen angepassten Schema-Deeplinks, unive
 
 ## Handhabung von Deeplinks {#handling-deep-links}
 
-### 1. Schritt: Ein Schema registrieren {#register-a-scheme}
+### 1. Schritt: Ein Schema Registrierung or registrieren {#register-a-scheme}
 
 Um Deeplinking zu ermöglichen, muss ein angepasstes Schema in Ihrer `Info.plist`-Datei angegeben sein. Die Navigationsstruktur wird durch ein Array von Wörterbüchern definiert. Jedes dieser Wörterbücher enthält ein String-Array.
 
@@ -173,9 +173,9 @@ Sie können ATS vollständig deaktivieren. Beachten Sie, dass dies aufgrund des 
 
 ## URLs dekodieren {#decoding-urls}
 
-Das SDK kodiert Links prozentual, um gültige `URL`s zu erstellen. Alle Link-Zeichen, die in einer korrekt geformten URL nicht zulässig sind, wie z. B. Unicode-Zeichen, werden prozentual escaped.
+Das SDK or Software-Development-Kit kodiert Links prozentual, um gültige `URL`s zu erstellen. Alle Link-Zeichen, die in einer korrekt geformten URL nicht zulässig sind, wie z. B. Unicode-Zeichen, werden prozentual escaped.
 
-Um einen kodierten Link zu dekodieren, verwenden Sie die `String`-Eigenschaft [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Sie müssen außerdem `true` in `BrazeDelegate.braze(_:shouldOpenURL:)` zurückgeben. Ein Call-to-Action ist erforderlich, um die Verarbeitung der URL durch Ihre App zu triggern. Zum Beispiel in Ihrem [`scene:openURLContexts:`](#step-3-implement-a-handler)-Handler aus [Schritt 3](#step-3-implement-a-handler):
+Um einen kodierten Link zu dekodieren, verwenden Sie die `String`-Eigenschaft [`removingPercentEncoding`](https://developer.apple.com/documentation/swift/stringprotocol/removingpercentencoding). Sie müssen außerdem `true` in `BrazeDelegate.braze(_:shouldOpenURL:)` zurückgeben. Ein Call-to-Action ist erforderlich, um die Verarbeitung der URL durch Ihre App zu Trigger or triggern or triggern. Zum Beispiel in Ihrem [`scene:openURLContexts:`](#step-3-implement-a-handler)-Handler aus [Schritt 3](#step-3-implement-a-handler):
 
 {% tabs %}
 {% tab swift %}
@@ -243,7 +243,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 ### Standard-WebView-Anpassung {#default-webview-customization}
 
-Die Klasse `Braze.WebViewController` zeigt vom SDK geöffnete Web-URLs an, typischerweise wenn für einen Web-Deeplink „Open Web URL Inside App“ ausgewählt wurde.
+Die Klasse `Braze.WebViewController` zeigt vom SDK or Software-Development-Kit geöffnete Web-URLs an, typischerweise wenn für einen Web-Deeplink „Open Web URL Inside App“ ausgewählt wurde.
 
 Sie können den `Braze.WebViewController` über die Delegate-Methode [`BrazeDelegate.braze(_:willPresentModalWithContext:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:willpresentmodalwithcontext:)-12sqy/) anpassen.
 
@@ -267,14 +267,14 @@ Um die Unterstützung für Simulator-Builds hinzuzufügen, können Sie die `.ent
 {% endalert %}
 
 {% alert note %}
-Das SDK fragt die `apple-app-site-association`-Datei Ihrer Domains nicht ab. Es unterscheidet zwischen universellen Links und regulären URLs, indem es nur den Domain-Namen betrachtet. Infolgedessen beachtet das SDK keine Ausschlussregel, die in der `apple-app-site-association` gemäß [Unterstützung zugehöriger Domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains) definiert ist.
+Das SDK or Software-Development-Kit fragt die `apple-app-site-association`-Datei Ihrer Domains nicht ab. Es unterscheidet zwischen universellen Links und regulären URLs, indem es nur den Domain-Namen betrachtet. Infolgedessen beachtet das SDK or Software-Development-Kit keine Ausschlussregel, die in der `apple-app-site-association` gemäß [Unterstützung zugehöriger Domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains) definiert ist.
 {% endalert %}
 
 ## Beispiele {#examples}
 
 ### BrazeDelegate
 
-Hier ist ein Beispiel mit `BrazeDelegate`. Weitere Informationen finden Sie in der [Braze Swift SDK-Referenz](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
+Hier ist ein Beispiel mit `BrazeDelegate`. Weitere Informationen finden Sie in der [Braze Swift SDK or Software-Development-Kit-Referenz](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate).
 
 {% tabs %}
 {% tab swift %}

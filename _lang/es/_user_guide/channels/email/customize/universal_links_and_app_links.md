@@ -147,7 +147,7 @@ El archivo AASA contiene un objeto JSON con una lista de aplicaciones y las ruta
 }
 ```
 
-- `appID`: Se construye combinando el **Team ID** de tu aplicación (ve a `https://developer.apple.com/account/#/membership/` para obtener el team ID) y el **Bundle Identifier**. En este ejemplo, "JHGFJHHYX" es el team ID, y "com.facebook.ios" es el bundle ID.
+- `appID`: Se construye combinando el **Team ID** de tu aplicación (ve a `https://developer.apple.com/account/#/membership/` para obtener el team ID) y el **Bundle Identifier**. En este ejemplo, "JHGFJHHYX" es el team ID, y "com.Facebook.ios" es el bundle ID.
 - `paths`: Matriz de cadenas que especifican qué rutas se incluyen o excluyen de la asociación. Puedes usar `NOT` antes de la ruta para desactivar rutas. En este ejemplo, todos los enlaces de esta ruta irán a la web en lugar de abrir la aplicación. Puedes usar `*` como comodín para habilitar todas las rutas de un directorio y `?` para coincidir con un solo carácter (como /archives/201?/ para coincidir con todos los números de 2010 a 2019).
 
 {% alert note %}
@@ -246,7 +246,7 @@ Para tratar un enlace con seguimiento de clics de SendGrid como un enlace univer
 2. Añade el atributo `universal="true"` a la etiqueta ancla (`<a>`) de tu enlace. Esto cambia la ruta de URL del enlace envuelto para incluir `/uni/`.
 
 {% alert note %}
-Para correos electrónicos AMP, este atributo debe ser data-universal="true".
+Para correos electrónicos páginas móviles aceleradas, este atributo debe ser data-universal="true".
 {% endalert %}
 
 Por ejemplo:

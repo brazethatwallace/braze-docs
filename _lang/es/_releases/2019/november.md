@@ -24,9 +24,9 @@ Tanto iOS 13 como Android 10 introdujeron configuraciones que permitían a los t
 
 <img src="{% image_buster /assets/img_archive/iam-dark-mode.gif %}" style="width:100%;max-width:800px;" />
 
-## Métricas SMS en los informes de interacción {#sms-metrics-in-engagement-reports}
+## Métricas servicio de mensajes cortos en los informes de interacción {#sms-metrics-in-engagement-reports}
 
-¡Las métricas SMS ya están disponibles en los [informes de interacción]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)!
+¡Las métricas servicio de mensajes cortos ya están disponibles en los [informes de interacción]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)!
 
 ## Eliminar los equipos de un usuario de Braze {#delete-a-braze-users-teams}
 

@@ -23,7 +23,7 @@ Dans le cadre de la fonctionnalité de [recommandations d'articles par intellige
 Les recommandations IA personnalisées utilisent les 6 derniers mois de données d'interaction avec les articles, comme les achats ou les événements personnalisés, pour construire le modèle de recommandation. Pour les utilisateurs ne disposant pas de suffisamment de données pour une liste personnalisée, les articles les plus populaires servent de solution de repli, afin que vos utilisateurs continuent de recevoir des suggestions pertinentes.
 
 Grâce aux recommandations d'articles par intelligence artificielle, vous pouvez également affiner les articles disponibles avec les
-[sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections). Cependant, les sélections utilisant Liquid ne peuvent pas être employées dans les recommandations IA — gardez cela à l'esprit lorsque vous créez vos sélections de catalogue.
+[sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections). Cependant, les sélections utilisant Liquid ne peuvent pas être employé or salariées dans les recommandations IA — gardez cela à l'esprit lorsque vous créez vos sélections de catalogue.
 
 {% alert tip %}
 Les recommandations IA personnalisées fonctionnent au mieux avec des centaines ou des milliers d'articles et généralement au moins 30 000 utilisateurs disposant de données d'achat ou d'interaction. Il s'agit d'une indication approximative qui peut varier. Les autres types de recommandations peuvent fonctionner avec moins de données.

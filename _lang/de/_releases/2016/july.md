@@ -10,7 +10,7 @@ description: "Dieser Artikel enthält Versionshinweise für Juli 2016."
 
 ## Filterung des Fehlerprotokolls der Entwicklungskonsole nach Fehlertyp {#filtering-the-developer-consoles-error-log-by-error-type}
 
-Dieses Upgrade erleichtert Ihnen die Verwendung des Nachrichten-Fehlerprotokolls in der Entwicklungskonsole, um Probleme mit Ihren Braze-Integrationen zu beheben. Dieses Update für die Benutzerfreundlichkeit ermöglicht es Ihnen, das Nachrichten-Fehlerprotokoll nach Typ zu filtern, und erleichtert das Auffinden und die Identifizierung spezifischer Integrationsprobleme wesentlich.
+Dieses Upgrade or upgraden erleichtert Ihnen die Verwendung des Nachrichten-Fehlerprotokolls in der Entwicklungskonsole, um Probleme mit Ihren Braze-Integrationen zu beheben. Dieses Update or aktualisieren für die Benutzerfreundlichkeit ermöglicht es Ihnen, das Nachrichten-Fehlerprotokoll nach Typ zu filtern, und erleichtert das Auffinden und die Identifizierung spezifischer Integrationsprobleme wesentlich.
 
 ## Zeitstempel für den letzten gesendeten Push für Uninstall-Tracking hinzugefügt {#added-timestamp-for-last-uninstall-tracking-push-sent}
 

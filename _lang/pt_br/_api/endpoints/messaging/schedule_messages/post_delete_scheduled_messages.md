@@ -8,10 +8,10 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir mensagens agendadas\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Excluir mensagens agendadas {#delete-scheduled-messages}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/messages/schedule/delete
+/messages/agendar/cronograma/delete
 {% endapimethod %}
 
 > Use esse endpoint para cancelar uma mensagem que você agendou anteriormente, antes de ela ser enviada.
@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Excluir
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule.delete`.
 
 ## Limite de frequência {#rate-limit}
 

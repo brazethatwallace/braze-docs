@@ -23,15 +23,15 @@ Die Integration von Braze und Airbyte ermöglicht es Nutzer:innen, eine Datenpip
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Airbyte Cloud-Konto | Um die Vorteile dieser Integration zu nutzen, benötigen Sie ein [Airbyte Cloud-Konto](https://cloud.airbyte.io/workspaces). |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt | Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 1. Navigieren Sie in Ihrem Airbyte Cloud-Konto zu **Sources > + New Source > Set up the Source**.
 2. Geben Sie „Braze“ als Quellennamen ein und wählen Sie **Braze** aus dem Quellen-Dropdown aus.
-3. Geben Sie die URL Ihres Endpunkts, den Braze REST-API-Schlüssel und das Startdatum an. Klicken Sie auf **Set up Source**.
+3. Geben Sie die URL Ihres Endpunkts, den Braze Representational State Transfer-API-Schlüssel und das Startdatum an. Klicken Sie auf **Set up Source**.
 
 ### Unterstützte Sync-Modi {#supported-sync-modes}
 

@@ -10,7 +10,7 @@ page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Endpoints de aplicaciones"
-guide_top_text: "Usa las REST API de aplicaciones para gestionar de forma programática la configuración a nivel de aplicación que de otro modo configurarías en el panel de Braze, como las credenciales push."
+guide_top_text: "Usa las REST or transferencia de estado representacional API de aplicaciones para gestionar de forma programática la configuración a nivel de aplicación que de otro modo configurarías en el panel de Braze, como las credenciales push."
 
 guide_featured_title: ""
 guide_featured_list:

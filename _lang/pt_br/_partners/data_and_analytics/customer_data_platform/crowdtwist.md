@@ -50,7 +50,7 @@ Conforme mostrado na [documentação de Data Push da Oracle Crowdtwist](https://
 
 Nesta seção, você verá os modelos anotados. O corpo desses modelos é projetado para ser aplicado ao destino `/users/track`. As anotações são marcadas pelo início de linha `//` e texto em verde, e você pode excluí-las sem afetar a operação do código de transformação.
 
-A transformação usa JavaScript, que cria um objeto chamado "brazecall". Esse objeto é onde você cria o corpo da solicitação que é enviado a um endpoint da REST API da Braze. Para orientações sobre as estruturas exigidas das solicitações para esses destinos, consulte os links na seção "destinos".
+A transformação usa JavaScript, que cria um objeto chamado "brazecall". Esse objeto é onde você cria o corpo da solicitação que é enviado a um endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze. Para orientações sobre as estruturas exigidas das solicitações para esses destinos, consulte os links na seção "destinos".
 
 {% alert note %}
 Observe que os "valores" de cada "chave" começam com `payload.`. A carga útil representa o objeto de dados recebido do Oracle Crowdtwist. Use a notação de ponto do JavaScript para escolher qual dado você deseja usar para preencher os elementos do seu objeto Braze. Por exemplo, quando você vê `external_id: payload.thirdPartyId`, isso significa que o ID externo da Braze é definido pelo valor `third_party_id` armazenado no Oracle Crowdtwist. Para saber mais sobre o esquema ou a composição dos objetos provenientes do Oracle Crowdtwist, consulte a [documentação da Oracle](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html).
@@ -236,7 +236,7 @@ return brazecall;
 
 ### Destinos {#destinations}
 
-Os modelos neste guia foram criados para entregar ao destino "Track Users", mas você pode projetar seu modelo para enviar a qualquer um dos endpoints listados no [guia de Data Transformation da Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), com o suporte da [documentação da REST API]({{site.baseurl}}/api/home) associada.
+Os modelos neste guia foram criados para entregar ao destino "Track Users", mas você pode projetar seu modelo para enviar a qualquer um dos endpoints listados no [guia de Data Transformation da Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), com o suporte da [documentação da REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/home) associada.
 
 ### Testes {#testing}
 
@@ -250,4 +250,4 @@ Você encontrará a URL do webhook da sua Data Transformation no painel de detal
 Os endpoints de Data Transformation da Braze possuem um limite de frequência de 1.000 solicitações por minuto. Considere a velocidade com que você deseja que esses dados fiquem disponíveis na Braze e converse com o seu gerente de conta da Braze se precisar de um limite de frequência de Data Transformation mais alto.
 {% endalert %}
 
-Data Transformations são ferramentas muito dinâmicas, e você pode projetá-las para finalidades além do que está descrito neste documento, com conhecimento de JavaScript e com a orientação da nossa documentação da REST API. Para suporte ou solução de problemas em alterações complexas nos seus modelos de Data Transformation, converse com o seu gerente de sucesso do cliente para conhecer as opções de orientação disponíveis para você.
+Data Transformations são ferramentas muito dinâmicas, e você pode projetá-las para finalidades além do que está descrito neste documento, com conhecimento de JavaScript e com a orientação da nossa documentação da REST or transferir estado representacional API or interface de programação do aplicativo (API). Para suporte ou solução de problemas em alterações complexas nos seus modelos de Data Transformation, converse com o seu gerente de sucesso do cliente para conhecer as opções de orientação disponíveis para você.

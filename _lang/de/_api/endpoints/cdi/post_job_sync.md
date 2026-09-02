@@ -15,7 +15,7 @@ description: "Dieser Artikel enthält Einzelheiten zum Braze-Endpunkt „Synchro
 /cdi/integrations/{integration_id}/sync
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine Synchronisation für eine bestimmte Integration zu triggern.
+> Verwenden Sie diesen Endpunkt, um eine Synchronisation für eine bestimmte Integration zu Trigger or triggern or triggern.
 
 {% alert note %}
 Um diesen Endpunkt zu verwenden, müssen Sie einen API-Schlüssel mit der Berechtigung `cdi.integration_sync` generieren.

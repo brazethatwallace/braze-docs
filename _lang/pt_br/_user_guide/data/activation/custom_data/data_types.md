@@ -95,7 +95,7 @@ Você pode bloquear atributos personalizados individualmente no menu de ações,
 
 ### Marcando como informação de identificação pessoal (IPI) {#marking-as-personally-identifiable-information-pii}
 
-Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as PII".
+Administradores também podem criar atributos personalizados e marcá-los como IPI nesta página. Esses atributos são visíveis apenas para administradores e usuários do dashboard com a permissão "View Custom Attributes Marked as IPI".
 
 ### Adicionando descrições {#adding-descriptions}
 
@@ -110,7 +110,7 @@ Você pode adicionar tags a um atributo personalizado após sua criação, se ti
 Existem duas formas de remover atributos personalizados dos perfis de usuário:
 
 - Selecione o nome do atributo personalizado a ser removido em uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update).
-- Defina o valor `null` na sua solicitação de API para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+- Defina o valor `null` na sua solicitação de API or interface de programação do aplicativo (API) para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Definindo o valor `null` {#setting-the-null-value}
 
@@ -259,7 +259,7 @@ Se um atributo personalizado de array aparece no perfil do usuário, mas não ex
 
 Definir o **Max Length** como `0` impede que os valores sejam exibidos no perfil do usuário.
 
-Para exemplos de comportamento de arrays focados em SDK, consulte [Visão geral de análise de dados]({{site.baseurl}}/developer_guide/analytics).
+Para exemplos de comportamento de arrays focados em SDK or kit de desenvolvimento de software, consulte [Visão geral de análise de dados]({{site.baseurl}}/developer_guide/analytics).
 
 Para atributos de **Array**, as seguintes opções de segmentação estão disponíveis.
 
@@ -315,7 +315,7 @@ Para atributos de **Hora**, as seguintes opções de segmentação estão dispon
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert note %}
-Ao usar os operadores **in less than** ou **in more than** com 90 dias ou mais, a Braze converte automaticamente o valor para semanas quando você salva o Segment. Por exemplo, 90 dias é convertido para 13 semanas.
+Ao usar os operadores **in less than** ou **in more than** com 90 dias ou mais, a Braze converte automaticamente o valor para semanas quando você salva o Segment or segmento. Por exemplo, 90 dias é convertido para 13 semanas.
 {% endalert %}
 
 #### Detalhes de atributos de hora {#time-attribute-details}
@@ -398,8 +398,8 @@ Para alterar o tipo de dado de um atributo personalizado ou evento:
 Se você alterar o tipo de dado de um atributo personalizado ou evento (por exemplo, alterando `time` para `string`), considere o seguinte:
 
 - **Os filtros não são atualizados automaticamente.** Segments, Campaigns, Canvas ou outros locais que usam o atributo ou evento alterado não são atualizados. Antes de alterar o tipo de dado, pare quaisquer Campaigns ou Canvas que usem o atributo em Segments ou filtros, e remova o atributo dos filtros que o referenciam.
-- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de segmentos que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no segmento, se necessário.
-- **Os novos dados devem corresponder ao novo tipo.** Chamadas de API que enviam o tipo de dado anterior para o atributo alterado não são aceitas. Envie o novo tipo de dado.
+- **Os dados existentes dos usuários não são atualizados retroativamente.** Se o atributo alterado estava no perfil de um usuário antes da alteração, esse valor permanece com o tipo de dado antigo. Os usuários podem sair de segmentos que contêm o atributo alterado porque o filtro procura o novo tipo de dado. Atualize esses perfis de usuário (por exemplo, com o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) para que correspondam ao novo tipo e reentrem no Segment or segmento or segmento, se necessário.
+- **Os novos dados devem corresponder ao novo tipo.** Chamadas de API or interface de programação do aplicativo (API) que enviam o tipo de dado anterior para o atributo alterado não são aceitas. Envie o novo tipo de dado.
 
 {% alert important %}
 A capacidade de impedir que a detecção automática atualize o tipo de dado do atributo personalizado está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar.
@@ -409,14 +409,14 @@ A capacidade de impedir que a detecção automática atualize o tipo de dado do 
 
 Os catálogos são compatíveis com os tipos listados na tabela de [Definições](#definitions). A tabela a seguir lista cada tipo, como ele pode ser criado ou atualizado, e o formato com exemplos.
 
-| Tipo de dado | Descrição | Disponível via upload de CSV | Disponível via API e CDI |
+| Tipo de dado | Descrição | Disponível via upload de CSV | Disponível via API or interface de programação do aplicativo (API) e CDI |
 | --- | --- | --- | --- |
 | String | Uma sequência de caracteres (por exemplo, nomes, descrições, IDs). | ✅ Sim | ✅ Sim |
 | Número | Um valor numérico, inteiro ou decimal (por exemplo, preços, quantidades, avaliações). | ✅ Sim | ✅ Sim |
 | Booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
 | Hora | Data e hora no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ou timestamp Unix em segundos. | ✅ Sim | ✅ Sim |
-| Objeto JSON (Objeto) | Objeto aninhado com pares chave-valor. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ❌ Não | ✅ Sim |
-| Array de strings (Array) | Uma lista de strings. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ❌ Não | ✅ Sim |
+| Objeto JSON (Objeto) | Objeto aninhado com pares chave-valor. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API or interface de programação do aplicativo (API) ou CDI. | ❌ Não | ✅ Sim |
+| Array de strings (Array) | Uma lista de strings. Exibido na plataforma, mas só pode ser criado ou atualizado por meio da API or interface de programação do aplicativo (API) ou CDI. Máximo de 100 elementos. | ❌ Não | ✅ Sim |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tipos de dados de catálogos" }
 
 ### Formato e exemplos {#format-and-examples}

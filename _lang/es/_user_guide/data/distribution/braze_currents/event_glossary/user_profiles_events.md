@@ -142,7 +142,7 @@ Profile
 Esto representa las actualizaciones de perfil de un usuario.
 
 {% alert important %}
-El evento de actualización de perfil de usuario está en fase beta. Ponte en contacto con tu administrador de éxito de cliente o director de cuentas para obtener acceso.
+El evento de actualización de perfil de usuario está en fase beta. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o director de cuentas para obtener acceso.
 {% endalert %}
 
 {% tabs %}

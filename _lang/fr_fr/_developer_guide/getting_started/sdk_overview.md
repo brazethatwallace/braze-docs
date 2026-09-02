@@ -96,10 +96,10 @@ Pour plus de détails sur l'utilisation, consultez [Stockage]({{site.baseurl}}/d
 
 ## Quelle version du SDK est-ce que j'utilise ?
 
-Vous pouvez utiliser le tableau de bord pour consulter la version du SDK d'une application spécifique en accédant à **Paramètres > Paramètres de l'application**. La **version du SDK en direct** indique la version la plus élevée du SDK Braze utilisée par votre application en direct la plus récente pour au moins 5 % de vos utilisateurs.
+Vous pouvez utiliser le tableau de bord pour consulter la version du SDK d'une application spécifique en accédant à **Paramètres > Paramètres de l'application**. La **version du SDK en direct or en ligne/en production/instantané** indique la version la plus élevée du SDK Braze utilisée par votre application en direct or en ligne/en production/instantané la plus récente pour au moins 5 % de vos utilisateurs.
 
 ![Une application nommée Swifty dans un espace de travail. La version du SDK en direct est 6.6.0.]({% image_buster /assets/img/live-sdk-version.png %}){: style="max-width:80%"}
 
 {% alert tip %}
-Si vous disposez d'une application iOS, vous pouvez vérifier que vous utilisez le [SDK Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) plutôt que l'ancien [SDK iOS Objective-C]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) si votre **version du SDK en direct** est égale ou supérieure à 5.0.0, qui était la première version publiée du SDK Swift.
+Si vous disposez d'une application iOS, vous pouvez vérifier que vous utilisez le [SDK Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) plutôt que l'ancien [SDK iOS Objective-C]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview) si votre **version du SDK en direct or en ligne/en production/instantané** est égale ou supérieure à 5.0.0, qui était la première version publiée du SDK Swift.
 {% endalert %}

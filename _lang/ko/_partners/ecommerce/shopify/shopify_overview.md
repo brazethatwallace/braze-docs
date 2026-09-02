@@ -75,12 +75,12 @@ Braze는 Shopify 통합을 사용하여 게스트 쇼핑 경험부터 식별된 
 - Shopify 뉴스레터 푸터에 이메일을 입력하거나 주문이 발생하기 전 결제 과정에서 Shopify 고객 ID가 생성되더라도, 해당 고객 ID는 Shopify 웹 픽셀을 통해 접근할 수 없습니다. 이로 인해 Braze는 이 두 가지 상황에서 `changeUser` 메서드를 사용할 수 없습니다.
 {% endalert %}
 
-### Shopify 이메일 및 SMS 마케팅 옵트인 동기화 {#syncing-shopify-email-and-sms-marketing-opt-ins}
+### Shopify 이메일 및 단문 메시지 서비스 마케팅 옵트인 동기화 {#syncing-shopify-email-and-sms-marketing-opt-ins}
 
 구성 설정에서 가입자 수집을 활성화하는 경우, Braze에 연결하는 각 스토어에 구독 그룹을 할당해야 합니다. 이렇게 하면 고객이 스토어의 구독 그룹에 대해 "subscribed" 또는 "unsubscribed"로 분류됩니다.
 
-이메일 및 SMS 마케팅에 대한 Shopify 마케팅 옵트인 상태는 다음과 같은 방식으로 업데이트될 수 있습니다:
-- **수동 업데이트:** Shopify 관리자에서 사용자의 이메일 또는 SMS 마케팅 옵트인 상태를 수동으로 변경할 수 있습니다.
+이메일 및 단문 메시지 서비스 마케팅에 대한 Shopify 마케팅 옵트인 상태는 다음과 같은 방식으로 업데이트될 수 있습니다:
+- **수동 업데이트:** Shopify 관리자에서 사용자의 이메일 또는 단문 메시지 서비스 마케팅 옵트인 상태를 수동으로 변경할 수 있습니다.
 - **Shopify 뉴스레터 푸터:** 사용자가 Shopify 기본 뉴스레터 푸터에 이메일을 입력하면 옵트인 상태가 업데이트됩니다.
 - **결제:** 사용자가 마케팅 체크박스를 선택하고 단일 페이지 결제에서 **Pay now**를 선택하거나 3페이지 결제에서 **Continue to shipping**을 선택하여 결제를 진행할 때 사용자 동의가 수집됩니다.
 
@@ -96,9 +96,9 @@ Shopify의 이메일 마케팅 옵트인 상태는 Braze에서 사용자의 [글
 | 이메일 구독 해지됨 | Unsubscribed |
 | 이메일 확인 대기 중 | Unsubscribed |
 | 이메일 유효하지 않음 | Unsubscribed |
-| SMS 구독됨 | Subscribed |
-| SMS 구독 해지됨 | Unsubscribed |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Shopify 이메일 및 SMS 마케팅 옵트인 동기화" }
+| 단문 메시지 서비스 구독됨 | Subscribed |
+| 단문 메시지 서비스 구독 해지됨 | Unsubscribed |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Shopify 이메일 및 단문 메시지 서비스 마케팅 옵트인 동기화" }
 
 ### 가입 양식 {#sign-up-forms}
 

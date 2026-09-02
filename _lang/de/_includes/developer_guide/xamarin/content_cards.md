@@ -1,12 +1,12 @@
 ## Über .NET MAUI Content Cards {#about-net-maui-content-cards}
 
-Das Braze .NET MAUI (ehemals Xamarin) SDK enthält einen Standard-Karten-Feed, der Ihnen den Einstieg in Content Cards erleichtert. Der im Braze SDK enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards von Nutzer:innen.
+Das Braze .NET MAUI (ehemals Xamarin) SDK or Software-Development-Kit enthält einen Standard-Karten-Feed, der Ihnen den Einstieg in Content Cards erleichtert. Der im Braze SDK or Software-Development-Kit enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards von Nutzer:innen.
 
 {% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
 ## Kartentypen und Eigenschaften {#card-types-and-properties}
 
-Das Braze .NET MAUI SDK verfügt über drei eigene Content-Card-Kartentypen, die ein Basismodell gemeinsam haben: [Banner](#xamarin_banner), [Bild mit Bildunterschrift](#xamarin_captioned-image) und [Klassisch](#xamarin_classic). Jeder Typ erbt gemeinsame Eigenschaften von einem Basismodell und hat die folgenden zusätzlichen Eigenschaften.
+Das Braze .NET MAUI SDK or Software-Development-Kit verfügt über drei eigene Content-Card-Kartentypen, die ein Basismodell gemeinsam haben: [Banner](#xamarin_banner), [Bild mit Bildunterschrift](#xamarin_captioned-image) und [Klassisch](#xamarin_classic). Jeder Typ erbt gemeinsame Eigenschaften von einem Basismodell und hat die folgenden zusätzlichen Eigenschaften.
 
 ### Basis-Kartenmodell {#base-card-model}
 
@@ -76,8 +76,8 @@ Mit diesen zusätzlichen Methoden können Sie einen angepassten Content-Card-Fee
 
 | Methode | Beschreibung |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `requestContentCardsRefresh()` | Fordert die neuesten Content Cards vom Braze SDK-Server an. |
-| `getContentCards()` | Ruft Content Cards aus dem Braze SDK ab. Dies gibt die neueste Liste der Karten vom Server zurück. |
+| `requestContentCardsRefresh()` | Fordert die neuesten Content Cards vom Braze SDK or Software-Development-Kit-Server an. |
+| `getContentCards()` | Ruft Content Cards aus dem Braze SDK or Software-Development-Kit ab. Dies gibt die neueste Liste der Karten vom Server zurück. |
 | `logContentCardClicked(cardId)` | Protokolliert einen Klick für die angegebene Content-Card-ID. Diese Methode wird nur zu Analytics-Zwecken verwendet. |
 | `logContentCardImpression(cardId)` | Protokolliert eine Impression für die angegebene Content-Card-ID. |
 | `logContentCardDismissed(cardId)` | Protokolliert eine Ausblendung für die angegebene Content-Card-ID. |

@@ -19,7 +19,7 @@ Wenn Sie Transaktions-E-Mails versenden – wie Bestellbestätigungen oder Passw
 Nutzen Sie dieses Feature, um:
 
 - **Ihre E-Mails in Realtime zu überwachen:** Sehen Sie sofort, ob Nachrichten gesendet, verarbeitet, zugestellt wurden oder auf Probleme stoßen.
-- **Proaktiv zu reagieren:** Senden Sie Nachrichten erneut, wechseln Sie zu einem anderen Kanal wie SMS oder nutzen Sie Fallback-Systeme, um sicherzustellen, dass Ihre Kommunikation zugestellt wird.
+- **Proaktiv zu reagieren:** Senden Sie Nachrichten erneut, wechseln Sie zu einem anderen Kanal wie Kurzmitteilungsdienst or SMS oder nutzen Sie Fallback-Systeme, um sicherzustellen, dass Ihre Kommunikation zugestellt wird.
 
 ## Ihre Transaktions-E-Mails tracken {#tracking-your-transactional-emails}
 

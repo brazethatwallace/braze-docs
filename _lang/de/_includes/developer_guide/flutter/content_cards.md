@@ -1,6 +1,6 @@
 ## Über Flutter-Content-Cards {#about-flutter-content-cards}
 
-Das Braze SDK enthält einen Standard-Kartenfeed, der Ihnen den Einstieg in die Arbeit mit Content Cards erleichtert. Sie können den Kartenfeed mit der Methode `braze.launchContentCards()` anzeigen. Der im Braze SDK enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards für Nutzer:innen.
+Das Braze SDK or Software-Development-Kit enthält einen Standard-Kartenfeed, der Ihnen den Einstieg in die Arbeit mit Content Cards erleichtert. Sie können den Kartenfeed mit der Methode `braze.launchContentCards()` anzeigen. Der im Braze SDK or Software-Development-Kit enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards für Nutzer:innen.
 
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
@@ -10,7 +10,7 @@ Sie können diese zusätzlichen Methoden verwenden, um einen angepassten Content
 
 | Methode | Beschreibung |
 | --- | --- |
-| `braze.requestContentCardsRefresh()` | Fordert die neuesten Content Cards vom Braze SDK-Server an. |
+| `braze.requestContentCardsRefresh()` | Fordert die neuesten Content Cards vom Braze SDK or Software-Development-Kit-Server an. |
 | `braze.logContentCardClicked(contentCard)` | Protokolliert einen Klick für das angegebene Content-Card-Objekt. |
 | `braze.logContentCardImpression(contentCard)` | Protokolliert eine Impression für das angegebene Content-Card-Objekt. |
 | `braze.logContentCardDismissed(contentCard)` | Protokolliert eine Ausblendung für das angegebene Content-Card-Objekt. |
@@ -38,21 +38,21 @@ contentCardsStreamSubscription = braze.subscribeToContentCards((List<BrazeConten
 contentCardsStreamSubscription.cancel();
 ```
 
-Ein Beispiel finden Sie in [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) in der Braze Flutter SDK-Beispiel-App.
+Ein Beispiel finden Sie in [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) in der Braze Flutter SDK or Software-Development-Kit-Beispiel-App.
 
 ### Weiterleitung von Content-Card-Daten aus der nativen iOS-Schicht {#forward-content-card-data-from-the-native-ios-layer}
 
 {% tabs %}
-{% tab Flutter SDK 18.0.0+ %}
+{% tab Flutter SDK or Software-Development-Kit 18.0.0+ %}
 
 Content-Card-Daten werden automatisch von der nativen Android- und iOS-Schicht weitergeleitet. Es ist keine zusätzliche Einrichtung erforderlich.
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 und älter %}
+{% tab Flutter SDK or Software-Development-Kit 17.1.0 und älter %}
 
-Wenn Sie Flutter SDK 17.1.0 oder älter verwenden, muss die Weiterleitung von Content-Card-Daten aus der nativen iOS-Schicht manuell eingerichtet werden. Ihre Anwendung enthält wahrscheinlich einen `contentCards.subscribeToUpdates`-Callback, der `BrazePlugin.processContentCards(contentCards)` aufruft. Um auf Flutter SDK 18.0.0 zu migrieren, entfernen Sie den Aufruf von `BrazePlugin.processContentCards(_:)` – die Datenweiterleitung wird jetzt automatisch verarbeitet.
+Wenn Sie Flutter SDK or Software-Development-Kit 17.1.0 oder älter verwenden, muss die Weiterleitung von Content-Card-Daten aus der nativen iOS-Schicht manuell eingerichtet werden. Ihre Anwendung enthält wahrscheinlich einen `contentCards.subscribeToUpdates`-Callback, der `BrazePlugin.processContentCards(contentCards)` aufruft. Um auf Flutter SDK or Software-Development-Kit 18.0.0 zu migrieren, entfernen Sie den Aufruf von `BrazePlugin.processContentCards(_:)` – die Datenweiterleitung wird jetzt automatisch verarbeitet.
 
-Ein Beispiel finden Sie in [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) in der Braze Flutter SDK-Beispiel-App.
+Ein Beispiel finden Sie in [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) in der Braze Flutter SDK or Software-Development-Kit-Beispiel-App.
 
 {% endtab %}
 {% endtabs %}

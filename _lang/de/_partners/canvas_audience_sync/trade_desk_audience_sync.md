@@ -1,7 +1,7 @@
 ---
 nav_title: The Trade Desk
 article_title: Canvas Audience Sync mit The Trade Desk
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync mit The Trade Desk verwenden, um Werbung basierend auf Verhaltens-Triggern, Segmentierung und mehr auszuliefern."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync mit The Trade Desk verwenden, um Werbung basierend auf Verhaltens-Trigger or triggern or triggern, Segmentierung und mehr auszuliefern."
 alias: /trade_desk_audience_sync/
 tool:
   - Canvas
@@ -16,7 +16,7 @@ page_order: 7
 
 - Retargeting Ihrer bestehenden Nutzer:innen auf The Trade Desk mit personalisierten Campaigns.
 - Senden von First-Party-Daten an The Trade Desk für Ausschluss-Targeting.
-- Synchronisierung von Nutzer:innen mit neuen oder bestehenden Zielgruppen oder CRM-Datensegmenten.
+- Synchronisierung von Nutzer:innen mit neuen oder bestehenden Zielgruppen oder CRM or Customer-Relationship-Management [-System] (CRM)-Datensegmenten.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -24,8 +24,8 @@ Stellen Sie sicher, dass die folgenden Punkte erstellt, abgeschlossen oder akzep
 
 | Anforderung | Herkunft | Beschreibung |
 | --- | --- | --- |
-| API-Token | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Ein Standard-API-Token, das auf der The Trade Desk-Plattform erstellt wurde. Wir empfehlen, die Lifetime des API-Tokens auf bis zu ein Jahr festzulegen, um minimale Unterbrechungen Ihrer Canvases mit The Trade Desk Audience Sync zu vermeiden. |
-| The Trade Desk Nutzungsbedingungen und Richtlinien | The Trade Desk | Sie müssen einer UID2/CRM-Teilnahmerichtlinie zustimmen, bevor Sie Daten an The Trade Desk senden können. Kontaktieren Sie Ihre Vertretung bei The Trade Desk, um zu bestätigen, dass Sie die entsprechende Signatur haben, um die Datenzustellung an The Trade Desk zu aktivieren.<br><br> {::nomarkdown}<ul><li>Bestätigen Sie, dass der CRM-Datenverwaltungszugriff in Ihrem Konto aktiviert ist&#8212;Ihre Vertretung bei The Trade Desk kann Ihnen dabei helfen. Sie benötigen Ihre Advertiser-ID.</li><li>Halten Sie Ihr Standard-API-Token bereit. Sie können den Anweisungen auf dieser Seite folgen, um eines zu generieren.</li></ul>{:/} |
+| API-Token / Textbaustein | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Ein Standard-API-Token / Textbaustein, das auf der The Trade Desk-Plattform erstellt wurde. Wir empfehlen, die Lifetime des API-Tokens auf bis zu ein Jahr festzulegen, um minimale Unterbrechungen Ihrer Canvase mit The Trade Desk Audience Sync zu vermeiden. |
+| The Trade Desk Nutzungsbedingungen und Richtlinien | The Trade Desk | Sie müssen einer UID2/CRM or Customer-Relationship-Management [-System] (CRM)-Teilnahmerichtlinie zustimmen, bevor Sie Daten an The Trade Desk senden können. Kontaktieren Sie Ihre Vertretung bei The Trade Desk, um zu bestätigen, dass Sie die entsprechende Signatur haben, um die Datenzustellung an The Trade Desk zu aktivieren.<br><br> {::nomarkdown}<ul><li>Bestätigen Sie, dass der CRM or Customer-Relationship-Management [-System] (CRM)-Datenverwaltungszugriff in Ihrem Konto aktiviert ist&#8212;Ihre Vertretung bei The Trade Desk kann Ihnen dabei helfen. Sie benötigen Ihre Advertiser-ID.</li><li>Halten Sie Ihr Standard-API-Token / Textbaustein bereit. Sie können den Anweisungen auf dieser Seite folgen, um eines zu generieren.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -34,7 +34,7 @@ Stellen Sie sicher, dass die folgenden Punkte erstellt, abgeschlossen oder akzep
 
 Um zu beginnen, gehen Sie zu **Partnerintegrationen** > **Technologie-Partner** > **The Trade Desk**. Geben Sie die folgenden Details aus Ihrem Trade Desk-Konto an:
 
-- **API-Token**
+- **API-Token / Textbaustein**
 - **Advertiser-ID-Name** (dieser optionale Name identifiziert das Advertiser-Konto, das im Audience Sync Canvas-Schritt referenziert werden soll)
 - **Advertiser-ID**
 
@@ -85,7 +85,7 @@ Dies kann bis zu 24 Stunden dauern.
 
 ### Was ist die Mindestgröße einer Zielgruppe, damit The Trade Desk sie in Ihrem Werbekonto anzeigt? {#what-is-the-minimum-audience-size-for-the-trade-desk-to-populate-within-your-ad-account}
 
-Es gibt keine Mindestgröße für CRM-Zielgruppen in The Trade Desk.
+Es gibt keine Mindestgröße für CRM or Customer-Relationship-Management [-System] (CRM)-Zielgruppen in The Trade Desk.
 
 ### Wie erfahre ich, ob Nutzer:innen nach der Übertragung an The Trade Desk abgeglichen wurden? {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 

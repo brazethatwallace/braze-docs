@@ -1,30 +1,30 @@
 ---
 page_order: 1.3
 nav_title: Depuración
-article_title: Depuración del SDK de Braze
-description: "Aprende a utilizar el depurador del SDK de Braze, para que puedas solucionar problemas de tus canales con SDK, sin habilitar el registro detallado en tu aplicación."
+article_title: Depuración del SDK or kit de desarrollo de software de Braze
+description: "Aprende a utilizar el depurador del SDK or kit de desarrollo de software de Braze, para que puedas solucionar problemas de tus canales con SDK or kit de desarrollo de software, sin habilitar el registro detallado en tu aplicación."
 ---
 
-# Depuración del SDK de Braze {#debugging-the-braze-sdk}
+# Depuración del SDK or kit de desarrollo de software de Braze {#debugging-the-braze-sdk}
 
-> Aprende a utilizar el depurador integrado del SDK de Braze, para que puedas solucionar problemas de tus canales con SDK, sin necesidad de habilitar el registro detallado en tu aplicación.
+> Aprende a utilizar el depurador integrado del SDK or kit de desarrollo de software de Braze, para que puedas solucionar problemas de tus canales con SDK or kit de desarrollo de software, sin necesidad de habilitar el registro detallado en tu aplicación.
 
 {% alert tip %}
-Para una investigación más profunda, también puedes [habilitar el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para capturar la salida detallada del SDK y [aprender a leer los registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) de canales específicos.
+Para una investigación más profunda, también puedes [habilitar el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para capturar la salida detallada del SDK or kit de desarrollo de software y [aprender a leer los registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs) de canales específicos.
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar el depurador del SDK de Braze, necesitarás los permisos "View PII" y "View User Profiles (PII Redacted)". Para descargar los registros de tu sesión de depuración, también necesitarás el permiso "Export User Data". Además, tu SDK de Braze debe cumplir o apuntar a las siguientes versiones mínimas:
+Para usar el depurador del SDK or kit de desarrollo de software de Braze, necesitarás los permisos "View PII" y "View User Profiles (PII Redacted)". Para descargar los registros de tu sesión de depuración, también necesitarás el permiso "Export User Data". Además, tu SDK or kit de desarrollo de software de Braze debe cumplir o apuntar a las siguientes versiones mínimas:
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
-Para recopilar registros del depurador cuando `Braze.configuration.logger.level` está en `.disabled`, usa Swift SDK 11.9.0 o posterior. Para más información, consulta los [registros de cambios de Swift]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12).
+Para recopilar registros del depurador cuando `Braze.configuration.logger.level` está en `.disabled`, usa Swift SDK or kit de desarrollo de software 11.9.0 o posterior. Para más información, consulta los [registros de cambios de Swift]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12).
 
-## Depuración del SDK de Braze
+## Depuración del SDK or kit de desarrollo de software de Braze
 
 {% alert tip %}
-Para habilitar la depuración del SDK de Braze para Web, puedes [usar un parámetro de URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging).
+Para habilitar la depuración del SDK or kit de desarrollo de software de Braze para Web, puedes [usar un parámetro de URL]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging).
 {% endalert %}
 
 ### Paso 1: Cierra tu aplicación {#step-1-close-your-app}
@@ -33,7 +33,7 @@ Antes de iniciar tu sesión de depuración, cierra la aplicación que está expe
 
 ### Paso 2: Crea una sesión de depuración {#step-2-create-a-debugging-session}
 
-En Braze, ve a **Configuración** y, en **Configuración y pruebas**, selecciona **SDK Debugger**.
+En Braze, ve a **Configuración** y, en **Configuración y pruebas**, selecciona **SDK or kit de desarrollo de software Debugger**.
 
 ![La sección "Configuración y pruebas" con "SDK Debugger" resaltado.]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
 

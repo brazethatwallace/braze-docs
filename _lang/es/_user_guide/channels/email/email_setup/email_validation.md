@@ -15,7 +15,7 @@ channel: email
 
 ## Cómo funciona {#how-it-works}
 
-Braze valida una dirección de correo electrónico cuando se actualiza, se importa mediante API, se carga en formato CSV, se modifica mediante SDK o se modifica en el panel. Las direcciones de correo electrónico no pueden incluir espacios en blanco. Si usas la API, los espacios en blanco devuelven un error `400`.
+Braze valida una dirección de correo electrónico cuando se actualiza, se importa mediante API, se carga en formato CSV, se modifica mediante SDK or kit de desarrollo de software o se modifica en el panel. Las direcciones de correo electrónico no pueden incluir espacios en blanco. Si usas la API, los espacios en blanco devuelven un error `400`.
 
 Braze rechaza ciertos caracteres y marca la dirección como no válida. Si un correo electrónico rebota, Braze marca la dirección como no válida y no cambia el estado de la suscripción. Si el cuerpo del correo electrónico contiene caracteres [ASCII](https://en.wikipedia.org/wiki/ASCII) no estándar, Braze no envía el correo electrónico.
 

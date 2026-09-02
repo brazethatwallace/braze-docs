@@ -58,7 +58,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | 누적 베팅 추천 (이벤트 라벨) | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | 오브젝트 |
 | 누적 베팅 추천 (숫자 배당률) | `{"Bet_1": 1.5, "Bet_2": 2}` | 오브젝트 |
 | 베팅 빌더 베팅 추천 | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | 오브젝트 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 커스텀 속성" }
 
 {% endtab %}
 {% tab 보너스 추천 %}
@@ -74,7 +74,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | Bet and Get 보너스 가치 추천 | 20 | 숫자 |
 | 기타 보너스 가치 추천 | 0 | 숫자 |
 | 미래 CLTV | 3126 | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 커스텀 속성" }
 
 {% endtab %}
 {% tab 게임 추천 %}
@@ -89,7 +89,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | 다음 추천 (게임 시퀀싱) | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | 배열 |
 | 인기 게임 | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | 배열 |
 | 트렌딩 게임 | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | 배열 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 커스텀 속성" }
 
 {% endtab %}
 
@@ -98,7 +98,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | 하위 카테고리 | 예시 | 데이터 유형 |
 | ----------- | ------- | --------- |
 | 플레이어가 속한 클러스터 표시 | High Value Game Diverse | 문자열 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 커스텀 속성" }
 
 {% endtab %}
 
@@ -108,7 +108,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | ----------- | ------- | --------- |
 | 위험 점수 | 0.5 | 숫자 |
 | 위험 플레이어 | True | 부울 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 커스텀 속성" }
 
 {% endtab %}
 {% endtabs %}

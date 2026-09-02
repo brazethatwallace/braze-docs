@@ -16,7 +16,7 @@ Sie können diese Methoden nutzen, indem Sie Ihre `BrazeInAppMessage`-Instanz zu
 
 ## Umgang mit Nachrichten-Daten {#handling-message-data}
 
-In den meisten Fällen können Sie die Methode `Braze.addListener` verwenden, um Event-Listener zu registrieren, die Daten aus In-App-Nachrichten verarbeiten.
+In den meisten Fällen können Sie die Methode `Braze.addListener` verwenden, um Event-Listener zu Registrierung or registrieren, die Daten aus In-App-Nachrichten verarbeiten.
 
 Außerdem können Sie auf die Daten der In-App-Nachricht im JavaScript-Layer zugreifen, indem Sie die Methode `Braze.subscribeToInAppMessage` aufrufen, damit die SDKs ein `inAppMessageReceived`-Event veröffentlichen, wenn eine In-App-Nachricht getriggert wird. Übergeben Sie einen Callback an diese Methode, um Ihren eigenen Code auszuführen, wenn die In-App-Nachricht getriggert und vom Listener empfangen wird.
 
@@ -56,7 +56,7 @@ Da es sich hierbei um eine fortgeschrittene Anpassungsoption handelt, beachten S
 
 {% subtabs %}
 {% subtab Android %}
-Implementieren Sie `IInAppMessageManagerListener` wie in unserem Android-Artikel über [angepasste Manager-Listener]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners) beschrieben. In Ihrer `beforeInAppMessageDisplayed`-Implementierung können Sie auf die Daten von `inAppMessage` zugreifen, sie an den JavaScript-Layer senden und anhand des Rückgabewerts entscheiden, ob Sie die native Nachricht anzeigen oder nicht.
+Implementieren Sie `IInAppMessageManagerListener` wie in unserem Android-Artikel über [angepasste Manager:in-Listener]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners) beschrieben. In Ihrer `beforeInAppMessageDisplayed`-Implementierung können Sie auf die Daten von `inAppMessage` zugreifen, sie an den JavaScript-Layer senden und anhand des Rückgabewerts entscheiden, ob Sie die native Nachricht anzeigen oder nicht.
 
 Mehr über diese Werte erfahren Sie in unserer [Android-Dokumentation]({{site.baseurl}}/developer_guide/in_app_messages).
 

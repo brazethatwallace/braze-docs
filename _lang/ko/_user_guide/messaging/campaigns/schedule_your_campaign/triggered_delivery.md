@@ -35,7 +35,7 @@ local_redirect:
     - **Perform Exception Event For Campaign**
     - **Start Session**
 - **인바운드 메시징**
-    - **Send an SMS inbound message**
+    - **Send an 단문 메시지 서비스 inbound message**
     - **Send a WhatsApp inbound message**
     - **Send a LINE inbound message**
 - **위치**
@@ -73,8 +73,8 @@ local_redirect:
 - **Receive email**
 - **Receive push notification**
 - **Receive webhook**
-- **Receive SMS**
-- **Click shortened SMS link**
+- **Receive 단문 메시지 서비스**
+- **Click shortened 단문 메시지 서비스 link**
 - **View content card**
 - **Click content card**
 - **Dismiss content card**
@@ -105,8 +105,8 @@ local_redirect:
 - **Receive email**
 - **Receive push notification**
 - **Receive webhook**
-- **Receive SMS**
-- **Click shortened SMS link**
+- **Receive 단문 메시지 서비스**
+- **Click shortened 단문 메시지 서비스 link**
 - **View content card**
 - **Click content card**
 - **Dismiss content card**

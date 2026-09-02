@@ -140,7 +140,7 @@ Operator가 응답을 생성하는 동안 **전송** 버튼이 **중지** 버튼
 
 ## 데이터 프라이버시 및 보안 {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합되며, OpenAI는 귀하와 Braze 간의 데이터 처리 부록(DPA) 조건에 따라 Braze 하위 처리자로 활동합니다. Braze를 통해 OpenAI로 전송되는 데이터는 OpenAI 모델을 학습하거나 개선하는 데 사용되지 않습니다. HIPAA(미국의료정보보호법) 준수, 데이터 유지, PII 처리 및 거버넌스에 대한 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)을 참조하세요.
+BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합되며, OpenAI는 귀하와 Braze 간의 데이터 처리 부록(데이터 보호 어드바이저) 조건에 따라 Braze 하위 처리자로 활동합니다. Braze를 통해 OpenAI로 전송되는 데이터는 OpenAI 모델을 학습하거나 개선하는 데 사용되지 않습니다. HIPAA(미국의료정보보호법) 준수, 데이터 유지, PII 처리 및 거버넌스에 대한 자세한 내용은 [데이터 프라이버시 및 보안]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security)을 참조하세요.
 
 ## 다음 단계 {#next-steps}
 

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Atualizar tradução em um bloco de conteúdo."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar tradução em um bloco de conteúdo {#update-translation-in-a-content-block}
 {% apimethod put %}
 /content_blocks/translations
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Atualizar traduçã
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.update`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.update`.
 
 ## Limite de frequência {#rate-limit}
 

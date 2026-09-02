@@ -2,7 +2,7 @@
 
 ## Pré-requisitos {#prerequisites}
 
-Estas são as versões mínimas do SDK necessárias para começar a usar geofences:
+Estas são as versões mínimas do SDK or kit de desenvolvimento de software necessárias para começar a usar geofences:
 
 {% sdk_min_versions xamarin:9.0.0 %}
 
@@ -82,7 +82,7 @@ Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 ```
 
 {% alert important %}
-Os geofences só podem ser solicitados uma vez por sessão, seja automaticamente pelo SDK ou manualmente com esse método.
+Os geofences só podem ser solicitados uma vez por sessão, seja automaticamente pelo SDK or kit de desenvolvimento de software ou manualmente com esse método.
 {% endalert %}
 {% endtab %}
 {% tab iOS %}
@@ -161,7 +161,7 @@ locationManager.RequestAlwaysAuthorization();
 ```
 
 {% alert important %}
-Sem autorização `Always`, o iOS restringe os serviços de localização enquanto o app não está em uso. Isso é imposto pelo sistema operacional e não pode ser contornado pelo SDK da Braze.
+Sem autorização `Always`, o iOS restringe os serviços de localização enquanto o app não está em uso. Isso é imposto pelo sistema operacional e não pode ser contornado pelo SDK or kit de desenvolvimento de software da Braze.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

@@ -39,7 +39,7 @@ Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suiva
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-Si vous préférez utiliser Google Tag Manager, vous pouvez utiliser le type de balise **Change User** pour appeler la [méthode `changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser). Utilisez-la chaque fois qu'un utilisateur se connecte ou est identifié avec son identifiant unique `external_id`.
+Si vous préférez utiliser Google Tag gestionnaire, vous pouvez utiliser le type de balise **Change User** pour appeler la [méthode `changeUser`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser). Utilisez-la chaque fois qu'un utilisateur se connecte ou est identifié avec son identifiant unique `external_id`.
 
 Veillez à saisir l'ID unique de l'utilisateur actuel dans le champ **External User ID**, généralement alimenté par une variable de couche de données envoyée par votre site web.
 

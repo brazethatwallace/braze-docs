@@ -1,17 +1,17 @@
 ---
 nav_title: Registrar compras
-article_title: Registrar compras a través del SDK de Braze
+article_title: Registrar compras a través del SDK or kit de desarrollo de software de Braze
 page_order: 3.2
-description: "Aprende a registrar compras a través del SDK de Braze."
+description: "Aprende a registrar compras a través del SDK or kit de desarrollo de software de Braze."
 
 ---
 
 # Registrar compras {#log-purchases}
 
-> Aprende a registrar las compras dentro de la aplicación a través del SDK de Braze, para que puedas determinar tus ingresos a lo largo del tiempo y de las distintas fuentes. Esto te permitirá segmentar a los usuarios [en función de su valor de duración del ciclo de vida]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) utilizando eventos personalizados, atributos personalizados y eventos de compra.
+> Aprende a registrar las compras dentro de la aplicación a través del SDK or kit de desarrollo de software de Braze, para que puedas determinar tus ingresos a lo largo del tiempo y de las distintas fuentes. Esto te permitirá segmentar a los usuarios [en función de su LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) utilizando eventos personalizados, atributos personalizados y eventos de compra.
 
 {% alert note %}
-Para los SDK envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
+Para los SDK or kit de desarrollo de software envolventes que no aparecen en la lista, utiliza el método nativo de Android o Swift correspondiente.
 {% endalert %}
 
 Cualquier moneda distinta al USD que se notifique se mostrará en Braze en USD según la tasa de cambio vigente en la fecha en que se notificó. Para obtener información sobre la conversión en el panel, el almacenamiento en caché y la frecuencia de actualización de las tasas de cambio, consulta [Conversión de divisas]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#currency-conversion). Para evitar la conversión, registra las compras con `USD` como código de moneda.
@@ -22,13 +22,13 @@ Para registrar compras e ingresos, llama a `logPurchase()` después de una compr
 
 {% tabs %}
 {% tab web %}
-Para una implementación estándar del SDK Web, puedes utilizar el siguiente método:
+Para una implementación estándar del SDK or kit de desarrollo de software Web, puedes utilizar el siguiente método:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Si prefieres utilizar Google Tag Manager, puedes emplear el tipo de etiqueta **Purchase** para llamar al [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Usa esta etiqueta para hacer seguimiento de compras en Braze, incluyendo opcionalmente propiedades de la compra. Para hacerlo:
+Si prefieres utilizar Google Tag Administrador, puedes emplear el tipo de etiqueta **Purchase** para llamar al [método `logPurchase`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase). Usa esta etiqueta para hacer seguimiento de compras en Braze, incluyendo opcionalmente propiedades de la compra. Para hacerlo:
 
 1. Los campos **Product ID** y **Price** son obligatorios.
 2. Utiliza el botón **Add Row** para añadir propiedades de la compra.
@@ -104,7 +104,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: properti
 
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 ```javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, properties);
@@ -139,13 +139,13 @@ Puedes añadir metadatos sobre las compras pasando un diccionario con valores de
 
 {% tabs %}
 {% tab web %}
-Para una implementación estándar del SDK Web, puedes utilizar el siguiente método:
+Para una implementación estándar del SDK or kit de desarrollo de software Web, puedes utilizar el siguiente método:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Si tu sitio registra compras utilizando el elemento de capa de datos de [evento de comercio electrónico](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) estándar en Google Tag Manager, puedes emplear el tipo de etiqueta **E-commerce Purchase**. Este tipo de acción registrará una "compra" separada en Braze por cada elemento enviado en la lista de `items`.
+Si tu sitio registra compras utilizando el elemento de capa de datos de [evento de comercio electrónico](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) estándar en Google Tag Administrador, puedes emplear el tipo de etiqueta **E-commerce Purchase**. Este tipo de acción registrará una "compra" separada en Braze por cada elemento enviado en la lista de `items`.
 
 También puedes especificar nombres de propiedades adicionales que deseas incluir como propiedades de la compra, indicando sus claves en la lista de propiedades de la compra. Ten en cuenta que Braze buscará dentro del `item` individual que se está registrando cualquier propiedad de la compra que hayas añadido a la lista.
 
@@ -229,7 +229,7 @@ braze.logPurchase(productId, currencyCode, price, quantity, properties: {"key": 
 
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 ```javascript
 Braze.logPurchase(productId, price, currencyCode, quantity, { key: "value" });
@@ -262,9 +262,9 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 De forma predeterminada, `quantity` se establece en `1`. Sin embargo, puedes añadir una cantidad a tus compras si los clientes realizan la misma compra varias veces en una sola transacción. Para añadir una cantidad, pasa un valor `Int` a `quantity`.
 
-### Usar la REST API {#using-the-rest-api}
+### Usar la REST or transferencia de estado representacional API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST API para registrar compras. Para más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/user_data).
+También puedes utilizar nuestra REST or transferencia de estado representacional API para registrar compras. Para más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Registrar pedidos {#logging-orders}
 

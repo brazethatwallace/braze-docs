@@ -18,7 +18,7 @@ channel: in-app messages
 
 Antes de usar mensagens no app no seu Canvas, certifique-se de ter um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) configurado com opções de postergação e público.
 
-No construtor do Canvas, adicione uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) e selecione **In-App Message** como seu **Messaging Channel**. Você pode personalizar [quando sua mensagem vai expirar](#in-app-message-expiration) e qual [comportamento de avanço](#advancement-behavior) ela terá.
+No construtor do Canvas, adicione uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) e selecione **In-App Message** como seu **canal de envio de mensagens**. Você pode personalizar [quando sua mensagem vai expirar](#in-app-message-expiration) e qual [comportamento de avanço](#advancement-behavior) ela terá.
 
 Se o seu espaço de trabalho tiver múltiplos apps, direcione o app correto usando **plataformas de entrega**, {% raw %}`{{targeted_device.${platform}}}`{% endraw %} ou {% raw %}`{{app.${api_id}}}`{% endraw %} Liquid tags — não validações de entrega. As mensagens no app são exibidas apenas quando o usuário abre o app direcionado e atende aos critérios de gatilho da etapa. Para saber mais, consulte [Validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
 
@@ -27,7 +27,7 @@ Se o seu espaço de trabalho tiver múltiplos apps, direcione o app correto usan
 Para adicionar uma mensagem no app ao seu Canvas, faça o seguinte:
 
 1. Adicione uma etapa de [Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) à jornada do usuário.
-2. Selecione **In-App Message** como seu **Messaging Channel**.
+2. Selecione **In-App Message** como seu **canal de envio de mensagens**.
 3. Determine [quando sua mensagem vai expirar](#in-app-message-expiration) e qual [comportamento de avanço](#advancement-behavior-options) ela terá.
 
 ## Mensagens no app disparadas {#triggered-in-app-messages}
@@ -216,7 +216,7 @@ Etapas com uma mensagem no app e outro canal têm as seguintes opções de avan�
 | Opção | Descrição |
 |---|---|
 | Advance When Message Sent | Os usuários devem receber um e-mail, webhook ou notificação por push, ou visualizar a mensagem no app para avançar para as etapas subsequentes no Canvas.  <br> <br>  Se a mensagem no app expirar e o usuário não tiver recebido o e-mail, webhook ou push, ou não tiver visualizado a mensagem no app, ele sairá do Canvas e não avançará para as etapas subsequentes. |
-| Immediately Advance Audience | Todos no público da etapa avançam para as próximas etapas após a postergação, independentemente de terem visto a mensagem indicada ou não. <br> <br> Os usuários devem atender aos critérios de segmento e filtro da etapa para avançar para as próximas etapas. |
+| Immediately Advance Audience | Todos no público da etapa avançam para as próximas etapas após a postergação, independentemente de terem visto a mensagem indicada ou não. <br> <br> Os usuários devem atender aos critérios de Segment or segmento or segmento e filtro da etapa para avançar para as próximas etapas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapas com múltiplos canais" }
 
 {% alert important %}
@@ -231,7 +231,7 @@ Você pode escolher entre as seguintes ações-gatilho para segmentar seus usuá
 
 - **Realizar compra:** Segmente usuários que realizam qualquer compra ou uma compra específica
 - **Iniciar sessão:** Segmente usuários que iniciam uma sessão em qualquer app ou em um app específico
-- **Realizar evento personalizado:** Segmente usuários que realizam o evento personalizado selecionado (o evento personalizado deve ser enviado usando o SDK).
+- **Realizar evento personalizado:** Segmente usuários que realizam o evento personalizado selecionado (o evento personalizado deve ser enviado usando o SDK or kit de desenvolvimento de software).
 
 O usuário precisa entrar na etapa do Canvas, iniciar uma sessão e então realizar o gatilho para receber uma mensagem no app. Isso significa que atualizações no meio da sessão não são suportadas. Por exemplo, se o gatilho for iniciar uma sessão, o usuário só precisa entrar na etapa do Canvas e iniciar uma sessão para receber a mensagem no app. Se o gatilho não for iniciar uma sessão, o usuário precisa entrar na etapa do Canvas, iniciar uma sessão e então realizar o gatilho para receber a mensagem no app.
 

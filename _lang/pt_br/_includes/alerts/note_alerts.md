@@ -33,7 +33,7 @@ A Braze não gera perfis para os usuários até que eles tenham usado o app pela
 {% if include.alert == 'Shopify attributes REST API' %}
 
 {% alert note %}
-Todos os atributos são originados da REST API da Braze.
+Todos os atributos são originados da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze.
 {% endalert %}
 
 {% endif %}

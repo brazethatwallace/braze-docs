@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Multiplied Media
 
-> [Multiplied Media](https://multiplied.media) ist ein Kreativ- und Automatisierungsstudio, das Ihre CRM-Daten nutzt, um personalisierte Bilder, GIFs und Videos zu erstellen – ein einzigartiges Asset für jede:n Kund:in. Die Integration von Multiplied Media und Braze ermöglicht es Ihnen, diese Medien per E-Mail, Push-Benachrichtigungen, In-App-Nachrichten, Content Cards und WhatsApp zu versenden.
+> [Multiplied Media](https://multiplied.media) ist ein Kreativ- und Automatisierungsstudio, das Ihre CRM or Customer-Relationship-Management [-System] (CRM)-Daten nutzt, um personalisierte Bilder, GIFs und Videos zu erstellen – ein einzigartiges Asset für jede:n Kund:in. Die Integration von Multiplied Media und Braze ermöglicht es Ihnen, diese Medien per E-Mail, Push-Benachrichtigungen, In-App-Nachrichten, Content Cards und WhatsApp zu versenden.
 >
 > Multiplied Media ist ein Managed Service, kein Software-Tool. Das Multiplied-Media-Team übernimmt Konzept, Design, Animation, Datenanbindung und Rendering. Um diese Integration zu nutzen, fügen Sie eine Medien-URL mit einem [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Merge-Tag in Ihre Campaign oder Ihr Canvas ein.
 

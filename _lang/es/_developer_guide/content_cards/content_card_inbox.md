@@ -739,7 +739,7 @@ lines-main.js=3-4,9
 
 ### 1. Habilitar depuración (opcional)
 
-Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración. Opcionalmente, también puedes ejecutar métodos del SDK Web de Braze en la consola.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración. Opcionalmente, también puedes ejecutar métodos del SDK or kit de desarrollo de software Web de Braze en la consola.
 
 !!step
 lines-index.html=1-44

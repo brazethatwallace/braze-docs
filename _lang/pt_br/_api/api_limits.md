@@ -2,29 +2,29 @@
 nav_title: Limites de taxa
 article_title: Limites de taxa
 page_order: 4.5
-description: "Este artigo de referência aborda os limites de taxa da API para a infraestrutura da API da Braze."
+description: "Este artigo de referência aborda os limites de taxa da API or interface de programação do aplicativo (API) para a infraestrutura da API or interface de programação do aplicativo (API) da Braze."
 page_type: reference
 ---
 
 # Limites de taxa {#rate-limits}
 
-> A infraestrutura da API da Braze foi projetada para lidar com grandes volumes de dados de nossa base de clientes. Para isso, aplicamos limites de taxa de API por espaço de trabalho.
+> A infraestrutura da API or interface de programação do aplicativo (API) da Braze foi projetada para lidar com grandes volumes de dados de nossa base de clientes. Para isso, aplicamos limites de taxa de API or interface de programação do aplicativo (API) por espaço de trabalho.
 
-Um limite de taxa é o número de solicitações que a API pode receber em um determinado período. Muitos incidentes de negação de serviço baseados em carga em grandes sistemas não são intencionais — causados por erros no software ou nas configurações — e não por ataques mal-intencionados. Os limites de taxa garantem que esses erros não privem nossos clientes dos recursos da API da Braze. Se muitas solicitações forem enviadas em um determinado período, você poderá ver respostas de erro com um código de status `429`, o que indica que o limite de taxa foi atingido.
+Um limite de taxa é o número de solicitações que a API or interface de programação do aplicativo (API) pode receber em um determinado período. Muitos incidentes de negação de serviço baseados em carga em grandes sistemas não são intencionais — causados por erros no software ou nas configurações — e não por ataques mal-intencionados. Os limites de taxa garantem que esses erros não privem nossos clientes dos recursos da API or interface de programação do aplicativo (API) da Braze. Se muitas solicitações forem enviadas em um determinado período, você poderá ver respostas de erro com um código de status `429`, o que indica que o limite de taxa foi atingido.
 
 {% alert warning %}
-Os limites de taxa da API estão sujeitos a alterações, dependendo do uso adequado de nosso sistema. Incentivamos limites sensatos ao fazer uma chamada à API para evitar danos ou uso indevido.
+Os limites de taxa da API or interface de programação do aplicativo (API) estão sujeitos a alterações, dependendo do uso adequado de nosso sistema. Incentivamos limites sensatos ao fazer uma chamada à API or interface de programação do aplicativo (API) para evitar danos ou uso indevido.
 {% endalert %}
 
 ## Limites de frequência por tipo de requisição {#rate-limits-by-request-type}
 
-Consulte as informações a seguir para conhecer os limites de frequência padrão da API para diferentes tipos de requisição. Esses limites padrão podem ser aumentados mediante solicitação. Entre em contato com seu gerente de sucesso do cliente para saber mais.
+Consulte as informações a seguir para conhecer os limites de frequência padrão da API or interface de programação do aplicativo (API) para diferentes tipos de requisição. Esses limites padrão podem ser aumentados mediante solicitação. Entre em contato com seu gerente de sucesso do cliente para saber mais.
 
 ### Requisições com limites de frequência diferentes {#requests-with-different-rate-limits}
 
-| Tipo de requisição                                                                                                                                                                                                                                           | Limite de frequência padrão da API                                                                                                                                                                                                                                                                                                                                                    |
+| Tipo de requisição                                                                                                                                                                                                                                           | Limite de frequência padrão da API or interface de programação do aplicativo (API)                                                                                                                                                                                                                                                                                                                                                    |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)                                                                                                                                                                                                                                   | **Requisições:** Os limites de frequência variam dependendo do seu contrato. Para clientes com pontos de dados em seus preços, a Braze aplica um limite de burst de 3.000 requisições a cada três segundos. Para todos os outros clientes, os limites são configurados de acordo com os termos do seu contrato. Entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para perguntas sobre seus limites.<br><br>**Lotes:** Até 75 objetos no total combinados entre `attributes`, `events` e `purchases` por requisição de API. Clientes com limites de frequência legados podem incluir até 75 objetos por array independentemente. Para saber mais, consulte [Requisições de User Track em lote](#batch-user-track).<br><br>**Limites para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU:** Consulte [Limites de Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)                                                                                                                                                                                                                                   | **Requisições:** Os limites de frequência variam dependendo do seu contrato. Para clientes com pontos de dados em seus preços, a Braze aplica um limite de burst de 3.000 requisições a cada três segundos. Para todos os outros clientes, os limites são configurados de acordo com os termos do seu contrato. Entre em contato com o suporte da Braze ou seu gerente de sucesso do cliente para perguntas sobre seus limites.<br><br>**Lotes:** Até 75 objetos no total combinados entre `attributes`, `events` e `purchases` por requisição de API or interface de programação do aplicativo (API). Clientes com limites de frequência legados podem incluir até 75 objetos por array independentemente. Para saber mais, consulte [Requisições de User Track em lote](#batch-user-track).<br><br>**Limites para Monthly Active Users CY 24-25, Universal MAU, Web MAU e Mobile MAU:** Consulte [Limites de Monthly Active Users CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)                                                                                                                                                                                                                              | **Se você foi integrado em ou após 22 de agosto de 2024:** 250 requisições por minuto. <br><br> **Se você foi integrado antes de 22 de agosto de 2024:** 2.500 requisições por minuto.                                                                                                                                                                                                                               |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)                                                                                                                    | 20.000 requisições por minuto, compartilhadas entre os endpoints.                                                                                                                                                                                                                                                                                                                                 |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)                                                                                                                                                                                                                      | 1.000 requisições por minuto.                                                                                                                                                                                                                                                                                                                                                                |
@@ -116,18 +116,18 @@ Isso se aplica aos seguintes endpoints: [`/messages/send`]({{site.baseurl}}/api/
 
 Para esses endpoints, as requisições de broadcast são consideradas como direcionadas ao mesmo público único quando todos os seguintes critérios correspondem:
 
-- A Campaign ou o Canvas que está sendo disparado (o `campaign_id` ou `canvas_id` na sua requisição de API, se especificado)
-- O público que está sendo direcionado (os Segments ou filtros, ou para Campaigns de API, o `segment_id` na sua requisição de API)
-- Os filtros de público conectado (o objeto `audience` na sua requisição de API, se especificado)
+- A Campaign ou o Canvas que está sendo disparado (o `campaign_id` ou `canvas_id` na sua requisição de API or interface de programação do aplicativo (API), se especificado)
+- O público que está sendo direcionado (os Segments ou filtros, ou para Campaigns de API or interface de programação do aplicativo (API), o `segment_id` na sua requisição de API or interface de programação do aplicativo (API))
+- Os filtros de público conectado (o objeto `audience` na sua requisição de API or interface de programação do aplicativo (API), se especificado)
 
 Cada combinação única desses atributos conta como um público distinto, então o limite de frequência adicional para cada público único se aplica a cada combinação independentemente.
 
-## Agrupamento de solicitações de API em lotes {#batching-api-requests}
+## Agrupamento de solicitações de API or interface de programação do aplicativo (API) em lotes {#batching-api-requests}
 
-As APIs da Braze são criadas para oferecer suporte a agrupamento em lotes. Com o agrupamento em lotes, a Braze pode receber o máximo de dados possível em uma única chamada de API, de modo que você não precise fazer muitas chamadas. É mais eficiente para a Braze processar dados em lotes do que processar dados uma chamada por vez. Por exemplo, lidar com 1.000 chamadas de API em lote requer menos recursos do que lidar com 75.000 chamadas individuais. O agrupamento em lotes é extremamente importante para qualquer aplicação que possa exigir mais de 75.000 chamadas por hora.
+As APIs da Braze são criadas para oferecer suporte a agrupamento em lotes. Com o agrupamento em lotes, a Braze pode receber o máximo de dados possível em uma única chamada de API or interface de programação do aplicativo (API), de modo que você não precise fazer muitas chamadas. É mais eficiente para a Braze processar dados em lotes do que processar dados uma chamada por vez. Por exemplo, lidar com 1.000 chamadas de API or interface de programação do aplicativo (API) em lote requer menos recursos do que lidar com 75.000 chamadas individuais. O agrupamento em lotes é extremamente importante para qualquer aplicação que possa exigir mais de 75.000 chamadas por hora.
 
 {% alert note %}
-Aumentos no limite de frequência da REST API são considerados com base na necessidade para clientes que estão utilizando os recursos de agrupamento em lotes da API.
+Aumentos no limite de frequência da REST or transferir estado representacional API or interface de programação do aplicativo (API) são considerados com base na necessidade para clientes que estão utilizando os recursos de agrupamento em lotes da API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ### Agrupamento de solicitações para o endpoint Criar e atualizar usuários {#batch-user-track}
@@ -151,12 +151,12 @@ As solicitações feitas a esse endpoint geralmente começam a ser processadas n
 Uma única solicitação para os [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging) pode alcançar qualquer um dos seguintes:
 
 - Até 50 `external_ids` específicos, cada um com parâmetros de mensagem individuais
-- Um Segment de qualquer tamanho criado no dashboard da Braze, especificado pelo seu `segment_id`
+- Um Segment or segmento de qualquer tamanho criado no dashboard da Braze, especificado pelo seu `segment_id`
 - Usuários que correspondem a filtros de público adicionais de qualquer tamanho, definidos na solicitação como um objeto de [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience)
 
 ### Exemplo de solicitação em lote {#example-batch-request}
 
-O exemplo a seguir usa `external_id` para fazer uma chamada de API para e-mail e SMS.
+O exemplo a seguir usa `external_id` para fazer uma chamada de API or interface de programação do aplicativo (API) para e-mail e SMS.
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \
@@ -180,7 +180,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/st
 
 ## Monitorando seus limites de frequência {#monitoring-your-rate-limits}
 
-Cada requisição de API enviada para a Braze retorna as seguintes informações nos cabeçalhos de resposta:
+Cada requisição de API or interface de programação do aplicativo (API) enviada para a Braze retorna as seguintes informações nos cabeçalhos de resposta:
 
 | Nome do cabeçalho       | Descrição                                                                                   |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
@@ -189,16 +189,16 @@ Cada requisição de API enviada para a Braze retorna as seguintes informações
 | `X-RateLimit-Reset`     | O horário em que a janela atual de limite de frequência é redefinida, em segundos epoch UTC.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Monitorando seus limites de frequência" }
 
-Essas informações são incluídas intencionalmente no cabeçalho da resposta à requisição de API, e não no dashboard da Braze. Isso permite que seu sistema reaja melhor em tempo real enquanto você interage com nossa API. Por exemplo, se o valor de `X-RateLimit-Remaining` cair abaixo de um determinado limite, você pode querer desacelerar o envio para garantir que todos os e-mails de transação sejam enviados. Ou, se ele chegar a zero, você pode querer pausar todos os envios até que o horário especificado em `X-RateLimit-Reset` seja atingido.
+Essas informações são incluídas intencionalmente no cabeçalho da resposta à requisição de API or interface de programação do aplicativo (API), e não no dashboard da Braze. Isso permite que seu sistema reaja melhor em tempo real enquanto você interage com nossa API or interface de programação do aplicativo (API). Por exemplo, se o valor de `X-RateLimit-Remaining` cair abaixo de um determinado limite, você pode querer desacelerar o envio para garantir que todos os e-mails de transação sejam enviados. Ou, se ele chegar a zero, você pode querer pausar todos os envios até que o horário especificado em `X-RateLimit-Reset` seja atingido.
 
 {% alert note %}
 Os cabeçalhos HTTP serão retornados inteiramente em caracteres minúsculos. Esse comportamento está em conformidade com o protocolo HTTP/2, que exige que todos os nomes de campos de cabeçalho sejam em minúsculas. Isso difere do HTTP/1.X, onde os nomes de cabeçalhos não diferenciavam maiúsculas de minúsculas, mas eram comumente escritos com diversas capitalizações.
 {% endalert %}
 
-Se você tiver dúvidas sobre limites de API, entre em contato com seu gerente de sucesso do cliente ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Se você tiver dúvidas sobre limites de API or interface de programação do aplicativo (API), entre em contato com seu gerente de sucesso do cliente ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 {% alert tip %}
-Você pode usar o [dashboard de uso da API]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage) para visualizar e comparar o tráfego recebido em relação aos seus limites de frequência.
+Você pode usar o [dashboard de uso da API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage) para visualizar e comparar o tráfego recebido em relação aos seus limites de frequência.
 {% endalert %}
 
 ### Intervalo ideal entre endpoints {#optimal-delay-between-endpoints}
@@ -207,13 +207,13 @@ Você pode usar o [dashboard de uso da API]({{site.baseurl}}/user_guide/analytic
 Recomendamos que você permita um intervalo de 5 minutos entre chamadas consecutivas a endpoints para minimizar erros.
 {% endalert %}
 
-Entender o intervalo ideal entre endpoints é essencial ao fazer chamadas consecutivas à API da Braze. Problemas surgem quando endpoints dependem do processamento bem-sucedido de outros endpoints e, se chamados cedo demais, podem gerar erros. Por exemplo, se você estiver atribuindo um alias a usuários por meio do endpoint `/user/alias/new` e depois usando esse alias para enviar um evento personalizado por meio do endpoint `/users/track`, quanto tempo você deve esperar?
+Entender o intervalo ideal entre endpoints é essencial ao fazer chamadas consecutivas à API or interface de programação do aplicativo (API) da Braze. Problemas surgem quando endpoints dependem do processamento bem-sucedido de outros endpoints e, se chamados cedo demais, podem gerar erros. Por exemplo, se você estiver atribuindo um alias a usuários por meio do endpoint `/user/alias/new` e depois usando esse alias para enviar um evento personalizado por meio do endpoint `/users/track`, quanto tempo você deve esperar?
 
 Em condições normais, o tempo para a consistência eventual dos nossos dados ocorrer é de 10 a 100 ms (1/10 de segundo). No entanto, pode haver casos em que essa consistência demore mais para ocorrer. Por isso, recomendamos que você permita um intervalo de 5 minutos entre chamadas subsequentes para minimizar a probabilidade de erro.
 
 ## Limites de tamanho da carga útil {#payload-size-limits}
 
-As solicitações à API da Braze estão sujeitas a limites de tamanho da carga útil, separados dos limites de frequência. A maioria dos endpoints aceita corpos de solicitação de até 4&nbsp;MB. Quando uma solicitação excede o limite aplicável, a Braze pode rejeitá-la com HTTP `413 Request Entity Too Large` ou HTTP `400 Bad Request`, dependendo do endpoint.
+As solicitações à API or interface de programação do aplicativo (API) da Braze estão sujeitas a limites de tamanho da carga útil, separados dos limites de frequência. A maioria dos endpoints aceita corpos de solicitação de até 4&nbsp;MB. Quando uma solicitação excede o limite aplicável, a Braze pode rejeitá-la com HTTP `413 Request Entity Too Large` ou HTTP `400 Bad Request`, dependendo do endpoint.
 
 O endpoint [`/users/track/bulk`]({{site.baseurl}}/api/endpoints/user_data/post_user_track_bulk) tem um limite de carga útil de 2&nbsp;MB e retorna HTTP `400` quando o corpo da solicitação excede esse limite. Para limites específicos de cada endpoint e tratamento de erros, consulte [Endpoints de dados de usuários]({{site.baseurl}}/api/endpoints/user_data).
 

@@ -83,8 +83,8 @@ Fügt einen Standard-Button hinzu. Über die Eigenschaften können Stil und Link
 | Linktyp | Bestimmt die Aktion beim Klicken auf den Button und legt das entsprechende Protokoll fest. |
 | URL | Dynamisch basierend auf dem Linktyp **Webseite öffnen**. |
 | Empfänger:in, Betreff und Text | Für den Linktyp **E-Mail senden** werden die E-Mail-Adresse der Empfängerin bzw. des Empfängers, der Betreff und der Inhalt festgelegt, die in einem E-Mail-Entwurf ausgefüllt werden, wenn Nutzer:innen den Button auswählen. |
-| Tel | Für die Linktypen **Anrufen** und **SMS senden** wird die Telefonnummer festgelegt, die Nutzer:innen anrufen oder an die sie eine Textnachricht senden, wenn sie den Button auswählen. |
-| Nachricht | Für den Linktyp **SMS senden** wird der Inhalt festgelegt, der in einem SMS-Entwurf ausgefüllt wird, wenn Nutzer:innen den Button auswählen. |
+| Tel | Für die Linktypen **Anrufen** und **Kurzmitteilungsdienst or SMS senden** wird die Telefonnummer festgelegt, die Nutzer:innen anrufen oder an die sie eine Textnachricht senden, wenn sie den Button auswählen. |
+| Nachricht | Für den Linktyp **Kurzmitteilungsdienst or SMS senden** wird der Inhalt festgelegt, der in einem Kurzmitteilungsdienst or SMS-Entwurf ausgefüllt wird, wenn Nutzer:innen den Button auswählen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
 ### Trennlinie {#divider}
@@ -223,11 +223,11 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie gestalten.
 
 ### Produkt {#product}
 
-Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalog-Auswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
+Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalog-Auswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger or triggern]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
-| Inhaltstyp | Legt fest, ob Produkte aus einer festen Katalog-**Auswahl** (**Statisch**, bis zu 12 Produkte) oder aus einem Canvas-E-Commerce-Empfehlungs-Trigger (**Dynamisch**, bis zu 24 Produkte) stammen. **Dynamisch** ist nur in Canvas-Nachrichtenschritten verfügbar. |
+| Inhaltstyp | Legt fest, ob Produkte aus einer festen Katalog-**Auswahl** (**Statisch**, bis zu 12 Produkte) oder aus einem Canvas-E-Commerce-Empfehlungs-Trigger or triggern (**Dynamisch**, bis zu 24 Produkte) stammen. **Dynamisch** ist nur in Canvas-Nachrichtenschritten verfügbar. |
 | Katalog | Wählt aus, welcher Produktkatalog die Produktdaten und Feldzuordnungen bereitstellt. |
 | Auswahl | *(Nur statisch)* Wählt aus, welche gefilterte Gruppe im Katalog bestimmt, welche Produkte angezeigt werden. |
 | Quelldetails anzeigen | Schaltet Hilfstext ein, der den zugrunde liegenden Katalog oder das Ereignisfeld zeigt, das jedem Produktfeld zugeordnet ist. |
@@ -235,7 +235,7 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 | Produkttitel | Zeigt oder verbirgt den Produkttitel für jede Kachel. |
 | Preis | Zeigt oder verbirgt den Produktpreis. |
 | Button für Produkt-URL | Zeigt oder verbirgt einen Call-to-Action-Button, der zur Produkt-URL verlinkt. |
-| Menge | *(Dynamisch, nur Canvas, wenn der Entry-Trigger kein Produktansichtsereignis ist)* Zeigt oder verbirgt die Produktmenge aus dem Trigger-Ereignis. |
+| Menge | *(Dynamisch, nur Canvas, wenn der Entry-Trigger or triggern kein Produktansichtsereignis ist)* Zeigt oder verbirgt die Produktmenge aus dem Trigger or triggern-Ereignis. |
 | Produktausrichtung | Legt die Bildposition innerhalb jeder Kachel fest: **Bild links**, **Bild zentriert** oder **Bild rechts**. |
 | Ausrichtung | Legt die horizontale Ausrichtung des Inhalts innerhalb jeder Kachel fest. |
 | Max. Produkte pro Zeile | Legt fest, wie viele Produkte pro Zeile angezeigt werden: **1**, **2** oder **3** (**3** ist nur verfügbar, wenn die Ausrichtung **Bild zentriert** ist). |

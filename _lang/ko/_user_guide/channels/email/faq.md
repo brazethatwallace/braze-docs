@@ -250,7 +250,7 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 이를 해결하려면:
 
 - **유니버설 링크(iOS) 또는 앱 링크(Android)를 사용하세요.** 표준 `https://` URL을 사용하여 앱이 설치된 경우 앱을 열고, 그렇지 않으면 웹 페이지로 대체합니다. 설정 방법은 [유니버설 링크 및 앱 링크]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 참조하세요.
-- **딥링킹 공급자를 사용하세요.** [Branch](https://www.branch.io/)와 같은 서비스는 Gmail을 포함한 이메일 클라이언트와 호환되는 HTTP 형식의 딥링크를 생성합니다.
+- **딥링킹 공급자를 사용하세요.** [Branch or 브랜치](https://www.branch.io/)와 같은 서비스는 Gmail을 포함한 이메일 클라이언트와 호환되는 HTTP 형식의 딥링크를 생성합니다.
 - **리디렉트 엔드포인트를 설정하세요.** 서버에 앱의 커스텀 스킴 URL로 리디렉트하는 `https://` 엔드포인트를 호스팅하세요. 이메일 클라이언트는 `https://` 링크를 유지하고, 리디렉트가 앱 열기를 처리합니다.
 
 ### *고유 열람* 측정기준에 *머신 열람*이 포함되나요? {#does-the-unique-opens-metric-include-machine-opens}

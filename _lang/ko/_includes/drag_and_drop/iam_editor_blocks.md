@@ -67,7 +67,7 @@
 
 ### 전화번호 캡처 {#phone-capture}
 
-전화번호 입력 양식 필드를 삽입합니다. 제출 시 사용자는 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups)에 가입됩니다.
+전화번호 입력 양식 필드를 삽입합니다. 제출 시 사용자는 [단문 메시지 서비스]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups)에 가입됩니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -110,7 +110,7 @@
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success 매니저.
 -->
 
 ## 알아두어야 할 사항 {#things-to-know}

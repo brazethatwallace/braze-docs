@@ -6,12 +6,12 @@ page_type: landing
 channel:
   - email
 search_rank: 3
-description: "Envie e-mails de transação para notificações críticas e urgentes disparadas por chamadas de API na Braze."
+description: "Envie e-mails de transação para notificações críticas e urgentes disparadas por chamadas de API or interface de programação do aplicativo (API) na Braze."
 ---
 
 # E-mail de transação {#transactional-email}
 
-> E-mails de transação são criados especificamente para o envio de mensagens automatizadas e não promocionais, facilitando uma transação acordada entre você e seus clientes. Use campanhas de e-mail de transação na Braze para enviar notificações críticas e urgentes disparadas por chamadas de API, como confirmações de pedido, redefinições de senha e atualizações de envio.
+> E-mails de transação são criados especificamente para o envio de mensagens automatizadas e não promocionais, facilitando uma transação acordada entre você e seus clientes. Use campanhas de e-mail de transação na Braze para enviar notificações críticas e urgentes disparadas por chamadas de API or interface de programação do aplicativo (API), como confirmações de pedido, redefinições de senha e atualizações de envio.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -20,7 +20,7 @@ O e-mail de transação está disponível apenas como parte de pacotes seleciona
 Antes de começar, verifique se você tem o seguinte:
 
 - [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) concluída, incluindo configuração de IP e domínio, autenticação e aquecimento de IP
-- Uma **chave da API REST da Braze** com a permissão `transactional.send`
+- Uma **chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze** com a permissão `transactional.send`
 
 ## Casos de uso {#use-cases}
 
@@ -36,10 +36,10 @@ O e-mail de transação foi criado para enviar mensagens não promocionais dispa
 
 ## Como o e-mail de transação difere do e-mail de marketing {#how-transactional-email-differs-from-marketing-email}
 
-Os e-mails de transação são enviados por meio de uma [API HTTP transacional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada da Braze, otimizada para velocidade e confiabilidade. Diferentemente dos e-mails de marketing, os e-mails de transação:
+Os e-mails de transação são enviados por meio de uma [API or interface de programação do aplicativo (API) HTTP transacional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) dedicada da Braze, otimizada para velocidade e confiabilidade. Diferentemente dos e-mails de marketing, os e-mails de transação:
 
 - Não exigem que o usuário tenha optado por receber comunicações de marketing
-- São disparados por chamadas de API em vez de disparadores agendados ou baseados em ação
+- São disparados por chamadas de API or interface de programação do aplicativo (API) em vez de disparadores agendados ou baseados em ação
 - Oferecem suporte a entrega quase em tempo real para conteúdo sensível ao tempo
 
 ## Próximos passos {#next-steps}

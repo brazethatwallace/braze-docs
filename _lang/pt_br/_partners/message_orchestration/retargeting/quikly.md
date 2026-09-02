@@ -23,9 +23,9 @@ A parceria Braze e Quikly permite que você acelere as conversões em eventos de
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Quikly | É necessário ter uma conta de parceiro da marca [Quikly](https://www.quikly.com) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track`, `subscription.status.set`, `users.export.ids` e `subscription.status.get`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Chave de API da Quikly (opcional) | Uma chave de API da Quikly fornecida por seu gerente de sucesso do cliente (somente webhook). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track`, `subscription.status.set`, `users.export.ids` e `subscription.status.get`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave de API or interface de programação do aplicativo (API) da Quikly (opcional) | Uma chave de API or interface de programação do aplicativo (API) da Quikly fornecida por seu gerente de sucesso do cliente (somente webhook). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -47,10 +47,10 @@ Esta seção descreve quatro integrações diferentes: aquisição de e-mail, aq
 
 ### Aquisição de e-mail {#email-acquisition}
 
-Se suas ativações da Quikly coletarem endereços de e-mail de clientes ou dados de perfil, a única etapa necessária é fornecer à Quikly sua chave da API REST e o endpoint. A Quikly configurará sua conta de marca para passar esses dados para a Braze. Se houver atributos de usuário adicionais que você gostaria de incluir, mencione isso ao fornecer as credenciais da API à Quikly.
+Se suas ativações da Quikly coletarem endereços de e-mail de clientes ou dados de perfil, a única etapa necessária é fornecer à Quikly sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e o endpoint. A Quikly configurará sua conta de marca para passar esses dados para a Braze. Se houver atributos de usuário adicionais que você gostaria de incluir, mencione isso ao fornecer as credenciais da API or interface de programação do aplicativo (API) à Quikly.
 
 Aqui está um esboço de como a Quikly executa esse fluxo de trabalho.
-1. Ao participar de uma ativação da Quikly, a Quikly agenda uma pesquisa de usuário usando a [API de exportação]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para ver se existe um usuário com um determinado `email_address`.
+1. Ao participar de uma ativação da Quikly, a Quikly agenda uma pesquisa de usuário usando a [API or interface de programação do aplicativo (API) de exportação]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para ver se existe um usuário com um determinado `email_address`.
 2. Registre ou atualize o usuário.
   - Se o usuário existir:
     - Não crie um novo perfil.
@@ -165,7 +165,7 @@ Selecione ***JSON key/value pairs*** e adicione os seguintes pares:
 
 ### Pré-visualize sua solicitação {#preview-your-request}
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia `Test`, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).

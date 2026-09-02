@@ -19,7 +19,7 @@ Pour voir des exemples de campagnes e-mail, consultez nos [études de cas](https
 {% alert tip %}
 Si c'est la première fois que vous créez une campagne e-mail, nous vous recommandons vivement de suivre ces cours d'apprentissage Braze :<br><br>
 - [Abonnements et autorisations pour les e-mails](https://learning.braze.com/messaging-channels-email)
-- [Projet : Créer un programme d'e-mail marketing de base](https://learning.braze.com/project-build-a-basic-email-marketing-program)
+- [Projet : Créer un programme d'e-mail marketing or e-mail marketing or e-mailing de base](https://learning.braze.com/project-build-a-basic-email-marketing-program)
 {% endalert %}
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
@@ -126,7 +126,7 @@ Un aperçu dans le panneau de droite sera renseigné avec les informations d'env
 
 Sous **Sending Settings** > **Advanced**, activez **inline CSS** pour la prise en charge la plus large des clients de messagerie. Si les messages sont tronqués ou si les images s'étirent à la hauteur de la ligne, essayez de désactiver temporairement l'insertion CSS. Certains modèles fonctionnent mieux sans insertion.
 
-Vous pouvez également ajouter une personnalisation pour les en-têtes d'e-mail et des extras d'e-mail afin de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing.
+Vous pouvez également ajouter une personnalisation pour les en-têtes d'e-mail et des extras d'e-mail afin de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mail marketing or e-mailing.
 
 ##### Pièces jointes {#email-attachments}
 
@@ -162,7 +162,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 </thead>
 <tbody>
   <tr>
-    <td>BCC</td>
+    <td>CCI or carte de contenu de type bannière</td>
     <td>dkim-signature</td>
     <td>Reply-To</td>
   </tr>
@@ -191,7 +191,7 @@ Braze vous offre la flexibilité d'ajouter des en-têtes d'e-mail supplémentair
 
 ##### Ajouter des extras d'e-mail {#adding-email-extras}
 
-Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mailing. Cela ne s'applique qu'à des cas d'usage avancés, vous ne devriez donc utiliser les extras d'e-mail que si votre entreprise a déjà mis cela en place.
+Les extras d'e-mail vous permettent de renvoyer des données supplémentaires à d'autres fournisseurs de services d'e-mail marketing or e-mailing. Cela ne s'applique qu'à des cas d'usage avancés, vous ne devriez donc utiliser les extras d'e-mail que si votre entreprise a déjà mis cela en place.
 
 Pour ajouter des extras d'e-mail, accédez aux **Sending Info** et sélectionnez **Add New Extra**.
 
@@ -269,7 +269,7 @@ Vous pouvez également définir la durée de la campagne, spécifier les [heures
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
-Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des Segments ou des filtres. Braze affiche une prévisualisation en direct de la population du Segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au Segment est calculée juste avant l'envoi.
+Ensuite, [ciblez les utilisateurs]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) en choisissant des Segments ou des filtres. Braze affiche une prévisualisation en direct or en ligne/en production/instantané de la population du Segment, y compris le nombre d'utilisateurs joignables par e-mail. L'appartenance exacte au Segment est calculée juste avant l'envoi.
 
 {% multi_lang_include audience/target_audiences.md %}
 

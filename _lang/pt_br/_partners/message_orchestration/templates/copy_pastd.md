@@ -26,10 +26,10 @@ Os itens a seguir são necessários para usar esta integração:
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Copy Pastd | Necessária para usar o Building Blocks. Inscreva-se em [copypastd.com](https://copypastd.com). Cada cliente recebe um espaço de trabalho, uma biblioteca de folhas de estilo, cinco licenças de criador e uma biblioteca de blocos. |
-| Chave da API REST da Braze para modelos de e-mail | Uma chave de API com as permissões `templates.email.create`, `templates.email.update` e `templates.email.list`.<br><br>Crie a chave no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Chave da API REST da Braze para Content Blocks | Uma chave de API com as permissões `content_blocks.create`, `content_blocks.update`, `content_blocks.info` e `content_blocks.list`.<br><br>Crie a chave no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Chave da API REST da Braze para Catálogos (opcional) | Uma chave de API com acesso de leitura a `catalogs.get`, `catalogs.get_item` e `catalogs.get_selections`. Necessária apenas se você planeja vincular blocos aos Catálogos da Braze. |
-| Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. O Building Blocks seleciona o endpoint automaticamente com base no cluster que você escolher. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze para modelos de e-mail | Uma chave de API or interface de programação do aplicativo (API) com as permissões `templates.email.create`, `templates.email.update` e `templates.email.list`.<br><br>Crie a chave no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze para Content Blocks | Uma chave de API or interface de programação do aplicativo (API) com as permissões `content_blocks.create`, `content_blocks.update`, `content_blocks.info` e `content_blocks.list`.<br><br>Crie a chave no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze para Catálogos (opcional) | Uma chave de API or interface de programação do aplicativo (API) com acesso de leitura a `catalogs.get`, `catalogs.get_item` e `catalogs.get_selections`. Necessária apenas se você planeja vincular blocos aos Catálogos da Braze. |
+| Endpoint REST or transferir estado representacional da Braze | [URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. O Building Blocks seleciona o endpoint automaticamente com base no cluster que você escolher. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -50,9 +50,9 @@ Conectar o Building Blocks à Braze é uma configuração única. Depois que sua
 {% endalert %}
 
 1. Faça login no Building Blocks em [blocks.copypastd.com](https://blocks.copypastd.com), ou selecione **Login** em [copypastd.com](https://copypastd.com).
-2. No dashboard, selecione **Set up your Braze connection**. (Essa pílula aparece para administradores no primeiro login e até ser concluída. Você também pode acessar a página em **Team Settings** > **Connect** > **Braze API Keys**.)
-3. Selecione seu cluster da Braze no menu suspenso. O endpoint REST correspondente é preenchido automaticamente.
-4. Cole sua chave de API de Templates, sua chave de API de Content Blocks e (opcionalmente) sua chave de API de Catalogs nos campos relevantes.
+2. No dashboard, selecione **Set up your Braze connection**. (Essa pílula aparece para administradores no primeiro login e até ser concluída. Você também pode acessar a página em **Team Settings** > **Connect** > **Braze API or interface de programação do aplicativo (API) Keys**.)
+3. Selecione seu cluster da Braze no menu suspenso. O endpoint REST or transferir estado representacional correspondente é preenchido automaticamente.
+4. Cole sua chave de API or interface de programação do aplicativo (API) de Templates, sua chave de API or interface de programação do aplicativo (API) de Content Blocks e (opcionalmente) sua chave de API or interface de programação do aplicativo (API) de Catalogs nos campos relevantes.
 5. Selecione **Validate and save**. O Building Blocks faz uma chamada à Braze para confirmar que as chaves funcionam e que os escopos de permissão estão corretos. Se algo estiver faltando, um erro inline mostra qual escopo está incorreto.
 
 ### Etapa 2: Sincronizar sua biblioteca com a Braze {#step-2-sync-your-library-to-braze}
@@ -77,7 +77,7 @@ Conectar o Building Blocks à Braze é uma configuração única. Depois que sua
 
 ### Etapa 3: Vincular a catálogos da Braze (opcional) {#step-3-bind-to-braze-catalogs-optional}
 
-1. No Building Blocks, navegue até **Settings** > **Connect** > **Catalogs**. O Building Blocks lê sua lista de catálogos usando a chave de API de catálogos.
+1. No Building Blocks, navegue até **Settings** > **Connect** > **Catalogs**. O Building Blocks lê sua lista de catálogos usando a chave de API or interface de programação do aplicativo (API) de catálogos.
 2. Abra um bloco compatível (por exemplo, uma grade de produtos).
 3. Selecione um catálogo e uma seleção, depois mapeie os campos do bloco para os atributos dos itens do catálogo.
 4. Envie o modelo. O Building Blocks gera o Liquid {% raw %}`{% catalog_items %}`{% endraw %} e {% raw %}`{% catalog_selection_items %}`{% endraw %} correto para a Braze resolver no momento do envio.
@@ -144,17 +144,17 @@ Encontre seus modelos do Building Blocks enviados na Braze em **Templates & Medi
 ## Considerações {#considerations}
 
 - **Uma instância da Braze por espaço de equipe do Building Blocks.** Cada equipe do Building Blocks se conecta a uma única instância da Braze. Clientes que utilizam múltiplos espaços de trabalho (marcas, regiões ou ambientes separados) podem adicioná-los à mesma equipe, o que permite o compartilhamento de blocos.
-- **As permissões de chave de API são definidas separadamente.** As chaves de modelos e as chaves de Content Blocks são mantidas separadas. A validação falha rapidamente se uma chave não tiver um escopo necessário, para que você saiba exatamente qual permissão adicionar na Braze.
+- **As permissões de chave de API or interface de programação do aplicativo (API) são definidas separadamente.** As chaves de modelos e as chaves de Content Blocks são mantidas separadas. A validação falha rapidamente se uma chave não tiver um escopo necessário, para que você saiba exatamente qual permissão adicionar na Braze.
 - **Os nomes dos Content Blocks são organizados por namespace.** O Building Blocks envia Content Blocks com os prefixos `CP_` (blocos) e `cp_` (folhas de estilo) para evitar conflitos com Content Blocks criados diretamente na Braze.
 - **Edições em folhas de estilo atualizam todos os e-mails.** As folhas de estilo são renderizadas como um único Content Block da Braze referenciado por todos os modelos. Uma alteração no Building Blocks atualiza todos os e-mails na Braze que a utilizam, incluindo aqueles já agendados. Teste as alterações de folha de estilo em um modelo de rascunho antes de sincronizar.
 - **A vinculação de catálogo é somente leitura.** O Building Blocks lê catálogos para preencher a interface de vinculação. Ele não grava nos Catálogos da Braze. Todo o gerenciamento de catálogos ainda acontece no dashboard da Braze.
 - **Limites de frequência e novas tentativas.** Todas as requisições de saída respeitam os limites de frequência da Braze, com backoff exponencial, jitter e tratamento de Retry-After. Um cabeçalho `User-Agent: partner-CopyPastd` é enviado em cada chamada para atribuição de parceiro.
-- **Nenhum dado de usuário é transmitido.** O Building Blocks é uma ferramenta de criação de conteúdo. Ele não envia atributos de usuário, eventos, compras ou dados de Segment para a Braze, e não consome pontos de dados da Braze.
+- **Nenhum dado de usuário é transmitido.** O Building Blocks é uma ferramenta de criação de conteúdo. Ele não envia atributos de usuário, eventos, compras ou dados de Segment or segmento para a Braze, e não consome pontos de dados da Braze.
 
 ## Solução de problemas {#troubleshooting}
 
-- **A validação da chave de API falha.** Verifique se cada chave possui exatamente as permissões listadas nos Pré-requisitos. Os escopos de modelos e Content Blocks são verificados separadamente. Se você regenerar uma chave na Braze, cole o novo valor no Building Blocks e revalide.
-- **Incompatibilidade do endpoint REST.** As chaves de modelos e Content Blocks devem pertencer ao mesmo espaço de trabalho da Braze, e o endpoint REST deve corresponder ao cluster. O menu suspenso do Building Blocks define isso automaticamente, então verifique a seleção do cluster se a validação falhar.
+- **A validação da chave de API or interface de programação do aplicativo (API) falha.** Verifique se cada chave possui exatamente as permissões listadas nos Pré-requisitos. Os escopos de modelos e Content Blocks são verificados separadamente. Se você regenerar uma chave na Braze, cole o novo valor no Building Blocks e revalide.
+- **Incompatibilidade do endpoint REST or transferir estado representacional.** As chaves de modelos e Content Blocks devem pertencer ao mesmo espaço de trabalho da Braze, e o endpoint REST or transferir estado representacional deve corresponder ao cluster. O menu suspenso do Building Blocks define isso automaticamente, então verifique a seleção do cluster se a validação falhar.
 - **O envio para a Braze retorna um erro.** Abra **Settings** > **Build** > **Activity log** para ver a última tentativa de sincronização e a resposta retornada pela Braze. A maioria das falhas está relacionada a permissões (escopo ausente) ou a cotas (limite de frequência, com nova tentativa automática).
 - **O Content Block não está sendo atualizado na Braze.** Acione uma ressincronização manual em **Settings** > **Connect** > **Braze** > **Sync library**. O Building Blocks realiza uma comparação antes da substituição, então blocos sem alterações são ignorados.
 - **O modelo faz referência a um Content Block que ainda não existe na Braze.** Envie as dependências primeiro (folha de estilos, smart blocks) usando **Sync library** e, em seguida, envie o modelo.

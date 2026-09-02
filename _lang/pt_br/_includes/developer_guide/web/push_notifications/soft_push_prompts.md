@@ -9,7 +9,7 @@ Geralmente é uma boa ideia implementar um prompt de push "suave" no seu site, n
 Como alternativa, se você quiser incluir um tratamento personalizado especial, em vez de chamar `requestPushPermission()` diretamente, conforme descrito na [integração padrão de web push]({{site.baseurl}}/developer_guide/platform_integration_guides/web/push_notifications/integration#step-2-browser-registration), use nossas [mensagens no app disparadas]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web).
 
 {% alert tip %}
-Isso pode ser feito sem personalização do SDK usando nosso novo [push primer sem código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
+Isso pode ser feito sem personalização do SDK or kit de desenvolvimento de software usando nosso novo [push primer sem código]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 {% endalert %}
 
 ## Configurando prompts de soft push {#setting-up-soft-push-prompts}
@@ -27,7 +27,7 @@ Primeiro, você deve criar uma campanha de mensagens no app "Prime for Push" no 
 
 ### Etapa 2: Remover chamadas {#step-2-remove-calls}
 
-Na sua integração SDK da Braze, encontre e remova todas as chamadas para `automaticallyShowInAppMessages()` do seu snippet de carregamento.
+Na sua integração SDK or kit de desenvolvimento de software da Braze, encontre e remova todas as chamadas para `automaticallyShowInAppMessages()` do seu snippet de carregamento.
 
 ### Etapa 3: Atualizar a integração {#step-3-update-integration}
 

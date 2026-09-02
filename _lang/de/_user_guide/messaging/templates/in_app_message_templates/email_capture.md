@@ -10,13 +10,13 @@ description: "Diese Seite beschreibt, wie Sie ein E-Mail-Registrierungsformular 
 
 > Verwenden Sie das Drag-and-Drop-Template für E-Mail-Registrierungs-In-App-Nachrichten, um E-Mail-Adressen von Nutzer:innen zu erfassen und Ihre Abo-Gruppen zu vergrößern.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or Software-Development-Kit requirements' %}
 
 ## Ein E-Mail-Registrierungsformular erstellen {#creating-an-email-sign-up-form}
 
 ### 1. Schritt: Template auswählen {#step-1-choose-your-template}
 
-Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **Email sign-up** als Template und dann **Build message**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
+Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **Email Registrierung or registrieren** als Template und dann **Build message**. Dieses Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
 ![Der In-App-Nachrichten-Editor mit dem Template für ein E-Mail-Erfassungsformular.]({% image_buster /assets/img/drag_and_drop/templates/email_capture_template1.png %})
 
@@ -26,7 +26,7 @@ Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **Email sign
 
 ### 3. Schritt: E-Mail-Registrierungskomponente anpassen {#step-3-customize-your-email-sign-up-component}
 
-Um mit der Erstellung Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie das E-Mail-Erfassungselement im Editor aus. Standardmäßig erhalten erfasste E-Mail-Adressen den globalen Abo-Gruppen-Status **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
+Um mit der Erstellung Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie das E-Mail-Erfassungselement im Editor aus. Standardmäßig erhalten erfasste E-Mail-Adressen den globalen Abo-Gruppen-Status **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status Update or aktualisieren or aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungselements anpassen.
 

@@ -100,10 +100,10 @@ Quando um usuário exclui uma reserva, use a seguinte estrutura para o array de 
 ```
 {% endraw %}
 {% endtab %}
-{% tab SDK %}
-#### Gravar atributos aninhados nos perfis de usuário através do SDK {#write-nested-attributes-to-user-profiles-through-the-sdk}
+{% tab SDK or kit de desenvolvimento de software %}
+#### Gravar atributos aninhados nos perfis de usuário através do SDK or kit de desenvolvimento de software {#write-nested-attributes-to-user-profiles-through-the-sdk}
 
-Se você está coletando reservas de compromissos com seu app, website ou ambos e deseja gravar esses dados diretamente em um perfil de usuário, pode usar o SDK da Braze para transmitir esses dados. Aqui está um exemplo utilizando o Web SDK:
+Se você está coletando reservas de compromissos com seu app, website ou ambos e deseja gravar esses dados diretamente em um perfil de usuário, pode usar o SDK or kit de desenvolvimento de software da Braze para transmitir esses dados. Aqui está um exemplo utilizando o Web SDK or kit de desenvolvimento de software:
 
 {% raw %}
 ```json
@@ -193,11 +193,11 @@ Vamos supor que, neste caso de uso, um usuário atualizou a data de sua viagem p
 ```
 {% endraw %}
 {% endtab %}
-{% tab SDK %}
+{% tab SDK or kit de desenvolvimento de software %}
 
-#### Gravar atributos aninhados nos perfis de usuário através do SDK
+#### Gravar atributos aninhados nos perfis de usuário através do SDK or kit de desenvolvimento de software
 
-Envie eventos personalizados para o perfil de usuário através do SDK. Por exemplo, se você estiver usando o web SDK, poderá enviar:
+Envie eventos personalizados para o perfil de usuário através do SDK or kit de desenvolvimento de software. Por exemplo, se você estiver usando o web SDK or kit de desenvolvimento de software, poderá enviar:
 
 {% raw %}
 ```json

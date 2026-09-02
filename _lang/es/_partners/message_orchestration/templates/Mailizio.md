@@ -31,13 +31,13 @@ La integración de Mailizio y Braze te permite diseñar plantillas de correo ele
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Mailizio | Se necesita una cuenta Mailizio para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**.<br><br>Puedes crear una clave de API REST de Braze en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Templates**.<br><br>Puedes crear una clave de API REST or transferencia de estado representacional de Braze en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
-Proporciona tu clave de API REST de Braze y tu instancia de clúster a tu administrador del éxito del cliente de Mailizio. A continuación, el equipo de Mailizio configura la integración inicial por ti.
+Proporciona tu clave de API REST or transferencia de estado representacional de Braze y tu instancia de clúster a tu administrador del éxito del cliente de Mailizio. A continuación, el equipo de Mailizio configura la integración inicial por ti.
 
 {% alert important %}
 Se trata de una configuración única, y cualquier exportación en el futuro utilizará automáticamente esta clave de API.

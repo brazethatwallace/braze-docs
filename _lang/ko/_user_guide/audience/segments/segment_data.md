@@ -55,7 +55,7 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
         </tr>
         <tr>
             <td class="no-split">LTV (유료 사용자)</td>
-            <td class="no-split">이 Segment의 사용자당 생애주기 가치(LTV)와 유료 사용자당 생애주기 가치입니다. LTV는 생애주기 매출을 생애주기 사용자 수로 나누어 계산합니다.</td>
+            <td class="no-split">이 Segment의 사용자당 LTV or 생애주기 가치(LTV)와 유료 사용자당 LTV or 생애주기 가치입니다. LTV는 생애주기 매출을 생애주기 사용자 수로 나누어 계산합니다.</td>
         </tr>
         <tr>
             <td class="no-split">이메일 수신 가능 (옵트인)</td>
@@ -70,7 +70,7 @@ Segment에 대해 [분석 추적]({{site.baseurl}}/user_guide/analytics/tracking
 
 ### 세그먼트 인사이트 {#segment-insights}
 
-대시보드의 [세그먼트 인사이트]({{site.baseurl}}/user_guide/audience/segments/segment_insights) 페이지를 방문하여 사전 선택된 핵심 성과 지표(KPI) 세트에 대해 하나의 Segment가 다른 Segment와 비교하여 어떻게 성과를 내고 있는지 확인할 수 있습니다.
+대시보드의 [세그먼트 인사이트]({{site.baseurl}}/user_guide/audience/segments/segment_insights) 페이지를 방문하여 사전 선택된 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 세트에 대해 하나의 Segment가 다른 Segment와 비교하여 어떻게 성과를 내고 있는지 확인할 수 있습니다.
 
 ### 메시징 사용 {#messaging-use}
 **메시징 사용** 섹션에서는 현재 활성화된 Campaigns와 현재 활성화된 Canvases 중 어떤 것이 해당 Segment를 타겟팅하고 있는지 확인할 수 있습니다.

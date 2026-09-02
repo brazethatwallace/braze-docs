@@ -2,7 +2,7 @@
 
 ## Voraussetzungen {#prerequisites}
 
-Dies sind die Mindestversionen des SDK, die erforderlich sind, um Geofences zu verwenden:
+Dies sind die Mindestversionen des SDK or Software-Development-Kit, die erforderlich sind, um Geofences zu verwenden:
 
 {% sdk_min_versions xamarin:9.0.0 %}
 
@@ -25,7 +25,7 @@ Fügen Sie die folgende NuGet-Paket-Referenz zu Ihrem Projekt hinzu:
 
 - `BrazePlatform.BrazeAndroidLocationBinding`
 
-### Schritt 3: AndroidManifest.xml aktualisieren {#step-3-update-your-androidmanifestxml}
+### Schritt 3: AndroidManifest.xml Update or aktualisieren or aktualisieren {#step-3-update-your-androidmanifestxml}
 
 Fügen Sie die folgenden Berechtigungen zu Ihrer `AndroidManifest.xml` hinzu:
 
@@ -50,7 +50,7 @@ Stellen Sie sicher, dass die Standorterfassung in Ihrer Braze-Konfiguration akti
 
 ### Schritt 5: Standortberechtigungen zur Laufzeit anfordern {#step-5-request-location-permissions-at-runtime}
 
-Sie müssen Standortberechtigungen von den Nutzer:innen anfordern, bevor Sie Geofences registrieren. Verwenden Sie in Ihrem C#-Code das folgende Muster:
+Sie müssen Standortberechtigungen von den Nutzer:innen anfordern, bevor Sie Geofences Registrierung or registrieren. Verwenden Sie in Ihrem C#-Code das folgende Muster:
 
 ```csharp
 using AndroidX.Core.App;
@@ -82,7 +82,7 @@ Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 ```
 
 {% alert important %}
-Geofences können nur einmal pro Sitzung angefordert werden – entweder automatisch durch das SDK oder manuell mit dieser Methode.
+Geofences können nur einmal pro Sitzung angefordert werden – entweder automatisch durch das SDK or Software-Development-Kit oder manuell mit dieser Methode.
 {% endalert %}
 {% endtab %}
 {% tab iOS %}
@@ -161,7 +161,7 @@ locationManager.RequestAlwaysAuthorization();
 ```
 
 {% alert important %}
-Ohne die `Always`-Autorisierung schränkt iOS die Ausführung von Standortdiensten ein, wenn die App nicht verwendet wird. Dies wird vom Betriebssystem erzwungen und kann vom Braze SDK nicht umgangen werden.
+Ohne die `Always`-Autorisierung schränkt iOS die Ausführung von Standortdiensten ein, wenn die App nicht verwendet wird. Dies wird vom Betriebssystem erzwungen und kann vom Braze SDK or Software-Development-Kit nicht umgangen werden.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

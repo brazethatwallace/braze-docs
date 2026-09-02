@@ -7,7 +7,7 @@ guide_top_header: "Dashboards"
 guide_top_text: "Use dashboards na Braze para monitorar métricas de performance, acompanhar o engajamento por canal e diagnosticar problemas de envio de mensagens em um relance."
 search_rank: 1
 page_type: landing
-description: "Use dashboards da Braze para monitorar a performance do app, engajamento por canal, conversões, entregabilidade, uso de API e muito mais."
+description: "Use dashboards da Braze para monitorar a performance do app, engajamento por canal, conversões, entregabilidade, uso de API or interface de programação do aplicativo (API) e muito mais."
 tool: Reports
 
 guide_featured_title: "Artigos da seção"

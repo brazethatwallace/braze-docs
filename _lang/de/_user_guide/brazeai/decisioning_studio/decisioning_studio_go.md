@@ -11,7 +11,7 @@ description: "Erfahren Sie, wie Sie BrazeAI Decisioning Studio<sup>TM</sup> Go e
 
 ## Über Decisioning Studio Go {#about-decisioning-studio-go}
 
-Decisioning Studio Go ist ein KI-Decisioning-Agent für wiederkehrende E-Mail-Programme. Anstatt eine einzige gewinnende Betreffzeile, Versandzeit oder ein Bild für eine gesamte Zielgruppe auszuwählen, wählt der Agent die beste Kombination für jede:n Empfänger:in basierend auf deren bisherigem Engagement.
+Decisioning Studio Go ist ein KI or künstliche Intelligenz-Decisioning-Agent für wiederkehrende E-Mail-Programme. Anstatt eine einzige gewinnende Betreffzeile, Versandzeit oder ein Bild für eine gesamte Zielgruppe auszuwählen, wählt der Agent die beste Kombination für jede:n Empfänger:in basierend auf deren bisherigem Engagement.
 
 Sie definieren die Varianten, aus denen der Agent wählen kann – z. B. Betreffzeilen, CTAs, Bilder, Versandtage und Versandzeiten. Für jede:n Nutzer:in in Ihrem Segment wählt der Agent die Option aus, die am wahrscheinlichsten Engagement erzeugt, innerhalb der Einschränkungen und des Zeitplans, die Sie konfigurieren.
 
@@ -19,7 +19,7 @@ Dies unterscheidet sich von A/B-Tests auf Campaign-Ebene mit [Optimieren mit Bra
 
 ### So funktioniert es {#how-it-works}
 
-Der Agent teilt ein Braze-Segment in zwei Gruppen auf: eine Decisioning-Studio-Gruppe, die KI-optimierte E-Mail-Inhalte erhält, und eine zufällige Kontrollgruppe (mindestens 5 %), die zufällige Kombinationen derselben Optionen erhält. Die zufällige Kontrollgruppe bietet Ihnen eine laufende, vergleichbare Messung des Uplifts durch den Agenten; Sie können jederzeit sehen, wie die personalisierte Erfahrung im Vergleich zum selben Inhalt ohne Personalisierung abschneidet.
+Der Agent teilt ein Braze-Segment in zwei Gruppen auf: eine Decisioning-Studio-Gruppe, die KI or künstliche Intelligenz-optimierte E-Mail-Inhalte erhält, und eine zufällige Kontrollgruppe (mindestens 5 %), die zufällige Kombinationen derselben Optionen erhält. Die zufällige Kontrollgruppe bietet Ihnen eine laufende, vergleichbare Messung des Uplifts durch den Agenten; Sie können jederzeit sehen, wie die personalisierte Erfahrung im Vergleich zum selben Inhalt ohne Personalisierung abschneidet.
 
 Für jede:n Nutzer:in in der Decisioning-Studio-Gruppe wählt der Agent aus den von Ihnen bereitgestellten Optionen: welches Kreativmaterial gesendet wird (einschließlich der spezifischen Betreffzeile, des CTA und des Bildes darin) und wann es gesendet wird (Wochentag und Tageszeit, unter Berücksichtigung von Ruhezeiten und der Ortszeit der/des Nutzer:in). [Richten Sie Ihren Decisioning Studio Go-Agenten ein]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup) behandelt jeden dieser Punkte im Detail.
 
@@ -51,7 +51,7 @@ Decisioning Studio Pro bietet zusätzlich:
 - Anbindung an jede First-Party-Datenquelle
 - Multi-Channel-Decisioning
 - Erweiterte Orchestrierungsmuster
-- Dedizierte Unterstützung durch das Braze AI Decisioning Services-Team
+- Dedizierte Unterstützung durch das Braze KI or künstliche Intelligenz Decisioning Services-Team
 
 ## Nächste Schritte {#next-steps}
 

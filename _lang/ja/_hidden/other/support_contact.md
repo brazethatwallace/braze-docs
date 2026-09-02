@@ -1357,17 +1357,17 @@ var ticket_lookuptable = {
               'SelectOption' : {
                 'Android' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Android: Content Card Integration','Android: Content Card Customization'],
+                  'LinksTitle': ['Android: Content カード Integration','Android: Content カード Customization'],
                   'Links' : ['{{site.baseurl}}/developer_guide/platform_integration_guides/android/content_cards/integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/android/content_cards/customization']
                 },
                 'iOS' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['iOS: Content Card Integration','iOS: Content Card Customization'],
+                  'LinksTitle': ['iOS: Content カード Integration','iOS: Content カード Customization'],
                   'Links' : ['{{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/content_cards/customization']
                 },
                 'Web' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Web: Content Card Integration','Web: Content Card Customization','Web: Error Logging'],
+                  'LinksTitle': ['Web: Content カード Integration','Web: Content カード Customization','Web: Error Logging'],
                   'Links' : ['{{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/customization','{{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#error-logging']
                 },
                 'Other' : {
@@ -1388,9 +1388,9 @@ var ticket_lookuptable = {
                   'LinksTitle': ['Custom Events','Purchase Events','Android: Tracking Custom Events','iOS: Tracking Custom Events','Web: Tracking Custom Events'],
                   'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/custom_data/events/','{{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/tracking_custom_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/tracking_custom_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/tracking_custom_events']
                 },
-                'Custom Attributes' : {
+                'カスタム属性' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Custom Attributes','Android: Setting Custom Attributes','iOS: Setting Custom Attributes','Web: Setting Custom Attributes'],
+                  'LinksTitle': ['カスタム属性','Android: Setting カスタム属性','iOS: Setting カスタム属性','Web: Setting カスタム属性'],
                   'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attributes','{{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/']
                 }
               }
@@ -1461,10 +1461,10 @@ var ticket_lookuptable = {
               'LinksTitle': ['Email Drag-and Drop Editor', 'Email HTML Editor', 'Drag-And-Drop Editor Frequently Asked Questions'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/email/drag_and_drop','{{site.baseurl}}/user_guide/channels/email/html_editor','{{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq/']
             },
-            'Deliverability' :{
+            '配信到達性' :{
               'ShowSubmit': true,
-              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email Deliverability'],
-               'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
+              'LinksTitle': ['配信到達性 Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email 配信到達性'],
+               'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#配信到達性-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
             },
             'User Subscriptions' :{
               'ShowSubmit': true,
@@ -1573,7 +1573,7 @@ var ticket_lookuptable = {
                 },
                 'Content Cards' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Content Card キャンペーン','Braze Learning Course: Content Cards'],
+                  'LinksTitle': ['Create a Content カード キャンペーン','Braze Learning Course: Content Cards'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
                 },
                 'Webhooks' : {
@@ -1695,7 +1695,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'Links': [],
-      'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+      'ReferenceText': 'Your account マネージャー is a great resource for billing and contract related questions. ',
       'SelectOption' : {
         'Data Points' : {
           'ShowSubmit': true,
@@ -1709,7 +1709,7 @@ var ticket_lookuptable = {
         },
         'Other' :{
           'ShowSubmit': true,
-          'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+          'ReferenceText': 'Your account マネージャー is a great resource for billing and contract related questions. ',
           'LinksTitle': [''],
           'Links':  ['']
         }
@@ -2659,7 +2659,7 @@ function initCaseForm() {
             let sid = getCookie("_gz_sid");
             if (!sid) {
                 sid = createNewSid();
-                document.cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
+                document.Cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
                 sendSearchEvent(subject, sid);
             }
 

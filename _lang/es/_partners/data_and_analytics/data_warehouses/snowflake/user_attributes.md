@@ -17,7 +17,7 @@ En circunstancias excepcionales, los valores de atributos predeterminados y pers
 
 Por ejemplo, un atributo puede aparecer como `NULL` en Snowflake mientras que el panel muestra un valor para ese usuario.
 
-Si observas discrepancias generalizadas, contacta a tu administrador de éxito de cliente o a soporte de Braze.
+Si observas discrepancias generalizadas, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o a soporte de Braze.
 
 ## Vistas disponibles {#available-views}
 
@@ -86,7 +86,7 @@ Estas vistas proporcionan instantáneas periódicas de los atributos del perfil 
 | `USER_ID` | VARCHAR | El identificador único de usuario de Braze |
 | `TIME` | NUMBER | Marca de tiempo unix (segundos) de la actualización del perfil |
 | `TIME_MS` | NUMBER | Marca de tiempo unix (milisegundos) de la actualización del perfil |
-| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK, panel, etc.) |
+| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK or kit de desarrollo de software, panel, etc.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Cuándo se actualizaron los datos por última vez en Snowflake |
 | `EXTERNAL_USER_ID` | VARCHAR | Tu propio identificador de usuario (si está configurado) |
 | `FIRST_NAME` | VARCHAR | Nombre del usuario |
@@ -113,7 +113,7 @@ Estas vistas proporcionan instantáneas periódicas de los atributos del perfil 
 | `EXTERNAL_USER_ID` | VARCHAR | Tu propio identificador de usuario (si está configurado) |
 | `TIME` | NUMBER | Marca de tiempo unix (segundos) de la actualización del perfil |
 | `TIME_MS` | NUMBER | Marca de tiempo unix (milisegundos) de la actualización del perfil |
-| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK, panel, etc.) |
+| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK or kit de desarrollo de software, panel, etc.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Cuándo se actualizaron los datos por última vez en Snowflake |
 | `CUSTOM_ATTRIBUTES` | VARIANT | Objeto JSON que contiene todos los atributos personalizados (pares clave-valor) |
 | `ARCHIVED` | BOOLEAN | Si el perfil de usuario está archivado |
@@ -189,7 +189,7 @@ Estas vistas proporcionan actualizaciones casi en tiempo real de los atributos d
 | `USER_ID` | VARCHAR | El identificador único de usuario de Braze |
 | `TIME` | NUMBER | Marca de tiempo unix (segundos) de la actualización del perfil |
 | `TIME_MS` | NUMBER | Marca de tiempo unix (milisegundos) de la actualización del perfil |
-| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK, panel, etc.) |
+| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK or kit de desarrollo de software, panel, etc.) |
 | `ARCHIVED` | BOOLEAN | Si el perfil de usuario está archivado |
 | `SF_UPDATED_AT` | TIMESTAMP_LTZ | Cuándo se actualizaron los datos por última vez en Snowflake |
 | `EXTERNAL_USER_ID` | VARCHAR | Tu propio identificador de usuario (si está configurado) |
@@ -233,7 +233,7 @@ Estas vistas almacenan registros de cambios históricos de atributos de usuario,
 | `APP_ID` | VARCHAR | La aplicación específica dentro de tu espacio de trabajo |
 | `TIME` | NUMBER | Marca de tiempo unix (segundos) de la actualización del perfil |
 | `TIME_MS` | NUMBER | Marca de tiempo unix (milisegundos) de la actualización del perfil |
-| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK, panel, etc.) |
+| `UPDATE_SOURCE` | VARCHAR | La fuente de la actualización del atributo (API, SDK or kit de desarrollo de software, panel, etc.) |
 | `SF_UPDATED_AT` | TIMESTAMP_NTZ | Cuándo se actualizaron los datos por última vez en Snowflake |
 | `EXTERNAL_USER_ID` | VARCHAR | Tu propio identificador de usuario (si está configurado) |
 | `FIRST_NAME` | VARCHAR | Nombre del usuario |

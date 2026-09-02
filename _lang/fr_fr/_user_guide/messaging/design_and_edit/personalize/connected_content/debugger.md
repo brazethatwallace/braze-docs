@@ -7,13 +7,13 @@ description: "Cet article de référence explique comment utiliser le débogueur
 
 # Débogueur de contenu connecté {#connected-content-debugger}
 
-> Utilisez le débogueur de contenu connecté pour visualiser la requête et la réponse en direct de chaque appel de contenu connecté, afin de vérifier votre endpoint, vos en-têtes et vos étiquettes Liquid avant de lancer une Campaign ou un Canvas.
+> Utilisez le débogueur de contenu connecté pour visualiser la requête et la réponse en direct or en ligne/en production/instantané de chaque appel de contenu connecté, afin de vérifier votre endpoint, vos en-têtes et vos étiquettes Liquid avant de lancer une Campaign ou un Canvas.
 
 ## À propos du débogueur {#about-the-debugger}
 
 Le contenu connecté vous permet d'enrichir vos messages avec des données en temps réel en effectuant un appel HTTP vers une API externe au moment du rendu, puis en insérant la réponse dans votre message avec Liquid. Étant donné que cet appel se produit en dehors de Braze, il peut être difficile de voir exactement quelle requête Braze a envoyée, ce que l'endpoint a renvoyé, ou pourquoi un appel a échoué, avant qu'une Campaign ou un Canvas ne soit en production.
 
-Le débogueur de contenu connecté vous aide à résoudre ces problèmes avant le lancement. Il vous montre la requête et la réponse en direct pour chaque appel de contenu connecté dans votre message, dans la section **Preview & Test**. De cette façon, vous pouvez confirmer que votre endpoint, vos en-têtes et vos étiquettes Liquid sont correctement configurés, le tout depuis le tableau de bord de Braze.
+Le débogueur de contenu connecté vous aide à résoudre ces problèmes avant le lancement. Il vous montre la requête et la réponse en direct or en ligne/en production/instantané pour chaque appel de contenu connecté dans votre message, dans la section **Preview & Test**. De cette façon, vous pouvez confirmer que votre endpoint, vos en-têtes et vos étiquettes Liquid sont correctement configurés, le tout depuis le tableau de bord de Braze.
 
 ### Zones prises en charge {#supported-areas}
 
@@ -76,8 +76,8 @@ Chaque appel de contenu connecté s'affiche avec ses propres onglets **Response*
 
 | Champ | Description |
 | --- | --- |
-| Duration | Durée nécessaire pour terminer la requête, en secondes. La durée est affichée uniquement pour les appels en direct (non mis en cache). |
-| Served from cache | Indique si cette réponse a été servie depuis le cache de contenu connecté de Braze plutôt que par un appel en direct à votre endpoint (`Yes` ou `No`). Un résultat mis en cache reflète une réponse antérieure, pas nécessairement l'état actuel de votre endpoint. |
+| Duration | Durée nécessaire pour terminer la requête, en secondes. La durée est affichée uniquement pour les appels en direct or en ligne/en production/instantané (non mis en cache). |
+| Served from cache | Indique si cette réponse a été servie depuis le cache de contenu connecté de Braze plutôt que par un appel en direct or en ligne/en production/instantané à votre endpoint (`Yes` ou `No`). Un résultat mis en cache reflète une réponse antérieure, pas nécessairement l'état actuel de votre endpoint. |
 | Response body | Le corps de la réponse renvoyé par votre endpoint. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Onglet Response" }
 
@@ -119,7 +119,7 @@ Utilisez l'onglet **Request** pour vérifier l'URL, les en-têtes de votre étiq
 
 ### La réponse semble obsolète {#response-looks-stale}
 
-Vérifiez **Served from cache** dans l'onglet **Response**. Si la valeur est `Yes`, le débogueur affiche une réponse précédemment mise en cache plutôt qu'un appel en direct. Ajoutez temporairement `:no_cache` à votre étiquette, ou attendez l'expiration du cache (selon `:cache_max_age`), pour confirmer le comportement actuel de l'endpoint.
+Vérifiez **Served from cache** dans l'onglet **Response**. Si la valeur est `Yes`, le débogueur affiche une réponse précédemment mise en cache plutôt qu'un appel en direct or en ligne/en production/instantané. Ajoutez temporairement `:no_cache` à votre étiquette, ou attendez l'expiration du cache (selon `:cache_max_age`), pour confirmer le comportement actuel de l'endpoint.
 
 ## Articles connexes {#related-articles}
 

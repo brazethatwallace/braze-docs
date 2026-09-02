@@ -6,9 +6,9 @@ Hay muchas configuraciones avanzadas disponibles para las notificaciones push de
 
 ![Panel de configuración avanzada del creador de push de Braze para FireOS.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
-### Tiempo de vida (TTL) {#ttl}
+### TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida) {#ttl}
 
-El campo **Tiempo de vida** (TTL) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el tiempo de vida son cuatro semanas para FCM y 31 días para ADM.
+El campo **TTL or tiempo de vida or tiempo de vida** (TTL or tiempo de vida) te permite establecer un tiempo personalizado para almacenar mensajes con el servicio de mensajería push. Los valores predeterminados para el TTL or tiempo de vida or tiempo de vida son cuatro semanas para FCM y 31 días para ADM.
 
 ### Texto resumido {#summary-text}
 

@@ -16,7 +16,7 @@ description: "이 참조 문서는 사용자에게 전송된 메시지의 사본
 
 ## 작동 방식 {#how-it-works}
 
-이 기능이 활성화되면, Braze는 선택한 채널(이메일, SMS/MMS 또는 푸시)을 통해 사용자에게 전송되는 각 메시지에 대해 gzip 압축된 JSON 파일을 작성합니다. Braze는 이 파일을 기본 데이터 내보내기 대상에 기록합니다. 여기에는 [트랜잭션 이메일 API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)를 통해 전송된 트랜잭션 이메일 Campaign 등 각 채널의 모든 Campaign 유형이 포함됩니다.
+이 기능이 활성화되면, Braze는 선택한 채널(이메일, 단문 메시지 서비스/MMS 또는 푸시)을 통해 사용자에게 전송되는 각 메시지에 대해 gzip 압축된 JSON 파일을 작성합니다. Braze는 이 파일을 기본 데이터 내보내기 대상에 기록합니다. 여기에는 [트랜잭션 이메일 API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)를 통해 전송된 트랜잭션 이메일 Campaign 등 각 채널의 모든 Campaign 유형이 포함됩니다.
 
 이 파일은 [파일 참조](#file-references)에 정의된 필드를 포함하며, 사용자에게 전송된 최종 템플릿 메시지를 반영합니다. Campaign에 정의된 모든 템플릿 값(예: {% raw %}`{{${first_name}}}`{% endraw %})은 사용자의 프로필 정보를 기반으로 수신한 최종 값을 표시합니다. 이를 통해 규정 준수, 감사 또는 고객지원 요건을 충족하기 위해 전송된 메시지의 사본을 보관할 수 있습니다.
 
@@ -117,7 +117,7 @@ Braze는 연결된 콘텐츠 및 Currents에 사용되는 것과 동일한 IP �
 ![이메일 작성기의 이메일 추가 정보 섹션에 키 및 값 필드와 새 추가 항목 추가 옵션이 표시되어 있습니다.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
-{% tab SMS/MMS %}
+{% tab 단문 메시지 서비스/MMS %}
 
 ```json
 {
@@ -205,7 +205,7 @@ JSON 페이로드 형식은 메시지마다 다를 수 있으며 시간이 지�
 
 ### Campaign 경로에서 "unassociated" 값 아래의 메시지는 무엇인가요? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-메시지가 Campaign 또는 Canvas 외부에서 전송되면, 파일 이름의 Campaign ID는 "unassociated"가 됩니다. 이는 대시보드에서 테스트 메시지를 보내거나, Braze가 SMS/MMS 자동 응답을 보내거나, API를 통해 전송된 메시지에 Campaign ID가 지정되지 않은 경우에 발생합니다.
+메시지가 Campaign 또는 Canvas 외부에서 전송되면, 파일 이름의 Campaign ID는 "unassociated"가 됩니다. 이는 대시보드에서 테스트 메시지를 보내거나, Braze가 단문 메시지 서비스/MMS 자동 응답을 보내거나, API를 통해 전송된 메시지에 Campaign ID가 지정되지 않은 경우에 발생합니다.
 
 ### 이 발송에 대한 추가 정보를 어떻게 찾을 수 있나요? {#how-do-i-find-more-information-about-this-send}
 

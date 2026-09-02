@@ -18,7 +18,7 @@ Durch die Integration von VWO mit Braze können Sie VWO-Experimentdaten nutzen, 
 | Anforderung     | Beschreibung |
 |-----------------|-------------|
 | VWO-Konto     | Ein VWO-Konto mit Zugang zu Experimentierdaten. |
-| Braze-Konto   | Ein aktives Braze-Konto mit Integration des [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) auf Ihrer Webseite. Sie müssen außerdem die Segmentierung von Event-Eigenschaften aktivieren lassen. Informationen zur Anfrage finden Sie unter [Überlegungen](#request-event-property-segmentation). |
+| Braze-Konto   | Ein aktives Braze-Konto mit Integration des [Braze Web SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) auf Ihrer Webseite. Sie müssen außerdem die Segmentierung von Event-Eigenschaften aktivieren lassen. Informationen zur Anfrage finden Sie unter [Überlegungen](#request-event-property-segmentation). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration von VWO mit Braze {#integrating-vwo-with-braze}
@@ -67,7 +67,7 @@ Diese angepassten Event-Eigenschaften können auch zur Segmentierung und zum Tar
 
 ### Segmentierung von Event-Eigenschaften anfragen {#request-event-property-segmentation}
 
-Bevor Sie die Segmentierung von Event-Eigenschaften verwenden können, müssen Sie diese in Braze aktivieren lassen. Verwenden Sie das folgende Template, um Ihren Braze-CSM oder das Support-Team zu kontaktieren.
+Bevor Sie die Segmentierung von Event-Eigenschaften verwenden können, müssen Sie diese in Braze aktivieren lassen. Verwenden Sie das folgende Template, um Ihren Braze-CSM or Customer-Success-Manager oder das Support-Team zu kontaktieren.
 
    <table aria-label="Segmentierung von Event-Eigenschaften anfragen">
      <caption>Segmentierung von Event-Eigenschaften anfragen</caption>
@@ -118,4 +118,4 @@ Wenn Sie keine VWO-Daten in Braze sehen:
 
  ![Braze-Fehlerbehebung]({% image_buster /assets/img/vwo/vwo5_troubleshooting.png %})
 
-Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an Ihren Customer-Success-Manager von VWO.
+Wenn Sie zusätzliche Unterstützung benötigen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in von VWO.

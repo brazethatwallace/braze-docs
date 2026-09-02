@@ -2,7 +2,7 @@
 nav_title: GIFs einbetten
 article_title: GIFs in Content-Cards einbetten
 page_order: 5
-description: "Erfahren Sie, wie Sie mit dem Braze SDK GIFs in Content-Cards einbetten können."
+description: "Erfahren Sie, wie Sie mit dem Braze SDK or Software-Development-Kit GIFs in Content-Cards einbetten können."
 channel:
   - content cards
 platform:
@@ -14,7 +14,7 @@ platform:
 
 # GIFs in Content-Cards einbetten
 
-> Erfahren Sie, wie Sie mit dem Braze SDK GIFs in Content-Cards einbetten können.
+> Erfahren Sie, wie Sie mit dem Braze SDK or Software-Development-Kit GIFs in Content-Cards einbetten können.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode. Denken Sie daran, dass die Android und Swift Braze SDKs animierte GIFs nicht nativ unterstützen, so dass Sie Content-Card-GIFs stattdessen mit Tools von Drittanbietern implementieren werden.
@@ -22,7 +22,7 @@ Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die ent
 
 {% sdktabs %}
 {% sdktab web %}
-Die GIF-Unterstützung ist standardmäßig in der Web SDK-Integration enthalten.
+Die GIF-Unterstützung ist standardmäßig in der Web SDK or Software-Development-Kit-Integration enthalten.
 {% endsdktab %}
 
 {% sdktab android %}

@@ -14,7 +14,7 @@ channel:
 > Diese Seite beschreibt, wie Sie das Klick-Tracking in Ihren LINE-Nachrichten aktivieren, gekürzte Links testen, Ihre benutzerdefinierte Domain in getrackten Links verwenden und mehr.
 
 
-Wenn das LINE-Klick-Tracking aktiviert ist, kürzt Braze Ihre URLs automatisch, fügt Tracking-Mechanismen hinzu und zeichnet Klicks in Echtzeit auf. Während LINE Ihnen aggregierte Klickdaten bietet, liefert Braze granulare Nutzer:inneninformationen, die zeitnah und umsetzbar sind. Diese Daten ermöglichen es Ihnen, gezieltere Segmentierungs- und Retargeting-Strategien zu erstellen, z. B. Nutzer:innen basierend auf dem Klickverhalten zu segmentieren und Nachrichten als Reaktion auf bestimmte Klicks zu triggern.
+Wenn das LINE-Klick-Tracking aktiviert ist, kürzt Braze Ihre URLs automatisch, fügt Tracking-Mechanismen hinzu und zeichnet Klicks in Echtzeit auf. Während LINE Ihnen aggregierte Klickdaten bietet, liefert Braze granulare Nutzer:inneninformationen, die zeitnah und umsetzbar sind. Diese Daten ermöglichen es Ihnen, gezieltere Segmentierungs- und Retargeting-Strategien zu erstellen, z. B. Nutzer:innen basierend auf dem Klickverhalten zu segmentieren und Nachrichten als Reaktion auf bestimmte Klicks zu Trigger or triggern or triggern.
 
 LINE-Klick-Tracking kann für Text-, Rich- und kartenbasierte Nachrichten verwendet werden. Es unterstützt Links innerhalb von Buttons und Image-Mapped-Bereichen, die eine URL als Klick-Aktion haben. Sie können URLs auch mit Liquid und benutzerdefinierten Domains personalisieren.
 
@@ -98,7 +98,7 @@ https://example.com/{{url_var}}
 
 ## URLs kürzen, die durch Liquid-Variablen gerendert werden {#shorten-urls-rendered-by-liquid-variables}
 
-Braze kürzt URLs, die durch Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn z. B. {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die LINE-Nachricht gesendet wird.
+Braze kürzt URLs, die durch Liquid gerendert werden, auch solche, die in API-Trigger or triggern-Eigenschaften enthalten sind. Wenn z. B. {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die LINE-Nachricht gesendet wird.
 
 ## Testen {#testing}
 
@@ -122,9 +122,9 @@ Klickdaten werden automatisch im Analytics-Dashboard angezeigt.
 
 ## Retargeting von Nutzer:innen {#retargeting-users}
 
-Sie können Nutzer:innen, die auf eine URL in einer LINE-Nachricht geklickt haben, mit den folgenden Segmentierungsfiltern und Triggern erneut ansprechen:
+Sie können Nutzer:innen, die auf eine URL in einer LINE-Nachricht geklickt haben, mit den folgenden Segmentierungsfiltern und Trigger or triggern or triggern erneut ansprechen:
 
-- Aktionsbasierte Trigger
+- Aktionsbasierte Trigger or triggern
     - Mit Campaign interagieren
     - Mit Schritt interagieren
 
@@ -151,9 +151,9 @@ Ja, es können sowohl statische als auch dynamische Parameter hinzugefügt werde
 
 Personalisierte URLs sind ab dem Zeitpunkt der URL-Registrierung zwei Monate lang gültig.
 
-### Muss das Braze SDK installiert sein, um URLs zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
+### Muss das Braze SDK or Software-Development-Kit installiert sein, um URLs zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
 
-Nein, das Klick-Tracking funktioniert ohne jegliche SDK-Integration.
+Nein, das Klick-Tracking funktioniert ohne jegliche SDK or Software-Development-Kit-Integration.
 
 ### Kann ich sehen, welche einzelnen Nutzer:innen auf eine URL klicken? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 

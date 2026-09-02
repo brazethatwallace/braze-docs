@@ -1,6 +1,6 @@
 ---
-nav_title: Configuration de l'authentification unique (SSO) SAML
-article_title: Configuration de l'authentification unique (SSO) SAML
+nav_title: Configuration de l'authentification unique (authentification unique) SAML
+article_title: Configuration de l'authentification unique (authentification unique) SAML
 page_order: 0
 page_type: tutorial
 toc_headers: h2
@@ -22,7 +22,7 @@ Lors de la configuration, il vous sera demandé de fournir une URL de connexion 
 | Clé API RelayState | Accédez à **Settings** > **Setup and Testing** > **APIs and Identifiers**, ouvrez l'onglet **API Keys**, puis créez une clé API avec les permissions `sso.saml.login`. Saisissez la clé API générée comme paramètre `RelayState` dans votre IdP. Pour les étapes détaillées, consultez [Configuration de votre RelayState](#setting-up-your-relaystate). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
-## Configuration de l'authentification unique (SSO) SAML {#setting-up-saml-sso}
+## Configuration de l'authentification unique (authentification unique) SAML {#setting-up-saml-sso}
 
 ### Étape 1 : Configurer votre fournisseur d'identité {#step-1-configure-your-identity-provider}
 
@@ -47,14 +47,14 @@ Braze ne nécessite que l'attribut `email` dans l'assertion SAML.
 
 Lorsque vous avez terminé de configurer Braze dans votre fournisseur d'identité, celui-ci vous fournit une URL cible et un certificat `x.509` à saisir dans votre compte Braze.
 
-Une fois que votre gestionnaire de compte a activé l'authentification unique (SSO) SAML pour votre compte, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et basculez la section SSO SAML sur **ACTIVÉ**.
+Une fois que votre gestionnaire de compte a activé l'authentification unique (authentification unique) SAML pour votre compte, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et basculez la section authentification unique SAML sur **ACTIVÉ**.
 
 Sur la même page, saisissez les informations suivantes :
 
 | Exigence | Détails |
 |---|---|
 | Nom SAML | Ce nom apparaîtra comme texte du bouton sur l'écran de connexion.<br>Il s'agit généralement du nom de votre fournisseur d'identité, par exemple « Okta ». |
-| URL cible | Cette URL est fournie après la configuration de Braze dans votre IdP.<br> Certains IdP la désignent comme URL SSO ou endpoint SAML 2.0. |
+| URL cible | Cette URL est fournie après la configuration de Braze dans votre IdP.<br> Certains IdP la désignent comme URL authentification unique ou endpoint SAML 2.0. |
 | Certificat | Le certificat `x.509` fourni par votre fournisseur d'identité. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer Braze" }
 
@@ -87,7 +87,7 @@ Enregistrez vos paramètres de sécurité et déconnectez-vous. Ensuite, reconne
 
 ## Utilisation d'un Entity ID personnalisé {#using-a-custom-entity-id}
 
-Par défaut, chaque tableau de bord de Braze utilise l'Entity ID partagé `braze_dashboard`. Un Entity ID personnalisé attribue à votre tableau de bord un identifiant unique, afin que votre fournisseur d'identité puisse vérifier que les demandes de connexion sont bien destinées à ce tableau de bord spécifique. C'est utile si vous configurez l'authentification unique (SSO) SAML pour plusieurs entreprises Braze au sein du même fournisseur d'identité.
+Par défaut, chaque tableau de bord de Braze utilise l'Entity ID partagé `braze_dashboard`. Un Entity ID personnalisé attribue à votre tableau de bord un identifiant unique, afin que votre fournisseur d'identité puisse vérifier que les demandes de connexion sont bien destinées à ce tableau de bord spécifique. C'est utile si vous configurez l'authentification unique (authentification unique) SAML pour plusieurs entreprises Braze au sein du même fournisseur d'identité.
 
 L'utilisation d'un Entity ID personnalisé est facultative. Si vous ne l'activez pas, votre tableau de bord continue d'utiliser `braze_dashboard`.
 
@@ -116,7 +116,7 @@ Enregistrez vos paramètres de sécurité, déconnectez-vous, puis reconnectez-v
 1. Dans Braze, accédez à **Paramètres** > **Configuration et test** > **API et identifiants**.
 2. Dans l'onglet **Clés API**, sélectionnez le bouton **Créer une clé API**.
 3. Dans le champ **Nom de la clé API**, saisissez un nom pour votre clé.
-4. Développez le menu déroulant **SSO** sous **Autorisations** et cochez **sso.saml.login**.
+4. Développez le menu déroulant **authentification unique** sous **Autorisations** et cochez **authentification unique.saml.login**.
 5. Sélectionnez **Créer une clé API**.
 6. Dans l'onglet **Clés API**, copiez l'identifiant à côté de la clé API que vous avez créée.
 7. Collez la clé API RelayState dans le champ RelayState de votre IdP (il peut également apparaître sous le nom « Relay State » ou « Default Relay State » selon votre IdP).
@@ -127,31 +127,31 @@ Certains fournisseurs d'identité prennent en charge la connexion initiée par l
 
 - [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta)
 - [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
-- [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
+- [Microsoft Entra authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso)
 
 {% alert note %}
-La connexion initiée par l'IdP avec Microsoft Entra SSO nécessite de laisser le champ **Sign-On URL** vide. Consultez [Microsoft Entra SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) pour plus de détails.
+La connexion initiée par l'IdP avec Microsoft Entra authentification unique nécessite de laisser le champ **Sign-On URL** vide. Consultez [Microsoft Entra authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) pour plus de détails.
 {% endalert %}
 
-## Comportement de l'authentification unique (SSO) {#sso-behavior}
+## Comportement de l'authentification unique (authentification unique) {#sso-behavior}
 
-Les membres qui choisissent d'utiliser l'authentification unique (SSO) ne peuvent plus utiliser leur mot de passe. Les utilisateurs qui continuent à utiliser leur mot de passe peuvent le faire, sauf si les paramètres suivants l'interdisent.
+Les membres qui choisissent d'utiliser l'authentification unique (authentification unique) ne peuvent plus utiliser leur mot de passe. Les utilisateurs qui continuent à utiliser leur mot de passe peuvent le faire, sauf si les paramètres suivants l'interdisent.
 
 ## Restriction {#restriction}
 
-Vous pouvez restreindre les membres de votre organisation afin qu'ils se connectent uniquement via l'authentification unique (SSO) Google ou l'authentification unique (SSO) SAML. Pour activer les restrictions, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et sélectionnez **Imposer la connexion par SSO Google uniquement** ou **Imposer la connexion par SSO SAML personnalisé uniquement**.
+Vous pouvez restreindre les membres de votre organisation afin qu'ils se connectent uniquement via l'authentification unique (authentification unique) Google ou l'authentification unique (authentification unique) SAML. Pour activer les restrictions, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et sélectionnez **Imposer la connexion par authentification unique Google uniquement** ou **Imposer la connexion par authentification unique SAML personnalisé uniquement**.
 
 ![Exemple de configuration de la section « Règles d'authentification » avec une longueur minimale de mot de passe de 8 caractères et une réutilisation du mot de passe limitée à 3 fois. Les mots de passe expireront après 180 jours, et les utilisateurs seront déconnectés après 1 440 minutes d'inactivité.]({% image_buster /assets/img/sso3.png %})
 
 En activant les restrictions, les utilisateurs Braze de votre entreprise ne pourront plus se connecter à l'aide d'un mot de passe, même s'ils se sont déjà connectés avec un mot de passe auparavant.
 
 {% alert important %}
-Une fois l'authentification unique (SSO) imposée, il n'existe aucune option de secours pour se connecter en cas d'échec de l'authentification SSO. Avant d'activer l'application du SSO, assurez-vous que votre configuration SSO est correcte, que tous les certificats sont à jour et renouvelés, et que vos paramètres de sécurité sont correctement gérés afin d'éviter les problèmes de connexion.
+Une fois l'authentification unique (authentification unique) imposée, il n'existe aucune option de secours pour se connecter en cas d'échec de l'authentification authentification unique. Avant d'activer l'application du authentification unique, assurez-vous que votre configuration authentification unique est correcte, que tous les certificats sont à jour et renouvelés, et que vos paramètres de sécurité sont correctement gérés afin d'éviter les problèmes de connexion.
 {% endalert %}
 
 ## Obtenir une trace SAML {#obtaining-a-saml-trace}
 
-Si vous rencontrez des problèmes de connexion liés à l'authentification unique (SSO), l'obtention d'une trace SAML peut vous aider à résoudre les problèmes de votre connexion SSO en identifiant ce qui est envoyé dans les requêtes SAML.
+Si vous rencontrez des problèmes de connexion liés à l'authentification unique (authentification unique), l'obtention d'une trace SAML peut vous aider à résoudre les problèmes de votre connexion authentification unique en identifiant ce qui est envoyé dans les requêtes SAML.
 
 ### Prérequis {#prerequisites}
 
@@ -166,9 +166,9 @@ Sélectionnez le traceur SAML dans la barre de navigation de votre navigateur. A
 
 ![Traceur SAML pour Google Chrome.]({% image_buster /assets/img/saml_tracer_example.png %})
 
-### Étape 2 : Se connecter à Braze à l'aide de l'authentification unique (SSO) {#step-2-sign-into-braze-using-sso}
+### Étape 2 : Se connecter à Braze à l'aide de l'authentification unique (authentification unique) {#step-2-sign-into-braze-using-sso}
 
-Accédez à votre tableau de bord de Braze et tentez de vous connecter à l'aide de l'authentification unique (SSO). Si vous rencontrez une erreur, ouvrez le traceur SAML et réessayez. Une trace SAML a été collectée avec succès s'il existe une ligne avec une URL comme `https://dashboard-XX.braze.com/auth/saml/callback` et une étiquette SAML orange.
+Accédez à votre tableau de bord de Braze et tentez de vous connecter à l'aide de l'authentification unique (authentification unique). Si vous rencontrez une erreur, ouvrez le traceur SAML et réessayez. Une trace SAML a été collectée avec succès s'il existe une ligne avec une URL comme `https://dashboard-XX.braze.com/auth/saml/callback` et une étiquette SAML orange.
 
 ### Étape 3 : Exporter et envoyer à Braze {#step-3-export-and-send-to-braze}
 
@@ -187,7 +187,7 @@ L'adresse e-mail est sensible à la casse et doit correspondre exactement à cel
 D'autres erreurs qui indiquent des problèmes avec l'adresse e-mail de l'utilisateur incluent :
 - `ERROR_CODE_SSO_EMAIL_DOES_NOT_EXIST` : L'adresse e-mail de l'utilisateur n'existe pas dans le tableau de bord.
 - `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISSING` : L'adresse e-mail de l'utilisateur est vide ou autrement mal configurée.
-- `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISMATCH` ou `ERROR_CODE_SSO_SIGN_IN_EMAIL_MISMATCH` : L'adresse e-mail de l'utilisateur ne correspond pas à celle utilisée pour configurer l'authentification unique (SSO).
+- `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISMATCH` ou `ERROR_CODE_SSO_SIGN_IN_EMAIL_MISMATCH` : L'adresse e-mail de l'utilisateur ne correspond pas à celle utilisée pour configurer l'authentification unique (authentification unique).
 
 ### Disposez-vous d'un certificat SAML valide (certificat x.509) ? {#do-you-have-a-valid-saml-certificate-x509-certificate}
 
@@ -213,13 +213,13 @@ THIS_IS_A_MOCKED_CERTIFICATE_4ysJLTzETANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNy
 
 ### Le jeton de session de l'utilisateur est-il valide ? {#is-the-users-session-token-valid}
 
-Demandez à l'utilisateur concerné de [vider le cache et les cookies de son navigateur](https://its.uiowa.edu/services/how-clear-cache-and-cookies-your-web-browser), puis de réessayer de se connecter avec l'authentification unique (SSO) SAML.
+Demandez à l'utilisateur concerné de [vider le cache et les cookies de son navigateur](https://its.uiowa.edu/services/how-clear-cache-and-cookies-your-web-browser), puis de réessayer de se connecter avec l'authentification unique (authentification unique) SAML.
 
 ### Avez-vous défini votre RelayState ? {#did-you-set-your-relaystate}
 
 Si vous obtenez l'erreur `ERROR_CODE_SSO_INVALID_RELAY_STATE`, votre RelayState pourrait être mal configuré ou inexistant. Si ce n'est pas déjà fait, vous devez définir votre RelayState dans votre système de gestion IdP. Pour les étapes, consultez [Configuration de votre RelayState](#setting-up-your-relaystate).
 
-### Une connexion SSO réussie vous ramène-t-elle à la page de connexion de Braze ? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
+### Une connexion authentification unique réussie vous ramène-t-elle à la page de connexion de Braze ? {#does-successful-sso-sign-in-return-you-to-the-braze-login-page}
 
 Cela peut se produire lorsque le RelayState n'est pas configuré correctement. Vérifiez que vous avez créé une clé API (dans **Paramètres** > **Configuration et test** > **API et identifiants**) pour la connexion IdP et que vous avez défini cette clé API comme paramètre `RelayState` dans votre IdP. Le RelayState identifie le compte d'entreprise auquel vous vous connectez. Pour des instructions étape par étape, consultez [Configuration de votre RelayState](#setting-up-your-relaystate).
 
@@ -227,7 +227,7 @@ Si vous ne parvenez toujours pas à vous connecter, [contactez le support Braze]
 
 ### L'utilisateur est-il bloqué dans une boucle de connexion entre Okta et Braze ? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-Si un utilisateur ne peut pas se connecter parce qu'il est bloqué dans un cycle entre l'authentification unique (SSO) Okta et le tableau de bord de Braze, vous devez accéder à Okta et définir l'URL de destination SSO vers votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (par exemple, `https://dashboard-07.braze.com`).
+Si un utilisateur ne peut pas se connecter parce qu'il est bloqué dans un cycle entre l'authentification unique (authentification unique) Okta et le tableau de bord de Braze, vous devez accéder à Okta et définir l'URL de destination authentification unique vers votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (par exemple, `https://dashboard-07.braze.com`).
 
 Si vous utilisez un autre IdP, vérifiez si votre entreprise a téléchargé le bon certificat SAML ou x.509 sur Braze.
 
@@ -235,15 +235,15 @@ Si vous utilisez un autre IdP, vérifiez si votre entreprise a téléchargé le 
 
 Si votre entreprise n'a pas téléchargé l'application Braze depuis la boutique d'applications de votre IdP, vous devez télécharger l'intégration préconfigurée. Par exemple, si Okta est votre IdP, vous devez télécharger l'application Braze depuis leur [page d'intégration](https://www.okta.com/integrations/braze/).
 
-## Google SSO
+## Google authentification unique
 
-Si votre entreprise utilise Google SSO au lieu de l'authentification unique (SSO) SAML personnalisée, contactez votre gestionnaire de compte Braze pour activer Google SSO pour votre espace de travail. Une fois activé, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et sélectionnez **Enforce Google SSO only login** pour exiger l'authentification Google pour tous les utilisateurs de l'entreprise.
+Si votre entreprise utilise Google authentification unique au lieu de l'authentification unique (authentification unique) SAML personnalisée, contactez votre gestionnaire de compte Braze pour activer Google authentification unique pour votre espace de travail. Une fois activé, accédez à **Paramètres** > **Paramètres de l'entreprise** > **Paramètres d'administration** > **Paramètres de sécurité** et sélectionnez **Enforce Google authentification unique only login** pour exiger l'authentification Google pour tous les utilisateurs de l'entreprise.
 
-Lorsque l'imposition de Google SSO est activée, les utilisateurs doivent se connecter avec l'authentification Google et ne peuvent plus utiliser de mot de passe Braze. Chaque utilisateur doit se connecter avec le compte Google correspondant à son adresse e-mail du tableau de bord de Braze. Si un utilisateur sélectionne un autre compte Google lors de la connexion, Braze rejette la tentative d'authentification.
+Lorsque l'imposition de Google authentification unique est activée, les utilisateurs doivent se connecter avec l'authentification Google et ne peuvent plus utiliser de mot de passe Braze. Chaque utilisateur doit se connecter avec le compte Google correspondant à son adresse e-mail du tableau de bord de Braze. Si un utilisateur sélectionne un autre compte Google lors de la connexion, Braze rejette la tentative d'authentification.
 
-### Résolution des problèmes de connexion Google SSO {#troubleshooting-google-sso-sign-in}
+### Résolution des problèmes de connexion Google authentification unique {#troubleshooting-google-sso-sign-in}
 
-Si certains utilisateurs ne parviennent pas à se connecter avec Google SSO, vérifiez les points suivants :
+Si certains utilisateurs ne parviennent pas à se connecter avec Google authentification unique, vérifiez les points suivants :
 
 - L'adresse e-mail du compte Google de l'utilisateur correspond exactement à son adresse e-mail du tableau de bord de Braze.
 - L'utilisateur a accès à un compte Google pour son adresse e-mail professionnelle.
@@ -251,7 +251,7 @@ Si certains utilisateurs ne parviennent pas à se connecter avec Google SSO, vé
 
 ## Prochaines étapes {#next-steps}
 
-Après avoir configuré l'authentification unique (SSO) SAML, vous pouvez :
+Après avoir configuré l'authentification unique (authentification unique) SAML, vous pouvez :
 
-- [Imposer la connexion uniquement par SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
-- [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.
+- [Imposer la connexion uniquement par authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
+- [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion authentification unique.

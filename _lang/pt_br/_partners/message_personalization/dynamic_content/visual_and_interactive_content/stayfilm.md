@@ -9,9 +9,9 @@ search_tag: Partner
 
 # Stayfilm
 
-> A [Stayfilm](https://www.stayfilm.com/) é uma REST API para produção automatizada e personalizada de vídeos em escala. A plataforma integra dados, imagens, texto, trilhas sonoras, narração e efeitos visuais para gerar conteúdo de vídeo personalizado para eCommerce, marketplaces, fluxos de CRM e campanhas de marketing.
+> A [Stayfilm](https://www.stayfilm.com/) é uma REST or transferir estado representacional API or interface de programação do aplicativo (API) para produção automatizada e personalizada de vídeos em escala. A plataforma integra dados, imagens, texto, trilhas sonoras, narração e efeitos visuais para gerar conteúdo de vídeo personalizado para eCommerce, marketplaces, fluxos de CRM e campanhas de marketing.
 >
-> Essa integração envia trabalhos de renderização da Braze para a API da Stayfilm, recebe retornos de chamada quando os vídeos estão prontos e armazena URLs de vídeo e status nos perfis de usuário para uso em Campaigns e Canvas.
+> Essa integração envia trabalhos de renderização da Braze para a API or interface de programação do aplicativo (API) da Stayfilm, recebe retornos de chamada quando os vídeos estão prontos e armazena URLs de vídeo e status nos perfis de usuário para uso em Campaigns e Canvas.
 
 _Essa integração é mantida pela Stayfilm._
 
@@ -31,7 +31,7 @@ Antes de começar, confirme que você tem o seguinte:
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Acesso à API da Stayfilm | Entre em contato com a Stayfilm para obter as credenciais do seu projeto, incluindo `idproject`, `Subscription-Key`, credenciais OAuth de cliente e a URL base da API da Stayfilm. Para detalhes sobre autenticação e endpoints, consulte a [documentação da API da Stayfilm](https://apidoc.stayfilm.com). |
+| Acesso à API or interface de programação do aplicativo (API) da Stayfilm | Entre em contato com a Stayfilm para obter as credenciais do seu projeto, incluindo `idproject`, `Subscription-Key`, credenciais OAuth de cliente e a URL base da API or interface de programação do aplicativo (API) da Stayfilm. Para detalhes sobre autenticação e endpoints, consulte a [documentação da API or interface de programação do aplicativo (API) da Stayfilm](https://apidoc.stayfilm.com). |
 | Transformação de Dados da Braze | Use a [Transformação de Dados da Braze]({{site.baseurl}}/user_guide/data/unification/data_transformation) para receber retornos de chamada da Stayfilm e mapeá-los para perfis de usuário da Braze por meio do [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). |
 | Identificador de usuário da Braze | Este guia usa `external_id` para correlacionar os trabalhos da Stayfilm com perfis de usuário da Braze. O valor que você passa em `CallbackRelayData` deve corresponder ao `external_id` do usuário na Braze. |
 | Sandbox da Braze (recomendado) | Teste a integração em um espaço de trabalho sandbox da Braze antes de implantar em produção. |
@@ -209,7 +209,7 @@ Adicione os seguintes cabeçalhos de solicitação:
 | `Authorization` | Token bearer OAuth obtido via Connected Content (veja o exemplo a seguir) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cabeçalhos da solicitação" }
 
-No bloco de Connected Content a seguir, substitua *`{TENANT_ID}`*, *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`* e *`{SCOPE_URL_ENCODED}`* pelos valores fornecidos pela Stayfilm. Codifique em URL *`{CLIENT_SECRET_URL_ENCODED}`* e *`{SCOPE_URL_ENCODED}`* antes de colá-los no bloco. Para requisitos de OAuth, consulte a [documentação da API da Stayfilm](https://apidoc.stayfilm.com).
+No bloco de Connected Content a seguir, substitua *`{TENANT_ID}`*, *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`* e *`{SCOPE_URL_ENCODED}`* pelos valores fornecidos pela Stayfilm. Codifique em URL *`{CLIENT_SECRET_URL_ENCODED}`* e *`{SCOPE_URL_ENCODED}`* antes de colá-los no bloco. Para requisitos de OAuth, consulte a [documentação da API or interface de programação do aplicativo (API) da Stayfilm](https://apidoc.stayfilm.com).
 
 {% raw %}
 ```
@@ -233,7 +233,7 @@ Se você sair da página de Campaigns e retornar, defina **Status** como **All**
 ### Etapa 4: Testar a Campaign de webhook {#step-4-test-the-webhook-campaign}
 
 1. No criador de webhook, selecione a guia **Test**.
-2. Em **Preview message as user**, selecione **Select existing user** e pesquise pelo seu usuário teste (por exemplo, `stayfilm-poc-001`).
+2. Em **prévia message as user**, selecione **Select existing user** e pesquise pelo seu usuário teste (por exemplo, `stayfilm-poc-001`).
 3. Selecione **Send test**.
 
 Uma resposta bem-sucedida retorna o status HTTP `201` com um corpo JSON semelhante ao seguinte:
@@ -264,7 +264,7 @@ Uma resposta bem-sucedida retorna o status HTTP `201` com um corpo JSON semelhan
 
 ### Etapa 5: Confirmar o retorno de chamada da Stayfilm {#step-5-confirm-the-stayfilm-callback}
 
-A Stayfilm renderiza o vídeo de forma assíncrona e envia um retorno de chamada para sua Data Transformation quando o processamento é concluído. Monitore o status do job por meio dos endpoints da API da Stayfilm descritos na [documentação da API da Stayfilm](https://apidoc.stayfilm.com).
+A Stayfilm renderiza o vídeo de forma assíncrona e envia um retorno de chamada para sua Data Transformation quando o processamento é concluído. Monitore o status do job por meio dos endpoints da API or interface de programação do aplicativo (API) da Stayfilm descritos na [documentação da API or interface de programação do aplicativo (API) da Stayfilm](https://apidoc.stayfilm.com).
 
 1. Acesse **Data Settings** > **Data Transformation**.
 2. Selecione a guia **Logs** da sua transformação.
@@ -317,17 +317,17 @@ Your browser does not support HTML5 video.
 {: start="8"}
 8. Selecione **Save Draft**.
 9. Selecione a guia **Test**.
-10. Em **Preview message as user**, selecione **Select existing user** e pesquise pelo `external_id` do seu usuário teste.
+10. Em **prévia message as user**, selecione **Select existing user** e pesquise pelo `external_id` do seu usuário teste.
 
 O vídeo renderizado aparece e é reproduzido na prévia quando `stayfilm_video_url` está definido no perfil.
 
 ## Estender a integração {#extend-the-integration}
 
-Este guia aborda um subconjunto da API do Stayfilm. Para adaptar modelos de trabalho, entradas de mídia ou envio de mensagens subsequentes, consulte a [documentação da API do Stayfilm](https://apidoc.stayfilm.com) e atualize a carga útil do webhook, o mapeamento de Data Transformation e a lógica da Campaign conforme necessário.
+Este guia aborda um subconjunto da API or interface de programação do aplicativo (API) do Stayfilm. Para adaptar modelos de trabalho, entradas de mídia ou envio de mensagens subsequentes, consulte a [documentação da API or interface de programação do aplicativo (API) do Stayfilm](https://apidoc.stayfilm.com) e atualize a carga útil do webhook, o mapeamento de Data Transformation e a lógica da Campaign conforme necessário.
 
 ## Considerações {#considerations}
 
-- **Renderização assíncrona:** A geração de vídeo não é imediata. Dispare mensagens de acompanhamento a partir do evento personalizado `stayfilm_video_ready` ou de um Segment baseado em `stayfilm_video_status`, em vez de enviar a mensagem no app no mesmo fluxo do webhook.
+- **Renderização assíncrona:** A geração de vídeo não é imediata. Dispare mensagens de acompanhamento a partir do evento personalizado `stayfilm_video_ready` ou de um Segment or segmento baseado em `stayfilm_video_status`, em vez de enviar a mensagem no app no mesmo fluxo do webhook.
 - **Consistência de identificadores:** O valor em `CallbackRelayData` deve corresponder exatamente ao `external_id` do usuário na Braze.
 - **Cache do token OAuth:** O exemplo de Connected Content armazena o token OAuth em cache por 3000 segundos. Ajuste o `cache_max_age` se a Stayfilm alterar os requisitos de tempo de vida do token.
 - **Testes em sandbox:** Valide o ciclo completo de retorno de chamada em um sandbox da Braze antes de lançar em produção.

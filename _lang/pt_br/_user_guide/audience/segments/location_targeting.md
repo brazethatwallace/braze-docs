@@ -14,15 +14,15 @@ description: "Este artigo prático mostra como configurar o direcionamento por l
 
 > Este artigo mostra como configurar o direcionamento por localização, permitindo segmentar usuários pela localização mais recente.
 
-## Etapa 1: Crie seu Segment {#step-1-create-your-segment}
+## Etapa 1: Crie seu Segment or segmento {#step-1-create-your-segment}
 
 Navegue até a página **Segments**, em **Público**, para visualizar todos os seus Segments de usuários atuais. Nessa página, você pode criar e nomear novos Segments. Para começar, selecione **Create Segment** e dê um nome ao seu Segment.
 
-![Modal para criar um Segment.]({% image_buster /assets/img_archive/createsegment2.png %}){: style="max-width:70%;"}
+![Modal para criar um Segment or segmento.]({% image_buster /assets/img_archive/createsegment2.png %}){: style="max-width:70%;"}
 
 ## Etapa 2: Personalize sua localização {#step-2-customize-your-location}
 
-Depois de criar seu Segment, adicione um filtro `Most Recent Location` para destacar os usuários pelo último local em que usaram seu app. Você tem a opção de destacar usuários dentro ou fora de uma região circular padrão ou de uma região poligonal personalizável.
+Depois de criar seu Segment or segmento, adicione um filtro `Most Recent Location` para destacar os usuários pelo último local em que usaram seu app. Você tem a opção de destacar usuários dentro ou fora de uma região circular padrão ou de uma região poligonal personalizável.
 
 ![Filtro para a localização mais recente dentro de um círculo.]({% image_buster /assets/img_archive/filter_recent_location.png %})
 
@@ -44,7 +44,7 @@ Para regiões circulares, você pode mover a origem e ajustar o raio de localiza
 
 ### Regiões poligonais {#polygonal-regions}
 
-Para regiões poligonais, você pode designar de forma mais específica quais áreas deseja incluir no seu Segment.
+Para regiões poligonais, você pode designar de forma mais específica quais áreas deseja incluir no seu Segment or segmento.
 
 ![Um contorno do estado de Nova York como a região poligonal selecionada.]({% image_buster /assets/img_archive/create_polygon.png %}){: style="max-width:70%;"}
 

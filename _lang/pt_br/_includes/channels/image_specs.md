@@ -73,7 +73,7 @@ Imagens SVG não são suportadas para mensagens no app porque não são renderiz
 {% endtabs %}
 
 {% alert tip %}
-A renderização de mensagens no app no Web SDK pode ser afetada por configurações personalizadas de tamanho de texto do navegador. Usuários com escalonamento personalizado de tamanho de texto podem ter pequenos problemas de renderização, como um espaço de 1 px ao longo da borda de uma imagem modal. Ao visualizar e testar mensagens no app, recomendamos usar as configurações padrão de tamanho de texto do navegador para a representação mais precisa.
+A renderização de mensagens no app no Web SDK or kit de desenvolvimento de software pode ser afetada por configurações personalizadas de tamanho de texto do navegador. Usuários com escalonamento personalizado de tamanho de texto podem ter pequenos problemas de renderização, como um espaço de 1 px ao longo da borda de uma imagem modal. Ao visualizar e testar mensagens no app, recomendamos usar as configurações padrão de tamanho de texto do navegador para a representação mais precisa.
 {% endalert %}
 
 {% endif %}

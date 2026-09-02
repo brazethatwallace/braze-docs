@@ -12,7 +12,7 @@ description: "Este artículo contiene notas de la versión de septiembre de 2021
 
 ### Protección de la privacidad en los correos electrónicos de Apple Mail {#apple-mail-privacy-protection}
 
-La protección de la privacidad en los correos electrónicos (MPP) de Apple es una actualización de privacidad que estará disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, que se lanzó a mediados de septiembre. Para los usuarios que se adhieran voluntariamente al MPP, los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la posibilidad de aprovechar los píxeles de seguimiento para métricas como [el seguimiento de aperturas]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#open-tracking-pixel). Para obtener más información sobre el MPP y los problemas relacionados con las métricas de capacidad de entrega de correo electrónico y los problemas con las campañas y los Canvas preexistentes que se desencadenan en función de estas métricas, visita nuestra [documentación]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp).
+La MPP or protección de la privacidad en los correos electrónicos or protección de la privacidad en los correos electrónicos (MPP or protección de la privacidad en los correos electrónicos) de Apple es una actualización de privacidad que estará disponible para los usuarios de la aplicación Apple Mail en iOS 15, iPadOS 15, macOS Monterey y watchOS 8, que se lanzó a mediados de septiembre. Para los usuarios que se adhieran voluntariamente al MPP or protección de la privacidad en los correos electrónicos, los correos electrónicos se precargarán utilizando servidores proxy, almacenando imágenes en caché y dificultando la posibilidad de aprovechar los píxeles de seguimiento para métricas como [el seguimiento de aperturas]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#open-tracking-pixel). Para obtener más información sobre el MPP or protección de la privacidad en los correos electrónicos y los problemas relacionados con las métricas de capacidad de entrega de correo electrónico y los problemas con las campañas y los Canvas preexistentes que se desencadenan en función de estas métricas, visita nuestra [documentación]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp).
 
 ### Características push {#push-features}
 
@@ -20,7 +20,7 @@ iOS 15 introdujo nuevas características de notificación para ayudar a los usua
 
 ## Tarjetas de contacto {#contact-cards}
 
-Las tarjetas de contacto son un formato de archivo estandarizado para enviar información empresarial y de contacto que se puede importar fácilmente en libretas de direcciones o de contactos. Ahora puedes cargar y crear tarjetas de contacto para tus mensajes SMS y MMS. Para obtener más información sobre cómo crear tarjetas de contacto en nuestro generador de tarjetas de contacto integrado, visita nuestra [documentación]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
+Las tarjetas de contacto son un formato de archivo estandarizado para enviar información empresarial y de contacto que se puede importar fácilmente en libretas de direcciones o de contactos. Ahora puedes cargar y crear tarjetas de contacto para tus mensajes servicio de mensajes cortos y MMS. Para obtener más información sobre cómo crear tarjetas de contacto en nuestro generador de tarjetas de contacto integrado, visita nuestra [documentación]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
 
 ## Personalización predeterminada de Content Cards {#default-content-cards-customization}
 
@@ -36,4 +36,4 @@ Las guías para desarrolladores de Android y FireOS se han fusionado en una úni
 
 ## Actualizaciones de los informes de embudo y retención {#updates-to-funnel-and-retention-reports}
 
-Los [informes de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) y los [informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) ahora están disponibles para Campaigns de SMS.
+Los [informes de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) y los [informes de retención]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) ahora están disponibles para Campaigns de servicio de mensajes cortos.

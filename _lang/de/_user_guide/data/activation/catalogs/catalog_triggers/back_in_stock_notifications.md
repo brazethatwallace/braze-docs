@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie Sie mit Hilfe Ihres Katalogs und angepasster Eve
 
 Sie können ein angepasstes Event als Abo-Event einrichten, z. B. ein `product_clicked`-Event. Dieses Event muss eine Eigenschaft mit der Artikel-ID (Katalog-Artikel-IDs) enthalten. Wir empfehlen, einen Katalognamen anzugeben, dies ist jedoch nicht erforderlich. Außerdem geben Sie den Namen eines Felds für die Bestandsmenge an, das den Datentyp „Zahl“ haben muss.
 
-Beachten Sie, dass der Bestand eines Katalogartikels null sein muss, damit Nutzer:innen ihn erfolgreich abonnieren können. Wenn ein Artikel eine Bestandsmenge größer als null hat, sucht Braze alle Nutzer:innen, die diesen Artikel abonniert haben, und sendet ein angepasstes Event, das Sie verwenden können, um eine Campaign oder ein Canvas zu triggern.
+Beachten Sie, dass der Bestand eines Katalogartikels null sein muss, damit Nutzer:innen ihn erfolgreich abonnieren können. Wenn ein Artikel eine Bestandsmenge größer als null hat, sucht Braze alle Nutzer:innen, die diesen Artikel abonniert haben, und sendet ein angepasstes Event, das Sie verwenden können, um eine Campaign oder ein Canvas zu Trigger or triggern or triggern.
 
 Die Event-Eigenschaften werden zusammen mit Ihren Nutzer:innen gesendet, sodass Sie die Artikeldetails per Template in die Campaign oder das Canvas einfügen können, die bzw. das versendet wird.
 
@@ -23,14 +23,14 @@ Befolgen Sie diese Schritte, um Wieder-verfügbar-Benachrichtigungen in einem be
 
 1. Gehen Sie zu Ihrem Katalog und wählen Sie den Tab **Einstellungen** aus.
 2. Wählen Sie den **Wieder verfügbar**-Toggle aus.
-3. Wenn die globalen Wieder-verfügbar-Einstellungen noch nicht konfiguriert wurden, werden Sie aufgefordert, die angepassten Events und Eigenschaften einzurichten, die zum Triggern von Wieder-verfügbar-Benachrichtigungen verwendet werden:
+3. Wenn die globalen Wieder-verfügbar-Einstellungen noch nicht konfiguriert wurden, werden Sie aufgefordert, die angepassten Events und Eigenschaften einzurichten, die zum Trigger or triggern or triggern von Wieder-verfügbar-Benachrichtigungen verwendet werden:
     <br> ![Einstellungsbereich des Katalogs.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
     - **Fallback-Katalog** Dies ist der Katalog, der für das Wieder-verfügbar-Abo verwendet wird, wenn keine `catalog_name`-Eigenschaft im angepassten Event vorhanden ist.
     - **Angepasstes Event für Abos** ist das angepasste Braze-Event, das verwendet wird, um Nutzer:innen für Wieder-verfügbar-Benachrichtigungen zu abonnieren. Wenn dieses Event auftritt, wird die Person, die das Event ausgeführt hat, abonniert.
     - **Angepasstes Event zum Abmelden** ist das angepasste Braze-Event, das verwendet wird, um Nutzer:innen von Wieder-verfügbar-Benachrichtigungen abzumelden. Dieses Event ist optional. Wenn Nutzer:innen dieses Event nicht ausführen, werden sie nach 90 Tagen oder wenn das Wieder-verfügbar-Event ausgelöst wird, abgemeldet – je nachdem, was zuerst eintritt.
     - **Artikel-ID-Event-Eigenschaft** ist die Eigenschaft des weiter oben in diesem Abschnitt beschriebenen angepassten Events, die verwendet wird, um den Artikel für ein Wieder-verfügbar-Abo oder eine Abmeldung zu bestimmen. Diese Eigenschaft des angepassten Events sollte eine Artikel-ID (`id`) enthalten, die in einem Katalog vorhanden ist. Die Artikel-ID muss als String gesendet werden, damit sie mit dem `id`-Datentyp übereinstimmt, der im Zielkatalog gespeichert ist. Das angepasste Event sollte außerdem eine `catalog_name`-Eigenschaft enthalten, um anzugeben, in welchem Katalog sich dieser Artikel befindet.
 
-    - Das folgende Beispiel zeigt ein angepasstes Event, das über die REST API gesendet wird:
+    - Das folgende Beispiel zeigt ein angepasstes Event, das über die Representational State Transfer API gesendet wird:
 
 ```json
 {
@@ -52,7 +52,7 @@ Befolgen Sie diese Schritte, um Wieder-verfügbar-Benachrichtigungen in einem be
 Um dasselbe Abo-Event mit den Braze SDKs zu tracken, verwenden Sie den folgenden Code:
 
 {% tabs %}
-{% tab Web SDK %}
+{% tab Web SDK or Software-Development-Kit %}
 
 ```javascript
 import { logCustomEvent } from "@braze/web-sdk";
@@ -97,7 +97,7 @@ Braze.getInstance(context).logCustomEvent(
 {% endtabs %}
 
 {% alert note %}
-Wieder-verfügbar- und Preissenkung-Trigger verwenden dasselbe Event, um Nutzer:innen für die Benachrichtigung zu abonnieren. Sie können daher die `type`-Eigenschaft verwenden, um sowohl Preissenkung- als auch Wieder-verfügbar-Benachrichtigungen im selben Event festzulegen. Beachten Sie, dass die `type`-Eigenschaft ein Array sein muss.
+Wieder-verfügbar- und Preissenkung-Trigger or triggern verwenden dasselbe Event, um Nutzer:innen für die Benachrichtigung zu abonnieren. Sie können daher die `type`-Eigenschaft verwenden, um sowohl Preissenkung- als auch Wieder-verfügbar-Benachrichtigungen im selben Event festzulegen. Beachten Sie, dass die `type`-Eigenschaft ein Array sein muss.
 {% endalert %}
 
 {: start="4"}
@@ -119,7 +119,7 @@ Benachrichtigungsregeln in diesen Einstellungen ersetzen nicht die Canvas-Benach
 Nachdem Sie das Wieder-auf-Lager-Feature in einem Katalog eingerichtet haben, folgen Sie diesen Schritten, um es mit Canvas zu verwenden.
 
 1. Richten Sie ein aktionsbasiertes Canvas ein.
-2. Wählen Sie **Wieder auf Lager** als Trigger aus.
+2. Wählen Sie **Wieder auf Lager** als Trigger or triggern aus.
 3. Wählen Sie den Namen des Katalogs mit den Wieder-auf-Lager-Benachrichtigungen aus.
 4. Fahren Sie mit der [Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) Ihres Canvas wie gewohnt fort.
 
@@ -141,4 +141,4 @@ Verwenden Sie den Liquid-Tag {%raw%}``{% catalog_items <name_of_your_catalog> {{
 
 - Nutzer:innen sind nur 90 Tage lang abonniert. Wenn der Artikel nicht innerhalb von 90 Tagen wieder auf Lager ist, wird die Nutzerin bzw. der Nutzer abgemeldet.
 - Bei Verwendung der Benachrichtigungsregel **Alle abonnierten Nutzer:innen benachrichtigen** benachrichtigt Braze 100.000 Nutzer:innen innerhalb von 10 Minuten.
-- Braze unterstützt täglich bis zu 50.000 aktualisierte Artikel, die für das Auslösen von Wieder-auf-Lager-Benachrichtigungen infrage kommen. Sie können zu einem bestimmten Zeitpunkt bis zu 100 Millionen aktive Abos haben, wobei jedes Abo ein Nutzerprofil darstellt, das einen Katalogartikel beobachtet.
+- Braze unterstützt täglich bis zu 50.000 aktualisierte Artikel, die für das Auslösen von Wieder-auf-Lager-Benachrichtigungen infrage kommen. Sie können zu einem bestimmten Zeitpunkt bis zu 100 Millionen aktive Abos haben, wobei jedes Abo ein Kundenprofil or Nutzerprofil darstellt, das einen Katalogartikel beobachtet.

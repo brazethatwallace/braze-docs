@@ -31,7 +31,7 @@ Die Senderüberprüfung vereinfacht die Einrichtung und Wartung. Braze erstellt 
 
 ## 1. Schritt: Voraussetzungen erfüllen {#step-1-complete-prerequisites}
 
-Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Senderüberprüfung** unter **Unternehmenseinstellungen** und arbeiten Sie mit Ihrer Onboarding-Manager:in zusammen, um die folgenden Voraussetzungen zu erfüllen:
+Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Senderüberprüfung** unter **Unternehmenseinstellungen** und arbeiten Sie mit Ihrer Onboarding-Manager:in:in zusammen, um die folgenden Voraussetzungen zu erfüllen:
 
 - Einen IP-Pool hinzufügen
 - IP-Adressen hinzufügen
@@ -57,7 +57,7 @@ Domains können nach dem Absenden nicht mehr geändert werden. Braze erstellt DN
 Nachdem Sie eine Subdomain erstellt und überprüft haben:
 
 1. Wählen Sie **Add tracking domain** aus.
-2. Geben Sie die Tracking-Subdomain ein. Wenn Ihre Tracking-Subdomain beispielsweise „click“ ist, lautet Ihre Subdomain: „click.marketing.mail.example.com“.
+2. Geben Sie die Tracking-Subdomain ein. Wenn Ihre Tracking-Subdomain beispielsweise „Klick, der or klicken“ ist, lautet Ihre Subdomain: „Klick, der or klicken.marketing.mail.example.com“.
 3. Wählen Sie die zugehörige Versand-Domain aus dem Dropdown aus.
 4. Wählen Sie dann **Submit** aus.
 

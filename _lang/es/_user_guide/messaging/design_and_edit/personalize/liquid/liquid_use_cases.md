@@ -171,7 +171,7 @@ Has language - Default language
 {% endraw %}
 
 {% raw %}
-**Explicación:** Aquí usamos dos declaraciones `if` agrupadas y anidadas. La primera declaración `if` verifica si el usuario ha iniciado una sesión comprobando si `last_used_app_date` es `nil`. Esto se debe a que `{{${language}}}` es recopilado automáticamente por el SDK cuando un usuario registra una sesión. Si el usuario no ha registrado una sesión, aún no tendremos su idioma, por lo que esto verifica si se han guardado atributos personalizados relacionados con el idioma y, basándose en esa información, mostrará un mensaje en ese idioma, si es posible.
+**Explicación:** Aquí usamos dos declaraciones `if` agrupadas y anidadas. La primera declaración `if` verifica si el usuario ha iniciado una sesión comprobando si `last_used_app_date` es `nil`. Esto se debe a que `{{${language}}}` es recopilado automáticamente por el SDK or kit de desarrollo de software cuando un usuario registra una sesión. Si el usuario no ha registrado una sesión, aún no tendremos su idioma, por lo que esto verifica si se han guardado atributos personalizados relacionados con el idioma y, basándose en esa información, mostrará un mensaje en ese idioma, si es posible.
 {% endraw %}
 
 La segunda declaración `if` simplemente verifica el atributo estándar (predeterminado) porque el usuario no tiene `nil` para `last_used_app_date`, lo que significa que ha registrado una sesión y tenemos su idioma.
@@ -1339,17 +1339,17 @@ This is a message for Verizon users!
 
 {% api %}
 
-## SMS
+## servicio de mensajes cortos
 
 {% apitags %}
-SMS
+servicio de mensajes cortos
 {% endapitags %}
 
-- [Responder con diferentes mensajes según la palabra clave de SMS entrante](#sms-keyword-response)
+- [Responder con diferentes mensajes según la palabra clave de servicio de mensajes cortos entrante](#sms-keyword-response)
 
-### Responder con diferentes mensajes según la palabra clave de SMS entrante {#sms-keyword-response}
+### Responder con diferentes mensajes según la palabra clave de servicio de mensajes cortos entrante {#sms-keyword-response}
 
-Este caso de uso incorpora procesamiento dinámico de palabras clave de SMS para responder a mensajes entrantes específicos con diferentes textos de mensaje. Por ejemplo, puedes enviar diferentes respuestas cuando alguien envía "START" versus "JOIN".
+Este caso de uso incorpora procesamiento dinámico de palabras clave de servicio de mensajes cortos para responder a mensajes entrantes específicos con diferentes textos de mensaje. Por ejemplo, puedes enviar diferentes respuestas cuando alguien envía "START" versus "JOIN".
 
 {% raw %}
 ```liquid

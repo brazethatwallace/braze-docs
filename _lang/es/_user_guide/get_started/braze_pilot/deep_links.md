@@ -336,7 +336,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>selected_color</code></td>
-            <td>El índice seleccionado del color que se elegirá en el selector de color cuando el usuario llegue a la pantalla. Si no se utiliza ningún valor, se selecciona el primer color.</td>
+            <td>El índice seleccionado del color que se elegirá en el SELECTOR de color cuando el usuario llegue a la pantalla. Si no se utiliza ningún valor, se selecciona el primer color.</td>
             <td>No</td>
             <td>0</td>
             <td>Número</td>

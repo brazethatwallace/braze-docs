@@ -235,13 +235,13 @@ tool: Currents
 ### Änderungen für Speicher:
 
 * Feldänderungen am Ereignistyp `users.behaviors.pushnotification.TokenStateChange`:
-    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token des Ereignisses
+    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token / Textbaustein des Ereignisses
 
 * Feldänderungen am Ereignistyp `users.messages.pushnotification.Bounce`:
-    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token des Ereignisses
+    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token / Textbaustein des Ereignisses
 
 * Feldänderungen am Ereignistyp `users.messages.pushnotification.Send`:
-    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token des Ereignisses
+    * Neues `string`-Feld `push_token` hinzugefügt: Push-Token / Textbaustein des Ereignisses
 
 * Feldänderungen am Ereignistyp `users.messages.rcs.Click`:
     * Neues `string`-Feld `canvas_variation_name` hinzugefügt: Name der Canvas-Variante, die diese:r Nutzer:in erhalten hat
@@ -280,40 +280,40 @@ tool: Currents
 * Neuer Ereignistyp `users.messages.rcs.Send` hinzugefügt.
 
 * Feldänderungen am Ereignistyp `users.messages.sms.Delivery`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine Kurzmitteilungsdienst or SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
 
 * Feldänderungen am Ereignistyp `users.messages.sms.DeliveryFailure`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine Kurzmitteilungsdienst or SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
 
 * Feldänderungen am Ereignistyp `users.messages.sms.Rejection`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass eine Kurzmitteilungsdienst or SMS-Fallback-Nachricht aufgrund einer abgelehnten RCS-Nachricht gesendet wurde. Die Nachricht kann zu einer erfolgreichen Zustellung, einem Zustellungsfehler oder einer Ablehnung führen. Sie kann über eine Send-ID und eine Dispatch-ID mit dem RCS-Rejection-Ereignis verknüpft werden.
 
 * Feldänderungen am Ereignistyp `users.messages.whatsapp.Delivery`:
-    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
-    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird.
+    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
+    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird.
     * Neues `string`-Feld `message_id` hinzugefügt: Die von Meta generierte eindeutige ID für diese Nachricht.
 
 * Feldänderungen am Ereignistyp `users.messages.whatsapp.Failure`:
     * Neues `string`-Feld `message_id` hinzugefügt: Die von Meta generierte eindeutige ID für diese Nachricht.
-    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird.
-    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
+    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird.
+    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
 
 * Feldänderungen am Ereignistyp `users.messages.whatsapp.InboundReceive`:
     * Neues `string`-Feld `catalog_id` hinzugefügt: Katalog-ID eines Produkts, falls in der eingehenden Nachricht auf ein Produkt verwiesen wird. Andernfalls leer.
     * Neues `string`-Feld `product_id` hinzugefügt: Produkt-SKU, falls in der eingehenden Nachricht auf ein Produkt verwiesen wird. Andernfalls leer.
-    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nutzer:innen auf einen WhatsApp Flow antworten.
+    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nutzer:innen auf einen WhatsApp Flow antworten.
     * Neues `string`-Feld `flow_response_json` hinzugefügt: [PII] Die Formularwerte, mit denen die Nutzer:innen geantwortet haben. Vorhanden, wenn die Nutzer:innen auf einen WhatsApp Flow antworten.
     * Neues `string`-Feld `message_id` hinzugefügt: Die von Meta generierte eindeutige ID für diese Nachricht.
     * Neues `string`-Feld `in_reply_to` hinzugefügt: Die message_id der Nachricht, auf die diese Nachricht geantwortet hat.
 
 * Feldänderungen am Ereignistyp `users.messages.whatsapp.Read`:
-    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird.
+    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird.
     * Neues `string`-Feld `message_id` hinzugefügt: Die von Meta generierte eindeutige ID für diese Nachricht.
-    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
+    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
 
 * Feldänderungen am Ereignistyp `users.messages.whatsapp.Send`:
-    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
-    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager. Vorhanden, wenn eine Template-Nachricht gesendet wird.
+    * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager:in. Vorhanden, wenn die Nachricht einen CTA zur Beantwortung eines WhatsApp Flows enthält.
+    * Neues `string`-Feld `template_name` hinzugefügt: [PII] Name des Templates im WhatsApp Manager:in. Vorhanden, wenn eine Template-Nachricht gesendet wird.
     * Neues `string`-Feld `message_id` hinzugefügt: Die von Meta generierte eindeutige ID für diese Nachricht.
 
 ## Änderungen in Version 2 (Veröffentlichungsdatum null) {#changes-in-version-2-release-date-null}

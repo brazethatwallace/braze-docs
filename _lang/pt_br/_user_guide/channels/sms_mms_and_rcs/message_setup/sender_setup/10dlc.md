@@ -54,13 +54,13 @@ O throughput de mensagens para seu 10DLC depende de vários fatores, incluindo a
 
 #### Pontuação de confiança da marca {#trust-score}
 
-O Campaign Registry (TCR) é uma agência terceirizada que usa um algoritmo de reputação para avaliar critérios específicos relacionados à sua empresa e atribuir uma pontuação de confiança que determina o throughput de mensagens para cada marca. Essa pontuação de confiança será atribuída quando um cliente se registrar para o envio de mensagens 10DLC nos EUA. Quanto maior a pontuação de confiança, melhor será a taxa de mensagens por segundo (MPS) que você terá.
+O Campaign Registry (TCR) é uma agência terceirizada que usa um algoritmo de reputação para avaliar critérios específicos relacionados à sua empresa e atribuir uma pontuação de confiança que determina o throughput de mensagens para cada marca. Essa pontuação de confiança será atribuída quando um cliente se registrar para o envio de mensagens 10DLC nos EUA. Quanto maior a pontuação de confiança, melhor será a taxa de MPS or mensagens por segundo or mensagens por segundo (MPS or mensagens por segundo) que você terá.
 
 |     | Pontuação de confiança | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
-| Alta | 75-100 | 75 MPS | 75 MPS | 75 MPS |
-| Média | 50-74 | 40 MPS | 40 MPS | 40 MPS |
-| Baixa | 1-49 | 4 MPS | 4 MPS | 4 MPS |
+| Alta | 75-100 | 75 MPS or mensagens por segundo | 75 MPS or mensagens por segundo | 75 MPS or mensagens por segundo |
+| Média | 50-74 | 40 MPS or mensagens por segundo | 40 MPS or mensagens por segundo | 40 MPS or mensagens por segundo |
+| Baixa | 1-49 | 4 MPS or mensagens por segundo | 4 MPS or mensagens por segundo | 4 MPS or mensagens por segundo |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Brand trust score #trust-score" }
 
 {% alert tip %}
@@ -69,7 +69,7 @@ Empresas listadas no Índice Russell 3000 receberão alto throughput e pontuaç�
 
 #### Limites diários de mensagens {#daily-message-limits}
 
-Os limites diários variam de 2.000 a 200.000 mensagens, dependendo da sua pontuação de confiança da marca, e se aplicam a todos os long codes. Embora pontuações de confiança altas venham com um throughput de 60 mensagens por segundo, quaisquer limites diários de mensagens definidos pela operadora ainda se aplicam. Isso significa que short codes seriam uma opção melhor se o pico diário de mensagens de uma marca for maior do que o limite diário imposto.
+Os limites diários variam de 2.000 a 200.000 mensagens, dependendo da sua pontuação de confiança da marca, e se aplicam a todos os long codes. Embora pontuações de confiança altas venham com um throughput de 60 MPS or mensagens por segundo or mensagens por segundo, quaisquer limites diários de mensagens definidos pela operadora ainda se aplicam. Isso significa que short codes seriam uma opção melhor se o pico diário de mensagens de uma marca for maior do que o limite diário imposto.
 
 #### Casos de uso de envio de mensagens {#messaging-use-cases}
 
@@ -98,9 +98,9 @@ Um caso de uso declarado significa que você escolheu um caso de uso específico
 
 | Pontuação de confiança | Throughput total para as principais redes dos EUA | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
-| 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
-| 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
-| 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
+| 75-100 | 225 MPS or mensagens por segundo | 75 MPS or mensagens por segundo | 75 MPS or mensagens por segundo | 75 MPS or mensagens por segundo |
+| 50-74	 | 120 MPS or mensagens por segundo | 40 MPS or mensagens por segundo | 40 MPS or mensagens por segundo | 40 MPS or mensagens por segundo |
+| 1-49 | 12 MPS or mensagens por segundo | 4 MPS or mensagens por segundo | 4 MPS or mensagens por segundo | 4 MPS or mensagens por segundo|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de envio de mensagens" }
 
 {% endtab %}
@@ -110,9 +110,9 @@ Casos de uso de marketing misto podem ser registrados para clientes que desejam 
 
 | Pontuação de confiança | Throughput total para as principais redes dos EUA | AT&T | T-Mobile  | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
-| 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
-| 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
-| 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
+| 75-100 | 225 MPS or mensagens por segundo | 75 MPS or mensagens por segundo | 75 MPS or mensagens por segundo | 75 MPS or mensagens por segundo |
+| 50-74 | 120 MPS or mensagens por segundo | 40 MPS or mensagens por segundo | 40 MPS or mensagens por segundo | 40 MPS or mensagens por segundo |
+| 1-49 | 12 MPS or mensagens por segundo | 4 MPS or mensagens por segundo | 4 MPS or mensagens por segundo | 4 MPS or mensagens por segundo|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Casos de uso de envio de mensagens" }
 
 {% endtab %}

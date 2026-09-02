@@ -4,9 +4,9 @@
 
 Neuere von [Huawei](https://huaweimobileservices.com/) hergestellte Telefone sind mit Huawei Mobile Services (HMS) ausgestattet – einem Dienst, der Push anstelle von Googles Firebase Cloud Messaging (FCM) zustellt.
 
-### Schritt 1: Registrieren Sie sich für ein Huawei-Entwicklerkonto {#step-1-register-for-a-huawei-developer-account}
+### Schritt 1: Registrierung or registrieren Sie sich für ein Huawei-Entwicklerkonto {#step-1-register-for-a-huawei-developer-account}
 
-Bevor Sie beginnen, müssen Sie sich registrieren und ein [Huawei-Entwicklerkonto](https://developer.huawei.com/consumer/en/console) einrichten. Gehen Sie in Ihrem Huawei-Konto zu **Meine Projekte > Projekteinstellungen > App-Informationen** und notieren Sie sich die `App ID` und das `App secret`.
+Bevor Sie beginnen, müssen Sie sich Registrierung or registrieren und ein [Huawei-Entwicklerkonto](https://developer.huawei.com/consumer/en/console) einrichten. Gehen Sie in Ihrem Huawei-Konto zu **Meine Projekte > Projekteinstellungen > App-Informationen** und notieren Sie sich die `App ID` und das `App secret`.
 
 ![Seite „App-Informationen“ in der Huawei-Entwicklerkonsole mit App-ID und App-Secret.]({% image_buster /assets/img/huawei/huawei-credentials.png %})
 
@@ -22,11 +22,11 @@ Sobald Ihre neue Braze-App erstellt wurde, suchen Sie die Einstellungen für Pus
 
 ![Braze-Einstellungen für den Huawei-Push-Anbieter mit den Feldern „Huawei App ID“ und „Client Secret“.]({% image_buster /assets/img/huawei/huawei-dashboard-credentials.png %})
 
-### Schritt 3: Integrieren Sie das Huawei-Messaging-SDK in Ihre App {#step-3-integrate-the-huawei-messaging-sdk-into-your-app}
+### Schritt 3: Integrieren Sie das Huawei-Messaging-SDK or Software-Development-Kit in Ihre App {#step-3-integrate-the-huawei-messaging-sdk-into-your-app}
 
 Huawei hat ein [Android-Integrations-Codelab](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html) bereitgestellt, das die Integration des Huawei-Messaging-Dienstes in Ihre Anwendung beschreibt. Folgen Sie diesen Schritten, um loszulegen.
 
-Nachdem Sie das Codelab abgeschlossen haben, müssen Sie einen angepassten [Huawei Message Service](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) erstellen, um Push-Token zu erhalten und Nachrichten an das Braze SDK weiterzuleiten.
+Nachdem Sie das Codelab abgeschlossen haben, müssen Sie einen angepassten [Huawei Message Service](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) erstellen, um Push-Token / Textbaustein zu erhalten und Nachrichten an das Braze SDK or Software-Development-Kit weiterzuleiten.
 
 {% tabs %}
 {% tab JAVA %}
@@ -89,7 +89,7 @@ Wenn eine Push-Benachrichtigung eingeht, während sich Ihre App im Vordergrund b
 
 Wenn Sie `BrazeHuaweiPushHandler.handleHmsRemoteMessageData` aufrufen, ermittelt Braze, ob es sich bei der Nutzlast um eine Braze-Push-Benachrichtigung handelt. Ist dies der Fall, wird die Benachrichtigung erstellt und angezeigt. Weitere Informationen finden Sie unter [Vordergrundbenachrichtigungen verarbeiten]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#handling-foreground-notifications) in der Dokumentation zu Android-Push-Benachrichtigungen.
 
-Ein vollständiges Beispiel finden Sie in der [Huawei-Handler-Referenz](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-huawei-push-handler/index.html) in der Braze Android SDK-Dokumentation.
+Ein vollständiges Beispiel finden Sie in der [Huawei-Handler-Referenz](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-huawei-push-handler/index.html) in der Braze Android SDK or Software-Development-Kit-Dokumentation.
 
 ### Schritt 5: Push-Benachrichtigungen testen (optional) {#step-5-test-your-push-notifications-optional}
 

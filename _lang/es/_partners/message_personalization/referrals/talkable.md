@@ -42,8 +42,8 @@ Antes de comenzar, necesitas lo siguiente:
 | Requisito previo | Descripción |
 | --- | --- |
 | Una cuenta de Talkable | Se necesita un sitio de Talkable con al menos una campaña configurada para aprovechar esta integración. |
-| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. Crea esta clave en el panel de Braze desde **Configuración** > **Claves de API**. Para más información, consulta [Crear claves de API REST]({{site.baseurl}}/api/basics#creating-rest-api-keys). |
-| Un endpoint REST de Braze | La URL de tu endpoint REST de Braze (por ejemplo, `https://rest.iad-01.braze.com`). Se admiten tanto los clústeres de Braze en EE. UU. (`.com`) como en la UE (`.eu`). Para más información, consulta [Endpoints de la REST API]({{site.baseurl}}/api/basics#endpoints). |
+| Una clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. Crea esta clave en el panel de Braze desde **Configuración** > **Claves de API**. Para más información, consulta [Crear claves de API REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#creating-rest-api-keys). |
+| Un endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional de Braze (por ejemplo, `https://rest.iad-01.braze.com`). Se admiten tanto los clústeres de Braze en EE. UU. (`.com`) como en la UE (`.eu`). Para más información, consulta [Endpoints de la REST or transferencia de estado representacional API]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -52,7 +52,7 @@ Antes de comenzar, necesitas lo siguiente:
 
 1. Inicia sesión en tu panel de administración de Talkable, abre el menú y ve a **All Site Settings** > **App Store**.
 2. Localiza **Braze** y selecciona **Install**.
-3. Introduce tu endpoint REST de Braze y una clave de API REST con permisos de `users.track`, y selecciona **Save**.
+3. Introduce tu endpoint REST or transferencia de estado representacional de Braze y una clave de API REST or transferencia de estado representacional con permisos de `users.track`, y selecciona **Save**.
 
 ### Paso 2: Configurar la acción de adhesión voluntaria por correo electrónico {#step-2-configure-the-email-opt-in-action}
 
@@ -156,7 +156,7 @@ Los campos estándar (correo electrónico, teléfono, nombre o apellido) y cualq
 
 ## Consideraciones {#considerations}
 
-* **Solo adhesión voluntaria por correo electrónico:** Los números de teléfono se capturan como un atributo de usuario estándar, pero la integración no establece un estado de suscripción SMS. Talkable no sincroniza las adhesiones voluntarias de SMS.
+* **Solo adhesión voluntaria por correo electrónico:** Los números de teléfono se capturan como un atributo de usuario estándar, pero la integración no establece un estado de suscripción servicio de mensajes cortos. Talkable no sincroniza las adhesiones voluntarias de servicio de mensajes cortos.
 * **Formato de teléfono:** Braze espera los números de teléfono en formato internacional (E.164).
 * **Sincronización en tiempo real basada en eventos:** Talkable envía una solicitud por evento de adhesión voluntaria (un usuario por solicitud). No hay procesamiento por lotes ni sincronización completa periódica; el volumen se corresponde con tu volumen de adhesiones voluntarias de referidos.
 * **Entrega fiable:** Si Braze devuelve un error temporalmente, Talkable reintenta automáticamente. Los fallos persistentes envían una alerta por correo electrónico al administrador del sitio.
@@ -165,12 +165,12 @@ Los campos estándar (correo electrónico, teléfono, nombre o apellido) y cualq
 
 | Error | Causa probable | Solución |
 | --- | --- | --- |
-| 401 Unauthorized | A la clave de API REST le faltan los permisos `users.track`, o el endpoint apunta al clúster incorrecto. | Vuelve a emitir la clave con los permisos `users.track` y confirma que el endpoint REST coincide con tu clúster de Braze. |
-| El endpoint REST se rechaza durante la instalación | La URL no es un endpoint REST de Braze. | Usa el endpoint REST de tu clúster, por ejemplo `https://rest.iad-01.braze.com`. Una URL del panel no funciona. |
+| 401 Unauthorized | A la clave de API REST or transferencia de estado representacional le faltan los permisos `users.track`, o el endpoint apunta al clúster incorrecto. | Vuelve a emitir la clave con los permisos `users.track` y confirma que el endpoint REST or transferencia de estado representacional coincide con tu clúster de Braze. |
+| El endpoint REST or transferencia de estado representacional se rechaza durante la instalación | La URL no es un endpoint REST or transferencia de estado representacional de Braze. | Usa el endpoint REST or transferencia de estado representacional de tu clúster, por ejemplo `https://rest.iad-01.braze.com`. Una URL del panel no funciona. |
 | Se crea el perfil pero no aparece en un grupo de suscripción | No se configuró ningún ID de grupo de suscripción. | Introduce el ID del grupo de suscripción en la acción **Email opt-in**. |
 | No se aplica el alias de usuario | Solo se completó uno de los dos campos de alias (nombre o etiqueta). | Introduce ambos campos en la acción: nombre de alias y etiqueta de alias. |
 | El perfil no aparece | Aún no se ha enviado la solicitud de muestra o la acción está deshabilitada. | Selecciona **Send sample payload** en Talkable y asegúrate de que la acción **Email opt-in** esté habilitada. |
-| Las solicitudes dejaron de enviarse tras una rotación de clave | La clave de API almacenada fue revocada o reemplazada en Braze. | En la **App Store** de Talkable, abre la aplicación de Braze, pega la nueva clave de API REST y selecciona **Save**; vuelve a probar con **Send sample payload**. |
+| Las solicitudes dejaron de enviarse tras una rotación de clave | La clave de API almacenada fue revocada o reemplazada en Braze. | En la **App Store** de Talkable, abre la aplicación de Braze, pega la nueva clave de API REST or transferencia de estado representacional y selecciona **Save**; vuelve a probar con **Send sample payload**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Solución de problemas" }
 
 Para obtener más información sobre la integración de Talkable, consulta la [documentación de integración de Talkable con Braze](https://docs.talkable.com/email_marketing_and_automation/braze/). Para contactar con el soporte de Talkable, envía un correo electrónico a [support@talkable.com](mailto:support@talkable.com).

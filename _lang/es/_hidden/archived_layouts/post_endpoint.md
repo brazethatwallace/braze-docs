@@ -16,7 +16,7 @@ noindex: true
 # [Nombre del punto de conexión] {#endpoint-name}
 
 {% apimethod post %}
-/sms/invalid_phone_numbers/remove
+/servicio de mensajes cortos/invalid_phone_numbers/remove
 {% endapimethod %}
 
 <!--
@@ -57,7 +57,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Ejemplo de solicitud {#example-request}
 
-<!--The following example demonstrates a request that will remove specific SMS numbers from Braze's invalid phone number list via the API:-->
+<!--The following example demonstrates a request that will remove specific servicio de mensajes cortos numbers from Braze's invalid phone number list via the API:-->
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/sms/invalid_phone_numbers/remove' \

@@ -14,7 +14,7 @@ channel:
 
 ## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen {#step-1-choose-where-to-build-your-message}
 
-KakaoTalk wird sowohl in Campaigns als auch in Canvas unterstützt. Campaigns eignen sich am besten für einzelne Messaging-Kampagnen, während Canvases es Ihnen ermöglichen, mehrstufige, kanalübergreifende Nutzer:innen-Journeys zu orchestrieren.
+KakaoTalk wird sowohl in Campaigns als auch in Canvas unterstützt. Campaigns eignen sich am besten für einzelne Messaging-Kampagnen, während Canvase es Ihnen ermöglichen, mehrstufige, kanalübergreifende Nutzer:innen-Journeys zu orchestrieren.
 
 {% tabs local %}
 {% tab Campaign %}
@@ -202,15 +202,15 @@ Wenn das KakaoTalk-Klick-Tracking aktiviert ist, kürzt Braze Ihre URLs automati
 
 Klick-Tracking wird für Text-, Bild-, Listenelement- und Karussell-Nachrichten unterstützt. Es unterstützt Links innerhalb von Buttons und Bild-Klick-Aktionen. Sie können URLs auch mit Liquid und benutzerdefinierten Domains personalisieren.
 
-Um das Klick-Tracking zu aktivieren, aktivieren Sie **Click Tracking** im Abschnitt **Link options** des Composers. URLs werden mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
+Um das Klick-Tracking zu aktivieren, aktivieren Sie **Klick, der or klicken Tracking** im Abschnitt **Link options** des Composers. URLs werden mit der Standard-Braze-Domain (`https://brz.ai`) oder der für die Abo-Gruppe angegebenen benutzerdefinierten Domain gekürzt und für die Nutzer:innen personalisiert.
 
 Ausführliche Informationen zu Klick-Tracking, benutzerdefinierten Domains, Liquid-Personalisierung in URLs, Reporting und Retargeting finden Sie unter [KakaoTalk-Klick-Tracking]({{site.baseurl}}/kakaotalk_click_tracking).
 
 ### Retargeting von Nutzer:innen {#retargeting-users}
 
-Sie können Nutzer:innen, die auf eine URL in einer KakaoTalk-Nachricht geklickt haben, mit den folgenden Segmentierungsfiltern und Triggern erneut ansprechen:
+Sie können Nutzer:innen, die auf eine URL in einer KakaoTalk-Nachricht geklickt haben, mit den folgenden Segmentierungsfiltern und Trigger or triggern or triggern erneut ansprechen:
 
-- Aktionsbasierte Trigger
+- Aktionsbasierte Trigger or triggern
     - Interact with Campaign
     - Interact with Step
 
@@ -233,13 +233,13 @@ Um eine Vorschau anzuzeigen und eine Testnachricht an bestehende Nutzer:innen zu
 
 Um die Ergebnisse eines Versands zu überprüfen oder Probleme zu beheben, gehen Sie zu **Einstellungen** > **Nachrichtenaktivitätsprotokoll**. Weitere Informationen finden Sie unter [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
-## Schritt 5: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 5: Erstellen Sie den Representational State Transfer Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 In den folgenden Abschnitten erfahren Sie, wie Sie unsere Tools am besten nutzen, um KakaoTalk-Nachrichten zu erstellen.
 
-### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger or triggern wählen {#choose-delivery-schedule-or-trigger}
 
-KakaoTalk-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen zu Zeitplan- und Trigger-Optionen finden Sie unter [Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) oder [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (für Ihr Canvas).
+KakaoTalk-Nachrichten können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger or triggern zugestellt werden. Weitere Informationen zu Zeitplan- und Trigger or triggern-Optionen finden Sie unter [Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) oder [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (für Ihr Canvas).
 
 Sie können Zustellungskontrollen festlegen, z. B. ob Nutzer:innen erneut für den Empfang der Campaign berechtigt werden, oder Frequency-Capping-Regeln aktivieren. Bei aktionsbasierter Zustellung können Sie außerdem die Dauer der Campaign und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen.
 

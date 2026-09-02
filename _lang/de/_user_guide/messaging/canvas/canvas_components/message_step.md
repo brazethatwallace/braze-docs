@@ -27,7 +27,7 @@ Sie können aus den folgenden Messaging-Kanälen auswählen:
 - E-Mail
 - LINE
 - Push-Benachrichtigungen
-- SMS/MMS/RCS
+- Kurzmitteilungsdienst or SMS/MMS/RCS
 - In-App-Nachrichten
 - Webhook
 - WhatsApp
@@ -50,7 +50,7 @@ Wählen Sie **Using Intelligent Timing** im Tab **Delivery Settings**. Hier kön
 
 Zustellungsvalidierungen bieten eine zusätzliche Prüfung beim Nachrichtenversand, um zu bestätigen, dass Ihre Zielgruppe Ihre Kriterien noch erfüllt. Wir empfehlen die Verwendung, wenn Ruhezeiten, intelligentes Timing oder Rate-Limiting aktiviert sind. Wählen Sie **Validate audience at message send** und fügen Sie dann ein Segment oder zusätzliche Filter hinzu. Wenn Nutzer:innen die Validierungen nicht erfüllen, wählen Sie, ob sie den Canvas verlassen oder zum nächsten Schritt weitergeleitet werden.
 
-Zustellungsvalidierungen bewerten die Nutzerprofil-Kriterien zum Zeitpunkt des Versands. App-bezogene Filter prüfen, ob Nutzer:innen eine bestimmte App kürzlich oder jemals verwendet haben, bestätigen aber nicht, welche App Nutzer:innen in ihrer aktuellen Sitzung verwenden.
+Zustellungsvalidierungen bewerten die Kundenprofil or Nutzerprofil-Kriterien zum Zeitpunkt des Versands. App-bezogene Filter prüfen, ob Nutzer:innen eine bestimmte App kürzlich oder jemals verwendet haben, bestätigen aber nicht, welche App Nutzer:innen in ihrer aktuellen Sitzung verwenden.
 
 Wenn Ihr Workspace mehrere Apps enthält und ein Nachrichten-Schritt auf eine bestimmte App abzielen soll, verwenden Sie stattdessen einen der folgenden Ansätze:
 
@@ -72,14 +72,14 @@ Alle Nutzer:innen, die den Nachrichten-Schritt betreten, werden zum nächsten Sc
 - Eine Nutzerin oder ein Nutzer erfüllt die Kriterien in den **Zustellungsvalidierungen** nicht
 
 {% raw %}
-Wenn ein aktionsbasierter Canvas durch eine eingehende SMS-Nachricht getriggert wird, können Sie SMS-Eigenschaften im ersten Schritt (Nachrichten-Schritt) oder in einem Nachrichten-Schritt referenzieren, der unter einem Aktionspfade-Schritt verschachtelt ist. Zum Beispiel könnten Sie im Nachrichten-Schritt `{{sms.${inbound_message_body}}}` oder `{{sms.${inbound_media_urls}}}` verwenden.
+Wenn ein aktionsbasierter Canvas durch eine eingehende Kurzmitteilungsdienst or SMS-Nachricht getriggert wird, können Sie Kurzmitteilungsdienst or SMS-Eigenschaften im ersten Schritt (Nachrichten-Schritt) oder in einem Nachrichten-Schritt referenzieren, der unter einem Aktionspfade-Schritt verschachtelt ist. Zum Beispiel könnten Sie im Nachrichten-Schritt `{{sms.${inbound_message_body}}}` oder `{{sms.${inbound_media_urls}}}` verwenden.
 {% endraw %}
 
 ## Kontext-Eigenschaften referenzieren {#reference-context-properties}
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Entry-Eigenschaften werden im Schritt **Entry-Zeitplan** bei der Erstellung eines Canvas konfiguriert und geben den Trigger an, der Nutzer:innen in einen Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Entry-Payloads in API-getriggerten Canvases zugreifen. Beachten Sie, dass das `context`-Objekt eine maximale Größenbeschränkung von 50 KB hat.
+Entry-Eigenschaften werden im Schritt **Entry-Zeitplan** bei der Erstellung eines Canvas konfiguriert und geben den Trigger or triggern an, der Nutzer:innen in einen Canvas eintreten lässt. Diese Eigenschaften können auch auf die Eigenschaften von Entry-Payloads in API-getriggerten Canvase zugreifen. Beachten Sie, dass das `context`-Objekt eine maximale Größenbeschränkung von 50 KB hat.
 
 Entry-Eigenschaften können in Liquid in jedem Nachrichten-Schritt verwendet werden. Verwenden Sie das folgende Liquid, wenn Sie diese Entry-Eigenschaften referenzieren: {% raw %}``{context.${property_name}}``{% endraw %}. Events müssen angepasste Events oder Kauf-Events sein, um auf diese Weise verwendet werden zu können.
 
@@ -97,7 +97,7 @@ Sie können auch [persistente Entry-Eigenschaften]({{site.baseurl}}/user_guide/m
 
 ### Event-Eigenschaften {#event-properties}
 
-Event-Eigenschaften beziehen sich auf die Eigenschaften, die Sie für angepasste Events und Kauf-Events festlegen. Diese Event-Eigenschaften können in Campaigns mit aktionsbasierter Zustellung sowie in Canvases verwendet werden.
+Event-Eigenschaften beziehen sich auf die Eigenschaften, die Sie für angepasste Events und Kauf-Events festlegen. Diese Event-Eigenschaften können in Campaigns mit aktionsbasierter Zustellung sowie in Canvase verwendet werden.
 
 In Canvas können Event-Eigenschaften von angepassten Events und Kauf-Events in Liquid in jedem Nachrichten-Schritt verwendet werden, der auf einen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt folgt. Verwenden Sie zum Beispiel beim Referenzieren von `event_properties` dieses Liquid-Snippet: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
@@ -113,7 +113,7 @@ Sie können `event_properties` nicht im ersten Nachrichten-Schritt verwenden. St
 
 {% details Für den ursprünglichen Canvas-Editor erweitern %}
 
-Sie können keine Canvases mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz.
+Sie können keine Canvase mehr mit dem ursprünglichen Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz.
 
 - `event_properties` können nicht in geplanten vollständigen Schritten verwendet werden. Sie können jedoch `event_properties` im ersten vollständigen Schritt eines aktionsbasierten Canvas verwenden, auch wenn der vollständige Schritt geplant ist.
 - `context` kann nur im ersten vollständigen Schritt eines Canvas referenziert werden.

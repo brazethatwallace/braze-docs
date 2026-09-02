@@ -1,7 +1,7 @@
 ---
 nav_title: Treasure Data
 article_title: Treasure Data
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Treasure Data, einer Customer Data Platform (CDP) für Unternehmen, die es Ihnen erlaubt, Auftragsergebnisse direkt in Braze zu schreiben."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Treasure Data, einer Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, die es Ihnen erlaubt, Auftragsergebnisse direkt in Braze zu schreiben."
 alias: /partners/treasure_data/
 page_type: partner
 search_tag: Partner
@@ -10,11 +10,11 @@ search_tag: Partner
 
 # Treasure Data
 
-> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
+> [Treasure Data](https://www.treasuredata.com/) ist eine Customer Data Platform (Customer Data Platform (CDP)), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Standorte in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und Treasure Data erlaubt es Ihnen, Auftragsergebnisse aus Treasure Data direkt in Braze zu schreiben, wodurch Sie die Möglichkeit haben:
-* **Externe IDs abbilden**: Ordnen Sie IDs dem Braze-Nutzerkonto von Ihrem CRM-System zu.
-* **Opt-out verwalten**: Wenn Endnutzer:innen ihre Zustimmung aktualisieren und sich dafür entscheiden, nicht teilzunehmen.
+* **Externe IDs abbilden**: Ordnen Sie IDs dem Braze-Nutzerkonto von Ihrem CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System zu.
+* **Opt-out verwalten**: Wenn Endnutzer:innen ihre Zustimmung Update or aktualisieren or aktualisieren und sich dafür entscheiden, nicht teilzunehmen.
 * **Ihr Tracking von Events, Käufen oder angepassten Profilattributen hochladen**. Diese Informationen können Ihnen helfen, präzise Kundensegmente zu erstellen, die das Nutzererlebnis Ihrer Campaigns verbessern.
 
 ## Voraussetzungen {#prerequisites}
@@ -22,13 +22,13 @@ Die Integration von Braze und Treasure Data erlaubt es Ihnen, Auftragsergebnisse
 | Anforderung | Beschreibung |
 | --- | --- |
 | Treasure Data-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Treasure Data-Konto](https://www.treasuredata.com/custom-demo/). |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt  | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)) ab. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track`, `users.delete`, `users.alias.new`, `users.identify`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt  | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Sie können Ihre konsolidierten Kundenprofile aus Treasure Data mit Braze synchronisieren, um Targeting-Segmente zu erstellen. Treasure Data unterstützt First-Party-Cookie-Daten, Mobile IDs, Drittanbieter-Systeme wie Ihr CRM und vieles mehr.
+Sie können Ihre konsolidierten Kundenprofile aus Treasure Data mit Braze synchronisieren, um Targeting-Segmente zu erstellen. Treasure Data unterstützt First-Party-Cookie-Daten, Mobile IDs, Drittanbieter-Systeme wie Ihr CRM or Customer-Relationship-Management [-System] (CRM) und vieles mehr.
 
 ## Integration
 
@@ -36,7 +36,7 @@ Sie können Ihre konsolidierten Kundenprofile aus Treasure Data mit Braze synchr
 
 Navigieren Sie in Treasure Data zum **Catalog** unter dem **Integrations Hub**, suchen Sie nach **Braze** und wählen Sie es aus.
 
-In der daraufhin angezeigten Eingabeaufforderung **New Authentication** geben Sie Ihrer Verbindung einen Namen und den Braze REST-API-Schlüssel sowie den REST-Endpunkt an. Wählen Sie **Done**, wenn Sie fertig sind.
+In der daraufhin angezeigten Eingabeaufforderung **New Authentication** geben Sie Ihrer Verbindung einen Namen und den Braze Representational State Transfer-API-Schlüssel sowie den Representational State Transfer-Endpunkt an. Wählen Sie **Done**, wenn Sie fertig sind.
 
 ![Treasure Data Braze-Authentifizierungsformular mit Feldern für REST-API-Schlüssel und Endpunkt.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
@@ -66,7 +66,7 @@ Die Parameter der Exportergebnisse sind in der folgenden Tabelle aufgeführt:
 |---------------------------|---|---|
 | `mode`                    | User - New Alias<br>User - Identifying<br>User - Track<br>User - Delete | Konnektor-Modus |
 | `pre_formatted_fields`    | String | Verwenden Sie diese Option für Array- oder JSON-Spalten, um das Format beizubehalten. |
-| `track_record_type`       | Custom Events<br>Purchases<br>User Profile Attributes | Datensatztyp für den Modus **User - Track** |
+| `track_record_type`       | Custom Events<br>Purchases<br>Kundenprofil or Nutzerprofil Attributes | Datensatztyp für den Modus **User - Track** |
 | `skip_on_invalid_records` | Boolescher Wert | Falls aktiviert, fahren Sie fort und ignorieren alle ungültigen Datensätze für die JSON-Spalte. <br> Andernfalls wird der Auftrag abgebrochen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Anpassung" }
 
@@ -76,4 +76,4 @@ Besuchen Sie [Treasure Data](https://docs.treasuredata.com/display/public/INT/Br
 
 ## Webhooks
 
-Nutzer:innen von Treasure Data können Daten über die öffentliche REST API aufnehmen. Sie können Treasure Data verwenden, um angepasste Webhooks für Ihre Daten zu erstellen. Um mehr zu erfahren, besuchen Sie [Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API).
+Nutzer:innen von Treasure Data können Daten über die öffentliche Representational State Transfer API aufnehmen. Sie können Treasure Data verwenden, um angepasste Webhooks für Ihre Daten zu erstellen. Um mehr zu erfahren, besuchen Sie [Treasure Data](https://docs.treasuredata.com/display/public/PD/Postback+API).

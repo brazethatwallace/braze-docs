@@ -18,7 +18,7 @@ O Shopify Markets está atualmente em beta. Para saber mais, entre em contato co
 
 ## Como a integração funciona {#how-the-integration-works}
 
-O Shopify Markets estende sua integração existente com o Shopify. Conecte sua vitrine padrão por meio do caminho de integração [padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou [personalizado (SDK)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), e depois selecione os mercados que deseja que a Braze sincronize a partir dos mercados configurados na sua loja. Integrações existentes podem adicionar mercados sem interromper catálogos, grupos de inscrições ou eventos. Para instruções passo a passo, consulte [Configuração do Shopify Markets](#shopify-markets-setup).
+O Shopify Markets estende sua integração existente com o Shopify. Conecte sua vitrine padrão por meio do caminho de integração [padrão]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) ou [personalizado (SDK or kit de desenvolvimento de software)]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration), e depois selecione os mercados que deseja que a Braze sincronize a partir dos mercados configurados na sua loja. Integrações existentes podem adicionar mercados sem interromper catálogos, grupos de inscrições ou eventos. Para instruções passo a passo, consulte [Configuração do Shopify Markets](#shopify-markets-setup).
 
 O Shopify Markets oferece as seguintes capacidades:
 
@@ -224,7 +224,7 @@ Você pode usar um mercado fixo quando uma mensagem é direcionada a um mercado 
    - **Personalized:** Cada destinatário vê produtos e preços do mercado que corresponde ao atributo `country` do seu perfil.
    - **A synced market:** Selecione um mercado pelo nome para fixar a seleção nos produtos e preços desse mercado. Use isso quando uma mensagem é direcionada a um único mercado.
 4. Finalize quaisquer critérios de filtro adicionais e salve a seleção.
-5. Em **Preview for user**, selecione um usuário para ver o que a seleção retorna para esse perfil. Seleções que usam **Personalized** só podem ser visualizadas após selecionar um usuário.
+5. Em **prévia for user**, selecione um usuário para ver o que a seleção retorna para esse perfil. Seleções que usam **Personalized** só podem ser visualizadas após selecionar um usuário.
 
 | Alvo | Filtro |
 | --- | --- |

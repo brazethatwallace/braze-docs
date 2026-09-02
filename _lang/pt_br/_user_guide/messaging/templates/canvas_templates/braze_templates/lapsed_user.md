@@ -75,7 +75,7 @@ Agora, construa seu Canvas personalizando as etapas do modelo:
 {: start="3"}
 3. Mantenha o padrão para a etapa de divisão de decisão chamada "Sessions?", que define o grupo ">1 Session" como usuários que usaram seu app mais de uma vez no último dia do calendário.
 4. Personalize a etapa de mensagem para usuários que se enquadram no grupo ">1 Session". Neste caso de uso, agradeça os usuários por visitarem seu app e destaque as vantagens que eles desbloquearam.
-5. Certifique-se de que seu Google Audience Sync está configurado na etapa de atualização de público de anúncios, para que você atualize e sincronize os dados dos usuários que tiveram múltiplas sessões após receberem o primeiro e-mail.
+5. Certifique-se de que seu Google Audience or público do Google Sync está configurado na etapa de atualização de público de anúncios, para que você atualize e sincronize os dados dos usuários que tiveram múltiplas sessões após receberem o primeiro e-mail.
 6. Mantenha o padrão para o componente de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) chamado "A/B Test". Isso enviará aleatoriamente uma de duas promoções (que você personaliza na próxima etapa) para usuários que tiveram menos de duas sessões.
 7. Personalize as duas promoções que serão enviadas aos usuários como parte da jornada experimental. Neste caso de uso, faça uma promoção de 20% para uma assinatura de três meses e outra de 10% para uma assinatura de um mês.
 

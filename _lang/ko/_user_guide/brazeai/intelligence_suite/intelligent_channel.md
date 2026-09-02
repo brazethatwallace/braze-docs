@@ -14,7 +14,7 @@ search_rank: 11
 
 ![선택할 수 있는 다양한 채널에 대한 드롭다운이 있는 인텔리전트 채널 필터.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-이 경우, 최적이란 사용자의 기록을 고려할 때 참여 가능성이 가장 높은 채널을 의미합니다. 이메일, SMS, WhatsApp, 웹 푸시 또는 모바일 푸시(사용 가능한 모든 모바일 OS 또는 기기 포함)를 채널로 선택할 수 있습니다.
+이 경우, 최적이란 사용자의 기록을 고려할 때 참여 가능성이 가장 높은 채널을 의미합니다. 이메일, 단문 메시지 서비스, WhatsApp, 웹 푸시 또는 모바일 푸시(사용 가능한 모든 모바일 OS 또는 기기 포함)를 채널로 선택할 수 있습니다.
 
 인텔리전트 채널은 지원되는 각 채널에 대해 각 사용자의 참여율을 계산하고, 해당 채널의 순위를 매긴 다음, 가장 높은 순위의 채널을 해당 사용자의 최적 채널로 처리합니다.
 
@@ -33,7 +33,7 @@ Braze는 참여율을 계산할 때 다음 이벤트를 추적합니다:
 - **이메일:** 열람([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) 제외). 이메일 클릭은 포함되지 않습니다.
 - **모바일 푸시:** 직접 열람. 각 모바일 플랫폼(iOS, Android, Kindle 등)은 별도로 점수가 매겨집니다. 푸시 영향 열람은 포함되지 않습니다.
 - **웹 푸시:** 열람
-- **SMS:** 단축 링크 클릭
+- **단문 메시지 서비스:** 단축 링크 클릭
 - **WhatsApp:** 메시지 읽음 또는 추적 링크 클릭
 
 푸시 영향 열람, 이메일 클릭 및 세션 활동은 인텔리전트 채널에 사용되지 않습니다. 세션 활동은 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#about-intelligent-timing)에서 사용됩니다.
@@ -41,7 +41,7 @@ Braze는 참여율을 계산할 때 다음 이벤트를 추적합니다:
 인텔리전트 채널은 웹훅, LINE, Kakao Talk, 인앱 메시지 또는 Content Cards를 지원하지 않습니다.
 
 {% alert important %}
-SMS 채널의 참여율을 계산하려면 고급 추적 및 클릭 추적과 함께 [SMS 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)을 켜세요. 이 추적이 없으면 [동점 해결 동작]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking)으로 인해 SMS가 0% 참여율로 인텔리전트 채널로 선택될 수 있습니다.
+단문 메시지 서비스 채널의 참여율을 계산하려면 고급 추적 및 클릭 추적과 함께 [단문 메시지 서비스 링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)을 켜세요. 이 추적이 없으면 [동점 해결 동작]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking)으로 인해 단문 메시지 서비스가 0% 참여율로 인텔리전트 채널로 선택될 수 있습니다.
 {% endalert %}
 
 ## 데이터가 충분하지 않음 {#not-enough-data}
@@ -62,13 +62,13 @@ Braze가 어떤 채널이 "최적"인지 결정하려면 충분한 데이터가 
 
 모바일 푸시는 Android, iOS, Kindle 및 Braze에서 사용할 수 있는 기타 모바일 기기 채널을 포함합니다. Braze는 참여율을 계산할 때 각 모바일 플랫폼을 별도로 점수 매깁니다.
 
-인텔리전트 채널 필터를 **모바일 푸시**로 설정하면, iOS 푸시 또는 Android 푸시가 가장 높은 순위의 채널인 경우 사용자가 일치합니다. 이것이 사용자가 특정 기기에서만 푸시 알림을 받도록 강제하지는 않습니다. 이 순위는 이메일, 웹 푸시, SMS, WhatsApp과 비교하여 모바일 푸시가 해당 사용자의 최적 채널인지 결정하는 데만 사용됩니다.
+인텔리전트 채널 필터를 **모바일 푸시**로 설정하면, iOS 푸시 또는 Android 푸시가 가장 높은 순위의 채널인 경우 사용자가 일치합니다. 이것이 사용자가 특정 기기에서만 푸시 알림을 받도록 강제하지는 않습니다. 이 순위는 이메일, 웹 푸시, 단문 메시지 서비스, WhatsApp과 비교하여 모바일 푸시가 해당 사용자의 최적 채널인지 결정하는 데만 사용됩니다.
 
 ## 개별 채널에 대한 메시지 열람 가능성 필터 {#individual-channels}
 
 Braze가 사용자에게 가장 적합한 단일 채널을 선택하도록 하는 대신, ["메시지 열람 가능성" 세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood)를 사용하여 선택한 특정 채널에서 메시지를 열 가능성이 있는지 여부에 따라 사용자를 필터링할 수 있습니다. 이 필터는 채널당 전송된 마지막 100개의 메시지에 대한 상호작용 비율로 계산됩니다.
 
-메시지 열람 가능성은 인텔리전트 채널과 동일한 기본 참여 데이터를 사용하지만, 사용자의 최적 채널을 선택하는 대신 단일 채널에 대한 임계값을 설정할 수 있습니다. 이메일, 모바일 푸시, SMS, 웹 푸시에서 사용할 수 있습니다.
+메시지 열람 가능성은 인텔리전트 채널과 동일한 기본 참여 데이터를 사용하지만, 사용자의 최적 채널을 선택하는 대신 단일 채널에 대한 임계값을 설정할 수 있습니다. 이메일, 모바일 푸시, 단문 메시지 서비스, 웹 푸시에서 사용할 수 있습니다.
 
 특정 채널에 대한 가능성 점수를 받으려면 사용자가 해당 채널에서 최소 세 개의 메시지를 수신해야 합니다. 채널의 가능성을 측정할 충분한 데이터가 없는 사용자는 "비어 있음"을 사용하여 선택할 수 있습니다.
 

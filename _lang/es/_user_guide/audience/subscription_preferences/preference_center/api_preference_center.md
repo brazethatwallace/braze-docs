@@ -32,7 +32,7 @@ Usar Liquid te permite recuperar los nombres de tus grupos de suscripción y el 
 | Requisito | Descripción |
 |---|---|
 | Centro de preferencias habilitado | Tu panel de Braze tiene permisos para usar la característica de centro de preferencias. |
-| Espacio de trabajo válido con un grupo de suscripción de correo electrónico, SMS o WhatsApp | Un espacio de trabajo funcional con usuarios válidos y un grupo de suscripción de correo electrónico, SMS o WhatsApp. |
+| Espacio de trabajo válido con un grupo de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp | Un espacio de trabajo funcional con usuarios válidos y un grupo de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp. |
 | Usuario válido | Un usuario con una dirección de correo electrónico y un ID externo. |
 | Clave de API generada con permisos de centro de preferencias | En el panel de Braze, ve a **Configuración** > **Claves de API** para confirmar que tienes acceso a una clave de API con permisos de centro de preferencias. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }

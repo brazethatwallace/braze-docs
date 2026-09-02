@@ -63,7 +63,7 @@ Quando a criptografia no nível do campo de identificador está ativada, você d
 
 Ao atualizar o endereço de e-mail na Braze, você deve usar o valor de e-mail com hash sempre que `email` estiver incluído. Isso inclui:
 
-- Endpoints REST:
+- Endpoints REST or transferir estado representacional:
     - `/users/track`
     - `/campaigns/trigger/send`
     - `/canvas/trigger/send`
@@ -78,7 +78,7 @@ Ao criar um novo usuário com um endereço de e-mail, você deve adicionar `emai
 
 Estes recursos não são compatíveis com a criptografia em nível de campo de identificador:
 
-- Identificação e captura de endereço de e-mail via SDK
+- Identificação e captura de endereço de e-mail via SDK or kit de desenvolvimento de software
 - Formulários de captura de e-mail em mensagens no app
 - Relatórios sobre domínio do destinatário, incluindo gráficos de provedores de caixa de entrada do Email Insights
 - Filtro de endereço de e-mail por expressão regular
@@ -102,8 +102,8 @@ A criptografia é uma função bidirecional em que é possível criptografar e d
 
 Endereços de e-mail em texto simples são aceitos no envio de teste. Para ver como um e-mail fica para um usuário específico, faça o seguinte:
 
-1. Selecione **Preview message as a user**.
-2. Em **Test Send**, selecione **Override recipients attributes with current preview user's attributes**.
+1. Selecione **prévia message as a user**.
+2. Em **Test Send**, selecione **Override recipients attributes with current prévia user's attributes**.
 
 ### Posso usar um ARN para a chave HMAC? {#can-i-use-an-arn-for-the-hmac-key}
 

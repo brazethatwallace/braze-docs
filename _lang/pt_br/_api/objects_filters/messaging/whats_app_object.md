@@ -42,7 +42,7 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 ```
 
 {% alert important %}
-**Limitações de envio de mídia:** envios de mídia (documentos, vídeos e outros tipos de mídia) não são suportados pela API `messages/send`. Apenas os tipos de cabeçalho TEXT e IMAGE são suportados para mensagens de modelo enviadas pela API. Se o seu modelo do WhatsApp usar um cabeçalho do tipo DOCUMENT, VIDEO ou outro tipo de mídia, não será possível enviá-lo usando a API `messages/send`. Use a [API de Campaigns disparadas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou o dashboard da Braze para enviar modelos com cabeçalhos de mídia.
+**Limitações de envio de mídia:** envios de mídia (documentos, vídeos e outros tipos de mídia) não são suportados pela API or interface de programação do aplicativo (API) `messages/send`. Apenas os tipos de cabeçalho TEXT e IMAGE são suportados para mensagens de modelo enviadas pela API or interface de programação do aplicativo (API). Se o seu modelo do WhatsApp usar um cabeçalho do tipo DOCUMENT, VIDEO ou outro tipo de mídia, não será possível enviá-lo usando a API or interface de programação do aplicativo (API) `messages/send`. Use a [API or interface de programação do aplicativo (API) de Campaigns disparadas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou o dashboard da Braze para enviar modelos com cabeçalhos de mídia.
 {% endalert %}
 
 ##### Objeto de variáveis de cabeçalho {#header-variables-object}
@@ -50,7 +50,7 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 O objeto `header_variables` permite especificar valores para variáveis de cabeçalho no modelo do WhatsApp. Cada chave é o índice da variável do modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
 
 {% alert note %}
-Você pode usar `header_variables` apenas com modelos que possuem cabeçalhos do tipo TEXT. Para cabeçalhos IMAGE, use `header_media_uri`. Tipos de cabeçalho DOCUMENT, VIDEO e outros tipos de mídia não são suportados pela API `messages/send`.<br><br>
+Você pode usar `header_variables` apenas com modelos que possuem cabeçalhos do tipo TEXT. Para cabeçalhos IMAGE, use `header_media_uri`. Tipos de cabeçalho DOCUMENT, VIDEO e outros tipos de mídia não são suportados pela API or interface de programação do aplicativo (API) `messages/send`.<br><br>
 
 `header_image_uri` é usado apenas para tipos de mensagens de resposta (como `quick_reply_response_message`), não para mensagens de modelo.
 {% endalert %}

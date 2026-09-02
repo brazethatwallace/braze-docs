@@ -19,7 +19,7 @@ Um auf das Protokoll zuzugreifen, gehen Sie zu **Einstellungen** > **Einrichtung
 
 Um Ihre Protokolle leicht zu finden, können Sie nach folgenden Kriterien filtern:
 
-* SDK oder API
+* SDK or Software-Development-Kit oder API
 * App-Namen
 * Zeitraum
 * Nutzer:in
@@ -42,21 +42,21 @@ Event-Nutzerprotokolle bleiben nach der Protokollierung 30 Tage lang im Dashboar
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Fehlende SDK-Protokolle für Testnutzer:innen {#missing-sdk-logs-for-test-users}
+### Fehlende SDK or Software-Development-Kit-Protokolle für Testnutzer:innen {#missing-sdk-logs-for-test-users}
 
-Wenn Sie eine:n Nutzer:in zu einer internen Gruppe hinzugefügt haben, aber im Event-Nutzerprotokoll keine SDK-Protokolle angezeigt werden, kann dies an einer fehlenden Konfigurationsoption liegen. Um SDK-Protokolle zu erfassen, wählen Sie in den **Einstellungen für interne Gruppen** der jeweiligen [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) die Option **Nutzerereignisse für Gruppenmitglieder aufzeichnen** aus.
+Wenn Sie eine:n Nutzer:in zu einer internen Gruppe hinzugefügt haben, aber im Event-Nutzerprotokoll keine SDK or Software-Development-Kit-Protokolle angezeigt werden, kann dies an einer fehlenden Konfigurationsoption liegen. Um SDK or Software-Development-Kit-Protokolle zu erfassen, wählen Sie in den **Einstellungen für interne Gruppen** der jeweiligen [internen Gruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups) die Option **Nutzerereignisse für Gruppenmitglieder aufzeichnen** aus.
 
 ### Verzögerung bei Protokollaktualisierungen {#delay-in-logs-updates}
 
 Diese Verzögerung wird in der Regel durch die normale API-Verarbeitungslast verursacht.
 
-Wenn Sie SDK-Methoden aufrufen, speichert das SDK diese Ereignisse im Allgemeinen lokal zwischen und überträgt sie alle 10 Sekunden an den Server. Je nach Gesamtlast zum jeweiligen Zeitpunkt kann es zwischen einer Sekunde und einigen Minuten dauern, bis unsere Verarbeitungswarteschlange die Ereignisse aufnimmt.
+Wenn Sie SDK or Software-Development-Kit-Methoden aufrufen, speichert das SDK or Software-Development-Kit diese Ereignisse im Allgemeinen lokal zwischen und überträgt sie alle 10 Sekunden an den Server. Je nach Gesamtlast zum jeweiligen Zeitpunkt kann es zwischen einer Sekunde und einigen Minuten dauern, bis unsere Verarbeitungswarteschlange die Ereignisse aufnimmt.
 
 Wenn Sie möchten, dass Ereignisse so schnell wie möglich eintreffen, rufen Sie die Funktion `requestImmediateDataFlush()` auf.
 
 ### Fehlgeschlagene Impressions von In-App-Nachrichten {#in-app-message-impression-failures}
 
-Wenn eine In-App-Nachricht nicht angezeigt wird, können Sie den Grund im Event-Nutzerprotokoll finden, indem Sie die JSON-Rohdaten der entsprechenden SDK-Anfrage aufklappen und im Antwortfeld nach dem Feld `error_code` suchen. Der `error_code` gibt den spezifischen Grund an, warum die Impression fehlgeschlagen ist (zum Beispiel ein ungültiger Farbwert oder ein Rendering-Problem). Teilen Sie diesen Fehlercode dem [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit, wenn eine weitere Untersuchung erforderlich ist.
+Wenn eine In-App-Nachricht nicht angezeigt wird, können Sie den Grund im Event-Nutzerprotokoll finden, indem Sie die JSON-Rohdaten der entsprechenden SDK or Software-Development-Kit-Anfrage aufklappen und im Antwortfeld nach dem Feld `error_code` suchen. Der `error_code` gibt den spezifischen Grund an, warum die Impression fehlgeschlagen ist (zum Beispiel ein ungültiger Farbwert oder ein Rendering-Problem). Teilen Sie diesen Fehlercode dem [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit, wenn eine weitere Untersuchung erforderlich ist.
 
 ### Session-Ende und Session-Start haben ähnliche Zeitstempel (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
 

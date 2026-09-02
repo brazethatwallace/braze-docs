@@ -1,7 +1,7 @@
 ---
 nav_title: Doble adhesión voluntaria
 article_title: Doble adhesión voluntaria
-description: "Este artículo de referencia cubre la función de doble adhesión voluntaria y explica cómo habilitar la función, seleccionar palabras clave de adhesión voluntaria y mensajes de respuesta, e incorporar usuarios al flujo de trabajo de doble adhesión voluntaria a través de actualizaciones de suscripción que ocurren en REST API, SDK y actualizaciones del centro de preferencias."
+description: "Este artículo de referencia cubre la función de doble adhesión voluntaria y explica cómo habilitar la función, seleccionar palabras clave de adhesión voluntaria y mensajes de respuesta, e incorporar usuarios al flujo de trabajo de doble adhesión voluntaria a través de actualizaciones de suscripción que ocurren en REST or transferencia de estado representacional API, SDK or kit de desarrollo de software y actualizaciones del centro de preferencias."
 page_type: reference
 page_order: 1
 channel:
@@ -12,11 +12,11 @@ channel:
 
 # Doble adhesión voluntaria {#double-opt-in}
 
-> La función de doble adhesión voluntaria requiere que los usuarios confirmen explícitamente su intención de adhesión voluntaria antes de poder recibir mensajes SMS, MMS o RCS. Esto enfoca la mensajería en usuarios comprometidos y apoya las mejores prácticas de cumplimiento.
+> La función de doble adhesión voluntaria requiere que los usuarios confirmen explícitamente su intención de adhesión voluntaria antes de poder recibir mensajes servicio de mensajes cortos, MMS o RCS. Esto enfoca la mensajería en usuarios comprometidos y apoya las mejores prácticas de cumplimiento.
 
 Cuando la doble adhesión voluntaria está activada, se envía a los usuarios un mensaje que solicita su consentimiento explícito antes de que puedan recibir mensajes de tus Campaigns o Canvas.
 
-Aunque no es un requisito explícito de la Ley de Protección al Consumidor Telefónico de 1991 (TCPA), Braze recomienda que configures la doble adhesión voluntaria para confirmar que los usuarios están informados y dan su consentimiento para formar parte de tu programa de SMS, MMS o RCS. Para más información sobre cumplimiento, consulta [Leyes, regulaciones y prevención de abuso para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+Aunque no es un requisito explícito de la Ley de Protección al Consumidor Telefónico de 1991 (TCPA), Braze recomienda que configures la doble adhesión voluntaria para confirmar que los usuarios están informados y dan su consentimiento para formar parte de tu programa de servicio de mensajes cortos, MMS o RCS. Para más información sobre cumplimiento, consulta [Leyes, regulaciones y prevención de abuso para servicio de mensajes cortos, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ## Flujos de trabajo de doble adhesión voluntaria {#double-opt-in-workflows}
 
@@ -58,11 +58,11 @@ Cuando un usuario recibe un mensaje de adhesión voluntaria, tiene 30 días para
 
 Solo después de que el usuario complete el flujo de trabajo de doble adhesión voluntaria se actualiza su [estado del grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups) a `Subscribed`. Si el usuario comienza el flujo de trabajo pero no lo completa, permanece como `Unsubscribed` y no se le pueden enviar mensajes desde ese grupo de suscripción.
 
-Los usuarios también pueden ingresar al flujo de trabajo de doble adhesión voluntaria si están [suscritos desde otras fuentes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (por ejemplo, REST API, SDK).
+Los usuarios también pueden ingresar al flujo de trabajo de doble adhesión voluntaria si están [suscritos desde otras fuentes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (por ejemplo, REST or transferencia de estado representacional API, SDK or kit de desarrollo de software).
 
 ## Fuentes de suscripción {#subscription-sources}
 
-Los usuarios también pueden ingresar al flujo de trabajo de doble adhesión voluntaria a través de actualizaciones de suscripción que ocurren fuera de los mensajes de entrada. Estas fuentes incluyen actualizaciones desde REST API, SDK y el centro de preferencias. Cuando un usuario ingresa al flujo de trabajo de doble adhesión voluntaria a través de estas fuentes, recibirá el **mensaje de respuesta del mensaje de adhesión voluntaria**.
+Los usuarios también pueden ingresar al flujo de trabajo de doble adhesión voluntaria a través de actualizaciones de suscripción que ocurren fuera de los mensajes de entrada. Estas fuentes incluyen actualizaciones desde REST or transferencia de estado representacional API, SDK or kit de desarrollo de software y el centro de preferencias. Cuando un usuario ingresa al flujo de trabajo de doble adhesión voluntaria a través de estas fuentes, recibirá el **mensaje de respuesta del mensaje de adhesión voluntaria**.
 
 {% alert important %}
 Cuando los usuarios ingresan al flujo de trabajo de doble adhesión voluntaria a través de fuentes distintas a los mensajes de entrada, reciben como máximo un mensaje de respuesta de adhesión voluntaria en un período continuo de 24 horas, independientemente del número de veces que ingresen a este flujo de trabajo.
@@ -72,8 +72,8 @@ Cada fuente de suscripción tiene un comportamiento de inscripción diferente, c
 
 | Fuente | Comportamiento de inscripción en doble adhesión voluntaria |
 | ----------- | ----------- |
-| SDK | Los usuarios ingresan automáticamente al flujo de trabajo de doble adhesión voluntaria cuando se suscriben a través del SDK de Braze. |
-| REST API | Los usuarios pueden ingresar al flujo de trabajo cuando el estado de suscripción se establece a través de `/subscription/status/set`, `/v2/subscription/status/set` o `/users/track` y se pasa el parámetro opcional `use_double_opt_in_logic` como `true` (por ejemplo, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Si se omite este parámetro, los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria. <br><br>Cuando se usa `use_double_opt_in_logic` con REST API, si no hay un perfil de usuario asociado al número de teléfono proporcionado, el estado de suscripción no se actualiza y el usuario no puede ingresar al flujo de trabajo de doble adhesión voluntaria. |
+| SDK or kit de desarrollo de software | Los usuarios ingresan automáticamente al flujo de trabajo de doble adhesión voluntaria cuando se suscriben a través del SDK or kit de desarrollo de software de Braze. |
+| REST or transferencia de estado representacional API | Los usuarios pueden ingresar al flujo de trabajo cuando el estado de suscripción se establece a través de `/subscription/status/set`, `/v2/subscription/status/set` o `/users/track` y se pasa el parámetro opcional `use_double_opt_in_logic` como `true` (por ejemplo, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Si se omite este parámetro, los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria. <br><br>Cuando se usa `use_double_opt_in_logic` con REST or transferencia de estado representacional API, si no hay un perfil de usuario asociado al número de teléfono proporcionado, el estado de suscripción no se actualiza y el usuario no puede ingresar al flujo de trabajo de doble adhesión voluntaria. |
 | Shopify | Los usuarios no ingresan al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción es establecido por nuestra integración con Shopify. |
 | Importación de usuarios | Los usuarios no ingresan al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción es establecido por la importación de usuarios. |
 | [Centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Los usuarios ingresan automáticamente al flujo de trabajo de doble adhesión voluntaria cuando se suscriben a través de un centro de preferencias. |
@@ -83,4 +83,4 @@ Cada fuente de suscripción tiene un comportamiento de inscripción diferente, c
 ## Soporte multilingüe {#multi-language-support}
 Para los mensajes entrantes, la doble adhesión voluntaria es compatible con todos los idiomas definidos en el grupo de suscripción. Esto significa que puedes definir tus respuestas automáticas en diferentes idiomas y Braze enviará la respuesta automática asociada a un idioma específico cuando se reciba una palabra clave coincidente.
 
-Los usuarios que ingresen al flujo de trabajo de doble adhesión voluntaria a través de actualizaciones de suscripción que ocurran fuera de los mensajes entrantes (por ejemplo, SDK, REST API, Shopify) solo recibirán las palabras clave en inglés.
+Los usuarios que ingresen al flujo de trabajo de doble adhesión voluntaria a través de actualizaciones de suscripción que ocurran fuera de los mensajes entrantes (por ejemplo, SDK or kit de desarrollo de software, REST or transferencia de estado representacional API, Shopify) solo recibirán las palabras clave en inglés.

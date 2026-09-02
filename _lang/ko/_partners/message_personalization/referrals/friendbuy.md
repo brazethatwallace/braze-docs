@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Friendbuy
 
-> [Friendbuy](https://www.friendbuy.com/)와 Braze의 통합을 사용하여 이메일 및 SMS 기능을 확장하는 동시에 추천 및 로열티 프로그램 커뮤니케이션을 손쉽게 자동화할 수 있습니다. Braze는 Friendbuy를 통해 수집된 모든 옵트인 전화번호에 대해 고객 프로필을 생성합니다.
+> [Friendbuy](https://www.friendbuy.com/)와 Braze의 통합을 사용하여 이메일 및 단문 메시지 서비스 기능을 확장하는 동시에 추천 및 로열티 프로그램 커뮤니케이션을 손쉽게 자동화할 수 있습니다. Braze는 Friendbuy를 통해 수집된 모든 옵트인 전화번호에 대해 고객 프로필을 생성합니다.
 
 _이 통합은 Friendbuy에서 유지 관리합니다._
 
@@ -54,7 +54,7 @@ _이 통합은 Friendbuy에서 유지 관리합니다._
 | **Friendbuy Coupon Status** | 고객에게 배포된 가장 최근 쿠폰 코드의 상태입니다. 참고: 상태는 'distributed' 또는 'redeemed'입니다. | 문자열 |
 | **Friendbuy Coupon Currency** | 고객에게 배포된 가장 최근 쿠폰 코드와 연결된 통화 코드(USD, CAD 등) 또는 퍼센트(%)입니다. | 문자열 |
 | **Friendbuy Coupon Campaign ID** | 고객을 위해 생성된 쿠폰 코드와 연결된 Campaign ID입니다. | 문자열 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="커스텀 속성" }
 
 ## 기본 동작 {#default-behavior}
 

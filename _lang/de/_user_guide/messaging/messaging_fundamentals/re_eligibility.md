@@ -3,7 +3,7 @@ nav_title: Erneute Berechtigung
 article_title: Erneute Berechtigung
 page_order: 10
 page_type: reference
-description: "Dieser Referenzartikel definiert die erneute Berechtigung für Campaigns und Canvases."
+description: "Dieser Referenzartikel definiert die erneute Berechtigung für Campaigns und Canvase."
 tool:
     - Campaigns
     - Canvas
@@ -12,7 +12,7 @@ toc_headers: h2
 
 # Erneute Berechtigung für Campaigns und Canvas {#re-eligibility-for-campaigns-and-canvas}
 
-> Wenn Sie eine wiederkehrende oder getriggerte Campaign oder ein Canvas planen, haben Sie die Möglichkeit, Nutzer:innen erneut dafür zu berechtigen. Erneute Berechtigung bedeutet, dass Nutzer:innen die Campaign oder das Canvas basierend auf dem Trigger mehrfach betreten können.
+> Wenn Sie eine wiederkehrende oder getriggerte Campaign oder ein Canvas planen, haben Sie die Möglichkeit, Nutzer:innen erneut dafür zu berechtigen. Erneute Berechtigung bedeutet, dass Nutzer:innen die Campaign oder das Canvas basierend auf dem Trigger or triggern mehrfach betreten können.
 
 ## Funktionsweise {#how-it-works}
 
@@ -24,7 +24,7 @@ Standardmäßig sendet Braze eine Nachricht nur einmal an eine:n Nutzer:in, selb
 {% tab campaign %}
 Um die erneute Berechtigung für eine Campaign zu aktivieren, wählen Sie das Kontrollkästchen **Allow users to become re-eligible to receive campaign** im Abschnitt **Delivery Controls** aus. Die maximale Zeit für die erneute Berechtigung einer Campaign beträgt 720 Tage.
 
-Bei getriggerten Campaigns mit aktivierter erneuter Berechtigung qualifizieren sich Nutzer:innen, die [die Campaign-Nachricht nicht tatsächlich erhalten haben]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#why-did-a-user-not-receive-my-triggered-campaign) (obwohl sie das Trigger-Ereignis ausgelöst haben), automatisch für die Nachricht beim nächsten Mal, wenn sie das Trigger-Ereignis auslösen. Dies liegt daran, dass die erneute Berechtigung auf dem Nachrichtenempfang basiert und nicht auf dem Campaign-Eintritt. Indem Sie Nutzer:innen für eine getriggerte Campaign erneut berechtigen, ermöglichen Sie ihnen, die Nachricht tatsächlich zu erhalten (und nicht nur zu triggern) – und zwar mehr als einmal.
+Bei getriggerten Campaigns mit aktivierter erneuter Berechtigung qualifizieren sich Nutzer:innen, die [die Campaign-Nachricht nicht tatsächlich erhalten haben]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#why-did-a-user-not-receive-my-triggered-campaign) (obwohl sie das Trigger or triggern-Ereignis ausgelöst haben), automatisch für die Nachricht beim nächsten Mal, wenn sie das Trigger or triggern-Ereignis auslösen. Dies liegt daran, dass die erneute Berechtigung auf dem Nachrichtenempfang basiert und nicht auf dem Campaign-Eintritt. Indem Sie Nutzer:innen für eine getriggerte Campaign erneut berechtigen, ermöglichen Sie ihnen, die Nachricht tatsächlich zu erhalten (und nicht nur zu Trigger or triggern or triggern) – und zwar mehr als einmal.
 
 {% alert note %}
 „Empfang“ umfasst die Attribution über gemeinsame Kanalkennungen: Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die dieselbe E-Mail-Adresse oder Telefonnummer teilen. Daher kann eine:r Nutzer:in, der/die die Nachricht nie direkt erhalten hat, als empfangen markiert werden und möglicherweise nicht erneut berechtigt werden.
@@ -34,12 +34,12 @@ Wenn Sie außerdem versuchen, eine Nachricht sofort mit einer erneuten Berechtig
 
 ### Erneute Berechtigung bei API-getriggerten Campaigns {#re-eligibility-with-api-triggered-campaigns}
 
-Die Anzahl der Male, die eine:r Nutzer:in eine API-getriggerte Campaign erhält, kann mithilfe der Einstellungen für die erneute Berechtigung begrenzt werden. Das bedeutet, dass die/der Nutzer:in die Campaign nur einmal oder einmal innerhalb eines bestimmten Zeitfensters erhält, unabhängig davon, wie oft der API-Trigger ausgelöst wird.
+Die Anzahl der Male, die eine:r Nutzer:in eine API-getriggerte Campaign erhält, kann mithilfe der Einstellungen für die erneute Berechtigung begrenzt werden. Das bedeutet, dass die/der Nutzer:in die Campaign nur einmal oder einmal innerhalb eines bestimmten Zeitfensters erhält, unabhängig davon, wie oft der API-Trigger or triggern ausgelöst wird.
 
-Nehmen wir zum Beispiel an, Sie verwenden eine API-getriggerte Campaign, um Nutzer:innen eine Campaign über einen kürzlich angesehenen Artikel zu senden. In diesem Fall können Sie die Campaign auf maximal eine Nachricht pro Tag begrenzen, unabhängig davon, wie viele Artikel angesehen wurden, während der API-Trigger für jeden Artikel ausgelöst wird. Wenn Ihre API-getriggerte Campaign hingegen transaktionsbezogen ist, sollten Sie sicherstellen, dass die/der Nutzer:in die Campaign jedes Mal erhält, wenn die Transaktion durchgeführt wird, indem Sie die Verzögerung auf null Minuten setzen.
+Nehmen wir zum Beispiel an, Sie verwenden eine API-getriggerte Campaign, um Nutzer:innen eine Campaign über einen kürzlich angesehenen Artikel zu senden. In diesem Fall können Sie die Campaign auf maximal eine Nachricht pro Tag begrenzen, unabhängig davon, wie viele Artikel angesehen wurden, während der API-Trigger or triggern für jeden Artikel ausgelöst wird. Wenn Ihre API-getriggerte Campaign hingegen transaktionsbezogen ist, sollten Sie sicherstellen, dass die/der Nutzer:in die Campaign jedes Mal erhält, wenn die Transaktion durchgeführt wird, indem Sie die Verzögerung auf null Minuten setzen.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 
 Um die erneute Berechtigung für ein Canvas zu aktivieren, wählen Sie **Allow users to re-enter this Canvas** im Abschnitt **Entry Controls** aus. Sie können wählen, ob Nutzer:innen nach der maximalen Dauer des Canvas oder nach einem bestimmten Zeitfenster erneut eintreten dürfen.
 
@@ -57,13 +57,13 @@ Nehmen wir zum Beispiel an, eine:r Nutzer:in ohne E-Mail-Adresse betritt ein tä
 
 Wenn Sie ein aktives wiederkehrendes oder getriggertes Canvas ohne erneute Berechtigung haben und möchten, dass Nutzer:innen das Canvas erneut betreten, bis sie eine Nachricht daraus erhalten, können Sie in Betracht ziehen, Nutzer:innen für den erneuten Eintritt zu berechtigen, indem Sie einen Filter zu den Eintrittskriterien hinzufügen, der Kund:innen ausschließt, die bereits eine Nachricht aus dem Canvas erhalten haben.
 
-Wenn die erneute Berechtigung für ein Canvas auf einen kürzeren Zeitraum als die Dauer des Canvas eingestellt ist, können Nutzer:innen das Canvas möglicherweise mehr als einmal betreten. Dies kann zu irreführendem Verhalten bei Canvases führen, die In-App-Nachrichten mit besonders langen Verzögerungen verwenden. Da mehrere Canvas-In-App-Nachrichten durch denselben Sitzungsstart getriggert werden können, könnte die/der Nutzer:in die Erfahrung machen, dieselbe Nachricht wiederholt zu erhalten, wenn eine bestimmte Komponente schneller gerendert wird als andere.
+Wenn die erneute Berechtigung für ein Canvas auf einen kürzeren Zeitraum als die Dauer des Canvas eingestellt ist, können Nutzer:innen das Canvas möglicherweise mehr als einmal betreten. Dies kann zu irreführendem Verhalten bei Canvase führen, die In-App-Nachrichten mit besonders langen Verzögerungen verwenden. Da mehrere Canvas-In-App-Nachrichten durch denselben Sitzungsstart getriggert werden können, könnte die/der Nutzer:in die Erfahrung machen, dieselbe Nachricht wiederholt zu erhalten, wenn eine bestimmte Komponente schneller gerendert wird als andere.
 {% endtab %}
 {% endtabs %}
 
 ## Berechnung der Verzögerung für die erneute Berechtigung {#re-eligibility-delay-calculations}
 
-Die erneute Berechtigung für Campaigns und Canvases wird in Sekunden berechnet, nicht in Kalendertagen. Das bedeutet, dass ein Tag als 24 Stunden (oder 86.400 Sekunden) ab dem Zeitpunkt gezählt wird, an dem eine:r Nutzer:in die Nachricht erhält, und nicht ab Mitternacht des nächsten Kalendertages. Ebenso zählt ein Monat als genau 2.592.000 Sekunden, was ungefähr 30 Tagen entspricht.
+Die erneute Berechtigung für Campaigns und Canvase wird in Sekunden berechnet, nicht in Kalendertagen. Das bedeutet, dass ein Tag als 24 Stunden (oder 86.400 Sekunden) ab dem Zeitpunkt gezählt wird, an dem eine:r Nutzer:in die Nachricht erhält, und nicht ab Mitternacht des nächsten Kalendertages. Ebenso zählt ein Monat als genau 2.592.000 Sekunden, was ungefähr 30 Tagen entspricht.
 
 ### Beispiel
 
@@ -88,7 +88,7 @@ Wenn die erneute Berechtigung für Banner-Campaigns aktiviert ist, können Nutze
 
 ## Multivariates Testen {#multivariate-testing}
 
-Für multivariates Testen bestimmt Braze die erneute Berechtigung für Varianten bei allen Campaigns, getriggerten In-App-Nachrichten und Canvases anhand der folgenden Regeln:
+Für multivariates Testen bestimmt Braze die erneute Berechtigung für Varianten bei allen Campaigns, getriggerten In-App-Nachrichten und Canvase anhand der folgenden Regeln:
 
 - Wenn die Variantenprozentsätze nicht geändert werden, tritt jede:r Nutzer:in bei jeder erneuten Berechtigung immer in dieselbe Variante einer Campaign, einer getriggerten In-App-Nachricht oder eines Canvas-Eintritts ein.
 - Wenn die Variantenprozentsätze geändert werden, können Nutzer:innen anderen Varianten zugewiesen werden.

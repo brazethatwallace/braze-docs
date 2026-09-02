@@ -4,7 +4,7 @@ article_title: Jornadas do público
 alias: /audience_paths/
 page_order: 3
 page_type: reference
-description: "Este artigo de referência descreve como usar as Jornadas do público no seu Canvas para filtrar e segmentar usuários de forma intuitiva e em grande escala, enviando cada usuário pela primeira ramificação correspondente."
+description: "Este artigo de referência descreve como usar as Jornadas do público no seu Canvas para filtrar e segmentar usuários de forma intuitiva e em grande escala, enviando cada usuário pela primeira Branch or ramificação or ramificação correspondente."
 tool: Canvas
 
 ---
@@ -19,7 +19,7 @@ Esse componente do Canvas elimina a necessidade de criar etapas completas excess
 
 ![Uma jornada do público com dois grupos: usuários engajados e todos os demais.]({% image_buster /assets/img/audience_path/audience_path.png %}){: style="float:right;max-width:45%;margin-left:15px;margin-top:15px;"}
 
-Os usuários avançam pela primeira ramificação cujos critérios eles atendem, então coloque a jornada mais importante primeiro. Isso reduz a ambiguidade sobre para onde os usuários vão e quais mensagens eles recebem. Note que essa ordem não é [editável após o lançamento]({{site.baseurl}}/post-launch_edits).
+Os usuários avançam pela primeira Branch or ramificação or ramificação cujos critérios eles atendem, então coloque a jornada mais importante primeiro. Isso reduz a ambiguidade sobre para onde os usuários vão e quais mensagens eles recebem. Note que essa ordem não é [editável após o lançamento]({{site.baseurl}}/post-launch_edits).
 
 Com as jornadas do público, você pode:
 
@@ -44,7 +44,7 @@ As jornadas do público avaliam com base nos atributos atuais do usuário, filtr
 
 Os usuários não são reavaliados em relação ao seu grupo de público depois de avançarem por uma jornada. Se a mensagem que vem em seguida for postergada por uma etapa de postergação, horário de silêncio, Intelligent Timing, limite de frequência ou entrega por fuso local, o perfil de um usuário pode mudar antes do envio dessa mensagem.
 
-Para confirmar que os usuários ainda atendem aos critérios de Segment e filtro antes que a etapa de mensagem envie, ative **Validar público no envio da mensagem** nas [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) da etapa de mensagem. As validações de entrega verificam apenas os Segments e filtros que você adiciona àquela etapa de mensagem, então elas não reutilizam os critérios da sua jornada do público. Para In-App Messages, as validações de entrega são verificadas quando o usuário entra na etapa de mensagem, não quando a mensagem é exibida.
+Para confirmar que os usuários ainda atendem aos critérios de Segment or segmento e filtro antes que a etapa de mensagem envie, ative **Validar público no envio da mensagem** nas [validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) da etapa de mensagem. As validações de entrega verificam apenas os Segments e filtros que você adiciona àquela etapa de mensagem, então elas não reutilizam os critérios da sua jornada do público. Para In-App Messages, as validações de entrega são verificadas quando o usuário entra na etapa de mensagem, não quando a mensagem é exibida.
 
 ### Permitindo tempo para avaliações de usuários {#allowing-time-for-user-evaluations}
 
@@ -69,7 +69,7 @@ A captura de tela a seguir mostra o layout de uma etapa de jornadas do público 
 
 ![Uma jornada do público expandida com grupos para "Ama Culinária Asiática", "Ama Culinária Latina", "Ama Culinária Europeia" e "Todos os Outros".]({% image_buster /assets/img/audience_path/audience_path3.png %})
 
-Após a conclusão da etapa de jornadas do público, cada grupo de público terá uma ramificação separada. Você pode continuar usando jornadas do público para filtrar ainda mais seu público, ou prosseguir na sua jornada do Canvas com as etapas padrão do Canvas.
+Após a conclusão da etapa de jornadas do público, cada grupo de público terá uma Branch or ramificação or ramificação separada. Você pode continuar usando jornadas do público para filtrar ainda mais seu público, ou prosseguir na sua jornada do Canvas com as etapas padrão do Canvas.
 
 ![Duas jornadas do público com diferentes grupos baseados em engajamento.]({% image_buster /assets/img/audience_path/audience_path4.png %}){: style="max-width:50%"}
 

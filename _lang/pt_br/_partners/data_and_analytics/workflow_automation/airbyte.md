@@ -23,15 +23,15 @@ A integração Braze e Airbyte permite que os usuários criem um pipeline de dad
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Airbyte Cloud | É necessário ter uma conta [Airbyte Cloud](https://cloud.airbyte.io/workspaces) para usar esta integração. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 1. Em sua conta Airbyte Cloud, navegue até **Sources > + New Source > Set up the Source**.
 2. Digite "Braze" como o nome da fonte e selecione **Braze** na lista suspensa de fontes.
-3. Forneça a URL do seu endpoint, a chave da API REST da Braze e a data de início. Clique em **Set up Source**.
+3. Forneça a URL do seu endpoint, a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e a data de início. Clique em **Set up Source**.
 
 ### Modos de sincronização compatíveis {#supported-sync-modes}
 

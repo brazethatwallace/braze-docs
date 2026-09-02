@@ -259,23 +259,23 @@ Em seguida, construa o restante da sua campanha. Consulte as seções a seguir p
 
 ### Escolha o cronograma de entrega ou o disparo {#choose-delivery-schedule-or-trigger}
 
-Entregue e-mails com base em um horário agendado, uma ação ou um disparo por API. Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Entregue e-mails com base em um horário agendado, uma ação ou um disparo por API or interface de programação do aplicativo (API). Para saber mais, consulte [Agendando sua campanha]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 {% alert note %}
-Para campanhas disparadas por API, quando a ação-gatilho é definida como **Interagir com a Campaign**, selecionar a opção **Receber** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a Campaign selecionada como enviada, mesmo que essa mensagem sofra bounce ou não seja entregue.
+Para campanhas disparadas por API or interface de programação do aplicativo (API), quando a ação-gatilho é definida como **Interagir com a Campaign**, selecionar a opção **Receber** como interação fará com que sua nova campanha seja disparada assim que a Braze marcar a Campaign selecionada como enviada, mesmo que essa mensagem sofra bounce ou não seja entregue.
 {% endalert %}
 
 Você também pode definir a duração da campanha, especificar o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) e configurar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Escolha os usuários-alvo {#choose-users-to-target}
 
-Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros. A Braze exibe uma prévia em tempo real da população do segmento, incluindo quantos usuários podem ser alcançados por e-mail. A composição exata do segmento é calculada imediatamente antes do envio.
+Em seguida, [direcione os usuários]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) escolhendo segmentos ou filtros. A Braze exibe uma prévia em tempo real da população do Segment or segmento or segmento, incluindo quantos usuários podem ser alcançados por e-mail. A composição exata do Segment or segmento or segmento é calculada imediatamente antes do envio.
 
 {% multi_lang_include audience/target_audiences.md %}
 
 Você também pode optar por enviar sua campanha apenas para usuários que tenham um [status de inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions) específico, como aqueles que estão inscritos e aceitaram receber e-mails.
 
-Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do segmento, ou permitir que os usuários recebam a mesma mensagem duas vezes em uma recorrência da campanha.
+Opcionalmente, você também pode limitar a entrega a um número específico de usuários dentro do Segment or segmento or segmento, ou permitir que os usuários recebam a mesma mensagem duas vezes em uma recorrência da campanha.
 
 {% alert note %}
 Ao criar uma nova campanha de e-mail, o grupo de controle é configurado como 20% por padrão e pode ser ajustado ou removido conforme necessário para sua campanha.

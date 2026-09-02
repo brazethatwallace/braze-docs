@@ -10,7 +10,7 @@ description: "Esta página explica cómo usar el editor de arrastrar y soltar de
 
 > Usa el editor de arrastrar y soltar de mensajes dentro de la aplicación para crear tu lista de correo electrónico ofreciendo un descuento especial en el registro.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desarrollo de software requirements' %}
 
 ## Creando un formulario de registro de correo electrónico con una oferta especial {#creating-an-email-sign-up-form-with-a-special-offer}
 

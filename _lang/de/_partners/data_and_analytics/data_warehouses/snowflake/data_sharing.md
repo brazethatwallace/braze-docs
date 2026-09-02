@@ -26,10 +26,10 @@ Ihre Berechtigung für die Datenverteilung legt fest, welche Event-Typen in Ihre
 |------------|----------------|-------------|--------------------------|
 | **Engagement-Events** | Nachrichten-Engagement-Events | Events im Zusammenhang mit Nachrichtenversand, Zustellung, Öffnungen, Klicks, Bounces und anderen Messaging-Kanal-Interaktionen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) |
 | **Kundenverhalten-Events** | Nachrichten-Engagement-Events und Kundenverhalten-Events | Umfasst alle Nachrichten-Engagement-Events sowie Events im Zusammenhang mit Käufen, angepassten Events, Sitzungen, Attribution und In-App-Nutzeraktionen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten- und Nutzer-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) |
-| **Nutzerprofile und Attribute** | Nachrichten-Engagement-Events, Kundenverhalten-Events und Nutzerprofil-Events | Umfasst Nachrichten-Engagement-Events und Kundenverhalten-Events sowie Events im Zusammenhang mit Änderungen an Nutzerprofilen und Attributen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten- und Nutzer-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Nutzerprofil-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
+| **Nutzerprofile und Attribute** | Nachrichten-Engagement-Events, Kundenverhalten-Events und Kundenprofil or Nutzerprofil-Events | Umfasst Nachrichten-Engagement-Events und Kundenverhalten-Events sowie Events im Zusammenhang mit Änderungen an Nutzerprofilen und Attributen | [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [Kundenverhalten- und Nutzer-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), [Kundenprofil or Nutzerprofil-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/user_profiles_events) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Berechtigungen für die Datenverteilung" }
 
-Bei Fragen dazu, welche Events in Ihrer Berechtigung enthalten sind, wenden Sie sich an Ihren Braze-Konto- oder Customer-Success-Manager.
+Bei Fragen dazu, welche Events in Ihrer Berechtigung enthalten sind, wenden Sie sich an Ihren Braze-Konto- oder CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 
 ## Über Secure Data Sharing {#about-secure-data-sharing}
 
@@ -37,7 +37,7 @@ Beim Data Sharing werden keine tatsächlichen Daten zwischen Konten kopiert oder
 
 Darüber hinaus kann der Zugriff auf von Braze freigegebene Daten mithilfe der integrierten Rollen- und Berechtigungsfunktionen von Snowflake über die bereits für Ihr Snowflake-Konto und die darin enthaltenen Daten vorhandenen Zugriffskontrollen gesteuert und verwaltet werden. Der Zugriff kann auf die gleiche Weise wie bei Ihren eigenen Daten eingeschränkt und überwacht werden.
 
-- **Schneller zu Insights**<br>Verabschieden Sie sich von ETL-Prozessen, deren Aufbau Wochen dauert. Die einzigartigen Architekturen von Braze und Snowflake machen alle Customer-Engagement- und Campaign-Daten sofort zugänglich und abfragbar, sobald sie im Data Lake eintreffen. Es werden keine Daten kopiert oder verschoben, sodass Sie Kundenerlebnisse basierend auf den relevantesten und aktuellsten Informationen bereitstellen können.
+- **Schneller zu Insights**<br>Verabschieden Sie sich von ETL or Extract, Transform, Load-Prozessen, deren Aufbau Wochen dauert. Die einzigartigen Architekturen von Braze und Snowflake machen alle Customer-Engagement- und Campaign-Daten sofort zugänglich und abfragbar, sobald sie im Data Lake eintreffen. Es werden keine Daten kopiert oder verschoben, sodass Sie Kundenerlebnisse basierend auf den relevantesten und aktuellsten Informationen bereitstellen können.
 - **Datensilos aufbrechen**<br>Erstellen Sie eine ganzheitliche Sicht auf Ihre Kund:innen über alle Kanäle und Plattformen hinweg. Data Sharing erleichtert es mehr denn je, Ihre Braze-Customer-Engagement-Daten mit all Ihren anderen Snowflake-Daten zu verknüpfen – und so umfassendere Insights aus einer einzigen, zuverlässigen Datenquelle zu gewinnen.
 - **Sehen Sie, wie Ihr Engagement abschneidet**<br>Optimieren Sie Ihre Customer-Engagement-Strategien mit Braze Benchmarks. Dieses interaktive Tool, bereitgestellt von Braze und Snowflake, ermöglicht es Ihnen, die Engagement-Daten Ihrer Marke mit Benchmarks über verschiedene Kanäle, Branchen und Geräteplattformen hinweg zu vergleichen.
 
@@ -47,7 +47,7 @@ Weitere Informationen zum Data Sharing von Snowflake finden Sie unter [Introduct
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Kontaktieren Sie Ihre:n Braze-Konto- oder Customer-Success-Manager:in, um Data Sharing einzurichten. |
+| Braze-Zugang | Kontaktieren Sie Ihre:n Braze-Konto- oder CSM or Customer-Success-Manager or Customer-Success-Manager:in:in, um Data Sharing einzurichten. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -148,5 +148,5 @@ Das Archiv historischer Event-Daten in Snowflake reicht bis April 2019 zurück. 
 Die Geschwindigkeit, Performance und Kosten jeder Abfrage, die auf den Daten ausgeführt wird, werden durch die Warehouse-Größe bestimmt, die Sie zur Abfrage der Daten verwenden. In einigen Fällen kann es je nach Datenmenge, auf die Sie für Analysen zugreifen, erforderlich sein, eine größere Warehouse-Größe zu verwenden, damit die Abfrage erfolgreich ausgeführt werden kann. Snowflake bietet hervorragende Ressourcen dazu, wie Sie die optimale Größe bestimmen, darunter [Übersicht über Warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) und [Überlegungen zu Warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
 {% alert tip %}
-Beispielabfragen, die Sie beim Einrichten von Snowflake als Referenz verwenden können, finden Sie in unseren Beispielen für [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) und [ETL-Event-Pipeline-Einrichtung]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
+Beispielabfragen, die Sie beim Einrichten von Snowflake als Referenz verwenden können, finden Sie in unseren Beispielen für [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) und [ETL or Extract, Transform, Load-Event-Pipeline-Einrichtung]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 {% endalert %}

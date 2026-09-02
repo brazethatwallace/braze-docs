@@ -20,23 +20,23 @@ Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der aktu
 
 ### Schritt 2: Anfrage erstellen {#step-2-build-your-query}
 
-Beim Erstellen Ihrer Anfrage können Sie sich von KI unterstützen lassen oder die Anfrage selbst schreiben.
+Beim Erstellen Ihrer Anfrage können Sie sich von KI or künstliche Intelligenz unterstützen lassen oder die Anfrage selbst schreiben.
 
 {% tabs local %}
 {% tab Mit BrazeAI %}
-Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), bereitgestellt von OpenAI, um SQL für Ihre Anfrage vorzuschlagen. So generieren Sie SQL mit dem KI-Abfrage-Builder:
+Der KI or künstliche Intelligenz-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), bereitgestellt von OpenAI, um SQL für Ihre Anfrage vorzuschlagen. So generieren Sie SQL mit dem KI or künstliche Intelligenz-Abfrage-Builder:
 
-1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **KI-Abfrage-Builder** aus.
+1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **KI or künstliche Intelligenz-Abfrage-Builder** aus.
 2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispielprompt aus und klicken Sie auf **Generieren**, um Ihren Prompt in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und wählen Sie dann **In Editor einfügen** aus.
 
-![Der SQL-KI-Abfrage-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![Der SQL-KI or künstliche Intelligenz-Abfrage-Builder.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
 #### Tipps {#tips}
 
 - Machen Sie sich mit den verfügbaren [Snowflake-Datentabellen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann es passieren, dass ChatGPT eine fiktive Tabelle erfindet.
 - Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/data_and_analytics/query_builder#custom-sql) für dieses Feature vertraut. Die Nichtbeachtung dieser Regeln führt zu einem Fehler.
-- Sie können mit dem KI-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
+- Sie können mit dem KI or künstliche Intelligenz-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
 
 ##{% multi_lang_include brazeai/generative_ai/policy.md %}
 {% endtab %}
@@ -146,4 +146,4 @@ Credits werden nicht verbraucht, wenn Sie Berichte im Braze SQL-Editor schreiben
 
 ![Abfrage-Builder mit der Anzeige der im aktuellen Monat verbrauchten Credits.]({% image_buster /assets/img_archive/query_builder_credits.png %}){: style="max-width:60%;"}
 
-Wenn Sie das Credit-Limit erreicht haben, können Sie keine Anfragen mehr ausführen, aber Sie können SQL-Berichte erstellen, bearbeiten und speichern. Wenn Sie weitere Credits für den Abfrage-Builder erwerben möchten, wenden Sie sich bitte an Ihren Account Manager.
+Wenn Sie das Credit-Limit erreicht haben, können Sie keine Anfragen mehr ausführen, aber Sie können SQL-Berichte erstellen, bearbeiten und speichern. Wenn Sie weitere Credits für den Abfrage-Builder erwerben möchten, wenden Sie sich bitte an Ihren Account Manager:in.

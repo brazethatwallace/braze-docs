@@ -10,9 +10,9 @@
 ## Ativação de mensagens no app
 
 {% tabs %}
-{% tab Flutter SDK 18.0.0+ %}
+{% tab Flutter SDK or kit de desenvolvimento de software 18.0.0+ %}
 
-O SDK Flutter da Braze configura automaticamente o apresentador padrão de mensagens no app tanto no Android quanto no iOS. As mensagens no app são exibidas e encaminhadas para a camada Dart sem configuração adicional.
+O SDK or kit de desenvolvimento de software Flutter da Braze configura automaticamente o apresentador padrão de mensagens no app tanto no Android quanto no iOS. As mensagens no app são exibidas e encaminhadas para a camada Dart sem configuração adicional.
 
 ### Personalizando o apresentador de mensagens no app no iOS
 
@@ -44,7 +44,7 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 ```
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 and earlier %}
+{% tab Flutter SDK or kit de desenvolvimento de software 17.1.0 and earlier %}
 
 {% alert note %}
 Esta etapa é apenas para iOS. A implementação padrão para mensagens no app já está configurada no Android.

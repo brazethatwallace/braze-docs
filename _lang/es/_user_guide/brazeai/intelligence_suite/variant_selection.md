@@ -22,7 +22,7 @@ Para una Campaign de envío múltiple, también debes:
 
 ## Activar la optimización {#turn-on-optimization}
 
-En el paso **Target Audiences**, ve a **A/B Testing** y activa **Optimize with BrazeAI<sup>TM</sup>**.
+En el paso **Target Audiences**, ve a **Pruebas A/B** y activa **Optimize with BrazeAI<sup>TM</sup>**.
 
 ## Campaigns de envío único {#single-send-campaigns}
 
@@ -42,7 +42,7 @@ La duración predeterminada del experimento es de 4 horas. Si optimizas para un 
 |---|---|
 | Notificaciones push | *Aperturas* |
 | Correo electrónico | *Clics únicos* |
-| SMS, MMS, RCS y WhatsApp | *Clics* |
+| servicio de mensajes cortos, MMS, RCS y WhatsApp | *Clics* |
 | Otros canales compatibles | *Evento de conversión primaria - A* |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Objetivos de optimización predeterminados por canal" }
 

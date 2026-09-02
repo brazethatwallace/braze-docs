@@ -23,7 +23,7 @@ hidden: true
 
 Como parte dos planos do Shopify para aprimorar a extensibilidade do checkout, mudanças significativas estão chegando à integração com a Braze. Veja o que você precisa saber:
 
-- **Descontinuação de Script Tags e `checkout.liquid`:** O Shopify está eliminando gradualmente os Script Tags e o `checkout.liquid`. Após agosto de 2025, o SDK para Web da Braze não carregará mais nas páginas de checkout por meio de Script Tags, a menos que você migre para a versão mais recente da integração.
+- **Descontinuação de Script Tags e `checkout.liquid`:** O Shopify está eliminando gradualmente os Script Tags e o `checkout.liquid`. Após agosto de 2025, o SDK or kit de desenvolvimento de software para Web da Braze não carregará mais nas páginas de checkout por meio de Script Tags, a menos que você migre para a versão mais recente da integração.
 - **Melhorias gerais na integração:**
     - **Introdução de eventos recomendados:** Estamos adicionando eventos de eCommerce recomendados à integração, o que simplifica casos de uso comuns de eCommerce por meio de modelos pré-construídos na Braze.
     - **Gerenciamento de identidade simplificado:** Estamos aprimorando nossa abordagem para gerenciar identidades de usuários, o que vai melhorar o rastreamento e a atribuição de dados de usuários anônimos. Para saber mais sobre como o gerenciamento de identidade será processado, consulte [Sincronização de usuários e dados]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#user-and-data-syncing).
@@ -38,10 +38,10 @@ Esse upgrade é essencial para manter a funcionalidade da sua integração entre
 
 Antes de iniciar o processo de upgrade na página de integração do Shopify, conclua os seguintes requisitos com sua equipe de engenharia:
 
-- **Verifique personalizações do SDK:** Se você personalizou sua integração entre a Braze e o Shopify (por exemplo, registrando eventos personalizados ou atributos personalizados), certifique-se de que essas personalizações funcionarão corretamente após o upgrade. Se você criou seus próprios eventos de navegador para ações como "produto visualizado" ou "carrinho atualizado", coordene com seus desenvolvedores para removê-los antes do upgrade, pois eles duplicarão a funcionalidade fornecida pelo novo conector.
+- **Verifique personalizações do SDK or kit de desenvolvimento de software:** Se você personalizou sua integração entre a Braze e o Shopify (por exemplo, registrando eventos personalizados ou atributos personalizados), certifique-se de que essas personalizações funcionarão corretamente após o upgrade. Se você criou seus próprios eventos de navegador para ações como "produto visualizado" ou "carrinho atualizado", coordene com seus desenvolvedores para removê-los antes do upgrade, pois eles duplicarão a funcionalidade fornecida pelo novo conector.
 
 {% alert important %}
-Se você tem uma loja online no Shopify e seus desenvolvedores implementaram os SDKs da Braze diretamente no seu site Shopify, ou por meio do Google Tag Manager ou de uma plataforma de dados do cliente, você deve planejar parar de usá-los ao fazer upgrade para o novo conector do Shopify.
+Se você tem uma loja online no Shopify e seus desenvolvedores implementaram os SDKs da Braze diretamente no seu site Shopify, ou por meio do Google Tag Manager ou de uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente, você deve planejar parar de usá-los ao fazer upgrade para o novo conector do Shopify.
 {% endalert %}
 
 - **Revise o gerenciamento de identidade:** Se você está usando um ID externo da Braze, trabalhe com sua equipe de desenvolvimento para garantir que ele seja compatível com a nova integração. Se você define o ID externo dentro da experiência da sua loja Shopify, peça aos seus desenvolvedores para ajustá-lo e evitar conflitos com o [novo processo de gerenciamento de identidade]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing).
@@ -78,7 +78,7 @@ Essa integração usa o Shopify como fonte de verdade para atributos e eventos s
 
 | Versão anterior | Versão mais recente |
 | --- | --- |
-| {::nomarkdown}<ul><li>Script Tag support</li><li>Braze Web SDK only</li><li>Shopify webhooks for events and products</li></ul>{:/} | {::nomarkdown}<ul><li>Web Pixel API support</li><li>New Braze app embed</li><li>Braze Web SDK & JavaScript SDK</li><li>Shopify webhooks for events and products</ul>{:/} |
+| {::nomarkdown}<ul><li>Script Tag support</li><li>Braze Web SDK or kit de desenvolvimento de software only</li><li>Shopify webhooks for events and products</li></ul>{:/} | {::nomarkdown}<ul><li>Web Pixel API or interface de programação do aplicativo (API) support</li><li>New Braze app embed</li><li>Braze Web SDK or kit de desenvolvimento de software & JavaScript SDK or kit de desenvolvimento de software</li><li>Shopify webhooks for events and products</ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Integração padrão" }
 
 ### Identificadores de usuário suportados pela integração {#user-identifiers-supported-by-the-integration}

@@ -28,7 +28,7 @@ Os usuários arquivados serão excluídos permanentemente. <br><br>É possível 
 
 A Braze define um "usuário ativo" em um determinado período como qualquer usuário que registrou uma sessão em um app móvel ou website, foi atualizado, recebeu uma mensagem ou interagiu com uma mensagem.
 
-Se você definir IDs de usuário para identificar usuários quando um novo usuário faz login, ele será contado como um usuário ativo separado. Usuários atualizados pela API também serão contados como usuários ativos no período em que forem atualizados.
+Se você definir IDs de usuário para identificar usuários quando um novo usuário faz login, ele será contado como um usuário ativo separado. Usuários atualizados pela API or interface de programação do aplicativo (API) também serão contados como usuários ativos no período em que forem atualizados.
 
 {% alert important %}
 Tanto os usuários inativos quanto os usuários inativos (dormant) serão arquivados, a menos que o usuário esteja excluído do arquivamento pelos motivos listados abaixo.
@@ -80,7 +80,7 @@ A Braze bloqueia perfis de usuário individuais que crescem de forma anormalment
 | Mais de 20.000 nomes distintos de produtos em compras | Normalmente causado pela geração de um novo `product_id` para cada compra, em vez de reutilizar um conjunto fixo de IDs de produto. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de bloqueio de usuários fictícios" }
 
-Depois que um perfil é bloqueado, a Braze para de ingerir todos os dados de entrada desse perfil, tanto dos SDKs quanto da REST API. Requisições para [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) que referenciam um identificador bloqueado retornam o erro `"provided external_id is blacklisted and disallowed"`. Esse texto é extraído literalmente da resposta da API. A Braze também notifica o gerente da sua conta Braze para que ele possa levantar o problema de integração com você.
+Depois que um perfil é bloqueado, a Braze para de ingerir todos os dados de entrada desse perfil, tanto dos SDKs quanto da REST or transferir estado representacional API or interface de programação do aplicativo (API). Requisições para [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) que referenciam um identificador bloqueado retornam o erro `"provided external_id is blacklisted and disallowed"`. Esse texto é extraído literalmente da resposta da API or interface de programação do aplicativo (API). A Braze também notifica o gerente da sua conta Braze para que ele possa levantar o problema de integração com você.
 
 Se você descobrir que isso aconteceu com um usuário legítimo, abra um ticket com o [suporte]({{site.baseurl}}/braze_support) da Braze.
 
@@ -88,7 +88,7 @@ Para encontrar os usuários fictícios do seu dashboard, siga estas etapas:
 
 1. Crie um [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 2. Selecione o filtro `Session Count` e defina como `more than 5,000,000`.
-3. Exporte o Segment via CSV.
+3. Exporte o Segment or segmento via CSV.
 
 O filtro **Session Count** encontra apenas usuários fictícios baseados em sessão. Não existe um filtro de segmentação para o número de nomes distintos de eventos personalizados ou nomes de produtos em um perfil. Entre em contato com o gerente da sua conta Braze para identificar perfis bloqueados por esses motivos.
 

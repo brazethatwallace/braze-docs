@@ -1,8 +1,8 @@
 ---
 nav_title: "Telefonnummern von Nutzer:innen"
-article_title: SMS-Telefonnummern von Nutzer:innen
+article_title: Kurzmitteilungsdienst or SMS-Telefonnummern von Nutzer:innen
 page_order: 3
-description: "Dieser Referenzartikel behandelt die Formatierung von SMS-Telefonnummern, den Import von Telefonnummern sowie das Hinzufügen von Nutzer:innen zu SMS-Abo-Gruppen."
+description: "Dieser Referenzartikel behandelt die Formatierung von Kurzmitteilungsdienst or SMS-Telefonnummern, den Import von Telefonnummern sowie das Hinzufügen von Nutzer:innen zu Kurzmitteilungsdienst or SMS-Abo-Gruppen."
 page_type: reference
 alias: /user_phone_numbers/
 channel:
@@ -56,10 +56,10 @@ Wenn eine Telefonnummer als ungültig eingestuft wird, markiert Braze die Telefo
 
 Eine Telefonnummer wird aus folgenden Gründen als ungültig eingestuft:
 
-- **Anbieterfehler**: Vom SMS- und RCS-Anbieter wurde ein permanenter Fehler zurückgegeben. Dies weist darauf hin, dass die angegebene Telefonnummer falsch formatiert ist oder dauerhaft keine SMS- oder RCS-Nachrichten empfangen kann.
-- **Deaktiviert**: Die Telefonnummer wurde deaktiviert, weil ein:e Mobilfunkteilnehmer:in den Vertrag gekündigt und die Nummer beim Anbieter freigegeben hat (und die Nummer möglicherweise recycelt und neuen Nutzer:innen zugewiesen wird). Eine deaktivierte Telefonnummer kann auch dann als ungültig markiert werden, wenn Sie keine SMS- oder RCS-Nachrichten an diese Telefonnummer gesendet haben.
+- **Anbieterfehler**: Vom Kurzmitteilungsdienst or SMS- und RCS-Anbieter wurde ein permanenter Fehler zurückgegeben. Dies weist darauf hin, dass die angegebene Telefonnummer falsch formatiert ist oder dauerhaft keine Kurzmitteilungsdienst or SMS- oder RCS-Nachrichten empfangen kann.
+- **Deaktiviert**: Die Telefonnummer wurde deaktiviert, weil ein:e Mobilfunkteilnehmer:in den Vertrag gekündigt und die Nummer beim Anbieter freigegeben hat (und die Nummer möglicherweise recycelt und neuen Nutzer:innen zugewiesen wird). Eine deaktivierte Telefonnummer kann auch dann als ungültig markiert werden, wenn Sie keine Kurzmitteilungsdienst or SMS- oder RCS-Nachrichten an diese Telefonnummer gesendet haben.
 
-Diese ungültigen Telefonnummern können über [SMS- und RCS-Endpunkte]({{site.baseurl}}/api/endpoints/sms) verwaltet werden.
+Diese ungültigen Telefonnummern können über [Kurzmitteilungsdienst or SMS- und RCS-Endpunkte]({{site.baseurl}}/api/endpoints/sms) verwaltet werden.
 
 {% alert note %}
 Wenn mehrere Nutzerprofile dieselbe Telefonnummer haben und diese Telefonnummer als ungültig markiert wird, werden alle bestehenden Nutzerprofile mit dieser Nummer als ungültig angezeigt. Neu erstellte Nutzerprofile werden anfänglich niemals als ungültig markiert.
@@ -67,23 +67,23 @@ Wenn mehrere Nutzerprofile dieselbe Telefonnummer haben und diese Telefonnummer 
 
 Sie können beim [Erstellen eines Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#step-4-add-filters-to-your-segment) auch Nutzer:innen mit ungültigen Telefonnummern ein- oder ausschließen.
 
-## Abgelehnte SMS-Sends von der Segmentierung ausschließen {#exclude-rejected-sms-sends-from-segmentation}
+## Abgelehnte Kurzmitteilungsdienst or SMS-Sends von der Segmentierung ausschließen {#exclude-rejected-sms-sends-from-segmentation}
 
 {% alert important %}
-SMS-Ablehnungen können je nach Ihrem Braze-Vertrag und SMS-Anbieter auf Ihr SMS-Kontingent angerechnet werden. Informationen zu Abrechnungsfolgen finden Sie unter [Reporting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
+Kurzmitteilungsdienst or SMS-Ablehnungen können je nach Ihrem Braze-Vertrag und Kurzmitteilungsdienst or SMS-Anbieter auf Ihr Kurzmitteilungsdienst or SMS-Kontingent angerechnet werden. Informationen zu Abrechnungsfolgen finden Sie unter [Reporting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/reporting).
 {% endalert %}
 
-Um Nutzer:innen mit abgelehnten SMS-Sends aus Ihren Segmenten auszuschließen, verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und gehen Sie wie folgt vor:
+Um Nutzer:innen mit abgelehnten Kurzmitteilungsdienst or SMS-Sends aus Ihren Segmenten auszuschließen, verwenden Sie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und gehen Sie wie folgt vor:
 
 1. Gehen Sie zu **Audience** > **Segment Extensions**.
 2. Wählen Sie **Create New Extension** > **Full refresh** oder **Incremental refresh** aus.
-3. Schreiben Sie eine SQL-Abfrage, die Nutzer:innen mit SMS-Ablehnungen identifiziert. Sie können beispielsweise das Ereignis `USERS_MESSAGES_SMS_REJECTION_SHARED` abfragen, um Nutzer:innen zu finden, die SMS-Ablehnungen erhalten haben.
+3. Schreiben Sie eine SQL-Abfrage, die Nutzer:innen mit Kurzmitteilungsdienst or SMS-Ablehnungen identifiziert. Sie können beispielsweise das Ereignis `USERS_MESSAGES_SMS_REJECTION_SHARED` abfragen, um Nutzer:innen zu finden, die Kurzmitteilungsdienst or SMS-Ablehnungen erhalten haben.
 4. Speichern Sie Ihre Segmenterweiterung.
-5. Wenn Sie Ihr SMS-Segment erstellen, fügen Sie einen Filter hinzu, um Nutzer:innen in dieser Segmenterweiterung auszuschließen.
+5. Wenn Sie Ihr Kurzmitteilungsdienst or SMS-Segment erstellen, fügen Sie einen Filter hinzu, um Nutzer:innen in dieser Segmenterweiterung auszuschließen.
 
-## Nutzer:innen zu SMS- und RCS-Abo-Gruppen hinzufügen {#add-users-to-sms-and-rcs-subscription-groups}
+## Nutzer:innen zu Kurzmitteilungsdienst or SMS- und RCS-Abo-Gruppen hinzufügen {#add-users-to-sms-and-rcs-subscription-groups}
 
-Damit Nutzer:innen eine SMS- oder RCS-Nachricht erhalten können, müssen sie über eine gültige Telefonnummer verfügen und sich für eine Abo-Gruppe angemeldet haben. Abo-Gruppen sind an das SMS- oder RCS-Programm gebunden, das Sie betreiben (stellen Sie sicher, dass Sie die [gesetzlichen Anforderungen für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) einhalten und die Einwilligung jeder Kundin und jedes Kunden dokumentiert haben). Weitere Informationen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
+Damit Nutzer:innen eine Kurzmitteilungsdienst or SMS- oder RCS-Nachricht erhalten können, müssen sie über eine gültige Telefonnummer verfügen und sich für eine Abo-Gruppe angemeldet haben. Abo-Gruppen sind an das Kurzmitteilungsdienst or SMS- oder RCS-Programm gebunden, das Sie betreiben (stellen Sie sicher, dass Sie die [gesetzlichen Anforderungen für Kurzmitteilungsdienst or SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations) einhalten und die Einwilligung jeder Kundin und jedes Kunden dokumentiert haben). Weitere Informationen finden Sie unter [Kurzmitteilungsdienst or SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Beschaffung und Überprüfung durch Drittanbieter {#third-party-sourcing-and-verification}
 
@@ -91,4 +91,4 @@ Braze nutzt Tools von Drittanbietern, um ungültige Nummern zu ermitteln. Braze 
 
 ## Erfassung von Telefonnummern {#phone-number-capture}
 
-Um Telefonnummern über In-App-Nachrichten zu erfassen, lesen Sie den Artikel [Anmeldeformular für SMS, RCS und WhatsApp]({{site.baseurl}}/phone_number_capture).
+Um Telefonnummern über In-App-Nachrichten zu erfassen, lesen Sie den Artikel [Anmeldeformular für Kurzmitteilungsdienst or SMS, RCS und WhatsApp]({{site.baseurl}}/phone_number_capture).

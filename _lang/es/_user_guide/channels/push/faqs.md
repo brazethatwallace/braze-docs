@@ -20,7 +20,7 @@ La entrega generalmente sigue tres etapas: **procesamiento** de Braze (segmentac
 
 Cuando un usuario cierra sesión en un dispositivo o sitio web, seguirá siendo alcanzable por push hasta que otro usuario inicie sesión. En ese momento, el token de notificaciones push se reasigna al nuevo usuario. Esto se debe a que cada dispositivo solo puede tener una suscripción push activa por aplicación o sitio web.
 
-Cuando se reasigna un token de notificaciones push, el cambio se refleja en el **Push Changelog** del perfil de usuario. En el perfil de usuario, ve a la pestaña **Engagement**.
+Cuando se reasigna un token de notificaciones push, el cambio se refleja en el **Push Registro de cambios** del perfil de usuario. En el perfil de usuario, ve a la pestaña **Engagement**.
 
 ![El "Push Changelog" en la sección "Contact Settings".]({% image_buster /assets/img/push_changelog_faq.png %}){: style="max-width:50%;"}
 
@@ -40,7 +40,7 @@ Para más detalles y próximos pasos, consulta [Mensajes de error push comunes](
 
 Esto puede ocurrir si el token de notificaciones push del usuario fue reasignado a otra persona que usó el mismo dispositivo.
 
-1. Ve al **Push Changelog** en la pestaña **Engagement** del perfil del usuario afectado.
+1. Ve al **Push Registro de cambios** en la pestaña **Engagement** del perfil del usuario afectado.
 2. Busca un mensaje que indique que el token de notificaciones push fue trasladado a otro usuario.
 3. Copia el token de notificaciones push y pégalo en la barra de búsqueda de usuarios.
 4. Si el token de notificaciones push aún existe, serás dirigido al usuario que inició sesión más recientemente en el dispositivo.
@@ -83,7 +83,7 @@ Un mensaje se registra como enviado en cuanto el proveedor de servicios de notif
 
 Para iOS, el proveedor de servicios de notificaciones push es el servicio de notificaciones push de Apple (APNs), y para Android, normalmente es Firebase Cloud Messaging (FCM). El proveedor de servicios de notificaciones push responde de inmediato con éxito o fallo. Un fallo podría incluir un rebote o un reintento por fallo de red.
 
-Si se devuelve un mensaje de éxito, el envío se registra en Braze y, a continuación, el servicio push intenta entregar al dispositivo. Si no se puede contactar con el dispositivo de inmediato, el servicio reintenta hasta que se alcanza la opción de caducidad configurada en Braze (**TTL** para Android, **Expiry** para iOS). Si el mensaje caduca, el servicio push lo descarta, pero no se considera un rebote.
+Si se devuelve un mensaje de éxito, el envío se registra en Braze y, a continuación, el servicio push intenta entregar al dispositivo. Si no se puede contactar con el dispositivo de inmediato, el servicio reintenta hasta que se alcanza la opción de caducidad configurada en Braze (**TTL or tiempo de vida** para Android, **Expiry** para iOS). Si el mensaje caduca, el servicio push lo descarta, pero no se considera un rebote.
 
 - Para Campaigns push con entrega basada en acciones, el envío del mensaje se registra en cuanto el usuario realiza la acción que desencadena la Campaign.
 - Para Campaigns planificadas, la hora de envío es el momento en que el mensaje se puso en cola y se pasó al proveedor de servicios de notificaciones push.

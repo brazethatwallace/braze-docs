@@ -2,12 +2,12 @@
 nav_title: Definir IDs de usuário
 article_title: Definir IDs de usuário
 page_order: 1.1
-description: "Aprenda como definir IDs de usuário através do SDK da Braze."
+description: "Aprenda como definir IDs de usuário através do SDK or kit de desenvolvimento de software da Braze."
 ---
 
 # Definir IDs de usuário {#set-user-ids}
 
-> Aprenda como definir IDs de usuário através do SDK da Braze. Estes são identificadores únicos que permitem rastrear usuários em dispositivos e plataformas, importar seus dados através da [API de dados de usuários]({{site.baseurl}}/api/endpoints/user_data) e enviar mensagens direcionadas através da [API de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging). Se você não atribuir um ID único a um usuário, a Braze atribuirá a ele um ID anônimo; no entanto, você não poderá usar esses recursos até que o faça.
+> Aprenda como definir IDs de usuário através do SDK or kit de desenvolvimento de software da Braze. Estes são identificadores únicos que permitem rastrear usuários em dispositivos e plataformas, importar seus dados através da [API or interface de programação do aplicativo (API) de dados de usuários]({{site.baseurl}}/api/endpoints/user_data) e enviar mensagens direcionadas através da [API or interface de programação do aplicativo (API) de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging). Se você não atribuir um ID único a um usuário, a Braze atribuirá a ele um ID anônimo; no entanto, você não poderá usar esses recursos até que o faça.
 
 {% alert note %}
 Para wrapper SDKs não listados, use o método nativo relevante do Android ou Swift.
@@ -19,10 +19,10 @@ Para wrapper SDKs não listados, use o método nativo relevante do Android ou Sw
 
 ### Impedindo o rastreamento de usuários anônimos {#preventing-anonymous-user-tracking}
 
-Se o seu caso de uso exige que nenhum dado seja coletado antes que um usuário seja identificado, você pode adiar a inicialização do SDK da Braze até que o usuário faça login e um `external_id` esteja disponível. Defina um sinalizador no seu código que mude para `true` quando o usuário fizer login e inicialize o SDK somente quando esse sinalizador estiver definido.
+Se o seu caso de uso exige que nenhum dado seja coletado antes que um usuário seja identificado, você pode adiar a inicialização do SDK or kit de desenvolvimento de software da Braze até que o usuário faça login e um `external_id` esteja disponível. Defina um sinalizador no seu código que mude para `true` quando o usuário fizer login e inicialize o SDK or kit de desenvolvimento de software somente quando esse sinalizador estiver definido.
 
 {% alert warning %}
-Adie a inicialização apenas na **primeira vez** que um usuário baixar seu app (antes de um `external_id` ser definido). Se você impedir que o SDK seja inicializado toda vez que um usuário fizer logout ou iniciar uma nova sessão, isso interferirá no pré-carregamento de ativos de mensagens no app e cartões de conteúdo, o que pode causar erros de entregabilidade para essas Campaigns.
+Adie a inicialização apenas na **primeira vez** que um usuário baixar seu app (antes de um `external_id` ser definido). Se você impedir que o SDK or kit de desenvolvimento de software seja inicializado toda vez que um usuário fizer logout ou iniciar uma nova sessão, isso interferirá no pré-carregamento de ativos de mensagens no app e cartões de conteúdo, o que pode causar erros de entregabilidade para essas Campaigns.
 {% endalert %}
 
 ## Definir um ID de usuário {#setting-a-user-id}
@@ -33,7 +33,7 @@ Se você estiver fazendo hash de um identificador exclusivo, normalize a entrada
 
 {% tabs local %}
 {% tab WEB %}
-Para uma implementação padrão do Web SDK, você pode usar o seguinte método:
+Para uma implementação padrão do Web SDK or kit de desenvolvimento de software, você pode usar o seguinte método:
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
@@ -120,7 +120,7 @@ AppboyBinding.ChangeUser("YOUR_USER_ID_STRING");
 ```
 {% endtab %}
 
-{% tab REACT NATIVE %}
+{% tab React Native %}
 ```javascript
 Braze.changeUser("YOUR_USER_ID_STRING");
 ```
@@ -137,7 +137,7 @@ Quando você chama `changeUser()`, os seguintes comportamentos se aplicam:
 - Quando um usuário anônimo chama `changeUser()` com um ID de usuário **existente**, os dados do perfil anônimo não são mesclados ao perfil identificado.
 
 {% alert note %}
-Chamar `changeUser()` dispara um envio de dados como parte do encerramento da sessão do usuário atual. O SDK envia automaticamente todos os dados pendentes do usuário anterior antes de alternar para o novo usuário, então não é necessário solicitar manualmente um envio de dados antes de chamar `changeUser()`.
+Chamar `changeUser()` dispara um envio de dados como parte do encerramento da sessão do usuário atual. O SDK or kit de desenvolvimento de software envia automaticamente todos os dados pendentes do usuário anterior antes de alternar para o novo usuário, então não é necessário solicitar manualmente um envio de dados antes de chamar `changeUser()`.
 {% endalert %}
 
 {% alert warning %}
@@ -193,7 +193,7 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% endsubtabs %}
 {% endtab %}
 
-{% tab rest api %}
+{% tab REST or transferir estado representacional API or interface de programação do aplicativo (API) %}
 ```json
 {
   "alias_name" : (required, string),
@@ -202,7 +202,7 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 ```
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 ```javascript
 Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 ```
@@ -213,12 +213,12 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 Recomendamos que você crie IDs de usuário usando o padrão [Identificador Único Universal (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier), o que significa que são strings de 128 bits aleatórias e bem distribuídas.
 
-Alternativamente, você pode fazer hash de um identificador único existente (como um nome ou endereço de e-mail) para gerar seus IDs de usuário. Se fizer isso, certifique-se de implementar a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar a simulação de usuários.
+Alternativamente, você pode fazer hash de um identificador único existente (como um nome ou endereço de e-mail) para gerar seus IDs de usuário. Se fizer isso, certifique-se de implementar a [autenticação do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/authentication) para evitar a simulação de usuários.
 
 {% alert warning %}
 Não use um valor previsível ou um número incremental para seu ID de usuário. Isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.
 
-Para maior segurança, use a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
+Para maior segurança, use a [autenticação do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
 Embora seja essencial que você nomeie corretamente seus IDs de usuário desde o início, você sempre pode renomeá-los no futuro usando o endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).

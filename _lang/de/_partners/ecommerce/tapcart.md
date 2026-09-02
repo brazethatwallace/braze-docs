@@ -25,7 +25,7 @@ _Diese Integration wird von Tapcart gepflegt._
 
 Um zu erfahren, wie Sie Tapcart mit Braze integrieren, sehen Sie sich den [Integrationsleitfaden von Tapcart](https://help.tapcart.com/en/articles/13893755-braze-tapcart) direkt auf deren Website an. Nach der Integration können Sie die folgenden Tapcart-Features in Braze nutzen:
 
-- Basis-SDK-Integration
+- Basis-SDK or Software-Development-Kit-Integration
 - iOS- und Android-Push-Benachrichtigungen
 - Rich-Push-Nachrichten
 - User-Journey-Tracking und Segmentierung

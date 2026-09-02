@@ -15,23 +15,23 @@ page_order: 3
 Google está actualizando su [Política de consentimiento del usuario de la UE](https://www.google.com/about/company/user-consent-policy/) en respuesta a los cambios en la [Ley de Mercados Digitales (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), que está en vigor desde el 6 de marzo de 2024. Este nuevo cambio obliga a los anunciantes a revelar cierta información a sus usuarios finales del EEE, Reino Unido y Suiza, así como a obtener de ellos el consentimiento necesario. Consulta la siguiente documentación para obtener más información.
 {% endalert %}
 
-La integración de Braze Audience Sync con Google permite a las marcas ampliar el alcance de sus recorridos del cliente multicanal a Google Search, Google Shopping, Gmail, YouTube y Google Display. Utilizando tus datos propios de clientes, puedes entregar de forma segura anuncios basados en desencadenantes dinámicos de comportamiento, segmentación y más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (por ejemplo, push, correo electrónico o SMS) como parte de un Canvas de Braze puede utilizarse para desencadenar un anuncio dirigido a ese usuario con [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) de Google.
+La integración de Braze Audience Sync con Google permite a las marcas ampliar el alcance de sus recorridos del cliente multicanal a Google Search, Google Shopping, Gmail, YouTube y Google Display. Utilizando tus datos propios de clientes, puedes entregar de forma segura anuncios basados en desencadenantes dinámicos de comportamiento, segmentación y más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (por ejemplo, push, correo electrónico o servicio de mensajes cortos) como parte de un Canvas de Braze puede utilizarse para desencadenar un anuncio dirigido a ese usuario con [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) de Google.
 
 {% alert note %}
-La integración de Braze Audience Sync con Google es compatible con Google Ads, no con Google Ads Manager.
+La integración de Braze Audience Sync con Google es compatible con Google Ads, no con Google Ads Administrador.
 {% endalert %}
 
 Google Ads ya no genera audiencias similares, también conocidas como "audiencias parecidas", para la segmentación y los informes. Consulta la [documentación de Google Ads](https://support.google.com/google-ads/answer/12463119?) para obtener más información.
 
-## API de Google Data Manager {#google-data-manager-api}
+## API de Google Data Administrador {#google-data-manager-api}
 
 {% alert important %}
-La compatibilidad con la API de Google Data Manager para Audience Sync con Google se encuentra en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze para conocer la elegibilidad y los plazos de implementación.
+La compatibilidad con la API de Google Data Administrador para Audience Sync con Google se encuentra en acceso anticipado. Ponte en contacto con tu director de cuentas de Braze para conocer la elegibilidad y los plazos de implementación.
 {% endalert %}
 
-Google está consolidando las integraciones publicitarias en la API de Data Manager. En acceso anticipado, Braze Audience Sync con Google puede utilizar esta API para dar soporte a los cambios continuos en la API de publicidad de Google.
+Google está consolidando las integraciones publicitarias en la API de Data Administrador. En acceso anticipado, Braze Audience Sync con Google puede utilizar esta API para dar soporte a los cambios continuos en la API de publicidad de Google.
 
-Para las conexiones nuevas y reconectadas de Google Audience Sync, Braze solicita automáticamente el alcance requerido de Data Manager. Las conexiones existentes continúan sincronizándose a través de la ruta heredada hasta que se reconecten.
+Para las conexiones nuevas y reconectadas de Google Audience Sync, Braze solicita automáticamente el alcance requerido de Data Administrador. Las conexiones existentes continúan sincronizándose a través de la ruta heredada hasta que se reconecten.
 
 Sigue esta guía para la conexión de cuentas, la configuración de audiencias y el comportamiento de sincronización.
 
@@ -54,9 +54,9 @@ Asegúrate de que los siguientes elementos estén creados y completados antes de
 | Señales de consentimiento de Google | [Google](https://support.google.com/google-ads/answer/14310715) | Si deseas mostrar anuncios a usuarios finales del EEE utilizando el servicio Customer Match de Google, deberás pasar a Braze los siguientes atributos personalizados (booleanos) como parte de la Política de consentimiento del usuario de la UE de Google. Puedes encontrar más detalles en [Recopilación de consentimiento para usuarios finales del EEE, el Reino Unido y Suiza](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
-### Versiones mínimas del SDK requeridas {#required-sdk-versions}
+### Versiones mínimas del SDK or kit de desarrollo de software requeridas {#required-sdk-versions}
 
-Cuando utilices los SDK de Braze para recopilar señales de consentimiento, asegúrate de cumplir con las siguientes versiones mínimas:
+Cuando utilices los SDK or kit de desarrollo de software de Braze para recopilar señales de consentimiento, asegúrate de cumplir con las siguientes versiones mínimas:
 
 {% sdk_min_versions swift:7.6.0 android:1.3.2 web:3.0.0 %}
 

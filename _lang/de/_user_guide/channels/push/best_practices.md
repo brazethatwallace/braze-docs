@@ -77,7 +77,7 @@ Sie können in Ihrer App eine Einstellungsseite erstellen, auf der Nutzer:innen 
 
 Wenn die Nachrichten-App eine Campaign erstellen möchte, die nur Nutzer:innen anspricht, die sich für Politik interessieren, fügt sie den Attributfilter `Subscribes to Politics` zum Segment hinzu. Wenn dieser auf „true“ gesetzt ist, erhalten nur Nutzer:innen Benachrichtigungen, die diese auch abonniert haben.
 
-Weitere Informationen zum Festlegen angepasster Attribute finden Sie in den folgenden Artikeln für [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) oder [REST API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
+Weitere Informationen zum Festlegen angepasster Attribute finden Sie in den folgenden Artikeln für [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) oder [Representational State Transfer API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Opt-ins steigern und Relevanz erhöhen {#increase-opt-ins-and-relevance}
 
@@ -93,7 +93,7 @@ Sie haben nur eine Chance, Nutzer:innen um die Push-Erlaubnis zu bitten, und nac
 
 ### Push-Abo-Steuerung hinzufügen {#add-push-subscription-controls}
 
-Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren – was ihr Vordergrund-Push-Token vollständig entfernt –, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+Um zu vermeiden, dass Nutzer:innen Benachrichtigungen auf Geräteebene deaktivieren – was ihr Vordergrund-Push-Token / Textbaustein vollständig entfernt –, lassen Sie Nutzer:innen ihr Push-Abo direkt in Ihrer App steuern. Weitere Details finden Sie unter [Push-Abo-Status Update or aktualisieren or aktualisieren]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 ### Erweiterte Zeitplanung verwenden oder Verzögerungen hinzufügen {#use-advanced-scheduling-or-add-delays}
 
@@ -105,11 +105,11 @@ Wir empfehlen außerdem, die Anzahl der API-Aufrufe durch Optimierung der benöt
 
 ### Push-Abo-Status verstehen {#understand-push-subscription-states}
 
-Der Push-Abo-Status garantiert nicht, dass eine Push-Benachrichtigung zugestellt wird – Nutzer:innen müssen außerdem Push-aktiviert sein, um Benachrichtigungen zu empfangen. Dies liegt daran, dass ein Nutzerprofil mehrere Geräte mit unterschiedlichen Vordergrund-Push-Berechtigungen haben kann, aber nur einen einzigen Push-Abo-Status besitzt.
+Der Push-Abo-Status garantiert nicht, dass eine Push-Benachrichtigung zugestellt wird – Nutzer:innen müssen außerdem Push-aktiviert sein, um Benachrichtigungen zu empfangen. Dies liegt daran, dass ein Kundenprofil or Nutzerprofil mehrere Geräte mit unterschiedlichen Vordergrund-Push-Berechtigungen haben kann, aber nur einen einzigen Push-Abo-Status besitzt.
 
-Wenn Nutzer:innen kein gültiges Vordergrund-Push-Token für eine App haben (d. h. sie Push-Tokens auf Geräteebene über die Einstellungen deaktivieren und sich entscheiden, keine Benachrichtigungen zu empfangen), kann ihr Abo-Status dennoch als `subscribed` für Push gelten. Diese Nutzer:innen wären jedoch in Braze nicht als `Foreground Push Enabled for App` eingestuft, da das Vordergrund-Push-Token ungültig ist.
+Wenn Nutzer:innen kein gültiges Vordergrund-Push-Token / Textbaustein für eine App haben (d. h. sie Push-Tokens auf Geräteebene über die Einstellungen deaktivieren und sich entscheiden, keine Benachrichtigungen zu empfangen), kann ihr Abo-Status dennoch als `subscribed` für Push gelten. Diese Nutzer:innen wären jedoch in Braze nicht als `Foreground Push Enabled for App` eingestuft, da das Vordergrund-Push-Token / Textbaustein ungültig ist.
 
-Darüber hinaus ist der Filter `Foreground Push Enabled` in der Segmentierung auch auf „false“ gesetzt, wenn ein Nutzerprofil kein gültiges oder registriertes Push-Token für andere Apps besitzt.
+Darüber hinaus ist der Filter `Foreground Push Enabled` in der Segmentierung auch auf „false“ gesetzt, wenn ein Kundenprofil or Nutzerprofil kein gültiges oder registriertes Push-Token / Textbaustein für andere Apps besitzt.
 
 ## Eine Sunset-Richtlinie für nicht reagierende Nutzer:innen umsetzen {#implement-a-sunset-policy-for-unresponsive-users}
 
@@ -130,7 +130,7 @@ Wenn Sie einer Push-Campaign [Konversions-Events]({{site.baseurl}}/user_guide/me
 
 Während alle Push-Campaign-Ergebnisse die direkten Öffnungen und Öffnungen einer Nachricht aufschlüsseln (was sowohl direkte als auch [beeinflusste Öffnungen]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens) umfasst), verfolgt das Konversions-Tracking jede Art von Öffnung, ob direkt oder beeinflusst.
 
-Darüber hinaus verfolgen Sie mit dem Konversions-Event „öffnet App“ App-Öffnungen, die vor Ablauf der Konversionsfrist auftreten (zum Beispiel drei Tage). Dies unterscheidet sich von einer beeinflussten Öffnung, da die Zeit, die Nutzer:innen haben, um eine beeinflusste Öffnung zu registrieren, von Person zu Person variieren kann und vom bisherigen Engagement-Verhalten der jeweiligen Nutzer:innen abhängt.
+Darüber hinaus verfolgen Sie mit dem Konversions-Event „öffnet App“ App-Öffnungen, die vor Ablauf der Konversionsfrist auftreten (zum Beispiel drei Tage). Dies unterscheidet sich von einer beeinflussten Öffnung, da die Zeit, die Nutzer:innen haben, um eine beeinflusste Öffnung zu Registrierung or registrieren, von Person zu Person variieren kann und vom bisherigen Engagement-Verhalten der jeweiligen Nutzer:innen abhängt.
 
 ## Vorschriften für Push-Nachrichten {#push-message-regulations}
 

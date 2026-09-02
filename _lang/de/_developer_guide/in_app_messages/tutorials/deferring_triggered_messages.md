@@ -8,7 +8,7 @@ layout: scrolly
 
 # Anleitung: Getriggerte Nachrichten aufschieben und wiederherstellen {#tutorial-deferring-and-restoring-triggered-messages}
 
-> Folgen Sie dem Beispielcode in dieser Anleitung, um getriggerte In-App-Nachrichten mit dem Braze SDK aufzuschieben und wiederherzustellen.
+> Folgen Sie dem Beispielcode in dieser Anleitung, um getriggerte In-App-Nachrichten mit dem Braze SDK or Software-Development-Kit aufzuschieben und wiederherzustellen.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -66,7 +66,7 @@ lines-index.js=9-16
 
 #### 3. Den Callback-Handler für In-App-Nachrichten abonnieren {#3-subscribe-to-the-in-app-message-callback-handler}
 
-Registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
+Registrierung or registrieren Sie einen Callback mit [`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage), um jedes Mal eine Nachricht zu erhalten, wenn eine In-App-Nachricht getriggert wird.
 
 !!step
 lines-index.js=11-12
@@ -219,9 +219,9 @@ Um die Fehlerbehebung während der Entwicklung zu erleichtern, sollten Sie das D
 !!step
 lines-MainApplication.kt=34-36
 
-#### 3. Activity-Lifecycle-Callbacks registrieren {#3-register-activity-lifecycle-callbacks}
+#### 3. Activity-Lifecycle-Callbacks Registrierung or registrieren {#3-register-activity-lifecycle-callbacks}
 
-Registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
+Registrierung or registrieren Sie den Standard-Listener von Braze, um den Lebenszyklus der In-App-Nachrichten zu verwalten.
 
 !!step
 lines-MainApplication.kt=39-49
@@ -242,12 +242,12 @@ lines-MainApplication.kt=52-55
 
 #### 6. Eine Methode zur Anzeige aufgeschobener Nachrichten erstellen {#6-create-a-method-for-displaying-deferred-messages}
 
-Verwenden Sie `showDeferredMessage`, um die nächste In-App-Nachricht zu triggern. Wenn `showMessage` den Wert `true` hat, gibt der Listener `DISPLAY_NOW` zurück.
+Verwenden Sie `showDeferredMessage`, um die nächste In-App-Nachricht zu Trigger or triggern or triggern. Wenn `showMessage` den Wert `true` hat, gibt der Listener `DISPLAY_NOW` zurück.
 
 !!step
 lines-MainActivity.kt=29
 
-#### 7. Die Methode über Ihre UI triggern {#7-trigger-the-method-from-your-ui}
+#### 7. Die Methode über Ihre UI Trigger or triggern or triggern {#7-trigger-the-method-from-your-ui}
 
 Um die zuvor aufgeschobene Nachricht anzuzeigen, rufen Sie `showDeferredMessage(true)` über Ihre UI auf, z. B. über einen Button oder durch Antippen.
 
@@ -382,7 +382,7 @@ Erstellen Sie eine Methode, die `showDeferredMessage(true)` aufruft, um die näc
 !!step
 lines-ContentView.swift=1-14
 
-#### 6. Die Methode über Ihre UI triggern {#5-trigger-the-method-from-your-ui}
+#### 6. Die Methode über Ihre UI Trigger or triggern or triggern {#5-trigger-the-method-from-your-ui}
 
 Um die zuvor aufgeschobene Nachricht anzuzeigen, rufen Sie `showDeferredMessage(true)` über Ihre UI auf, z. B. über einen Button oder durch Antippen.
 

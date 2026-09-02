@@ -30,8 +30,8 @@ Si estás participando en las pruebas de las cuentas de Meta Work en versión be
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| [Facebook Business Manager](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas publicitarias, páginas, aplicaciones). |
-| [Cuenta publicitaria de Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Una cuenta publicitaria de Facebook activa vinculada al administrador comercial de tu marca que quieras usar con las audiencias personalizadas de Braze.<br><br>Asegúrate de que el administrador de tu Facebook Business Manager te haya concedido permisos de administrador para las cuentas publicitarias de Facebook que planeas usar con Braze, y de que hayas aceptado los términos y condiciones de tu cuenta publicitaria. De lo contrario, no podrás acceder a ninguna cuenta publicitaria de Facebook dentro de Braze. |
+| [Facebook Business Administrador](https://www.facebook.com/business/help/113163272211510?id=180505742745347) | Una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas publicitarias, páginas, aplicaciones). |
+| [Cuenta publicitaria de Facebook](https://www.facebook.com/business/help/910137316041095?id=420299598837059) | Una cuenta publicitaria de Facebook activa vinculada al administrador comercial de tu marca que quieras usar con las audiencias personalizadas de Braze.<br><br>Asegúrate de que el administrador de tu Facebook Business Administrador te haya concedido permisos de administrador para las cuentas publicitarias de Facebook que planeas usar con Braze, y de que hayas aceptado los términos y condiciones de tu cuenta publicitaria. De lo contrario, no podrás acceder a ninguna cuenta publicitaria de Facebook dentro de Braze. |
 | [Términos de audiencias personalizadas de Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php)| Debes aceptar los términos de audiencias personalizadas de Facebook para las cuentas publicitarias de Facebook que planeas usar con Braze.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -49,7 +49,7 @@ Si estás participando en las pruebas de las cuentas de Meta Work en versión be
 
 {: start="4"}
 4. Después de vincular Braze a tu cuenta de Facebook, selecciona qué cuentas publicitarias deseas sincronizar dentro de tu espacio de trabajo de Braze. <br><br>![Una lista de cuentas publicitarias disponibles que puedes conectar a Facebook.]({% image_buster /assets/img/fb/afb_4.png %}){: style="max-width:70%;"}<br><br> Después de conectarte, vuelves a la página del partner, donde puedes ver qué cuentas están conectadas y desconectar cuentas existentes. <br><br> ![Una versión actualizada de la página de partners tecnológicos de Facebook que muestra las cuentas publicitarias conectadas con éxito.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:70%;"}<br>
-<br> Tu conexión con Facebook se aplica a nivel del espacio de trabajo de Braze. Si tu administrador de Facebook te elimina de tu Facebook Business Manager o del acceso a las cuentas de Facebook conectadas, Braze detecta un token no válido. Como resultado, tus Canvas activos que usan pasos de Facebook Audience mostrarán errores, y Braze no podrá sincronizar usuarios.
+<br> Tu conexión con Facebook se aplica a nivel del espacio de trabajo de Braze. Si tu administrador de Facebook te elimina de tu Facebook Business Administrador o del acceso a las cuentas de Facebook conectadas, Braze detecta un token no válido. Como resultado, tus Canvas activos que usan pasos de Facebook Audience mostrarán errores, y Braze no podrá sincronizar usuarios.
 
 {% alert important %}
 Para los clientes que previamente han pasado por el proceso de revisión de aplicaciones de Facebook para [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) y [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard), tu token de usuario del sistema sigue siendo válido para el paso de Facebook Audience. No puedes editar ni revocar el token de usuario del sistema de Facebook a través de la página del partner de Facebook. En su lugar, puedes conectar tu cuenta de Facebook para reemplazar tu token de usuario del sistema de Facebook dentro de tu espacio de trabajo de Braze.
@@ -76,7 +76,7 @@ Solo puedes seleccionar un campo de usuario dentro de una sola exportación. Si 
 
 {: start="4"}
 4. Después de seleccionar el campo de usuario, selecciona **Exportar Segment**. Al igual que con las exportaciones CSV, recibirás un correo electrónico cuando el Segment haya terminado de exportarse a Facebook.
-5. Visualiza la audiencia personalizada en el [Facebook Ads Manager](https://www.facebook.com/ads/manager/audiences/manage/).
+5. Visualiza la audiencia personalizada en el [Facebook Ads Administrador](https://www.facebook.com/ads/manager/audiences/manage/).
 
 {% alert important %}
 Por razones de privacidad del usuario, Facebook no te permite ver:
@@ -89,7 +89,7 @@ Por razones de privacidad del usuario, Facebook no te permite ver:
 
 Al crear audiencias de Facebook, es posible que desees incluir o excluir ciertos usuarios según sus preferencias y para cumplir con las leyes de privacidad, como el derecho a no vender o compartir información según la [CCPA](https://oag.ca.gov/privacy/ccpa). Los especialistas en marketing deben implementar los filtros relevantes para la elegibilidad de los usuarios dentro de los criterios de entrada de su Canvas. Las siguientes opciones pueden ayudar.
 
-- Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), puedes usar el filtro **Seguimiento de anuncios habilitado**. Selecciona el valor como `true` para enviar usuarios a los destinos de sincronización de audiencias solo donde hayan dado su consentimiento.
+- Si has recopilado el [IDFA de iOS a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), puedes usar el filtro **Seguimiento de anuncios habilitado**. Selecciona el valor como `true` para enviar usuarios a los destinos de sincronización de audiencias solo donde hayan dado su consentimiento.
 
 ![Filtro de entrada de Canvas que muestra Seguimiento de anuncios habilitado configurado como verdadero.]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
 
@@ -130,8 +130,8 @@ Si recibes un error al exportar un Segment como Facebook Audience, la documentac
 
 Utiliza las siguientes verificaciones para comprobar tu configuración:
 
-- **Comprueba que eres administrador de la aplicación:** Ve a [developers.facebook.com](https://developers.facebook.com/), abre **My Apps** y selecciona la aplicación de tu empresa. Si no ves la aplicación, es posible que tu equipo de desarrollo necesite agregarte. En el panel de la aplicación, ve a **Roles** para confirmar tu rol (Admin, Developer, Tester o Analytics User).
+- **Comprueba que eres administrador de la aplicación:** Ve a [developers.Facebook.com](https://developers.facebook.com/), abre **My Apps** y selecciona la aplicación de tu empresa. Si no ves la aplicación, es posible que tu equipo de desarrollo necesite agregarte. En el panel de la aplicación, ve a **Roles** para confirmar tu rol (Admin, Developer, Tester o Analytics User).
 - **Comprueba que tu cuenta publicitaria está asociada con tu aplicación:** En el panel de la aplicación de Facebook, ve a **Settings** > **Advanced**, desplázate hasta **Advertising Accounts** y agrega el ID de la cuenta publicitaria de Facebook que deseas usar para las exportaciones de audiencia de Braze si no aparece en la lista.
-- **Comprueba que eres administrador de la cuenta publicitaria:** Ve a [business.facebook.com](https://business.facebook.com/), abre **Business Settings** desde el menú principal, luego ve a **Accounts** > **Ad accounts** y selecciona la cuenta publicitaria. Confirma tu acceso y que tienes los permisos necesarios para crear Custom Audiences.
+- **Comprueba que eres administrador de la cuenta publicitaria:** Ve a [business.Facebook.com](https://business.facebook.com/), abre **Business Settings** desde el menú principal, luego ve a **Accounts** > **Ad accounts** y selecciona la cuenta publicitaria. Confirma tu acceso y que tienes los permisos necesarios para crear Custom Audiences.
 
 Para más detalles, consulta la [documentación de la API de Custom Audience de Facebook](https://developers.facebook.com/docs/) y la [guía del Centro de ayuda para empresas de Facebook sobre Custom Audiences](https://www.facebook.com/business/help).

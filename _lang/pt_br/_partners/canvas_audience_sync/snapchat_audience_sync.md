@@ -110,9 +110,9 @@ Você pode visualizar o público no Snapchat acessando sua conta do gerenciador 
 
 ## Sincronização de usuários e considerações sobre limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-Quando os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API do Snapchat. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Snapchat.
+Quando os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API or interface de programação do aplicativo (API) do Snapchat. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Snapchat.
 
-O limite de frequência da API do Snapchat permite no máximo dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tenta novamente a sincronização por até ~13 horas. Se a sincronização ainda não for possível, a Braze lista esses usuários na métrica Users Errored.
+O limite de frequência da API or interface de programação do aplicativo (API) do Snapchat permite no máximo dez consultas por segundo e 100.000 usuários por solicitação. Se um cliente atingir esse limite, a Braze tenta novamente a sincronização por até ~13 horas. Se a sincronização ainda não for possível, a Braze lista esses usuários na métrica Users Errored.
 
 ### Entendendo a análise de dados {#understanding-analytics}
 
@@ -121,11 +121,11 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | --- | --- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o Snapchat. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançam automaticamente se esta for a última etapa na ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um? Todos os usuários avançam automaticamente se esta for a última etapa na Branch or ramificação or ramificação do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o Snapchat. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o Snapchat. |
-| Users Errored | Número de usuários que não foram sincronizados com o Snapchat devido a um erro de API após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do Snapchat ou se o público foi excluído no Snapchat. |
+| Users Errored | Número de usuários que não foram sincronizados com o Snapchat devido a um erro de API or interface de programação do aplicativo (API) após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do Snapchat ou se o público foi excluído no Snapchat. |
 | Exited Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa em um Canvas é um componente de Audience Sync. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 

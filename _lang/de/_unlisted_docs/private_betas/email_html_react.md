@@ -12,7 +12,7 @@ description: "Dieser Artikel bietet eine Übersicht über den aktualisierten HTM
 
 ## Vorteile {#benefits}
 
-Der aktualisierte HTML-Editor schafft ein einheitliches Erlebnis über unsere Editoren in anderen Messaging-Kanälen hinweg. Sie können nahtlos zwischen Editoren (HTML, klassisch, Nur-Text und AMP) über die obere Editor-Navigation wechseln. Diese Optionen waren im alten HTML-Editor zuvor in einem Dropdown-Menü versteckt.
+Der aktualisierte HTML-Editor schafft ein einheitliches Erlebnis über unsere Editoren in anderen Messaging-Kanälen hinweg. Sie können nahtlos zwischen Editoren (HTML, klassisch, Nur-Text und AMP or Accelerated Mobile Pages) über die obere Editor-Navigation wechseln. Diese Optionen waren im alten HTML-Editor zuvor in einem Dropdown-Menü versteckt.
 
 Zu den Vorteilen gehören außerdem eine verbesserte Liquid-Syntaxunterstützung und die [Unterstützung für Mehrsprachigkeitseinstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings).
 

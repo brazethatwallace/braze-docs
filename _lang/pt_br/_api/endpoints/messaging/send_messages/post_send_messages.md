@@ -1,46 +1,46 @@
 ---
-nav_title: "POST: Envio imediato de mensagens usando apenas a API"
-article_title: "Envio imediato de mensagens usando apenas a API"
+nav_title: "POST: Envio imediato de mensagens usando apenas a API or interface de programação do aplicativo (API)"
+article_title: "Envio imediato de mensagens usando apenas a API or interface de programação do aplicativo (API)"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint Enviar mensagens imediatamente usando somente a API da Braze."
+description: "Este artigo descreve detalhes sobre o endpoint Enviar mensagens imediatamente usando somente a API or interface de programação do aplicativo (API) da Braze."
 ---
-{% api %}
-# Envio imediato de mensagens usando apenas a API {#send-messages-immediately-using-the-api-only}
+{% API or interface de programação do aplicativo (API) %}
+# Envio imediato de mensagens usando apenas a API or interface de programação do aplicativo (API) {#send-messages-immediately-using-the-api-only}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/send
 {% endapimethod %}
 
-> Use esse endpoint para enviar mensagens imediatas a usuários designados usando a API da Braze.
+> Use esse endpoint para enviar mensagens imediatas a usuários designados usando a API or interface de programação do aplicativo (API) da Braze.
 
-Se estiver direcionando a um segmento, um registro da sua solicitação será armazenado no [Console de desenvolvedor](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
+Se estiver direcionando a um Segment or segmento or segmento, um registro da sua solicitação será armazenado no [Console de desenvolvedor](https://dashboard.braze.com/app_settings/developer_console/activitylog/).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#946cb701-96e3-48d7-868c-f079785b6d24 {% endapiref %}
 
-{% multi_lang_include api/payload_size_alert.md %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/payload_size_alert.md %}
 
 {% alert important %}
-Ao usar este endpoint para Campaigns da API, o destinatário já deve existir na Braze para que a solicitação seja bem-sucedida. Isso se aplica ao especificar usuários nos parâmetros `external_user_ids` ou `user_aliases`.
+Ao usar este endpoint para Campaigns da API or interface de programação do aplicativo (API), o destinatário já deve existir na Braze para que a solicitação seja bem-sucedida. Isso se aplica ao especificar usuários nos parâmetros `external_user_ids` ou `user_aliases`.
 {% endalert %}
 
-## Criar novos usuários com envios de API {#creating-new-users-with-api-sends}
+## Criar novos usuários com envios de API or interface de programação do aplicativo (API) {#creating-new-users-with-api-sends}
 
-Se você precisar criar um usuário como parte de um envio usando a API, tem duas opções:
+Se você precisar criar um usuário como parte de um envio usando a API or interface de programação do aplicativo (API), tem duas opções:
 
 ### Opção 1: Use `/users/track` e depois envie {#option-1-use-userstrack-then-send}
 
-Primeiro, crie o usuário com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) e, em seguida, aguarde a propagação dos dados (geralmente, recomenda-se aguardar alguns minutos) antes de iniciar o envio somente pela API. Observe que a Braze não garante os tempos de processamento de dados em `/users/track`, portanto, podem ocorrer [condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) se você não deixar tempo suficiente entre essas chamadas.
+Primeiro, crie o usuário com o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) e, em seguida, aguarde a propagação dos dados (geralmente, recomenda-se aguardar alguns minutos) antes de iniciar o envio somente pela API or interface de programação do aplicativo (API). Observe que a Braze não garante os tempos de processamento de dados em `/users/track`, portanto, podem ocorrer [condições de corrida]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) se você não deixar tempo suficiente entre essas chamadas.
 
-### Opção 2: Use uma Campaign disparada por API ou Canvas {#option-2-use-an-api-triggered-campaign-or-canvas}
+### Opção 2: Use uma Campaign disparada por API or interface de programação do aplicativo (API) ou Canvas {#option-2-use-an-api-triggered-campaign-or-canvas}
 
-Use uma [Campaign disparada por API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou um fluxo de trabalho de [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Isso permite que você crie um destinatário, caso ainda não exista um. Essa opção simplifica seus processos de backend, mas exige que você configure uma Campaign ou um Canvas no dashboard da Braze.
+Use uma [Campaign disparada por API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou um fluxo de trabalho de [Canvas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Isso permite que você crie um destinatário, caso ainda não exista um. Essa opção simplifica seus processos de backend, mas exige que você configure uma Campaign ou um Canvas no dashboard da Braze.
 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará gerar uma chave de API com a permissão `messages.send`.
+Para usar esse endpoint, você precisará gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `messages.send`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -90,10 +90,10 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um segmento inteiro que uma Campaign ou Canvas segmenta. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
+| `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um Segment or segmento or segmento inteiro que uma Campaign ou Canvas segmenta. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir essa flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
 | `external_user_ids` | Opcional | Matriz de strings | Consulte [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields). |
 | `user_aliases` | Opcional | Matriz de objetos de alias de usuário | Consulte o [objeto de alias de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `segment_id` | Opcional | String | Consulte [identificador de segmento]({{site.baseurl}}/api/identifier_types#segment-identifier). |
+| `segment_id` | Opcional | String | Consulte [identificador de Segment or segmento or segmento]({{site.baseurl}}/api/identifier_types#segment-identifier). |
 | `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
 | `campaign_id` | Opcional* | String | Para saber mais, consulte o [identificador de Campaign]({{site.baseurl}}/api/identifier_types#campaign-identifier). <br><br>*Obrigatório para rastrear métricas da Campaign (como *Envios*, *Cliques* ou *Bounces*) no dashboard da Braze, ou para ver eventos associados a essa mensagem na [guia Histórico de mensagens]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) do perfil de usuário. Sem um `campaign_id`, a Braze não incrementa as estatísticas de entregabilidade no dashboard. Os envios ainda aparecem no [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), mas não nas métricas de desempenho de e-mail no dashboard. |
 | `send_id` | Opcional | String | Consulte [identificador de envio]({{site.baseurl}}/api/identifier_types#send-identifier). |

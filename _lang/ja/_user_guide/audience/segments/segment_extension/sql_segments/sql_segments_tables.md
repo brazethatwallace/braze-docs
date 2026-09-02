@@ -3145,8 +3145,8 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
+`flow_id` | `null,`&nbsp;`string` | WhatsApp マネージャー 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp マネージャー 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
 `message_id` | `null,`&nbsp;`string` | このメッセージに対して Meta が生成した一意の ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPDELIVERYSHARED #USERSMESSAGESWHATSAPPDELIVERYSHARED" }
 
@@ -3179,8 +3179,8 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
 `message_id` | `null,`&nbsp;`string` | このメッセージに対して Meta が生成した一意の ID
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp マネージャー 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
+`flow_id` | `null,`&nbsp;`string` | WhatsApp マネージャー 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPFAILURESHARED #USERSMESSAGESWHATSAPPFAILURESHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED {#USERS_MESSAGES_WHATSAPP_INBOUNDRECEIVE_SHARED}
@@ -3213,7 +3213,7 @@ table td {
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `catalog_id` | `null,`&nbsp;`string` | 受信メッセージで商品が参照されている場合の商品のカタログ ID。それ以外の場合は空です。
 `product_id` | `null,`&nbsp;`string` | 購入された商品の ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`flow_id` | `null,`&nbsp;`string` | WhatsApp マネージャー 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
 `flow_response_json` | `null,`&nbsp;`string` | [PII] ユーザーが応答したフォームの値。ユーザーが WhatsApp フローに応答している場合に存在します。
 `message_id` | `null,`&nbsp;`string` | このメッセージに対して Meta が生成した一意の ID
 `in_reply_to` | `null,`&nbsp;`string` | このメッセージが返信しているメッセージの message_id
@@ -3245,9 +3245,9 @@ table td {
 `dispatch_id` | `null,`&nbsp;`string` | このメッセージが属するディスパッチの ID
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp マネージャー 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
 `message_id` | `null,`&nbsp;`string` | このメッセージに対して Meta が生成した一意の ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`flow_id` | `null,`&nbsp;`string` | WhatsApp マネージャー 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPREADSHARED #USERSMESSAGESWHATSAPPREADSHARED" }
 
 ### USERS_MESSAGES_WHATSAPP_SEND_SHARED {#USERS_MESSAGES_WHATSAPP_SEND_SHARED}
@@ -3277,8 +3277,8 @@ table td {
 `message_extras` | `null,`&nbsp;`string` | [PII] Liquid レンダリング中にタグ付けされたキーと値のペアの JSON 文字列
 `sf_created_at` | `timestamp`,&nbsp;`null` | このイベントが Snowpipe に取得された日時
 `send_id` | `null,`&nbsp;`string` | このメッセージが属するメッセージ送信 ID
-`flow_id` | `null,`&nbsp;`string` | WhatsApp Manager 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
-`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp Manager 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
+`flow_id` | `null,`&nbsp;`string` | WhatsApp マネージャー 内のフローの一意の ID。ユーザーが WhatsApp フローに応答している場合に存在します。
+`template_name` | `null,`&nbsp;`string` | [PII] WhatsApp マネージャー 内のテンプレートの名前。テンプレートメッセージを送信する場合に存在します
 `message_id` | `null,`&nbsp;`string` | このメッセージに対して Meta が生成した一意の ID
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESWHATSAPPSENDSHARED #USERSMESSAGESWHATSAPPSENDSHARED" }
 

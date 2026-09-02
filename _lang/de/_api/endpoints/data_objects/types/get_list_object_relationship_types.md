@@ -129,7 +129,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 |---|---|---|
 | `400` | Ungültiger `anchor` | Verwenden Sie `source` oder `target` für `anchor`. |
 | `404` | Typ nicht gefunden (`data-object-type-not-found`) | Überprüfen Sie, ob `type_name` im Workspace existiert und exakt mit dem Maschinennamen übereinstimmt. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Allowlist blockiert | Überprüfen Sie, ob der Schlüssel die Berechtigung `data_objects.read` hat und ob Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie die Anfrage nach `X-RateLimit-Reset` und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler für Objekt-Beziehungstypen auflisten" }

@@ -280,7 +280,7 @@ window.brazeBridge.getUser().setCustomUserAttribute("attribute_name", value);
 
 **목표:** 방문자를 랜딩 페이지로 유도한 Campaign을 캡처하고 다운스트림 보고 및 기여도 분석을 위한 커스텀 이벤트 속성정보로 기록합니다.
 
-이 예제는 랜딩 페이지 폼 제출을 특정 Campaign에 기여도를 부여하는 방법을 보여줍니다. 이메일, SMS 또는 WhatsApp 메시지의 랜딩 페이지 URL에 {% raw %}`{{campaign.${api_id}}}`{% endraw %}와 같은 Liquid 변수를 추가하면 Campaign 식별자를 랜딩 페이지에 전달할 수 있습니다. 그러면 커스텀 폼 블록이 URL에서 이 매개변수를 읽고 Campaign API ID를 이벤트 속성정보로 포함하는 커스텀 이벤트로 기록하여, 어떤 Campaign이 폼 제출을 유도하는지 더 쉽게 추적할 수 있습니다.
+이 예제는 랜딩 페이지 폼 제출을 특정 Campaign에 기여도를 부여하는 방법을 보여줍니다. 이메일, 단문 메시지 서비스 또는 WhatsApp 메시지의 랜딩 페이지 URL에 {% raw %}`{{campaign.${api_id}}}`{% endraw %}와 같은 Liquid 변수를 추가하면 Campaign 식별자를 랜딩 페이지에 전달할 수 있습니다. 그러면 커스텀 폼 블록이 URL에서 이 매개변수를 읽고 Campaign API ID를 이벤트 속성정보로 포함하는 커스텀 이벤트로 기록하여, 어떤 Campaign이 폼 제출을 유도하는지 더 쉽게 추적할 수 있습니다.
 
 다음을 하나의 **커스텀 코드**(HTML) 블록에 붙여넣습니다:
 
@@ -314,7 +314,7 @@ window.brazeBridge.getUser().setCustomUserAttribute("attribute_name", value);
 </script>
 ```
 
-**작동 방식:** 랜딩 페이지로 연결되는 이메일, SMS 또는 WhatsApp 메시지를 만들 때 Liquid 템플릿을 사용하여 URL에 Campaign 식별자를 추가합니다: {% raw %}`https://your-landing-page.com?campaign_api_id={{campaign.${api_id}}}`{% endraw %}. 방문자가 해당 메시지에서 랜딩 페이지에 도착하면 스크립트가 URL에서 `campaign_api_id` 매개변수를 읽고 숨겨진 입력 필드에 저장합니다. 폼 제출 시 Campaign ID가 있으면 `onSubmit` 콜백이 Campaign API ID를 이벤트 속성정보로 포함하는 `landing_page_form_submitted`라는 커스텀 이벤트를 기록합니다. 이 이벤트는 Currents에 표시되며 보고, 세분화, 기여도 분석에 사용할 수 있습니다.
+**작동 방식:** 랜딩 페이지로 연결되는 이메일, 단문 메시지 서비스 또는 WhatsApp 메시지를 만들 때 Liquid 템플릿을 사용하여 URL에 Campaign 식별자를 추가합니다: {% raw %}`https://your-landing-page.com?campaign_api_id={{campaign.${api_id}}}`{% endraw %}. 방문자가 해당 메시지에서 랜딩 페이지에 도착하면 스크립트가 URL에서 `campaign_api_id` 매개변수를 읽고 숨겨진 입력 필드에 저장합니다. 폼 제출 시 Campaign ID가 있으면 `onSubmit` 콜백이 Campaign API ID를 이벤트 속성정보로 포함하는 `landing_page_form_submitted`라는 커스텀 이벤트를 기록합니다. 이 이벤트는 Currents에 표시되며 보고, 세분화, 기여도 분석에 사용할 수 있습니다.
 
 {% alert tip %}
 이 패턴을 확장하여 메시지 배리언트, 캔버스 단계 또는 기여도 목적으로 랜딩 페이지에 전달하려는 기타 Liquid 변수와 같은 추가 URL 매개변수를 캡처할 수 있습니다.

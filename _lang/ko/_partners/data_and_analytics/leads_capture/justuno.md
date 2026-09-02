@@ -28,7 +28,7 @@ Justuno와 Braze를 통합하면 두 가지 장점을 모두 누릴 수 있습�
 
 ### 1단계: Braze에서 커스텀 속성 생성하기 {#step-1-create-custom-attributes-in-braze}
 
-Justuno에서 Braze로 사용자 속성을 동기화하려면, 아직 생성하지 않은 경우 Braze에서 해당 속성을 먼저 생성해야 합니다. **Data Settings** > **Custom Attributes**로 이동한 후 커스텀 속성을 생성하면 됩니다. 전체 안내는 [Braze에서 커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)를 참조하세요.
+Justuno에서 Braze로 사용자 속성을 동기화하려면, 아직 생성하지 않은 경우 Braze에서 해당 속성을 먼저 생성해야 합니다. **Data Settings** > **커스텀 속성**로 이동한 후 커스텀 속성을 생성하면 됩니다. 전체 안내는 [Braze에서 커스텀 속성 관리하기]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)를 참조하세요.
 
 ### 2단계: Justuno에 Braze 앱 추가하기 {#step-2-add-the-braze-app-to-justuno}
 
@@ -50,11 +50,11 @@ Justuno 계정에 Braze 앱을 추가하려면 **Account Settings** > **Apps**�
 
 ### 3단계: Braze 구독 그룹 연결하기 {#step-3-connect-your-braze-subscription-groups}
 
-Justuno에서 특정 Braze 이메일 또는 SMS 구독 그룹으로 프로필 데이터를 전송하려면, Justuno 워크플로우의 Braze 앱에 해당 ID를 추가해야 합니다.
+Justuno에서 특정 Braze 이메일 또는 단문 메시지 서비스 구독 그룹으로 프로필 데이터를 전송하려면, Justuno 워크플로우의 Braze 앱에 해당 ID를 추가해야 합니다.
 
 | ID 유형                          | 필수 여부 | 설명                                                                                                   |
 |----------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
-| Braze SMS 구독 그룹 ID  | 예       | 이 ID는 사용자 프로필에서 SMS 동의를 수집하는 데 사용됩니다. Justuno에 ID를 입력하지 않으면, Justuno가 해당 프로필을 Braze로 푸시할 때 프로필에 동의가 포함되지 않습니다. |
+| Braze 단문 메시지 서비스 구독 그룹 ID  | 예       | 이 ID는 사용자 프로필에서 단문 메시지 서비스 동의를 수집하는 데 사용됩니다. Justuno에 ID를 입력하지 않으면, Justuno가 해당 프로필을 Braze로 푸시할 때 프로필에 동의가 포함되지 않습니다. |
 | Braze 이메일 구독 그룹 ID | 아니요        | Justuno에 이 ID를 입력하지 않으면, Justuno는 연결된 구독 그룹이 없는 사용자로 프로필 데이터를 Braze에 전송합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 3: Connect your Braze subscription groups" }
 
@@ -96,5 +96,5 @@ Justuno 워크플로우에서 Braze 앱을 열고 각 구독 그룹의 ID를 입
 
 - 앱 설정에서 구독 그룹 ID를 수동으로 입력해야 합니다.
 - 다음 Braze 데이터 유형은 **지원되지 않습니다**: 오브젝트, 오브젝트 배열.
-- Justuno의 SMS 동의 필드를 사용하지 않으면 암묵적 SMS 동의가 제공됩니다.
-- Justuno 디자인에 동의 필드가 포함되어 있으면 명시적 SMS 동의가 적용됩니다.
+- Justuno의 단문 메시지 서비스 동의 필드를 사용하지 않으면 암묵적 단문 메시지 서비스 동의가 제공됩니다.
+- Justuno 디자인에 동의 필드가 포함되어 있으면 명시적 단문 메시지 서비스 동의가 적용됩니다.

@@ -20,7 +20,7 @@ Standardmäßig sind die Standortdienste von Braze nicht aktiviert. Um sie in Ih
 
 ![Das Modul „BrazeLocation“ in Ihrem Xcode-Projekt hinzufügen]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
 
-#### Schritt 2.2: Aktualisieren Sie Ihre `Info.plist` {#step-22-update-your-infoplist}
+#### Schritt 2.2: Update or aktualisieren or aktualisieren Sie Ihre `Info.plist` {#step-22-update-your-infoplist}
 
 Weisen Sie in Ihrer `info.plist` einem der folgenden Schlüssel einen `String`-Wert zu, der beschreibt, warum Ihre Anwendung den Standort verfolgen muss. Dieser String wird angezeigt, wenn Ihre Nutzer:innen zur Eingabe von Standortdiensten aufgefordert werden. Erklären Sie daher deutlich, welchen Wert die Aktivierung dieses Features für Ihre App hat.
 
@@ -35,7 +35,7 @@ Apple hat `NSLocationAlwaysUsageDescription` als veraltet markiert. Weitere Info
 
 ### Schritt 3: Geofences in Ihrem Code aktivieren {#step-3-enable-geofences-in-your-code}
 
-Aktivieren Sie im Code Ihrer App Geofences, indem Sie `location.geofencesEnabled` auf `true` im `configuration`-Objekt setzen, das die [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)-Instanz initialisiert. Für weitere `location`-Konfigurationsoptionen siehe [Braze Swift SDK-Referenz](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
+Aktivieren Sie im Code Ihrer App Geofences, indem Sie `location.geofencesEnabled` auf `true` im `configuration`-Objekt setzen, das die [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/)-Instanz initialisiert. Für weitere `location`-Konfigurationsoptionen siehe [Braze Swift SDK or Software-Development-Kit-Referenz](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
 
 {% tabs %}
 {% tab swift %}
@@ -192,9 +192,9 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 
 ## Manuelle Anfrage für Geofences {#manually-request-geofences}
 
-Wenn das Braze SDK Geofences vom Backend anfragt, meldet es den aktuellen Standort der Nutzer:innen und erhält Geofences, die auf der Grundlage des gemeldeten Standorts als optimal relevant eingestuft werden.
+Wenn das Braze SDK or Software-Development-Kit Geofences vom Backend anfragt, meldet es den aktuellen Standort der Nutzer:innen und erhält Geofences, die auf der Grundlage des gemeldeten Standorts als optimal relevant eingestuft werden.
 
-Um den Standort zu kontrollieren, den das SDK meldet, um die relevantesten Geofences zu erhalten, können Sie Geofences manuell anfragen, indem Sie die gewünschten Koordinaten angeben.
+Um den Standort zu kontrollieren, den das SDK or Software-Development-Kit meldet, um die relevantesten Geofences zu erhalten, können Sie Geofences manuell anfragen, indem Sie die gewünschten Koordinaten angeben.
 
 ### Schritt 1: Setzen Sie `automaticGeofenceRequests` auf `false` {#step-1-set-automaticgeofencerequests-to-false}
 
@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### Warum erhalte ich keine Geofences auf meinem Gerät? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Um zu überprüfen, ob Geofences auf Ihrem Gerät empfangen werden, verwenden Sie zunächst den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging), um die Protokolle des SDK zu prüfen. Sie können dann sehen, ob Geofences erfolgreich vom Server empfangen werden und ob es bemerkenswerte Fehler gibt.
+Um zu überprüfen, ob Geofences auf Ihrem Gerät empfangen werden, verwenden Sie zunächst den [SDK or Software-Development-Kit-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging), um die Protokolle des SDK or Software-Development-Kit zu prüfen. Sie können dann sehen, ob Geofences erfolgreich vom Server empfangen werden und ob es bemerkenswerte Fehler gibt.
 
 Nachstehend finden Sie weitere mögliche Gründe, warum Geofences auf Ihrem Gerät nicht empfangen werden:
 
@@ -278,8 +278,8 @@ Wenn Ihre App beispielsweise 20 Nicht-Braze-Geofences enthält, wäre kein Speic
 
 Ein Gerät muss nur dann mit dem Internet verbunden sein, wenn eine Aktualisierung erfolgt. Sobald es erfolgreich Geofences vom Server empfangen hat, ist es möglich, einen Geofence-Eintritt oder -Austritt zu protokollieren, selbst wenn das Gerät offline ist. Das liegt daran, dass der Standort eines Geräts unabhängig von seiner Internetverbindung funktioniert.
 
-Nehmen wir an, ein Gerät hat zu Beginn der Sitzung erfolgreich Geofences empfangen und registriert und geht dann offline. Wenn es dann in einen dieser registrierten Geofences eintritt, kann es eine Braze-Campaign triggern.
+Nehmen wir an, ein Gerät hat zu Beginn der Sitzung erfolgreich Geofences empfangen und registriert und geht dann offline. Wenn es dann in einen dieser registrierten Geofences eintritt, kann es eine Braze-Campaign Trigger or triggern or triggern.
 
 ### Warum werden Geofences nicht überwacht, wenn meine App im Hintergrund läuft oder beendet wird? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
-Ohne `Always`-Autorisierung schränkt Apple die Ausführung von Standortdiensten ein, wenn eine App nicht benutzt wird. Dies wird durch das Betriebssystem erzwungen und liegt außerhalb der Kontrolle des Braze SDK. Braze bietet zwar separate Konfigurationen für die Ausführung von Diensten, während sich die App im Hintergrund befindet, aber es gibt keine Möglichkeit, diese Einschränkungen für Apps zu umgehen, die ohne ausdrückliche Genehmigung der Nutzer:innen beendet werden.
+Ohne `Always`-Autorisierung schränkt Apple die Ausführung von Standortdiensten ein, wenn eine App nicht benutzt wird. Dies wird durch das Betriebssystem erzwungen und liegt außerhalb der Kontrolle des Braze SDK or Software-Development-Kit. Braze bietet zwar separate Konfigurationen für die Ausführung von Diensten, während sich die App im Hintergrund befindet, aber es gibt keine Möglichkeit, diese Einschränkungen für Apps zu umgehen, die ohne ausdrückliche Genehmigung der Nutzer:innen beendet werden.

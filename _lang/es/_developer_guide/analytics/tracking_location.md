@@ -2,12 +2,12 @@
 nav_title: Seguimiento de ubicación
 article_title: "Seguimiento de la ubicación"
 page_order: 3.4
-description: "Aprende a realizar el seguimiento de la ubicación a través del SDK de Braze."
+description: "Aprende a realizar el seguimiento de la ubicación a través del SDK or kit de desarrollo de software de Braze."
 ---
 
 # Seguimiento de la ubicación {#track-location}
 
-> Aprende a realizar el seguimiento de la ubicación a través del SDK de Braze.
+> Aprende a realizar el seguimiento de la ubicación a través del SDK or kit de desarrollo de software de Braze.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -31,7 +31,7 @@ function success(position) {
 navigator.geolocation.getCurrentPosition(success);
 ```
 
-Ahora, cuando se envían datos a Braze, el SDK puede detectar automáticamente el país del usuario utilizando su dirección IP. Para más información, consulta [setLastKnownLocation()](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation).
+Ahora, cuando se envían datos a Braze, el SDK or kit de desarrollo de software puede detectar automáticamente el país del usuario utilizando su dirección IP. Para más información, consulta [setLastKnownLocation()](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation).
 
 ## Seguimiento continuo de la ubicación {#continuously-tracking-the-location}
 
@@ -68,7 +68,7 @@ Para aprender a desactivar el seguimiento continuo, consulta la [documentación 
 {% multi_lang_include developer_guide/swift/analytics/tracking_location.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/analytics/tracking_location.md %}
 {% endsdktab %}
 {% endsdktabs %}

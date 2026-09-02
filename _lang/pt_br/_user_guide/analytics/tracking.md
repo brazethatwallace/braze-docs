@@ -7,7 +7,7 @@ guide_top_header: "Rastreamento"
 guide_top_text: "A Braze rastreia muitas ações dos usuários em seus apps. Consulte os artigos a seguir para saber como implementar o rastreamento que melhor se adapta ao seu caso de uso."
 
 page_type: landing
-description: "Esta landing page aborda os recursos de rastreamento na Braze, incluindo rastreamento de desinstalação, aberturas por influência e rastreamento de análise de dados por segmento."
+description: "Esta landing page aborda os recursos de rastreamento na Braze, incluindo rastreamento de desinstalação, aberturas por influência e rastreamento de análise de dados por Segment or segmento or segmento."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

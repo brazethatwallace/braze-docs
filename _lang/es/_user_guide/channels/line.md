@@ -12,7 +12,7 @@ alias: /line/
 
 # LINE
 
-> LINE es la aplicación de mensajería más popular en Japón, con más de 95 millones de usuarios activos al mes. Además de la mensajería, LINE ofrece a sus usuarios una plataforma todo en uno para redes sociales, juegos, compras y pagos. Integra tus cuentas de LINE con Braze para enviar mensajes de LINE atractivos a los clientes adecuados en función de sus preferencias, comportamientos e interacciones en canales cruzados.
+> LINE es la aplicación de mensajería más popular en Japón, con más de 95 millones de MAU or usuarios activos al mes or usuarios activos al mes. Además de la mensajería, LINE ofrece a sus usuarios una plataforma todo en uno para redes sociales, juegos, compras y pagos. Integra tus cuentas de LINE con Braze para enviar mensajes de LINE atractivos a los clientes adecuados en función de sus preferencias, comportamientos e interacciones en canales cruzados.
 
 ## Requisitos previos {#prerequisites}
 

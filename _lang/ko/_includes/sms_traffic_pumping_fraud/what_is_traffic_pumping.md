@@ -1,8 +1,8 @@
 {% if include.show_heading %}
-### SMS, MMS, RCS 트래픽 펌핑 사기란 무엇인가요? {#what-is-sms-mms-and-rcs-traffic-pumping-fraud}
+### 단문 메시지 서비스, MMS, RCS 트래픽 펌핑 사기란 무엇인가요? {#what-is-sms-mms-and-rcs-traffic-pumping-fraud}
 
 {% endif %}
-SMS, MMS, RCS 트래픽 펌핑은 인위적으로 부풀려진 트래픽(AIT)이라고도 하며, 악의적인 행위자가 보안이 취약한 공개 웹 양식, 인증 흐름 또는 API 엔드포인트를 악용하여 대량의 SMS, MMS, RCS 메시지(일회용 비밀번호, 옵트인 확인, 알림 등)를 트리거하는 사기 수법입니다.
+단문 메시지 서비스, MMS, RCS 트래픽 펌핑은 인위적으로 부풀려진 트래픽(AIT)이라고도 하며, 악의적인 행위자가 보안이 취약한 공개 웹 양식, 인증 흐름 또는 API 엔드포인트를 악용하여 대량의 단문 메시지 서비스, MMS, RCS 메시지(일회용 비밀번호, 옵트인 확인, 알림 등)를 트리거하는 사기 수법입니다.
 
 {% if include.detail %}
 이로 인해 최종 사용자 신뢰 훼손, 통신사 관계 악화, 갑작스럽고 상당한 재정적 손실 등 회사에 심각한 위험이 발생할 수 있습니다.

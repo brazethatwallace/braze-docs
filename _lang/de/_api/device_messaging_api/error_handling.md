@@ -12,7 +12,7 @@ hidden: true
 Die Antwortkörper und Erfolgssemantiken der Device Messaging API variieren je nach Endpunkt. Verwenden Sie das Antwortschema und die Statuscode-Tabelle des jeweiligen Endpunkts als verbindliche Referenz.
 
 {% alert important %}
-Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager, um Zugang anzufordern.
+Diese Seite befindet sich in der Beta-Phase. Features und Dokumentation für die Device Messaging API können sich ändern. Wenden Sie sich an Ihren Braze Account Manager:in, um Zugang anzufordern.
 {% endalert %}
 
 ## Erfolgreiche Antworten {#success-responses}
@@ -40,7 +40,7 @@ Verwenden Sie die folgenden Hinweise, um zu entscheiden, ob ein Wiederholungsver
 | Statuscode | Anleitung für Wiederholungsversuche |
 |---|---|
 | `400` | Korrigieren Sie die Anfrage, bevor Sie es erneut versuchen. Korrigieren Sie beim Banner-Tracking übersprungene Events, bevor Sie diese erneut senden. |
-| `401` oder `403` | Überprüfen Sie den clientseitigen REST-API-Schlüssel und seine Berechtigungen, bevor Sie es erneut versuchen. |
+| `401` oder `403` | Überprüfen Sie den clientseitigen Representational State Transfer-API-Schlüssel und seine Berechtigungen, bevor Sie es erneut versuchen. |
 | `404` | Stellen Sie sicher, dass die Device Messaging API für den Workspace aktiviert ist und die Endpunkt-URL korrekt ist. |
 | `429` | Reduzieren Sie die Anfragerate und versuchen Sie es mit exponentiellem Backoff erneut. Verwenden Sie die Rate-Limit-Antwort-Header, wenn verfügbar. |
 | `5XX` | Versuchen Sie es mit exponentiellem Backoff und einer maximalen Anzahl von Versuchen erneut. |

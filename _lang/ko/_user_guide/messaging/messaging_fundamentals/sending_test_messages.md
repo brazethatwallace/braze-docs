@@ -261,11 +261,11 @@ Braze 대시보드에서 이미 푸시 메시지를 수락한 경우, 화면 모
 선택한 사용자 중 웹 푸시에 대한 일치하는 푸시 토큰이 없다는 오류가 표시되면, 테스트 사용자에게 선택한 플랫폼에 대한 유효한 푸시 토큰이 등록되어 있는지 확인하세요. 푸시 토큰을 받으려면 사용자가 해당 기기에서 앱의 푸시 알림을 수신하도록 구성되어 있어야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)을 참조하세요.
 
 {% endtab %}
-{% tab SMS/MMS 및 RCS %}
+{% tab 단문 메시지 서비스/MMS 및 RCS %}
 
-SMS, MMS 또는 RCS 메시지를 만든 후, 테스트 메시지를 휴대폰으로 보내어 실시간으로 어떻게 보이는지 확인할 수 있습니다. 수신자는 테스트 전송 시 선택한 SMS 구독 그룹에 속해 있어야 하고, 유효한 전화번호를 가지고 있어야 하며, **지리적 권한**에서 하나 이상의 국가가 선택되어 있어야 합니다. 자세한 내용은 [SMS FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages)를 참조하세요.
+단문 메시지 서비스, MMS 또는 RCS 메시지를 만든 후, 테스트 메시지를 휴대폰으로 보내어 실시간으로 어떻게 보이는지 확인할 수 있습니다. 수신자는 테스트 전송 시 선택한 단문 메시지 서비스 구독 그룹에 속해 있어야 하고, 유효한 전화번호를 가지고 있어야 하며, **지리적 권한**에서 하나 이상의 국가가 선택되어 있어야 합니다. 자세한 내용은 [단문 메시지 서비스 FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages)를 참조하세요.
 
-1. SMS, MMS 또는 RCS 메시지를 작성합니다.
+1. 단문 메시지 서비스, MMS 또는 RCS 메시지를 작성합니다.
 2. **테스트** 탭을 선택하고 이 테스트 메시지를 받을 콘텐츠 테스트 그룹 또는 개별 사용자를 하나 이상 선택합니다.
 3. **테스트 보내기**를 선택하여 테스트 메시지를 보냅니다.
 

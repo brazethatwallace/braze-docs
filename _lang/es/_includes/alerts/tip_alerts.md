@@ -41,7 +41,7 @@ Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problem
 
 {% alert tip %}
 
-**Prueba la longitud del texto de tu SMS**
+**Prueba la longitud del texto de tu servicio de mensajes cortos**
 
 <br>
 
@@ -106,13 +106,13 @@ Si quieres ver cuántos segmentos enviará tu mensaje, introduce tu texto en la 
   }
 </style>
 <form id="sms_split">
-  <textarea id="sms_message_split" placeholder="Escribe aquí el texto de tu SMS..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
+  <textarea id="sms_message_split" placeholder="Escribe aquí el texto de tu servicio de mensajes cortos..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
   <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;"> Detección automática</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
   <input type="radio" name="sms_type" value="gsm" id="sms_type_gsm" /> <label for="sms_type_gsm" style="padding-left: 5px;">Codificación GSM-7</label><br />
   <input type="radio" name="sms_type" value="ucs2" id="sms_type_ucs2" /> <label for="sms_type_ucs2" style="padding-left: 5px;">Codificación UCS-2</label><br />
   <br />
   Longitud del mensaje: <span id="sms_length" style="padding-left: 5px;">0</span> caracteres.<br />
-  Recuento de segmentos SMS: <span id="sms_segments" style="padding-left: 5px;">0</span> segmentos. <br />
+  Recuento de segmentos servicio de mensajes cortos: <span id="sms_segments" style="padding-left: 5px;">0</span> segmentos. <br />
   Salida del mensaje: <span id="sms_output" style="padding-left: 5px;"></span><br />
   <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">Mostrar codificación de caracteres</label>
   <div class="segment_data_hide" id="character_encoding_container">
@@ -128,7 +128,7 @@ Si quieres ver cuántos segmentos enviará tu mensaje, introduce tu texto en la 
 </form>
 <script type="text/javascript">
 (function() {
-// SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
+// servicio de mensajes cortos Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
 var unicodeToGsm = {
 0x000A: [0x0A],
 0x000C: [0x1B, 0x0A],
@@ -398,7 +398,7 @@ function countLength(type, s) {
 function escapeHtml(text) {
   return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case '&': return '&amp;';
+      case '&': return '&páginas móviles aceleradas;';
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '"': return '&quot;';

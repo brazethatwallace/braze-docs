@@ -85,7 +85,7 @@ Consulte a [seção a seguir](#logging-analytics) para entender melhor como o fl
 ### Notificações por push personalizadas {#personalized-push-notifications}
 ![Dois iPhones exibidos lado a lado. O primeiro iPhone mostra a visualização não expandida da mensagem push. O segundo iPhone mostra a versão expandida da mensagem push, exibindo uma foto do "progresso" de quanto avançaram em um curso, a próxima sessão e quando a próxima sessão deve ser concluída.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-As notificações por push podem exibir informações específicas do usuário dentro de uma extensão de conteúdo. O exemplo à direita mostra uma notificação por push após um usuário ter concluído uma tarefa específica (curso do Braze Learning) e agora é incentivado a expandir essa notificação para verificar seu progresso. As informações fornecidas aqui são específicas do usuário e podem ser disparadas quando uma sessão é concluída ou quando uma ação específica do usuário é realizada, aproveitando um disparo da API.
+As notificações por push podem exibir informações específicas do usuário dentro de uma extensão de conteúdo. O exemplo à direita mostra uma notificação por push após um usuário ter concluído uma tarefa específica (curso do Braze Learning) e agora é incentivado a expandir essa notificação para verificar seu progresso. As informações fornecidas aqui são específicas do usuário e podem ser disparadas quando uma sessão é concluída ou quando uma ação específica do usuário é realizada, aproveitando um disparo da API or interface de programação do aplicativo (API).
 
 #### Configuração do dashboard
 
@@ -203,7 +203,7 @@ Consulte a [seção a seguir](#logging-analytics) para entender melhor como o fl
 
 ## Registro de análise de dados {#logging-analytics}
 
-### Registro com a API da Braze (recomendado) {#logging-with-the-braze-api-recommended}
+### Registro com a API or interface de programação do aplicativo (API) da Braze (recomendado) {#logging-with-the-braze-api-recommended}
 
 O registro de análise de dados só pode ser feito em tempo real com a ajuda do servidor do cliente acessando nosso [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Para registrar análise de dados, envie o valor `braze_id` no campo de pares chave-valor (como visto na captura de tela a seguir) para identificar qual perfil de usuário deve ser atualizado.
 
@@ -283,7 +283,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 ##### Enviando eventos personalizados para a Braze {#sending-custom-events-to-braze}
 
-O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK. Isso pode ser feito percorrendo quaisquer eventos pendentes, verificando a chave "Event Name", definindo os valores apropriados na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
+O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK or kit de desenvolvimento de software. Isso pode ser feito percorrendo quaisquer eventos pendentes, verificando a chave "Event Name", definindo os valores apropriados na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
 
 1. Percorrer o array de eventos pendentes
 2. Percorrer cada par chave-valor no dicionário `pendingEvents`
@@ -424,7 +424,7 @@ func saveCustomAttribute() {
 
 ##### Enviando atributos personalizados para a Braze {#sending-custom-attributes-to-braze}
 
-O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
+O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK or kit de desenvolvimento de software. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
 
 1. Percorrer o array de atributos pendentes
 2. Percorrer cada par chave-valor no dicionário `pendingAttributes`
@@ -547,7 +547,7 @@ func saveUserAttribute() {
 
 ##### Enviando atributos do usuário para a Braze {#sending-user-attributes-to-braze}
 
-O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
+O melhor momento para registrar qualquer análise de dados salva de uma extensão de app de conteúdo de notificação é logo após a inicialização do SDK or kit de desenvolvimento de software. Isso pode ser feito percorrendo os atributos pendentes, definindo o atributo personalizado apropriado na Braze e, em seguida, limpando o armazenamento para a próxima vez que essa função for necessária.
 
 1. Percorrer o array de dados `pendingAttributes`
 2. Inicializar um objeto `UserAttribute` codificado a partir dos dados de atributos

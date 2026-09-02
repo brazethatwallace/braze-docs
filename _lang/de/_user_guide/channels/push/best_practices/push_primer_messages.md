@@ -112,7 +112,7 @@ Nachdem Sie den Button-Text hinzugefügt haben, legen Sie das Klickverhalten fü
 
 ## 4. Schritt: Zustellung planen {#step-4-schedule-delivery}
 
-Um Ihren Push-Primer zu einem relevanten Zeitpunkt zu senden, müssen Sie Ihre In-App-Nachricht als aktionsbasierte Nachricht mit **Perform Custom Event** als Trigger-Aktion planen.
+Um Ihren Push-Primer zu einem relevanten Zeitpunkt zu senden, müssen Sie Ihre In-App-Nachricht als aktionsbasierte Nachricht mit **Perform Custom Event** als Trigger or triggern-Aktion planen.
 
 Obwohl der ideale Zeitpunkt variiert, empfiehlt Braze, zu warten, bis Nutzer:innen eine Art [hochwertige Aktion](https://www.braze.com/resources/videos/mapping-high-value-actions) abgeschlossen haben, die darauf hinweist, dass sie beginnen, den Wert Ihrer App oder Website zu erkennen, oder wenn ein überzeugender Bedarf besteht, den Push-Benachrichtigungen adressieren können (z. B. nachdem sie eine Bestellung aufgegeben haben und Sie ihnen Versandverfolgungsinformationen anbieten möchten). Auf diese Weise ist die Anfrage für die Kund:innen von Vorteil und nicht nur für Ihre Marke.
 
@@ -123,7 +123,7 @@ Obwohl der ideale Zeitpunkt variiert, empfiehlt Braze, zu warten, bis Nutzer:inn
 Das Ziel einer Push-Primer-Campaign ist es, Nutzer:innen auf jedem Gerät anzusprechen, auf dem sie noch keine Push-Berechtigungen erteilt haben. Dies kann Erstnutzer:innen oder bestehende Nutzer:innen umfassen, die ein neues Gerät erhalten oder Ihre Anwendung neu installieren.
 
 {% alert important %}
-**Automatische Unterdrückung mit No-Code-Push-Primer**: Wenn Sie den No-Code-Push-Primer (die Button-Aktion „Request Push Permission“) verwenden, müssen Sie keine Push-Abo-Filter zu Ihrer Segmentierung hinzufügen. Das SDK unterdrückt die In-App-Nachricht automatisch auf Geräten, die bereits über ein aktives Push-Token verfügen, unabhängig vom Push-Status der Nutzer:innen auf anderen Geräten. Weitere Informationen zum Targeting von Nutzer:innen mit mehreren Geräten finden Sie unter [Nutzer:innen mit mehreren Geräten als Zielgruppe zusammenstellen](#targeting-users-with-multiple-devices).
+**Automatische Unterdrückung mit No-Code-Push-Primer**: Wenn Sie den No-Code-Push-Primer (die Button-Aktion „Request Push Permission“) verwenden, müssen Sie keine Push-Abo-Filter zu Ihrer Segmentierung hinzufügen. Das SDK or Software-Development-Kit unterdrückt die In-App-Nachricht automatisch auf Geräten, die bereits über ein aktives Push-Token / Textbaustein verfügen, unabhängig vom Push-Status der Nutzer:innen auf anderen Geräten. Weitere Informationen zum Targeting von Nutzer:innen mit mehreren Geräten finden Sie unter [Nutzer:innen mit mehreren Geräten als Zielgruppe zusammenstellen](#targeting-users-with-multiple-devices).
 {% endalert %}
 
 Wenn Sie den No-Code-Push-Primer nicht verwenden, fügen Sie einen Filter hinzu, bei dem `Foreground Push Enabled For App is false`. Dieser Filter identifiziert einzelne App-Installationen, die noch kein Opt-in für Vordergrund-Push-Benachrichtigungen durchgeführt haben.
@@ -136,7 +136,7 @@ Darüber hinaus können Sie entscheiden, welche zusätzlichen Segmente Sie für 
 
 ### Nutzer:innen mit mehreren Geräten als Zielgruppe zusammenstellen {#targeting-users-with-multiple-devices}
 
-Da Braze Nutzerdaten auf Profilebene und nicht auf Geräteebene erfasst, kann das Targeting von Nutzer:innen mit mehreren Geräten eine Herausforderung sein. Push-Abo-Filter in der Segmentierung schließen Nutzer:innen basierend auf dem Abo-Status eines einzelnen Geräts ein oder aus, nicht basierend auf dem Abo-Status des spezifisch angesprochenen Geräts. Zusätzlich erhöhen vorläufige Status auf iOS die Komplexität, da diese Geräte technisch über Vordergrund-Push-Token verfügen, die Nutzer:innen aber nicht explizit ein Opt-in durchgeführt haben.
+Da Braze Nutzerdaten auf Profilebene und nicht auf Geräteebene erfasst, kann das Targeting von Nutzer:innen mit mehreren Geräten eine Herausforderung sein. Push-Abo-Filter in der Segmentierung schließen Nutzer:innen basierend auf dem Abo-Status eines einzelnen Geräts ein oder aus, nicht basierend auf dem Abo-Status des spezifisch angesprochenen Geräts. Zusätzlich erhöhen vorläufige Status auf iOS die Komplexität, da diese Geräte technisch über Vordergrund-Push-Token / Textbaustein verfügen, die Nutzer:innen aber nicht explizit ein Opt-in durchgeführt haben.
 
 #### Das Problem mit Push-Abo-Filtern {#the-problem-with-push-subscription-filters}
 
@@ -194,14 +194,14 @@ Wenn Nutzer:innen mehrere Geräte mit unterschiedlichen Push-Abo-Status haben, k
 Die empfohlene Lösung ist die Verwendung des No-Code-Push-Primers (die Button-Aktion „Request Push Permission“) ohne zusätzliche Push-Status-Segmentierungsfilter.
 
 {% alert important %}
-**Automatische Unterdrückung**: Der No-Code-Push-Primer wird automatisch auf Geräten unterdrückt, die bereits über ein aktives Push-Token verfügen. Das SDK prüft, ob Nutzer:innen auf ihrem spezifischen Gerät bereits ein Push-Token haben. Wenn das SDK feststellt, dass die Nutzer:innen bereits ein Opt-in durchgeführt haben (z. B. durch eine frühere Anfrage oder über die Geräteeinstellungen), unterdrückt das SDK die In-App-Nachricht automatisch, ohne dass zusätzliche Segmentierungsfilter erforderlich sind. Der Primer wird in allen anderen Szenarien angezeigt, auch wenn Nutzer:innen vorläufig für Push aktiviert sind.
+**Automatische Unterdrückung**: Der No-Code-Push-Primer wird automatisch auf Geräten unterdrückt, die bereits über ein aktives Push-Token / Textbaustein verfügen. Das SDK or Software-Development-Kit prüft, ob Nutzer:innen auf ihrem spezifischen Gerät bereits ein Push-Token / Textbaustein haben. Wenn das SDK or Software-Development-Kit feststellt, dass die Nutzer:innen bereits ein Opt-in durchgeführt haben (z. B. durch eine frühere Anfrage oder über die Geräteeinstellungen), unterdrückt das SDK or Software-Development-Kit die In-App-Nachricht automatisch, ohne dass zusätzliche Segmentierungsfilter erforderlich sind. Der Primer wird in allen anderen Szenarien angezeigt, auch wenn Nutzer:innen vorläufig für Push aktiviert sind.
 {% endalert %}
 
-Der Vorteil der Verwendung des No-Code-Push-Primers besteht darin, dass die Funktionalität vom Braze SDK unterstützt wird. Da das SDK den Push-Token-Status auf dem spezifischen Gerät erkennen kann, das die Nachricht anzeigt, müssen Sie sich nicht auf Segmentierungsfilter auf Profilebene verlassen, die Nutzer:innen mit mehreren Geräten möglicherweise ausschließen.
+Der Vorteil der Verwendung des No-Code-Push-Primers besteht darin, dass die Funktionalität vom Braze SDK or Software-Development-Kit unterstützt wird. Da das SDK or Software-Development-Kit den Push-Token / Textbaustein-Status auf dem spezifischen Gerät erkennen kann, das die Nachricht anzeigt, müssen Sie sich nicht auf Segmentierungsfilter auf Profilebene verlassen, die Nutzer:innen mit mehreren Geräten möglicherweise ausschließen.
 
 #### Überlegungen {#considerations}
 
-**No-Code-Push-Primer erforderlich**: Sie müssen den No-Code-Push-Primer verwenden, damit die automatische Unterdrückung funktioniert. Wenn Sie benutzerdefinierte Logik oder Deeplinks anstelle der Button-Aktion „Request Push Permission“ einrichten, kann das SDK nicht erkennen, dass Sie versuchen, einen Push-Primer anzuzeigen. Dies führt dazu, dass die Nachricht unabhängig vom Abo-Status des Geräts angezeigt wird.
+**No-Code-Push-Primer erforderlich**: Sie müssen den No-Code-Push-Primer verwenden, damit die automatische Unterdrückung funktioniert. Wenn Sie benutzerdefinierte Logik oder Deeplinks anstelle der Button-Aktion „Request Push Permission“ einrichten, kann das SDK or Software-Development-Kit nicht erkennen, dass Sie versuchen, einen Push-Primer anzuzeigen. Dies führt dazu, dass die Nachricht unabhängig vom Abo-Status des Geräts angezeigt wird.
 
 **Unterdrückung für Nutzer:innen, die sich abgemeldet haben**: Möglicherweise möchten Sie die In-App-Nachricht für Nutzer:innen unterdrücken, die sich explizit von Push abgemeldet haben (z. B. über die native Anfrage oder die Geräteeinstellungen), und diese Nutzer:innen mit einer separaten Nurture-Campaign erneut ansprechen. Verwenden Sie dazu die folgende Liquid-Logik in Kombination mit dem No-Code-Primer:
 
@@ -214,7 +214,7 @@ Der Vorteil der Verwendung des No-Code-Push-Primers besteht darin, dass die Funk
 ```
 {% endraw %}
 
-Der Liquid-Filter `targeted_device` betrachtet nur das Gerät, auf dem die Nachricht angezeigt wird, und nicht das Nutzerprofil. Auf diesem Gerät wird `foreground_push_enabled` auf `true` gesetzt, wenn ein aktives Vordergrund-Push-Token vorhanden ist, und auf `false`, wenn das Betriebssystem meldet, dass Push-Benachrichtigungen deaktiviert wurden (z. B. wenn die Nutzer:innen sie explizit ausgeschaltet haben). Bei völlig neuen Geräten, die noch nicht auf einen Push-Berechtigungsstatus reagiert haben, ist `foreground_push_enabled` nicht gesetzt und hat keinen Wert. Da die Liquid-Bedingung speziell auf {% raw %}`false`{% endraw %} prüft, wird der Primer nur für Geräte mit einem expliziten Opt-out unterdrückt, während Geräte in diesem unbekannten Status weiterhin qualifiziert sind und den Push-Primer erhalten können.
+Der Liquid-Filter `targeted_device` betrachtet nur das Gerät, auf dem die Nachricht angezeigt wird, und nicht das Kundenprofil or Nutzerprofil. Auf diesem Gerät wird `foreground_push_enabled` auf `true` gesetzt, wenn ein aktives Vordergrund-Push-Token / Textbaustein vorhanden ist, und auf `false`, wenn das Betriebssystem meldet, dass Push-Benachrichtigungen deaktiviert wurden (z. B. wenn die Nutzer:innen sie explizit ausgeschaltet haben). Bei völlig neuen Geräten, die noch nicht auf einen Push-Berechtigungsstatus reagiert haben, ist `foreground_push_enabled` nicht gesetzt und hat keinen Wert. Da die Liquid-Bedingung speziell auf {% raw %}`false`{% endraw %} prüft, wird der Primer nur für Geräte mit einem expliziten Opt-out unterdrückt, während Geräte in diesem unbekannten Status weiterhin qualifiziert sind und den Push-Primer erhalten können.
 
 ## 6. Schritt: Konversions-Events {#step-6-conversion-events}
 

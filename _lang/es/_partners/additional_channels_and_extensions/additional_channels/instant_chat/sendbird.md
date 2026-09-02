@@ -27,8 +27,8 @@ Al aprovechar las capacidades conjuntas de Braze y Sendbird Notifications, las e
 | ----------- | ----------- |
 | Cuenta de Sendbird | Se requiere una cuenta de Sendbird para aprovechar esta integración. |
 | Sendbird UIKit | Debes tener el Sendbird UIKit instalado en tu aplicación [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) o [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit). |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
@@ -50,7 +50,7 @@ Las [plantillas de Sendbird](https://sendbird.com/docs/notifications/v1/template
 
 ### Paso 2: Configurar la integración de Braze en el panel de Sendbird {#step-2-set-up-the-braze-integration-on-sendbird-dashboard}
 
-Desde el **panel de Sendbird**, selecciona tu aplicación, navega a **Notifications > Integrations** y haz clic en **Add** en la sección **Braze**. Aquí necesitarás tu clave de API REST de Braze y el endpoint REST de Braze.
+Desde el **panel de Sendbird**, selecciona tu aplicación, navega a **Notifications > Integrations** y haz clic en **Add** en la sección **Braze**. Aquí necesitarás tu clave de API REST or transferencia de estado representacional de Braze y el endpoint REST or transferencia de estado representacional de Braze.
 
 Una vez que hayas completado todos los campos, haz clic en **Save** para completar la integración y acceder a los endpoints de integración y al token de API.
 

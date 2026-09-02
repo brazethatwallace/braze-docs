@@ -19,20 +19,20 @@ Facebook Lead Ads ist ein Anzeigenformat, das es Unternehmen erlaubt, Lead-Infor
 |---|---|
 | Zapier-Konto | Ein Zapier-Konto ist erforderlich, um diese Partnerschaft zu nutzen. Diese Integration erfordert die Verwendung von <a href="https://zapier.com/app/pricing/" target="_blank">Premium-Zapier-Apps</a>. Stellen Sie daher sicher, dass Ihr Zapier-Tarif Zugang zu Premium-Apps bietet. |
 | <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Facebook Leads-Zugriff</a> | Facebook Leads-Zugriff ist für jedes Werbekonto erforderlich, das Sie mit Braze verwenden möchten. |
-| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | Sie verwenden den Facebook Business Manager, ein zentrales Tool zur Verwaltung der Facebook-Ressourcen Ihrer Marke (z. B. Werbekonten, Seiten und Apps), als Teil dieser Integration. |
-| <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Facebook-Werbekonto</a> | Sie benötigen ein aktives Facebook-Werbekonto, das mit dem Business Manager Ihrer Marke verknüpft ist. <br><br>Stellen Sie sicher, dass Sie die Berechtigung „Manage ad accounts“ für jedes Werbekonto haben, das Sie mit Braze verwenden möchten, und dass Sie die Geschäftsbedingungen Ihres Werbekontos akzeptiert haben. |
-| <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Facebook-Seite</a> | Sie benötigen eine aktive Facebook-Seite, die mit dem Business Manager Ihrer Marke verknüpft ist. <br><br>Stellen Sie sicher, dass Sie die Berechtigung „Manage Pages“ für jede Facebook-Seite haben, die Sie mit Braze verwenden möchten. |
-| Braze-REST-Endpunkt | Stellen Sie sicher, dass Sie Ihre [REST-Endpunkt-URL]({{site.baseurl}}/api/basics#api-definitions) kennen. Ihr API-Endpunkt stimmt mit der Dashboard-URL Ihrer Braze-Instanz überein. <br><br> Wenn Ihre Dashboard-URL beispielsweise `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
-| Braze-REST-API-Schlüssel | Stellen Sie sicher, dass Sie einen Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen haben. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager:in</a> | Sie verwenden den Facebook Business Manager:in, ein zentrales Tool zur Verwaltung der Facebook-Ressourcen Ihrer Marke (z. B. Werbekonten, Seiten und Apps), als Teil dieser Integration. |
+| <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Facebook-Werbekonto</a> | Sie benötigen ein aktives Facebook-Werbekonto, das mit dem Business Manager:in Ihrer Marke verknüpft ist. <br><br>Stellen Sie sicher, dass Sie die Berechtigung „Manage ad accounts“ für jedes Werbekonto haben, das Sie mit Braze verwenden möchten, und dass Sie die Geschäftsbedingungen Ihres Werbekontos akzeptiert haben. |
+| <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Facebook-Seite</a> | Sie benötigen eine aktive Facebook-Seite, die mit dem Business Manager:in Ihrer Marke verknüpft ist. <br><br>Stellen Sie sicher, dass Sie die Berechtigung „Manage Pages“ für jede Facebook-Seite haben, die Sie mit Braze verwenden möchten. |
+| Braze-Representational State Transfer-Endpunkt | Stellen Sie sicher, dass Sie Ihre [Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/api/basics#api-definitions) kennen. Ihr API-Endpunkt stimmt mit der Dashboard-URL Ihrer Braze-Instanz überein. <br><br> Wenn Ihre Dashboard-URL beispielsweise `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
+| Braze-Representational State Transfer-API-Schlüssel | Stellen Sie sicher, dass Sie einen Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen haben. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 ### Schritt 1: Erstellen Sie eine Lead-Ads-Campaign mit einem Sofortformular {#step-1-create-a-lead-ads-campaign-with-an-instant-form}
 
-Erstellen Sie im Facebook Ads Manager eine <a href="https://www.facebook.com/business/help/397336587121938?id=735435806665862&helpref=uf_permalink" target="_blank">Facebook-Leads-Campaign und ein Facebook-Lead-Ads-Formular</a>.
+Erstellen Sie im Facebook Ads Manager:in eine <a href="https://www.facebook.com/business/help/397336587121938?id=735435806665862&helpref=uf_permalink" target="_blank">Facebook-Leads-Campaign und ein Facebook-Lead-Ads-Formular</a>.
 
-Sie können entweder eine E-Mail-Adresse oder eine Telefonnummer verwenden, wenn Sie eine Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) stellen, um das Nutzerprofil zu aktualisieren oder zu erstellen. Fügen Sie daher ein **Kontaktfeld** für **E-Mail** oder **Telefon** in Ihr Lead-Anzeigenformular ein. Wenn Sie Vornamen oder Nachnamen erfassen, sammeln Sie diese separat in Ihrem Formular, anstatt vollständige Namen zu verwenden.
+Sie können entweder eine E-Mail-Adresse oder eine Telefonnummer verwenden, wenn Sie eine Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) stellen, um das Kundenprofil or Nutzerprofil zu Update or aktualisieren or aktualisieren oder zu erstellen. Fügen Sie daher ein **Kontaktfeld** für **E-Mail** oder **Telefon** in Ihr Lead-Anzeigenformular ein. Wenn Sie Vornamen oder Nachnamen erfassen, sammeln Sie diese separat in Ihrem Formular, anstatt vollständige Namen zu verwenden.
 
 ### Schritt 2: Verbinden Sie Ihr Facebook-Konto mit Zapier {#step-2-connect-your-facebook-account-to-zapier}
 
@@ -47,19 +47,19 @@ Weitere Informationen zu diesen beiden Methoden, um Ihr Facebook-Konto mit Zapie
 
 ![Zapier-App-Suche mit Verbindungsoptionen für Facebook Lead Ads.]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
 
-#### Schritt 2b: Zapier zum Leads-Zugang im Facebook Business Manager hinzufügen {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
+#### Schritt 2b: Zapier zum Leads-Zugang im Facebook Business Manager:in hinzufügen {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-Gehen Sie in Ihrem Facebook Business Manager im Navigationsmenü auf **Integrations** > **Leads Access**. Wählen Sie Ihre Facebook-Seite aus und klicken Sie dann auf **CRMs**. Auf dem CRM-Tab wählen Sie **Assign CRMs** und fügen **Zapier** hinzu.
+Gehen Sie in Ihrem Facebook Business Manager:in im Navigationsmenü auf **Integrations** > **Leads Access**. Wählen Sie Ihre Facebook-Seite aus und klicken Sie dann auf **CRMs**. Auf dem CRM or Customer-Relationship-Management [-System] (CRM)-Tab wählen Sie **Assign CRMs** und fügen **Zapier** hinzu.
 
 ![Facebook Business Manager Leads-Access-Seite mit Zapier als zugewiesener CRM-Integration.]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
-Die Schritte zur Zuweisung von Zapier als CRM-Integration finden Sie in der <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">Dokumentation</a> von Facebook.
+Die Schritte zur Zuweisung von Zapier als CRM or Customer-Relationship-Management [-System] (CRM)-Integration finden Sie in der <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862" target="_blank">Dokumentation</a> von Facebook.
 
 ### Schritt 3: Erstellen Sie Ihren Zap {#step-3-create-your-zap}
 
-#### Schritt 3a: Erstellen Sie den Trigger {#step-3a-create-the-trigger}
+#### Schritt 3a: Erstellen Sie den Trigger or triggern {#step-3a-create-the-trigger}
 
-Sobald Sie Ihr Facebook-Konto verbunden haben, können Sie mit der Erstellung eines Zap fortfahren. Wählen Sie als **Trigger** **Facebook Lead Ads** oder **Facebook Lead Ads (for Business Admins)**, je nachdem, was Sie in Schritt 2 ausgewählt haben.
+Sobald Sie Ihr Facebook-Konto verbunden haben, können Sie mit der Erstellung eines Zap fortfahren. Wählen Sie als **Trigger or triggern** **Facebook Lead Ads** oder **Facebook Lead Ads (for Business Admins)**, je nachdem, was Sie in Schritt 2 ausgewählt haben.
 
 ![Zapier-Trigger-Schritt mit ausgewähltem Facebook Lead Ads.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap1.png %}){: style="max-width:80%;"}
 
@@ -75,7 +75,7 @@ Wählen Sie Ihre Facebook-Seite und das zuvor erstellte Sofortformular aus und k
 
 ![Zapier-Trigger-Konfiguration mit Auswahl einer Facebook-Seite und eines Sofortformulars.]({% image_buster /assets/img/fb_lead_ads_zapier/create_zap4.png %}){: style="max-width:80%;"}
 
-Testen Sie nun diesen Trigger. Nachdem Sie Ihre Formularausgabe validiert haben, wählen Sie **Continue with selected record**.
+Testen Sie nun diesen Trigger or triggern. Nachdem Sie Ihre Formularausgabe validiert haben, wählen Sie **Continue with selected record**.
 
 #### Schritt 3b: Eine Aktion erstellen {#step-3b-create-an-action}
 
@@ -129,10 +129,10 @@ Um dies End-to-End zu testen, verwenden Sie das Lead-Ads-Testing-Tool von Facebo
 
 Diese Integration ermöglicht es Ihnen, Ihre Facebook-Leads per E-Mail über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) zuzuordnen.
 
-* Wenn die E-Mail mit einem bestehenden Nutzerprofil übereinstimmt, aktualisiert Braze das Profil mit den Facebook-Lead-Daten.
+* Wenn die E-Mail mit einem bestehenden Kundenprofil or Nutzerprofil übereinstimmt, aktualisiert Braze das Profil mit den Facebook-Lead-Daten.
 * Wenn mehrere Nutzerprofile mit derselben E-Mail vorhanden sind, priorisiert Braze das zuletzt aktualisierte Profil mit einer externen ID für Aktualisierungen.
 * Wenn keine externe ID existiert, priorisiert Braze das zuletzt aktualisierte Profil mit der übereinstimmenden E-Mail.
-* Wenn kein Profil mit der angegebenen E-Mail existiert, erstellt Braze ein neues Profil, und es wird ein neues Alias-Nutzerprofil angelegt. Um die neu erstellten Alias-Nutzerprofile zu identifizieren, verwenden Sie den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+* Wenn kein Profil mit der angegebenen E-Mail existiert, erstellt Braze ein neues Profil, und es wird ein neues Alias-Kundenprofil or Nutzerprofil angelegt. Um die neu erstellten Alias-Nutzerprofile zu identifizieren, verwenden Sie den [`/users/identify`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 
 {% alert note %}
 Sie können auch eine Telefonnummer oder externe ID als Teil der Anfrage an Braze verwenden, wenn diese Felder verfügbar sind und der primäre Bezeichner sind, den Sie für die Integration nutzen möchten. Ändern Sie dazu Ihren Anfrage-Payload wie im [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) beschrieben.
@@ -140,23 +140,23 @@ Sie können auch eine Telefonnummer oder externe ID als Teil der Anfrage an Braz
 
 ## Fehlerbehebung {#troubleshooting}
 
-{% details Ich habe den Trigger und die Aktion erfolgreich getestet – warum kann ich meinen Zapier-Zap nicht veröffentlichen? %}
+{% details Ich habe den Trigger or triggern und die Aktion erfolgreich getestet – warum kann ich meinen Zapier-Zap nicht veröffentlichen? %}
 Um diese Integration zu nutzen, benötigen Sie einen <a href="https://zapier.com/app/pricing/" target="_blank">Zapier-Plan</a>, der Premium-Apps unterstützt.
 {% enddetails %}
 
 {% details Warum werden Facebook-Leads nicht mit Braze synchronisiert? %}
 1. Überprüfen Sie, ob Sie Administratorzugriff auf Ihre Facebook-Seite, Ihr Werbekonto und den Lead-Zugriff haben. Verbinden Sie dann Ihr Konto in Zapier erneut.
-2. Überprüfen Sie, ob das in Facebook erstellte Instant-Formular dem im Trigger-Schritt ausgewählten Formular zugeordnet ist.
-3. Prüfen Sie, ob Sie Zapier den Lead-Zugriff zugewiesen haben, indem Sie zu **Facebook Business Manager** > **Integrations** > **Lead Access** navigieren.
+2. Überprüfen Sie, ob das in Facebook erstellte Instant-Formular dem im Trigger or triggern-Schritt ausgewählten Formular zugeordnet ist.
+3. Prüfen Sie, ob Sie Zapier den Lead-Zugriff zugewiesen haben, indem Sie zu **Facebook Business Manager:in** > **Integrations** > **Lead Access** navigieren.
 {% enddetails %}
 
 {% details Warum sehe ich doppelte Nutzerprofile mit derselben E-Mail? %}
-Es gibt verschiedene Möglichkeiten, Nutzerprofile in Braze basierend auf ihrem [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) zu erstellen und zu verwalten.
+Es gibt verschiedene Möglichkeiten, Nutzerprofile in Braze basierend auf ihrem [Kundenprofil or Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) zu erstellen und zu verwalten.
 
-Abhängig von Ihren internen Prozessen und dem Zeitpunkt, zu dem Sie das Erstellen von Kund:innen in Braze triggern, kann es aufgrund einer Race-Condition zu doppelten Nutzerprofilen kommen – nämlich wenn das Nutzerprofil durch die Integration erstellt wird und gleichzeitig der/die Nutzer:in von Ihrem System angelegt wird. Sie können [Nutzerprofile zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) in Braze.
+Abhängig von Ihren internen Prozessen und dem Zeitpunkt, zu dem Sie das Erstellen von Kund:innen in Braze Trigger or triggern or triggern, kann es aufgrund einer Race-Condition zu doppelten Nutzerprofilen kommen – nämlich wenn das Kundenprofil or Nutzerprofil durch die Integration erstellt wird und gleichzeitig der/die Nutzer:in von Ihrem System angelegt wird. Sie können [Nutzerprofile zusammenführen]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) in Braze.
 {% enddetails %}
 
-{% details Ich habe kein Zapier-Konto. Wie kann ich Facebook-Lead-Ads-Webhooks in Braze triggern? %}
+{% details Ich habe kein Zapier-Konto. Wie kann ich Facebook-Lead-Ads-Webhooks in Braze Trigger or triggern or triggern? %}
 Wenn Sie Zapier nicht verwenden und auch nicht planen, Zapier zu nutzen, können Sie die Integration direkt von Facebook in Braze aufbauen. Weitere Informationen finden Sie in der <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/" target="_blank">Lead-Ads-Dokumentation</a>.
 
 Zum Abrufen von Leads aus Facebook verwenden Sie <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">Webhooks</a>. Lesen Sie die <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">Webhooks-Dokumentation</a>, um mit Webhooks in Facebook zu beginnen.

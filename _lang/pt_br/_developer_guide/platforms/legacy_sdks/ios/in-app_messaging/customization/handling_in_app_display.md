@@ -123,7 +123,7 @@ func before(inAppMessageDisplayed inAppMessage: ABKInAppMessage, withKeyboardIsU
 
 ## Ocultação da barra de status durante a exibição {#hiding-the-status-bar-during-display}
 
-Para mensagens no app `Full` e `HTML`, o SDK tentará colocar a mensagem sobre a barra de status por padrão. No entanto, em alguns casos, a barra de status ainda pode aparecer na parte superior da mensagem no app. A partir da versão [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) do SDK do iOS, é possível forçar a ocultação da barra de status ao exibir mensagens no app `Full` e `HTML`, definindo `ABKInAppMessageHideStatusBarKey` como `YES` dentro do `appboyOptions` passado para `startWithApiKey:`.
+Para mensagens no app `Full` e `HTML`, o SDK or kit de desenvolvimento de software tentará colocar a mensagem sobre a barra de status por padrão. No entanto, em alguns casos, a barra de status ainda pode aparecer na parte superior da mensagem no app. A partir da versão [3.21.1](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3211) do SDK or kit de desenvolvimento de software do iOS, é possível forçar a ocultação da barra de status ao exibir mensagens no app `Full` e `HTML`, definindo `ABKInAppMessageHideStatusBarKey` como `YES` dentro do `appboyOptions` passado para `startWithApiKey:`.
 
 ## Registro de impressões e cliques {#logging-impressions-and-clicks}
 

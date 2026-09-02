@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "iOS Push-Anpassung"
 guide_top_text: ""
-description: "Diese Landing-Page behandelt die Anpassungsoptionen für Push im Braze iOS SDK, einschließlich Aktions-Buttons, angepasste Sounds, Rich-Benachrichtigungen, Badges und mehr."
+description: "Diese Landing-Page behandelt die Anpassungsoptionen für Push im Braze iOS SDK or Software-Development-Kit, einschließlich Aktions-Buttons, angepasste Sounds, Rich-Benachrichtigungen, Badges und mehr."
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:

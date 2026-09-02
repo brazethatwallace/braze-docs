@@ -30,7 +30,7 @@ Bestätigen Sie die folgenden Punkte, bevor Sie mit der Integration fortfahren:
 | Facebook Messenger App | Facebook | [https://developers.facebook.com/apps](https://developers.facebook.com/apps) | Die Facebook App enthält die Einstellungen für Ihren Messenger-Bot, einschließlich der Zugriffstoken. |
 | App-Bot-Überprüfung und -Genehmigung | Facebook | [https://developers.facebook.com/docs/messenger-platform/app-review](https://developers.facebook.com/docs/messenger-platform/app-review) | Wenn Sie bereit sind, Ihren Bot für die Öffentlichkeit freizugeben, müssen Sie ihn bei Facebook zur Überprüfung und Genehmigung einreichen. Mit diesem Überprüfungsprozess stellen wir sicher, dass Ihr Messenger-Bot unsere Richtlinien einhält und wie erwartet funktioniert, bevor er für alle Nutzer:innen im Messenger verfügbar gemacht wird. |
 | Seitenbereichs-IDs (PSIDs) | Facebook | [https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages) | Sie benötigen die PSIDs der Nutzer:innen, um Nachrichten im Facebook Messenger zu versenden. Wenn Nutzer:innen über Messenger mit Ihrer App interagieren, erstellt Facebook eine PSID. Diese PSID kann als angepasstes Attribut in Form eines Strings an Braze gesendet werden. |
-| Token für den Seitenzugriff | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | Diese Token ähneln den Nutzerzugriffstoken, mit dem Unterschied, dass sie APIs die Erlaubnis erteilen, die Daten einer Facebook-Seite zu lesen, zu schreiben oder zu ändern. Um ein Token für den Seitenzugriff zu erhalten, müssen Sie ein Nutzerzugriffstoken anfordern und die Berechtigung `manage_pages` anfragen. Nachdem Sie das Nutzerzugriffstoken haben, erhalten Sie das Seitenzugriffstoken über die Graph API. |
+| Token / Textbaustein für den Seitenzugriff | Facebook | [https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token](https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup#page_access_token) | Diese Token / Textbaustein ähneln den Nutzerzugriffstoken, mit dem Unterschied, dass sie APIs die Erlaubnis erteilen, die Daten einer Facebook-Seite zu lesen, zu schreiben oder zu ändern. Um ein Token / Textbaustein für den Seitenzugriff zu erhalten, müssen Sie ein Nutzerzugriffstoken anfordern und die Berechtigung `manage_pages` anfragen. Nachdem Sie das Nutzerzugriffstoken haben, erhalten Sie das Seitenzugriffstoken über die Graph API. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -81,7 +81,7 @@ So erstellen Sie ein Facebook Messenger Webhook-Template:
 1. Geben Sie einen Template-Namen an und fügen Sie Teams und Tags hinzu, falls erforderlich.
 2. Geben Sie Ihre Nachricht ein oder wählen Sie ein Nachrichten-Template aus den [von Facebook zur Verfügung gestellten](https://developers.facebook.com/docs/messenger-platform/reference/webhook-events/messages). Sie können auch die [Art](https://developers.facebook.com/docs/messenger-platform/send-messages#message_types) Ihrer Nachricht oder Ihren [Tag](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags) auswählen.
 3. Fügen Sie die PSID als angepasstes Attribut ein. Verwenden Sie dazu den blau-weißen Button **+** in der Ecke des Feldes **Request Body**.
-3. Fügen Sie Ihr Token für den Seitenzugriff in die Webhook-URL ein, indem Sie `FACEBOOK_PAGE_ACCESS_TOKEN` durch Ihr Token ersetzen.
+3. Fügen Sie Ihr Token / Textbaustein für den Seitenzugriff in die Webhook-URL ein, indem Sie `FACEBOOK_PAGE_ACCESS_TOKEN` durch Ihr Token / Textbaustein ersetzen.
 
 #### Vorschau und Test Ihres Webhooks {#previewing-and-testing-your-webhook}
 
@@ -99,4 +99,4 @@ Sobald Sie diese Integration eingerichtet haben, können Sie sie nutzen, um Nutz
 
 Wenn Sie sich dafür entscheiden, kein spezielles Segment für Messenger-Abonnent:innen zu erstellen, stellen Sie sicher, dass Sie einen Filter für die vorhandene Messenger-ID einfügen, um Fehler zu vermeiden.
 
-Sie können auch andere Segmentierungen für das Targeting Ihrer Messenger-Campaigns verwenden, und der Rest des Erstellungsprozesses funktioniert wie bei jeder anderen Campaign.
+Sie können auch andere Segmentierungen für das Targeting Ihrer Messenger-Campaigns verwenden, und der Representational State Transfer des Erstellungsprozesses funktioniert wie bei jeder anderen Campaign.

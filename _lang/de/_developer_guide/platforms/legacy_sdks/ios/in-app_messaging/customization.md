@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "Anpassung von iOS-In-App-Nachrichten"
 guide_top_text: "Alle In-App-Nachrichtentypen von Braze lassen sich in hohem Maße anpassen: Nachrichten, Bilder, <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>-Symbole, Klick-Aktionen, Analytics, editierbares Styling, angepasste Anzeigeoptionen und angepasste Zustellungsoptionen. Mehrere Optionen können <a href='/docs/user_guide/message_building_by_channel/in-app_messages/create'>im Dashboard</a> für jede einzelne In-App-Nachricht konfiguriert werden. Braze bietet darüber hinaus mehrere Stufen der fortgeschrittenen Anpassung, um eine Vielzahl von Anwendungsfällen und Anforderungen zu erfüllen."
-description: "Diese Landing-Page behandelt die Optionen zur Anpassung von In-App-Nachrichten im Braze iOS SDK, wie z. B. die Einstellung von Delegaten, die Anpassung der Ausrichtung, die angepasste Handhabung der Anzeige und mehr."
+description: "Diese Landing-Page behandelt die Optionen zur Anpassung von In-App-Nachrichten im Braze iOS SDK or Software-Development-Kit, wie z. B. die Einstellung von Delegaten, die Anpassung der Ausrichtung, die angepasste Handhabung der Anzeige und mehr."
 
 guide_featured_title: "Artikel im Abschnitt"
 guide_featured_list:

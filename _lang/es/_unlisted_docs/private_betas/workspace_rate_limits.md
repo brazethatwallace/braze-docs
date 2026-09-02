@@ -16,7 +16,7 @@ Los límites de velocidad del espacio de trabajo solo están disponibles para co
 
 De forma predeterminada, los límites de velocidad a nivel de empresa se comparten entre tus espacios de trabajo.
 
-Con los límites de velocidad del espacio de trabajo, puedes establecer un número máximo de solicitudes de API que un espacio de trabajo puede realizar a un endpoint de ingesta específico, como `/users/track` o datos del SDK. También puedes aplicar límites de velocidad a un grupo de espacios de trabajo, lo que significa que el límite se comparte entre todos los espacios de trabajo de ese grupo.
+Con los límites de velocidad del espacio de trabajo, puedes establecer un número máximo de solicitudes de API que un espacio de trabajo puede realizar a un endpoint de ingesta específico, como `/users/track` o datos del SDK or kit de desarrollo de software. También puedes aplicar límites de velocidad a un grupo de espacios de trabajo, lo que significa que el límite se comparte entre todos los espacios de trabajo de ese grupo.
 
 Por ejemplo, si tu endpoint `/users/track` tiene un límite de velocidad a nivel de empresa de 500 000 solicitudes por hora, podrías establecer los siguientes límites de velocidad del espacio de trabajo:
 

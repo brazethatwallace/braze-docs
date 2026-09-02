@@ -9,7 +9,7 @@ hidden: true
 Nachdem Sie Ihre [Content Blocks für Ihre Drag-and-Drop-E-Mail-Campaigns]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks?tab=drag-and-drop) erstellt haben, können Sie Ihre Bibliothek dieser Content Blocks im Drag-and-Drop-Editor anzeigen.
 
 {% alert important %}
-Diese Vorschaufunktion für die Drag-and-Drop-Content Blocks befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.
+Diese Vorschaufunktion für die Drag-and-Drop-Content Blocks befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Teilnahme am Early Access interessiert sind.
 {% endalert %}
 
 Um eine Vorschau Ihrer Content Blocks anzuzeigen, navigieren Sie zum Abschnitt **Inhalt** > **Entwerfen und Erstellen**. Wählen Sie den Tab **Zeilen** aus und wählen Sie **Content Blocks** im Dropdown-Menü. Hier können Sie sehen, wie Ihre Drag-and-Drop-Content Blocks so angezeigt werden, wie sie in Ihrer E-Mail-Campaign erscheinen würden.

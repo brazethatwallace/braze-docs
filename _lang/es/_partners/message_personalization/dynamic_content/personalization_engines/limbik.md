@@ -21,7 +21,7 @@ Se requiere lo siguiente para usar Limbik con Braze:
 | --- | --- |
 | `account_id` de Limbik | Habla con tu equipo de cuenta de Limbik o realiza una solicitud GET al punto de conexión `/rest/api/organizations` de Limbik |
 | Token de acceso de Limbik (`access_token`) | Realiza una solicitud POST al punto de conexión `login` de Limbik y usa el valor `access_token` devuelto como token Bearer en el encabezado `Authorization`. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de "Messages". Crea una en el dashboard de Braze en **Settings** > **API Keys**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de "Messages". Crea una en el dashboard de Braze en **Settings** > **API Keys**. |
 | `campaign_id` de Braze | Ve a **Messaging** > **Campaigns** y selecciona una Campaign. Si la Campaign que deseas aún no existe, crea una y guárdala. En la parte inferior de la página de la Campaign, encuentra el identificador de API de Campaign. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -93,14 +93,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
 {% alert note %}
-Puedes usar plataformas de API como Postman para configurar flujos de trabajo automatizados que llamen a múltiples puntos de conexión de REST API desde diferentes organizaciones, como el siguiente flujo de trabajo.
+Puedes usar plataformas de API como Postman para configurar flujos de trabajo automatizados que llamen a múltiples puntos de conexión de REST or transferencia de estado representacional API desde diferentes organizaciones, como el siguiente flujo de trabajo.
 {% endalert %}
 
 {% enddetails %}
 
 ## Caso de uso: generar texto de mensaje {#use-case-generating-message-copy}
 
-Al usar los puntos de conexión de REST API de Braze y Limbik, puedes utilizar los pronósticos generativos de Limbik para crear texto de mensaje y enviarlo a través de los canales de mensajería de Braze, o ajustar el texto existente para mejorar el impacto en tu audiencia. Ambas plataformas exponen funcionalidades que puedes llamar programáticamente para construir flujos de trabajo sofisticados.
+Al usar los puntos de conexión de REST or transferencia de estado representacional API de Braze y Limbik, puedes utilizar los pronósticos generativos de Limbik para crear texto de mensaje y enviarlo a través de los canales de mensajería de Braze, o ajustar el texto existente para mejorar el impacto en tu audiencia. Ambas plataformas exponen funcionalidades que puedes llamar programáticamente para construir flujos de trabajo sofisticados.
 
 Esta documentación describe dos ejemplos: generar texto de mensaje en Limbik y usar este texto en un mensaje posterior enviado a través de Braze, así como usar Limbik para evaluar la calidad de un mensaje dado para tu audiencia elegida.
 

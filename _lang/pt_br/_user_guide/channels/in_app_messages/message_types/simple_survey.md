@@ -20,21 +20,21 @@ Casos de uso comuns de pesquisa incluem perguntar aos usuários como gostariam d
 
 ![Três mensagens de pesquisa simples: preferências de notificação, preferências alimentares e uma pesquisa de satisfação do cliente. As opções selecionadas nas pesquisas correspondem a atributos personalizados que serão registrados para aquele usuário.]({% image_buster /assets/img/iam/iam-survey.png %})
 
-## Requisitos do SDK {#supported-sdk-versions}
+## Requisitos do SDK or kit de desenvolvimento de software {#supported-sdk-versions}
 
-Essa mensagem no app só será entregue a dispositivos que suportem [Flex CSS](https://caniuse.com/flexbox) e deve ter pelo menos as seguintes [versões do SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Essa mensagem no app só será entregue a dispositivos que suportem [Flex CSS](https://caniuse.com/flexbox) e deve ter pelo menos as seguintes [versões do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
 {% alert note %}
-Para ativar mensagens no app em HTML pelo SDK Web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze.
+Para ativar mensagens no app em HTML pelo SDK or kit de desenvolvimento de software Web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze.
 {% endalert %}
 
 ## Criando uma pesquisa {#create}
 
 Ao criar uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), selecione **Simple Survey** como seu **Message Type**.
 
-Esse modelo de pesquisa é compatível com apps mobile e navegadores web. Lembre-se de verificar se seus SDKs estão nas [versões mínimas do SDK](#supported-sdk-versions) necessárias para esse recurso.
+Esse modelo de pesquisa é compatível com apps mobile e navegadores web. Lembre-se de verificar se seus SDKs estão nas [versões mínimas do SDK or kit de desenvolvimento de software](#supported-sdk-versions) necessárias para esse recurso.
 
 ### Etapa 1: Adicione sua pergunta da pesquisa {#step-1-add-your-survey-question}
 
@@ -75,7 +75,7 @@ Quando a coleta de atributos personalizados está ativada, opções que comparti
 
 Por exemplo, em uma [pesquisa de preferências de notificação](#notification-preferences), você pode tornar cada opção um atributo booleano (verdadeiro/falso) para permitir que os usuários selecionem quais tópicos lhes interessam. Se um usuário marcar a opção "Promoções", isso atualizará seu [perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) com o atributo personalizado `Promotions Topic` definido como `true`. Se ele deixar a opção desmarcada, esse mesmo atributo permanecerá inalterado.
 
-Você pode então usar o filtro `Custom Attribute` para criar um Segment para usuários com o atributo personalizado `Promotions Topic` `is` `true` para garantir que apenas os usuários interessados em suas promoções recebam as Campaigns relevantes.
+Você pode então usar o filtro `Custom Attribute` para criar um Segment or segmento para usuários com o atributo personalizado `Promotions Topic` `is` `true` para garantir que apenas os usuários interessados em suas promoções recebam as Campaigns relevantes.
 
 #### Registrar apenas as respostas {#no-attributes}
 

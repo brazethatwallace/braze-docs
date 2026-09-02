@@ -25,7 +25,7 @@ Está procurando o guia básico de integração de Content Cards para desenvolve
 
 ### Content Cards como objetos personalizados {#content-cards-as-custom-objects}
 
-Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa proporcionam flexibilidade para trabalhar com diferentes backends de dados de forma intercambiável. Isso pode ser feito conformando-se ao protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso do struct `ContentCardData`, permite que você acesse os dados do `ABKContentCard`. A carga útil do `ABKContentCard` será usada para inicializar o struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador que vem com o protocolo.
+Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API or interface de programação do aplicativo (API) limitadas como essa proporcionam flexibilidade para trabalhar com diferentes backends de dados de forma intercambiável. Isso pode ser feito conformando-se ao protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso do struct `ContentCardData`, permite que você acesse os dados do `ABKContentCard`. A carga útil do `ABKContentCard` será usada para inicializar o struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador que vem com o protocolo.
 
 O inicializador também inclui um enum `ContentCardClassType`. Esse enum é usado para decidir qual objeto inicializar. Por meio do uso de pares chave-valor no dashboard da Braze, você pode definir uma chave `class_type` explícita que será usada para determinar qual objeto inicializar. Esses pares chave-valor para Content Cards estão disponíveis na variável `extras` do `ABKContentCard`. Outro componente central do inicializador é o parâmetro de dicionário `metaData`. O `metaData` inclui tudo do `ABKContentCard`, analisado em uma série de chaves e valores. Depois que os cartões relevantes são analisados e convertidos em seus objetos personalizados, o app está pronto para começar a trabalhar com eles como se tivessem sido instanciados a partir de JSON ou qualquer outra fonte.
 
@@ -228,7 +228,7 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
 {% subtabs global %}
 {% subtab Swift %}
 **Solicitando Content Cards**<br>
-Enquanto o observador ainda estiver retido na memória, o retorno de chamada de notificação do SDK da Braze pode ser esperado.
+Enquanto o observador ainda estiver retido na memória, o retorno de chamada de notificação do SDK or kit de desenvolvimento de software da Braze pode ser esperado.
 
 ```swift
 func loadContentCards() {
@@ -237,7 +237,7 @@ func loadContentCards() {
 }
 ```
 
-**Tratando o retorno de chamada do SDK de Content Cards**<br>
+**Tratando o retorno de chamada do SDK or kit de desenvolvimento de software de Content Cards**<br>
 Encaminhe o retorno de chamada de notificação para o arquivo auxiliar para analisar os dados da carga útil para seu(s) objeto(s) personalizado(s).
 ```swift
 @objc func contentCardsUpdated(_ notification: Notification) {
@@ -260,7 +260,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 {% endsubtab %}
 {% subtab Objective-C %}
 **Solicitando Content Cards**<br>
-Enquanto o observador ainda estiver retido na memória, o retorno de chamada de notificação do SDK da Braze pode ser esperado.
+Enquanto o observador ainda estiver retido na memória, o retorno de chamada de notificação do SDK or kit de desenvolvimento de software da Braze pode ser esperado.
 
 ```objc
 - (void)loadContentCards {
@@ -269,7 +269,7 @@ Enquanto o observador ainda estiver retido na memória, o retorno de chamada de 
 }
 ```
 
-**Tratando o retorno de chamada do SDK de Content Cards**<br>
+**Tratando o retorno de chamada do SDK or kit de desenvolvimento de software de Content Cards**<br>
 Encaminhe o retorno de chamada de notificação para o arquivo auxiliar para analisar os dados da carga útil para seu(s) objeto(s) personalizado(s).
 ```objc
 - (void)contentCardsUpdated:(NSNotification *)notification {
@@ -442,7 +442,7 @@ O exemplo a seguir mostra uma `UICollectionView` com uma lista híbrida de itens
 
 #### Configuração do dashboard {#dashboard-configuration}
 
-Este Content Card é entregue por uma campanha disparada por API com pares chave-valor disparados por API. Isso é ideal para campanhas em que os valores do cartão dependem de fatores externos para determinar qual conteúdo exibir ao usuário. Observe que `class_type` deve ser conhecido no momento da configuração.
+Este Content Card é entregue por uma campanha disparada por API or interface de programação do aplicativo (API) com pares chave-valor disparados por API or interface de programação do aplicativo (API). Isso é ideal para campanhas em que os valores do cartão dependem de fatores externos para determinar qual conteúdo exibir ao usuário. Observe que `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares chave-valor para o caso de uso de Content Cards suplementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -554,7 +554,7 @@ Esse comportamento pode ser substituído conforme detalhado em nosso [guia de es
 
 ## Registro de impressões, cliques e dispensas {#logging-impressions-clicks-and-dismissals}
 
-Após estender seus objetos personalizados para funcionar como Content Cards, registrar métricas valiosas como impressões, cliques e dispensas é rápido. Isso pode ser feito usando um protocolo `ContentCardable` que referencia e fornece dados a um arquivo auxiliar para ser registrado pelo SDK da Braze.
+Após estender seus objetos personalizados para funcionar como Content Cards, registrar métricas valiosas como impressões, cliques e dispensas é rápido. Isso pode ser feito usando um protocolo `ContentCardable` que referencia e fornece dados a um arquivo auxiliar para ser registrado pelo SDK or kit de desenvolvimento de software da Braze.
 
 ### Componentes de implementação<br><br> {#implementation-components}
 

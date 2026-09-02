@@ -23,19 +23,19 @@ ChatGPT 앱은 AI 대화형 애플리케이션을 구축하기 위한 강력한 
 ### 주요 이점 {#key-benefits}
 
 - **고객 여정을 주도하세요:** 사용자가 ChatGPT를 통해 귀사의 브랜드와 상호작용하는 동안, 귀사는 그들의 행동, 선호도 및 참여 패턴에 대한 가시성을 유지합니다. 이 데이터는 AI 플랫폼의 분석에만 머무르지 않고 Braze 고객 프로필에 직접 반영됩니다.
-- **크로스 플랫폼 리타겟팅:** ChatGPT 앱 내 사용자 상호작용을 추적하고, AI 사용 패턴을 기반으로 한 개인화된 Campaign을 통해 자사 채널(이메일, SMS, 푸시 알림, 인앱 메시징) 전반에 걸쳐 리타겟팅하세요.
+- **크로스 플랫폼 리타겟팅:** ChatGPT 앱 내 사용자 상호작용을 추적하고, AI 사용 패턴을 기반으로 한 개인화된 Campaign을 통해 자사 채널(이메일, 단문 메시지 서비스, 푸시 알림, 인앱 메시징) 전반에 걸쳐 리타겟팅하세요.
 - **1:1 프로모션 콘텐츠를 ChatGPT 대화로 전달:** 팀이 앱을 위해 구축한 커스텀 대화형 UI 구성요소를 활용하여 ChatGPT 경험 내에서 Braze [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages), [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) 등을 직접 전달하세요.
 - **매출 기여도:** ChatGPT 앱 상호작용에서 비롯된 구매 및 전환을 추적합니다.
 
 <!-- ### Practical Use Cases
 
 - **E-commerce**: Track product inquiries, cart additions, and purchases made through ChatGPT conversations
-- **SaaS**: Monitor feature requests, support interactions, and trial-to-paid conversions
+- **SaaS(software-as-a-service)**: Monitor feature requests, support interactions, and trial-to-paid conversions
 - **Content/Media**: Understand what topics users are most interested in and create targeted content campaigns
-- **Financial Services**: Track financial advice requests and product recommendations for compliance and optimization
+- **금융 서비스**: Track financial advice requests and product recommendations for compliance and optimization
 - **Travel**: Monitor destination research, booking inquiries, and trip planning interactions
 
-By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your customer engagement strategy, not just a black box interaction on someone else's platform. -->
+By integrating Braze with your ChatGPT App, you ensure that every AI interaction becomes a data point in your 고객 참여 전략, not just a black box interaction on someone else's platform. -->
 
 ## 필수 조건 {#prerequisites}
 

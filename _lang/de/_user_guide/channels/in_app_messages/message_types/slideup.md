@@ -35,7 +35,7 @@ Sie sollten Ihre Nachrichten immer auf verschiedenen Geräten [in der Vorschau a
 
 ## Hyperlinks und Ankertext {#hyperlinks-and-anchor-text}
 
-Um einen Link in einem Slideup hinzuzufügen, geben Sie den Nachrichtentext im Feld **Body** ein und legen Sie das Ziel unter **On-click behavior** fest (zum Beispiel **Redirect to URL**). Wenn **On-click behavior** konfiguriert ist, löst ein Tippen auf eine beliebige Stelle der Nachricht – außer auf das Schließen-Steuerelement – diese Aktion aus.
+Um einen Link in einem Slideup hinzuzufügen, geben Sie den Nachrichtentext im Feld **Body** ein und legen Sie das Ziel unter **On-Klick, der or klicken behavior** fest (zum Beispiel **Redirect to URL**). Wenn **On-Klick, der or klicken behavior** konfiguriert ist, löst ein Tippen auf eine beliebige Stelle der Nachricht – außer auf das Schließen-Steuerelement – diese Aktion aus.
 
 Für angepasste HTML-In-App-Nachrichten können Sie HTML-Links direkt verwenden. Siehe [Angepasste HTML-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html).
 

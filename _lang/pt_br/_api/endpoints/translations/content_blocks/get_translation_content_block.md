@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Ver todas as traduções de um bloco de conteúdo."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Ver todas as traduções de um bloco de conteúdo {#view-all-translations-for-a-content-block}
 {% apimethod get %}
 /content_blocks/translations
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Ver todas as tradu�
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.get`.
+Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `content_blocks.translations.get`.
 
 ## Limite de frequência {#rate-limit}
 

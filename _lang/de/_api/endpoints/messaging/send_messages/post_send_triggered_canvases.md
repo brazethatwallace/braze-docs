@@ -5,13 +5,13 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Senden von Canvases mit API-getriggerter Zustellung."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Senden von Canvase mit API-getriggerter Zustellung."
 
 ---
 {% api %}
 # Canvas-Nachrichten mit API-getriggerter Zustellung senden {#send-canvas-messages-using-api-triggered-delivery}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/trigger/send
+/Canvas/Trigger or triggern/send
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um Canvas-Nachrichten mit API-getriggerter Zustellung zu versenden.
@@ -158,7 +158,7 @@ Der Statuscode `201` könnte den folgenden Antworttext zurückgeben. Wenn der Ca
 }
 ```
 
-Wenn Ihr Canvas archiviert ist, wird folgende `notice`-Nachricht angezeigt: „The Canvas is archived. Unarchive the Canvas to ensure trigger requests will take effect.“ Wenn Ihr Canvas nicht aktiv ist, wird folgende `notice`-Nachricht angezeigt: „The Canvas is paused. Resume the Canvas to ensure trigger requests will take effect.“
+Wenn Ihr Canvas archiviert ist, wird folgende `notice`-Nachricht angezeigt: „The Canvas is archived. Unarchive the Canvas to ensure Trigger or triggern requests will take effect.“ Wenn Ihr Canvas nicht aktiv ist, wird folgende `notice`-Nachricht angezeigt: „The Canvas is paused. Resume the Canvas to ensure Trigger or triggern requests will take effect.“
 
 Wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Fehler und Antworten]({{site.baseurl}}/api/errors#fatal-errors) den Fehlercode und die Beschreibung.
 
@@ -168,8 +168,8 @@ Beachten Sie Folgendes, wenn Sie API-Aufrufe zum Senden von Canvas-Nachrichten m
 
 - **Versand an bestehende Nutzer:innen**: Wenn `send_to_existing_only` auf `true` gesetzt ist (Standardwert), wird die Nachricht ausschließlich an bereits in Braze vorhandene Nutzer:innen gesendet.
 - **Neue Nutzer:innen erstellen**: Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein `attributes`-Objekt angeben. Sollte eine Nutzer:in mit der angegebenen ID nicht vorhanden sein, erstellt Braze vor dem Versenden der Nachricht ein Profil mit dieser ID und den entsprechenden Attributen.
-- **Neue Profile benötigen `attributes` mit `send_to_existing_only: false`.** Braze führt das Erstellen oder Aktualisieren vor dem Versand aus dem `attributes`-Objekt im selben Empfänger:innen-Objekt durch. Wenn Sie `send_to_existing_only` auf `false` setzen, aber `attributes` weglassen (oder ein leeres Objekt senden), hydratisiert Braze die Profildaten nicht auf die gleiche Weise, sodass Sie nicht das kombinierte Verhalten „Nutzer:in erstellen oder aktualisieren, dann senden“ erhalten, für das dieses Muster vorgesehen ist.
-- **E-Mail- und SMS-Adressierung.** Für die meisten E-Mail- oder SMS-API-getriggerten Sendungen an Personen, die noch nicht in Braze vorhanden sind, geben Sie die benötigten Zustellungsfelder innerhalb von `attributes` an (z. B. `email` oder die Telefon-Attribute, die Ihr Workspace für SMS verwendet). Sie können dort auch die Abo-Gruppen-Mitgliedschaft oder den Abo-Status festlegen, wenn sich der Opt-in-Status im selben Aufruf ändern muss.
+- **Neue Profile benötigen `attributes` mit `send_to_existing_only: false`.** Braze führt das Erstellen oder Update or aktualisieren or aktualisieren vor dem Versand aus dem `attributes`-Objekt im selben Empfänger:innen-Objekt durch. Wenn Sie `send_to_existing_only` auf `false` setzen, aber `attributes` weglassen (oder ein leeres Objekt senden), hydratisiert Braze die Profildaten nicht auf die gleiche Weise, sodass Sie nicht das kombinierte Verhalten „Nutzer:in erstellen oder Update or aktualisieren or aktualisieren, dann senden“ erhalten, für das dieses Muster vorgesehen ist.
+- **E-Mail- und Kurzmitteilungsdienst or SMS-Adressierung.** Für die meisten E-Mail- oder Kurzmitteilungsdienst or SMS-API-getriggerten Sendungen an Personen, die noch nicht in Braze vorhanden sind, geben Sie die benötigten Zustellungsfelder innerhalb von `attributes` an (z. B. `email` oder die Telefon-Attribute, die Ihr Workspace für Kurzmitteilungsdienst or SMS verwendet). Sie können dort auch die Abo-Gruppen-Mitgliedschaft oder den Abo-Status festlegen, wenn sich der Opt-in-Status im selben Aufruf ändern muss.
 - **Canvas-Berechtigung.** Nachdem das Profil erstellt oder aktualisiert wurde, muss die bzw. der Nutzer:in weiterhin der im Dashboard konfigurierten Zielgruppe des Canvas und den Kanal-Senderegeln entsprechen (z. B. Opt-in für E-Mail), damit Braze die Nachricht sendet.
 - **Einschränkung bei Nutzer-Aliasen**: Das Flag `send_to_existing_only` kann nicht mit Nutzer-Aliasen verwendet werden. Um an eine Nutzer:in zu senden, die nur über einen Alias verfügt, muss diese Nutzer:in bereits in Braze vorhanden sein.
 - **Segment-Targeting**: Der Parameter `segment_id` wird für diesen Endpunkt nicht unterstützt. Um ein Segment anzusprechen, konfigurieren Sie das Segment in den Zielgruppeneinstellungen des Canvas im Braze-Dashboard und verwenden Sie `broadcast: true` oder den Parameter `audience` mit [Connected-Audience]({{site.baseurl}}/api/objects_filters/connected_audience)-Filtern.
@@ -178,7 +178,7 @@ Beachten Sie Folgendes, wenn Sie API-Aufrufe zum Senden von Canvas-Nachrichten m
 
 ## Attribute-Objekt für Canvas {#attributes-object-for-canvas}
 
-Verwenden Sie das Messaging-Objekt `attributes`, um Attribute und Werte für eine Nutzer:in hinzuzufügen, zu erstellen oder zu aktualisieren, bevor Sie über den Endpunkt `canvas/trigger/send` ein API-getriggertes Canvas senden. Dieser API-Aufruf verarbeitet das Nutzerattribute-Objekt, bevor er das Canvas verarbeitet und sendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) verursacht werden, minimiert. Standardmäßig können Abo-Gruppen jedoch nicht auf diese Weise aktualisiert werden.
+Verwenden Sie das Messaging-Objekt `attributes`, um Attribute und Werte für eine Nutzer:in hinzuzufügen, zu erstellen oder zu Update or aktualisieren or aktualisieren, bevor Sie über den Endpunkt `canvas/trigger/send` ein API-getriggertes Canvas senden. Dieser API-Aufruf verarbeitet das Nutzerattribute-Objekt, bevor er das Canvas verarbeitet und sendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) verursacht werden, minimiert. Standardmäßig können Abo-Gruppen jedoch nicht auf diese Weise aktualisiert werden.
 
 {% alert note %}
 Sie suchen die Campaign-Version dieses Endpunkts? Informieren Sie sich über den [Versand von Campaign-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).

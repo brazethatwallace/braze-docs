@@ -12,7 +12,7 @@ toc_headers: h2
 > El dashboard de **diagnóstico de mensajería** proporciona un desglose de alto nivel de los resultados del envío de mensajes, lo que te permite detectar tendencias y diagnosticar posibles problemas en tu configuración de mensajería. Este dashboard puede ayudarte a entender por qué los mensajes de tus Campaigns o Canvas pueden no haberse enviado como se esperaba.
 
 {% alert important %}
-El dashboard de **diagnóstico de mensajería** está disponible de forma general. Ponte en contacto con tu administrador de éxito de cliente si te interesa obtener acceso a esta característica.
+El dashboard de **diagnóstico de mensajería** está disponible de forma general. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si te interesa obtener acceso a esta característica.
 {% endalert %}
 
 {% alert note %}
@@ -36,7 +36,7 @@ Cuando Braze "envía" un mensaje, la entrega final puede depender de servicios e
 | In-App Messages | El mensaje fue visto por el usuario y se registró una impresión. |
 | LINE | El mensaje se transfirió con éxito a un partner de envío. |
 | Push | Braze entrega el mensaje al servicio de notificaciones push correspondiente (como Apple Push Notification service para iOS o Firebase Cloud Messaging para Android). Ese servicio es responsable de la entrega final de la notificación al dispositivo. |
-| SMS/MMS/RCS | Braze entrega el mensaje a una puerta de enlace SMS (como Twilio). Esa puerta de enlace es responsable de la entrega final al operador móvil. |
+| servicio de mensajes cortos/MMS/RCS | Braze entrega el mensaje a una puerta de enlace servicio de mensajes cortos (como Twilio). Esa puerta de enlace es responsable de la entrega final al operador móvil. |
 | Webhooks | La solicitud de webhook se realizó con éxito, devolviendo una respuesta `2xx`. |
 | WhatsApp | El mensaje se transfirió con éxito a un partner de envío. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Enviado y entregado" }
@@ -68,7 +68,7 @@ El panel muestra solo hasta los últimos siete días de datos. Todas las marcas 
 En la parte superior de la página, hay mosaicos de resumen clave para el periodo de tiempo seleccionado que muestran:
 
 - **Enviados:** El recuento total de mensajes que Braze procesó y envió correctamente.
-  - **Correo electrónico, SMS/MMS/RCS, WhatsApp, LINE y push:** El mensaje se entregó correctamente a un partner de envío.
+  - **Correo electrónico, servicio de mensajes cortos/MMS/RCS, WhatsApp, LINE y push:** El mensaje se entregó correctamente a un partner de envío.
   - **Webhooks:** La solicitud del webhook se realizó correctamente, devolviendo una respuesta `2xx`.
   - **Content Cards:** La tarjeta se envió y es elegible para su visualización.
   - **In-App Messages:** El mensaje se mostró al usuario.
@@ -124,7 +124,7 @@ Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles d
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
 | Fallo en el paso de retraso | El [paso de retraso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) falló, lo que provocó que el usuario saliera del Canvas. Este fallo puede ocurrir cuando: {::nomarkdown}<ul><li> La variable proporcionada al paso de retraso personalizado estaba vacía o era de un tipo no válido </li><li> El retraso supera la duración máxima permitida dentro del Canvas</li></ul>{:/} |
-| Evento de excepción o salida | El usuario era previamente elegible para recibir el mensaje, pero {::nomarkdown}<ul><li> realizó un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de excepción</a> para una Campaign basada en acción, por lo que se canceló el mensaje, o </li><li> cumplió los <a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">criterios de salida</a> del Canvas, por lo que fue eliminado durante el recorrido.</li></ul>{:/} |
+| Evento de excepción o salida | El usuario era previamente elegible para recibir el mensaje, pero {::nomarkdown}<ul><li> realizó un <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">evento de excepción</a> para una Campaign basada en acción, por lo que se canceló el mensaje, o </li><li> cumplió los <a href="/docs/user_guide/messaging/Canvas/create_a_canvas#setting-exit-criteria">criterios de salida</a> del Canvas, por lo que fue eliminado durante el recorrido.</li></ul>{:/} |
 | Campaign inactiva | La Campaign se detuvo mientras el mensaje estaba en tránsito, por lo que se canceló. |
 | Canvas inactivo | El Canvas se detuvo antes de que el usuario entrara en el recorrido. |
 | Paso de Canvas inactivo | Esto puede ocurrir en el Canvas si: {::nomarkdown}<ul><li> El paso de Canvas fue eliminado </li> <li>El Canvas se detuvo, lo que hace que todos los pasos se vuelvan inactivos </li></ul>{:/} |
@@ -159,7 +159,7 @@ Los resultados de cancelación en Messaging Diagnostics son etiquetas legibles d
 | ---- | ---- |
 | Error de entrega del partner | Braze intentó enviar este mensaje a tu partner de entrega durante 24 horas, pero el partner devolvió errores temporales durante toda la ventana. |
 | Credenciales push no válidas | Las [credenciales push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) para esta aplicación faltan o no son válidas, por lo que se canceló el envío. Actualiza tus credenciales en **Configuración de la aplicación**. |
-| Fallo en el grupo de suscripción | No se pudo enviar el mensaje debido a problemas de configuración del grupo de suscripción o del servicio de mensajería. Las razones comunes incluyen números de envío faltantes para SMS o WhatsApp, o MMS no compatible en el servicio de mensajería configurado. |
+| Fallo en el grupo de suscripción | No se pudo enviar el mensaje debido a problemas de configuración del grupo de suscripción o del servicio de mensajería. Las razones comunes incluyen números de envío faltantes para servicio de mensajes cortos o WhatsApp, o MMS no compatible en el servicio de mensajería configurado. |
 | El usuario no es elegible para el canal | El usuario no es elegible para recibir este mensaje en el canal seleccionado. Las razones comunes incluyen identificadores de canal faltantes o no válidos, tokens de notificaciones push no elegibles, restricciones de estado de suscripción, capacidad de canal no compatible o países bloqueados para canales basados en teléfono. |
 | Fallo del webhook | El webhook recibió un código de respuesta no exitoso (distinto de `2xx`). Los códigos de error comunes pueden ser errores de cliente `4XX`, error de servidor o tiempo de espera `5XX`, o `598 Host Unhealthy` o solicitudes detenidas brevemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canal y entrega" }
@@ -189,7 +189,7 @@ Esto puede ocurrir por varias razones:
 
 Esto puede ocurrir por las siguientes razones:
 
-- **Mensajes multicanal:** La Campaign o el paso en Canvas se configuró para enviar en múltiples canales (como SMS y correo electrónico). Un solo usuario puede recibir un resultado de "enviado" para un canal (como correo electrónico) y un resultado de "cancelado" para otro (como "Usuario no elegible para el canal"). En este caso, ese usuario se contaría dos veces en el gráfico: una como "enviado" y otra como "cancelado".
+- **Mensajes multicanal:** La Campaign o el paso en Canvas se configuró para enviar en múltiples canales (como servicio de mensajes cortos y correo electrónico). Un solo usuario puede recibir un resultado de "enviado" para un canal (como correo electrónico) y un resultado de "cancelado" para otro (como "Usuario no elegible para el canal"). En este caso, ese usuario se contaría dos veces en el gráfico: una como "enviado" y otra como "cancelado".
   - **Ejemplo:** Envías una Campaign de push a 100 usuarios, dirigida tanto a iOS como a Android. Si un usuario solo tiene un dispositivo iOS, recibe el push de iOS ("enviado"), pero también desencadena una cancelación para el push de Android ("Usuario no elegible para el canal").
 - **Múltiples pasos de Mensaje (solo Canvas):** Tu Canvas puede tener más de un paso de Mensaje en una ruta determinada. Este panel agrega todos los resultados, por lo que un solo usuario podría contarse varias veces si pasa por múltiples pasos de Mensaje dentro del intervalo de tiempo seleccionado.
 - **Mensajes de prueba:** Los envíos de prueba (que se cuentan en el panel) hacen que los totales sean más altos que el tamaño de la audiencia.

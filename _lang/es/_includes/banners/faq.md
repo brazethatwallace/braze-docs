@@ -30,7 +30,7 @@ Los Banners y los [mensajes dentro de la aplicación]({{site.baseurl}}/user_guid
 
 | Tema | Banners | Mensajes dentro de la aplicación |
 | --- | --- | --- |
-| Dónde aparecen los mensajes | En línea en las [ubicaciones]({{site.baseurl}}/developer_guide/banners/placements) que defines en tu aplicación o sitio | Superposiciones de pantalla completa, modal o deslizantes gestionadas por el SDK |
+| Dónde aparecen los mensajes | En línea en las [ubicaciones]({{site.baseurl}}/developer_guide/banners/placements) que defines en tu aplicación o sitio | Superposiciones de pantalla completa, modal o deslizantes gestionadas por el SDK or kit de desarrollo de software |
 | Cuándo se actualiza el contenido | Cuando tu aplicación o sitio solicita una actualización de Banner (por ejemplo, al inicio de sesión o a mitad de sesión) | Los mensajes con plantilla evalúan Liquid cuando se desencadena el mensaje dentro de la aplicación (por ejemplo, con un evento personalizado o al inicio de sesión), después de que la carga útil se almacene en caché en el dispositivo |
 | Desencadenantes basados en acciones | Sin [entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery); usa segmentos, prioridad y tiempos de actualización en su lugar | Admite entrega basada en acciones y activada por API |
 | Pruebas | Previsualiza un usuario y luego confirma que la actualización de la ubicación en tu aplicación o sitio muestra el Banner esperado | Usa **Envío de prueba** o flujos de vista previa de mensajes dentro de la aplicación para la visualización basada en desencadenantes |
@@ -88,8 +88,8 @@ No. Sin embargo, la mayoría de las etiquetas de Liquid son compatibles con los 
 
 Sí. La forma en que se capturan los eventos de clic depende de cómo se renderiza tu Banner:
 
-- **Constructor — componentes estándar:** Si tu Banner utiliza componentes estándar del editor (imágenes, botones, texto), los clics se rastrean automáticamente cuando se usan los métodos de inserción del SDK.
-- **Constructor — bloques de código personalizado:** Si deseas rastrear clics en elementos dentro de un bloque del editor de código personalizado, debes llamar a `brazeBridge.logClick()` desde tu HTML personalizado. Esto aplica incluso cuando se usan los métodos del SDK para insertar y renderizar el Banner.
+- **Constructor — componentes estándar:** Si tu Banner utiliza componentes estándar del editor (imágenes, botones, texto), los clics se rastrean automáticamente cuando se usan los métodos de inserción del SDK or kit de desarrollo de software.
+- **Constructor — bloques de código personalizado:** Si deseas rastrear clics en elementos dentro de un bloque del editor de código personalizado, debes llamar a `brazeBridge.logClick()` desde tu HTML personalizado. Esto aplica incluso cuando se usan los métodos del SDK or kit de desarrollo de software para insertar y renderizar el Banner.
 - **Editor HTML:** El seguimiento de clics no es automático. Debes llamar a `brazeBridge.logClick()` para cada elemento con clic que desees rastrear. Para la referencia completa, consulta [Código personalizado y puente JavaScript para Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
 - **Interfaz personalizada (headless):** Si estás construyendo una interfaz completamente personalizada usando las propiedades personalizadas del Banner en lugar de renderizar el HTML del Banner, llama a `logClick()` en el objeto Banner desde el código de tu aplicación.
 

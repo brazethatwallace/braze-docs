@@ -67,7 +67,7 @@ Para saber mais, consulte [Escolher usuários para direcionar]({{site.baseurl}}/
 
 ## Campanhas disparadas {#triggered-campaigns}
 
-Todas as alterações em campanhas de entrega baseada em ação e campanhas de entrega disparadas por API entram em vigor imediatamente para envios futuros.
+Todas as alterações em campanhas de entrega baseada em ação e campanhas de entrega disparadas por API or interface de programação do aplicativo (API) entram em vigor imediatamente para envios futuros.
 
 Se essas campanhas foram disparadas, mas ainda não foram enviadas (por exemplo, uma campanha de entrega baseada em ação com uma postergação de 1 dia é editada durante o período de postergação de 1 dia), consulte as orientações a seguir para campanhas agendadas.
 

@@ -14,7 +14,7 @@ search_tag: Partner
 
 La integración de Braze y Hightouch te permite utilizar la API con [contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) para extraer datos actualizados de clientes u objetos en tus Campaigns o Canvas en el momento del envío.
 
-La API de personalización de Hightouch proporciona un endpoint REST para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
+La API de personalización de Hightouch proporciona un endpoint REST or transferencia de estado representacional para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
 
 ![Diagrama que muestra datos de Snowflake, BigQuery y Redshift fluyendo a través de la API de personalización de Hightouch hacia el contenido conectado de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
@@ -68,7 +68,7 @@ Para más detalles, consulta la [documentación](https://hightouch.com/docs) de 
 Los modelos de Hightouch definen qué datos extraer de tu fuente. Para configurar un nuevo modelo, sigue estos pasos:
 
 1. En Hightouch, ve a [**Models overview**](https://app.hightouch.com/models) > **Add model** y selecciona la fuente que acabas de conectar. <br><br>
-2. A continuación, elige un [método de modelado](https://hightouch.com/docs/models/creating-models). Como toda tu información debe estar unida en una sola tabla, puedes utilizar el selector visual de tablas para definirla. Como alternativa, puedes escribir SQL para incluir solo las columnas que desees o basarte en tus modelos dbt, Looker Looks o libros de trabajo Sigma existentes.<br><br>
+2. A continuación, elige un [método de modelado](https://hightouch.com/docs/models/creating-models). Como toda tu información debe estar unida en una sola tabla, puedes utilizar el SELECTOR visual de tablas para definirla. Como alternativa, puedes escribir SQL para incluir solo las columnas que desees o basarte en tus modelos dbt, Looker Looks o libros de trabajo Sigma existentes.<br><br>
 3. Antes de continuar, previsualiza tu modelo para asegurarte de que consulta los datos que te interesan. Por defecto, Braze limita la vista previa a los 100 primeros registros. Una vez validados los datos, haz clic en **Continue**.<br><br>
 4. Nombra tu modelo, por ejemplo, "Recomendaciones de usuarios".<br><br>
 5. Por último, selecciona una clave primaria y haz clic en **Finish**. Una clave primaria debe ser una columna con identificadores únicos. Este es también el campo que utilizarás para llamar a la API de personalización y recuperar las recomendaciones de un usuario en particular.

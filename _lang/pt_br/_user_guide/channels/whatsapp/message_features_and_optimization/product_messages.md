@@ -244,7 +244,7 @@ Use Liquid para criar URLs de carrinho diretamente na sua mensagem de resposta. 
 {% endtab %}
 {% tab Conteúdo conectado %}
 
-Faça uma chamada de API para seu sistema de eCommerce para gerar uma URL de checkout personalizada. Essa é a melhor opção se você precisa de geração dinâmica de URL de carrinho ou mapeamento complexo de produtos.
+Faça uma chamada de API or interface de programação do aplicativo (API) para seu sistema de eCommerce para gerar uma URL de checkout personalizada. Essa é a melhor opção se você precisa de geração dinâmica de URL de carrinho ou mapeamento complexo de produtos.
 
 #### Configuração
 
@@ -260,7 +260,7 @@ Use webhooks para enviar dados do carrinho para seu sistema e, em seguida, dispa
 
 #### Configuração
 
-Crie uma Campaign de webhook ou etapa do Canvas disparada pelo evento de eCommerce `ecommerce.cart_update`, que enviará os dados do carrinho para seu sistema de eCommerce. Sua API então irá:
+Crie uma Campaign de webhook ou etapa do Canvas disparada pelo evento de eCommerce `ecommerce.cart_update`, que enviará os dados do carrinho para seu sistema de eCommerce. Sua API or interface de programação do aplicativo (API) então irá:
 1. Receber os dados do carrinho
 2. Criar um carrinho no seu sistema
 3. Gerar a URL de checkout

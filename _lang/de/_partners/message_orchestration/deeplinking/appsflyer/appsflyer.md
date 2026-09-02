@@ -23,7 +23,7 @@ Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohor
 |---|---|
 | AppsFlyer-Konto | Ein AppsFlyer-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Abhängig von Ihrer Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. Details zu diesen Anforderungen finden Sie in Schritt 1 des Integrationsprozesses. |
-| AppsFlyer SDK | Zusätzlich zum erforderlichen Braze SDK müssen Sie das [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started) installieren.
+| AppsFlyer SDK or Software-Development-Kit | Zusätzlich zum erforderlichen Braze SDK or Software-Development-Kit müssen Sie das [AppsFlyer SDK or Software-Development-Kit](https://dev.appsflyer.com/hc/docs/getting-started) installieren.
 | E-Mail-Domain-Einrichtung abgeschlossen | Sie müssen den Schritt [IP- und Domain-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) bei der Konfiguration Ihrer E-Mail während des Braze-Onboardings abgeschlossen haben. |
 | SSL-Zertifikat | Ihr [SSL-Zertifikat]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) muss konfiguriert sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -36,7 +36,7 @@ Mit der [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohor
 {% tab Android %}
 Wenn Sie eine Android-App haben, müssen Sie eine eindeutige Braze-Geräte-ID an AppsFlyer übergeben.
 
-Stellen Sie sicher, dass die folgenden Code-Zeilen an der richtigen Stelle eingefügt werden – nachdem das Braze SDK gestartet wurde und vor dem Initialisierungscode für das AppsFlyer SDK. Weitere Informationen finden Sie im AppsFlyer [SDK-Integrationshandbuch für Android](https://dev.appsflyer.com/hc/docs/integrate-android-sdk#initializing-the-android-sdk).
+Stellen Sie sicher, dass die folgenden Code-Zeilen an der richtigen Stelle eingefügt werden – nachdem das Braze SDK or Software-Development-Kit gestartet wurde und vor dem Initialisierungscode für das AppsFlyer SDK or Software-Development-Kit. Weitere Informationen finden Sie im AppsFlyer [SDK or Software-Development-Kit-Integrationshandbuch für Android](https://dev.appsflyer.com/hc/docs/integrate-android-sdk#initializing-the-android-sdk).
 
 ```kotlin
 val customData = HashMap<String, Any>()
@@ -52,7 +52,7 @@ Braze.getInstance(context).getDeviceIdAsync { deviceId ->
 Vor Februar 2023 verwendete unsere AppsFlyer-Attribution-Integration den Identifier for Vendors (IDFV) als primären Bezeichner, um iOS-Attribution-Daten abzugleichen. Für Braze-Kund:innen, die Objective-C verwenden, ist es nicht notwendig, die Braze `device_id` abzurufen und sie bei der Installation an AppsFlyer zu senden, da es keine Unterbrechung des Dienstes gibt.
 {% endalert%}
 
-Wenn Sie das Swift SDK v5.7.0+ verwenden und weiterhin IDFV als gegenseitigen Bezeichner verwenden möchten, müssen Sie sicherstellen, dass das Feld `useUUIDAsDeviceId` auf `false` gesetzt ist, um eine Unterbrechung der Integration zu vermeiden.
+Wenn Sie das Swift SDK or Software-Development-Kit v5.7.0+ verwenden und weiterhin IDFV als gegenseitigen Bezeichner verwenden möchten, müssen Sie sicherstellen, dass das Feld `useUUIDAsDeviceId` auf `false` gesetzt ist, um eine Unterbrechung der Integration zu vermeiden.
 
 Wenn Sie diese Option auf `true` setzen, müssen Sie die Abbildung der iOS-Geräte-ID für Swift implementieren, um die Braze `device_id` bei der Installation der App an AppsFlyer weiterzugeben, damit Braze die iOS-Attributionen richtig zuordnen kann.
 
@@ -104,11 +104,11 @@ Hier finden Sie den REST-Endpunkt und generieren Ihren Datenimport-Schlüssel f�
 
 1. Navigieren Sie in AppsFlyer auf die Seite **Integrated Partners** in der linken Leiste. Suchen Sie dann nach **Braze** und wählen Sie das Braze-Logo aus, um ein Konfigurationsfenster zu öffnen.
 2. Schalten Sie auf dem Tab **Integration** die Option **Activate Partner** ein.
-3. Geben Sie den Datenimport-Schlüssel und den REST-Endpunkt an, den Sie im Braze-Dashboard gefunden haben.
+3. Geben Sie den Datenimport-Schlüssel und den Representational State Transfer-Endpunkt an, den Sie im Braze-Dashboard gefunden haben.
 4. Schalten Sie **Advanced Privacy** aus und speichern Sie Ihre Konfiguration.
 
 {% alert important %}
-Wenn Sie den Braze-REST-Endpunkt im Tab „Integration“ von AppsFlyer eingeben, geben Sie nur die Domain ein (z. B. `rest.fra-02.braze.eu`) ohne das Protokoll `https://` und ohne den Pfad `/attribution/appsflyer`. AppsFlyer stellt das Protokoll automatisch voran und hängt den Pfad an. Wenn Sie eines von beiden in Ihre Eingabe aufnehmen, führt dies zu Postback-Fehlern.
+Wenn Sie den Braze-Representational State Transfer-Endpunkt im Tab „Integration“ von AppsFlyer eingeben, geben Sie nur die Domain ein (z. B. `rest.fra-02.braze.eu`) ohne das Protokoll `https://` und ohne den Pfad `/attribution/appsflyer`. AppsFlyer stellt das Protokoll automatisch voran und hängt den Pfad an. Wenn Sie eines von beiden in Ihre Eingabe aufnehmen, führt dies zu Postback-Fehlern.
 {% endalert %}
 
 Weitere Informationen zu diesen Anweisungen finden Sie in der [AppsFlyer-Dokumentation](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
@@ -149,7 +149,7 @@ Deeplinks – Links, die Nutzer:innen zu einer bestimmten Seite oder Stelle inne
 
 Obwohl sie weit verbreitet sind, können Probleme auftreten, wenn per E-Mail versendete Deeplinks zusammen mit Klick-Tracking verwendet werden – einem weiteren wichtigen Feature zur Erfassung von Nutzerdaten. Diese Probleme entstehen dadurch, dass E-Mail-Anbieter (ESPs) Deeplinks in eine Klick-Tracking-Domain einbetten, wodurch der ursprüngliche Link beschädigt wird. Daher erfordert die Unterstützung von Deeplinks eine zusätzliche Einrichtung.
 
-AppsFlyer bietet einen [Dienst](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) an, der diese Probleme vermeidet, indem AppsFlyer als Vermittler zwischen dem ESP-Server und Ihrem Domainnamen fungiert. In der Rolle als Proxy ermöglicht er die Bereitstellung von Assoziationsdateien (AASA/Asset Links), die das Deeplinking erleichtern.
+AppsFlyer bietet einen [Dienst](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) an, der diese Probleme vermeidet, indem AppsFlyer als Vermittler zwischen dem E-Mail-Anbieter or ESP-Server und Ihrem Domainnamen fungiert. In der Rolle als Proxy ermöglicht er die Bereitstellung von Assoziationsdateien (AASA/Asset Links), die das Deeplinking erleichtern.
 
 ## Schritt 1 – Eine Klick-Tracking-Domain erstellen {#step-1-create-a-click-tracking-domain}
 
@@ -173,7 +173,7 @@ Erstellen Sie ein [OneLink-Template](https://support.appsflyer.com/hc/en-us/arti
 Jetzt ist es an der Zeit, Ihre Braze-Integration in AppsFlyer einzurichten. Dieser Schritt und der folgende („Ihre App konfigurieren“) können gleichzeitig durchgeführt werden.
 So richten Sie Ihre Braze-Integration in AppsFlyer ein:
 
-### 1. Wählen Sie in AppsFlyer im Seitenmenü Engage > ESP integration aus. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
+### 1. Wählen Sie in AppsFlyer im Seitenmenü Engage > E-Mail-Anbieter or ESP integration aus. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
 ![AppsFlyer-UI mit dem Button „ESP Integration“ im Navigationsmenü.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
 
@@ -185,24 +185,24 @@ So richten Sie Ihre Braze-Integration in AppsFlyer ein:
 ![AppsFlyer-UI mit dem Dropdown-Menü, über das Nutzer:innen ihr Template auswählen können.]({% image_buster /assets/img/attribution/appsflyer/4.png %})
 
 
-### 4. Geben Sie Ihre Click-Tracking-Domain und den Wert für „Braze endpoint“ ein, der mit der neuen CTD aus Schritt 1 bereitgestellt wurde, und klicken Sie dann auf Validate connection. {#4-enter-your-click-tracking-domain-and-braze-endpoint-value-which-was-provided-with-the-new-ctd-created-in-step-1-then-click-validate-connection}
+### 4. Geben Sie Ihre Klick, der or klicken-Tracking-Domain und den Wert für „Braze endpoint“ ein, der mit der neuen CTD aus Schritt 1 bereitgestellt wurde, und klicken Sie dann auf Validate connection. {#4-enter-your-click-tracking-domain-and-braze-endpoint-value-which-was-provided-with-the-new-ctd-created-in-step-1-then-click-validate-connection}
 
-Damit wird überprüft, ob die Click-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
+Damit wird überprüft, ob die Klick, der or klicken-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
 
 ![AppsFlyer-UI, die zeigt, wo Sie Ihre Click-Tracking-Domain und die zugehörigen Details eingeben sollten.]({% image_buster /assets/img/attribution/appsflyer/5.png %})
 
 Mit „Braze Endpoint“ fragt AppsFlyer nach den Details, die Braze in Schritt 1 dieser Anleitung bereitgestellt hat – konkret nach der neuen CTD.
 
-Klicken Sie dann auf **Validate connection**, um zu überprüfen, ob die Click-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
+Klicken Sie dann auf **Validate connection**, um zu überprüfen, ob die Klick, der or klicken-Tracking-Domain auf den von Ihnen eingegebenen Endpunkt verweist.
 Klicken Sie anschließend auf **Next**.
 
 ### 5. Link-Traffic an AppsFlyer weiterleiten: {#5-route-link-traffic-to-appsflyer}
 
 #### a. Kopieren Sie die angepassten vorgefertigten Anweisungen in AppsFlyer und senden Sie sie an Ihre IT-Abteilung oder Ihren Domain-Administrator. {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-Ihr Administrator muss den Traffic Ihrer E-Mail-Campaigns von den ESP-Servern zu den AppsFlyer-Servern umleiten, indem er Ihre DNS-CNAME-Einträge mit der neuen Domain aktualisiert, die AppsFlyer bereitgestellt hat.
+Ihr Administrator muss den Traffic Ihrer E-Mail-Campaigns von den E-Mail-Anbieter or ESP-Servern zu den AppsFlyer-Servern umleiten, indem er Ihre DNS-CNAME-Einträge mit der neuen Domain aktualisiert, die AppsFlyer bereitgestellt hat.
 
-Dadurch wird jeder Klick auf einen Link an AppsFlyer weitergeleitet, das den Klick wiederum an den ESP-Endpunkt weiterleitet.
+Dadurch wird jeder Klick auf einen Link an AppsFlyer weitergeleitet, das den Klick wiederum an den E-Mail-Anbieter or ESP-Endpunkt weiterleitet.
 
 ![Diagramm, das zeigt, wie Klickdaten von Ihrer Domain über AppsFlyer an Ihren ESP-Endpunkt weitergeleitet werden.]({% image_buster /assets/img/attribution/appsflyer/6.png %})
 
@@ -223,7 +223,7 @@ In dieser Phase empfehlen wir Ihnen, nach dem Teilen und Validieren der CTD-Deta
 Sie können Qualitätssicherung und Fehlerbehebung durchführen, indem Sie einen Deeplink über OneLink senden. Weitere Informationen zur Verwendung von OneLink finden Sie in der [AppsFlyer-Dokumentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a).
 
 Wenn CTD-Links als HTTP erkannt werden, wenden Sie sich an das E-Mail-Ops-Team von Braze, um das SSL-Klick-Tracking zu aktivieren. Dadurch wird sichergestellt, dass alle HTTP-Links automatisch in HTTPS konvertiert werden.
-Sie können den folgenden Beispielnachrichtentext verwenden, wenn Sie sich an Ihren Customer-Success-Manager wenden, oder indem Sie wie in Schritt 1 ein Ticket im Braze-Dashboard erstellen:
+Sie können den folgenden Beispielnachrichtentext verwenden, wenn Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in wenden, oder indem Sie wie in Schritt 1 ein Ticket im Braze-Dashboard erstellen:
 
 ```
 Hi Team,
@@ -238,7 +238,7 @@ Sie können einfach Ihre OneLink-Tracking-URL in AppsFlyer erstellen und direkt 
 
 {% tabs local %}
 {% tab Android %}
-Für Android ermöglicht Braze Kund:innen, die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu aktivieren. Die AppsFlyer-SDK-Integration erfasst ebenfalls die GAID. Sie können die GAID in Ihre AppsFlyer-Klick-Tracking-Links einbinden, indem Sie die folgende Liquid-Logik verwenden:
+Für Android ermöglicht Braze Kund:innen, die [Erfassung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id) zu aktivieren. Die AppsFlyer-SDK or Software-Development-Kit-Integration erfasst ebenfalls die GAID. Sie können die GAID in Ihre AppsFlyer-Klick-Tracking-Links einbinden, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -249,7 +249,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Für iOS erfassen sowohl Braze als auch AppsFlyer den IDFV automatisch nativ über unsere SDK-Integrationen. Sie können den IDFV als Gerätebezeichner verwenden. Sie können den IDFV in Ihre AppsFlyer-Klick-Tracking-Links einbinden, indem Sie die folgende Liquid-Logik verwenden:
+Für iOS erfassen sowohl Braze als auch AppsFlyer den IDFV automatisch nativ über unsere SDK or Software-Development-Kit-Integrationen. Sie können den IDFV als Gerätebezeichner verwenden. Sie können den IDFV in Ihre AppsFlyer-Klick-Tracking-Links einbinden, indem Sie die folgende Liquid-Logik verwenden:
 
 {% raw %}
 ```

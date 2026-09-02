@@ -291,7 +291,7 @@ Datumsangaben, die mit dieser Methode an Braze übergeben werden, müssen entwed
 {% endtab %}
 {% tab Array %}
 
-Die Standardanzahl und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Arrays im Braze-Dashboard unter **Data Settings** > **Custom Attributes** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die maximale Elementanzahl gekürzt. Weitere Informationen zu angepassten Attribut-Arrays und deren Verhalten finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics#arrays).
+Die Standardanzahl und Höchstzahl an Elementen in einem Array beträgt 500. Sie können die Höchstzahl an Arrays im Braze-Dashboard unter **Data Settings** > **angepasste Attribute** Update or aktualisieren or aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die maximale Elementanzahl gekürzt. Weitere Informationen zu angepassten Attribut-Arrays und deren Verhalten finden Sie unter [Arrays]({{site.baseurl}}/developer_guide/analytics#arrays).
 
 {% subtabs global %}
 {% subtab JAVA %}
@@ -358,7 +358,7 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 ### Verschachtelte angepasste Attribute {#nesting-custom-attributes}
 
-Sie können Eigenschaften auch innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Nutzerprofil festgelegt. Weitere Details finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Sie können Eigenschaften auch innerhalb angepasster Attribute verschachteln. Im folgenden Beispiel wird ein `favorite_book`-Objekt mit verschachtelten Eigenschaften als angepasstes Attribut im Kundenprofil or Nutzerprofil festgelegt. Weitere Details finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% tabs %}
 {% tab JAVA %}
@@ -393,9 +393,9 @@ braze.getCurrentUser { user ->
 {% endtab %}
 {% endtabs %}
 
-### REST API verwenden {#using-the-rest-api}
+### Representational State Transfer API verwenden {#using-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen oder aufzuheben. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Sie können auch unsere Representational State Transfer API verwenden, um Nutzerattribute festzulegen oder aufzuheben. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Abos für Nutzer:innen festlegen {#setting-user-subscriptions}
 

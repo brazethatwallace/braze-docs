@@ -12,7 +12,7 @@ tool: Segments
 > Mit berechneten Filtern können Sie sehr präzise Segmente über einen längeren Zeitraum der Nutzer:innenhistorie erstellen. Verwenden Sie berechnete Filter beispielsweise, um Nutzer:innen anzusprechen, die in den letzten 16 Monaten ein bestimmtes Produkt gekauft oder einen bestimmten Betrag für Ihren Dienst ausgegeben haben. Verfeinern Sie diese Zielgruppe mithilfe von Event-Eigenschaften, um das Targeting noch granularer zu gestalten.
 
 {% alert important %}
-Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Account Manager.
+Berechnete Filter befinden sich derzeit im Early Access. Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}
@@ -59,7 +59,7 @@ Um einen berechneten Filter zu erstellen, wählen Sie einen Filtertyp aus (falls
 4. Geben Sie einen Namen ein, der die Zielgruppe beschreibt, die Sie ansprechen möchten. Ein aussagekräftiger Name erleichtert das Auffinden des Filters, wenn Sie ihn einem Segment hinzufügen.
 5. (Optional) Fügen Sie [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu, um berechnete Filter in Ihrem Workspace zu organisieren.
 
-Wählen Sie bei **User activity filters** die Option **Enable recurring audience update** aus, um den Filter nach einem wiederkehrenden Zeitplan zu aktualisieren. Wenn Sie diese Einstellung nicht aktivieren, wird der Filter nur aktualisiert, wenn Sie ihn bearbeiten oder **Update audience** auswählen. **Data Object filters** werden stündlich aktualisiert.
+Wählen Sie bei **User activity filters** die Option **Enable recurring audience Update or aktualisieren** aus, um den Filter nach einem wiederkehrenden Zeitplan zu Update or aktualisieren or aktualisieren. Wenn Sie diese Einstellung nicht aktivieren, wird der Filter nur aktualisiert, wenn Sie ihn bearbeiten oder **Update or aktualisieren audience** auswählen. **Data Object filters** werden stündlich aktualisiert.
 
 ### Schritt 2: Kriterien auswählen {#step-2-choose-your-criteria}
 
@@ -78,7 +78,7 @@ Wenn **Create filter** den User-Activity-Builder direkt öffnet oder Sie **User 
 - **Performed a Custom Event**
 - **Interacted with Message Channel**
 
-Die verfügbaren **Criterion**-Optionen variieren je nach den in Ihrem Workspace aktivierten Features. **Performed an eCommerce event** ist immer verfügbar. Wenn Sie eine benötigte Option nicht sehen, wenden Sie sich an Ihren Braze Account Manager.
+Die verfügbaren **Criterion**-Optionen variieren je nach den in Ihrem Workspace aktivierten Features. **Performed an eCommerce event** ist immer verfügbar. Wenn Sie eine benötigte Option nicht sehen, wenden Sie sich an Ihren Braze Account Manager:in.
 
 Nachdem Sie einen Event-Typ ausgewählt haben, wählen Sie das spezifische Event, wie oft die Nutzer:innen es abgeschlossen haben müssen (mehr als, weniger als oder gleich) und den Zeitraum.
 
@@ -147,10 +147,10 @@ Jeder berechnete Filter zeigt einen der folgenden Status an. **Processing** und 
 
 Öffnen Sie das Zeilenmenü eines berechneten Filters, um eine Aktion durchzuführen. Die verfügbaren Aktionen hängen vom Status des Filters ab.
 
-Für nicht archivierte Filter enthält das Zeilenmenü **Edit**, **Messaging use**, **Archive** und **Update audience**. **Update audience** ist für aktive Filter verfügbar, die gerade nicht verarbeitet werden. Sie können einen berechneten Filter während der Verarbeitung bearbeiten, Ihre Änderungen jedoch erst speichern, wenn die Verarbeitung abgeschlossen ist.
+Für nicht archivierte Filter enthält das Zeilenmenü **Edit**, **Messaging use**, **Archive** und **Update or aktualisieren audience**. **Update or aktualisieren audience** ist für aktive Filter verfügbar, die gerade nicht verarbeitet werden. Sie können einen berechneten Filter während der Verarbeitung bearbeiten, Ihre Änderungen jedoch erst speichern, wenn die Verarbeitung abgeschlossen ist.
 
 {% alert note %}
-Ihr Workspace kann gleichzeitig bis zu 100 aktive berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie dieses Limit erhöhen möchten.
+Ihr Workspace kann gleichzeitig bis zu 100 aktive berechnete Filter enthalten. Wenden Sie sich an Ihren Braze Account Manager:in, wenn Sie dieses Limit erhöhen möchten.
 {% endalert %}
 
 #### Archivierung aufheben {#unarchive}
@@ -182,7 +182,7 @@ Sie können mehrere Events hinzufügen oder auf mehrere Snowflake-Tabellen verwe
 
 ### Kann ich einen berechneten Filter archivieren, wenn er verwendet wird? {#can-i-archive-calculated-filters-if-they-exist-in-an-active-campaign}
 
-Nein. Bevor Sie einen berechneten Filter archivieren können, müssen Sie ihn aus allen Campaigns, Canvases und Segments entfernen, die ihn verwenden.
+Nein. Bevor Sie einen berechneten Filter archivieren können, müssen Sie ihn aus allen Campaigns, Canvase und Segments entfernen, die ihn verwenden.
 
 ### Kann ich Arrays in berechneten Filtern verwenden? {#can-i-use-arrays-in-calculated-filters}
 

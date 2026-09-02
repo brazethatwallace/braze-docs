@@ -4,7 +4,7 @@
 
 ## Pré-requisitos {#prerequisites}
 
-### Versão do SDK {#sdk-version}
+### Versão do SDK or kit de desenvolvimento de software {#sdk-version}
 
 Para usar Feature Flags, verifique se os seus SDKs estão atualizados com pelo menos estas versões mínimas:
 
@@ -30,7 +30,7 @@ Acesse **Messaging** > **Feature Flags** e selecione **Create Feature Flag**.
 
 ### Etapa 2: Preencher os detalhes {#step-2-fill-out-the-details}
 
-Em **Feature flag details**, insira um nome, ID e descrição para sua Feature Flag.
+Em **Feature Flag details**, insira um nome, ID e descrição para sua Feature Flag.
 
 ![Um formulário mostrando que você pode adicionar um nome, ID, descrição e propriedades a uma Feature Flag.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
@@ -45,7 +45,7 @@ Em **Feature flag details**, insira um nome, ID e descrição para sua Feature F
 
 ### Etapa 2a: Criar propriedades personalizadas {#step-2a-create-custom-properties}
 
-Em **Properties**, você pode opcionalmente criar propriedades personalizadas que seu app pode acessar por meio do SDK da Braze quando seu recurso estiver ativado. Você pode atribuir um valor de string, booleano, imagem, timestamp, JSON ou número a cada variável, além de definir um valor padrão.
+Em **Properties**, você pode opcionalmente criar propriedades personalizadas que seu app pode acessar por meio do SDK or kit de desenvolvimento de software da Braze quando seu recurso estiver ativado. Você pode atribuir um valor de string, booleano, imagem, timestamp, JSON ou número a cada variável, além de definir um valor padrão.
 
 {% tabs local %}
 {% tab exemplo %}
@@ -76,7 +76,7 @@ Antes de lançar uma Feature Flag, você precisa escolher um [Segment]({{site.ba
 
 ### Etapa 5: Definir o tráfego de lançamento {#rollout}
 
-Por padrão, as Feature Flags estão sempre inativas, o que permite separar a data de lançamento do seu recurso da ativação total de usuários. Para iniciar o lançamento, use a seção **Rollout Traffic** para inserir uma porcentagem na caixa de texto. Isso escolherá a porcentagem de usuários aleatórios no Segment selecionado para receber esse novo recurso.
+Por padrão, as Feature Flags estão sempre inativas, o que permite separar a data de lançamento do seu recurso da ativação total de usuários. Para iniciar o lançamento, use a seção **Rollout Traffic** para inserir uma porcentagem na caixa de texto. Isso escolherá a porcentagem de usuários aleatórios no Segment or segmento selecionado para receber esse novo recurso.
 
 {% alert important %}
 Não defina o tráfego de lançamento acima de 0% até que você esteja pronto para o lançamento do novo recurso. Quando você definir inicialmente sua Feature Flag no dashboard, deixe essa configuração em 0%.
@@ -119,19 +119,19 @@ Por padrão, as regras são ordenadas na sequência em que foram criadas, mas vo
 
 Digamos que você trabalha em uma marca de eCommerce e tem uma nova página de checkout que deseja lançar em diferentes regiões para garantir estabilidade. Usando Feature Flags com múltiplas regras, você pode configurar o seguinte:
 
-- **Regra 1:** Seu Segment de usuários dos EUA está definido como 100%.
-- **Regra 2:** Seu Segment está definido como 50% dos seus usuários brasileiros, para que nem todos recebam o fluxo ao mesmo tempo.
+- **Regra 1:** Seu Segment or segmento de usuários dos EUA está definido como 100%.
+- **Regra 2:** Seu Segment or segmento está definido como 50% dos seus usuários brasileiros, para que nem todos recebam o fluxo ao mesmo tempo.
 - **Regra 3 (Everyone Else):** Para todos os outros usuários, ative sua regra "Everyone Else" e defina como 15%, para que uma parte de todos os usuários possa fazer checkout com o novo fluxo.
 
 #### Alcançar testadores internos primeiro {#reach-internal-testers-first}
 
-Digamos que você é gerente de produto e quer garantir que seus testadores internos sempre recebam a Feature Flag quando você lançar um novo produto. Você pode adicionar o Segment dos seus testadores internos à primeira regra e defini-lo como 100%, para que seus testadores internos sejam elegíveis em todos os lançamentos de recursos.
+Digamos que você é gerente de produto e quer garantir que seus testadores internos sempre recebam a Feature Flag quando você lançar um novo produto. Você pode adicionar o Segment or segmento dos seus testadores internos à primeira regra e defini-lo como 100%, para que seus testadores internos sejam elegíveis em todos os lançamentos de recursos.
 
 ## Usando o campo "enabled" para suas Feature Flags {#enabled}
 
-Depois de definir sua Feature Flag, configure seu app ou site para verificar se ela está ativada para um usuário específico. Quando estiver ativada, você definirá alguma ação ou fará referência às propriedades variáveis da Feature Flag com base no seu caso de uso. O SDK da Braze fornece métodos getter para obter o status da Feature Flag e suas propriedades em seu app.
+Depois de definir sua Feature Flag, configure seu app ou site para verificar se ela está ativada para um usuário específico. Quando estiver ativada, você definirá alguma ação ou fará referência às propriedades variáveis da Feature Flag com base no seu caso de uso. O SDK or kit de desenvolvimento de software da Braze fornece métodos getter para obter o status da Feature Flag e suas propriedades em seu app.
 
-As Feature Flags são atualizadas automaticamente no início da sessão para que você possa exibir a versão mais atualizada do seu recurso no lançamento. O SDK armazena esses valores em cache para que possam ser usados off-line.
+As Feature Flags são atualizadas automaticamente no início da sessão para que você possa exibir a versão mais atualizada do seu recurso no lançamento. O SDK or kit de desenvolvimento de software armazena esses valores em cache para que possam ser usados off-line.
 
 {% alert note %}
 Certifique-se de registrar [as impressões de Feature Flags](#impressions).
@@ -735,7 +735,7 @@ m.Braze.refreshFeatureFlags()
 
 ### Ouvindo as mudanças {#updates}
 
-Você pode configurar o SDK da Braze para ouvir e atualizar seu app quando o SDK atualizar qualquer Feature Flag.
+Você pode configurar o SDK or kit de desenvolvimento de software da Braze para ouvir e atualizar seu app quando o SDK or kit de desenvolvimento de software atualizar qualquer Feature Flag.
 
 Isso é útil se você quiser atualizar seu app quando um usuário não for mais elegível para um recurso. Por exemplo, definir algum estado em seu app com base no fato de um recurso estar ou não ativado ou em um de seus valores de propriedade.
 
@@ -833,16 +833,16 @@ featureFlagsStreamSubscription.cancel();
 ```
 
 {% subtabs %}
-{% subtab Flutter SDK 18.0.0+ %}
+{% subtab Flutter SDK or kit de desenvolvimento de software 18.0.0+ %}
 
 Os dados de Feature Flags são encaminhados automaticamente a partir das camadas nativas Android e iOS. Nenhuma configuração adicional é necessária.
 
 {% endsubtab %}
-{% subtab Flutter SDK 17.1.0 and earlier %}
+{% subtab Flutter SDK or kit de desenvolvimento de software 17.1.0 and earlier %}
 
-Se você estiver usando o Flutter SDK 17.1.0 ou anterior, o encaminhamento de dados de Feature Flags a partir da camada nativa iOS requer configuração manual. Seu aplicativo provavelmente contém um retorno de chamada `featureFlags.subscribeToUpdates` que chama `BrazePlugin.processFeatureFlags(featureFlags)`. Para migrar para o Flutter SDK 18.0.0, remova a chamada `BrazePlugin.processFeatureFlags(_:)` — o encaminhamento de dados agora é feito automaticamente.
+Se você estiver usando o Flutter SDK or kit de desenvolvimento de software 17.1.0 ou anterior, o encaminhamento de dados de Feature Flags a partir da camada nativa iOS requer configuração manual. Seu aplicativo provavelmente contém um retorno de chamada `featureFlags.subscribeToUpdates` que chama `BrazePlugin.processFeatureFlags(featureFlags)`. Para migrar para o Flutter SDK or kit de desenvolvimento de software 18.0.0, remova a chamada `BrazePlugin.processFeatureFlags(_:)` — o encaminhamento de dados agora é feito automaticamente.
 
-Para ver um exemplo, consulte [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) no aplicativo de exemplo do SDK Flutter da Braze.
+Para ver um exemplo, consulte [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) no aplicativo de exemplo do SDK or kit de desenvolvimento de software Flutter da Braze.
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -905,12 +905,12 @@ Aqui, você pode conferir quando uma alteração ocorreu, quem fez a alteração
 
 ## Segmentação com Feature Flags {#segmentation}
 
-A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um Segment or segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 ![A seção "Filtros" com "Feature Flag" digitado na barra de pesquisa de filtros.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
 {% alert note %}
-Para evitar segmentos recursivos, não é possível criar um segmento que faça referência a outras Feature Flags.
+Para evitar segmentos recursivos, não é possível criar um Segment or segmento or segmento que faça referência a outras Feature Flags.
 {% endalert %}
 
 ## Práticas recomendadas {#best-practices}

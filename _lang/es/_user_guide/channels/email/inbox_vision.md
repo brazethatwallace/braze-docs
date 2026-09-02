@@ -34,7 +34,7 @@ Si al previsualizar una Campaign aparece un error de permiso, borra la caché y 
 Para probar tu mensaje de correo electrónico en Inbox Vision:
 
 1. Ve a tu editor de arrastrar y soltar o editor HTML de correo electrónico.
-2. En tu editor, selecciona **Preview & Test**.
+2. En tu editor, selecciona **vista previa & Test**.
 3. Selecciona **Inbox Vision**.
 4. Selecciona **Run Inbox Vision**. Esto tarda hasta diez minutos.
 5. A continuación, selecciona un mosaico para ver la vista previa con más detalle. Estas vistas previas se agrupan en las siguientes secciones: **Web Clients**, **Application Clients** y **Mobile Clients**.
@@ -68,7 +68,7 @@ El análisis de código puede aparecer más rápido que la vista previa para un 
 
 ## Pruebas de correo no deseado {#spam-testing}
 
-Las pruebas de correo no deseado estiman si un correo electrónico podría ser filtrado como correo no deseado. Las pruebas se ejecutan en filtros como IronPort, SpamAssassin y Barracuda, así como en filtros de ISP como Gmail y Outlook, utilizando buzones de entrada de prueba estáticos que no abren ni hacen clic de forma predeterminada.
+Las pruebas de correo no deseado estiman si un correo electrónico podría ser filtrado como correo no deseado. Las pruebas se ejecutan en filtros como IronPort, SpamAssassin y Barracuda, así como en filtros de ISP or proveedor de servicios de Internet como Gmail y Outlook, utilizando buzones de entrada de prueba estáticos que no abren ni hacen clic de forma predeterminada.
 
 {% alert important %}
 La ubicación en el buzón de entrada depende principalmente de la participación de los destinatarios en vivo. Los resultados de las pruebas de correo no deseado pueden no coincidir con lo que ves en Campaigns reales.

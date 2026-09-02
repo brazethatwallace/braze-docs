@@ -42,7 +42,7 @@ Dies sind die verfügbaren In-App-Nachrichtentypen in Braze und wie sie für End
 {% endsubtab %}
 {% subtab Custom HTML %}
 
-[`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct)-In-App-Nachrichten sind nützlich, um vollständig angepasste Nutzer:innen-Inhalte zu erstellen. Benutzerdefinierte HTML-Full-In-App-Nachrichteninhalte werden in einer `WKWebView` angezeigt und können optional weiteren Rich Content wie Bilder und Schriftarten enthalten, sodass Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten haben. <br><br>iOS-In-App-Nachrichten unterstützen eine JavaScript-`brazeBridge`-Schnittstelle, um Methoden des Braze Web SDK aus Ihrem HTML-Code heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
+[`HTML`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/inappmessage/html-swift.struct)-In-App-Nachrichten sind nützlich, um vollständig angepasste Nutzer:innen-Inhalte zu erstellen. Benutzerdefinierte HTML-Full-In-App-Nachrichteninhalte werden in einer `WKWebView` angezeigt und können optional weiteren Rich Content wie Bilder und Schriftarten enthalten, sodass Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten haben. <br><br>iOS-In-App-Nachrichten unterstützen eine JavaScript-`brazeBridge`-Schnittstelle, um Methoden des Braze Web SDK or Software-Development-Kit aus Ihrem HTML-Code heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 Das folgende Beispiel zeigt eine paginierte HTML-Full-In-App-Nachricht:
 

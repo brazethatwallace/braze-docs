@@ -57,7 +57,7 @@ Les types de messages suivants sont exemptés des exigences de la CASL :
 
 - Les messages ouverts en dehors du Canada
 - Les messages adressés à des membres de la famille ou à d'autres relations personnelles
-- Les messages adressés à des personnes associées à votre entreprise, y compris les employés ou les sous-traitants
+- Les messages adressés à des personnes associées à votre entreprise, y compris les employé or salariés ou les sous-traitants
 - Les messages fournissant des informations de garantie, des informations de rappel de produit ou des informations de sécurité concernant un produit ou un service que le destinataire a utilisé ou acheté
 - Les messages fournissant une notification d'informations factuelles concernant un abonnement, une adhésion ou un compte
 - Les messages livrant un produit ou un service, y compris les mises à jour ou les mises à niveau de produit

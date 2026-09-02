@@ -57,7 +57,7 @@ Para configurar a Braze:
 
 1. Crie uma [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/?tab=api-triggered%20delivery#step-12-determine-your-canvas-entry-schedule). O BrazeAI Decisioning Studio™ usará esse método de entrega para enviar eventos de ativação personalizados 1:1 aos usuários do seu público definido.
 2. Certifique-se de não incluir um [grupo de controle]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign#including-a-control-group) da Braze, para que o BrazeAI<sup>TM</sup> possa atuar como o grupo de controle dedicado.
-3. Dependendo das suas dimensões, você pode configurar Liquid tags no seu conteúdo criativo para preencher dinamicamente suas mensagens com recomendações do BrazeAI<sup>TM</sup>. O BrazeAI<sup>TM</sup> passará conteúdo específico do cliente para as Liquid tags nos seus modelos usando a API da Braze.
+3. Dependendo das suas dimensões, você pode configurar Liquid tags no seu conteúdo criativo para preencher dinamicamente suas mensagens com recomendações do BrazeAI<sup>TM</sup>. O BrazeAI<sup>TM</sup> passará conteúdo específico do cliente para as Liquid tags nos seus modelos usando a API or interface de programação do aplicativo (API) da Braze.
 {% endtab %}
 {% endtabs %}
 

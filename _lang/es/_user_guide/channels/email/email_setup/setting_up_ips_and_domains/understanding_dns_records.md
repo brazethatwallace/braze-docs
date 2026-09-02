@@ -32,7 +32,7 @@ Dado que los proveedores de buzón de entrada receptores validan SPF contra este
 
 DKIM añade una firma digital criptográfica al encabezado del correo electrónico. El servidor receptor utiliza la clave pública del remitente (publicada en DNS) para verificar que el correo electrónico se originó del propietario del dominio y no fue alterado en tránsito.
 
-Braze requiere que las claves públicas DKIM se publiquen a través de registros `TXT` o `CNAME` para que los ISP receptores puedan validar las firmas criptográficas generadas por tu ESP.
+Braze requiere que las claves públicas DKIM se publiquen a través de registros `TXT` o `CNAME` para que los ISP or proveedor de servicios de Internet receptores puedan validar las firmas criptográficas generadas por tu ESP.
 
 ### Alineación DMARC {#dmarc}
 
@@ -51,7 +51,7 @@ Las diferentes arquitecturas de ESP gestionan la delegación de DNS de forma dis
 SparkPost utiliza una configuración híbrida. Emplea registros `CNAME` explícitos para apuntar la infraestructura de seguimiento y Return-Path de vuelta a SparkPost, mientras usa un registro `TXT` sin procesar para la autenticación DKIM.
 
 - Configuración de SPF y Return-Path: SparkPost solicita un subdominio designado para rebotes (por ejemplo, `mail.example.com`). Un registro `CNAME` apunta este subdominio a los procesadores de rebotes entrantes de SparkPost. Esto enruta el tráfico de rebotes correctamente y valida SPF automáticamente porque el servidor de destino de SparkPost gestiona el protocolo.
-- Configuración de DKIM: SparkPost requiere un registro `TXT` que contenga la cadena exacta de clave pública mapeada a un selector específico.
+- Configuración de DKIM: SparkPost requiere un registro `TXT` que contenga la cadena exacta de clave pública mapeada a un SELECTOR específico.
 - Seguimiento de clics y aperturas: Configura un subdominio de seguimiento con un `CNAME` que apunte a los endpoints de seguimiento de SparkPost (o un proxy CDN si se solicita seguimiento SSL).
 
 #### Tabla de DNS de ejemplo de SparkPost {#example-sparkpost-dns-table}
@@ -79,10 +79,10 @@ La siguiente tabla muestra registros de DNS de ejemplo para una configuración d
 
 | Tipo de registro | Host/Nombre | Valor/Destino | Propósito |
 | --- | --- | --- | --- |
-| CNAME | em.mail.example.com | u123456.wl.sendgrid.net | Return-Path / SPF dinámico |
-| CNAME | s1._domainkey.mail.example.com | s1.domainkey.u123456.wl.sendgrid.net | Clave DKIM primaria (rotativa) |
-| CNAME | s2._domainkey.mail.example.com | s2.domainkey.u123456.wl.sendgrid.net | Clave DKIM secundaria (rotativa) |
-| CNAME | email.mail.example.com | sendgrid.net (o endpoint CDN) | Seguimiento de clics y aperturas |
+| CNAME | em.mail.example.com | u123456.wl.SendGrid.net | Return-Path / SPF dinámico |
+| CNAME | s1._domainkey.mail.example.com | s1.domainkey.u123456.wl.SendGrid.net | Clave DKIM primaria (rotativa) |
+| CNAME | s2._domainkey.mail.example.com | s2.domainkey.u123456.wl.SendGrid.net | Clave DKIM secundaria (rotativa) |
+| CNAME | email.mail.example.com | SendGrid.net (o endpoint CDN) | Seguimiento de clics y aperturas |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla de DNS de ejemplo de SendGrid" }
 
 ### Arquitectura de Amazon SES {#amazon-ses-architecture}
@@ -148,7 +148,7 @@ Si las Campaigns de marketing, los recibos transaccionales y los correos electr�
 Para garantizar una transición e implementación sin problemas, sigue esta secuencia:
 
 1. Proporciona los registros estructurados a tu administrador de TI o de red para que los agregue a tu plataforma de alojamiento (Cloudflare, Route 53, etc.).
-2. Establece un valor bajo de tiempo de vida (TTL) (por ejemplo, 300 segundos o cinco minutos) para las pruebas iniciales. Esto permite una recuperación rápida si se comete un error tipográfico durante la entrada.
+2. Establece un valor bajo de TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida) (por ejemplo, 300 segundos o cinco minutos) para las pruebas iniciales. Esto permite una recuperación rápida si se comete un error tipográfico durante la entrada.
 3. Ejecuta una búsqueda de DNS (por ejemplo, `dig CNAME mail.example.com`) o usa una herramienta de validación para confirmar que los registros se resuelven correctamente antes de pasar a la fase de calentamiento.
 
 ## Documentación de proveedores de DNS {#dns-provider-documentation}

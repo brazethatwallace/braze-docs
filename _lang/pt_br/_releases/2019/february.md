@@ -9,11 +9,11 @@ description: "Este artigo contém notas de versão de fevereiro de 2019."
 
 ## Grupos de inscrições para e-mail {#email-subscription-groups}
 
-[Os grupos de inscrições]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups) são filtros de segmento que podem restringir ainda mais seu público a partir dos [estados de inscrição globais]({{site.baseurl}}/user_guide/channels/email/subscriptions). Esses grupos oferecem a capacidade de apresentar opções de inscrição mais granulares aos usuários finais.
+[Os grupos de inscrições]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-groups) são filtros de Segment or segmento or segmento que podem restringir ainda mais seu público a partir dos [estados de inscrição globais]({{site.baseurl}}/user_guide/channels/email/subscriptions). Esses grupos oferecem a capacidade de apresentar opções de inscrição mais granulares aos usuários finais.
 
 Por exemplo, se você enviar várias categorias de campanhas de e-mail, poderá oferecer aos seus clientes a opção de assinar ou cancelar a inscrição nesses grupos em massa a partir de uma única página, usando nossa [Central de Preferências de e-mail](#email-preference-center).
 
-Use as [APIs REST do grupo de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para gerenciar programaticamente os grupos de inscrições que você armazenou no dashboard da Braze na página **Grupo de inscrições**.
+Use as [APIs REST or transferir estado representacional do grupo de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para gerenciar programaticamente os grupos de inscrições que você armazenou no dashboard da Braze na página **Grupo de inscrições**.
 
 ## Central de Preferências de e-mail {#email-preference-center}
 

@@ -116,7 +116,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 | Status | Ursache | Empfehlung |
 |---|---|---|
 | `400` | Ungültiger Abfrageparametertyp oder -wert | Stellen Sie sicher, dass `limit` und `offset` Integer sind und alle Parameterwerte gültig sind. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Zulassungsliste blockiert | Bestätigen Sie, dass der Schlüssel die Berechtigung `data_objects.read` hat und dass Ihre Quell-IP auf der Zulassungsliste des Schlüssels steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie den Versuch nach `X-RateLimit-Reset` und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Auflisten von Datenobjekttypen" }

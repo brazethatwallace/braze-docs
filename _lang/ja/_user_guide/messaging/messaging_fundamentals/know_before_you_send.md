@@ -61,7 +61,7 @@ tool:
 - **Content Cardsのリフレッシュ**: デフォルトでは、Brazeはセッション開始時の同期、フィードの下スワイプ（モバイル）、および最後のリフレッシュから1分以上経過した場合のカードビュー表示時にContent Cardsリクエストをリフレッシュします。
 - **Content Cardsのキャッシュ**: Content Cardsのキャッシュオプションについては、[Android/FireOS]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)および[Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/appboy.html#getcachedcontentcards)のドキュメントを参照してください。
 - **フリークエンシーキャップ**: フリークエンシーキャップはContent Cardsには適用されません。
-- **インプレッション**: インプレッションは通常、カードが表示されたときにログに記録されます。例えば、Content Cardsでいっぱいの受信トレイがある場合、ユーザーが特定のContent Cardまでスクロールするまでインプレッションはログに記録されません。Web、Android、iOSプラットフォーム間にはいくつかのニュアンスがあります。
+- **インプレッション**: インプレッションは通常、カードが表示されたときにログに記録されます。例えば、Content Cardsでいっぱいの受信トレイがある場合、ユーザーが特定のContent カードまでスクロールするまでインプレッションはログに記録されません。Web、Android、iOSプラットフォーム間にはいくつかのニュアンスがあります。
 - **SDKセッションとカード作成**: SDKセッションのないユーザーに対しては、セグメントの条件を満たしていてもContent Cardsは作成されません。ただし、ユーザーがすでにAndroidセッションを持っている場合、iOS固有のクリックアクションを持つContent Cardsは作成され、ユーザーはiOSでセッションを持った後にそれらのContent Cardsを表示できます。カードが作成されるタイミングの詳細については、[カード作成]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)を参照してください。
 
 ## メール {#email}

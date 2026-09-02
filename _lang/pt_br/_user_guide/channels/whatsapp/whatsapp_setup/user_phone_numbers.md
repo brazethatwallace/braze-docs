@@ -17,7 +17,7 @@ Os números de telefone são exibidos no perfil de usuário em formatos locais, 
 
 ## Importando números de telefone {#importing-phone-numbers}
 
-Você pode importar números de telefone [fazendo upload de um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [via API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para criar um usuário.
+Você pode importar números de telefone [fazendo upload de um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [via API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para criar um usuário.
 
 ### Formatação {#formatting}
 
@@ -49,4 +49,4 @@ Para que um cliente receba uma mensagem do WhatsApp, ele deve ter um número de 
 
 ### Múltiplos usuários com o mesmo número de telefone {#multiple-users-with-the-same-phone-number}
 
-Se vários usuários tiverem o mesmo número de telefone dentro de um segmento de uma única Campaign ou etapa do Canvas, a Braze fará a deduplicação do envio e enviará apenas uma mensagem para aquele número de telefone.
+Se vários usuários tiverem o mesmo número de telefone dentro de um Segment or segmento or segmento de uma única Campaign ou etapa do Canvas, a Braze fará a deduplicação do envio e enviará apenas uma mensagem para aquele número de telefone.

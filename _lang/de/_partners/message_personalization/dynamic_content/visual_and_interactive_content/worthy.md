@@ -33,7 +33,7 @@ _Diese Integration wird von Worthy gepflegt._
 | Anforderung | Beschreibung |
 | --- | --- |
 | [Worthy](https://worthy.ai/)-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Worthy-Konto. |
-| Braze SDK | Sie müssen das Braze SDK in Ihrer mobilen Anwendung konfigurieren, um reichhaltige In-App-Nachrichten versenden zu können. |
+| Braze SDK or Software-Development-Kit | Sie müssen das Braze SDK or Software-Development-Kit in Ihrer mobilen Anwendung konfigurieren, um reichhaltige In-App-Nachrichten versenden zu können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

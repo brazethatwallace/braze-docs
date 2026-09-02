@@ -30,7 +30,7 @@ Reconheça os seguintes pontos antes de prosseguir com a integração:
 | --- | --- |
 | Conta do Meta Business Manager | Uma conta do Meta Business é necessária para aproveitar este canal de envio de mensagens. |
 | Conta do WhatsApp Business | Uma conta do WhatsApp Business é necessária para aproveitar este canal de envio de mensagens. |
-| Número de telefone do WhatsApp | Você deve adquirir um número de telefone que atenda aos requisitos do WhatsApp para a [API Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou [API On-Premises](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) para uso do canal de envio de mensagens. |
+| Número de telefone do WhatsApp | Você deve adquirir um número de telefone que atenda aos requisitos do WhatsApp para a [API or interface de programação do aplicativo (API) Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou [API or interface de programação do aplicativo (API) On-Premises](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) para uso do canal de envio de mensagens. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -102,6 +102,6 @@ Após concluir a integração, recomendamos completar os dois processos Meta a s
 
 Também recomendamos a leitura sobre [números de telefone dos usuários]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) e adicionar quaisquer usuários que precisarão de acesso para criar [modelos de mensagem na sua organização](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).
 
-### Armazenamento local da Cloud API do WhatsApp {#whatsapp-cloud-api-local-storage}
+### Armazenamento local da Cloud API or interface de programação do aplicativo (API) do WhatsApp {#whatsapp-cloud-api-local-storage}
 
-A Braze oferece suporte ao [Armazenamento local da Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/local-storage?content_id=ka6F9gESPqhQpm5) do WhatsApp. Para ativar esse recurso, entre em contato com o gerente de suporte ao cliente da Braze.
+A Braze oferece suporte ao [Armazenamento local da Cloud API or interface de programação do aplicativo (API)](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/local-storage?content_id=ka6F9gESPqhQpm5) do WhatsApp. Para ativar esse recurso, entre em contato com o gerente de suporte ao cliente da Braze.

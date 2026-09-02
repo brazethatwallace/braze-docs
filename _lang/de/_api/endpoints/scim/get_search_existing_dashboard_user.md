@@ -27,7 +27,7 @@ Beachten Sie, dass der Abfrageparameter in URL-kodierter Form wie folgt aussieht
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Bereitstellung von Nutzer:innen]({{site.baseurl}}/scim/automated_user_provisioning).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token / Textbaustein. Verwenden Sie die Herkunft Ihres Dienstes als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Bereitstellung von Nutzer:innen]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
@@ -53,7 +53,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 {% alert note %}
-Wenn Sie eine `401`-Antwort erhalten, überprüfen Sie, ob Sie ein SCIM-Token (keinen REST-API-Schlüssel) verwenden, ob `X-Request-Origin` mit Ihrer Dienst-Herkunft übereinstimmt und ob Ihre IP-Adresse in der SCIM-Zulassungsliste enthalten ist. Weitere Informationen finden Sie unter [Automatisierte Bereitstellung von Nutzer:innen]({{site.baseurl}}/scim/automated_user_provisioning).
+Wenn Sie eine `401`-Antwort erhalten, überprüfen Sie, ob Sie ein SCIM-Token / Textbaustein (keinen Representational State Transfer-API-Schlüssel) verwenden, ob `X-Request-Origin` mit Ihrer Dienst-Herkunft übereinstimmt und ob Ihre IP-Adresse in der SCIM-Zulassungsliste enthalten ist. Weitere Informationen finden Sie unter [Automatisierte Bereitstellung von Nutzer:innen]({{site.baseurl}}/scim/automated_user_provisioning).
 {% endalert %}
 
 ## Beispielanfrage {#example-request}

@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Atualizar credenciais de push da Braze."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar credenciais de push {#update-push-credentials}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /apps/push_credential/update
@@ -30,7 +30,7 @@ Este endpoint é compatível com as seguintes plataformas de push:
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `apps.push_credential`.
+Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `apps.push_credential`.
 
 ## Corpo da solicitação {#request-body}
 
@@ -94,7 +94,7 @@ Inclua um objeto de plataforma por solicitação: `apple`, `firebase`, `huawei` 
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| [`app_id`]({{site.baseurl}}/api/identifier_types#app-identifier) | Obrigatório | String | A chave de API do identificador do app que você deseja atualizar. Encontre-a no dashboard em **Configurações** > **Configurações do app**, ao lado do campo **Chave de API**. |
+| [`app_id`]({{site.baseurl}}/api/identifier_types#app-identifier) | Obrigatório | String | A chave de API or interface de programação do aplicativo (API) do identificador do app que você deseja atualizar. Encontre-a no dashboard em **Configurações** > **Configurações do app**, ao lado do campo **Chave de API or interface de programação do aplicativo (API)**. |
 | `apple` | Obrigatório* | Objeto | As credenciais do iOS (APNs). |
 | `firebase` | Obrigatório* | Objeto | As credenciais do Android (Firebase Cloud Messaging). |
 | `huawei` | Obrigatório* | Objeto | As credenciais do Android (Huawei Mobile Services). |

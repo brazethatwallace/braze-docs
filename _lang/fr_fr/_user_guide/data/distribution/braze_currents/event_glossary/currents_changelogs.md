@@ -20,7 +20,7 @@ tool: Currents
 * Modifications de champs pour le type d'événement `users.messages.email.Click` :
     * Ajout d'un nouveau champ `int` `send_time` : Heure en secondes de l'événement d'envoi correspondant
     * Ajout d'un nouveau champ `boolean` `has_url_parameters` : Indique si l'URL cliquée contenait des paramètres de requête
-    * Ajout d'un nouveau champ `boolean` `link_aliasing_enabled` : Indique si l'aliasing de lien était activé pour l'espace de travail lors du traitement de ce clic
+    * Ajout d'un nouveau champ `boolean` `link_aliasing_enabled` : Indique si l'aliasage de lien or aliasing de lien était activé pour l'espace de travail lors du traitement de ce clic
 
 * Modifications de champs pour le type d'événement `users.messages.email.Deferral` :
     * Ajout d'un nouveau champ `int` `send_time` : Heure de l'événement d'envoi correspondant
@@ -289,31 +289,31 @@ tool: Currents
     * Ajout du nouveau champ `boolean` `is_sms_fallback` : Indique qu'un message SMS de repli a été envoyé en raison d'un message RCS rejeté. Le message peut aboutir à une réception, un échec de réception ou un rejet. Il peut être associé à l'événement de rejet RCS via un ID d'envoi et un ID de distribution.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Delivery` :
-    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp Manager. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
-    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp Manager. Présent si un message de modèle est envoyé.
+    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp gestionnaire. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
+    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent si un message de modèle est envoyé.
     * Ajout du nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Failure` :
     * Ajout du nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
-    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp Manager. Présent si un message de modèle est envoyé.
-    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp Manager. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
+    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent si un message de modèle est envoyé.
+    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp gestionnaire. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.InboundReceive` :
     * Ajout du nouveau champ `string` `catalog_id` : ID du catalogue d'un produit si un produit est référencé dans le message entrant. Sinon, vide.
     * Ajout du nouveau champ `string` `product_id` : Unité de gestion des stocks du produit si un produit est référencé dans le message entrant. Sinon, vide.
-    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp Manager. Présent si l'utilisateur répond à un WhatsApp Flow.
+    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp gestionnaire. Présent si l'utilisateur répond à un WhatsApp Flow.
     * Ajout du nouveau champ `string` `flow_response_json` : [PII] Les valeurs de formulaire avec lesquelles l'utilisateur a répondu. Présent si l'utilisateur répond à un WhatsApp Flow.
     * Ajout du nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
     * Ajout du nouveau champ `string` `in_reply_to` : Le message_id du message auquel ce message répondait.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Read` :
-    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp Manager. Présent si un message de modèle est envoyé.
+    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent si un message de modèle est envoyé.
     * Ajout du nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
-    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp Manager. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
+    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp gestionnaire. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
 
 * Modifications de champs pour le type d'événement `users.messages.whatsapp.Send` :
-    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp Manager. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
-    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp Manager. Présent si un message de modèle est envoyé.
+    * Ajout du nouveau champ `string` `flow_id` : L'ID unique du Flow dans le WhatsApp gestionnaire. Présent si le message inclut un CTA pour répondre à un WhatsApp Flow.
+    * Ajout du nouveau champ `string` `template_name` : [PII] Nom du modèle dans le WhatsApp gestionnaire. Présent si un message de modèle est envoyé.
     * Ajout du nouveau champ `string` `message_id` : L'ID unique généré par Meta pour ce message.
 
 ## Modifications dans la version 2 (date de publication nulle) {#changes-in-version-2-release-date-null}

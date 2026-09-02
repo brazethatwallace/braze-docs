@@ -47,12 +47,12 @@ excerpt_separator: ""
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Post,Email,Create,Template,REST,API
+Post,Email,Create,Template,Representational State Transfer,API
 {% endapitags %}
 
-Verwenden Sie die E-Mail-Template-REST-APIs, um die E-Mail-Templates, die Sie in den Braze-Dashboards auf der Seite Templates und Medien gespeichert haben, programmatisch zu verwalten. Braze bietet zwei Endpunkte zum Erstellen und Aktualisieren Ihrer E-Mail-Templates.
+Verwenden Sie die E-Mail-Template-Representational State Transfer-APIs, um die E-Mail-Templates, die Sie in den Braze-Dashboards auf der Seite Templates und Medien gespeichert haben, programmatisch zu verwalten. Braze bietet zwei Endpunkte zum Erstellen und Update or aktualisieren or aktualisieren Ihrer E-Mail-Templates.
 
-Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das zum Aktualisieren des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
+Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das zum Update or aktualisieren or aktualisieren des Templates in nachfolgenden API-Aufrufen verwendet werden kann.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -87,7 +87,7 @@ Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das 
 | `modified_after`  | Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder nach dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `modified_before`  |  Nein | String in ISO 8601 | Ruft nur Templates ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `limit` | Nein | Positive Zahl | Maximale Anzahl der abzurufenden Templates. Standard ist 100, wenn nicht angegeben; der maximal zulässige Wert ist 1000. |
-| `offset`  |  Nein | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
+| `offset`  |  Nein | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Representational State Transfer der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parameter-Details" }
 
 
@@ -98,7 +98,7 @@ Die Antwort von diesem Endpunkt enthält ein Feld für `email_template_id`, das 
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Get,Email,Template,List,REST
+Get,Email,Template,List,Representational State Transfer
 {% endapitags %}
 
 Verwenden Sie die folgenden Endpunkte, um eine Liste der verfügbaren Templates abzurufen.
@@ -146,9 +146,9 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 
 {% api %}
-## 3 Campaigns per Trigger senden {#3-campaigns-trigger-send}
-{% apimethod post %}campaigns/trigger/send{% endapimethod %}
-{% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
+## 3 Campaigns per Trigger or triggern senden {#3-campaigns-trigger-send}
+{% apimethod post %}campaigns/Trigger or triggern/send{% endapimethod %}
+{% apitags %}Post, Campaigns, Trigger or triggern,Send{% endapitags %}
 
 Die API-getriggerte Zustellung ermöglicht es Ihnen, Nachrichteninhalte im Braze-Dashboard zu hinterlegen und gleichzeitig über Ihre API festzulegen, wann und an wen eine Nachricht gesendet wird.
 
@@ -214,9 +214,9 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 
 {% api %}
-## 4 Campaigns per Trigger senden {#4-campaigns-trigger-send}
+## 4 Campaigns per Trigger or triggern senden {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
-{% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
+{% apitags %}PUT, Campaigns, Trigger or triggern, Send{% endapitags %}
 
 Dieser Endpunkt kann verwendet werden, um angepasste Events, Nutzerattribute und Käufe für Nutzer:innen aufzuzeichnen. Sie können bis zu 75 Attribute-, Event- und Kauf-Objekte pro Anfrage einschließen. Das heißt, Sie können nur Attribute für bis zu 75 Nutzer:innen gleichzeitig senden, aber im selben API-Aufruf können Sie auch bis zu 75 Events und bis zu 75 Käufe bereitstellen.
 
@@ -263,7 +263,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 #### PARAMETER-DETAILS
 
-| Nutzerprofil-Feld | Datentyp-Spezifikation |
+| Kundenprofil or Nutzerprofil-Feld | Datentyp-Spezifikation |
 | ---| --- |
 | country | (String) Wir verlangen, dass Ländercodes im [ISO-3166-1-alpha-2-Standard][17] an Braze übergeben werden. |
 | current_location | (Objekt) In der Form {"longitude": -73.991443, "latitude": 40.753824} |
@@ -277,13 +277,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 | first_name | (String) |
 | gender | (String) „M“, „F“, „O“ (andere), „N“ (nicht zutreffend), „P“ (möchte ich nicht angeben) oder nil (unbekannt). |
 | home_city | (String) |
-| image_url | (String) URL des Bildes, das mit dem Nutzerprofil verknüpft werden soll. |
+| image_url | (String) URL des Bildes, das mit dem Kundenprofil or Nutzerprofil verknüpft werden soll. |
 | language | (String) Wir verlangen, dass die Sprache im [ISO-639-1-Standard][24] an Braze übergeben wird. <br>[Liste der akzeptierten Sprachen](/docs/user_guide/data_and_analytics/user_data_collection/language_codes/) |
 | last_name | (String) |
 | marked_email_as_spam_at | (String) Datum, an dem die E-Mail der Nutzer:in als Spam markiert wurde. Erscheint im ISO-8601-Format oder im Format yyyy-MM-dd'T'HH:mm:ss:SSSZ. |
 | phone | (String) |
 | push_subscribe | (String) Verfügbare Werte sind „opted_in“ (explizit für den Empfang von Push-Nachrichten registriert), „unsubscribed“ (explizit von Push-Nachrichten abgemeldet) und „subscribed“ (weder Opt-in noch Opt-out). |
-| push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
+| push_tokens | Array von Objekten mit `app_id` und `token` String. Sie können optional eine `device_id` für das Gerät angeben, mit dem dieses Token / Textbaustein verknüpft ist, zum Beispiel `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Wenn keine `device_id` angegeben wird, wird eine zufällig generiert. |
 | time_zone | (String) Name der Zeitzone aus der [IANA-Zeitzonendatenbank][26] (zum Beispiel „America/New_York“ oder „Eastern Time (US & Canada)“). Es werden nur gültige Zeitzonenwerte gesetzt. |
 | twitter | Hash mit beliebigen der folgenden Werte: `id` (Ganzzahl), `screen_name` (String, X (ehemals Twitter) Handle), `followers_count` (Ganzzahl), `friends_count` (Ganzzahl), `statuses_count` (Ganzzahl). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parameter-Details" }

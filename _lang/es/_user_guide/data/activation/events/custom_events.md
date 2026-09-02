@@ -103,7 +103,7 @@ Cada evento incluye:
 
 Los casos de uso comunes incluyen:
 
-- Verificar que tu integración del SDK o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
+- Verificar que tu integración del SDK or kit de desarrollo de software o API está enviando eventos como se espera durante el desarrollo o después de un lanzamiento.
 - Solucionar problemas sobre por qué un usuario entró o no entró en una Campaign o Canvas desencadenada por eventos.
 - Investigar un problema de soporte para un usuario específico sin necesidad de configurar una exportación de datos.
 
@@ -137,7 +137,7 @@ En la página **Custom Events Report**, puedes ver de forma agregada con qué fr
 
 ![Gráfico de recuento de eventos personalizados en la página Custom Events del panel que muestra las tendencias de un evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-También puedes usar **Filters** para desglosar tus eventos personalizados por hora, usuarios activos mensuales (MAU), Segments o fórmulas de KPI.
+También puedes usar **Filters** para desglosar tus eventos personalizados por hora, usuarios activos mensuales (MAU or usuarios activos al mes), Segments o fórmulas de indicador clave de rendimiento.
 
 ![Filtros del gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 

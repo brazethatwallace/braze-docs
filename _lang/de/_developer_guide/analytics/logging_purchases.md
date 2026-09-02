@@ -1,14 +1,14 @@
 ---
 nav_title: Einkäufe protokollieren
-article_title: Käufe über das Braze SDK protokollieren
+article_title: Käufe über das Braze SDK or Software-Development-Kit protokollieren
 page_order: 3.2
-description: "Erfahren Sie, wie Sie Einkäufe über das Braze SDK protokollieren können."
+description: "Erfahren Sie, wie Sie Einkäufe über das Braze SDK or Software-Development-Kit protokollieren können."
 
 ---
 
 # Einkäufe protokollieren {#log-purchases}
 
-> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres Lifetime-Value]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
+> Erfahren Sie, wie Sie In-App-Käufe über das Braze SDK or Software-Development-Kit protokollieren können, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Quellen hinweg bestimmen können. So können Sie Nutzer:innen [anhand ihres LTV or Lifetime-Value or Lifetime-Value]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) mit angepassten Events, angepassten Attributen und Kauf-Events segmentieren.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
@@ -22,13 +22,13 @@ Um Käufe und Umsätze zu protokollieren, rufen Sie `logPurchase()` nach einem e
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Web-SDK or Software-Development-Kit-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Purchase** nutzen, um die [`logPurchase`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) aufzurufen. Verwenden Sie diesen Tag, um Käufe in Braze zu tracken, optional einschließlich Kauf-Details. Gehen Sie dazu wie folgt vor:
+Wenn Sie stattdessen Google Tag Manager:in verwenden möchten, können Sie den Tag-Typ **Purchase** nutzen, um die [`logPurchase`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase) aufzurufen. Verwenden Sie diesen Tag, um Käufe in Braze zu tracken, optional einschließlich Kauf-Details. Gehen Sie dazu wie folgt vor:
 
 1. Die Felder **Product ID** und **Price** sind erforderlich.
 2. Verwenden Sie den Button **Add Row**, um Kauf-Details hinzuzufügen.
@@ -139,13 +139,13 @@ Sie können Metadaten zu Käufen hinzufügen, indem Sie ein Dictionary übergebe
 
 {% tabs %}
 {% tab web %}
-Für eine Standard-Web-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Web-SDK or Software-Development-Kit-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-Wenn Ihre Website Käufe mithilfe des Standard-[eCommerce-Events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) als Data-Layer-Element im Google Tag Manager protokolliert, können Sie den Tag-Typ **E-commerce Purchase** verwenden. Dieser Action-Typ protokolliert einen separaten „Kauf“ in Braze für jeden Artikel, der in der Liste der `items` übermittelt wird.
+Wenn Ihre Website Käufe mithilfe des Standard-[eCommerce-Events](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) als Data-Layer-Element im Google Tag Manager:in protokolliert, können Sie den Tag-Typ **E-commerce Purchase** verwenden. Dieser Action-Typ protokolliert einen separaten „Kauf“ in Braze für jeden Artikel, der in der Liste der `items` übermittelt wird.
 
 Sie können auch zusätzliche Eigenschaftsnamen angeben, die als Kauf-Details einbezogen werden sollen, indem Sie deren Schlüssel in der Liste der Kauf-Details angeben. Beachten Sie, dass Braze innerhalb des einzelnen `item`, das protokolliert wird, nach allen Kauf-Details sucht, die Sie der Liste hinzugefügt haben.
 
@@ -262,9 +262,9 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal), purchase
 
 Standardmäßig ist `quantity` auf `1` gesetzt. Sie können jedoch eine Menge zu Ihren Käufen hinzufügen, wenn Kund:innen denselben Kauf mehrfach in einem einzelnen Bezahlvorgang tätigen. Um eine Menge hinzuzufügen, übergeben Sie einen `Int`-Wert an `quantity`.
 
-### REST API verwenden {#using-the-rest-api}
+### Representational State Transfer API verwenden {#using-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Käufe zu erfassen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data).
+Sie können auch unsere Representational State Transfer API verwenden, um Käufe zu erfassen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/user_data).
 
 ## Einkäufe auf Bestellebene protokollieren {#logging-orders}
 

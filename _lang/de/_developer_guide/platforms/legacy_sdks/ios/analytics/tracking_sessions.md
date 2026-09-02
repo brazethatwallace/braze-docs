@@ -12,7 +12,7 @@ noindex: true
 
 # Sitzungs-Tracking für iOS
 
-Das Braze SDK meldet Sitzungsdaten, die vom Braze Dashboard verwendet werden, um das Nutzer-Engagement und andere Analysen zu berechnen, die für das Verständnis Ihrer Nutzer wichtig sind. Unser SDK generiert Datenpunkte für "Sitzung starten" und "Sitzung schließen", die die Sitzungslänge und die Anzahl der Sitzungen berücksichtigen und im Braze-Dashboard auf der Grundlage der folgenden Session-Semantik angezeigt werden können.
+Das Braze SDK or Software-Development-Kit meldet Sitzungsdaten, die vom Braze Dashboard verwendet werden, um das Nutzer-Engagement und andere Analysen zu berechnen, die für das Verständnis Ihrer Nutzer wichtig sind. Unser SDK or Software-Development-Kit generiert Datenpunkte für "Sitzung starten" und "Sitzung schließen", die die Sitzungslänge und die Anzahl der Sitzungen berücksichtigen und im Braze-Dashboard auf der Grundlage der folgenden Session-Semantik angezeigt werden können.
 
 ## Lebenszyklus einer Sitzung
 
@@ -24,7 +24,7 @@ Wenn Sie eine neue Sitzung erzwingen müssen, können Sie dies tun, indem Sie de
 
 ## Anpassen des Sitzungs-Timeouts
 
-Ab Braze iOS SDK v3.14.1 können Sie das Sitzungs-Timeout über die Datei Info.plist einstellen. Fügen Sie das Wörterbuch `Braze` zu Ihrer Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den Untereintrag `SessionTimeout` hinzu und legen Sie den Wert auf Ihr angepasstes Sitzungs-Timeout fest. Beachten Sie, dass vor Braze iOS SDK v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
+Ab Braze iOS SDK or Software-Development-Kit v3.14.1 können Sie das Sitzungs-Timeout über die Datei Info.plist einstellen. Fügen Sie das Wörterbuch `Braze` zu Ihrer Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den Untereintrag `SessionTimeout` hinzu und legen Sie den Wert auf Ihr angepasstes Sitzungs-Timeout fest. Beachten Sie, dass vor Braze iOS SDK or Software-Development-Kit v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
 
 Alternativ können Sie in Ihrem `appboyOptions`-Objekt, das an [`startWithApiKey`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#afd911d60dfe7e5361afbfb364f5d20f9) übergeben wird, den Schlüssel `ABKSessionTimeoutKey` auf den gewünschten Integer-Wert setzen.
 

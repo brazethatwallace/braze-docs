@@ -1,16 +1,16 @@
 ---
-nav_title: Flutter SDK
-article_title: Guia do repositório do Flutter SDK
+nav_title: Flutter SDK or kit de desenvolvimento de software
+article_title: Guia do repositório do Flutter SDK or kit de desenvolvimento de software
 page_order: 6
-description: "Referência do README do Braze Flutter SDK espelhada do GitHub."
+description: "Referência do README do Braze Flutter SDK or kit de desenvolvimento de software espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guia do repositório do Flutter SDK {#flutter-sdk-repository-guide}
+# Guia do repositório do Flutter SDK or kit de desenvolvimento de software {#flutter-sdk-repository-guide}
 
-## Sobre o Braze Flutter SDK {#about-the-braze-flutter-sdk}
+## Sobre o Braze Flutter SDK or kit de desenvolvimento de software {#about-the-braze-flutter-sdk}
 
-O Braze Flutter SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
+O Braze Flutter SDK or kit de desenvolvimento de software ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
 
 Para começar, consulte os seguintes recursos:
 
@@ -19,7 +19,7 @@ Para começar, consulte os seguintes recursos:
 
 ## Início rápido {#quickstart}
 
-Os snippets a seguir mostram a configuração mínima necessária para adicionar o Braze Flutter SDK ao seu app.
+Os snippets a seguir mostram a configuração mínima necessária para adicionar o Braze Flutter SDK or kit de desenvolvimento de software ao seu app.
 
 ``` bash
 flutter pub add braze_plugin
@@ -87,7 +87,7 @@ Para saber mais sobre opções avançadas de integração, consulte o [Guia do D
 
 ## Suporte de versão {#version-support}
 
-A tabela a seguir lista as versões mínimas suportadas para as ferramentas usadas pelo Braze Flutter SDK.
+A tabela a seguir lista as versões mínimas suportadas para as ferramentas usadas pelo Braze Flutter SDK or kit de desenvolvimento de software.
 
 | Ferramenta                                                   | Versão mínima suportada   |
 | :----------------------------------------------------------- | :------------------------ |
@@ -97,7 +97,7 @@ A tabela a seguir lista as versões mínimas suportadas para as ferramentas usad
 | iOS Deployment Target                                        | 12.0+                     |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Suporte de versão" }
 
-Este SDK também herda os requisitos dos SDKs nativos da Braze subjacentes. Para saber mais, consulte [braze-inc/braze-android-sdk](https://github.com/braze-inc/braze-android-sdk) e [braze-inc/braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk).
+Este SDK or kit de desenvolvimento de software também herda os requisitos dos SDKs nativos da Braze subjacentes. Para saber mais, consulte [braze-inc/braze-android-SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-android-sdk) e [braze-inc/braze-swift-SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-swift-sdk).
 
 ## App de exemplo {#sample-app}
 

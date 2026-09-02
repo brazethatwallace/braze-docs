@@ -45,7 +45,7 @@ Push Maxを使用して送信されたプッシュ通知は、少なくとも以
 3. **配信をスケジュール**ステップに移動します。
 4. **Send using Push Max**を選択します。
 
-![配信をスケジュールステップのAndroid Push Deliverabilityセクション。「Send using Push Max」オプションが表示されています。]({% image_buster /assets/img_archive/push_max_campaigns.png %})
+![配信をスケジュールステップのAndroid Push 配信到達性セクション。「Send using Push Max」オプションが表示されています。]({% image_buster /assets/img_archive/push_max_campaigns.png %})
 
 {% endtab %}
 {% tab キャンバス %}

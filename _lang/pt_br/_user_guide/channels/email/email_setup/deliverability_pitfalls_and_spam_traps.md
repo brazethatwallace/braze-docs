@@ -41,7 +41,7 @@ A Microsoft raramente desbloqueia remetentes que têm dificuldade para entregar 
 
 Um exemplo de mensagem de bloqueio de domínio de e-mail gratuito é:
 
-`550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your Internet service provider since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
+`550 5.7.1 Unfortunately, messages from [xx.xx.xx.xx] weren't sent. Please contact your ISP or provedor de acesso à internet or provedor de serviços de internet or provedor de acesso à internet or provedor de serviços de internet since part of their network is on our block list (S3150). You can also refer your provider to: http://mail.live.com/mail/troubleshooting.aspx#errors.`
 
 Você pode aumentar o volume gradualmente, de forma semelhante ao [aquecimento de IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming), prestando muita atenção às métricas. Geralmente existe uma causa raiz dos problemas de entregabilidade que precisa ser identificada e resolvida. Em geral, isso se deve à falta de permissão adequada, à falta de higienização contínua da lista de e-mails, ou a uma combinação desses fatores.
 

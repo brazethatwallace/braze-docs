@@ -16,13 +16,13 @@ Adicionamos suporte para imagens grandes no push para a web no Chrome para Windo
 
 Agora você pode bloquear e-mails para um conjunto específico de endereços de remetente, garantindo que você não insira acidentalmente o endereço errado. O formulário de composição de e-mail será pré-preenchido com endereços usados nos últimos 6 meses para agilizar o processo. Confira as [melhores práticas de e-mail]({{site.baseurl}}/user_guide/channels/email/best_practices/) para saber mais.
 
-## Atualizações na API de detalhes da campanha {#updates-to-campaign-details-api}
+## Atualizações na API or interface de programação do aplicativo (API) de detalhes da campanha {#updates-to-campaign-details-api}
 
-O endpoint `/campaign/details` agora oferece informações sobre suas mensagens, permitindo que você obtenha campos de assunto, corpo HTML, endereço de remetente e resposta usando a API. Saiba mais sobre as [APIs da Braze]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api).
+O endpoint `/campaign/details` agora oferece informações sobre suas mensagens, permitindo que você obtenha campos de assunto, corpo HTML, endereço de remetente e resposta usando a API or interface de programação do aplicativo (API). Saiba mais sobre as [APIs da Braze]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api).
 
 ## Atualizações na modelagem Liquid {#updates-to-liquid-templating}
 
-Adicionamos a capacidade de criar modelos de atributos de variantes em Canvas e Campaigns. No Canvas, agora você pode modelar tanto o ID da API da variante quanto o nome da variante, e em Campaigns você pode modelar o `message_api_id` e o `message_name` de uma mensagem. Ambas as atualizações permitem mais flexibilidade no seu envio de mensagens, possibilitando a criação de campanhas personalizadas. Saiba mais sobre [envio de mensagens personalizado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Adicionamos a capacidade de criar modelos de atributos de variantes em Canvas e Campaigns. No Canvas, agora você pode modelar tanto o ID da API or interface de programação do aplicativo (API) da variante quanto o nome da variante, e em Campaigns você pode modelar o `message_api_id` e o `message_name` de uma mensagem. Ambas as atualizações permitem mais flexibilidade no seu envio de mensagens, possibilitando a criação de campanhas personalizadas. Saiba mais sobre [envio de mensagens personalizado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
 
 ## Novo editor de e-mail em HTML {#new-html-email-editor}
 
@@ -32,9 +32,9 @@ Agora você pode escrever e testar e-mails facilmente com um editor de HTML em t
 
 Agora você pode acompanhar a janela da tela enquanto rola as pré-visualizações de mensagens em Campaigns e Canvas, garantindo que você sempre possa ver as mudanças refletidas. Saiba mais sobre [pré-visualização e teste]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/campaigns_in_multiple_languages/#step-6-preview-message).
 
-## Novo filtro de associação de Segment {#new-segment-membership-filter}
+## Novo filtro de associação de Segment or segmento {#new-segment-membership-filter}
 
-Adicionamos o filtro [Segment Membership]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters), permitindo que você direcione usuários com base na associação deles em qualquer um dos seus Segments existentes. Além disso, adicionamos a capacidade de usar tanto a lógica "E" quanto a lógica "Ou" nos filtros de segmento, bem como a capacidade de aninhar segmentos uns dentro dos outros. Essas atualizações permitem que você envie mensagens personalizadas para seus clientes com mais precisão.
+Adicionamos o filtro [Segment Membership]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/new_features/#targeting-filters), permitindo que você direcione usuários com base na associação deles em qualquer um dos seus Segments existentes. Além disso, adicionamos a capacidade de usar tanto a lógica "E" quanto a lógica "Ou" nos filtros de Segment or segmento, bem como a capacidade de aninhar segmentos uns dentro dos outros. Essas atualizações permitem que você envie mensagens personalizadas para seus clientes com mais precisão.
 
 ## Atualização na pré-visualização do Android {#update-to-android-preview}
 

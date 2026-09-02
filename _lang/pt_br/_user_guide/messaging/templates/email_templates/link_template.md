@@ -84,7 +84,7 @@ Em Canvas, use:
 - `{{campaign.${name}}}` para obter o nome da etapa do Canvas (apenas etapas de mensagem)
 {% endraw %}
 
-Para uma comparação completa desses atributos em Liquid, REST API e Currents, consulte [Atributos de Campaign e Canvas entre fontes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Para orientações sobre codificação de URL, consulte [Nomes de Campaign em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
+Para uma comparação completa desses atributos em Liquid, REST or transferir estado representacional API or interface de programação do aplicativo (API) e Currents, consulte [Atributos de Campaign e Canvas entre fontes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources). Para orientações sobre codificação de URL, consulte [Nomes de Campaign em URLs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#campaign-names-in-urls).
 
 ## Usando modelos de link em campanhas de e-mail {#using-link-templates-in-email-campaigns}
 

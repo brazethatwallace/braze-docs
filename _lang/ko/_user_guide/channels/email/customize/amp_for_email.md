@@ -1,33 +1,33 @@
 ---
-nav_title: "이메일용 AMP"
-article_title: "이메일용 AMP"
+nav_title: "이메일용 가속 모바일 페이지"
+article_title: "이메일용 가속 모바일 페이지"
 alias: /amphtml/
 page_order: 11
-description: "이 참조 문서에서는 이메일용 AMP의 개요와 일반적인 사용 사례를 설명합니다."
+description: "이 참조 문서에서는 이메일용 가속 모바일 페이지의 개요와 일반적인 사용 사례를 설명합니다."
 channel:
   - email
 
 ---
 
-# 이메일용 AMP {#amp-for-email}
+# 이메일용 가속 모바일 페이지 {#amp-for-email}
 
-> [이메일용 AMP](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. AMP는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 Campaign(캠페인), 리뷰, 구독 센터 등 매력적인 이메일 오퍼링을 구축할 수 있게 해줍니다. 이러한 도구는 인게이지먼트와 리텐션을 높일 수 있는 기회를 제공합니다.
+> [이메일용 가속 모바일 페이지](https://amp.dev/about/email)를 사용하면 이메일에 인터랙티브 요소를 추가하고 고객과의 커뮤니케이션을 한 단계 끌어올릴 수 있으며, 사용자의 받은편지함에 직접 풍부한 경험을 전달할 수 있습니다. 가속 모바일 페이지는 다양한 구성요소를 활용하여 설문조사, 피드백 설문지, 투표 Campaign(캠페인), 리뷰, 구독 센터 등 매력적인 이메일 오퍼링을 구축할 수 있게 해줍니다. 이러한 도구는 인게이지먼트와 리텐션을 높일 수 있는 기회를 제공합니다.
 
 ## 요구 사항 {#requirements}
 
-Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항을 충족하는 것에 대해 책임지지 않습니다. 이메일용 AMP는 SparkPost 및 SendGrid에서만 사용할 수 있습니다.
+Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항을 충족하는 것에 대해 책임지지 않습니다. 이메일용 가속 모바일 페이지는 SparkPost 및 SendGrid에서만 사용할 수 있습니다.
 
 | 요구 사항   | 설명 |
 | --------------| ----------- |
-| 이메일용 AMP 활성화 | AMP는 모든 사용자가 사용할 수 있습니다. |
+| 이메일용 가속 모바일 페이지 활성화 | 가속 모바일 페이지는 모든 사용자가 사용할 수 있습니다. |
 | Gmail 계정 인에이블먼트 | [Gmail 계정 활성화](#enabling-gmail-account)를 참조하세요. |
-| Google 발신자 인증 | Gmail은 DKIM, SPF, DMARC를 사용하여 AMP 이메일의 [발신자를 인증](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication)합니다. 계정에 이를 설정해야 합니다. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| AMP 이메일 요소 | 매력적인 AMP 이메일에는 다양한 구성요소의 전략적 사용이 포함됩니다. 아래 [구성요소](#components) 섹션의 필수 요소 탭을 참조하세요. |
+| Google 발신자 인증 | Gmail은 DKIM, SPF, DMARC를 사용하여 가속 모바일 페이지 이메일의 [발신자를 인증](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication)합니다. 계정에 이를 설정해야 합니다. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
+| 가속 모바일 페이지 이메일 요소 | 매력적인 가속 모바일 페이지 이메일에는 다양한 구성요소의 전략적 사용이 포함됩니다. 아래 [구성요소](#components) 섹션의 필수 요소 탭을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ### 지원되는 이메일 클라이언트 {#supported-email-clients}
 
-사용자에게 AMP 이메일을 보내려면 먼저 이메일 클라이언트에 등록해야 합니다. 등록 과정에서는 승인을 받기 위해 테스트 AMP HTML 이메일을 보내야 합니다. 승인 시간은 클라이언트마다 다릅니다. 자세한 내용은 등록 링크를 참조하세요.
+사용자에게 가속 모바일 페이지 이메일을 보내려면 먼저 이메일 클라이언트에 등록해야 합니다. 등록 과정에서는 승인을 받기 위해 테스트 가속 모바일 페이지 HTML 이메일을 보내야 합니다. 승인 시간은 클라이언트마다 다릅니다. 자세한 내용은 등록 링크를 참조하세요.
 
 | 클라이언트 | 등록 링크 |
 | ------ | -------- |
@@ -37,11 +37,11 @@ Braze는 사용자가 Google에 등록하거나 필요한 보안 요구 사항�
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 이메일 클라이언트" }
 
-지원되는 이메일 클라이언트의 전체 목록은 [AMP 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
+지원되는 이메일 클라이언트의 전체 목록은 [가속 모바일 페이지 설명서](https://amp.dev/support/faq/email-support)를 참조하세요.
 
 #### 미등록 공급자에게 발송하기 {#send-to-unregistered-providers}
 
-Yahoo나 Mail.ru와 같은 공급자에 등록 절차를 완료하기 전에 AMP 이메일을 보내면, 해당 공급자는 이메일의 AMP 부분을 무시하고 HTML 또는 일반 텍스트 대체 버전을 표시합니다. AMP 부분 자체는 미등록 발신자에 대해 전달 가능성 문제를 일으키지 않습니다.
+Yahoo나 Mail.ru와 같은 공급자에 등록 절차를 완료하기 전에 가속 모바일 페이지 이메일을 보내면, 해당 공급자는 이메일의 가속 모바일 페이지 부분을 무시하고 HTML 또는 일반 텍스트 대체 버전을 표시합니다. 가속 모바일 페이지 부분 자체는 미등록 발신자에 대해 전달 가능성 문제를 일으키지 않습니다.
 
 ### Gmail 계정 활성화 {#enabling-gmail-account}
 
@@ -51,7 +51,7 @@ Gmail 설정으로 이동하여 **General** 탭에서 **Enable dynamic email**�
 
 ## API 사용법 {#api-usage}
 
-API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 사용하여 이메일을 보내는 경우, 아래와 같이 `amp_body`를 오브젝트 사양으로 추가하세요.
+API를 통해서도 이메일용 가속 모바일 페이지를 사용할 수 있습니다. Braze [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 사용하여 이메일을 보내는 경우, 아래와 같이 `amp_body`를 오브젝트 사양으로 추가하세요.
 
 ### 이메일 오브젝트 사양 {#email-object-specification}
 
@@ -74,36 +74,36 @@ API를 통해서도 이메일용 AMP를 사용할 수 있습니다. Braze [메�
 }
 ```
 
-## AMP 이메일 만들기 {#create-your-amp-email}
+## 가속 모바일 페이지 이메일 만들기 {#create-your-amp-email}
 
-먼저 [구성요소](#components)를 사용하여 AMP 이메일을 작성합니다. 그런 다음 [Braze API](#api-usage)를 사용하여 메시지를 보내되, AMP HTML에 `amp_body`를 포함해야 합니다.
+먼저 [구성요소](#components)를 사용하여 가속 모바일 페이지 이메일을 작성합니다. 그런 다음 [Braze API](#api-usage)를 사용하여 메시지를 보내되, 가속 모바일 페이지 HTML에 `amp_body`를 포함해야 합니다.
 
-AMP HTML 외에도 일반 HTML `body` 버전이 필요하며, AMP 이메일의 `plaintext_body` 버전도 함께 제공하는 것을 권장합니다. 모든 AMP 이메일은 멀티파트로 발송되므로, Braze는 HTML, 일반 텍스트, AMP HTML을 지원하는 이메일을 발송합니다. 이메일용 AMP를 아직 지원하지 않는 공급자를 통해 이메일이 발송되는 경우에도 사용자와 기기에 따라 적절한 버전으로 자동 전환되므로 유용합니다.
+가속 모바일 페이지 HTML 외에도 일반 HTML `body` 버전이 필요하며, 가속 모바일 페이지 이메일의 `plaintext_body` 버전도 함께 제공하는 것을 권장합니다. 모든 가속 모바일 페이지 이메일은 멀티파트로 발송되므로, Braze는 HTML, 일반 텍스트, 가속 모바일 페이지 HTML을 지원하는 이메일을 발송합니다. 이메일용 가속 모바일 페이지를 아직 지원하지 않는 공급자를 통해 이메일이 발송되는 경우에도 사용자와 기기에 따라 적절한 버전으로 자동 전환되므로 유용합니다.
 
 {% alert note %}
-AMP 이메일을 작성할 때는 AMP 에디터에서 작업하고 있는지 확인하세요. AMP 코드는 HTML 에디터에 추가하면 안 됩니다.
+가속 모바일 페이지 이메일을 작성할 때는 가속 모바일 페이지 에디터에서 작업하고 있는지 확인하세요. 가속 모바일 페이지 코드는 HTML 에디터에 추가하면 안 됩니다.
 {% endalert %}
 
 다음 추가 리소스를 참조하세요:
 
-- [AMP 튜토리얼](https://amp.dev/documentation/guides-and-tutorials/start/create_email?format=email)
+- [가속 모바일 페이지 튜토리얼](https://amp.dev/documentation/guides-and-tutorials/start/create_email?format=email)
 - 최종 결과물이 어떻게 보여야 하는지 확인할 수 있는 [샘플 코드](https://gist.github.com/CrystalOnScript/988c3f0a2eb406da27e9d9bf13a8bf73).
-- [AMP 이메일 구성요소 라이브러리](https://amp.dev/documentation/components/?format=email/)
+- [가속 모바일 페이지 이메일 구성요소 라이브러리](https://amp.dev/documentation/components/?format=email/)
 
 ### 구성요소 {#components}
 
-AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리소스와 요소를 포함하여 추가적인 완성도를 높이는 것을 권장합니다.
+가속 모바일 페이지 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리소스와 요소를 포함하여 추가적인 완성도를 높이는 것을 권장합니다.
 
 {% tabs %}
   {% tab 필수 요소 %}
 
-이러한 각 요소는 AMP 이메일 본문에 필수입니다.
+이러한 각 요소는 가속 모바일 페이지 이메일 본문에 필수입니다.
 
 | 구성요소 | 설명 | 예시 |
 |---------|--------------|---------|
-| 식별 <br><br> `⚡4email` 또는 `amp4email`| 이메일을 AMP HTML 이메일로 식별합니다. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
-| AMP 런타임 로드 <br><br> `<script>` | JavaScript를 사용하여 이메일에서 AMP를 실행할 수 있게 합니다. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
-| CSS 보일러플레이트 | AMP가 로드될 때까지 콘텐츠를 숨깁니다. <br> AMP 이메일을 지원하는 이메일 공급자는 검증된 AMP 스크립트만 클라이언트에서 실행되도록 보안 검사를 시행합니다. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
+| 식별 <br><br> `⚡4email` 또는 `amp4email`| 이메일을 가속 모바일 페이지 HTML 이메일로 식별합니다. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
+| 가속 모바일 페이지 런타임 로드 <br><br> `<script>` | JavaScript를 사용하여 이메일에서 가속 모바일 페이지를 실행할 수 있게 합니다. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
+| CSS 보일러플레이트 | 가속 모바일 페이지가 로드될 때까지 콘텐츠를 숨깁니다. <br> 가속 모바일 페이지 이메일을 지원하는 이메일 공급자는 검증된 가속 모바일 페이지 스크립트만 클라이언트에서 실행되도록 보안 검사를 시행합니다. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="구성요소" }
 
   {% endtab %}
@@ -114,7 +114,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 | 구성요소 | 설명 | 필수 스크립트 |
 |---------|--------------|---------|
 | [아코디언](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| 사용자가 콘텐츠 개요를 보고 원하는 섹션으로 이동할 수 있게 합니다. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
-| [양식](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| AMP 문서에서 입력 필드를 제출하는 양식을 만듭니다. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
+| [양식](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| 가속 모바일 페이지 문서에서 입력 필드를 제출하는 양식을 만듭니다. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="구성요소" }
 
 {% alert note %}
@@ -123,7 +123,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
   {% endtab %}
   {% tab 크리에이티브 %}
 
-  AMP의 구성요소를 활용하여 오디언스에 맞게 이메일을 꾸며보세요.
+  가속 모바일 페이지의 구성요소를 활용하여 오디언스에 맞게 이메일을 꾸며보세요.
 
 | 구성요소 | 설명 | 필수 스크립트 |
 |---------|--------------|---------|
@@ -141,7 +141,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 
 | 구성요소 | 설명 |
 |---------|--------------|
-| [데이터 바인딩 및 표현식](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| 데이터 바인딩과 JavaScript와 유사한 표현식을 통해 AMP 페이지에 커스텀 상태 기반 인터랙티비티를 추가합니다. |
+| [데이터 바인딩 및 표현식](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| 데이터 바인딩과 JavaScript와 유사한 표현식을 통해 가속 모바일 페이지 페이지에 커스텀 상태 기반 인터랙티비티를 추가합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="구성요소" }
 
 {% alert note %}
@@ -151,7 +151,7 @@ AMP 요소를 작성할 때는 엔지니어링 팀과 확인하고 디자인 리
 {% endtab %}
 {% endtabs %}
 
-AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentation/components/?format=email)를 확인하세요.
+가속 모바일 페이지 구성요소의 전체 목록은 [가속 모바일 페이지 설명서](https://amp.dev/documentation/components/?format=email)를 확인하세요.
 
 ### 사용 사례 {#use-cases}
 
@@ -194,9 +194,9 @@ AMP 구성요소의 전체 목록은 [AMP 설명서](https://amp.dev/documentati
 {% endtab %}
 {% endtabs %}
 
-### amp-mustache 사용하기 {#use-amp-mustache}
+### 가속 모바일 페이지-mustache 사용하기 {#use-amp-mustache}
 
-Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언어를 지원합니다. 이 구성요소는 [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email)라고 합니다. Mustache 마크업 언어를 포함할 때는 Liquid의 [`raw`](https://shopify.github.io/liquid/tags/raw/) 태그로 감싸야 합니다. Liquid와 Mustache는 구문 스타일을 공유한다는 점에 유의하세요.
+Liquid와 마찬가지로 가속 모바일 페이지도 고급 사용 사례를 위한 스크립팅 언어를 지원합니다. 이 구성요소는 [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email)라고 합니다. Mustache 마크업 언어를 포함할 때는 Liquid의 [`raw`](https://shopify.github.io/liquid/tags/raw/) 태그로 감싸야 합니다. Liquid와 Mustache는 구문 스타일을 공유한다는 점에 유의하세요.
 
 콘텐츠를 `raw` 태그로 감싸면 Braze 처리 엔진이 `raw` 태그 사이의 콘텐츠를 무시하고 팀에서 필요한 Mustache 변수를 그대로 발송합니다.
 
@@ -219,19 +219,19 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
     <tbody>
         <tr>
             <td class="no-split">Total Opens</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Opens' %} AMP 이메일의 경우, HTML 및 일반 텍스트 버전의 총 열람 수입니다.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Opens' %} 가속 모바일 페이지 이메일의 경우, HTML 및 일반 텍스트 버전의 총 열람 수입니다.</td>
         </tr>
         <tr>
             <td class="no-split">Total Clicks</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %} AMP 이메일의 경우, HTML 및 일반 텍스트 버전의 총 클릭 수입니다.</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %} 가속 모바일 페이지 이메일의 경우, HTML 및 일반 텍스트 버전의 총 클릭 수입니다.</td>
         </tr>
         <tr>
-            <td class="no-split">AMP Opens</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}</td>
+            <td class="no-split">가속 모바일 페이지 Opens</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='가속 모바일 페이지 Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split">AMP Clicks</td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}</td>
+            <td class="no-split">가속 모바일 페이지 Clicks</td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='가속 모바일 페이지 Clicks' %}</td>
         </tr>
     </tbody>
 </table>
@@ -239,26 +239,26 @@ Liquid와 마찬가지로 AMP도 고급 사용 사례를 위한 스크립팅 언
 ## 테스트 및 문제 해결 {#test-and-troubleshoot}
 
 
-AMP 이메일을 보내기 전에 다음을 권장합니다:
+가속 모바일 페이지 이메일을 보내기 전에 다음을 권장합니다:
 
 - 이 [Gmail 가이드라인](https://developers.google.com/gmail/ampemail/testing-dynamic-email)에 따라 테스트합니다.
-- [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/)를 사용하여 AMP 마크업을 검증합니다.
-  - AMP 이메일에 Liquid 태그가 사용된 경우, Gmail AMP for Email Playground에 붙여넣기 전에 정적 플레이스홀더 값으로 대체하세요. 렌더링되지 않은 Liquid 태그는 유효성 검사 오류를 발생시킵니다.
+- [Gmail 가속 모바일 페이지 for Email Playground](https://amp.gmail.dev/playground/)를 사용하여 가속 모바일 페이지 마크업을 검증합니다.
+  - 가속 모바일 페이지 이메일에 Liquid 태그가 사용된 경우, Gmail 가속 모바일 페이지 for Email Playground에 붙여넣기 전에 정적 플레이스홀더 값으로 대체하세요. 렌더링되지 않은 Liquid 태그는 유효성 검사 오류를 발생시킵니다.
 
-AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 합니다:
+가속 모바일 페이지 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 합니다:
 
-- 이메일용 AMP 보안 요구 사항을 충족해야 합니다.
-- AMP MIME 파트에 유효한 AMP 문서가 포함되어야 합니다.
-- 이메일에 HTML MIME 파트보다 AMP MIME 파트가 먼저 포함되어야 합니다.
-- AMP MIME 파트는 100&nbsp;KB 미만이어야 합니다.
+- 이메일용 가속 모바일 페이지 보안 요구 사항을 충족해야 합니다.
+- 가속 모바일 페이지 MIME 파트에 유효한 가속 모바일 페이지 문서가 포함되어야 합니다.
+- 이메일에 HTML MIME 파트보다 가속 모바일 페이지 MIME 파트가 먼저 포함되어야 합니다.
+- 가속 모바일 페이지 MIME 파트는 100&nbsp;KB 미만이어야 합니다.
 
-총 클릭 수와 고유 클릭 수에는 AMP 메시지에서 발생한 클릭이 포함되지 않습니다(HTML 및 일반 텍스트만 해당). AMP 관련 클릭은 *amp_click* 측정기준에 귀속됩니다.
+총 클릭 수와 고유 클릭 수에는 가속 모바일 페이지 메시지에서 발생한 클릭이 포함되지 않습니다(HTML 및 일반 텍스트만 해당). 가속 모바일 페이지 관련 클릭은 *amp_click* 측정기준에 귀속됩니다.
 
 이러한 조건 중 어느 것도 오류의 원인이 아닌 경우 [고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 
-### Gmail 받은편지함에서 AMP 이메일을 렌더링하도록 설정하기 {#configure-gmail-inbox-to-render-amp-emails}
+### Gmail 받은편지함에서 가속 모바일 페이지 이메일을 렌더링하도록 설정하기 {#configure-gmail-inbox-to-render-amp-emails}
 
-다음 단계를 수행하여 테스트 목적으로 Gmail 받은편지함에서 AMP 이메일을 렌더링하도록 설정할 수 있습니다:
+다음 단계를 수행하여 테스트 목적으로 Gmail 받은편지함에서 가속 모바일 페이지 이메일을 렌더링하도록 설정할 수 있습니다:
 
 1. Gmail에서 받은편지함 도구 모음의 **Settings**를 선택합니다.
 2. **See all settings**를 선택합니다.
@@ -267,10 +267,10 @@ AMP 이메일이 Gmail 계정에 전달되려면 다음 조건을 충족해야 �
 5. 테스트 메시지의 발신자 주소와 동일한 도메인을 입력합니다.
 6. 변경 사항을 저장합니다.
 
-이제 Gmail 계정으로 테스트 이메일을 보내면 AMP 이메일이 Gmail에서 렌더링됩니다.
+이제 Gmail 계정으로 테스트 이메일을 보내면 가속 모바일 페이지 이메일이 Gmail에서 렌더링됩니다.
 
 ### 자주 묻는 질문 {#frequently-asked-questions}
 
-#### AMP 이메일로 세그먼트를 나눠야 하나요? {#should-i-segment-with-amp-emails}
+#### 가속 모바일 페이지 이메일로 세그먼트를 나눠야 하나요? {#should-i-segment-with-amp-emails}
 
-다양한 유형의 사용자에게 보내기 위해 세그먼트를 나누지 않는 것을 권장합니다. AMP 메시지는 멀티파트로 발송되어 원본 이메일에 여러 버전이 포함되기 때문입니다. 사용자가 AMP 버전을 볼 수 없는 경우 HTML로 자동 전환됩니다.
+다양한 유형의 사용자에게 보내기 위해 세그먼트를 나누지 않는 것을 권장합니다. 가속 모바일 페이지 메시지는 멀티파트로 발송되어 원본 이메일에 여러 버전이 포함되기 때문입니다. 사용자가 가속 모바일 페이지 버전을 볼 수 없는 경우 HTML로 자동 전환됩니다.

@@ -24,15 +24,15 @@ Para as definições dos estados de inscrição do WhatsApp e como eles se relac
 
 ### Definindo os grupos de inscrições de WhatsApp dos usuários {#setting-users-whatsapp-subscription-groups}
 
-- **REST API:** Os perfis de usuário podem ser definidos programaticamente pelo [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) usando a REST API da Braze.
-- **SDK para web:** Os usuários podem ser adicionados a um grupo de inscrições de e-mail, SMS ou WhatsApp usando o método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
+- **REST or transferir estado representacional API or interface de programação do aplicativo (API):** Os perfis de usuário podem ser definidos programaticamente pelo [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) usando a REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze.
+- **SDK or kit de desenvolvimento de software para web:** Os usuários podem ser adicionados a um grupo de inscrições de e-mail, SMS ou WhatsApp usando o método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
 - **Importação de usuário**: Os usuários podem ser adicionados a grupos de inscrições de e-mail ou SMS via **Importar Usuários**. Ao atualizar o status do grupo de inscrições, você precisa ter estas duas colunas no seu CSV: `subscription_group_id` e `subscription_state`. Consulte [Importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para saber mais.
 
 ### Verificando o grupo de inscrições de WhatsApp de um usuário {#checking-a-users-whatsapp-subscription-group}
 
 - **Perfil de usuário:** Os perfis de usuário individuais podem ser acessados pelo dashboard da Braze em **Público** > **Pesquisar Usuários**. Lá, você pode buscar perfis de usuário por endereço de e-mail, número de telefone ou ID de usuário externo. Dentro de um perfil de usuário, na guia **Engajamento**, você pode visualizar o grupo de inscrições de WhatsApp de um usuário e o respectivo status.
 
-- **REST API:** O grupo de inscrições de perfis de usuário individuais pode ser visualizado pelo [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou pelo [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando a REST API da Braze.
+- **REST or transferir estado representacional API or interface de programação do aplicativo (API):** O grupo de inscrições de perfis de usuário individuais pode ser visualizado pelo [endpoint Listar grupos de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) ou pelo [endpoint Listar status do grupo de inscrições do usuário]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando a REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze.
 
 ## Arquivar grupos de inscrições {#archive-subscription-groups}
 
@@ -58,7 +58,7 @@ Palavras-chave de aceitação não são compatíveis atualmente com o canal do W
 
 Independentemente dos métodos de opt-in e descadastramento que você utiliza, é possível atualizar o status de inscrição dos perfis de usuário com um dos seguintes métodos de atualização:
 
-- Crie um [webhook Braze-to-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations) que atualize o status de inscrição via REST API, como no exemplo a seguir:
+- Crie um [webhook Braze-to-Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations) que atualize o status de inscrição via REST or transferir estado representacional API or interface de programação do aplicativo (API), como no exemplo a seguir:
 
 ![Criador de webhook com uma mensagem usando o método POST.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 

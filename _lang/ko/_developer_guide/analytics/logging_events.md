@@ -27,7 +27,7 @@ description: "Braze SDK를 통해 커스텀 이벤트를 기록하는 방법을 
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-Google Tag Manager를 대신 사용하려면 **커스텀 이벤트** 태그 유형을 사용하여 [`logCustomEvent` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)를 호출하고 커스텀 이벤트를 Braze로 전송할 수 있으며, 선택적으로 커스텀 이벤트 속성정보를 포함할 수 있습니다. 이를 위해 다음을 수행합니다:
+Google Tag 매니저를 대신 사용하려면 **커스텀 이벤트** 태그 유형을 사용하여 [`logCustomEvent` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent)를 호출하고 커스텀 이벤트를 Braze로 전송할 수 있으며, 선택적으로 커스텀 이벤트 속성정보를 포함할 수 있습니다. 이를 위해 다음을 수행합니다:
 
 1. 변수를 사용하거나 이벤트 이름을 직접 입력하여 **이벤트 이름**을 입력합니다.
 2. **행 추가** 버튼을 사용하여 이벤트 속성정보를 추가합니다.

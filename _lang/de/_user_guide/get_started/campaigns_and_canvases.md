@@ -1,17 +1,17 @@
 ---
-nav_title: Campaigns und Canvases
-article_title: "Erste Schritte: Campaigns und Canvases"
+nav_title: Campaigns und Canvase
+article_title: "Erste Schritte: Campaigns und Canvase"
 page_order: 3
 page_type: reference
 description: "Dieser Artikel bietet einen Überblick über die verschiedenen Möglichkeiten, wie Sie mit Braze Nachrichten versenden können."
 ---
 
-# Erste Schritte: Campaigns und Canvases {#get-started-campaigns-and-canvases}
+# Erste Schritte: Campaigns und Canvase {#get-started-campaigns-and-canvases}
 
 > Dieser Artikel bietet einen Überblick über die verschiedenen Möglichkeiten, wie Sie mit Braze Nachrichten versenden können. In Braze können Sie Nachrichten entweder über eine [Campaign](#campaigns) oder ein [Canvas](#canvas) versenden.
 
 - Wählen Sie eine Campaign, um eine einzelne, gezielte Nachricht an eine Gruppe von Nutzer:innen zu senden. Eine Campaign ist ein einzelner Nachrichtenschritt, um mit Ihren Nutzer:innen über verschiedene Messaging-Kanäle in Kontakt zu treten.
-- Für das Versenden einer Reihe von fortlaufenden Nachrichten im Rahmen einer übergreifenden Customer Journey empfehlen wir Canvas, unser Tool für die Journey-Orchestrierung. Während Campaigns gut geeignet sind, um einfache, zielgerichtete Nachrichten zu versenden, können Sie mit Canvases Ihre Beziehungen zu Kund:innen auf die nächste Stufe heben.
+- Für das Versenden einer Reihe von fortlaufenden Nachrichten im Rahmen einer übergreifenden Customer Journey empfehlen wir Canvas, unser Tool für die Journey-Orchestrierung. Während Campaigns gut geeignet sind, um einfache, zielgerichtete Nachrichten zu versenden, können Sie mit Canvase Ihre Beziehungen zu Kund:innen auf die nächste Stufe heben.
 
 ## Campaigns {#campaigns}
 
@@ -39,13 +39,13 @@ Entdecken Sie diese zusätzlichen Ressourcen, um mehr über Campaigns in Braze z
 
 ## Canvas {#canvas}
 
-Anstatt über mehrere Campaigns vereinzelte Nachrichten zu versenden, schaffen Canvases eine fortlaufende, fließende Konversation mit Nutzer:innen. Das liegt daran, dass die Journey einer Nutzer:in durch ein Canvas sich je nach ihren Aktionen (oder Inaktionen) mit Ihrer Marke in verschiedene Pfade aufteilen kann, sodass Sie Nutzer:innen automatisch in Echtzeit durch einen bestimmten Ablauf voranbringen können.
+Anstatt über mehrere Campaigns vereinzelte Nachrichten zu versenden, schaffen Canvase eine fortlaufende, fließende Konversation mit Nutzer:innen. Das liegt daran, dass die Journey einer Nutzer:in durch ein Canvas sich je nach ihren Aktionen (oder Inaktionen) mit Ihrer Marke in verschiedene Pfade aufteilen kann, sodass Sie Nutzer:innen automatisch in Echtzeit durch einen bestimmten Ablauf voranbringen können.
 
 ![Flussdiagramm für den beschriebenen Prozess.]({% image_buster /assets/img/getting_started/canvas_flow.png %})
 
-Auf diese Weise eignen sich Canvases hervorragend, um ein breites Netz auszuwerfen und Nutzer:innen aufzufangen, die vom Weg zur Konversion abkommen, und sie in die effektivsten Outreach-Initiativen einzubinden.
+Auf diese Weise eignen sich Canvase hervorragend, um ein breites Netz auszuwerfen und Nutzer:innen aufzufangen, die vom Weg zur Konversion abkommen, und sie in die effektivsten Outreach-Initiativen einzubinden.
 
-Wenn Sie ein Canvas erstellen, folgen Sie vielen der gleichen Schritte wie beim Einrichten einer Campaign: Sie legen eine übergeordnete Zielgruppe, Entry-Bedingungen und Zustellungseinstellungen fest. Ihr Canvas beginnt, wenn jemand Ihre Trigger-Bedingung erfüllt. Anschließend bewegt sich die Person durch einen Pfad im Canvas, bis sie Ihre Exit-Bedingungen erfüllt.
+Wenn Sie ein Canvas erstellen, folgen Sie vielen der gleichen Schritte wie beim Einrichten einer Campaign: Sie legen eine übergeordnete Zielgruppe, Entry-Bedingungen und Zustellungseinstellungen fest. Ihr Canvas beginnt, wenn jemand Ihre Trigger or triggern-Bedingung erfüllt. Anschließend bewegt sich die Person durch einen Pfad im Canvas, bis sie Ihre Exit-Bedingungen erfüllt.
 
 Ihr Canvas kann eine beliebige Kombination aus [Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), [Verzögerungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), [Experimenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) und mehr enthalten. Sie können über jeden unterstützten Messaging-Kanal senden und sogar [Integrationen mit sozialen Netzwerken und Werbeplattformen]({{site.baseurl}}/partners/canvas_audience_sync/overview) wie Facebook, Google oder TikTok nutzen.
 
@@ -69,7 +69,7 @@ Die folgende Tabelle gibt einen Überblick über unsere unterstützten Kanäle.
 | [Mobiler Push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)                   | Übermitteln Sie Nachrichten direkt als Benachrichtigungen auf die Mobilgeräte der Nutzer:innen.                                                                                   |
 | [Web-Push]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)                         | Übermitteln Sie Benachrichtigungen an die Webbrowser der Nutzer:innen, auch wenn diese nicht aktiv auf Ihrer Website sind.                                                         |
 | [In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages)    | Zeigen Sie Nachrichten innerhalb Ihrer mobilen App an, während die Nutzer:innen sie aktiv verwenden.                                                                             |
-| [SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)*                   | Senden Sie Textnachrichten an die Mobiltelefone der Nutzer:innen.                                                                                                            |
+| [Kurzmitteilungsdienst or SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)*                   | Senden Sie Textnachrichten an die Mobiltelefone der Nutzer:innen.                                                                                                            |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)*              | Senden Sie Nachrichten über die beliebte Messaging-Plattform WhatsApp, um Ihre Nutzer:innen zu erreichen und mit ihnen zu interagieren.                                                   |
 | [Banner]({{site.baseurl}}/user_guide/channels/banners)*       | Betten Sie Nachrichten direkt in Ihre App oder Website ein. |
 | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)*       | Stellen Sie einen Posteingang in Ihrer App oder Website bereit, in dem Nutzer:innen Nachrichten empfangen und mit ihnen interagieren können, oder zeigen Sie Nachrichten in einem Karussell, als Banner und mehr an. |
@@ -81,5 +81,5 @@ Die folgende Tabelle gibt einen Überblick über unsere unterstützten Kanäle.
 <sup>*Als Add-on-Feature verfügbar.*</sup>
 
 {% alert tip %}
-Für kurze und dringende Nachrichten, die über die meisten Kanäle (E-Mail, SMS, Push) kommuniziert werden können, nutzen Sie den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), um die Nachricht automatisch über den besten Kanal für jede:n Nutzer:in zu senden.
+Für kurze und dringende Nachrichten, die über die meisten Kanäle (E-Mail, Kurzmitteilungsdienst or SMS, Push) kommuniziert werden können, nutzen Sie den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), um die Nachricht automatisch über den besten Kanal für jede:n Nutzer:in zu senden.
 {% endalert %}

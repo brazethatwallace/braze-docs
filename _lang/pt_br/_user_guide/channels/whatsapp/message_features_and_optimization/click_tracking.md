@@ -20,7 +20,7 @@ O rastreamento de cliques permite medir quando alguém toca em um link na sua me
 Você pode ativar o rastreamento de cliques tanto em mensagens de resposta quanto em mensagens de modelo. Ele funciona com links em botões e no corpo do texto, e oferece suporte a URLs personalizados e domínios personalizados. Depois de ativado, você verá os dados de cliques nos seus relatórios de desempenho do WhatsApp e poderá segmentar usuários com base em quem clicou em quê.
 
 {% alert note %}
-O rastreamento de cliques não funciona com deep links. Você pode encurtar links universais de provedores como Branch ou Appsflyer, mas a Braze não consegue solucionar problemas que possam surgir ao fazer isso (como quebrar a atribuição ou causar um redirecionamento).
+O rastreamento de cliques não funciona com deep links. Você pode encurtar links universais de provedores como Branch or ramificação ou Appsflyer, mas a Braze não consegue solucionar problemas que possam surgir ao fazer isso (como quebrar a atribuição ou causar um redirecionamento).
 {% endalert %}
 
 ## Como funciona {#how-it-works}
@@ -111,9 +111,9 @@ O URL de destino precisa ser fornecido para qualquer link com um URL base que co
 ![Seção Buttons com campos para nome do botão, URL do site e URL de rastreamento de cliques.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Envio de mensagens de modelo via API**: O rastreamento de cliques do WhatsApp (usando `brz.ai` ou um domínio de rastreamento personalizado e o campo **Click tracking URL** no criador de mensagens) não é compatível ao enviar mensagens de modelo do WhatsApp pelo [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
+**Envio de mensagens de modelo via API or interface de programação do aplicativo (API)**: O rastreamento de cliques do WhatsApp (usando `brz.ai` ou um domínio de rastreamento personalizado e o campo **Click tracking URL** no criador de mensagens) não é compatível ao enviar mensagens de modelo do WhatsApp pelo [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages).
 
-Se você enviar uma mensagem de modelo pela API, poderá preencher variáveis de URL do CTA (usando `button_variables`), mas a Braze não gera um URL de rastreamento de cliques ou link de redirecionamento no fluxo de solicitação da API. Para usar o rastreamento de cliques, envie o modelo pelo dashboard da Braze ou por meio de um gatilho de Campaign da Braze.
+Se você enviar uma mensagem de modelo pela API or interface de programação do aplicativo (API), poderá preencher variáveis de URL do CTA (usando `button_variables`), mas a Braze não gera um URL de rastreamento de cliques ou link de redirecionamento no fluxo de solicitação da API or interface de programação do aplicativo (API). Para usar o rastreamento de cliques, envie o modelo pelo dashboard da Braze ou por meio de um gatilho de Campaign da Braze.
 {% endalert %}
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
@@ -140,7 +140,7 @@ https://example.com/{{url_var}}
 
 ## Encurtar URLs renderizados por variáveis Liquid {#shorten-urls-rendered-by-liquid-variables}
 
-A Braze encurta URLs renderizados por Liquid, incluindo aqueles incluídos em propriedades de gatilho de API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar um URL válido, encurtaremos e rastrearemos esse URL antes de enviar a mensagem do WhatsApp.
+A Braze encurta URLs renderizados por Liquid, incluindo aqueles incluídos em propriedades de gatilho de API or interface de programação do aplicativo (API). Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representar um URL válido, encurtaremos e rastrearemos esse URL antes de enviar a mensagem do WhatsApp.
 
 ## Testes {#testing}
 

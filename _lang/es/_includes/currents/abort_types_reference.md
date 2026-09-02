@@ -115,26 +115,26 @@ Estos tipos de cancelación pueden ocurrir en cualquier canal de mensajería.
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `invalid_push_payload` | La carga útil de la notificación push no es válida o tiene un formato incorrecto. |
-| `sdk_not_supported` | La versión del SDK en el dispositivo del usuario no es compatible con este tipo de notificación push. |
+| `sdk_not_supported` | La versión del SDK or kit de desarrollo de software en el dispositivo del usuario no es compatible con este tipo de notificación push. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push" }
 
 {% endif %}
 
-{% if ch == "all" or ch == "sms" %}
+{% if ch == "all" or ch == "servicio de mensajes cortos" %}
 
-### SMS/MMS
+### servicio de mensajes cortos/MMS
 
 | Valor de `abort_type` | Descripción |
 | --- | --- |
 | `exhausted_link_shortening_retries` | El acortamiento de enlaces falló después del número máximo de reintentos. |
-| `sms_empty_payload` | El cuerpo del mensaje SMS está vacío. |
+| `sms_empty_payload` | El cuerpo del mensaje servicio de mensajes cortos está vacío. |
 | `sms_no_sending_numbers` | No hay números de teléfono de envío disponibles para este grupo de suscripción. |
-| `sms_fatal_provider_error` | Ocurrió un error fatal con el proveedor de SMS, lo que impidió la entrega del mensaje. |
-| `sms_gateway_domain_not_allowed` | El dominio de la pasarela SMS no está en la lista de permitidos. |
+| `sms_fatal_provider_error` | Ocurrió un error fatal con el proveedor de servicio de mensajes cortos, lo que impidió la entrega del mensaje. |
+| `sms_gateway_domain_not_allowed` | El dominio de la pasarela servicio de mensajes cortos no está en la lista de permitidos. |
 | `blocked_recipient_country` | El número de teléfono del destinatario está en un país bloqueado por tus [permisos geográficos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions). |
 | `mms_not_supported` | MMS no es compatible para este destinatario o número de envío. |
 | `no_current_messaging_service` | No hay un servicio de mensajería activo configurado para este grupo de suscripción. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SMS/MMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="servicio de mensajes cortos/MMS" }
 
 {% endif %}
 

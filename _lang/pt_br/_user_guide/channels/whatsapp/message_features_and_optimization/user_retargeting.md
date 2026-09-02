@@ -42,7 +42,7 @@ Redirecione usuários que leram ou não leram uma Campaign ou etapa do Canvas do
 
 #### Redirecionar usuários que abriram/leram uma Campaign específica do WhatsApp {#retarget-users-who-have-openedread-a-specific-whatsapp-campaign}
 
-1. Crie um Segment usando o filtro **Clicked/Opened Campaign**.
+1. Crie um Segment or segmento usando o filtro **Clicked/Opened Campaign**.
 2. Selecione **read WhatsApp message**.
 3. Escolha a Campaign desejada.
 
@@ -50,7 +50,7 @@ Redirecione usuários que leram ou não leram uma Campaign ou etapa do Canvas do
 
 #### Redirecionar usuários que abriram/leram uma etapa específica do Canvas {#retarget-users-who-have-openedread-a-specific-canvas-step}
 
-1. Crie um Segment usando o filtro **Clicked/Opened Step**.
+1. Crie um Segment or segmento usando o filtro **Clicked/Opened Step**.
 2. Selecione **read WhatsApp message**.
 3. Escolha o Canvas e as etapas do Canvas desejados.
 

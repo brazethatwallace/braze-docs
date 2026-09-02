@@ -2,7 +2,7 @@
 nav_title: Calculadora de facturación
 article_title: Calculadora de facturación
 page_order: 5
-description: "Este artículo de referencia cubre qué es un segmento del mensaje SMS, cómo se cuentan para la facturación, así como aspectos a tener en cuenta al crear el texto de mensajes SMS y RCS."
+description: "Este artículo de referencia cubre qué es un segmento del mensaje servicio de mensajes cortos, cómo se cuentan para la facturación, así como aspectos a tener en cuenta al crear el texto de mensajes servicio de mensajes cortos y RCS."
 page_type: reference
 alias: /sms_rcs_billing_calculators/
 tool:
@@ -14,33 +14,33 @@ channel:
 
 ---
 
-# Calculadoras de facturación de SMS y RCS {#sms-and-rcs-billing-calculators}
+# Calculadoras de facturación de servicio de mensajes cortos y RCS {#sms-and-rcs-billing-calculators}
 
-> En Braze, los mensajes SMS se cobran por segmento del mensaje, mientras que los mensajes RCS se cobran por mensaje. Comprender qué define un segmento de SMS y los diferentes tipos de facturación de RCS te ayudará a entender cómo se te facturará y a prevenir excedentes accidentales.
+> En Braze, los mensajes servicio de mensajes cortos se cobran por segmento del mensaje, mientras que los mensajes RCS se cobran por mensaje. Comprender qué define un segmento de servicio de mensajes cortos y los diferentes tipos de facturación de RCS te ayudará a entender cómo se te facturará y a prevenir excedentes accidentales.
 
-## Copia de mensajes SMS y calculadora de segmentos {#sms-message-copy-and-segment-calculator}
+## Copia de mensajes servicio de mensajes cortos y calculadora de segmentos {#sms-message-copy-and-segment-calculator}
 
-Los mensajes SMS se cobran por segmento del mensaje. Comprender cómo se dividen los mensajes SMS es clave para entender tu facturación.
+Los mensajes servicio de mensajes cortos se cobran por segmento del mensaje. Comprender cómo se dividen los mensajes servicio de mensajes cortos es clave para entender tu facturación.
 
-### ¿Qué es un segmento de SMS? {#what-is-an-sms-segment}
+### ¿Qué es un segmento de servicio de mensajes cortos? {#what-is-an-sms-segment}
 
-El servicio de mensajes cortos (SMS) es un protocolo de comunicación estandarizado que permite a los dispositivos enviar y recibir mensajes de texto breves. Fue diseñado para "encajar entre" otros protocolos de señalización, por lo que la longitud de los mensajes SMS está limitada a 160 caracteres de 7 bits, es decir, 1120 bits o 140 bytes. Los segmentos de mensajes SMS son los lotes de caracteres que los operadores telefónicos utilizan para medir los mensajes de texto. Los mensajes se cobran por segmento del mensaje, por lo que los clientes que utilizan SMS se benefician enormemente de comprender los matices de cómo se dividen los mensajes.
+El servicio de mensajes cortos (servicio de mensajes cortos) es un protocolo de comunicación estandarizado que permite a los dispositivos enviar y recibir mensajes de texto breves. Fue diseñado para "encajar entre" otros protocolos de señalización, por lo que la longitud de los mensajes servicio de mensajes cortos está limitada a 160 caracteres de 7 bits, es decir, 1120 bits o 140 bytes. Los segmentos de mensajes servicio de mensajes cortos son los lotes de caracteres que los operadores telefónicos utilizan para medir los mensajes de texto. Los mensajes se cobran por segmento del mensaje, por lo que los clientes que utilizan servicio de mensajes cortos se benefician enormemente de comprender los matices de cómo se dividen los mensajes.
 
-Cuando creas una Campaign o Canvas de SMS usando Braze, los mensajes que construyes en el creador son representativos de lo que tus usuarios pueden ver cuando el mensaje se entrega en su teléfono, pero **no es indicativo de cómo se dividirá tu mensaje en segmentos ni, en última instancia, de cómo se te cobrará**. Comprender cuántos segmentos se enviarán y ser consciente de los posibles excedentes que podrían ocurrir es tu responsabilidad, pero proporcionamos algunos recursos para facilitarte esto. Consulta nuestra [calculadora de segmentos](#segment-calculator) integrada.
+Cuando creas una Campaign o Canvas de servicio de mensajes cortos usando Braze, los mensajes que construyes en el creador son representativos de lo que tus usuarios pueden ver cuando el mensaje se entrega en su teléfono, pero **no es indicativo de cómo se dividirá tu mensaje en segmentos ni, en última instancia, de cómo se te cobrará**. Comprender cuántos segmentos se enviarán y ser consciente de los posibles excedentes que podrían ocurrir es tu responsabilidad, pero proporcionamos algunos recursos para facilitarte esto. Consulta nuestra [calculadora de segmentos](#segment-calculator) integrada.
 
 ![Cuando creas una Campaign o Canvas de SMS usando Braze, los mensajes que construyes en el creador son representativos de lo que tus usuarios pueden ver cuando el mensaje se entrega en su teléfono, pero no es indicativo de cómo se dividirá tu mensaje en segmentos ni de cómo se te cobrará. Comprender cuántos segmentos se enviarán y ser consciente de los posibles excedentes que podrían ocurrir es tu responsabilidad, pero proporcionamos algunos recursos para facilitarte esto. Consulta nuestra calculadora de segmentos integrada.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Desglose de segmentos {#segment-breakdown}
 
-El límite de caracteres para **un segmento de SMS independiente** es de 160 caracteres (codificación [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)) o 70 caracteres (codificación [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)) según el tipo de codificación. Sin embargo, la mayoría de los teléfonos y redes admiten la concatenación, lo que permite mensajes SMS más largos de hasta 1530 caracteres (GSM-7) o 670 caracteres (UCS-2). Así que, aunque un mensaje pueda incluir varios segmentos, si no excede estos límites de concatenación, se verá como un solo mensaje y se reportará como tal.
+El límite de caracteres para **un segmento de servicio de mensajes cortos independiente** es de 160 caracteres (codificación [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)) o 70 caracteres (codificación [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)) según el tipo de codificación. Sin embargo, la mayoría de los teléfonos y redes admiten la concatenación, lo que permite mensajes servicio de mensajes cortos más largos de hasta 1530 caracteres (GSM-7) o 670 caracteres (UCS-2). Así que, aunque un mensaje pueda incluir varios segmentos, si no excede estos límites de concatenación, se verá como un solo mensaje y se reportará como tal.
 
 Es importante tener en cuenta que **cuando superas el límite de caracteres de tu primer segmento, los caracteres adicionales harán que todo tu mensaje se divida y segmente en función de nuevos límites de caracteres**:
 - **Codificación GSM-7**
     - Los mensajes que superen el límite de 160 caracteres se segmentarán en segmentos de 153 caracteres y se enviarán individualmente, para luego reconstruirse en el dispositivo del destinatario. Por ejemplo, un mensaje de 161 caracteres se enviará como dos mensajes, uno con 153 caracteres y el segundo con 8 caracteres.
 - **Codificación UCS-2**
-    - Si incluyes caracteres no GSM como emojis, escritura china, coreana o japonesa en los mensajes SMS, esos mensajes deben enviarse mediante codificación UCS-2. Los mensajes que superen el límite inicial de 70 caracteres del segmento harán que el mensaje completo se concatene en segmentos de 67 caracteres. Por ejemplo, un mensaje de 71 caracteres se enviará como dos mensajes, uno con 67 caracteres y el segundo con 4 caracteres.
+    - Si incluyes caracteres no GSM como emojis, escritura china, coreana o japonesa en los mensajes servicio de mensajes cortos, esos mensajes deben enviarse mediante codificación UCS-2. Los mensajes que superen el límite inicial de 70 caracteres del segmento harán que el mensaje completo se concatene en segmentos de 67 caracteres. Por ejemplo, un mensaje de 71 caracteres se enviará como dos mensajes, uno con 67 caracteres y el segundo con 4 caracteres.
 
-Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze tiene un límite de hasta 10 segmentos y es compatible con [plantillas Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), emojis y enlaces.
+Independientemente del tipo de codificación, cada mensaje servicio de mensajes cortos enviado por Braze tiene un límite de hasta 10 segmentos y es compatible con [plantillas Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), emojis y enlaces.
 
 {% tabs %}
 {% tab Codificación GSM-7 %}
@@ -78,21 +78,21 @@ Independientemente del tipo de codificación, cada mensaje SMS enviado por Braze
 ### Aspectos a tener en cuenta al crear tu copia {#things-to-keep-in-mind-as-you-create-your-copy}
 
 - **Límite de caracteres por segmento**
-    - [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38) tiene un límite de 160 caracteres para un único segmento de SMS. Para mensajes con más de 160 caracteres, todos los mensajes se segmentarán con un límite de 153 caracteres.
+    - [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38) tiene un límite de 160 caracteres para un único segmento de servicio de mensajes cortos. Para mensajes con más de 160 caracteres, todos los mensajes se segmentarán con un límite de 153 caracteres.
     - [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) tiene un límite de 70 caracteres por segmento del mensaje. Para mensajes con más de 70 caracteres, todos los mensajes se segmentarán con un límite de 67 caracteres.<br><br>
 - **Límite de segmentos por mensaje**
-    - Hay una cantidad máxima de segmentos que puedes enviar debido a las limitaciones del medio. No se pueden enviar más de **10 segmentos** de mensajes en un único mensaje SMS de Braze.
+    - Hay una cantidad máxima de segmentos que puedes enviar debido a las limitaciones del medio. No se pueden enviar más de **10 segmentos** de mensajes en un único mensaje servicio de mensajes cortos de Braze.
     - Esos 10 segmentos estarán limitados a 1530 caracteres (codificación GSM-7) o 670 caracteres (codificación UCS-2).<br><br>
 - **Compatible con plantillas Liquid, contenido conectado, emojis y enlaces**
     - Las plantillas Liquid y el contenido conectado pueden poner tu mensaje en riesgo de superar el límite de caracteres para tu tipo de codificación. Puedes usar el [filtro truncate words](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) para limitar el número de palabras que Liquid podría agregar al mensaje.
     - Los emojis no tienen un conteo de caracteres estándar entre todos los emojis, así que asegúrate de probar que tus mensajes se segmentan y muestran correctamente.
-    - Los enlaces pueden usar muchos caracteres, lo que resulta en más segmentos del mensaje de lo previsto. Aunque el uso de acortadores de enlaces es posible, es mejor utilizarlos con códigos abreviados. Visita nuestras [preguntas frecuentes de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) para obtener más información.<br><br>
+    - Los enlaces pueden usar muchos caracteres, lo que resulta en más segmentos del mensaje de lo previsto. Aunque el uso de acortadores de enlaces es posible, es mejor utilizarlos con códigos abreviados. Visita nuestras [preguntas frecuentes de servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) para obtener más información.<br><br>
 - **Pruebas**
-    - Siempre prueba tus mensajes SMS antes de lanzarlos, especialmente cuando uses Liquid y contenido conectado, ya que superar los límites de mensaje o copia puede resultar en cargos adicionales. Ten en cuenta que los mensajes de prueba contarán para tus límites de mensajes.<br><br>
+    - Siempre prueba tus mensajes servicio de mensajes cortos antes de lanzarlos, especialmente cuando uses Liquid y contenido conectado, ya que superar los límites de mensaje o copia puede resultar en cargos adicionales. Ten en cuenta que los mensajes de prueba contarán para tus límites de mensajes.<br><br>
 - **Mensajes de respuesta automática**
-    - Los mensajes de respuesta automática enviados por Braze, como las confirmaciones de doble adhesión voluntaria y las respuestas a palabras clave HELP, son envíos de SMS que cuentan como segmentos facturables. El número de segmentos facturables depende de la longitud de la copia y la codificación de caracteres.
+    - Los mensajes de respuesta automática enviados por Braze, como las confirmaciones de doble adhesión voluntaria y las respuestas a palabras clave HELP, son envíos de servicio de mensajes cortos que cuentan como segmentos facturables. El número de segmentos facturables depende de la longitud de la copia y la codificación de caracteres.
 
-### Calculadora de segmentos de SMS {#segment-calculator}
+### Calculadora de segmentos de servicio de mensajes cortos {#segment-calculator}
 ---
 
 {% multi_lang_include alerts/tip_alerts.md alert='SMS segment calculator' %}

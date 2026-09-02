@@ -16,15 +16,15 @@ _Esta integración está mantenida por Adikteev._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Braze y Adikteev te permite impulsar la retención de usuarios aprovechando la tecnología de predicción del abandono de Adikteev dentro de las Campaigns de CRM de Braze para dirigirte prioritariamente a los segmentos de usuarios de alto riesgo.
+La integración de Braze y Adikteev te permite impulsar la retención de usuarios aprovechando la tecnología de predicción del abandono de Adikteev dentro de las Campaigns de CRM or administración de las relaciones con el cliente de Braze para dirigirte prioritariamente a los segmentos de usuarios de alto riesgo.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta Adikteev | Se necesita una cuenta Adikteev para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con el permiso `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **APIs and Identifiers**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con el permiso `users.track`. <br><br> Se puede crear en el panel de Braze desde **Settings** > **APIs and Identifiers**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -48,7 +48,7 @@ Personalización de tus Campaigns de mensajería de Braze en función del riesgo
 
 Para empezar a ejecutar la predicción de abandono en la audiencia de tu aplicación, Adikteev necesitará que actives los postbacks de eventos desde tu plataforma de medición móvil. Sigue las instrucciones del [sitio web de soporte de Adikteev](https://help.adikteev.com/hc/en-us/sections/8185123408914-Data-stream-activation) para configurarlo.
 
-### Paso 2: Crea tu clave de API REST de Braze {#step-2-create-your-braze-rest-api-key}
+### Paso 2: Crea tu clave de API REST or transferencia de estado representacional de Braze {#step-2-create-your-braze-rest-api-key}
 
 En Braze, ve a **Settings** > **APIs and Identifiers**. Selecciona **Create New API Key**, introduce el nombre de la clave de API que prefieras y asegúrate de que se añade el siguiente permiso:
 
@@ -56,7 +56,7 @@ En Braze, ve a **Settings** > **APIs and Identifiers**. Selecciona **Create New 
 
 ### Paso 3: Proporciona información al equipo de Adikteev {#step-3-provide-information-to-the-adikteev-team}
 
-Para completar la integración, debes proporcionar tu clave de API REST y la URL del punto de conexión REST a tu director de cuentas de Adikteev. Adikteev establecerá la conexión y se pondrá en contacto contigo una vez finalizada la configuración para validar la integración.
+Para completar la integración, debes proporcionar tu clave de API REST or transferencia de estado representacional y la URL del punto de conexión REST or transferencia de estado representacional a tu director de cuentas de Adikteev. Adikteev establecerá la conexión y se pondrá en contacto contigo una vez finalizada la configuración para validar la integración.
 
 ## Agrupación por lotes y límites de velocidad {#batching-and-rate-limits}
 

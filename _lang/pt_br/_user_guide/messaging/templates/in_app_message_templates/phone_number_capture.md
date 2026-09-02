@@ -12,7 +12,7 @@ description: "Esta página explica como criar um formulário de inscrição para
 
 ![Três exemplos de mensagens no app criadas usando o modelo de formulário de inscrição por telefone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_example2.png %})
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
 
 ## Criando um formulário de inscrição por número de telefone {#creating-a-phone-number-sign-up-form}
 
@@ -44,7 +44,7 @@ Por padrão, coletamos números globalmente. No entanto, você pode limitar os p
 
 #### Números de telefone inválidos {#invalid-phone-numbers}
 
-Se seus usuários inserirem um número de telefone que inclua caracteres especiais não aceitos, eles verão um indicador de erro genérico que não é personalizável e não poderão enviar o formulário. Você pode visualizar o comportamento de erro na guia **Preview & Test** e no seu dispositivo de teste. Consulte este artigo para saber [como a Braze formata números de telefone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
+Se seus usuários inserirem um número de telefone que inclua caracteres especiais não aceitos, eles verão um indicador de erro genérico que não é personalizável e não poderão enviar o formulário. Você pode visualizar o comportamento de erro na guia **prévia & Test** e no seu dispositivo de teste. Consulte este artigo para saber [como a Braze formata números de telefone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
 
 ### Etapa 4: Adicione o texto de aviso legal (para formulários de inscrição de SMS e RCS) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 

@@ -1,5 +1,5 @@
 {% alert warning %}
-El SDK de Windows de Braze está obsoleto desde el 24 de marzo de 2022.
+El SDK or kit de desarrollo de software de Windows de Braze está obsoleto desde el 24 de marzo de 2022.
 
 
 * **24 de marzo de 2022:** No se pueden crear nuevas aplicaciones de Windows en el panel de Braze.

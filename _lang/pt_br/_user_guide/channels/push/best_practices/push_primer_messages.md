@@ -123,7 +123,7 @@ Embora o momento ideal varie, a Braze sugere esperar até que o usuário conclua
 O objetivo de uma Campaign de push primer é solicitar aos usuários em qualquer dispositivo onde eles ainda não concederam permissões de push. Isso pode incluir usuários novos ou usuários existentes que adquiriram um novo dispositivo ou reinstalaram seu aplicativo.
 
 {% alert important %}
-**Supressão automática com push primer sem código**: Se você usar o push primer sem código (a ação de botão "Solicitar permissão de push"), não é necessário adicionar filtros de inscrição de push à sua segmentação. O SDK suprime automaticamente a mensagem no app em dispositivos que já possuem um token de push ativo, independentemente do status de push do usuário em outros dispositivos. Para saber mais sobre o direcionamento de usuários com múltiplos dispositivos, consulte [Direcionamento de usuários com múltiplos dispositivos](#targeting-users-with-multiple-devices).
+**Supressão automática com push primer sem código**: Se você usar o push primer sem código (a ação de botão "Solicitar permissão de push"), não é necessário adicionar filtros de inscrição de push à sua segmentação. O SDK or kit de desenvolvimento de software suprime automaticamente a mensagem no app em dispositivos que já possuem um token de push ativo, independentemente do status de push do usuário em outros dispositivos. Para saber mais sobre o direcionamento de usuários com múltiplos dispositivos, consulte [Direcionamento de usuários com múltiplos dispositivos](#targeting-users-with-multiple-devices).
 {% endalert %}
 
 Se você não estiver usando o push primer sem código, adicione um filtro onde `Foreground Push Enabled For App is false`. Este filtro identifica instalações individuais de app que ainda não aceitaram notificações por push em primeiro plano.
@@ -148,12 +148,12 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 - Dispositivo A: Android, aceitou push
 - Dispositivo B: iOS, não aceitou push
 
-**Filtros de segmento que não funcionam:**
-- `Push enabled = false` - O usuário está habilitado para push no dispositivo Android, então ele não entra no segmento. O segmento não inclui o dispositivo iOS.
-- `Push subscription status is not opted in` - O usuário está habilitado para push no dispositivo Android, então ele não entra no segmento. O segmento não inclui o dispositivo iOS.
+**Filtros de Segment or segmento or segmento que não funcionam:**
+- `Push enabled = false` - O usuário está habilitado para push no dispositivo Android, então ele não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui o dispositivo iOS.
+- `Push subscription status is not opted in` - O usuário está habilitado para push no dispositivo Android, então ele não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui o dispositivo iOS.
 
-**Filtros de segmento que funcionam:**
-- `Push enabled for iOS = false` - O usuário está habilitado para push no dispositivo Android, mas estamos direcionando apenas dispositivos iOS, então o usuário entra no segmento. O segmento inclui o dispositivo iOS.
+**Filtros de Segment or segmento or segmento que funcionam:**
+- `Push enabled for iOS = false` - O usuário está habilitado para push no dispositivo Android, mas estamos direcionando apenas dispositivos iOS, então o usuário entra no Segment or segmento or segmento. O Segment or segmento or segmento inclui o dispositivo iOS.
 
 {% enddetails %}
 
@@ -163,13 +163,13 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 - Dispositivo A: Aceitou push
 - Dispositivo B: Provisoriamente habilitado, mas não aceitou
 
-**Filtros de segmento que não funcionam:**
-- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui o Dispositivo B.
-- `Provisionally opted in = true` - O Dispositivo A aceitou completamente, o que significa que não está em estado provisório. O usuário não entra no segmento. O segmento não inclui o Dispositivo B.
-- `Push enabled for app > iOS = false` - O Dispositivo A aceitou push no iOS, então o usuário não entra no segmento. O segmento não inclui o Dispositivo B.
-- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui o Dispositivo B.
+**Filtros de Segment or segmento or segmento que não funcionam:**
+- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui o Dispositivo B.
+- `Provisionally opted in = true` - O Dispositivo A aceitou completamente, o que significa que não está em estado provisório. O usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui o Dispositivo B.
+- `Push enabled for app > iOS = false` - O Dispositivo A aceitou push no iOS, então o usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui o Dispositivo B.
+- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui o Dispositivo B.
 
-**Resultado:** Usar qualquer combinação desses filtros de push resulta na exclusão de pelo menos um dispositivo do segmento.
+**Resultado:** Usar qualquer combinação desses filtros de push resulta na exclusão de pelo menos um dispositivo do Segment or segmento or segmento.
 
 {% enddetails %}
 
@@ -180,10 +180,10 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 - Dispositivo B: Não aceitou push
 - Dispositivo C: Não aceitou push
 
-**Filtros de segmento que não funcionam:**
-- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui os Dispositivos B e C.
-- `Push enabled for app > X = false` - O Dispositivo A aceitou push no app especificado, então o usuário não entra no segmento. O segmento não inclui os Dispositivos B e C.
-- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no segmento. O segmento não inclui os Dispositivos B e C.
+**Filtros de Segment or segmento or segmento que não funcionam:**
+- `Push enabled = false` - O Dispositivo A aceitou push, então o usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui os Dispositivos B e C.
+- `Push enabled for app > X = false` - O Dispositivo A aceitou push no app especificado, então o usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui os Dispositivos B e C.
+- `Push subscription status is not opted in` - O Dispositivo A aceitou push, então o usuário não entra no Segment or segmento or segmento. O Segment or segmento or segmento não inclui os Dispositivos B e C.
 
 **Resultado:** Usar qualquer combinação desses filtros de push deixa pelo menos um dispositivo sem direcionamento.
 
@@ -194,14 +194,14 @@ Quando um usuário tem múltiplos dispositivos com diferentes estados de inscri�
 A solução recomendada é usar o push primer sem código (a ação de botão "Solicitar permissão de push") sem filtros adicionais de status de push na segmentação.
 
 {% alert important %}
-**Supressão automática**: O push primer sem código suprime automaticamente em dispositivos que já possuem um token de push ativo. O SDK verifica se um usuário no dispositivo específico já possui um token de push. Se o SDK detectar que o usuário já aceitou (por exemplo, de uma solicitação anterior ou pelas configurações do dispositivo), o SDK suprime automaticamente a mensagem no app sem a necessidade de filtros de segmentação adicionais. O primer é exibido em todos os outros cenários, inclusive se um usuário estiver provisoriamente aceito para push.
+**Supressão automática**: O push primer sem código suprime automaticamente em dispositivos que já possuem um token de push ativo. O SDK or kit de desenvolvimento de software verifica se um usuário no dispositivo específico já possui um token de push. Se o SDK or kit de desenvolvimento de software detectar que o usuário já aceitou (por exemplo, de uma solicitação anterior ou pelas configurações do dispositivo), o SDK or kit de desenvolvimento de software suprime automaticamente a mensagem no app sem a necessidade de filtros de segmentação adicionais. O primer é exibido em todos os outros cenários, inclusive se um usuário estiver provisoriamente aceito para push.
 {% endalert %}
 
-O benefício de usar o push primer sem código é que a funcionalidade é suportada pelo SDK da Braze. Como o SDK pode detectar o status do token de push no dispositivo específico que exibe a mensagem, você não precisa depender de filtros de segmentação em nível de perfil que podem excluir usuários com múltiplos dispositivos.
+O benefício de usar o push primer sem código é que a funcionalidade é suportada pelo SDK or kit de desenvolvimento de software da Braze. Como o SDK or kit de desenvolvimento de software pode detectar o status do token de push no dispositivo específico que exibe a mensagem, você não precisa depender de filtros de segmentação em nível de perfil que podem excluir usuários com múltiplos dispositivos.
 
 #### Considerações {#considerations}
 
-**Push primer sem código obrigatório**: Você deve usar o push primer sem código para que a supressão automática funcione. Se você configurar lógica personalizada ou deep links em vez de usar a ação de botão "Solicitar permissão de push", o SDK não consegue identificar que você está tentando exibir um push primer. Isso resulta na exibição da mensagem independentemente do estado de inscrição daquele dispositivo.
+**Push primer sem código obrigatório**: Você deve usar o push primer sem código para que a supressão automática funcione. Se você configurar lógica personalizada ou deep links em vez de usar a ação de botão "Solicitar permissão de push", o SDK or kit de desenvolvimento de software não consegue identificar que você está tentando exibir um push primer. Isso resulta na exibição da mensagem independentemente do estado de inscrição daquele dispositivo.
 
 **Supressão para usuários que recusaram**: Você pode querer suprimir a mensagem no app para usuários que recusaram explicitamente o push (por exemplo, a partir da solicitação nativa ou das configurações do dispositivo) e redirecionar esses usuários com uma Campaign de nutrição separada. Para isso, use a seguinte lógica Liquid em combinação com o primer sem código:
 

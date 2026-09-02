@@ -172,4 +172,4 @@ Se você usa In-App Messages HTML e os **Body clicks** parecem altos no relatór
 Se os links em um e-mail de relatório de engajamento agendado não abrirem corretamente no seu cliente de e-mail, tente estas etapas:
 
 1. Encaminhe o relatório para uma caixa de entrada do Gmail e abra os links no Google Chrome.
-2. Nas configurações do relatório de engajamento, confirme que **Report Schedule** está configurado para enviar quando você espera (por exemplo, imediatamente após o relatório ser gerado, em vez de em um cronograma com atraso).
+2. Nas configurações do relatório de engajamento, confirme que **Report agendar/cronograma** está configurado para enviar quando você espera (por exemplo, imediatamente após o relatório ser gerado, em vez de em um cronograma com atraso).

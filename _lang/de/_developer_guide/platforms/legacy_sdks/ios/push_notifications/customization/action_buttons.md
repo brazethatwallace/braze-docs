@@ -14,15 +14,15 @@ noindex: true
 
 # Aktions-Buttons {#push-action-buttons-integration}
 
-Das Braze iOS SDK unterstützt die standardmäßigen Push-Kategorien, einschließlich URL-Handling für jeden Push-Action-Button. Die Standard-Kategorien verfügen derzeit über vier Sets von Push-Action-Buttons: `Accept`/`Decline`, `Yes`/`No`, `Confirm`/`Cancel` und `More`.
+Das Braze iOS SDK or Software-Development-Kit unterstützt die standardmäßigen Push-Kategorien, einschließlich URL-Handling für jeden Push-Action-Button. Die Standard-Kategorien verfügen derzeit über vier Sets von Push-Action-Buttons: `Accept`/`Decline`, `Yes`/`No`, `Confirm`/`Cancel` und `More`.
 
 ![Ein GIF, das eine Push-Nachricht zeigt, die nach unten gezogen wird, um zwei anpassbare Aktions-Buttons anzuzeigen.]({% image_buster /assets/img_archive/iOS8Action.gif %})
 
-Um unsere Standard-Push-Kategorien zu registrieren, folgen Sie den Anweisungen zur Integration:
+Um unsere Standard-Push-Kategorien zu Registrierung or registrieren, folgen Sie den Anweisungen zur Integration:
 
 ## Schritt 1: Standard-Push-Kategorien von Braze hinzufügen {#step-1-adding-braze-default-push-categories}
 
-Verwenden Sie den folgenden Code, um sich für unsere Standard-Push-Kategorien zu registrieren, wenn Sie sich [für Push registrieren]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
+Verwenden Sie den folgenden Code, um sich für unsere Standard-Push-Kategorien zu Registrierung or registrieren, wenn Sie sich [für Push Registrierung or registrieren]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration#step-4-register-push-tokens-with-braze):
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

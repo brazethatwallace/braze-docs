@@ -13,9 +13,9 @@ noindex: true
 
 # Disparo personalizado de mensagem no app {#custom-in-app-message-triggering}
 
-Por padrão, mensagens no app são disparadas por tipos de eventos registrados pelo SDK. Se você quiser disparar mensagens no app por eventos enviados pelo servidor, também é possível.
+Por padrão, mensagens no app são disparadas por tipos de eventos registrados pelo SDK or kit de desenvolvimento de software. Se você quiser disparar mensagens no app por eventos enviados pelo servidor, também é possível.
 
-Para ativar esse recurso, você enviaria um push silencioso para o dispositivo, o que permite que o dispositivo registre um evento baseado em SDK. Esse evento do SDK, por sua vez, dispararia a mensagem no app voltada para o usuário.
+Para ativar esse recurso, você enviaria um push silencioso para o dispositivo, o que permite que o dispositivo registre um evento baseado em SDK or kit de desenvolvimento de software. Esse evento do SDK or kit de desenvolvimento de software, por sua vez, dispararia a mensagem no app voltada para o usuário.
 
 ## Etapa 1: Lidar com push silencioso e pares chave-valor {#step-1-handle-silent-push-and-key-value-pairs}
 
@@ -48,7 +48,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 {% endtab %}
 {% endtabs %}
 
-Quando o push silencioso é recebido, um evento registrado pelo SDK "in-app message trigger" será registrado no perfil de usuário. Note que essas mensagens no app só serão disparadas se o push silencioso for recebido enquanto o aplicativo estiver em primeiro plano.
+Quando o push silencioso é recebido, um evento registrado pelo SDK or kit de desenvolvimento de software "in-app message trigger" será registrado no perfil de usuário. Note que essas mensagens no app só serão disparadas se o push silencioso for recebido enquanto o aplicativo estiver em primeiro plano.
 
 ## Etapa 2: Criar uma campanha push {#step-2-create-a-push-campaign}
 
@@ -56,11 +56,11 @@ Crie uma campanha de push silenciosa que é disparada pelo evento enviado pelo s
 
 ![Uma campanha de mensagem no app com entrega baseada em ação que será entregue a usuários que realizarem o evento personalizado "server_event".]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
-A campanha de push precisa incluir extras de pares chave-valor, que indicam que essa campanha de push é enviada para registrar um evento personalizado do SDK. Esse evento será usado para disparar a mensagem no app:
+A campanha de push precisa incluir extras de pares chave-valor, que indicam que essa campanha de push é enviada para registrar um evento personalizado do SDK or kit de desenvolvimento de software. Esse evento será usado para disparar a mensagem no app:
 
 ![Uma campanha de mensagem no app com entrega baseada em ação que possui dois pares chave-valor. "CAMPAIGN_NAME" definido como "In-app message name example", e "IS_SERVER_EVENT" definido como "true".]({% image_buster /assets/img_archive/iOSServerPush.png %})
 
-O código dentro do método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` verifica a chave `IS_SERVER_EVENT` e registra um evento personalizado do SDK se ela estiver presente.
+O código dentro do método `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` verifica a chave `IS_SERVER_EVENT` e registra um evento personalizado do SDK or kit de desenvolvimento de software se ela estiver presente.
 
 Você pode alterar o nome do evento ou as propriedades do evento enviando o valor desejado dentro dos extras de pares chave-valor da carga útil push. Ao registrar o evento personalizado, esses extras podem ser usados como parâmetro do nome do evento ou como uma propriedade do evento.
 
@@ -72,4 +72,4 @@ No exemplo a seguir, a mensagem no app específica a ser disparada foi configura
 
 ![Uma campanha de mensagem no app com entrega baseada em ação que será entregue a usuários que realizarem o evento personalizado "In-app message trigger" onde "campaign_name" é igual a "In-app message name example".]({% image_buster /assets/img_archive/iosIAMeventTrigger.png %})
 
-Como uma notificação por push é usada para registrar um evento personalizado registrado pelo SDK, a Braze precisará armazenar um token por push para cada usuário para ativar essa solução. Para iOS e Android, a Braze só armazenará um token a partir do momento em que o usuário tiver recebido o prompt de push do sistema operacional. Antes disso, o usuário não estará acessível usando push, e a solução anterior não será possível.
+Como uma notificação por push é usada para registrar um evento personalizado registrado pelo SDK or kit de desenvolvimento de software, a Braze precisará armazenar um token por push para cada usuário para ativar essa solução. Para iOS e Android, a Braze só armazenará um token a partir do momento em que o usuário tiver recebido o prompt de push do sistema operacional. Antes disso, o usuário não estará acessível usando push, e a solução anterior não será possível.

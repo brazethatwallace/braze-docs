@@ -12,7 +12,7 @@ description: "En este artículo se describen los detalles del endpoint Eliminar 
 # Eliminar números de teléfono no válidos {#remove-invalid-phone-numbers}
 
 {% apimethod post %}
-/sms/invalid_phone_numbers/remove
+/servicio de mensajes cortos/invalid_phone_numbers/remove
 {% endapimethod %}
 
 > Usa este endpoint para eliminar números de teléfono "no válidos" de nuestra lista de no válidos.

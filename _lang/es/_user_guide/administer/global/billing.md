@@ -31,7 +31,7 @@ Aquí encontrarás gráficos de uso que aplican a tus espacios de trabajo. Es po
 
 ![Gráfico de uso que muestra visitantes únicos mensuales]({% image_buster /assets/img/subscription_and_billing4.png %}){: style="max-width:90%;"}
 
-Estos gráficos pueden mostrar usuarios activos al mes, visitantes únicos mensuales y envíos de correo electrónico. Los gráficos de uso como estos son particularmente útiles cuando intentas presupuestar el uso y obtener una comprensión más profunda de qué espacios de trabajo contribuyen al uso general.
+Estos gráficos pueden mostrar MAU or usuarios activos al mes or usuarios activos al mes, visitantes únicos mensuales y envíos de correo electrónico. Los gráficos de uso como estos son particularmente útiles cuando intentas presupuestar el uso y obtener una comprensión más profunda de qué espacios de trabajo contribuyen al uso general.
 
 ### Detalles del contrato {#contract-details}
 
@@ -39,7 +39,7 @@ Los detalles del contrato enumeran la fecha de inicio y finalización de tu cont
 
 #### Consideraciones {#considerations}
 
-Si tu contrato utiliza visitantes únicos mensuales (MUV) y cambias a un contrato que solo utiliza usuarios activos al mes (MAU), tus datos históricos seguirán apareciendo en el gráfico de MUV y tus nuevos datos aparecerán solo en el gráfico de MAU. Por ejemplo, si tu contrato finaliza en octubre, el gráfico de MUV muestra datos hasta finales de septiembre.
+Si tu contrato utiliza visitantes únicos mensuales (MUV) y cambias a un contrato que solo utiliza MAU or usuarios activos al mes or usuarios activos al mes (MAU or usuarios activos al mes), tus datos históricos seguirán apareciendo en el gráfico de MUV y tus nuevos datos aparecerán solo en el gráfico de MAU or usuarios activos al mes. Por ejemplo, si tu contrato finaliza en octubre, el gráfico de MUV muestra datos hasta finales de septiembre.
 
 ## Eventos y atributos más utilizados por aplicación {#most-used-events-and-attributes-by-app}
 
@@ -51,7 +51,7 @@ Para cada aplicación, puedes seleccionar **Ver desglose** para ver un recuento 
 
 ![Pestaña de desglose de eventos y atributos más utilizados por aplicación]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
-Los desgloses de datos como estos pueden ayudarte a entender qué puntos de datos específicos están ocupando grandes porcentajes de tu asignación. Te recomendamos que supervises esta información de vez en cuando para asegurarte de que no estés gastando puntos de datos de manera accidental e innecesaria. Tu administrador de éxito de cliente puede orientarte para sacar el máximo provecho de tu plan actual o proporcionarte opciones para una mayor flexibilidad.
+Los desgloses de datos como estos pueden ayudarte a entender qué puntos de datos específicos están ocupando grandes porcentajes de tu asignación. Te recomendamos que supervises esta información de vez en cuando para asegurarte de que no estés gastando puntos de datos de manera accidental e innecesaria. Tu CSM or administrador de éxito de cliente or administrador de éxito de cliente puede orientarte para sacar el máximo provecho de tu plan actual o proporcionarte opciones para una mayor flexibilidad.
 
 ## Dashboard de total de puntos de datos {#total-data-points-dashboard}
 

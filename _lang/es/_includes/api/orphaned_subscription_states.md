@@ -1,6 +1,6 @@
 ## Cómo Braze gestiona los estados de suscripción huérfanos {#how-braze-handles-orphaned-subscription-states}
 
-Un estado de suscripción huérfano es un estado de suscripción almacenado para un número de teléfono o una dirección de correo electrónico que no está asociado con ningún perfil de usuario. Para SMS, correo electrónico, WhatsApp y LINE, Braze gestiona los estados de suscripción huérfanos de la siguiente manera:
+Un estado de suscripción huérfano es un estado de suscripción almacenado para un número de teléfono o una dirección de correo electrónico que no está asociado con ningún perfil de usuario. Para servicio de mensajes cortos, correo electrónico, WhatsApp y LINE, Braze gestiona los estados de suscripción huérfanos de la siguiente manera:
 
 - Si se elimina un usuario y es el único usuario asociado con un número de teléfono o una dirección de correo electrónico determinados, el estado de suscripción de ese número de teléfono o dirección de correo electrónico se elimina de inmediato.
 - Si llamas a `/subscription/status/set` o `/v2/subscription/status/set` con un número de teléfono o una dirección de correo electrónico que actualmente no está asociada con ningún perfil de usuario, Braze almacena ese estado de suscripción durante un máximo de 30 días, tras lo cual se elimina automáticamente.

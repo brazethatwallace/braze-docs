@@ -2,7 +2,7 @@
 
 ## Creación de un delegado universal {#creating-a-universal-delegate}
 
-El SDK de Android ofrece la posibilidad de establecer un único objeto delegado para gestionar de forma personalizada todos los vínculos profundos abiertos por Braze a través de Content Cards, mensajes dentro de la aplicación y notificaciones push.
+El SDK or kit de desarrollo de software de Android ofrece la posibilidad de establecer un único objeto delegado para gestionar de forma personalizada todos los vínculos profundos abiertos por Braze a través de Content Cards, mensajes dentro de la aplicación y notificaciones push.
 
 Tu objeto delegado debe implementar la interfaz [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) y configurarse mediante [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html). En la mayoría de los casos, el delegado debe establecerse en el `Application.onCreate()` de tu aplicación.
 

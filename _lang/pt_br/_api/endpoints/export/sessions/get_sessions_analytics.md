@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar análise de dados de sessões do app por tempo\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Exportar sessões do app por tempo {#export-app-session-by-time}
 {% apimethod get %}
 /sessions/data_series
@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sessions.data_series`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sessions.data_series`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -33,8 +33,8 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | `length` | Obrigatório | Inteiro | Número máximo de unidades (dias ou horas) antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `unit` | Opcional | String | Unidade de tempo entre os pontos de dados. Pode ser `day` ou `hour`, o padrão é `day`. |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é a hora da solicitação. |
-| `app_id` | Opcional | String | Identificador de API do app recuperado da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) para limitar a análise de dados a um app específico. |
-| `segment_id` | Opcional | String | Consulte [Identificador de API do segmento]({{site.baseurl}}/api/identifier_types). ID do segmento que indica o segmento com análise de dados ativada para o qual as sessões devem ser retornadas. |
+| `app_id` | Opcional | String | Identificador de API or interface de programação do aplicativo (API) do app recuperado da página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) para limitar a análise de dados a um app específico. |
+| `segment_id` | Opcional | String | Consulte [Identificador de API or interface de programação do aplicativo (API) do Segment or segmento or segmento]({{site.baseurl}}/api/identifier_types). ID do Segment or segmento or segmento que indica o Segment or segmento or segmento com análise de dados ativada para o qual as sessões devem ser retornadas. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -61,7 +61,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sessions/data_se
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

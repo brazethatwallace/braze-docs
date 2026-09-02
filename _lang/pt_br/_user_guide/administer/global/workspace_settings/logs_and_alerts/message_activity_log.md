@@ -10,7 +10,7 @@ description: "Este artigo de referência descreve o Registro de atividades de en
 
 > O **Registro de atividades de envio de mensagem** permite que você veja todas as mensagens (especialmente mensagens de erro) associadas às suas campanhas e envios.
 
-Você pode ver transações de campanhas da API, solucionar problemas com detalhes sobre mensagens com falha e obter insights sobre como melhorar a entrega de notificações ou resolver problemas técnicos existentes.
+Você pode ver transações de campanhas da API or interface de programação do aplicativo (API), solucionar problemas com detalhes sobre mensagens com falha e obter insights sobre como melhorar a entrega de notificações ou resolver problemas técnicos existentes.
 
 Para acessar o registro, acesse **Configurações** > **Configuração e teste** > **Registro de atividades de envio de mensagem**.
 
@@ -26,9 +26,9 @@ Você pode filtrar pelo seguinte conteúdo registrado no **Registro de atividade
 - Erros de mensagens no app com modelo abortado
 - Erros de webhook
 - Erros de e-mail
-- Registros de mensagens da API
+- Registros de mensagens da API or interface de programação do aplicativo (API)
 - Erros de Conteúdo conectado
-- Erros de público conectado da REST API
+- Erros de público conectado da REST or transferir estado representacional API or interface de programação do aplicativo (API)
 - Erros de aliasing de usuário
 - Erros de testes A/B
 - Erros de SMS/MMS
@@ -49,9 +49,9 @@ Por exemplo, entradas de **Aborted Message Error** podem ocorrer por diversas ra
 - Se o envio foi interrompido por uma tag `abort_message` do Liquid, a coluna **Message** mostra o snippet exato do Liquid que foi chamado, por exemplo {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - Para outros motivos de interrupção, a coluna **Message** explica por que o envio foi interrompido.
 
-### Cargas úteis de Campaigns via API {#api-campaign-payloads}
+### Cargas úteis de Campaigns via API or interface de programação do aplicativo (API) {#api-campaign-payloads}
 
-O registro de atividade de mensagens registra informações diferentes dependendo do tipo de Campaign via API. O [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) registra o corpo da mensagem (messages) nos registros de mensagens da API, enquanto o [endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) não registra a carga útil da requisição nem as `api_trigger_properties` no registro de atividade de mensagens.
+O registro de atividade de mensagens registra informações diferentes dependendo do tipo de Campaign via API or interface de programação do aplicativo (API). O [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) registra o corpo da mensagem (messages) nos registros de mensagens da API or interface de programação do aplicativo (API), enquanto o [endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) não registra a carga útil da requisição nem as `api_trigger_properties` no registro de atividade de mensagens.
 
 ### Mensagens comuns {#common-messages}
 
@@ -73,7 +73,7 @@ As mensagens no registro de atividade de mensagens podem vir de diversas fontes:
 
 Por exemplo, algumas possíveis mensagens de "Block", além da listada na tabela anterior, podem ser:
 
-- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your Internet Service provider since part of their network is on our block list.
+- Unfortunately, messages from [_IP_ADDRESS_] weren't sent. Please contact your ISP or provedor de acesso à internet or provedor de serviços de internet or provedor de acesso à internet or provedor de serviços de internet since part of their network is on our block list.
 - Message rejected due to local policy.
 - The message was blocked by the receiver as spam.
 - Service unavailable, Client host [_IP_ADDRESS_] blocked using Spamhaus.

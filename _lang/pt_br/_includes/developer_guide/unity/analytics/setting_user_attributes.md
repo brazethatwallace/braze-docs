@@ -162,7 +162,7 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 {% tab Nested objects %}
 
-Você pode definir atributos personalizados contendo objetos aninhados (disponível no Unity SDK 5.1.0 e posterior). Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Você pode definir atributos personalizados contendo objetos aninhados (disponível no Unity SDK or kit de desenvolvimento de software 5.1.0 e posterior). Para saber mais, consulte [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 Os exemplos a seguir mostram como definir um atributo de objeto aninhado, mesclar atualizações em um objeto existente e definir um vetor de objetos aninhados.
 
 ```csharp
@@ -196,9 +196,9 @@ Para remover um atributo personalizado, passe a chave do atributo relevante para
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### Usando a REST API {#using-the-rest-api}
+### Usando a REST or transferir estado representacional API or interface de programação do aplicativo (API) {#using-the-rest-api}
 
-Você também pode usar nossa REST API para definir ou remover atributos de usuário. Para saber mais, consulte [Endpoints de dados do usuário]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Você também pode usar nossa REST or transferir estado representacional API or interface de programação do aplicativo (API) para definir ou remover atributos de usuário. Para saber mais, consulte [Endpoints de dados do usuário]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Definindo inscrições do usuário {#setting-user-subscriptions}
 

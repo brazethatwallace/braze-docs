@@ -19,7 +19,7 @@ Braze는 사용자의 과거 앱 상호작용과 각 메시징 채널과의 상�
 - 푸시 영향 열람
 - 이메일 클릭
 - 이메일 열람 ([머신 열람]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) 제외)
-- SMS 클릭 ([링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) 및 고급 추적 기술이 활성화된 경우에만)
+- 단문 메시지 서비스 클릭 ([링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) 및 고급 추적 기술이 활성화된 경우에만)
 
 예를 들어, Sam이 보통 아침에 이메일을 열고, 저녁에 앱을 열어 알림과 상호작용한다고 가정해 보겠습니다. 이 경우 Sam은 Intelligent Timing이 적용된 이메일 Campaign을 아침에 받게 되고, 참여할 가능성이 더 높은 저녁에는 푸시 알림이 포함된 Campaign을 받게 됩니다.
 

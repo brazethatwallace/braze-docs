@@ -16,7 +16,7 @@ channel:
 
 Tener múltiples cuentas de empresa de WhatsApp es útil si quieres enviar mensajes de WhatsApp a usuarios en un espacio de trabajo de Braze que tiene múltiples marcas. Esto se debe a que cada cuenta de empresa opera de forma independiente dentro de WhatsApp y tiene su propio número de teléfono, plantilla de mensaje y calificación de calidad.
 
-Las cuentas de empresa que están anidadas dentro del mismo Meta Business Manager también compartirán la gestión de permisos de acceso de usuarios y catálogos (aún no compatible en Braze).
+Las cuentas de empresa que están anidadas dentro del mismo Meta Business Administrador también compartirán la gestión de permisos de acceso de usuarios y catálogos (aún no compatible en Braze).
 
 ![Diagrama del ecosistema de Braze y WhatsApp, que muestra cómo los espacios de trabajo y las cuentas de empresa de WhatsApp se conectan entre sí: puedes conectar un grupo de suscripción a un número de teléfono, múltiples cuentas de empresa de WhatsApp a un espacio de trabajo, y un espacio de trabajo a múltiples Meta Business Portfolios.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
@@ -59,4 +59,4 @@ Puedes añadir hasta 20 grupos de suscripción (y números de teléfono de enví
 ### Eliminar un grupo de suscripción y número de teléfono {#removing-a-subscription-group-and-phone-number}
 
 1. Ve a **Audiencia** > **Suscripciones** y archiva el grupo de suscripción.
-2. Ve a tu Meta Business Manager y elimina el número de teléfono.
+2. Ve a tu Meta Business Administrador y elimina el número de teléfono.

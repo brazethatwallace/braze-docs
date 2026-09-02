@@ -110,7 +110,7 @@ El tono del texto generado está determinado por tu prompt. Describe el estilo q
 Operator puede generar un diseño de mensaje completo para cualquier canal o editor con un modo HTML, incluyendo, entre otros:
 
 - Correo electrónico
-- SMS/MMS/RCS
+- servicio de mensajes cortos/MMS/RCS
 - Mensaje dentro de la aplicación
 - Tarjeta de contenido
 - Banner
@@ -179,7 +179,7 @@ En la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_ed
 
 ### Revisar la calidad del contenido {#review-content-quality}
 
-En la pestaña **Test** para SMS, push de Android, push de iOS y mensajes dentro de la aplicación tradicionales, selecciona **Review with Operator** para revisar tu contenido antes de enviarlo. De forma predeterminada, Operator revisa tu Campaign en busca de errores ortográficos y gramaticales, tono inapropiado o fuera de marca, lenguaje ofensivo y cualquier código suelto, contenido de prueba o Liquid sin renderizar, y recomienda cómo corregir lo que encuentra. También puedes pedirle a Operator que adapte cómo revisa tu contenido directamente en tu prompt.
+En la pestaña **Test** para servicio de mensajes cortos, push de Android, push de iOS y mensajes dentro de la aplicación tradicionales, selecciona **Review with Operator** para revisar tu contenido antes de enviarlo. De forma predeterminada, Operator revisa tu Campaign en busca de errores ortográficos y gramaticales, tono inapropiado o fuera de marca, lenguaje ofensivo y cualquier código suelto, contenido de prueba o Liquid sin renderizar, y recomienda cómo corregir lo que encuentra. También puedes pedirle a Operator que adapte cómo revisa tu contenido directamente en tu prompt.
 
 Más allá de su revisión predeterminada, puedes dirigir a Operator para que se enfoque en verificaciones específicas. Considera pedirle que revise cualquiera de los siguientes aspectos:
 
@@ -226,7 +226,7 @@ Haz preguntas a Operator en lenguaje natural sobre el rendimiento de tus Campaig
 
 Operator puede ayudarte a crear informes del [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder) y paneles del [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) a partir de una descripción en lenguaje natural. Describe las métricas, los canales y el rango de fechas que deseas, y Operator redactará el informe o panel para que lo revises antes de guardarlo.
 
-Por ejemplo, pregunta: "Crea un informe que muestre la participación de SMS de mi espacio de trabajo en los últimos 30 días."
+Por ejemplo, pregunta: "Crea un informe que muestre la participación de servicio de mensajes cortos de mi espacio de trabajo en los últimos 30 días."
 
 ### Crear predicciones {#create-predictions}
 

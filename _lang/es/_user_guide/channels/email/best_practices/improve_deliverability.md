@@ -22,7 +22,7 @@ Los patrones de envío influyen en la reputación del dominio. Cuando no se alin
 - **Establece y respeta las expectativas sobre contenido y frecuencia.** Evita enviar productos o cadencias con los que el suscriptor no estuvo de acuerdo.
 - **Envía correos que los suscriptores quieran abrir y con los que quieran interactuar.** Pregúntate qué valor aporta cada envío antes de programarlo.
 - **Prioriza a los destinatarios que se suscribieron o interactuaron recientemente** (como usuarios que han registrado aperturas, clics y actividad en el sitio web). Evita enviar correos repetidamente a direcciones inactivas.
-- **Separa el correo transaccional del correo de marketing.** Muchos proveedores de servicios de Internet (ISP) tratan el correo transaccional de forma diferente al de marketing. Sepáralos cuando tenga sentido. Por ejemplo, direcciones de correo electrónico de remitente distintas pueden ser suficiente separación en algunos casos.
+- **Separa el correo transaccional del correo de marketing.** Muchos proveedores de servicios de Internet (ISP or proveedor de servicios de Internet) tratan el correo transaccional de forma diferente al de marketing. Sepáralos cuando tenga sentido. Por ejemplo, direcciones de correo electrónico de remitente distintas pueden ser suficiente separación en algunos casos.
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 

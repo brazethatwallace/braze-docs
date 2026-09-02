@@ -11,14 +11,14 @@ search_rank: 6
 lazy_partner_tabs: true
 ---
 
-<div class="api-glossary-preamble" markdown="1">
+<div class="API or interface de programação do aplicativo (API)-glossary-preamble" markdown="1">
 
 {% details Escopo do esquema e recursos relacionados %}
 
 Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo simples que enviamos para parceiros de armazenamento em data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique suas respectivas páginas.
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes das colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
 Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) se precisar de acesso a direitos de eventos adicionais. Se você não encontrar o que precisa neste artigo, confira nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
@@ -83,7 +83,7 @@ Determinados eventos retornam um valor de `platform` que especifica a plataforma
 
 <!--overview-end-->
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de execução de agente {#agent-executed-events}
 
 {% apitags %}
@@ -181,7 +181,7 @@ Este é o esquema de registro Kafka para quando um agente do Console do agente �
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de invocação de ferramenta {#tool-invocation-events}
 
 {% apitags %}
@@ -238,7 +238,7 @@ Este é o esquema de registro Kafka para quando uma ferramenta é executada. Uma
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de atualização do armazenamento de componentes do Otimizador de Conteúdo {#content-optimizer-component-store-update-events}
 
 {% apitags %}
@@ -336,7 +336,7 @@ Atualizações no armazenamento de componentes
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de desinstalação {#uninstall-events}
 
 {% apitags %}
@@ -486,7 +486,7 @@ Esse evento não é disparado quando o usuário realmente desinstala o app, pois
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de mudança de estado de inscrição global {#global-subscription-state-change-events}
 
 {% apitags %}
@@ -729,10 +729,10 @@ Este evento ocorre quando a Braze recebe uma solicitação para atualizar o esta
 
 | Origem | Descrição |
 | --- | --- |
-| SDK | Endpoints de SDK |
+| SDK or kit de desenvolvimento de software | Endpoints de SDK or kit de desenvolvimento de software |
 | Dashboard | Quando o estado da inscrição de um usuário é atualizado na página **Perfil de usuário** no dashboard |
 | Página de inscrição | Quando um usuário cancela a inscrição por meio de um link de e-mail que não seja a Central de Preferências |
-| REST API | Endpoints da REST API |
+| REST or transferir estado representacional API or interface de programação do aplicativo (API) | Endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API) |
 | Importação de CSV | Importação de usuários via CSV |
 | Central de Preferências | Quando um usuário é atualizado a partir da Central de Preferências |
 | Mensagem recebida | Quando um usuário é atualizado por mensagens recebidas de usuários finais por meio de canais, como SMS |
@@ -747,7 +747,7 @@ Este evento ocorre quando a Braze recebe uma solicitação para atualizar o esta
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de mudança de estado do grupo de inscrições {#subscription-group-state-change-events}
 
 {% apitags %}
@@ -1020,12 +1020,12 @@ Grupos de inscrições estão disponíveis apenas para canais de e-mail, SMS, RC
 <tr><th>Origem</th><th>Descrição</th></tr>
 </thead>
 <tbody>
-<tr><td>SDK</td><td>Endpoints de SDK</td></tr>
+<tr><td>SDK or kit de desenvolvimento de software</td><td>Endpoints de SDK or kit de desenvolvimento de software</td></tr>
 <tr><td>Dashboard</td><td>Quando o estado da inscrição de um usuário é atualizado na página Perfil de usuário no dashboard</td></tr>
 <tr><td>Subscription Page</td><td>Quando um usuário cancela a inscrição por meio de um link de e-mail que não seja a Central de Preferências</td></tr>
-<tr><td>REST API</td><td>Endpoints da REST API</td></tr>
+<tr><td>REST or transferir estado representacional API or interface de programação do aplicativo (API)</td><td>Endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API)</td></tr>
 <tr><td>CSV import</td><td>Importação de usuários via CSV</td></tr>
-<tr><td>Preference Center</td><td>Quando um usuário é atualizado a partir da Central de Preferências</td></tr>
+<tr><td>Central de Preferências</td><td>Quando um usuário é atualizado a partir da Central de Preferências</td></tr>
 <tr><td>Inbound Message</td><td>Quando um usuário é atualizado por mensagens recebidas de usuários finais por meio de canais como SMS</td></tr>
 <tr><td>Migration</td><td>Quando um usuário é atualizado por migrações internas ou scripts de manutenção</td></tr>
 <tr><td>User Merge</td><td>Quando um usuário é atualizado pelo processo de mesclagem de usuários</td></tr>
@@ -1037,7 +1037,7 @@ Grupos de inscrições estão disponíveis apenas para canais de e-mail, SMS, RC
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de conversão de Campaign {#campaign-conversion-events}
 
 {% apitags %}
@@ -1240,7 +1240,7 @@ O campo `message_extras` está disponível apenas em eventos de envio (por exemp
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de inscrição no grupo de controle de Campaign {#campaign-control-group-enrollment-events}
 
 {% apitags %}
@@ -1423,7 +1423,7 @@ Esse evento ocorre quando um usuário é inscrito em uma variante de controle de
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de conversão do Canvas {#canvas-conversion-events}
 
 {% apitags %}
@@ -1627,7 +1627,7 @@ O campo `message_extras` está disponível apenas em eventos de envio (por exemp
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de entrada do Canvas {#canvas-entry-events}
 
 {% apitags %}
@@ -1812,7 +1812,7 @@ Esse evento ocorre quando um usuário entra no Canvas. Esse evento informa em qu
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de conversão da etapa Otimizador de Conteúdo do Canvas {#canvas-content-optimizer-step-conversion-events}
 
 {% apitags %}
@@ -1973,7 +1973,7 @@ Eventos de conversão para a etapa Otimizador de Conteúdo do Canvas.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio da etapa Otimizador de Conteúdo do Canvas {#canvas-content-optimizer-step-send-events}
 
 {% apitags %}
@@ -2140,7 +2140,7 @@ Os envios do Canvas para a etapa de otimização de conteúdo do Canvas.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de saída por correspondência de público {#exit-match-audience-events}
 
 {% apitags %}
@@ -2314,7 +2314,7 @@ Esse evento ocorre quando um usuário sai de um Canvas ao corresponder a um púb
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de saída por execução de evento {#exit-perform-event-events}
 
 {% apitags %}
@@ -2488,7 +2488,7 @@ Esse evento ocorre quando um usuário sai de um Canvas ao executar um evento.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de conversão de etapa de experimento {#experiment-step-conversion-events}
 
 {% apitags %}
@@ -2687,7 +2687,7 @@ Esse evento ocorre quando um usuário converte em uma etapa de experimento do Ca
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de entrada de divisão de experimento {#experiment-split-entry-events}
 
 {% apitags %}
@@ -2875,7 +2875,7 @@ Esse evento ocorre quando um usuário entra em um caminho de etapa de experiment
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de progressão de etapa do Canvas {#canvas-step-progression-events}
 
 {% apitags %}
@@ -3083,7 +3083,7 @@ Esse evento ocorre quando um usuário avança em uma etapa do Canvas com algum r
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de banner {#banner-abort-events}
 
 {% apitags %}
@@ -3374,7 +3374,7 @@ Esse evento ocorre quando uma mensagem de banner originalmente agendada foi inte
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique em banner {#banner-click-events}
 
 {% apitags %}
@@ -3659,7 +3659,7 @@ Esse evento ocorre quando um usuário clica em um banner.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de dispensa de banner {#banner-dismissal-events}
 
 {% apitags %}
@@ -3983,7 +3983,7 @@ Esse evento ocorre quando um usuário dispensa um banner.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de impressão de banner {#banner-impression-events}
 
 {% apitags %}
@@ -4262,7 +4262,7 @@ Este evento ocorre quando um usuário visualiza um banner.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de Content Card {#content-card-abort-events}
 
 {% apitags %}
@@ -4498,7 +4498,7 @@ Este evento ocorre quando uma mensagem de Content Card é interrompida com base 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique em Content Card {#content-card-click-events}
 
 {% apitags %}
@@ -4775,7 +4775,7 @@ Este evento ocorre quando um usuário clica em um Content Card.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de descarte de Content Card {#content-card-dismiss-events}
 
 {% apitags %}
@@ -5052,7 +5052,7 @@ Esse evento ocorre quando um usuário descarta um Content Card.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de impressão de Content Card {#content-card-impression-events}
 
 {% apitags %}
@@ -5329,7 +5329,7 @@ Esse evento ocorre quando um usuário visualiza um Content Card.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de Content Card {#content-card-send-events}
 
 {% apitags %}
@@ -5560,7 +5560,7 @@ Esse evento ocorre quando um Content Card é enviado a um usuário.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de e-mail {#email-abort-events}
 
 {% apitags %}
@@ -5810,7 +5810,7 @@ Esse evento ocorre quando uma mensagem de e-mail é interrompida com base em int
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de bounce de e-mail {#email-bounce-events}
 
 {% apitags %}
@@ -6069,7 +6069,7 @@ Esse evento ocorre quando um provedor de serviços de internet retorna um hard b
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique de e-mail {#email-click-events}
 
 {% apitags %}
@@ -6407,7 +6407,7 @@ Esse evento ocorre quando um usuário clica em um e-mail. Vários eventos podem 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de diferimento de e-mail {#email-deferral-events}
 
 {% apitags %}
@@ -6667,7 +6667,7 @@ Esse evento ocorre quando um provedor de serviços de internet não entrega imed
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de entrega de e-mail {#email-delivery-events}
 
 {% apitags %}
@@ -6914,7 +6914,7 @@ Esse evento ocorre quando um e-mail enviado chega com êxito à caixa de entrada
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de marcar como spam de e-mail {#email-mark-as-spam-events}
 
 {% apitags %}
@@ -7165,7 +7165,7 @@ Esse evento ocorre quando o usuário final pressiona o botão "spam" no e-mail. 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de abertura de e-mail {#email-open-events}
 
 {% apitags %}
@@ -7482,7 +7482,7 @@ Esse evento ocorre quando um usuário abre um e-mail. Vários eventos podem ser 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de reenvio de e-mail {#email-retry-events}
 
 {% apitags %}
@@ -7728,7 +7728,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de e-mail {#email-send-events}
 
 {% apitags %}
@@ -7992,7 +7992,7 @@ Esse evento ocorre quando uma solicitação de envio de e-mail foi comunicada co
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de soft bounce de e-mail {#email-soft-bounce-events}
 
 {% apitags %}
@@ -8245,7 +8245,7 @@ Esse evento ocorre quando um provedor de serviços de internet retorna um soft b
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de cancelamento de inscrição de e-mail {#email-unsubscribe-events}
 
 {% apitags %}
@@ -8255,7 +8255,7 @@ Email, Subscription
 Esse evento ocorre quando o usuário final clica em "cancelar inscrição" no e-mail.
 
 {% alert important %}
-O evento `Unsubscribe` é considerado um evento de clique especializado que é acionado quando o usuário clica no link de cancelamento de inscrição no e-mail (seja um link de cancelamento de inscrição normal dentro do corpo ou rodapé do e-mail, ou usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)), e não quando o usuário muda o estado para cancelado. Se a mudança de estado de inscrição for enviada pela API, ou com um link de cancelamento de inscrição personalizado (não-Braze), isso não aciona um evento de cancelamento de inscrição de e-mail no Currents.
+O evento `Unsubscribe` é considerado um evento de clique especializado que é acionado quando o usuário clica no link de cancelamento de inscrição no e-mail (seja um link de cancelamento de inscrição normal dentro do corpo ou rodapé do e-mail, ou usando o [cabeçalho list-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)), e não quando o usuário muda o estado para cancelado. Se a mudança de estado de inscrição for enviada pela API or interface de programação do aplicativo (API), ou com um link de cancelamento de inscrição personalizado (não-Braze), isso não aciona um evento de cancelamento de inscrição de e-mail no Currents.
 {% endalert %}
 
 {% tabs %}
@@ -8482,7 +8482,7 @@ O evento `Unsubscribe` é considerado um evento de clique especializado que é a
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de impressão de experimento de Feature Flag {#feature-flag-experiment-impression-events}
 
 {% apitags %}
@@ -8738,7 +8738,7 @@ As impressões de Feature Flag são registradas apenas uma vez por sessão.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de mensagem no app {#in-app-message-abort-events}
 
 {% apitags %}
@@ -9030,7 +9030,7 @@ Esse evento ocorre quando uma mensagem no app originalmente agendada foi interro
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique de mensagem no app {#in-app-message-click-events}
 
 {% apitags %}
@@ -9311,7 +9311,7 @@ Para mensagens no app, `dispatch_id` retorna `null`.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de impressão de mensagem no app {#in-app-message-impression-events}
 
 {% apitags %}
@@ -9598,7 +9598,7 @@ Para mensagens no app, `dispatch_id` retorna `null`.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique de landing page {#landing-page-click-events}
 
 {% apitags %}
@@ -9753,7 +9753,7 @@ Esse evento ocorre quando um usuário final clica em elementos selecionados e ca
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de formulário de landing page {#landing-page-form-submission-events}
 
 {% apitags %}
@@ -9902,7 +9902,7 @@ Esse evento ocorre quando um usuário final preenche um formulário em uma landi
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de impressão de landing page {#landing-page-impression-events}
 
 {% apitags %}
@@ -10058,7 +10058,7 @@ Esse evento ocorre quando o navegador de um usuário final carrega e exibe uma l
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção do LINE {#line-abort-events}
 
 {% apitags %}
@@ -10302,7 +10302,7 @@ Esse evento ocorre quando uma mensagem LINE agendada não pode ser entregue, ant
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique do LINE {#line-click-events}
 
 {% apitags %}
@@ -10553,7 +10553,7 @@ Esse evento ocorre quando um usuário clica em um link em uma mensagem LINE cujo
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de recebimento de entrada do LINE {#line-inbound-receive-events}
 
 {% apitags %}
@@ -10793,7 +10793,7 @@ Esse evento ocorre quando uma mensagem LINE é recebida de um usuário.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de retry do LINE {#line-retry-events}
 
 {% apitags %}
@@ -11029,7 +11029,7 @@ Este evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio do LINE {#line-send-events}
 
 {% apitags %}
@@ -11263,7 +11263,7 @@ Este evento ocorre quando uma mensagem do LINE é enviada para o LINE.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de resultado de Live Activity {#live-activity-outcome-events}
 
 {% apitags %}
@@ -11439,7 +11439,7 @@ Este evento ocorre quando a Braze recebe uma resposta de um provedor terceiro (p
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de Live Activity {#live-activity-send-events}
 
 {% apitags %}
@@ -11609,7 +11609,7 @@ Este evento ocorre quando o sistema da Braze faz uma solicitação ao seu proved
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de notificação por push {#push-notification-abort-events}
 
 {% apitags %}
@@ -11858,7 +11858,7 @@ Esse evento ocorre quando uma mensagem de notificação por push é interrompida
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de bounce de notificação por push {#push-notification-bounce-events}
 
 {% apitags %}
@@ -12119,14 +12119,14 @@ Esse evento ocorre quando um erro é recebido do Apple Push Notification Service
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de abertura de notificação por push no iOS em primeiro plano {#push-notification-ios-foreground-open-events}
 
 {% apitags %}
 Push, iOS, Opens
 {% endapitags %}
 
-Esse evento não é compatível com nosso [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) e agora está obsoleto no nosso [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk).
+Esse evento não é compatível com nosso [Swift SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-swift-sdk) e agora está obsoleto no nosso [Obj-C SDK or kit de desenvolvimento de software](https://github.com/Appboy/appboy-ios-sdk).
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12330,7 +12330,7 @@ Esse evento não é compatível com nosso [Swift SDK](https://github.com/braze-i
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de abertura de notificação por push {#push-notification-open-events}
 
 {% apitags %}
@@ -12341,7 +12341,7 @@ Esse evento ocorre quando um usuário clica diretamente na notificação por pus
 
 {% alert note %}
 Em casos raros, uma abertura de push pode aparecer antes do evento de envio de push correspondente nos dados do Currents devido ao seguinte:
-- Seu SDK tem um relógio incorreto.
+- Seu SDK or kit de desenvolvimento de software tem um relógio incorreto.
 - Alta latência de gravação em lote. O horário de envio registrado pode ficar atrasado em relação a entregas antecipadas, então aberturas muito rápidas podem ser registradas antes que o timestamp final de envio do lote seja gravado. Envios grandes são despachados e registrados em lotes.
 {% endalert %}
 
@@ -12608,7 +12608,7 @@ Em casos raros, uma abertura de push pode aparecer antes do evento de envio de p
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de retry de notificação por push {#push-notification-retry-events}
 
 {% apitags %}
@@ -12852,7 +12852,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de notificação por push {#push-notification-send-events}
 
 {% apitags %}
@@ -13127,7 +13127,7 @@ Esse evento ocorre quando a Braze processa uma mensagem push para um usuário, c
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de RCS {#rcs-abort-events}
 
 {% apitags %}
@@ -13346,7 +13346,7 @@ Este evento é criado quando um envio de RCS é interrompido devido a um erro de
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique de RCS {#rcs-click-events}
 
 {% apitags %}
@@ -13615,7 +13615,7 @@ Um evento criado quando o usuário interage com uma mensagem RCS de uma forma qu
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de entrega de RCS {#rcs-delivery-events}
 
 {% apitags %}
@@ -13854,7 +13854,7 @@ Este evento é criado quando uma mensagem RCS é entregue com sucesso ao disposi
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de recebimento de entrada RCS {#rcs-inbound-received-events}
 
 {% apitags %}
@@ -14092,7 +14092,7 @@ Este evento é criado quando a Braze recebe uma mensagem RCS originada do usuár
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de leitura de RCS {#rcs-read-events}
 
 {% apitags %}
@@ -14295,7 +14295,7 @@ Este evento é criado quando um usuário abre uma mensagem RCS em seu dispositiv
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de rejeição de RCS {#rcs-rejection-events}
 
 {% apitags %}
@@ -14548,7 +14548,7 @@ Evento criado quando uma mensagem RCS não é entregue ao dispositivo móvel de 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de RCS {#rcs-send-events}
 
 {% apitags %}
@@ -14799,7 +14799,7 @@ Esse evento é criado quando uma mensagem RCS é enviada da Braze para nossos pa
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de SMS {#sms-abort-events}
 
 {% apitags %}
@@ -15019,7 +15019,7 @@ Esse evento ocorre quando uma mensagem SMS é interrompida com base em interrup�
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio pela operadora de SMS {#sms-carrier-send-events}
 
 {% apitags %}
@@ -15262,7 +15262,7 @@ Esse evento ocorre quando um SMS é enviado à operadora.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de entrega de SMS {#sms-delivery-events}
 
 {% apitags %}
@@ -15507,7 +15507,7 @@ Esse evento ocorre quando um SMS é entregue com sucesso ao celular do usuário.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de falha na entrega de SMS {#sms-delivery-failure-events}
 
 {% apitags %}
@@ -15758,7 +15758,7 @@ Esse evento ocorre quando um SMS apresenta falha na entrega. Use esse evento e o
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de SMS de entrada recebidos {#sms-inbound-received-events}
 
 {% apitags %}
@@ -15994,7 +15994,7 @@ Se a Braze detectar que essa mensagem de entrada é uma resposta a uma Campaign 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de rejeição de SMS {#sms-rejection-events}
 
 {% apitags %}
@@ -16255,7 +16255,7 @@ A Braze emite `users.messages.sms.Rejection` para Currents, compartilhamento de 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de retry de SMS {#sms-retry-events}
 
 {% apitags %}
@@ -16468,7 +16468,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de SMS {#sms-send-events}
 
 {% apitags %}
@@ -16733,7 +16733,7 @@ Esse evento ocorre quando um usuário envia um SMS.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique em link curto de SMS {#sms-short-link-click-events}
 
 {% apitags %}
@@ -16992,7 +16992,7 @@ Esse evento ocorre quando um usuário clica em um link curto de SMS.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de resposta de pesquisa {#survey-response-events}
 
 {% apitags %}
@@ -17376,7 +17376,7 @@ Respostas de pesquisa enviadas por usuários finais
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção de webhook {#webhook-abort-events}
 
 {% apitags %}
@@ -17613,7 +17613,7 @@ Esse evento ocorre quando uma mensagem de webhook é interrompida com base em in
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de falha de webhook {#webhook-failure-events}
 
 {% apitags %}
@@ -17884,7 +17884,7 @@ Esse evento ocorre quando uma mensagem de webhook é entregue, mas falha com uma
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de nova tentativa de webhook {#webhook-retry-events}
 
 {% apitags %}
@@ -18117,7 +18117,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio de webhook {#webhook-send-events}
 
 {% apitags %}
@@ -18343,7 +18343,7 @@ Esse evento ocorre quando um webhook é processado e enviado para o terceiro esp
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de interrupção do WhatsApp {#whatsapp-abort-events}
 
 {% apitags %}
@@ -18594,7 +18594,7 @@ Esse evento ocorre quando uma mensagem do WhatsApp é interrompida com base em i
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de clique em link rastreado do WhatsApp {#whatsapp-tracked-link-click-events}
 
 {% apitags %}
@@ -18825,7 +18825,7 @@ Esse evento ocorre quando um usuário clica em um link ou botão em uma mensagem
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de entrega do WhatsApp {#whatsapp-delivery-events}
 
 {% apitags %}
@@ -19090,7 +19090,7 @@ Esse evento ocorre quando uma mensagem do WhatsApp enviada chega com sucesso ao 
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de falha do WhatsApp {#whatsapp-failure-events}
 
 {% apitags %}
@@ -19367,7 +19367,7 @@ Esse evento ocorre quando o WhatsApp não consegue entregar a mensagem ao usuár
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de recebimento de entrada do WhatsApp {#whatsapp-inbound-received-events}
 
 {% apitags %}
@@ -19657,7 +19657,7 @@ Esse evento ocorre quando um dos seus usuários envia uma mensagem do WhatsApp p
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de leitura do WhatsApp {#whatsapp-read-events}
 
 {% apitags %}
@@ -19922,7 +19922,7 @@ Esse evento ocorre quando uma mensagem do WhatsApp é lida pelo usuário.
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de nova tentativa do WhatsApp {#whatsapp-retry-events}
 
 {% apitags %}
@@ -20166,7 +20166,7 @@ Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência lim
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## Eventos de envio do WhatsApp {#whatsapp-send-events}
 
 {% apitags %}

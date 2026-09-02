@@ -1,15 +1,15 @@
 ---
 nav_title: Fazer uma chamada de Conteúdo conectado
-article_title: Fazer uma chamada de API de Conteúdo conectado
+article_title: Fazer uma chamada de API or interface de programação do aplicativo (API) de Conteúdo conectado
 page_order: 0
-description: "Este artigo de referência aborda como fazer uma chamada de API de Conteúdo conectado, além de exemplos úteis e casos de uso avançados de Conteúdo conectado."
+description: "Este artigo de referência aborda como fazer uma chamada de API or interface de programação do aplicativo (API) de Conteúdo conectado, além de exemplos úteis e casos de uso avançados de Conteúdo conectado."
 search_rank: 2
 toc_headers: h2
 ---
 
 # [![Curso do Braze Learning]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Fazer uma chamada de API de Conteúdo conectado {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
 
-> Use o Conteúdo conectado para inserir qualquer informação acessível por API diretamente nas mensagens que você envia aos usuários. Você pode obter conteúdo diretamente do seu servidor web ou de APIs acessíveis publicamente.<br><br>Esta página aborda como fazer chamadas de API de Conteúdo conectado, casos de uso avançados de Conteúdo conectado, tratamento de erros e mais.
+> Use o Conteúdo conectado para inserir qualquer informação acessível por API or interface de programação do aplicativo (API) diretamente nas mensagens que você envia aos usuários. Você pode obter conteúdo diretamente do seu servidor web ou de APIs acessíveis publicamente.<br><br>Esta página aborda como fazer chamadas de API or interface de programação do aplicativo (API) de Conteúdo conectado, casos de uso avançados de Conteúdo conectado, tratamento de erros e mais.
 
 ## Sobre o volume de chamadas de Conteúdo conectado {#understanding-connected-content-call-volume}
 
@@ -17,9 +17,9 @@ toc_headers: h2
 Um envio não equivale a uma chamada de Conteúdo conectado. A Braze não garante uma proporção de 1:1 entre envios de mensagens e solicitações de Conteúdo conectado. O sistema é projetado para priorizar a renderização e a entrega corretas das mensagens em vez de minimizar o número de chamadas. Seus endpoints devem ser preparados para lidar com mais solicitações do que o número de destinatários ou mensagens enviadas.
 {% endalert %}
 
-A Braze pode fazer a mesma chamada de API de Conteúdo conectado mais de uma vez por destinatário. Os motivos mais comuns incluem:
+A Braze pode fazer a mesma chamada de API or interface de programação do aplicativo (API) de Conteúdo conectado mais de uma vez por destinatário. Os motivos mais comuns incluem:
 
-- **E-mail com múltiplas partes:** Um único e-mail pode acionar passes de renderização separados para o corpo HTML, corpo em texto simples e versão Accelerated Mobile Pages (AMP) (se presente). Cada passe pode acionar o Conteúdo conectado naquela parte, então um destinatário pode gerar múltiplas chamadas idênticas ou semelhantes.
+- **E-mail com múltiplas partes:** Um único e-mail pode acionar passes de renderização separados para o corpo HTML, corpo em texto simples e versão Accelerated Mobile Pages (AMP) (AMP) (se presente). Cada passe pode acionar o Conteúdo conectado naquela parte, então um destinatário pode gerar múltiplas chamadas idênticas ou semelhantes.
 - **Validação e novas tentativas:** As cargas úteis das mensagens podem ser renderizadas múltiplas vezes por destinatário para validação, lógica de nova tentativa ou outros propósitos internos.
 - **Comportamento do canal:** O Conteúdo conectado é executado quando a mensagem é renderizada. Para mensagens no app, a mensagem é renderizada no momento da impressão.
 
@@ -29,9 +29,9 @@ Se você observar mais chamadas de Conteúdo conectado nos seus registros do que
 
 Para enviar uma chamada de Connected Content, use a tag {% raw %}`{% connected_content %}`{% endraw %}. Com essa tag, atribua ou declare variáveis usando `:save`. Aspectos dessas variáveis podem ser referenciados depois na mensagem com [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
-### Detalhamento da chamada de API {#break-down-the-api-call}
+### Detalhamento da chamada de API or interface de programação do aplicativo (API) {#break-down-the-api-call}
 
-O exemplo a seguir usa a API Sunrise-Sunset e inclui o horário do nascer do sol de hoje em uma mensagem:
+O exemplo a seguir usa a API or interface de programação do aplicativo (API) Sunrise-Sunset e inclui o horário do nascer do sol de hoje em uma mensagem:
 
 {% raw %}
 ```
@@ -45,13 +45,13 @@ Veja o que cada parte faz:
 | Componente | O que faz |
 | --- | --- |
 | Tag `connected_content` | Diz à Braze para fazer uma solicitação HTTP durante a renderização da mensagem. |
-| `https://api.sunrise-sunset.org/v2` | O endpoint da API que a Braze chama. |
+| `https://api.sunrise-sunset.org/v2` | O endpoint da API or interface de programação do aplicativo (API) que a Braze chama. |
 | `lat=40.7128&lng=-74.0060` | Parâmetros de consulta para as coordenadas da cidade de Nova York. |
 | `date=today` | Solicita dados do dia atual nessas coordenadas. |
-| `:save result` | Armazena a resposta da API em uma variável local chamada `result`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhamento da chamada de API" }
+| `:save result` | Armazena a resposta da API or interface de programação do aplicativo (API) em uma variável local chamada `result`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhamento da chamada de API or interface de programação do aplicativo (API)" }
 
-### Como a resposta da API Sunrise-Sunset funciona {#how-the-sunrise-sunset-api-response-works}
+### Como a resposta da API or interface de programação do aplicativo (API) Sunrise-Sunset funciona {#how-the-sunrise-sunset-api-response-works}
 
 Esse endpoint retorna JSON com campos de nível superior como `sunrise`, `sunset` e `tzid`. Os horários são retornados no fuso horário do local por padrão (neste exemplo, horário de Nova York).
 
@@ -66,7 +66,7 @@ Por exemplo, o formato da resposta é semelhante a:
 }
 ```
 
-### Mapear a resposta da API para Liquid {#map-the-api-response-to-liquid}
+### Mapear a resposta da API or interface de programação do aplicativo (API) para Liquid {#map-the-api-response-to-liquid}
 
 Como a resposta é salva como `result`, faça referência a cada campo diretamente a partir desse objeto.
 
@@ -80,7 +80,7 @@ Como a resposta é salva como `result`, faça referência a cada campo diretamen
 
 Use esse padrão sempre que salvar JSON do Connected Content:
 
-1. Salve a resposta da API com `:save`.
+1. Salve a resposta da API or interface de programação do aplicativo (API) com `:save`.
 2. Encontre o campo desejado na resposta JSON.
 3. Faça referência a ele em Liquid como `saved_variable.field_name`.
 
@@ -136,13 +136,13 @@ Os seguintes são mecanismos diferentes:
 
 ## Garantir desempenho eficiente {#allowing-for-efficient-performance}
 
-Como a Braze entrega mensagens em uma taxa muito rápida, certifique-se de que seu servidor pode lidar com milhares de conexões simultâneas para que não fique sobrecarregado ao buscar conteúdo. Ao usar APIs públicas, confirme que seu uso não violará nenhum limite de frequência que o provedor da API possa aplicar. A Braze exige que o tempo de resposta do servidor seja inferior a dois segundos por motivos de desempenho; se o servidor levar mais de dois segundos para responder, o conteúdo não será inserido.
+Como a Braze entrega mensagens em uma taxa muito rápida, certifique-se de que seu servidor pode lidar com milhares de conexões simultâneas para que não fique sobrecarregado ao buscar conteúdo. Ao usar APIs públicas, confirme que seu uso não violará nenhum limite de frequência que o provedor da API or interface de programação do aplicativo (API) possa aplicar. A Braze exige que o tempo de resposta do servidor seja inferior a dois segundos por motivos de desempenho; se o servidor levar mais de dois segundos para responder, o conteúdo não será inserido.
 
 Para saber mais sobre planejamento de capacidade de endpoints e redução do volume de chamadas, consulte [Práticas recomendadas para endpoints de alto volume](#best-practices-for-high-volume-endpoints).
 
 ## Informações importantes {#things-to-know}
 
-- A Braze não cobra por chamadas de API e elas não contam para o uso de pontos de dados disponível.
+- A Braze não cobra por chamadas de API or interface de programação do aplicativo (API) e elas não contam para o uso de pontos de dados disponível.
 - Há um limite de 1 MB para respostas de Connected Content.
 - O Connected Content é executado quando a mensagem é renderizada. Para mensagens no app, a mensagem é renderizada no momento da impressão.
 - As chamadas de Connected Content não seguem redirecionamentos. Apenas respostas `2xx` são tratadas como bem-sucedidas. Se o seu endpoint retornar um redirecionamento `3xx` (por exemplo, `301` ou `302`), a Braze não seguirá o redirecionamento até a URL final. Para sintomas e etapas de solução de problemas, consulte [Por que o Connected Content falha quando meu endpoint retorna um redirecionamento?](#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).
@@ -175,7 +175,7 @@ Se suas mensagens usam Connected Content e você envia em alto volume, planeje p
 
 ### Usando autenticação básica {#using-basic-authentication}
 
-Se a URL exigir autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar em sua chamada de API. Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Settings** > **Connected Content**.
+Se a URL exigir autenticação básica, a Braze pode armazenar uma credencial de autenticação básica para você usar em sua chamada de API or interface de programação do aplicativo (API). Você pode gerenciar credenciais de autenticação básica existentes e adicionar novas em **Settings** > **Connected Content**.
 
 ![As configurações de Connected Content no dashboard da Braze.]({% image_buster /assets/img/connected_content/basic_auth_mgmt.png %})
 
@@ -187,7 +187,7 @@ Dê um nome à sua credencial e insira o nome de usuário e a senha.
 
 ![A janela "Create New Credential" com a opção de inserir um nome, nome de usuário e senha.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
-Você pode então usar essa credencial de autenticação básica em suas chamadas de API referenciando o nome do token:
+Você pode então usar essa credencial de autenticação básica em suas chamadas de API or interface de programação do aplicativo (API) referenciando o nome do token:
 
 {% raw %}
 ```
@@ -205,11 +205,11 @@ As credenciais armazenadas são aplicadas às solicitações {% raw %}`{% connec
 
 Ao usar o Connected Content da Braze, você pode perceber que certas APIs exigem um token em vez de um nome de usuário e senha. A Braze também pode armazenar credenciais que contêm valores de cabeçalho de autenticação por token.
 
-Para adicionar uma credencial que contenha valores de token, selecione **Add credential** > **Token authentication**. Em seguida, adicione os pares de chave-valor para os cabeçalhos da sua chamada de API e o domínio permitido.
+Para adicionar uma credencial que contenha valores de token, selecione **Add credential** > **Token authentication**. Em seguida, adicione os pares de chave-valor para os cabeçalhos da sua chamada de API or interface de programação do aplicativo (API) e o domínio permitido.
 
 ![Um exemplo de token "token_credential_abc" com detalhes de autenticação por token.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
-Você pode então usar essa credencial em suas chamadas de API referenciando o nome da credencial:
+Você pode então usar essa credencial em suas chamadas de API or interface de programação do aplicativo (API) referenciando o nome da credencial:
 
 {% raw %}
 ```
@@ -227,11 +227,11 @@ Você pode então usar essa credencial em suas chamadas de API referenciando o n
 
 ### Usar Open Authentication (OAuth) {#use-open-authentication-oauth}
 
-Algumas configurações de API exigem a recuperação de um token de acesso que pode então ser usado para autenticar o endpoint de API que você deseja acessar.
+Algumas configurações de API or interface de programação do aplicativo (API) exigem a recuperação de um token de acesso que pode então ser usado para autenticar o endpoint de API or interface de programação do aplicativo (API) que você deseja acessar.
 
 #### Etapa 1: recuperar o token de acesso {#step-1-retrieve-the-access-token}
 
-O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso em uma variável local, que pode então ser usada para autenticar a chamada de API subsequente. Um parâmetro `:cache_max_age` pode ser adicionado para corresponder ao tempo de validade do token de acesso e reduzir o número de chamadas de Connected Content enviadas. Para saber mais, consulte [Cache configurável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
+O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso em uma variável local, que pode então ser usada para autenticar a chamada de API or interface de programação do aplicativo (API) subsequente. Um parâmetro `:cache_max_age` pode ser adicionado para corresponder ao tempo de validade do token de acesso e reduzir o número de chamadas de Connected Content enviadas. Para saber mais, consulte [Cache configurável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
 {% raw %}
 ```
@@ -252,7 +252,7 @@ O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso 
 Quando o endpoint de token espera `application/x-www-form-urlencoded` e você passa credenciais em `:body`, codifique em URL quaisquer caracteres especiais nos valores dos parâmetros. Por exemplo, barras (`/`) se tornam `%2F` e sinais de mais (`+`) se tornam `%2B`. Caracteres especiais não codificados podem fazer com que as solicitações de token OAuth falhem.
 {% endalert %}
 
-#### Etapa 2: autorizar a API usando o token de acesso recuperado {#step-2-authorize-the-api-using-the-retrieved-access-token}
+#### Etapa 2: autorizar a API or interface de programação do aplicativo (API) usando o token de acesso recuperado {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
 Depois que o token é salvo, ele pode ser inserido dinamicamente como template na chamada de Connected Content subsequente para autorizar a solicitação:
 
@@ -281,7 +281,7 @@ Você pode editar o nome da credencial para os tipos de autenticação.
 
 Quando uma mensagem usando Connected Content é enviada pela Braze, os servidores da Braze fazem automaticamente solicitações de rede aos servidores de nossos clientes ou de terceiros para recuperar dados. Com a lista de permissões de IP, você pode verificar se as solicitações de Connected Content estão realmente vindo da Braze, adicionando uma camada de segurança.
 
-A Braze enviará solicitações de Connected Content a partir dos seguintes intervalos de IP. Os intervalos listados são adicionados automática e dinamicamente a quaisquer chaves de API que tenham sido incluídas na lista de permissões.
+A Braze enviará solicitações de Connected Content a partir dos seguintes intervalos de IP. Os intervalos listados são adicionados automática e dinamicamente a quaisquer chaves de API or interface de programação do aplicativo (API) que tenham sido incluídas na lista de permissões.
 
 A Braze tem um conjunto reservado de IPs usados para todos os serviços, e nem todos estão ativos em um determinado momento. Isso foi projetado para que a Braze possa enviar a partir de um data center diferente ou realizar manutenção, se necessário, sem impactar os clientes. A Braze pode usar um, um subconjunto ou todos os IPs listados a seguir ao fazer solicitações de Connected Content.
 
@@ -333,7 +333,7 @@ As solicitações de webhook também enviam um `User-Agent` que começa com `Bra
 
 Se a sua chamada de Connected Content não está sendo renderizada corretamente ou não está sendo renderizada, verifique os seguintes detalhes:
 
-- **Inspecione a solicitação e a resposta em tempo real:** Use o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) em **Preview & Test**.
+- **Inspecione a solicitação e a resposta em tempo real:** Use o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger) em **prévia & Test**.
 - **Confirme se uma chamada de Connected Content foi feita:** Você pode verificar se uma chamada foi feita na [guia histórico de mensagens]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab). Você também pode fazer um envio de teste de uma única solicitação de Connected Content.
 - **Verifique pelo Postman ou por uma solicitação CURL se a solicitação esperada funciona:** Se a solicitação funcionar e retornar uma resposta, compare a solicitação em detalhes (incluindo cabeçalhos). Confirme se os cabeçalhos estão capturados em pares chave-valor com aspas duplas.
 - **Valide se a autorização está sendo tratada corretamente:** Confirme se a opção `:basic_auth`/`:auth_credentials` está sendo usada e se a autorização de Connected Content foi adicionada às configurações do espaço de trabalho de Connected Content. Às vezes, a URL de Connected Content exige cabeçalhos além da autenticação que precisam ser inseridos.
@@ -341,7 +341,7 @@ Se a sua chamada de Connected Content não está sendo renderizada corretamente 
 - **Confirme se os dados foram analisados corretamente:** Verifique se o Liquid está referenciando corretamente o campo esperado. Para JSON aninhado, use {% raw %}`{{sampleresult.data[0].sample_field}}`{% endraw %} para apontar para o campo aninhado desejado. Você pode verificar as propriedades do JSON aninhado imprimindo o resultado esperado com {% raw %}`RESPONSE:{{sampleresult.data}}`{% endraw %}.
 - **Verifique o código de status da resposta:** O código de status da resposta deve ser um código `2XX`. O Connected Content não tem como consumir a resposta quando o código não é `2XX`.
 
-Gere uma prévia em **Preview & Test** e selecione **View details** para abrir o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger). O depurador lista os cabeçalhos da sua tag de Connected Content. Para os cabeçalhos que a Braze adiciona à solicitação de saída, consulte [Cabeçalhos de solicitação de saída](#outgoing-request-headers).
+Gere uma prévia em **prévia & Test** e selecione **View details** para abrir o [Depurador de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger). O depurador lista os cabeçalhos da sua tag de Connected Content. Para os cabeçalhos que a Braze adiciona à solicitação de saída, consulte [Cabeçalhos de solicitação de saída](#outgoing-request-headers).
 
 Você também pode verificar se a Liquid tag inclui os parâmetros que o seu endpoint espera (por exemplo, `:method`, `:headers`, `:content_type`, `:body` e `:basic_auth`, quando necessário). Se você depende da chave de código de status HTTP em um objeto JSON salvo, o endpoint deve retornar um objeto JSON e um status `2XX`.
 
@@ -349,7 +349,7 @@ Para taxas de erro elevadas do seu host, consulte [Detecção de host com proble
 
 ### Codificação de "e" comercial em solicitações POST de e-mail {#ampersand-encoding-in-email-post-requests}
 
-Em mensagens de e-mail, o parse de HTML converte automaticamente os "e" comerciais (`&`) dentro de blocos {% raw %}`{% capture %}`{% endraw %} para `&amp;`. Para solicitações POST `application/x-www-form-urlencoded`, isso faz com que a solicitação envie nomes de parâmetros com o prefixo `amp;` (por exemplo, `amp;username`), o que pode quebrar a chamada de API.
+Em mensagens de e-mail, o parse de HTML converte automaticamente os "e" comerciais (`&`) dentro de blocos {% raw %}`{% capture %}`{% endraw %} para `&amp;`. Para solicitações POST `application/x-www-form-urlencoded`, isso faz com que a solicitação envie nomes de parâmetros com o prefixo `amp;` (por exemplo, `amp;username`), o que pode quebrar a chamada de API or interface de programação do aplicativo (API).
 
 Para contornar esse problema, use o filtro `replace` para remover o prefixo `amp;` antes de passar o corpo para `:body`:
 
@@ -379,9 +379,9 @@ Para verificações relacionadas quando o conteúdo renderiza em branco, consult
 
 ### Por que há mais chamadas de Connected Content do que usuários ou envios? {#why-are-there-more-connected-content-calls-than-users-or-sends}
 
-A Braze pode fazer a mesma chamada de API de Connected Content mais de uma vez por destinatário para renderizar a carga útil da mensagem. As cargas úteis de mensagens podem ser renderizadas várias vezes por destinatário para validação, lógica de nova tentativa ou outros fins internos. No entanto, observe que apenas uma das chamadas de Connected Content preenche uma mensagem.
+A Braze pode fazer a mesma chamada de API or interface de programação do aplicativo (API) de Connected Content mais de uma vez por destinatário para renderizar a carga útil da mensagem. As cargas úteis de mensagens podem ser renderizadas várias vezes por destinatário para validação, lógica de nova tentativa ou outros fins internos. No entanto, observe que apenas uma das chamadas de Connected Content preenche uma mensagem.
 
-É esperado que uma chamada de API de Connected Content possa ser feita mais de uma vez por destinatário, mesmo que a lógica de nova tentativa não seja usada na chamada. Recomendamos configurar o limite de frequência de qualquer mensagem que contenha Connected Content ou configurar seus servidores para lidar melhor com o volume esperado que considera múltiplas chamadas de Connected Content sendo feitas por envio de mensagem.
+É esperado que uma chamada de API or interface de programação do aplicativo (API) de Connected Content possa ser feita mais de uma vez por destinatário, mesmo que a lógica de nova tentativa não seja usada na chamada. Recomendamos configurar o limite de frequência de qualquer mensagem que contenha Connected Content ou configurar seus servidores para lidar melhor com o volume esperado que considera múltiplas chamadas de Connected Content sendo feitas por envio de mensagem.
 
 Consulte [Entendendo o volume de chamadas de Connected Content](#understanding-connected-content-call-volume) e [Práticas recomendadas para endpoints de alto volume](#best-practices-for-high-volume-endpoints) para detalhes e mitigação.
 

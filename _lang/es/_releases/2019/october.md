@@ -12,9 +12,9 @@ description: "Este artículo contiene notas de la versión de octubre de 2019."
 
 Canvas tiene nuevos y mejorados análisis para ver el rendimiento de cada una de tus variantes. Hay nuevas métricas, especialmente en torno a los eventos de conversión y la confianza, y nuevas capacidades como copiar celdas, ID de API y descargar un `.csv` de los resultados. Más información sobre el [análisis mejorado de variantes en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details).
 
-## SMS
+## servicio de mensajes cortos
 
-¡Braze ahora ofrece SMS con Campaigns, Canvas y [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)! Consulta nuestra [guía de configuración]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para empezar y nuestra [guía de envío de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obtener más información.
+¡Braze ahora ofrece servicio de mensajes cortos con Campaigns, Canvas y [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)! Consulta nuestra [guía de configuración]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para empezar y nuestra [guía de envío de servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obtener más información.
 
 ## Mejoras en Content Blocks {#content-block-improvements}
 

@@ -30,7 +30,7 @@ channel: email
 2. Confirma que tu certificado SSL esté activo para el dominio de seguimiento. Pide a tu equipo de TI o web que confirme que el certificado está vigente y cubre tu subdominio de seguimiento de clics. Para pasos de configuración y guías específicas de CDN, consulta [Obtener un certificado SSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#acquire-an-ssl-certificate) y [Recursos adicionales]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl#additional-resources).
 3. Envía un correo electrónico de prueba usando la [plantilla de solución de problemas de seguimiento de clics](#click-tracking-issues). Compara las URLs con seguimiento frente a las sin seguimiento.
 4. Si los enlaces con seguimiento fallan con un error 403, revisa las reglas de CDN y WAF (agentes de usuario, cadenas de consulta, patrones de redirección).
-5. Si la configuración está completa pero los enlaces siguen siendo HTTP, contacta a tu administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL.
+5. Si la configuración está completa pero los enlaces siguen siendo HTTP, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL.
 6. Para problemas persistentes, coordina con tu CDN o equipo de TI y contacta a [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) con los códigos de error y cualquier detalle de tu CDN o proveedor de dominios.
 
 ## Conceptos clave {#key-concepts}
@@ -144,7 +144,7 @@ Si ves un mensaje de error indicando que tu conexión no es privada, esto puede 
 
 **Síntoma:** La configuración de SSL está completa, pero los enlaces con seguimiento siguen apareciendo como HTTP.
 
-Si completas la configuración de SSL y los enlaces siguen apareciendo como HTTP, ponte en contacto con tu administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL. Braze habilita SSL solo después de que se completen todos los pasos de configuración.
+Si completas la configuración de SSL y los enlaces siguen apareciendo como HTTP, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze para confirmar que Braze habilitó SSL. Braze habilita SSL solo después de que se completen todos los pasos de configuración.
 
 ### Amazon SES {#amazon-ses}
 

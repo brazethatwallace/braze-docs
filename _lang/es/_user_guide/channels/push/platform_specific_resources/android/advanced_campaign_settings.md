@@ -24,28 +24,28 @@ Para asignar un ID de notificación, ve a la página de composición del push qu
 
 ![Campo de ID de notificación.]({% image_buster /assets/img_archive/notification_ids.png %}){: style="max-width:60%;" }
 
-## Tiempo de vida (TTL) {#ttl}
+## TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida) {#ttl}
 
-El campo **Time to Live** te permite establecer una duración personalizada para almacenar mensajes con el servicio de mensajería push. Si el dispositivo permanece sin conexión más allá del TTL, el mensaje expirará y no se entregará.
+El campo **TTL or tiempo de vida or tiempo de vida** te permite establecer una duración personalizada para almacenar mensajes con el servicio de mensajería push. Si el dispositivo permanece sin conexión más allá del TTL or tiempo de vida, el mensaje expirará y no se entregará.
 
-Para editar el tiempo de vida de tu push de Android, ve al compositor y selecciona la pestaña **Settings**. Encuentra el campo **Time to Live** e ingresa un valor en días, horas o segundos.
+Para editar el TTL or tiempo de vida or tiempo de vida de tu push de Android, ve al compositor y selecciona la pestaña **Settings**. Encuentra el campo **TTL or tiempo de vida or tiempo de vida** e ingresa un valor en días, horas o segundos.
 
-Los valores predeterminados para el tiempo de vida son definidos por tu administrador en la página de [Configuración de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). De forma predeterminada, Braze establece el TTL de push en el valor máximo para cada servicio de mensajería push. Aunque la configuración predeterminada del TTL se aplica globalmente, puedes anularla a nivel de mensaje durante la creación de la Campaign. Esto es útil cuando diferentes Campaigns requieren distintos niveles de urgencia o ventanas de entrega.
+Los valores predeterminados para el TTL or tiempo de vida or tiempo de vida son definidos por tu administrador en la página de [Configuración de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings). De forma predeterminada, Braze establece el TTL or tiempo de vida de push en el valor máximo para cada servicio de mensajería push. Aunque la configuración predeterminada del TTL or tiempo de vida se aplica globalmente, puedes anularla a nivel de mensaje durante la creación de la Campaign. Esto es útil cuando diferentes Campaigns requieren distintos niveles de urgencia o ventanas de entrega.
 
-Por ejemplo, supongamos que tu aplicación organiza un concurso de trivia semanal. Envías una notificación push una hora antes de que comience. Al establecer el TTL en 1 hora, te aseguras de que los usuarios que abran la aplicación después de que el concurso haya comenzado no reciban una notificación sobre un evento que ya ha iniciado.
+Por ejemplo, supongamos que tu aplicación organiza un concurso de trivia semanal. Envías una notificación push una hora antes de que comience. Al establecer el TTL or tiempo de vida en 1 hora, te aseguras de que los usuarios que abran la aplicación después de que el concurso haya comenzado no reciban una notificación sobre un evento que ya ha iniciado.
 
 {% details Mejores prácticas %}
 
-### Cuándo usar un TTL más corto {#when-to-use-shorter-ttl}
+### Cuándo usar un TTL or tiempo de vida más corto {#when-to-use-shorter-ttl}
 
-Los TTL más cortos aseguran que los usuarios reciban notificaciones oportunas para eventos o promociones que pierden relevancia rápidamente. Por ejemplo:
+Los TTL or tiempo de vida más cortos aseguran que los usuarios reciban notificaciones oportunas para eventos o promociones que pierden relevancia rápidamente. Por ejemplo:
 
-- **Comercio minorista:** Enviar un push para una venta relámpago que termina en 2 horas (TTL: 1-2 horas)
-- **Entrega de comida:** Notificar a los usuarios cuando su pedido está cerca (TTL: 10-15 minutos)
-- **Aplicaciones de transporte:** Compartir actualizaciones de llegada del viaje (TTL: unos pocos minutos)
-- **Recordatorios de eventos:** Notificar a los usuarios cuando un seminario web está por comenzar (TTL: menos de 1 hora)
+- **Comercio minorista:** Enviar un push para una venta relámpago que termina en 2 horas (TTL or tiempo de vida: 1-2 horas)
+- **Entrega de comida:** Notificar a los usuarios cuando su pedido está cerca (TTL or tiempo de vida: 10-15 minutos)
+- **Aplicaciones de transporte:** Compartir actualizaciones de llegada del viaje (TTL or tiempo de vida: unos pocos minutos)
+- **Recordatorios de eventos:** Notificar a los usuarios cuando un seminario web está por comenzar (TTL or tiempo de vida: menos de 1 hora)
 
-### Cuándo evitar un TTL más corto {#when-to-avoid-shorter-ttl}
+### Cuándo evitar un TTL or tiempo de vida más corto {#when-to-avoid-shorter-ttl}
 
 - Si el mensaje de tu Campaign sigue siendo relevante durante varios días o semanas, como recordatorios de renovación de suscripción o promociones en curso.
 - Cuando maximizar el alcance es más importante que la urgencia, como con anuncios de actualización de la aplicación o promociones de características.
@@ -127,7 +127,7 @@ Las notificaciones push de Android ofrecen la opción de especificar si tu notif
 | Correo electrónico | Mensaje masivo asíncrono (correo electrónico). |
 | Error | Error en una operación en segundo plano o estado de autenticación. |
 | Evento | Evento de calendario. |
-| Mensaje | Mensaje directo entrante (SMS, mensaje instantáneo, etc.). |
+| Mensaje | Mensaje directo entrante (servicio de mensajes cortos, mensaje instantáneo, etc.). |
 | Progreso | Progreso de una operación en segundo plano de larga duración. |
 | Promoción | Promoción o anuncio. |
 | Recomendación | Una recomendación específica y oportuna para un solo elemento. |

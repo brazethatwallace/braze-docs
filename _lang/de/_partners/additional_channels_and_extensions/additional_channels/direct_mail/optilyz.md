@@ -23,7 +23,7 @@ Nutzen Sie die Webhook-Integration von optilyz und Braze, um Ihren Kund:innen Di
 | Anforderung | Beschreibung |
 |---|---|
 | optilyz-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein optilyz-Konto. |
-| optilyz-API-Schlüssel<br><br>`<OPTILYZ_API_KEY>` | Ihr optilyz-Customer-Success-Manager stellt Ihnen Ihren optilyz-API-Schlüssel zur Verfügung.<br><br>Dieser API-Schlüssel ermöglicht es Ihnen, Ihre Braze- und optilyz-Konten zu verbinden. |
+| optilyz-API-Schlüssel<br><br>`<OPTILYZ_API_KEY>` | Ihr optilyz-CSM or Customer-Success-Manager or Customer-Success-Manager:in stellt Ihnen Ihren optilyz-API-Schlüssel zur Verfügung.<br><br>Dieser API-Schlüssel ermöglicht es Ihnen, Ihre Braze- und optilyz-Konten zu verbinden. |
 | optilyz-Automatisierungs-ID<br><br>`<OPTILYZ_AUTOMATION_ID>` | Die Automatisierungs-ID finden Sie in einem Feld in der Kopfzeile der Seite.<br><br>Wenn Sie bei optilyz angemeldet sind, können Sie zu der Automatisierung navigieren, an die Sie Daten senden möchten.<br>Die Automatisierung muss zuerst aktiviert werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -40,12 +40,12 @@ Für die Integration mit optilyz verwenden Sie die [optilyz-API](https://www.opt
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Um ein optilyz-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
+Um ein optilyz-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvase verwenden können, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige optilyz-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 
 Füllen Sie in Ihrem neuen Webhook-Template die folgenden Felder aus:
-- **Webhook-URL**: Die Webhook-URL ist für jede Kund:in eindeutig und wird Ihnen von Ihrem optilyz-Customer-Success-Manager zur Verfügung gestellt.
+- **Webhook-URL**: Die Webhook-URL ist für jede Kund:in eindeutig und wird Ihnen von Ihrem optilyz-CSM or Customer-Success-Manager or Customer-Success-Manager:in zur Verfügung gestellt.
 - **Anfragetext**: Rohtext
 
 #### Anfrage-Header und Methode {#request-headers-and-method}

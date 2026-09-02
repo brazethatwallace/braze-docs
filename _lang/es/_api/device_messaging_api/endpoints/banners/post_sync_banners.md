@@ -28,10 +28,10 @@ Esta página está en fase beta. Las características y la documentación de la 
 Para usar este endpoint, necesitas lo siguiente:
 
 - Un espacio de trabajo con Banners habilitados
-- Una [clave de API REST del lado del cliente]({{site.baseurl}}/api/device_messaging_api/authentication) con el permiso `banners.sync`
-- El [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze
+- Una [clave de API REST or transferencia de estado representacional del lado del cliente]({{site.baseurl}}/api/device_messaging_api/authentication) con el permiso `banners.sync`
+- El [endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze
 
-Incluye la clave de API REST del lado del cliente en el encabezado `Authorization` como un token bearer.
+Incluye la clave de API REST or transferencia de estado representacional del lado del cliente en el encabezado `Authorization` como un token bearer.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -73,7 +73,7 @@ Si omites `device_id`, envías un valor vacío o envías un identificador que no
 
 ## Ejemplo de solicitud {#example-request}
 
-Sustituye *`YOUR_REST_API_URL`* por el [endpoint REST]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze.
+Sustituye *`YOUR_REST_API_URL`* por el [endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints) de tu instancia de Braze.
 
 ```bash
 curl --location --request POST '{YOUR_REST_API_URL}/v1/device-messaging/banners/sync' \
@@ -141,7 +141,7 @@ Una solicitud exitosa devuelve un código de estado `200` y el Banner resuelto p
 |---|---|
 | `200` | Braze resolvió los datos del Banner para cada ubicación solicitada. |
 | `400` | La solicitud contiene parámetros faltantes o no válidos. |
-| `401` | La clave de API REST del lado del cliente falta, no es válida o no tiene el permiso `banners.sync`. |
+| `401` | La clave de API REST or transferencia de estado representacional del lado del cliente falta, no es válida o no tiene el permiso `banners.sync`. |
 | `404` | El endpoint no está disponible. Esta respuesta no distingue entre una clave de API faltante o no válida y una característica de Banners deshabilitada. |
 | `429` | El espacio de trabajo superó su límite de velocidad. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Códigos de estado" }

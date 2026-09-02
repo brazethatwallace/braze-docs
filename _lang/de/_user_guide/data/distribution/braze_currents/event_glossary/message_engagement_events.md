@@ -21,7 +21,7 @@ Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Wareho
 Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Für SQL-Tabellenschemata und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, lesen Sie unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
+Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, lesen Sie unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
 {% enddetails %}
 
@@ -729,19 +729,19 @@ Dieses Ereignis tritt ein, wenn Braze eine Anfrage zur Aktualisierung des global
 
 | Quelle | Beschreibung |
 | --- | --- |
-| SDK | SDK-Endpunkte |
-| Dashboard | Wenn der Abo-Status einer Nutzer:in auf der Seite **Nutzerprofil** im Dashboard aktualisiert wird |
+| SDK or Software-Development-Kit | SDK or Software-Development-Kit-Endpunkte |
+| Dashboard | Wenn der Abo-Status einer Nutzer:in auf der Seite **Kundenprofil or Nutzerprofil** im Dashboard aktualisiert wird |
 | Abo-Seite | Wenn sich eine Nutzer:in über einen E-Mail-Link abmeldet, der nicht das Präferenzzentrum ist |
-| REST API | REST API-Endpunkte |
+| Representational State Transfer API | Representational State Transfer API-Endpunkte |
 | CSV-Import | CSV-Nutzerimport |
 | Präferenzzentrum | Wenn eine Nutzer:in über das Präferenzzentrum aktualisiert wird |
-| Eingehende Nachricht | Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. SMS aktualisiert wird |
+| Eingehende Nachricht | Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. Kurzmitteilungsdienst or SMS aktualisiert wird |
 | Migration | Wenn eine Nutzer:in durch interne Migrationen oder Wartungsskripte aktualisiert wird |
 | Nutzer:innen zusammenführen | Wenn eine Nutzer:in durch den Prozess der Nutzerzusammenführung aktualisiert wird |
 | Canvas-Schritt „Nutzeraktualisierung“ | Wenn eine Nutzer:in durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert wird |
-| Push-Token-Registrierung | Wenn eine Nutzer:in durch den Token-Registrierungsprozess aktualisiert wird |
+| Push-Token / Textbaustein-Registrierung | Wenn eine Nutzer:in durch den Token / Textbaustein-Registrierungsprozess aktualisiert wird |
 | List-Unsubscribe | Wenn sich eine Nutzer:in über Braze-Mailto oder den Ein-Klick-List-Unsubscribe-Header abmeldet |
-| Sonstiges | Umfasst alle anderen Quellen, wie z. B. Demo- oder Anbieter-Synchronisierungsaufträge oder SMS- und WhatsApp-Ereignis-Callbacks |
+| Sonstiges | Umfasst alle anderen Quellen, wie z. B. Demo- oder Anbieter-Synchronisierungsaufträge oder Kurzmitteilungsdienst or SMS- und WhatsApp-Ereignis-Callbacks |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eigenschaftsdetails" }
 
 
@@ -757,7 +757,7 @@ Subscription
 Dieses Ereignis tritt ein, wenn sich der Abo-Status einer Nutzer:in in einer Abo-Gruppe ändert.
 
 {% alert important %}
-Abo-Gruppen sind derzeit nur für E-Mail-, SMS-, RCS- und WhatsApp-Kanäle verfügbar.
+Abo-Gruppen sind derzeit nur für E-Mail-, Kurzmitteilungsdienst or SMS-, RCS- und WhatsApp-Kanäle verfügbar.
 {% endalert %}
 
 {% tabs %}
@@ -1020,16 +1020,16 @@ Abo-Gruppen sind derzeit nur für E-Mail-, SMS-, RCS- und WhatsApp-Kanäle verf�
 <tr><th>Quelle</th><th>Beschreibung</th></tr>
 </thead>
 <tbody>
-<tr><td>SDK</td><td>SDK-Endpunkte</td></tr>
-<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzer:in auf der Seite „Nutzerprofil“ im Dashboard aktualisiert wird</td></tr>
+<tr><td>SDK or Software-Development-Kit</td><td>SDK or Software-Development-Kit-Endpunkte</td></tr>
+<tr><td>Dashboard</td><td>Wenn der Abo-Status einer Nutzer:in auf der Seite „Kundenprofil or Nutzerprofil“ im Dashboard aktualisiert wird</td></tr>
 <tr><td>Subscription Page</td><td>Wenn sich eine Nutzer:in über einen E-Mail-Link abmeldet, der nicht das Präferenzzentrum ist</td></tr>
-<tr><td>REST API</td><td>REST-API-Endpunkte</td></tr>
+<tr><td>Representational State Transfer API</td><td>Representational State Transfer-API-Endpunkte</td></tr>
 <tr><td>CSV import</td><td>CSV-Nutzerimport</td></tr>
 <tr><td>Preference Center</td><td>Wenn eine Nutzer:in über das Präferenzzentrum aktualisiert wird</td></tr>
-<tr><td>Inbound Message</td><td>Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. SMS aktualisiert wird</td></tr>
+<tr><td>Inbound Message</td><td>Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. Kurzmitteilungsdienst or SMS aktualisiert wird</td></tr>
 <tr><td>Migration</td><td>Wenn eine Nutzer:in durch interne Migrationen oder Wartungsskripte aktualisiert wird</td></tr>
 <tr><td>User Merge</td><td>Wenn eine Nutzer:in durch den Prozess der Nutzerzusammenführung aktualisiert wird</td></tr>
-<tr><td>Canvas User Update Step</td><td>Wenn eine Nutzer:in durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert wird</td></tr>
+<tr><td>Canvas User Update or aktualisieren Step</td><td>Wenn eine Nutzer:in durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert wird</td></tr>
 </tbody>
 </table>
 
@@ -4771,7 +4771,7 @@ Dieses Ereignis tritt ein, wenn Nutzer:innen auf eine Content Card klicken.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -5048,7 +5048,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Content Card 
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -5325,7 +5325,7 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Content Card 
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android-Google-Advertising-ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -8748,7 +8748,7 @@ In-App Messages, Abort
 Dieses Ereignis tritt ein, wenn eine ursprünglich geplante In-App-Nachricht abgebrochen wurde.
 
 {% alert note %}
-[Abbruchereignisse]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) werden nur für [vorlagenbasierte In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) protokolliert. Standard-In-App-Nachrichten protokollieren keine Abbruchereignisse, da die Liquid-Auswertung vor der Trigger-Aktion stattfindet. Weitere Details zum Abbruchverhalten von In-App-Nachrichten finden Sie unter [FAQ zu In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
+[Abbruchereignisse]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) werden nur für [vorlagenbasierte In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) protokolliert. Standard-In-App-Nachrichten protokollieren keine Abbruchereignisse, da die Liquid-Auswertung vor der Trigger or triggern-Aktion stattfindet. Weitere Details zum Abbruchverhalten von In-App-Nachrichten finden Sie unter [FAQ zu In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#how-does-abort-behavior-work-for-in-app-messages).
 {% endalert %}
 
 {% tabs %}
@@ -9307,7 +9307,7 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -9594,7 +9594,7 @@ Bei In-App-Nachrichten gibt `dispatch_id` den Wert `null` zurück.
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Erfahren Sie mehr über diese Einrichtung für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zur Aufnahme von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 
 {% endapi %}
 
@@ -12114,7 +12114,7 @@ Dieses Ereignis tritt ein, wenn ein Fehler vom Apple Push Notification Service o
 
 ### Eigenschaftsdetails
 
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um den Feature-Flipper zum Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12126,7 +12126,7 @@ Dieses Ereignis tritt ein, wenn ein Fehler vom Apple Push Notification Service o
 Push, iOS, Opens
 {% endapitags %}
 
-Dieses Ereignis wird von unserem [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist mit unserem [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk) veraltet.
+Dieses Ereignis wird von unserem [Swift SDK or Software-Development-Kit](https://github.com/braze-inc/braze-swift-sdk) nicht unterstützt und ist mit unserem [Obj-C SDK or Software-Development-Kit](https://github.com/Appboy/appboy-ios-sdk) veraltet.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -12325,7 +12325,7 @@ Dieses Ereignis wird von unserem [Swift SDK](https://github.com/braze-inc/braze-
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -12341,7 +12341,7 @@ Dieses Ereignis tritt ein, wenn Nutzer:innen direkt auf die Push-Benachrichtigun
 
 {% alert note %}
 In seltenen Fällen kann eine Push-Öffnung vor dem entsprechenden Push-Sendeereignis in den Currents-Daten erscheinen. Dies kann folgende Ursachen haben:
-- Ihr SDK hat eine fehlerhafte Uhrzeit.
+- Ihr SDK or Software-Development-Kit hat eine fehlerhafte Uhrzeit.
 - Hohe Latenz beim Batch-Schreiben. Die aufgezeichnete Sendezeit kann hinter frühen Zustellungen zurückbleiben, sodass sehr schnelle Öffnungen möglicherweise protokolliert werden, bevor der endgültige Sendezeitstempel des Batches geschrieben wird. Große Sendungen werden in Batches versendet und erfasst.
 {% endalert %}
 
@@ -12603,7 +12603,7 @@ In seltenen Fällen kann eine Push-Öffnung vor dem entsprechenden Push-Sendeere
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
 {% endapi %}
@@ -13121,7 +13121,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Push-Nachricht für Nutzer:innen vera
 ### Eigenschaftsdetails
 
 - Für `ad_id`, `ad_id_type` und `ad_tracking_enabled` müssen Sie die iOS-IDFA und die Android Google Advertising ID explizit über die nativen SDKs erfassen. Mehr über diese Einrichtung erfahren Sie für [iOS]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift) und [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_google-advertising-id).
-- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren Customer-Success-Manager, um das Senden von `ad_id` zu aktivieren.
+- Wenn Sie Kafka zum Importieren von [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Daten verwenden, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um das Senden von `ad_id` zu aktivieren.
 - Mit `message_extras` können Sie Ihre Sende-Ereignisse mit dynamischen Daten aus Connected-Content, angepassten Attributen (z. B. Sprache, Land) und Canvas-Entry-Eigenschaften versehen. Weitere Informationen finden Sie unter [Nachrichten-Extras]({{site.baseurl}}/message_extras_tag).
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
 
@@ -14800,13 +14800,13 @@ Dieses Ereignis wird erstellt, wenn eine RCS-Nachricht von Braze an die Last-Mil
 {% endapi %}
 
 {% api %}
-## SMS-Abbruchereignisse {#sms-abort-events}
+## Kurzmitteilungsdienst or SMS-Abbruchereignisse {#sms-abort-events}
 
 {% apitags %}
-Abort, SMS
+Abort, Kurzmitteilungsdienst or SMS
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine SMS-Nachricht aufgrund von Liquid-Abbrüchen o. Ä. abgebrochen wurde.
+Dieses Ereignis tritt ein, wenn eine Kurzmitteilungsdienst or SMS-Nachricht aufgrund von Liquid-Abbrüchen o. Ä. abgebrochen wurde.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15020,13 +15020,13 @@ Dieses Ereignis tritt ein, wenn eine SMS-Nachricht aufgrund von Liquid-Abbrüche
 {% endapi %}
 
 {% api %}
-## SMS-Carrier-Send-Ereignisse {#sms-carrier-send-events}
+## Kurzmitteilungsdienst or SMS-Carrier-Send-Ereignisse {#sms-carrier-send-events}
 
 {% apitags %}
-SMS, Sends
+Kurzmitteilungsdienst or SMS, Sends
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine SMS an den Netzbetreiber gesendet wird.
+Dieses Ereignis tritt ein, wenn eine Kurzmitteilungsdienst or SMS an den Netzbetreiber gesendet wird.
 
 {% alert important %}
 `CarrierSend` wird nur für Nutzer:innen auf Legacy-Infrastruktur unterstützt.
@@ -15263,13 +15263,13 @@ Dieses Ereignis tritt ein, wenn eine SMS an den Netzbetreiber gesendet wird.
 {% endapi %}
 
 {% api %}
-## SMS-Zustellungsereignisse {#sms-delivery-events}
+## Kurzmitteilungsdienst or SMS-Zustellungsereignisse {#sms-delivery-events}
 
 {% apitags %}
-SMS, Delivery
+Kurzmitteilungsdienst or SMS, Delivery
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine SMS erfolgreich an das Mobiltelefon der Nutzer:innen zugestellt wurde.
+Dieses Ereignis tritt ein, wenn eine Kurzmitteilungsdienst or SMS erfolgreich an das Mobiltelefon der Nutzer:innen zugestellt wurde.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15508,13 +15508,13 @@ Dieses Ereignis tritt ein, wenn eine SMS erfolgreich an das Mobiltelefon der Nut
 {% endapi %}
 
 {% api %}
-## Ereignisse bei fehlgeschlagener SMS-Zustellung {#sms-delivery-failure-events}
+## Ereignisse bei fehlgeschlagener Kurzmitteilungsdienst or SMS-Zustellung {#sms-delivery-failure-events}
 
 {% apitags %}
-SMS, Delivery, Failure
+Kurzmitteilungsdienst or SMS, Delivery, Failure
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn bei einer SMS die Zustellung fehlschlägt. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
+Dieses Ereignis tritt ein, wenn bei einer Kurzmitteilungsdienst or SMS die Zustellung fehlschlägt. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der Kurzmitteilungsdienst or SMS-Zustellung zu beheben.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -15759,17 +15759,17 @@ Dieses Ereignis tritt ein, wenn bei einer SMS die Zustellung fehlschlägt. Verwe
 {% endapi %}
 
 {% api %}
-## Eingehende SMS-Empfangsereignisse {#sms-inbound-received-events}
+## Eingehende Kurzmitteilungsdienst or SMS-Empfangsereignisse {#sms-inbound-received-events}
 
 {% apitags %}
-SMS, Inbound Received
+Kurzmitteilungsdienst or SMS, Inbound Received
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Ihrer Nutzer:innen eine SMS an eine Telefonnummer in einer Ihrer Braze-SMS-Abo-Gruppen sendet.
+Dieses Ereignis tritt ein, wenn eine Ihrer Nutzer:innen eine Kurzmitteilungsdienst or SMS an eine Telefonnummer in einer Ihrer Braze-Kurzmitteilungsdienst or SMS-Abo-Gruppen sendet.
 
-Wenn Braze eine eingehende SMS empfängt, wird diese eingehende Nachricht allen Nutzer:innen zugeordnet, die diese Telefonnummer teilen. Daher erhalten Sie möglicherweise mehrere Ereignisse pro eingehender Nachricht, wenn mehrere Nutzer:innen in Ihrer Braze-Instanz dieselbe Telefonnummer haben. Wenn Sie eine Attribution bestimmter Nutzer-IDs auf der Grundlage früherer Nachrichten an diese Nutzer:innen benötigen, können Sie das SMS-Zustellungsereignis verwenden, um eingehende Empfangsereignisse der Nutzer-ID zuzuordnen, die zuletzt eine Nachricht von Ihrer Braze-Nummer erhalten hat.
+Wenn Braze eine eingehende Kurzmitteilungsdienst or SMS empfängt, wird diese eingehende Nachricht allen Nutzer:innen zugeordnet, die diese Telefonnummer teilen. Daher erhalten Sie möglicherweise mehrere Ereignisse pro eingehender Nachricht, wenn mehrere Nutzer:innen in Ihrer Braze-Instanz dieselbe Telefonnummer haben. Wenn Sie eine Attribution bestimmter Nutzer-IDs auf der Grundlage früherer Nachrichten an diese Nutzer:innen benötigen, können Sie das Kurzmitteilungsdienst or SMS-Zustellungsereignis verwenden, um eingehende Empfangsereignisse der Nutzer-ID zuzuordnen, die zuletzt eine Nachricht von Ihrer Braze-Nummer erhalten hat.
 
-Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgehende Campaign oder Canvas-Komponente ist, die über Braze gesendet wurde, werden dem Ereignis auch die Metadaten der Campaign oder des Canvas beigefügt. Braze definiert eine Antwort als eine eingehende Nachricht, die innerhalb von vier Stunden nach einer ausgehenden Nachricht eingeht. Allerdings gibt es einen einminütigen Cache für die zugeordneten Campaign-Informationen der zuletzt gesendeten ausgehenden SMS.
+Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgehende Campaign oder Canvas-Komponente ist, die über Braze gesendet wurde, werden dem Ereignis auch die Metadaten der Campaign oder des Canvas beigefügt. Braze definiert eine Antwort als eine eingehende Nachricht, die innerhalb von vier Stunden nach einer ausgehenden Nachricht eingeht. Allerdings gibt es einen einminütigen Cache für die zugeordneten Campaign-Informationen der zuletzt gesendeten ausgehenden Kurzmitteilungsdienst or SMS.
 
 
 {% tabs %}
@@ -15995,16 +15995,16 @@ Wenn Braze erkennt, dass diese eingehende Nachricht eine Antwort auf eine ausgeh
 {% endapi %}
 
 {% api %}
-## SMS-Ablehnungsereignisse {#sms-rejection-events}
+## Kurzmitteilungsdienst or SMS-Ablehnungsereignisse {#sms-rejection-events}
 
 {% apitags %}
-SMS, Rejection
+Kurzmitteilungsdienst or SMS, Rejection
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn ein SMS-Versand vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der SMS-Zustellung zu beheben.
+Dieses Ereignis tritt ein, wenn ein Kurzmitteilungsdienst or SMS-Versand vom Netzbetreiber abgelehnt wird. Dies kann aus verschiedenen Gründen geschehen. Verwenden Sie dieses Ereignis und die bereitgestellten Fehlercodes, um Probleme mit der Kurzmitteilungsdienst or SMS-Zustellung zu beheben.
 
 {% alert note %}
-Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake Data Sharing und zugehörige Exporte aus, wenn das Braze-Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
+Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake Data Sharing und zugehörige Exporte aus, wenn das Braze-Kundenprofil or Nutzerprofil zum Zeitpunkt der Verarbeitung des Ereignisses für die Protokollierung noch im Workspace vorhanden ist. Wurde dieses Profil zuvor gelöscht, wird dieses Ereignis nicht in Ihrem Data Warehouse oder Currents-Export angezeigt. Dieselbe Verarbeitungsregel gilt für andere ausgehende `users.messages.sms.*`-Ereignisse, die Braze über dieselbe Pipeline protokolliert (z. B. Zustellung, Zustellungsfehler und Gesendet-an-Netzbetreiber). Kurzmitteilungsdienst or SMS-Metriken auf Workspace-Ebene können weiterhin aggregierte Zählungen enthalten, die nicht eins zu eins den Zeilen in Snowflake entsprechen.
 {% endalert %}
 
 {% tabs %}
@@ -16256,10 +16256,10 @@ Braze gibt `users.messages.sms.Rejection` nur dann an Currents, Snowflake Data S
 {% endapi %}
 
 {% api %}
-## SMS-Wiederholungsereignisse {#sms-retry-events}
+## Kurzmitteilungsdienst or SMS-Wiederholungsereignisse {#sms-retry-events}
 
 {% apitags %}
-SMS, Retry
+Kurzmitteilungsdienst or SMS, Retry
 {% endapitags %}
 
 Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency-Capping begrenzt wird und später innerhalb des konfigurierten Wiederholungsfensters erneut versucht wird. Diese Funktion steht nur Kund:innen der Beta-Version von Message Prioritization zur Verfügung.
@@ -16469,13 +16469,13 @@ Dieses Ereignis tritt ein, wenn eine Nachricht herabgestuft oder durch Frequency
 {% endapi %}
 
 {% api %}
-## SMS-Versandereignisse {#sms-send-events}
+## Kurzmitteilungsdienst or SMS-Versandereignisse {#sms-send-events}
 
 {% apitags %}
-SMS, Sends
+Kurzmitteilungsdienst or SMS, Sends
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine SMS sendet.
+Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine Kurzmitteilungsdienst or SMS sendet.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -16734,13 +16734,13 @@ Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer eine SMS sendet.
 {% endapi %}
 
 {% api %}
-## SMS-Kurzlink-Klick-Ereignisse {#sms-short-link-click-events}
+## Kurzmitteilungsdienst or SMS-Kurzlink-Klick-Ereignisse {#sms-short-link-click-events}
 
 {% apitags %}
-SMS, Clicks
+Kurzmitteilungsdienst or SMS, Clicks
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer auf einen SMS-Kurzlink klickt.
+Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer auf einen Kurzmitteilungsdienst or SMS-Kurzlink klickt.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -18601,7 +18601,7 @@ Dieses Ereignis tritt ein, wenn eine WhatsApp-Nachricht aufgrund von Liquid-Abbr
 WhatsApp, Clicks
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn Nutzer:innen in einer WhatsApp-Nachricht auf einen Link oder Button klicken, dessen Domain mit der Click-Tracking-Domain übereinstimmt.
+Dieses Ereignis tritt ein, wenn Nutzer:innen in einer WhatsApp-Nachricht auf einen Link oder Button klicken, dessen Domain mit der Klick, der or klicken-Tracking-Domain übereinstimmt.
 
 {% tabs %}
 {% tab Cloud Storage %}

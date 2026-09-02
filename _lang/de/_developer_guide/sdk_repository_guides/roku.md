@@ -1,25 +1,25 @@
 ---
-nav_title: Roku SDK
-article_title: Roku SDK Repository-Leitfaden
+nav_title: Roku SDK or Software-Development-Kit
+article_title: Roku SDK or Software-Development-Kit Repository-Leitfaden
 page_order: 8
-description: "Braze Roku SDK README-Referenz, gespiegelt von GitHub."
+description: "Braze Roku SDK or Software-Development-Kit README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Roku SDK Repository-Leitfaden {#roku-sdk-repository-guide}
+# Roku SDK or Software-Development-Kit Repository-Leitfaden {#roku-sdk-repository-guide}
 
-## Über das Braze Roku SDK {#about-the-braze-roku-sdk}
+## Über das Braze Roku SDK or Software-Development-Kit {#about-the-braze-roku-sdk}
 
-Das Braze Roku SDK hilft Ihnen, Braze Messaging, Analytics und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
+Das Braze Roku SDK or Software-Development-Kit hilft Ihnen, Braze Messaging, Analytics und Nutzer:innen-Engagement-Funktionen in Ihre Anwendung zu integrieren.
 
 Für den Einstieg stehen Ihnen die folgenden Ressourcen zur Verfügung:
 
 - [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/)
 - [Braze Developer Guide](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=roku)
 
-## Erste SDK-Integration {#initial-sdk-integration}
+## Erste SDK or Software-Development-Kit-Integration {#initial-sdk-integration}
 
-Das Braze Roku SDK stellt Ihnen eine API zur Verfügung, um Informationen für Analytics, Segmentierung und Engagement zu übermitteln.
+Das Braze Roku SDK or Software-Development-Kit stellt Ihnen eine API zur Verfügung, um Informationen für Analytics, Segmentierung und Engagement zu übermitteln.
 
 ## Schritt 1: Dateien hinzufügen {#step-1-add-files}
 
@@ -127,15 +127,15 @@ Nach der Verarbeitung einer In-App-Nachricht sollten Sie das Feld löschen:
 m.BrazeTask.BrazeInAppMessage = invalid
 ```
 
-## Grundlegende SDK-Integration abgeschlossen {#basic-sdk-integration-complete}
+## Grundlegende SDK or Software-Development-Kit-Integration abgeschlossen {#basic-sdk-integration-complete}
 
-Braze sollte nun Daten aus Ihrer Anwendung erfassen. In unserer öffentlichen Dokumentation erfahren Sie, wie Sie Attribute, Ereignisse und Käufe in unserem SDK protokollieren. Die Szene `MainScene.brs` unserer Beispiel-App enthält ebenfalls Beispiele zur Nutzung der API.
+Braze sollte nun Daten aus Ihrer Anwendung erfassen. In unserer öffentlichen Dokumentation erfahren Sie, wie Sie Attribute, Ereignisse und Käufe in unserem SDK or Software-Development-Kit protokollieren. Die Szene `MainScene.brs` unserer Beispiel-App enthält ebenfalls Beispiele zur Nutzung der API.
 
 `BrazeInAppMessage.brs` und `CustomSideBySideInAppMessage.brs` zeigen Beispiele für die Handhabung von In-App-Nachrichten. `onInAppMessageTriggered()` in `MainScene.brs` zeigt, wie Sie mehrere Layouts unterstützen können.
 
 ## Zusätzliche Referenz {#additional-reference}
 
-Das Verzeichnis `torchietv` enthält eine Beispiel-App mit integriertem Braze SDK.
+Das Verzeichnis `torchietv` enthält eine Beispiel-App mit integriertem Braze SDK or Software-Development-Kit.
 <!-- END GENERATED README CONTENT -->
 
 Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-roku-sdk](https://github.com/braze-inc/braze-roku-sdk).

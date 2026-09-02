@@ -13,13 +13,13 @@ description: "Crie Segments usando atributos personalizados aninhados: o filtro 
 
 Digamos que você faz parte de uma equipe de marketing de um app de streaming de música e quer enviar mensagens com base nos atributos personalizados aninhados de um usuário, como objetos de conta com saldos e tipos. Esses casos de uso demonstram diversas formas de usar atributos personalizados aninhados em Segments e ensinam como:
 
-- Configurar um filtro de Segment com atributo personalizado aninhado, validar caminhos e escolher comparadores que correspondam ao tipo de dados de cada propriedade.
+- Configurar um filtro de Segment or segmento com atributo personalizado aninhado, validar caminhos e escolher comparadores que correspondam ao tipo de dados de cada propriedade.
 - Saber quando usar os operadores **Day of Year** versus **Time** para valores de data aninhados, e como a **Segmentação multicritério** identifica usuários quando pelo menos um objeto em um vetor atende a todos os critérios listados.
-- Gerar um esquema para um objeto ou vetor de objeto, explorá-lo no dashboard e finalizar um Segment (por exemplo, usuários com saldo abaixo de 100) usando o seletor de caminho em vez de digitar caminhos de memória.
+- Gerar um esquema para um objeto ou vetor de objeto, explorá-lo no dashboard e finalizar um Segment or segmento (por exemplo, usuários com saldo abaixo de 100) usando o seletor de caminho em vez de digitar caminhos de memória.
 
 ## Filtrar por atributos personalizados aninhados {#filter-by-nested-custom-attributes}
 
-Vamos criar um Segment com base em um atributo personalizado aninhado para direcionar os usuários que tocaram sua música mais ouvida mais de 300 vezes.
+Vamos criar um Segment or segmento com base em um atributo personalizado aninhado para direcionar os usuários que tocaram sua música mais ouvida mais de 300 vezes.
 
 ### Etapa 1: Adicionar o filtro {#step-1-add-the-filter}
 
@@ -44,20 +44,20 @@ Ao filtrar um atributo personalizado aninhado de hora, você pode escolher filtr
 Se você selecionar um operador na categoria **Dia do Ano**, apenas o mês e o dia serão verificados na comparação, em vez do timestamp completo do valor do atributo personalizado aninhado. Selecionar um operador na categoria **Hora** compara o timestamp completo, incluindo o ano.
 
 {% alert note %}
-Ao usar operadores de **Hora** que suportam unidades de dia e semana (como **é mais que**, **é menos que**, **exatamente** e **depois**), a Braze converte automaticamente o valor para semanas quando você salva o Segment. Por exemplo, 91 dias são convertidos em 13 semanas. Tanto unidades de dia quanto de semana são suportadas para esses filtros.
+Ao usar operadores de **Hora** que suportam unidades de dia e semana (como **é mais que**, **é menos que**, **exatamente** e **depois**), a Braze converte automaticamente o valor para semanas quando você salva o Segment or segmento. Por exemplo, 91 dias são convertidos em 13 semanas. Tanto unidades de dia quanto de semana são suportadas para esses filtros.
 {% endalert %}
 
 ## Usar segmentação multicritério {#use-multi-criteria-segmentation}
 
-Use a **Segmentação Multicritério** para criar um Segment que corresponda a vários critérios dentro de um único objeto. Isso qualifica o usuário no Segment se ele tiver pelo menos um objeto no vetor que corresponda a todos os critérios especificados. Por exemplo, os usuários só correspondem a esse Segment se a chave deles não estiver em branco e se o número deles for maior que 0.
+Use a **Segmentação Multicritério** para criar um Segment or segmento que corresponda a vários critérios dentro de um único objeto. Isso qualifica o usuário no Segment or segmento se ele tiver pelo menos um objeto no vetor que corresponda a todos os critérios especificados. Por exemplo, os usuários só correspondem a esse Segment or segmento se a chave deles não estiver em branco e se o número deles for maior que 0.
 
-### Copiar Liquid para o Segment {#copy-liquid-for-segment}
+### Copiar Liquid para o Segment or segmento {#copy-liquid-for-segment}
 
-Você também pode usar o recurso **Copiar Liquid para o Segment** para gerar código Liquid para esse Segment e usá-lo em uma mensagem. Por exemplo, digamos que você tenha um vetor de objetos de conta e um Segment que segmenta clientes com contas tributáveis ativas. Para fazer com que os clientes contribuam para a meta da conta associada a uma de suas contas ativas e tributáveis, você vai querer criar uma mensagem para incentivá-los.
+Você também pode usar o recurso **Copiar Liquid para o Segment or segmento** para gerar código Liquid para esse Segment or segmento e usá-lo em uma mensagem. Por exemplo, digamos que você tenha um vetor de objetos de conta e um Segment or segmento que segmenta clientes com contas tributáveis ativas. Para fazer com que os clientes contribuam para a meta da conta associada a uma de suas contas ativas e tributáveis, você vai querer criar uma mensagem para incentivá-los.
 
-![Um exemplo de Segment com a caixa de seleção marcada para Segmentação Multicritério.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
+![Um exemplo de Segment or segmento com a caixa de seleção marcada para Segmentação Multicritério.]({% image_buster /assets/img_archive/nca_multi_criteria.png %})
 
-Quando você seleciona **Copiar Liquid para o Segment**, a Braze gera automaticamente código Liquid que retorna um vetor de objeto que contém apenas contas ativas e tributáveis.
+Quando você seleciona **Copiar Liquid para o Segment or segmento**, a Braze gera automaticamente código Liquid que retorna um vetor de objeto que contém apenas contas ativas e tributáveis.
 
 {% raw %}
 
@@ -83,7 +83,7 @@ Isso retorna a seguinte mensagem para o seu cliente: "Get to your retirement goa
 
 ## Gerar um esquema usando o explorador de objetos aninhados {#generate-schema}
 
-Você pode gerar um esquema para seus objetos para criar filtros de Segment sem precisar memorizar os caminhos de objetos aninhados.
+Você pode gerar um esquema para seus objetos para criar filtros de Segment or segmento sem precisar memorizar os caminhos de objetos aninhados.
 
 ### Etapa 1: Gerar um esquema {#step-1-generate-a-schema}
 
@@ -122,13 +122,13 @@ Para nosso vetor de objeto `accounts`, você pode ver que dentro do vetor de obj
 
 ![Esquema para o vetor de objeto accounts com três valores aninhados: active, balance e type.]({% image_buster /assets/img_archive/nca_schema.png %}){: style="max-width:70%" }
 
-Agora que analisamos e criamos uma representação dos dados, vamos criar um Segment.
+Agora que analisamos e criamos uma representação dos dados, vamos criar um Segment or segmento.
 
-### Etapa 2: Criar um Segment {#step-2-build-a-segment}
+### Etapa 2: Criar um Segment or segmento {#step-2-build-a-segment}
 
 Vamos segmentar clientes que têm um saldo inferior a 100 para enviar uma mensagem incentivando-os a fazer um depósito.
 
-Crie um Segment e adicione o filtro `Nested Custom Attribute`, depois pesquise e selecione seu objeto ou vetor de objeto. Aqui adicionamos o vetor de objeto `accounts`.
+Crie um Segment or segmento e adicione o filtro `Nested Custom Attribute`, depois pesquise e selecione seu objeto ou vetor de objeto. Aqui adicionamos o vetor de objeto `accounts`.
 
 ![Filtragem de atributo personalizado aninhado para o vetor de objeto accounts.]({% image_buster /assets/img_archive/nca_segment_schema.png %})
 
@@ -140,4 +140,4 @@ Selecione **less than** como comparador e insira "100" como valor do saldo.
 
 ![Um filtro para usuários com saldo de conta inferior a 100.]({% image_buster /assets/img_archive/nca_segment_schema_3.png %})
 
-Pronto! Você acabou de criar um Segment usando um atributo personalizado aninhado, tudo sem precisar saber como os dados estão estruturados. O explorador de objetos aninhados da Braze gerou uma representação visual dos seus dados e permitiu que você explorasse e selecionasse exatamente o que precisava para criar um Segment.
+Pronto! Você acabou de criar um Segment or segmento usando um atributo personalizado aninhado, tudo sem precisar saber como os dados estão estruturados. O explorador de objetos aninhados da Braze gerou uma representação visual dos seus dados e permitiu que você explorasse e selecionasse exatamente o que precisava para criar um Segment or segmento.

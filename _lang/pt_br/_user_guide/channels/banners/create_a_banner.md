@@ -126,7 +126,7 @@ Para a referência completa do ponte JavaScript, consulte [Código personalizado
 #### Etapa 3.3: Configurar o comportamento de dispensa (opcional) {#dismiss-behavior}
 
 {% alert important %}
-As dispensas de Banner exigem as seguintes versões mínimas do SDK. Versões mais antigas do SDK não renderizam Banners com a dispensa ativada.
+As dispensas de Banner exigem as seguintes versões mínimas do SDK or kit de desenvolvimento de software. Versões mais antigas do SDK or kit de desenvolvimento de software não renderizam Banners com a dispensa ativada.
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 reactnative:22.0.0 flutter:20.0.0 %}
 {% endalert %}
 
@@ -164,7 +164,7 @@ Para a referência completa do ponte JavaScript, consulte [Código personalizado
 
 #### Etapa 3.4: Adicionar propriedades personalizadas (opcional) {#custom-properties}
 
-Você pode adicionar propriedades personalizadas a um Banner para anexar metadados estruturados, como strings ou objetos JSON. Essas propriedades não afetam como o Banner é exibido, mas podem ser [acessadas por meio do SDK da Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
+Você pode adicionar propriedades personalizadas a um Banner para anexar metadados estruturados, como strings ou objetos JSON. Essas propriedades não afetam como o Banner é exibido, mas podem ser [acessadas por meio do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
 
 {% multi_lang_include banners/metadata_use_cases.md %}
 
@@ -177,7 +177,7 @@ Para cada propriedade que deseja adicionar, preencha o seguinte:
 | Campo | Descrição | Exemplo |
 |-------|-------------|---------|
 | Tipo de propriedade | O tipo de dado da propriedade. Os tipos suportados incluem string, booleano, número, timestamp, URL de imagem e objeto JSON. | String |
-| Chave da propriedade | O identificador exclusivo da propriedade. Essa chave é usada no SDK para acessar a propriedade. | `color` |
+| Chave da propriedade | O identificador exclusivo da propriedade. Essa chave é usada no SDK or kit de desenvolvimento de software para acessar a propriedade. | `color` |
 | Valor | O valor atribuído à propriedade. Deve corresponder ao tipo de propriedade selecionado. | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 3.4: Adicionar propriedades personalizadas (opcional)" }
 
@@ -226,7 +226,7 @@ A contagem regressiva começa quando o usuário dispensa o Banner. Após a janel
 
 #### Escolher seu público {#choose-your-audience}
 
-1. Em **Públicos-alvo**, escolha segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do segmento. A associação exata ao segmento é calculada antes do envio da mensagem.
+1. Em **Públicos-alvo**, escolha segmentos ou filtros para refinar seu público. Você recebe automaticamente uma prévia da população aproximada do Segment or segmento or segmento. A associação exata ao Segment or segmento or segmento é calculada antes do envio da mensagem.
 
 {% multi_lang_include audience/target_audiences.md %}
 

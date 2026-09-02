@@ -20,7 +20,7 @@ iOS 15에는 사용자가 하루 종일 집중하고 자주 방해받지 않도�
 
 ## 연락처 카드 {#contact-cards}
 
-연락처 카드는 주소록이나 연락처 목록으로 쉽게 가져올 수 있는 비즈니스 및 연락처 정보를 전송하기 위한 표준화된 파일 형식입니다. 이제 SMS 및 MMS 메시지에 사용할 연락처 카드를 업로드하고 생성할 수 있습니다. 내장된 연락처 카드 생성기에서 연락처 카드를 만드는 방법에 대해 자세히 알아보려면 [설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
+연락처 카드는 주소록이나 연락처 목록으로 쉽게 가져올 수 있는 비즈니스 및 연락처 정보를 전송하기 위한 표준화된 파일 형식입니다. 이제 단문 메시지 서비스 및 MMS 메시지에 사용할 연락처 카드를 업로드하고 생성할 수 있습니다. 내장된 연락처 카드 생성기에서 연락처 카드를 만드는 방법에 대해 자세히 알아보려면 [설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card)를 참조하세요.
 
 ## 기본 Content Cards 커스터마이즈 {#default-content-cards-customization}
 
@@ -36,4 +36,4 @@ Android 및 FireOS 개발자 가이드가 하나의 위치로 통합되었습니
 
 ## 퍼널 및 유지 보고서 업데이트 {#updates-to-funnel-and-retention-reports}
 
-[퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) 및 [유지 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)를 이제 SMS Campaign에서도 사용할 수 있습니다.
+[퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) 및 [유지 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)를 이제 단문 메시지 서비스 Campaign에서도 사용할 수 있습니다.

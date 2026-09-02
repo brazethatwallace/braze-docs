@@ -32,7 +32,7 @@ Recomendamos criar sua conta do WhatsApp Business (WABA) pelo fluxo de cadastro 
 Sim, você ainda precisa criar uma conta do WhatsApp Business. Recomendamos [vincular sua WABA à sua conta Meta Business principal]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 #### Como acesso minha conta do WhatsApp Business? {#how-do-i-access-my-whatsapp-business-account}
-Após concluir o fluxo de cadastro integrado, você pode acessar sua conta em business.facebook.com navegando até a [seção do WhatsApp](https://business.facebook.com/wa/manage/home).
+Após concluir o fluxo de cadastro integrado, você pode acessar sua conta em business.Facebook.com navegando até a [seção do WhatsApp](https://business.facebook.com/wa/manage/home).
 
 #### Posso conectar várias WABAs à Braze? {#can-i-connect-multiple-wabas-to-braze}
 Sim, você pode adicionar até 10 contas do WhatsApp Business por espaço de trabalho, e cada conta pode estar vinculada a um Meta Business Manager diferente.
@@ -138,7 +138,7 @@ Os fatores que afetam a classificação de qualidade do número de telefone incl
 Quando a classificação de qualidade está baixa, o status do número de telefone muda de **Conectado** para **Sinalizado**. Se a qualidade não melhorar em sete dias, o status retorna para **Conectado**. No entanto, o limite de envio diminuirá para o próximo nível. Por exemplo, um número de telefone que tinha um limite de 100.000 agora tem um limite de 10.000.
 
 #### Qual é o limite de throughput da Meta? {#what-is-the-meta-throughput-limit}
-A Meta tem seu próprio limite de throughput, separado do limite de envio da WABA. O limite padrão que a API Cloud suporta é de 80 mensagens por segundo. Se você acha que suas Campaigns excederão esse limite, pode [solicitar](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) que seu limite seja aumentado. A Meta recomenda que você envie essa solicitação com pelo menos três dias de antecedência dos envios de Campaigns.
+A Meta tem seu próprio limite de throughput, separado do limite de envio da WABA. O limite padrão que a API or interface de programação do aplicativo (API) Cloud suporta é de 80 MPS or mensagens por segundo or mensagens por segundo. Se você acha que suas Campaigns excederão esse limite, pode [solicitar](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/#throughput) que seu limite seja aumentado. A Meta recomenda que você envie essa solicitação com pelo menos três dias de antecedência dos envios de Campaigns.
 
 ### Modelos e criador do WhatsApp {#whatsapp-templates-and-composer}
 
@@ -230,8 +230,8 @@ Para fluxos de Canvas em que os usuários tocam em respostas rápidas após a ja
 #### O que acontece se um usuário responder ou tocar em uma resposta rápida após o fechamento da janela de 24 horas? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
 Uma nova janela de atendimento ao cliente de 24 horas é aberta. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
-#### Preciso configurar meu Action Path do Canvas para 31 dias para respostas rápidas do WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
-Não. A duração padrão do Action Path é suficiente. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+#### Preciso configurar meu Action jornada do Canvas para 31 dias para respostas rápidas do WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+Não. A duração padrão do Action jornada é suficiente. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
 
 #### Posso ver quantos créditos do WhatsApp uma Campaign ou Canvas específico consumiu? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
 Não no dashboard da Braze atualmente. As análises de Campaigns e Canvas mostram envios, entregas e falhas, mas não o consumo de créditos por mensagem. As contagens de envio não correspondem diretamente ao uso de créditos porque a categoria do modelo e o tipo de mensagem afetam o faturamento de forma diferente. Para detalhes de faturamento, consulte [Mensagens de resposta do WhatsApp são gratuitas?](#are-whatsapp-response-messages-free).

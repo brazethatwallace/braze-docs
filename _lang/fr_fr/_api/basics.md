@@ -64,7 +64,7 @@ Pour plus d'informations, consultez les articles suivants en fonction de votre p
 
 ## À propos des clés API REST {#about-rest-api-keys}
 
-Une clé API REST (clé d'interface de programmation d'applications REST) est un code unique que vous transmettez à une API pour authentifier l'appel API et identifier l'application ou l'utilisateur appelant. Vous accédez à l'API en utilisant des requêtes web HTTPS vers l'endpoint REST API de votre entreprise. Les clés API REST fonctionnent en tandem avec les clés d'identifiant d'application pour suivre, accéder, envoyer, exporter et analyser les données afin de s'assurer que tout fonctionne correctement.
+Une clé API REST (clé d'API or interface de programmation d'applications REST) est un code unique que vous transmettez à une API pour authentifier l'appel API et identifier l'application ou l'utilisateur appelant. Vous accédez à l'API en utilisant des requêtes web HTTPS vers l'endpoint REST API de votre entreprise. Les clés API REST fonctionnent en tandem avec les clés d'identifiant d'application pour suivre, accéder, envoyer, exporter et analyser les données afin de s'assurer que tout fonctionne correctement.
 
 Les espaces de travail et les clés API vont de pair chez Braze. Les espaces de travail sont conçus pour héberger les versions d'une même application sur plusieurs plateformes. De nombreux clients utilisent également les espaces de travail pour contenir les versions gratuites et premium de leurs applications sur la même plateforme. Comme vous pouvez le constater, ces espaces de travail utilisent également la REST API et disposent de leurs propres clés API REST. Ces clés peuvent être individuellement limitées pour inclure l'accès à des endpoints spécifiques de l'API. Chaque appel à l'API doit inclure une clé ayant accès à l'endpoint ciblé.
 
@@ -135,7 +135,7 @@ Les permissions de clé API sont des permissions que vous pouvez attribuer à un
 | `messages.schedule.update` | [`/messages/schedule/update`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages) | Mettre à jour un message planifié. |
 | `messages.schedule.delete` | [`/messages/schedule/delete`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages) | Supprimer un message planifié. |
 | `messages.schedule_broadcasts` | [`/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) | Interroger tous les messages de diffusion planifiés. |
-| `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) | Mettre à jour une activité en direct iOS. |
+| `messages.live_activity.update` | [`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update) | Mettre à jour une activité en direct or en ligne/en production/instantané iOS. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissions des clés API REST" }
 
 {% endtab %}
@@ -232,7 +232,7 @@ Les permissions de clé API sont des permissions que vous pouvez attribuer à un
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permissions des clés API REST" }
 
 {% endtab %}
-{% tab SSO %}
+{% tab authentification unique %}
 
 | Permission | Description |
 | --- | --- |

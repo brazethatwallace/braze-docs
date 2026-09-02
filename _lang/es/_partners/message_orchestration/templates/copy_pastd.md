@@ -26,10 +26,10 @@ Los siguientes son necesarios para usar esta integración:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Copy Pastd | Obligatoria para usar Building Blocks. Regístrate en [copypastd.com](https://copypastd.com). Cada cliente obtiene un espacio de trabajo, una biblioteca de hojas de estilo, cinco puestos de creador y una biblioteca de bloques. |
-| Clave de API REST de Braze para plantillas de correo electrónico | Una clave de API con permisos `templates.email.create`, `templates.email.update` y `templates.email.list`.<br><br>Crea la clave en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Clave de API REST de Braze para Content Blocks | Una clave de API con permisos `content_blocks.create`, `content_blocks.update`, `content_blocks.info` y `content_blocks.list`.<br><br>Crea la clave en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Clave de API REST de Braze para catálogos (opcional) | Una clave de API con acceso de lectura a `catalogs.get`, `catalogs.get_item` y `catalogs.get_selections`. Solo es obligatoria si planeas vincular bloques a los catálogos de Braze. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. Building Blocks selecciona el endpoint automáticamente en función del clúster que elijas. |
+| Clave de API REST or transferencia de estado representacional de Braze para plantillas de correo electrónico | Una clave de API con permisos `templates.email.create`, `templates.email.update` y `templates.email.list`.<br><br>Crea la clave en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST or transferencia de estado representacional de Braze para Content Blocks | Una clave de API con permisos `content_blocks.create`, `content_blocks.update`, `content_blocks.info` y `content_blocks.list`.<br><br>Crea la clave en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST or transferencia de estado representacional de Braze para catálogos (opcional) | Una clave de API con acceso de lectura a `catalogs.get`, `catalogs.get_item` y `catalogs.get_selections`. Solo es obligatoria si planeas vincular bloques a los catálogos de Braze. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. Building Blocks selecciona el endpoint automáticamente en función del clúster que elijas. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
@@ -51,7 +51,7 @@ Conectar Building Blocks a Braze es una configuración única. Una vez que tus c
 
 1. Inicia sesión en Building Blocks en [blocks.copypastd.com](https://blocks.copypastd.com), o selecciona **Login** en [copypastd.com](https://copypastd.com).
 2. Desde el panel, selecciona **Set up your Braze connection**. (Esta opción aparece para los administradores en el primer inicio de sesión y hasta que se complete. También puedes acceder a la página desde **Team Settings** > **Connect** > **Braze API Keys**.)
-3. Selecciona tu clúster de Braze en el menú desplegable. El endpoint REST correspondiente se completa automáticamente.
+3. Selecciona tu clúster de Braze en el menú desplegable. El endpoint REST or transferencia de estado representacional correspondiente se completa automáticamente.
 4. Pega tu clave de API de plantillas, tu clave de API de Content Blocks y (opcionalmente) tu clave de API de catálogos en los campos correspondientes.
 5. Selecciona **Validate and save**. Building Blocks llama a Braze para confirmar que las claves funcionan y que los alcances de permisos son correctos. Si falta algo, un error en línea te muestra qué alcance es incorrecto.
 
@@ -154,7 +154,7 @@ Encuentra tus plantillas de Building Blocks cargadas en Braze en **Plantillas y 
 ## Solución de problemas {#troubleshooting}
 
 - **La validación de la clave de API falla.** Comprueba que cada clave tenga los permisos exactos indicados en los requisitos previos. Los alcances de plantillas y Content Blocks se verifican por separado. Si regeneras una clave en Braze, pega el nuevo valor en Building Blocks y vuelve a validar.
-- **El endpoint REST no coincide.** Las claves de plantillas y Content Blocks deben provenir del mismo espacio de trabajo de Braze, y el endpoint REST debe coincidir con el clúster. El menú desplegable de Building Blocks lo configura automáticamente, así que verifica la selección de clúster si la validación falla.
+- **El endpoint REST or transferencia de estado representacional no coincide.** Las claves de plantillas y Content Blocks deben provenir del mismo espacio de trabajo de Braze, y el endpoint REST or transferencia de estado representacional debe coincidir con el clúster. El menú desplegable de Building Blocks lo configura automáticamente, así que verifica la selección de clúster si la validación falla.
 - **Push to Braze devuelve un error.** Abre **Settings** > **Build** > **Activity log** para ver el último intento de sincronización y la respuesta que devolvió Braze. La mayoría de los fallos están relacionados con permisos (alcance faltante) o con cuotas (límite de velocidad, reintentado automáticamente).
 - **El bloque de contenido no se actualiza en Braze.** Activa una resincronización manual desde **Settings** > **Connect** > **Braze** > **Sync library**. Building Blocks realiza una comparación e intercambio, por lo que los bloques sin cambios se omiten.
 - **La plantilla hace referencia a un bloque de contenido que aún no existe en Braze.** Envía primero las dependencias (hoja de estilos, bloques inteligentes) usando **Sync library** y luego envía la plantilla.

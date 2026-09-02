@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel behandelt den Umgang von BrazeAI Operator m
 
 # Datenschutz und Sicherheit für BrazeAI Operator {#data-privacy-and-security-for-brazeai-operator}
 
-> BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, um KI-gestützte Unterstützung bereitzustellen. Dieser Artikel behandelt den Umgang von Operator mit Daten, welche Informationen mit OpenAI geteilt werden und wie Sie die PII-Exposition minimieren und den Zugriff kontrollieren können.
+> BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, um KI or künstliche Intelligenz-gestützte Unterstützung bereitzustellen. Dieser Artikel behandelt den Umgang von Operator mit Daten, welche Informationen mit OpenAI geteilt werden und wie Sie die PII-Exposition minimieren und den Zugriff kontrollieren können.
 
 ## Wie Operator auf Daten zugreift {#how-operator-accesses-data}
 
@@ -30,11 +30,11 @@ Jede an OpenAI gesendete Anfragenutzlast kann Folgendes enthalten:
 
 ### Modellanbieter als Unterauftragsverarbeiter oder Drittanbieter {#model-providers-as-sub-processors-or-third-party-providers}
 
-Wenn Sie eine Integration mit einem LLM-Anbieter nutzen, der von Braze über die Braze-Dienste bereitgestellt wird („von Braze bereitgestelltes LLM“), agieren die Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert.
+Wenn Sie eine Integration mit einem LLM-Anbieter nutzen, der von Braze über die Braze-Dienste bereitgestellt wird („von Braze bereitgestelltes LLM“), agieren die Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (Datenschutzbeauftragte:r) zwischen Ihnen und Braze. BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert.
 
 ### Wie Daten mit OpenAI verwendet werden {#how-data-is-used-with-openai}
 
-Um KI-Ausgaben über BrazeAI-Features zu generieren, die OpenAI nutzen („Ausgabe“), sendet Braze bestimmte Informationen („Eingabe“) an OpenAI. Die Eingabe besteht aus Ihren Prompts, den im Dashboard angezeigten Inhalten und Workspace-Daten, die für Ihre Abfragen relevant sind. Gemäß den [API-Plattform-Verpflichtungen von OpenAI](https://openai.com/enterprise-privacy/) werden Daten, die über Braze an die API von OpenAI gesendet werden, nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Zwischen Ihnen und Braze ist die Ausgabe Ihr geistiges Eigentum. Braze wird keine Urheberrechtsansprüche auf solche Ausgaben geltend machen. Braze gibt keinerlei Garantie in Bezug auf KI-generierte Inhalte, einschließlich der Ausgabe.
+Um KI or künstliche Intelligenz-Ausgaben über BrazeAI-Features zu generieren, die OpenAI nutzen („Ausgabe“), sendet Braze bestimmte Informationen („Eingabe“) an OpenAI. Die Eingabe besteht aus Ihren Prompts, den im Dashboard angezeigten Inhalten und Workspace-Daten, die für Ihre Abfragen relevant sind. Gemäß den [API-Plattform-Verpflichtungen von OpenAI](https://openai.com/enterprise-privacy/) werden Daten, die über Braze an die API von OpenAI gesendet werden, nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Zwischen Ihnen und Braze ist die Ausgabe Ihr geistiges Eigentum. Braze wird keine Urheberrechtsansprüche auf solche Ausgaben geltend machen. Braze gibt keinerlei Garantie in Bezug auf KI or künstliche Intelligenz-generierte Inhalte, einschließlich der Ausgabe.
 
 ## HIPAA-Konformität und Datenaufbewahrung {#hipaa-compliance-and-data-retention}
 
@@ -58,7 +58,7 @@ Wie lange OpenAI die über Operator gesendeten Daten aufbewahrt, hängt von Ihre
 
 ### Modelltraining {#model-training}
 
-Daten, die über Braze an die API von OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Dies wird durch vertragliche Vereinbarungen zwischen Braze und OpenAI sowie die API-Plattform-Verpflichtungen von OpenAI geregelt. OpenAI agiert als Braze-Unterauftragsverarbeiter, und alle personenbezogenen Daten unterliegen dem DPA zwischen Braze und seinen Kund:innen.
+Daten, die über Braze an die API von OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Dies wird durch vertragliche Vereinbarungen zwischen Braze und OpenAI sowie die API-Plattform-Verpflichtungen von OpenAI geregelt. OpenAI agiert als Braze-Unterauftragsverarbeiter, und alle personenbezogenen Daten unterliegen dem Datenschutzbeauftragte:r zwischen Braze und seinen Kund:innen.
 
 ### EU-Datenrouting {#eu-data-routing}
 
@@ -70,7 +70,7 @@ Es gibt mehrere Schritte, die Sie unternehmen können, um die PII-Exposition bei
 
 - **Deaktivieren Sie die Einstellung „PII anzeigen“** für alle Nutzer:innen, die Operator verwenden. Wenn Nutzer:innen PII nicht einsehen können, kann Operator ebenfalls nicht darauf zugreifen.
 - **Öffnen Sie Operator nicht auf einer Nutzerprofilseite.** Seiteninhalte werden gescrapt und in jede an OpenAI gesendete Anfrage einbezogen.
-- **Verwenden Sie beim Testen ein angepasstes Nutzerprofil**, anstatt ein bestehendes auszuwählen. Dies ist das Standardverhalten von Operator.
+- **Verwenden Sie beim Testen ein angepasstes Kundenprofil or Nutzerprofil**, anstatt ein bestehendes auszuwählen. Dies ist das Standardverhalten von Operator.
 - **Geben Sie keine PII direkt in den Operator-Prompt ein** und fügen Sie dort auch keine PII ein. Operator blockiert keine PII, die in Nutzer-Prompts enthalten sind. Wenn Nutzer:innen PII manuell in eine Anfrage eingeben, werden diese Inhalte an das zugrunde liegende Sprachmodell gesendet.
 - **Deaktivieren Sie die automatische Genehmigung für Aktionen**, um die Kontrolle darüber zu behalten, worauf Operator zugreifen und was Operator ausführen kann.
 - **Bitten Sie Operator nicht, Vorschauwerte für Attribute anzuzeigen**, wenn Sie ein Segment erstellen oder Liquid schreiben.
@@ -93,7 +93,7 @@ Operator übernimmt vollständig das Berechtigungsprofil der angemeldeten Nutzer
 
 ### Berechtigung „PII anzeigen“ {#view-pii-permission}
 
-Operator benötigt die Berechtigung „PII anzeigen“ nicht, um zu funktionieren, und das ist beabsichtigt. Operator hat keinen direkten Zugriff auf Ihren Datenspeicher und führt keine eigenständigen Datenbankabfragen durch. Stattdessen sendet Operator Anfragen an dieselben Backend-Endpunkte wie der Rest des Dashboards und verwendet dabei die Sitzungszugangsdaten der authentifizierten Nutzer:in. Das bedeutet, dass Operator vollständig durch die bestehenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) der Nutzer:in begrenzt ist und auf nichts zugreifen kann, was die Nutzer:in nicht bereits sehen kann.
+Operator benötigt die Berechtigung „PII anzeigen“ nicht, um zu funktionieren, und das ist beabsichtigt. Operator hat keinen direkten Zugriff auf Ihren Datenspeicher und führt keine eigenständigen Datenbankabfragen durch. Stattdessen sendet Operator Anfragen an dieselben Backend-Endpunkte wie der Representational State Transfer des Dashboards und verwendet dabei die Sitzungszugangsdaten der authentifizierten Nutzer:in. Das bedeutet, dass Operator vollständig durch die bestehenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) der Nutzer:in begrenzt ist und auf nichts zugreifen kann, was die Nutzer:in nicht bereits sehen kann.
 
 PII kann Operator nur auf zwei Wegen erreichen:
 

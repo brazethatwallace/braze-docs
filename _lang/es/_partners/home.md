@@ -110,7 +110,7 @@ Braze Alloys es el programa de partners tecnológicos de Braze. Los partners amp
 ## E
 
 - [Eagle Eye]({{site.baseurl}}/partners/data_and_analytics/loyalty/eagleeye)
-- [eduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
+- [EduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
 - [Email Love]({{site.baseurl}}/partners/message_orchestration/templates/email_love)
 - [EmailShepherd]({{site.baseurl}}/partners/message_orchestration/templates/emailshepherd)
 - [Eppo]({{site.baseurl}}/partners/data_and_analytics/ab_testing/eppo)
@@ -347,7 +347,7 @@ Braze Alloys es el programa de partners tecnológicos de Braze. Los partners amp
 - [Talon.One]({{site.baseurl}}/partners/data_and_analytics/loyalty/talonone)
 - [Tangerine]({{site.baseurl}}/partners/ecommerce/analytics_workflow/tangerine)
 - [Tapcart]({{site.baseurl}}/partners/ecommerce/tapcart)
-- [Taxi for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
+- [Taxi for Email for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
 - [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium)
 - [Tellius]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/tellius)
 - [The Trade Desk Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync)

@@ -139,7 +139,7 @@ El método ARN del rol de AWS genera un nombre de recurso de Amazon (ARN) del ro
 ![La página "Security Event Download" con los campos de cuenta de Braze e ID externo de Braze completados.]({% image_buster /assets/img/security_export/security_event_download2.png %})
 
 4. En la consola de AWS, ve a la sección **IAM** (gestión de identidades y accesos) > **Roles** > **Create Role**.
-5. Selecciona **Another AWS Account** como tipo de selector de entidad de confianza.
+5. Selecciona **Another AWS Account** como tipo de SELECTOR de entidad de confianza.
 6. Proporciona tu ID de cuenta de Braze, marca la casilla **Require external ID** y luego ingresa tu ID externo de Braze.
 7. Selecciona **Next** cuando hayas terminado.
 

@@ -57,7 +57,7 @@ Braze 계정을 NiftyImages에 연결하여 연락처 속성을 동기화하고 
 
 1. Braze에서 **설정** > **API 키**로 이동합니다.
 2. NiftyImages 통합을 위한 REST API 키를 생성하거나 선택합니다.
-3. **Custom Attributes**에서 `custom_attributes.get`을 선택합니다.
+3. **커스텀 속성**에서 `custom_attributes.get`을 선택합니다.
 4. **Content Blocks**에서 `content_blocks.create`를 선택합니다.
 5. API 키를 저장한 다음, REST API 키와 [REST 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 복사합니다.
 

@@ -32,7 +32,7 @@ Canvas-Schritte können Nutzer:innen nur vorwärts im Flow bewegen. Sie können 
 
 Begeistern Sie Ihre Nutzer:innen mit reichhaltigeren Nachrichten.
 
-- Erstellen Sie [In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) für Onboarding-Canvases, um den ersten Eindruck optimal zu nutzen.
+- Erstellen Sie [In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) für Onboarding-Canvase, um den ersten Eindruck optimal zu nutzen.
 - Integrieren Sie [Content Cards]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/content-cards_in_canvas) in eine Canvas-Journey für Aktionen und Push-Benachrichtigungen.
 
 ## Testen Sie Ihre Journeys {#test-your-user-journeys}
@@ -45,10 +45,10 @@ Ermitteln Sie die Wirkung Ihres Canvas-Messagings, indem Sie Kontrollgruppen ein
 - Überprüfen Sie die [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), um die Performance jeder Komponente in Ihrer Journey zu sehen.
 - [Bearbeiten Sie Ihr Canvas]({{site.baseurl}}/post-launch_edits) nach dem ersten Start.
 
-## Zeitplanung Ihrer Canvases {#scheduling-your-canvases}
+## Zeitplanung Ihrer Canvase {#scheduling-your-canvases}
 
 {% alert note %}
-Canvas verhindert, dass Sie einen geplanten Versand mit einer bereits vergangenen Uhrzeit verwenden. Es ist jedoch möglich, ein Canvas in genau derselben Minute zu starten, in der die Campaign geplant ist (oder in den Sekunden davor). Dies kann dazu führen, dass das Canvas den geplanten Eintrittszeitpunkt verpasst und Nutzer:innen nicht in das Canvas eintreten. Wir empfehlen, Canvases sofort zu senden, falls Campaigns innerhalb von Minuten vor dem geplanten Versandzeitpunkt bearbeitet werden.
+Canvas verhindert, dass Sie einen geplanten Versand mit einer bereits vergangenen Uhrzeit verwenden. Es ist jedoch möglich, ein Canvas in genau derselben Minute zu starten, in der die Campaign geplant ist (oder in den Sekunden davor). Dies kann dazu führen, dass das Canvas den geplanten Eintrittszeitpunkt verpasst und Nutzer:innen nicht in das Canvas eintreten. Wir empfehlen, Canvase sofort zu senden, falls Campaigns innerhalb von Minuten vor dem geplanten Versandzeitpunkt bearbeitet werden.
 {% endalert %}
 
 {% alert important %}
@@ -59,7 +59,7 @@ Beachten Sie bei Canvas-Schritten die folgenden Details bei der Zeitplanung Ihre
 
 - Änderungen am Zeitplan gelten nur für Nutzer:innen, die nicht bereits darauf warten, den Schritt zu erhalten.
 - Änderungen an der Zielgruppe gelten standardmäßig für alle Nutzer:innen, es sei denn, Sie planen Änderungen so, dass sie nur für Nutzer:innen gelten, die nicht darauf warten, den Schritt zu erhalten.
-- Wenn Sie ein Canvas bearbeiten, das so geplant ist, dass es sofort nach der Bereitstellung versendet wird, und **Update** auswählen, wird es im Wesentlichen sofort gesendet.
+- Wenn Sie ein Canvas bearbeiten, das so geplant ist, dass es sofort nach der Bereitstellung versendet wird, und **Update or aktualisieren** auswählen, wird es im Wesentlichen sofort gesendet.
 
 ### Bearbeitungen nach dem Start {#post-launch-edits}
 
@@ -74,4 +74,4 @@ Braze wertet Zielgruppen an verschiedenen Stellen im Canvas-Builder und in einze
 - [Zustellungseinstellungen bearbeiten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) für Message-Schritte
 - [Wie Nutzer:innen ausgewertet werden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths#how-users-are-evaluated) für Zielgruppenpfade-Schritte
 
-Wenn Sie ein aktives Canvas kurz vor einem geplanten Eintritts- oder Versandfenster bearbeiten, übernehmen Nutzer:innen, die bereits für einen **Message**-Schritt in der Warteschlange stehen, Ihre Änderungen möglicherweise nicht. Weitere Informationen finden Sie unter [Canvases nach dem Start bearbeiten]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch).
+Wenn Sie ein aktives Canvas kurz vor einem geplanten Eintritts- oder Versandfenster bearbeiten, übernehmen Nutzer:innen, die bereits für einen **Message**-Schritt in der Warteschlange stehen, Ihre Änderungen möglicherweise nicht. Weitere Informationen finden Sie unter [Canvase nach dem Start bearbeiten]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch).

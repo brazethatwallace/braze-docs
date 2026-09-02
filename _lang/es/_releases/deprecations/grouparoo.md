@@ -3,7 +3,7 @@ nav_title: Grouparoo
 page_order: 1
 page_type: update
 noindex: true
-description: "Este artículo describe la asociación entre Braze y Grouparoo, una herramienta ETL inversa de código abierto utilizada para potenciar las herramientas de marketing, ventas y soporte con datos de tu almacén de datos."
+description: "Este artículo describe la asociación entre Braze y Grouparoo, una herramienta ETL or extraer, transformar, cargar inversa de código abierto utilizada para potenciar las herramientas de marketing, ventas y soporte con datos de tu almacén de datos."
 
 ---
 
@@ -13,7 +13,7 @@ description: "Este artículo describe la asociación entre Braze y Grouparoo, un
 La compatibilidad con Grouparoo se interrumpió a partir de abril de 2022.
 {% endalert %}
 
-> [Grouparoo](https://www.grouparoo.com/) es una herramienta ETL inversa de código abierto que sincroniza los datos de tu almacén con las herramientas de marketing, ventas y soporte. Su interfaz de usuario centrada en el modelo permite a los miembros no técnicos del equipo configurar y programar sincronizaciones de datos.
+> [Grouparoo](https://www.grouparoo.com/) es una herramienta ETL or extraer, transformar, cargar inversa de código abierto que sincroniza los datos de tu almacén con las herramientas de marketing, ventas y soporte. Su interfaz de usuario centrada en el modelo permite a los miembros no técnicos del equipo configurar y programar sincronizaciones de datos.
 
 La integración de Braze y Grouparoo sincroniza los datos del almacén con Braze. Las programaciones de sincronización automática mantienen las comunicaciones con los clientes al día con información actualizada.
 
@@ -22,15 +22,15 @@ La integración de Braze y Grouparoo sincroniza los datos del almacén con Braze
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta y proyecto Grouparoo | Para beneficiarte de esta asociación es necesario disponer de una cuenta y un proyecto de Grouparoo.<br><br>Esta integración se puede utilizar con la edición comunitaria gratuita y las soluciones empresariales proporcionadas por Grouparoo. La configuración tendrá lugar en la interfaz de usuario de configuración de Grouparoo. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de usuarios y seguimiento. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST](https://www.grouparoo.com/). Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de usuarios y seguimiento. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional](https://www.grouparoo.com/). Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Crear una aplicación Braze en Grouparoo {#step-1-create-a-braze-app-in-grouparoo}
 
-En Grouparoo, ve a **Apps** y selecciona **Braze** para crear una nueva aplicación Braze. En el modal que aparece, proporciona tu clave de API de Braze y el punto de conexión REST.
+En Grouparoo, ve a **Apps** y selecciona **Braze** para crear una nueva aplicación Braze. En el modal que aparece, proporciona tu clave de API de Braze y el punto de conexión REST or transferencia de estado representacional.
 
 ![El modal Crear aplicación Braze en Grouparoo, con campos para la clave de API de Braze y el punto de conexión REST.]({% image_buster /assets/img/grouparoo/add-app.png %})
 

@@ -895,7 +895,7 @@ Braze에서 사용자가 어떤 기능 플래그에 대해 자격이 있는지 �
 
 ## 체인지로그 보기 {#viewing-the-changelog}
 
-기능 플래그의 체인지로그를 보려면 기능 플래그를 열고 **Changelog**를 선택합니다.
+기능 플래그의 체인지로그를 보려면 기능 플래그를 열고 **체인지로그**를 선택합니다.
 
 ![기능 플래그의 "편집" 페이지에서 "Changelog" 버튼이 강조 표시된 모습.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 

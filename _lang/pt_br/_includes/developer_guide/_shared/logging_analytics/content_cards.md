@@ -136,7 +136,7 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
 {% alert note %}
-A leitura de `contentCards.cards`, `contentCards.unviewedCards` ou `contentCards.lastUpdate` bloqueia a thread de chamada até que o SDK conclua suas operações pós-inicialização. Use os getters não bloqueantes em [Acessores de snapshot não bloqueantes](#non-blocking-snapshot-accessors) para contextos na thread principal ou sensíveis à latência.
+A leitura de `contentCards.cards`, `contentCards.unviewedCards` ou `contentCards.lastUpdate` bloqueia a thread de chamada até que o SDK or kit de desenvolvimento de software conclua suas operações pós-inicialização. Use os getters não bloqueantes em [Acessores de snapshot não bloqueantes](#non-blocking-snapshot-accessors) para contextos na thread principal ou sensíveis à latência.
 {% endalert %}
 
 Além disso, você também pode manter uma inscrição para observar alterações nos seus Content Cards. Isso pode ser feito de duas maneiras:
@@ -220,7 +220,7 @@ Para ler o estado em cache atual sem bloquear a thread de chamada, use os métod
 {% endsubtabs %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 Para ouvir atualizações, inscreva-se nos eventos de atualização de Content Cards:
 
@@ -280,7 +280,7 @@ braze.logContentCardClick(card);
 {% endtab %}
 {% tab android %}
 
-O [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) pode referenciar dependências do SDK da Braze, como a lista de objetos de Content Cards, para obter o [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e chamar os métodos de registro da Braze. Use a classe base `ContentCardable` para referenciar e fornecer dados ao `BrazeManager` facilmente.
+O [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) pode referenciar dependências do SDK or kit de desenvolvimento de software da Braze, como a lista de objetos de Content Cards, para obter o [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e chamar os métodos de registro da Braze. Use a classe base `ContentCardable` para referenciar e fornecer dados ao `BrazeManager` facilmente.
 
 Para registrar uma impressão ou clique em um cartão, chame [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) ou [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html), respectivamente.
 
@@ -377,7 +377,7 @@ Para lidar com Content Cards de variante de controle na sua interface personaliz
 {% endalert %}
 {% endtab %}
 
-{% tab react native %}
+{% tab React Native %}
 
 Registre eventos de impressão quando os cartões são visualizados pelos usuários:
 

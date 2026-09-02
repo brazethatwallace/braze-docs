@@ -38,7 +38,7 @@ Assurez-vous que votre mot déclencheur correspond à ce que vous attendez de la
 
 ## Réponses non reconnues {#unrecognized-responses}
 
-Nous vous recommandons d'inclure une option pour les réponses non reconnues dans les Canvas interactifs. Cela aide les utilisateurs à comprendre quelles sont les invites disponibles et définit les attentes pour le canal. La gestion des attentes peut être particulièrement utile si vous disposez de canaux WhatsApp avec un chat d'agent en direct.
+Nous vous recommandons d'inclure une option pour les réponses non reconnues dans les Canvas interactifs. Cela aide les utilisateurs à comprendre quelles sont les invites disponibles et définit les attentes pour le canal. La gestion des attentes peut être particulièrement utile si vous disposez de canaux WhatsApp avec un chat d'agent en direct or en ligne/en production/instantané.
 - Dans l'étape d'action, après avoir créé les groupes d'actions pour les phrases de filtre personnalisées, ajoutez un groupe d'actions supplémentaire pour « Envoyer un message WhatsApp », mais **ne cochez pas Où le corps du message**. Cela interceptera toutes les réponses non reconnues des utilisateurs, de manière similaire à une clause « else ».
 - Nous recommandons de faire suivre avec un message WhatsApp informant l'utilisateur que ce canal n'est pas surveillé par un agent et le dirigeant vers un canal d'assistance si nécessaire.
 

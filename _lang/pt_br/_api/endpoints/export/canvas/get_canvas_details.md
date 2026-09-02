@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Exportar detalhes do Canvas\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Exportar detalhes do Canvas {#export-canvas-details}
 {% apimethod get %}
 /canvas/details
@@ -20,7 +20,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Exportar
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.details`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.details`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -30,9 +30,9 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obrigatório | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types) |
+| `canvas_id` | Obrigatório | String | Consulte [Identificador de API or interface de programação do aplicativo (API) do Canvas]({{site.baseurl}}/api/identifier_types) |
 | `post_launch_draft_version` | Opcional | Booleano | Para Canvas que têm um rascunho pós-lançamento, definir isso como `true` mostrará quaisquer alterações de rascunho disponíveis. O padrão é `false`. |
-| `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API inclui um campo `has_translatable_content` para cada mensagem. O padrão é `false`. |
+| `include_has_translatable_content` | Opcional | Booleano | Quando definido como `true`, a resposta da API or interface de programação do aplicativo (API) inclui um campo `has_translatable_content` para cada mensagem. O padrão é `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -220,7 +220,7 @@ A seguir, um exemplo de resposta que inclui mensagens do Canvas enviadas por dif
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

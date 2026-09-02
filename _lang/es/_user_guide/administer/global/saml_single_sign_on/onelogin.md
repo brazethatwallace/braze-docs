@@ -9,7 +9,7 @@ description: "Este artículo te mostrará cómo configurar Braze para utilizar O
 
 # OneLogin
 
-> [OneLogin](https://www.onelogin.com/) es una plataforma de identidad en la nube que proporciona una solución integral para gestionar las identidades de los usuarios. OneLogin se integra con aplicaciones en la nube y locales mediante SAML 2.0, para el inicio de sesión único (SSO), el aprovisionamiento de usuarios, la autenticación multifactor, etc.
+> [OneLogin](https://www.onelogin.com/) es una plataforma de identidad en la nube que proporciona una solución integral para gestionar las identidades de los usuarios. OneLogin se integra con aplicaciones en la nube y locales mediante SAML 2.0, para el inicio de sesión único (inicio de sesión único), el aprovisionamiento de usuarios, la autenticación multifactor, etc.
 
 ## Requisitos {#requirements}
 
@@ -38,7 +38,7 @@ Durante la configuración, se te pedirá que proporciones una URL de inicio de s
 
 Una vez que hayas configurado Braze dentro de tu OneLogin, te proporcionarán una URL de destino (`SAML 2.0 Endpoint (HTTP)`) y un certificado `x.509` para introducir en tu cuenta de Braze.
 
-Después de que tu director de cuentas haya habilitado SAML SSO para tu cuenta, ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** y activa la sección de SAML SSO a **ON**.
+Después de que tu director de cuentas haya habilitado SAML inicio de sesión único para tu cuenta, ve a **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad** y activa la sección de SAML inicio de sesión único a **ON**.
 
 En esta página, introduce lo siguiente:
 
@@ -49,18 +49,18 @@ En esta página, introduce lo siguiente:
 | `Certificate` | El certificado `x.509` codificado en PEM es proporcionado por tu OneLogin. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configura OneLogin dentro de Braze" }
 
-Si tu IdP requiere un Entity ID específico de la empresa, activa **Custom Entity ID** en **Configuración de seguridad**, copia el valor generado y pégalo en el campo Entity ID de OneLogin. Consulta [Custom Entity ID]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#custom-entity-id) en el artículo de configuración de SAML SSO.
+Si tu IdP requiere un Entity ID específico de la empresa, activa **Custom Entity ID** en **Configuración de seguridad**, copia el valor generado y pégalo en el campo Entity ID de OneLogin. Consulta [Custom Entity ID]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#custom-entity-id) en el artículo de configuración de SAML inicio de sesión único.
 
 ![Configuración de SAML SSO con el interruptor seleccionado.]({% image_buster /assets/img/samlsso.png %})
 
 {% alert tip %}
-Si quieres que los usuarios de tu cuenta de Braze solo inicien sesión con SAML SSO, puedes [restringir la autenticación de inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) desde **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad**.
+Si quieres que los usuarios de tu cuenta de Braze solo inicien sesión con SAML inicio de sesión único, puedes [restringir la autenticación de inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) desde **Configuración** > **Configuración de la empresa** > **Configuración de administrador** > **Configuración de seguridad**.
 {% endalert %}
 
 ## Próximos pasos {#next-steps}
 
-Después de que el SAML SSO de OneLogin esté funcionando:
+Después de que el SAML inicio de sesión único de OneLogin esté funcionando:
 
-- [Imponer el inicio de sesión exclusivo mediante SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) si se debe deshabilitar el inicio de sesión con contraseña.
+- [Imponer el inicio de sesión exclusivo mediante SAML inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) si se debe deshabilitar el inicio de sesión con contraseña.
 - [Configurar el aprovisionamiento justo a tiempo de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) para crear automáticamente usuarios del panel en el primer inicio de sesión del IdP.
 - Usa [Obtener una traza SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#obtaining-a-saml-trace) si los usuarios encuentran errores de inicio de sesión.

@@ -3,7 +3,7 @@ nav_title: Medienbibliothek
 article_title: Medienbibliothek
 page_order: 2
 page_type: reference
-description: "Dieser Referenzartikel behandelt die Medienbibliothek. Hier erfahren Sie, wie Sie Ihre Assets an einem einzigen, zentralen Ort verwalten, Bilder mithilfe von KI generieren und im Nachrichten-Editor auf Medien zugreifen können."
+description: "Dieser Referenzartikel behandelt die Medienbibliothek. Hier erfahren Sie, wie Sie Ihre Assets an einem einzigen, zentralen Ort verwalten, Bilder mithilfe von KI or künstliche Intelligenz generieren und im Nachrichten-Editor auf Medien zugreifen können."
 tool: Media
 
 ---
@@ -17,7 +17,7 @@ tool: Media
 | Anforderung | Beschreibung |
 |---|---|
 | Berechtigung „View Media Library Assets“ | Assets der Medienbibliothek anzeigen |
-| Berechtigung „Edit Media Library Assets“ | Assets der Medienbibliothek erstellen und aktualisieren |
+| Berechtigung „Edit Media Library Assets“ | Assets der Medienbibliothek erstellen und Update or aktualisieren or aktualisieren |
 | Berechtigung „Delete Media Library Assets“ | Assets der Medienbibliothek aus der UI entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, wenden Sie sich an den Braze-Support. |
 | Berechtigung „Replace Media Library Assets“ | Die Datei eines vorhandenen Assets der Medienbibliothek ersetzen, wobei die URL und die Asset-ID unverändert bleiben |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Berechtigungen für die Medienbibliothek" }
@@ -36,7 +36,7 @@ In der Medienbibliothek können Sie den Asset-Typ, die Größe, die Abmessungen,
 * Virtual Contact Files (.vcf) hochladen
 * Videodateien zur Verwendung in WhatsApp-Nachrichten hochladen
 * Einen Ordner mit Ihren Bildern hochladen (bis zu 50 Bilder)
-* [Ein Bild mithilfe von KI generieren](#generate-ai) und in der Medienbibliothek speichern
+* [Ein Bild mithilfe von KI or künstliche Intelligenz generieren](#generate-ai) und in der Medienbibliothek speichern
 * Ein vorhandenes Bild zuschneiden, um das richtige Seitenverhältnis für Ihre Nachrichten zu erstellen
 * Die Datei eines vorhandenen Assets ersetzen und dabei die URL stabil halten
 * Tags oder Teams hinzufügen, um Ihre Bilder besser zu organisieren
@@ -62,7 +62,7 @@ Alternativ können Sie Assets auch einzeln in die Medienbibliothek hochladen, oh
 
 ## Datei ersetzen {#replace-a-file}
 
-Sie können die Datei eines vorhandenen Assets in der Medienbibliothek ersetzen und dabei die URL und die Asset-ID beibehalten. Da sich die URL nicht ändert, spiegelt jede Nachricht oder Campaign, die auf dieses Asset verweist – einschließlich bereits gesendeter E-Mails – automatisch die aktualisierte Datei wider. Dies ist nützlich, wenn Sie ein gemeinsam genutztes Asset (z. B. ein Logo) an einer Stelle aktualisieren möchten, anstatt jede Campaign einzeln zu ändern.
+Sie können die Datei eines vorhandenen Assets in der Medienbibliothek ersetzen und dabei die URL und die Asset-ID beibehalten. Da sich die URL nicht ändert, spiegelt jede Nachricht oder Campaign, die auf dieses Asset verweist – einschließlich bereits gesendeter E-Mails – automatisch die aktualisierte Datei wider. Dies ist nützlich, wenn Sie ein gemeinsam genutztes Asset (z. B. ein Logo) an einer Stelle Update or aktualisieren or aktualisieren möchten, anstatt jede Campaign einzeln zu ändern.
 
 Um ein Asset zu ersetzen, benötigen Sie die Berechtigung „Replace Media Library Assets“:
 

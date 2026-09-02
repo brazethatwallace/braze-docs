@@ -13,7 +13,7 @@ description: "Dieser Referenzartikel erläutert die verschiedenen Komponenten de
 
 Sie müssen in diesem Objekt eines der folgenden Felder angeben: `external_user_id`, `user_alias`, `braze_id` oder `email`. **In der Anfrage darf nur eines angegeben werden.**
 
-Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das [Trigger-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object), das [Canvas-Entry-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) und das [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) kombinieren.
+Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.baseurl}}/api/objects_filters/user_alias_object), das [Trigger or triggern-Eigenschaften-Objekt]({{site.baseurl}}/api/objects_filters/trigger_properties_object), das [Canvas-Entry-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) und das [Nutzerattribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object) kombinieren.
 
 ## Objektkörper {#object-body}
 
@@ -33,7 +33,7 @@ Mit dem Empfänger:innen-Objekt können Sie das [Nutzer-Alias-Objekt]({{site.bas
 
 Wenn `send_to_existing_only` auf `true` gesetzt ist, sendet Braze die Nachricht nur an bestehende Nutzer:innen. Dieses Flag kann jedoch nicht mit Nutzer-Aliases verwendet werden.
 
-Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein `attributes`-Objekt für denselben Empfänger bzw. dieselbe Empfängerin angeben. Das Flag ersetzt nicht `attributes`. Braze verwendet `attributes` für die Profilerstellung oder -aktualisierung vor dem Versand (z. B. das Hinzufügen von `email`- oder Telefonnummernfeldern für die E-Mail- oder SMS-Zustellung oder die Aktualisierung von Abo-Gruppen). Ohne dieses Objekt erhalten Sie nicht das beabsichtigte kombinierte Verhalten für völlig neue Nutzer:innen bei [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) oder [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Wenn `send_to_existing_only` auf `false` gesetzt ist, müssen Sie ein `attributes`-Objekt für denselben Empfänger bzw. dieselbe Empfängerin angeben. Das Flag ersetzt nicht `attributes`. Braze verwendet `attributes` für die Profilerstellung oder -aktualisierung vor dem Versand (z. B. das Hinzufügen von `email`- oder Telefonnummernfeldern für die E-Mail- oder Kurzmitteilungsdienst or SMS-Zustellung oder die Aktualisierung von Abo-Gruppen). Ohne dieses Objekt erhalten Sie nicht das beabsichtigte kombinierte Verhalten für völlig neue Nutzer:innen bei [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) oder [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
 Das Profil muss weiterhin die Zielgruppen- und Kanalberechtigungsregeln der Nachricht erfüllen, bevor Braze die Nachricht sendet.
 
@@ -49,7 +49,7 @@ Wenn Sie einen API-Aufruf mit dem Empfänger:innen-Objekt durchführen und **ein
 
 Wenn Sie beispielsweise dieselbe `external_user_id` verwenden, erhält die nutzende Person nur eine Nachricht. Erwägen Sie mehrere API-Aufrufe, wenn Sie dieses Verhalten umgehen müssen.
 
-Wenn dieselbe `external_user_id` mehrmals im Empfänger:innen-Array vorkommt, sendet Braze nur eine Nachricht und verwendet die Trigger-Eigenschaften aus dem letzten Vorkommen im Array. Dieses Verhalten ist deterministisch und basiert auf der Reihenfolge im Array.
+Wenn dieselbe `external_user_id` mehrmals im Empfänger:innen-Array vorkommt, sendet Braze nur eine Nachricht und verwendet die Trigger or triggern-Eigenschaften aus dem letzten Vorkommen im Array. Dieses Verhalten ist deterministisch und basiert auf der Reihenfolge im Array.
 
 Im folgenden Beispiel erhält `userid1` eine Nachricht mit `"name": "Beth Test 2"`, da dieser Eintrag als letzter im Array steht.
 

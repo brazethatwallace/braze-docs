@@ -40,7 +40,7 @@ Pour les autres moyens de rendre des données disponibles dans Decisioning Studi
 2. Sélectionnez **Create data sync**.
 3. Saisissez un **Integration Name**, puis sélectionnez votre source sous **Data sources**.
 4. Sous **Destination**, définissez **Data destination** sur **BrazeAI Decisioning Studio™**.
-5. Sous **Data category**, sélectionnez le type de **Decisioning Studio data** qui correspond le mieux à votre table. Choisissez parmi **Customer profile**, **Message engagement events**, **Conversion events** ou **Other**. Cela étiquette les données pour Decisioning Studio et ne modifie pas la façon dont CDI traite vos lignes.
+5. Sous **Data category**, sélectionnez le type de **Decisioning Studio data** qui correspond le mieux à votre table. Choisissez parmi **profil utilisateur**, **Message engagement events**, **Conversion events** ou **Other**. Cela étiquette les données pour Decisioning Studio et ne modifie pas la façon dont CDI traite vos lignes.
 
 ### Étape 2 : Rédiger votre requête SQL {#step-2-write-your-sql-query}
 

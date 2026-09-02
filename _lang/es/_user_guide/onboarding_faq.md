@@ -22,7 +22,7 @@ description: "Esta página contiene una recopilación de las preguntas más frec
 Users
 {% endapitags %}
 
-Inicialmente, cuando se reconoce un perfil de usuario a través del SDK, Braze crea un perfil de usuario anónimo con un `braze_id` asociado: un identificador de usuario único establecido por Braze.
+Inicialmente, cuando se reconoce un perfil de usuario a través del SDK or kit de desarrollo de software, Braze crea un perfil de usuario anónimo con un `braze_id` asociado: un identificador de usuario único establecido por Braze.
 
 Para realizar un seguimiento más exhaustivo de los usuarios anónimos, puedes implementar [alias de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#user-aliases) que te permitan etiquetar a los usuarios anónimos con un identificador. Estos usuarios pueden exportarse utilizando sus alias o referenciarse mediante la API.
 
@@ -47,7 +47,7 @@ Para importar usuarios previamente identificados, puedes cargar un CSV en Braze 
 
 Puedes cargar y actualizar perfiles de usuario mediante archivos CSV desde **Audience** > **Import Users**. Al importar los datos de tus clientes, deberás especificar el identificador único de cada cliente, también conocido como `external_id`.
 
-Antes de iniciar la importación de CSV, es importante que tu equipo de ingeniería entienda cómo se identificarán los usuarios en Braze. Normalmente se trata de un ID de base de datos utilizado internamente. Esto debería alinearse con la forma en que los usuarios serán identificados por el SDK de Braze en móviles y web, de modo que cada cliente tendrá un único perfil de usuario dentro de Braze en todos sus dispositivos. Obtén más información sobre el [ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) de Braze.
+Antes de iniciar la importación de CSV, es importante que tu equipo de ingeniería entienda cómo se identificarán los usuarios en Braze. Normalmente se trata de un ID de base de datos utilizado internamente. Esto debería alinearse con la forma en que los usuarios serán identificados por el SDK or kit de desarrollo de software de Braze en móviles y web, de modo que cada cliente tendrá un único perfil de usuario dentro de Braze en todos sus dispositivos. Obtén más información sobre el [ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) de Braze.
 
 Cuando proporcionas un `external_id` en tu importación, Braze actualizará cualquier usuario existente con el mismo `external_id` o creará un nuevo usuario identificado con ese `external_id` establecido si no se encuentra ninguno.
 
@@ -140,7 +140,7 @@ Para descargar una plantilla CSV, consulta [importación de usuarios]({{site.bas
 Segments
 {% endapitags %}
 
-El SDK de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes utilizar el glosario de [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) para buscar o acotar estos filtros por categoría de filtro (datos personalizados, actividad de usuario, retargeting, actividad de marketing, atributos de usuario, atribución de instalación, actividad social, pruebas, otros).
+El SDK or kit de desarrollo de software de Braze te proporciona un potente arsenal de filtros para segmentar y dirigirte a tus usuarios en función de características y atributos específicos. Puedes utilizar el glosario de [filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) para buscar o acotar estos filtros por categoría de filtro (datos personalizados, actividad de usuario, retargeting, actividad de marketing, atributos de usuario, atribución de instalación, actividad social, pruebas, otros).
 
 {% endapi %}
 {% api %}
@@ -266,7 +266,7 @@ Por ejemplo, una empresa con sede en Londres que envíe una Campaign a las 12 de
 Campaigns
 {% endapitags %}
 
-Braze determinará automáticamente la zona horaria del usuario a partir de su dispositivo. Esto está diseñado para garantizar la precisión de la zona horaria y la cobertura total de tus usuarios. Los usuarios creados a través de la API de usuario o de otro modo sin zona horaria tendrán la zona horaria de tu empresa como zona horaria predeterminada hasta que sean reconocidos en tu aplicación por el SDK.
+Braze determinará automáticamente la zona horaria del usuario a partir de su dispositivo. Esto está diseñado para garantizar la precisión de la zona horaria y la cobertura total de tus usuarios. Los usuarios creados a través de la API de usuario o de otro modo sin zona horaria tendrán la zona horaria de tu empresa como zona horaria predeterminada hasta que sean reconocidos en tu aplicación por el SDK or kit de desarrollo de software.
 
 Puedes comprobar la zona horaria de tu empresa en la [configuración de empresa]({{site.baseurl}}/user_guide/administer/global/admin_settings).
 

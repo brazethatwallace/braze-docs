@@ -1,3 +1,3 @@
 ## Voraussetzungen
 
-Bevor Sie dieses Feature nutzen können, müssen Sie [das .NET MAUI Braze SDK integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=.net%20maui%20(xamarin)).
+Bevor Sie dieses Feature nutzen können, müssen Sie [das .NET MAUI Braze SDK or Software-Development-Kit integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=.net%20maui%20(xamarin)).

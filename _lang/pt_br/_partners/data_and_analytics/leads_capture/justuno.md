@@ -20,8 +20,8 @@ A integração do Justuno com a Braze oferece o melhor dos dois mundos. Você po
 
 ## Pré-requisitos {#prerequisites}
 
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `custom_attributes.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| Endpoint REST da Braze | Seu URL do endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track` e `custom_attributes.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
+| Endpoint REST or transferir estado representacional da Braze | Seu URL do endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração do Justuno com a Braze {#integrating-justuno-with-braze}
@@ -38,7 +38,7 @@ Para adicionar o app da Braze à sua conta Justuno, acesse **Account Settings** 
 
 ![A página "Connect Apps" no Justuno com o app da Braze mostrado na lista de resultados de pesquisa.]({% image_buster /assets/img/justuno/search-for-braze.png %})
 
-Digite a chave de API e o URL de base [que você criou anteriormente](#prerequisites) e selecione **Connect**.
+Digite a chave de API or interface de programação do aplicativo (API) e o URL de base [que você criou anteriormente](#prerequisites) e selecione **Connect**.
 
 ![A janela pop-up de autenticação da Braze solicitando uma chave de API da Braze e um URL de base.]({% image_buster /assets/img/justuno/authenticate-braze.png %}){: style="max-width:75%;"}
 
@@ -89,7 +89,7 @@ Para sincronizar atributos adicionais:
     ![O app da Braze aberto em um fluxo de trabalho Justuno mostrando a opção "Sync Another Property".]({% image_buster /assets/img/justuno/sync-another-property.png %}){: style="max-width:55%;"}
 2. Escolha quais atributos da Braze você gostaria de sincronizar.
 3. Combine as propriedades no Justuno com seus equivalentes na Braze (como identificadores sociais, data de aniversário, preferências de compras, respostas a pesquisas e similares). Lembre-se de que essas propriedades são consideradas dados de parte zero ou dados de primeira parte. Para saber mais, consulte [Justuno: Coleta de dados de visitantes](https://www.justuno.com/guides/zero-first-party-data/).
-4. No construtor de fluxo de trabalho, escolha **Save**, **Preview** ou **Publish** para seu fluxo de trabalho.
+4. No construtor de fluxo de trabalho, escolha **Save**, **prévia** ou **Publish** para seu fluxo de trabalho.
     ![O menu "Publish" aberto com as opções de salvar, pré-visualizar ou mostrar o histórico de versões.]({% image_buster /assets/img/justuno/publish-workflow.png %}){: style="max-width:45%;"}
 
 ## Informações importantes {#things-to-know}

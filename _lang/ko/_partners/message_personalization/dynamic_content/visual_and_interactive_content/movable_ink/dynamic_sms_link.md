@@ -1,14 +1,14 @@
 ---
-nav_title: 동적 SMS 링크 미리보기
-article_title: 동적 SMS 링크 미리보기
-description: "이 참조 문서에서는 Movable Ink의 SMS 링크 미리보기 기능을 활성화하고 사용하는 방법을 설명합니다."
+nav_title: 동적 단문 메시지 서비스 링크 미리보기
+article_title: 동적 단문 메시지 서비스 링크 미리보기
+description: "이 참조 문서에서는 Movable Ink의 단문 메시지 서비스 링크 미리보기 기능을 활성화하고 사용하는 방법을 설명합니다."
 page_type: partner
 search_tag: Partner
 ---
 
-# 동적 SMS 링크 미리보기 {#dynamic-sms-link-preview}
+# 동적 단문 메시지 서비스 링크 미리보기 {#dynamic-sms-link-preview}
 
-> Movable Ink의 동적 SMS 링크 미리보기를 사용하면 SMS와 동일한 비용으로 MMS의 몰입감을 활용할 수 있습니다. 이를 통해 Braze와 Movable Ink를 사용하여 비용 효율적이고 개인화된 리치 메시징 경험을 제공할 수 있습니다.
+> Movable Ink의 동적 단문 메시지 서비스 링크 미리보기를 사용하면 단문 메시지 서비스와 동일한 비용으로 MMS의 몰입감을 활용할 수 있습니다. 이를 통해 Braze와 Movable Ink를 사용하여 비용 효율적이고 개인화된 리치 메시징 경험을 제공할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -23,7 +23,7 @@ search_tag: Partner
 
 ## 통합 {#integration}
 
-이 섹션의 각 단계에 따라 iOS 및 Android 운영 체제에서 동적 SMS 링크를 발송합니다.
+이 섹션의 각 단계에 따라 iOS 및 Android 운영 체제에서 동적 단문 메시지 서비스 링크를 발송합니다.
 
 ### iOS
 
@@ -39,9 +39,9 @@ iOS에서 링크 미리보기 이미지를 허용하려면 사용자가 브랜�
 
 #### 2단계: Movable Ink 링크 발송 {#step-2-send-movable-ink-links}
 
-1. Movable Ink에서 SMS Campaign을 생성하고 클릭률 URL을 생성합니다.
-2. Braze 대시보드에서 **Campaigns**로 이동하여 **캠페인 만들기** 드롭다운에서 새 SMS/MMS Campaign을 설정합니다.
-3. SMS Campaign 작성기에서:
+1. Movable Ink에서 단문 메시지 서비스 Campaign을 생성하고 클릭률 URL을 생성합니다.
+2. Braze 대시보드에서 **Campaigns**로 이동하여 **캠페인 만들기** 드롭다운에서 새 단문 메시지 서비스/MMS Campaign을 설정합니다.
+3. 단문 메시지 서비스 Campaign 작성기에서:
     - 구독 그룹을 설정합니다.
     - 메시지를 입력합니다.
     - 메시지 본문의 다른 모든 텍스트 뒤에 Movable Ink 링크를 **마지막으로** 추가합니다. <br><br>![2]{: style="max-width:50%;"}
@@ -51,7 +51,7 @@ Liquid 개인화에 대한 내용은 [Liquid]({{site.baseurl}}/user_guide/messag
 {% endalert %}
 
 {: start="4"}
-4. 동적 SMS 링크 미리보기 Campaign을 테스트하고 시작할 준비가 완료되었습니다.
+4. 동적 단문 메시지 서비스 링크 미리보기 Campaign을 테스트하고 시작할 준비가 완료되었습니다.
 
 ![3]{: style="max-width:70%;"}
 
@@ -61,7 +61,7 @@ Liquid 개인화에 대한 내용은 [Liquid]({{site.baseurl}}/user_guide/messag
 
 ### Android (Google 및 Samsung 기기) {#android-google-and-samsung-devices}
 
-Android 사용자는 동적 SMS 링크 미리보기를 수신하기 위해 브랜드를 연락처로 저장할 필요가 없습니다. 그러나 기기가 링크 미리보기를 자동으로 로드할 수 있도록 저장하는 것을 권장합니다.
+Android 사용자는 동적 단문 메시지 서비스 링크 미리보기를 수신하기 위해 브랜드를 연락처로 저장할 필요가 없습니다. 그러나 기기가 링크 미리보기를 자동으로 로드할 수 있도록 저장하는 것을 권장합니다.
 
 ![5]{: style="max-width:30%;"}
 
@@ -71,7 +71,7 @@ Android 사용자는 동적 SMS 링크 미리보기를 수신하기 위해 브�
 
 ## 고려 사항 {#considerations}
 
-- 메시지에 미리보기 링크를 하나만 포함하세요. SMS 본문에 여러 링크가 있으면 콘텐츠가 생성되지 않습니다.
+- 메시지에 미리보기 링크를 하나만 포함하세요. 단문 메시지 서비스 본문에 여러 링크가 있으면 콘텐츠가 생성되지 않습니다.
 - 미리보기 링크 뒤에 문자를 추가하지 마세요. 추가하면 경험이 중단될 수 있습니다.
 
 

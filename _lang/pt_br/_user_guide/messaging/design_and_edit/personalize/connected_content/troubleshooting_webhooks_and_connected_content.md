@@ -7,7 +7,7 @@ description: "Diagnostique erros de webhook e Conteúdo conectado usando um índ
 
 # Solucionar problemas de solicitações de webhook e Conteúdo conectado {#troubleshoot-webhook-and-connected-content-requests}
 
-> Use esta página para solucionar códigos de erro comuns de webhooks e Conteúdo conectado. Para configuração, consulte [Criando um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) e [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call). Para inspecionar uma solicitação de Conteúdo conectado na prévia, consulte [Depurador de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger).
+> Use esta página para solucionar códigos de erro comuns de webhooks e Conteúdo conectado. Para configuração, consulte [Criando um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) e [Fazendo uma chamada de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call). Para inspecionar uma solicitação de Conteúdo conectado na prévia, consulte [Depurador de Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger).
 
 ## Comece aqui: identifique o seu sintoma {#start-here-match-your-symptom}
 
@@ -72,7 +72,7 @@ table td {
       <td>A solicitação requer autenticação do usuário.</td>
       <td>
         <ul>
-          <li>Verifique se as credenciais de autenticação corretas (como chaves de API ou tokens) estão incluídas nos cabeçalhos da solicitação.</li>
+          <li>Verifique se as credenciais de autenticação corretas (como chaves de API or interface de programação do aplicativo (API) ou tokens) estão incluídas nos cabeçalhos da solicitação.</li>
           <li>Confirme se você tem as permissões de usuário necessárias para acessar o endpoint.</li>
         </ul>
       </td>
@@ -82,9 +82,9 @@ table td {
       <td>O endpoint entende a solicitação, mas se recusa a autorizá-la.</td>
       <td>
         <ul>
-          <li>Verifique se a chave de API ou o token tem as permissões necessárias.</li>
+          <li>Verifique se a chave de API or interface de programação do aplicativo (API) ou o token tem as permissões necessárias.</li>
           <li>Confirme se você tem as permissões de usuário necessárias para acessar o endpoint.</li>
-          <li>Se as solicitações retornarem consistentemente <code>403</code> e a autenticação parecer correta, seu servidor, gateway de API ou WAF pode estar bloqueando os endereços IP de saída da Braze. Adicione os IPs do seu cluster Braze à lista de permissões. Para webhooks, consulte <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Lista de permissões de IP</a>. Para Connected Content, consulte <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Lista de permissões de IP do Connected Content</a>.</li>
+          <li>Se as solicitações retornarem consistentemente <code>403</code> e a autenticação parecer correta, seu servidor, gateway de API or interface de programação do aplicativo (API) ou WAF pode estar bloqueando os endereços IP de saída da Braze. Adicione os IPs do seu cluster Braze à lista de permissões. Para webhooks, consulte <a href="{{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting">Lista de permissões de IP</a>. Para Connected Content, consulte <a href="{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting">Lista de permissões de IP do Connected Content</a>.</li>
         </ul>
       </td>
     </tr>
@@ -188,7 +188,7 @@ Se uma chamada de Conteúdo conectado aparece em branco na prévia ou no envio d
 
 - **Espaços não separáveis na URL:** a Braze remove espaços não separáveis (`&nbsp;` ou Unicode `U+00A0`) das URLs de Conteúdo conectado antes de fazer a solicitação. Se a URL foi copiada de um documento ou campo do dashboard que inseriu espaços não separáveis entre os caracteres, a solicitação pode falhar ou não retornar um corpo utilizável. Redigite a URL em texto simples ou remova os espaços ocultos e pré-visualize novamente.
 - **Respostas de redirecionamento (`3xx`):** o Conteúdo conectado não segue redirecionamentos. Apenas respostas `2xx` são tratadas como bem-sucedidas, então um `301` ou `302` pode renderizar em branco mesmo quando a mesma URL funciona no Postman. Use a URL de destino final ou configure o endpoint para retornar uma resposta `2xx` (normalmente `200`) na URL que a Braze chama. Consulte [Por que o Conteúdo conectado falha quando meu endpoint retorna um redirecionamento?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#why-does-connected-content-fail-when-my-endpoint-returns-a-redirect-301-or-302).
-- **Erros HTTP e corpos vazios:** para códigos de status fora do intervalo `2xx` ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
+- **Erros HTTP e corpos vazios:** para códigos de status fora do intervalo `2xx` ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
 
 ## E-mails automatizados e entradas no Registro de atividades de envio de mensagem {#automated-emails-and-message-activity-log-entries}
 

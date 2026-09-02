@@ -133,9 +133,9 @@ Quando o estado retorna como `activationPreferred`, esse é o sinal para ativar 
 
 ![SharePlay]({% image_buster /assets/img/shareplay/shareplay.png %}){: width="3816" height="1408" style="border:0;"}
 
-### Etapa 4: Iniciar mensagem no app a partir da API do SharePlay {#step-4-launch-in-app-message-from-shareplay-api}
+### Etapa 4: Iniciar mensagem no app a partir da API or interface de programação do aplicativo (API) do SharePlay {#step-4-launch-in-app-message-from-shareplay-api}
 
-A API `GroupActivities` determina se há um vídeo presente. Se houver, você deve disparar o evento personalizado para lançar sua mensagem no app compatível com SharePlay. O `CoordinationManager` é responsável pelas mudanças de estado do SharePlay, como quando o(s) usuário(s) sai(em) ou entra(m) na chamada.
+A API or interface de programação do aplicativo (API) `GroupActivities` determina se há um vídeo presente. Se houver, você deve disparar o evento personalizado para lançar sua mensagem no app compatível com SharePlay. O `CoordinationManager` é responsável pelas mudanças de estado do SharePlay, como quando o(s) usuário(s) sai(em) ou entra(m) na chamada.
 
 {% tabs %}
 {% tab Swift %}

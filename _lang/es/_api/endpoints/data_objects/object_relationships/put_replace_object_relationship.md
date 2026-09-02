@@ -127,7 +127,7 @@ La siguiente tabla enumera los errores comunes de este endpoint y cómo resolver
 | `400` | Error de validación | Confirma que `rel_kind`, `anchor` y `attributes` son válidos para el tipo de relación. |
 | `404` | Relación u objetos del endpoint no encontrados (`data-object-relationship-not-found`) | Confirma que ambos objetos y los nombres de tipo relacionado existen en el espacio de trabajo. |
 | `422` | Límite de relaciones por objeto alcanzado (`data-object-relationship-limit-exceeded`) | Reduce el número de relaciones del objeto o ponte en contacto con soporte de Braze acerca de los límites del espacio de trabajo. |
-| `401` | Clave de API REST faltante o no válida | Verifica que el encabezado `Authorization` utilice `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
+| `401` | Clave de API REST or transferencia de estado representacional faltante o no válida | Verifica que el encabezado `Authorization` utilice `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
 | `403` | La clave de API carece de permiso o la solicitud está bloqueada por la lista de permitidos | Confirma que la clave tiene el permiso `data_objects.object_relationships.update` y que tu IP de origen está en la lista de permitidos de la clave, si está configurada. |
 | `429` | Límite de velocidad excedido | Reintenta después de `X-RateLimit-Reset` y reduce la frecuencia de las solicitudes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de reemplazar relación de objeto" }

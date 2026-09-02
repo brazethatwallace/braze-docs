@@ -8,13 +8,13 @@ description: "Use capture e json_parse do Liquid para simular Connected Content 
 
 # Testar mensagens com JSON simulado na prévia {#test-messages-with-mock-json-in-preview}
 
-> Simule JSON de API ou de entrada dentro da sua mensagem com `capture` e `json_parse` para validar o Liquid e o layout na prévia do criador antes de lançar uma Campaign, disparar um Canvas ou chamar o Connected Content em tempo real.
+> Simule JSON de API or interface de programação do aplicativo (API) ou de entrada dentro da sua mensagem com `capture` e `json_parse` para validar o Liquid e o layout na prévia do criador antes de lançar uma Campaign, disparar um Canvas ou chamar o Connected Content em tempo real.
 
 ## Sobre este exemplo {#about-this-example}
 
-A Flash & Thread, uma marca fictícia de varejo de roupas, cria mensagens que dependem de respostas de Connected Content, variáveis de contexto do Canvas ou dados de perfil em array de objetos. Disparar chamadas de API reais ou lançar Campaigns a cada iteração torna o desenvolvimento mais lento.
+A Flash & Thread, uma marca fictícia de varejo de roupas, cria mensagens que dependem de respostas de Connected Content, variáveis de contexto do Canvas ou dados de perfil em array de objetos. Disparar chamadas de API or interface de programação do aplicativo (API) reais ou lançar Campaigns a cada iteração torna o desenvolvimento mais lento.
 
-Esse padrão incorpora uma carga útil JSON simulada no corpo da mensagem, armazena-a com `capture` e depois a analisa com `json_parse` para que o Liquid possa referenciar campos estruturados na seção **Prévia** — sem uma chamada de Connected Content em tempo real, entrada no Canvas disparada por API ou envio de teste.
+Esse padrão incorpora uma carga útil JSON simulada no corpo da mensagem, armazena-a com `capture` e depois a analisa com `json_parse` para que o Liquid possa referenciar campos estruturados na seção **Prévia** — sem uma chamada de Connected Content em tempo real, entrada no Canvas disparada por API or interface de programação do aplicativo (API) ou envio de teste.
 
 Use isso durante o desenvolvimento da mensagem. Ele não substitui testes de ponta a ponta com disparos reais, envios de teste ou [prévia de jornadas de usuários]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) no Canvas.
 
@@ -25,7 +25,7 @@ Use isso durante o desenvolvimento da mensagem. Ele não substitui testes de pon
 - O JSON simulado deve ser válido. JSON inválido faz com que `json_parse` falhe ou retorne estruturas inesperadas.
 - Substitua ou remova blocos simulados antes do lançamento, ou proteja o Liquid de produção para que os dados simulados sejam usados apenas na prévia (por exemplo, com um sinalizador de comentário que você exclui antes de entrar em produção).
 - Os snippets de Liquid neste artigo são exemplos. Teste nos seus canais e com os formatos reais da sua carga útil.
-- Para Connected Content em produção, remova o bloco simulado e use sua tag de URL ao vivo. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+- Para Connected Content em produção, remova o bloco simulado e use sua tag de URL ao vivo. Consulte [Fazendo uma chamada de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ## Configuração {#setup}
 
@@ -78,7 +78,7 @@ Sem `json_parse`, a notação de ponto na string capturada (por exemplo, {% raw 
 
 ### Etapa 3: Referenciar campos analisados no Liquid {#step-3-reference-parsed-fields-in-liquid}
 
-Itere sobre o array analisado e renderize os campos como faria para uma resposta de API em tempo real.
+Itere sobre o array analisado e renderize os campos como faria para uma resposta de API or interface de programação do aplicativo (API) em tempo real.
 
 {% raw %}
 ```liquid
@@ -98,7 +98,7 @@ Use o mesmo fluxo de `capture` + `json_parse` para simular:
 | --- | --- |
 | Variáveis de contexto do Canvas | Objeto com as chaves de propriedade que sua mensagem espera |
 | Array de objetos em um perfil | Array JSON de objetos com as mesmas chaves do seu atributo personalizado |
-| Resposta de Connected Content | JSON de API de exemplo salvo de uma chamada anterior bem-sucedida |
+| Resposta de Connected Content | JSON de API or interface de programação do aplicativo (API) de exemplo salvo de uma chamada anterior bem-sucedida |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dados que você quer testar e estrutura JSON" }
 
 Substitua as variáveis simuladas por Liquid de produção (variáveis de contexto do Canvas, atributos personalizados ou tags de Connected Content) antes de lançar.

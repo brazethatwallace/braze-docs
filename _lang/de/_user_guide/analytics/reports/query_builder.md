@@ -17,9 +17,9 @@ Da der Abfrage-Builder direkten Zugriff auf bestimmte Kundendaten ermöglicht, k
 
 Der Abfrage-Builder verwendet dieselben Snowflake-SQL-Tabellen wie [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Eine vollständige Liste der verfügbaren Tabellen und ihrer Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
-### Nutzerprofil-Attribut-Views {#user-profile-attribute-views}
+### Kundenprofil or Nutzerprofil-Attribut-Views {#user-profile-attribute-views}
 
-Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Nutzerprofil-Attribut-Views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf der Standardattribute.
+Der Abfrage-Builder und SQL-Segmenterweiterungen enthalten die meisten [Kundenprofil or Nutzerprofil-Attribut-Views]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), wie z. B. periodische Snapshots und den Verlauf der Standardattribute.
 
 Zwei Views für angepasste Attribute sind nur über [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes) verfügbar:
 
@@ -35,7 +35,7 @@ So führen Sie einen Bericht im Abfrage-Builder aus:
 1. Gehen Sie zu **Analytics** > **Abfrage-Builder**.
 2. Wählen Sie **SQL-Abfrage erstellen** aus. Wenn Sie Inspiration oder Hilfe beim Erstellen Ihrer Abfrage benötigen, wählen Sie **Query Template** und dann ein Template aus der Liste aus. Andernfalls wählen Sie **SQL Editor**, um direkt zum Editor zu gelangen.
 3. Ihr Bericht erhält automatisch einen Namen mit dem aktuellen Datum und der Uhrzeit. Bewegen Sie den Mauszeiger über den Namen und wählen Sie <i class="fas fa-pencil" alt="Bearbeiten"></i>, um Ihrer SQL-Abfrage einen aussagekräftigen Namen zu geben.
-4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI unterstützen](#ai-query-builder) über den Tab **KI-Abfrage-Builder**. Wenn Sie Ihre eigene SQL-Abfrage schreiben, finden Sie unter [Angepasste SQL-Abfragen schreiben](#custom-sql) Anforderungen und Ressourcen.
+4. Schreiben Sie Ihre SQL-Abfrage im Editor oder [lassen Sie sich von KI or künstliche Intelligenz unterstützen](#ai-query-builder) über den Tab **KI or künstliche Intelligenz-Abfrage-Builder**. Wenn Sie Ihre eigene SQL-Abfrage schreiben, finden Sie unter [Angepasste SQL-Abfragen schreiben](#custom-sql) Anforderungen und Ressourcen.
 5. Wählen Sie **Abfrage ausführen** aus.
 6. Speichern Sie Ihre Abfrage.
 7. Um eine CSV-Datei Ihres Berichts herunterzuladen, wählen Sie **Exportieren** aus.
@@ -52,7 +52,7 @@ Eine Liste der verfügbaren Templates finden Sie unter [Abfrage-Builder-Template
 
 ### Datenzeitraum {#data-timeframe}
 
-Abfragen liefern Daten aus den letzten 60 Tagen. Wenn Sie Currents oder [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verwenden, können Sie möglicherweise Daten aus bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren Customer-Success-Manager.
+Abfragen liefern Daten aus den letzten 60 Tagen. Wenn Sie Currents oder [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verwenden, können Sie möglicherweise Daten aus bis zu zwei Jahren abfragen – so lange werden Ihre Daten in Snowflake aufbewahrt. Für weitere Details zur erweiterten Datenaufbewahrung wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 
 ### Zeitzone im Abfrage-Builder {#query-builder-time-zone}
 
@@ -95,15 +95,15 @@ Beispielsweise können die Soft-Bounce-Zahlen im Abfrage-Builder höher sein als
 
 Weitere Informationen darüber, wie Soft-Bounces in verschiedenen Berichtsquellen erfasst werden, finden Sie unter [Soft-Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#soft-bounce) im E-Mail-Analytics-Glossar.
 
-## SQL mit dem KI-Abfrage-Builder generieren {#generating-sql-with-the-ai-query-builder}
+## SQL mit dem KI or künstliche Intelligenz-Abfrage-Builder generieren {#generating-sql-with-the-ai-query-builder}
 
-Der KI-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), unterstützt von OpenAI, um SQL für Ihre Abfrage vorzuschlagen.
+Der KI or künstliche Intelligenz-Abfrage-Builder nutzt [GPT](https://openai.com/gpt-4), unterstützt von OpenAI, um SQL für Ihre Abfrage vorzuschlagen.
 
-![Der KI-Abfrage-Builder für SQL.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
+![Der KI or künstliche Intelligenz-Abfrage-Builder für SQL.]({% image_buster /assets/img_archive/query_builder_ai_tab.png %}){: style="max-width:60%;" }
 
-So generieren Sie SQL mit dem KI-Abfrage-Builder:
+So generieren Sie SQL mit dem KI or künstliche Intelligenz-Abfrage-Builder:
 
-1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **AI Query Builder** aus.
+1. Nachdem Sie einen Bericht im Abfrage-Builder erstellt haben, wählen Sie den Tab **KI or künstliche Intelligenz Query Builder** aus.
 2. Geben Sie Ihren Prompt ein oder wählen Sie einen Beispiel-Prompt aus und wählen Sie **Generate**, um Ihren Prompt in SQL zu übersetzen.
 3. Überprüfen Sie das generierte SQL, um sicherzustellen, dass es korrekt aussieht, und wählen Sie dann **Insert into Editor**.
 
@@ -111,7 +111,7 @@ So generieren Sie SQL mit dem KI-Abfrage-Builder:
 
 - Machen Sie sich mit den verfügbaren Tabellen und Spalten in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables) vertraut. Wenn Sie nach Daten fragen, die in diesen Tabellen nicht vorhanden sind, kann es vorkommen, dass ChatGPT eine fiktive Tabelle erfindet.
 - Machen Sie sich mit den [SQL-Schreibregeln]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql) für dieses Feature vertraut. Die Nichteinhaltung dieser Regeln führt zu einem Fehler.
-- Sie können mit dem KI-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
+- Sie können mit dem KI or künstliche Intelligenz-Abfrage-Builder bis zu 20 Prompts pro Minute senden.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
@@ -148,7 +148,7 @@ Wenn Sie nach `CANVAS_ID`, `CANVAS_VARIATION_API_ID` oder `CAMPAIGN_ID` abfragen
 | ID-Name | Zugehörige Namensspalte |
 | --- | --- |
 | `CANVAS_ID` | Canvas Name |
-| `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
+| `CANVAS_VARIATION_API_ID` | Canvas-Variante Name |
 | `CAMPAIGN_ID` | Campaign Name |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Eigene SQL-Anfragen schreiben" }
 
@@ -250,11 +250,11 @@ Zur Auswahl eines Canvas. Wenn derselbe Name wie bei einer Campaign verwendet wi
 - **Ersetzungswert:** Canvas-BSON-ID
 - **Verwendungsbeispiel:** {% raw %}`canvas_id = '{{canvas.${some name}}}'`{% endraw %}
 
-##### Canvases {#canvases}
+##### Canvase {#canvases}
 
-Zur Auswahl mehrerer Canvases. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
+Zur Auswahl mehrerer Canvase. Wenn derselbe Name wie bei einer Campaign verwendet wird, erscheint im Tab **Variablen** ein Optionsfeld zur Auswahl von entweder Canvas oder Campaign.
 
-- **Ersetzungswert:** Canvases-BSON-IDs
+- **Ersetzungswert:** Canvase-BSON-IDs
 - **Verwendungsbeispiel:** {% raw %}`canvas_id IN ({{canvases.${some name}}})`{% endraw %}
 
 ##### Campaign {#campaign}
@@ -280,7 +280,7 @@ Zur Auswahl von Kampagnenvarianten, die zur ausgewählten Campaign gehören. Die
 
 ##### Canvas-Varianten {#canvas-variants}
 
-Zur Auswahl von Canvas-Varianten, die zu einem ausgewählten Canvas gehören. Diese Variable muss mit einer Canvas- oder Canvases-Variable verwendet werden.
+Zur Auswahl von Canvas-Varianten, die zu einem ausgewählten Canvas gehören. Diese Variable muss mit einer Canvas- oder Canvase-Variable verwendet werden.
 
 - **Ersetzungswert:** API-IDs der Canvas-Varianten, durch Kommas getrennte Strings wie `api-id1, api-id2`.
 - **Verwendungsbeispiel:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
@@ -294,7 +294,7 @@ Zur Auswahl eines Canvas-Schritts, der zu einem ausgewählten Canvas gehört. Di
 
 ##### Canvas-Schritte {#canvas-steps}
 
-Zur Auswahl von Canvas-Schritten, die zu ausgewählten Canvases gehören. Diese Variable muss mit einer Canvas- oder Canvases-Variable verwendet werden.
+Zur Auswahl von Canvas-Schritten, die zu ausgewählten Canvase gehören. Diese Variable muss mit einer Canvas- oder Canvase-Variable verwendet werden.
 
 - **Ersetzungswert:** API-IDs der Canvas-Schritte
 - **Verwendungsbeispiel:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

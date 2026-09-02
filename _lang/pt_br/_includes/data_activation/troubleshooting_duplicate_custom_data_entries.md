@@ -13,5 +13,5 @@ Para solucionar e corrigir isso:
     - Atualize quaisquer fluxos de trabalho do dashboard, importações de CSV e runbooks internos para usar a chave canônica.
     - [Bloqueie dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) da entrada incorreta quando estiver pronto para descontinuá-la.
 5. Verifique seus caminhos de ingestão:
-    - As cargas úteis de API e SDK removem automaticamente espaços no início e no final.
+    - As cargas úteis de API or interface de programação do aplicativo (API) e SDK or kit de desenvolvimento de software removem automaticamente espaços no início e no final.
     - Nomes criados pelo dashboard não são ajustados automaticamente, então a entrada manual e a governança são necessárias.

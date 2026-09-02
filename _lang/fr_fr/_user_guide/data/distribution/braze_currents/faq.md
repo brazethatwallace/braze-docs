@@ -19,9 +19,9 @@ Pour récupérer les indicateurs d'une Campaign ou d'un Canvas sur une plage de 
 - Appelez les endpoints [d'analyse de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) ou [d'analyse de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) avec les paramètres `ending_at` et `length` (ou utilisez [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) et [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) pour obtenir des données de séries temporelles.
 - Diffusez les événements vers votre entrepôt de données avec [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) lorsque vous avez besoin de données d'engagement de messages continues et interrogeables dans Amazon S3, Azure Blob Storage ou une autre destination prise en charge.
 
-## Comment modifier une intégration Currents en direct ? {#how-do-i-edit-a-live-currents-integration}
+## Comment modifier une intégration Currents en direct or en ligne/en production/instantané ? {#how-do-i-edit-a-live-currents-integration}
 
-Pour modifier un connecteur Currents en direct, ouvrez l'intégration et sélectionnez **Edit**. Sans **Edit**, l'interface de l'intégration reste en lecture seule, et vous ne pouvez pas modifier les paramètres du connecteur à partir des icônes uniquement.
+Pour modifier un connecteur Currents en direct or en ligne/en production/instantané, ouvrez l'intégration et sélectionnez **Edit**. Sans **Edit**, l'interface de l'intégration reste en lecture seule, et vous ne pouvez pas modifier les paramètres du connecteur à partir des icônes uniquement.
 
 ## Comment Braze gère-t-il les fichiers Avro dans Azure Blob Storage après le téléchargement ? {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
@@ -29,7 +29,7 @@ Braze ne modifie pas les fichiers Avro dans [Microsoft Azure Blob Storage]({{sit
 
 ## Comment obtenir des données historiques ? {#how-do-i-get-historical-data}
 
-Currents est un flux de données en temps réel et en direct, ce qui signifie que les événements ne peuvent pas être rejoués. Cependant, vous pouvez stocker les données Currents dans un entrepôt de données tel qu'[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) ou [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents), afin d'exploiter les événements passés comme bon vous semble. Les données sont conservées pendant 30 jours, mais pour des données plus anciennes, vous pouvez interroger [Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake).
+Currents est un flux de données en temps réel et en direct or en ligne/en production/instantané, ce qui signifie que les événements ne peuvent pas être rejoués. Cependant, vous pouvez stocker les données Currents dans un entrepôt de données tel qu'[Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3) ou [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents), afin d'exploiter les événements passés comme bon vous semble. Les données sont conservées pendant 30 jours, mais pour des données plus anciennes, vous pouvez interroger [Snowflake]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/s3_to_snowflake).
 
 ## Pourquoi Currents produit-il des données au format Avro plutôt qu'en JSON ? {#why-does-currents-output-data-in-the-avro-format-not-json}
 

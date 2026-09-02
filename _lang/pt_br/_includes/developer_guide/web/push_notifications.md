@@ -10,7 +10,7 @@ As notificações por push da Web são implementadas usando o [padrão push do W
 
 ### Etapa 1: Configure seu service worker
 
-No arquivo `service-worker.js` de seu projeto, adicione o seguinte trecho e defina a opção de [`manageServiceWorkerExternally`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize) para `true` ao inicializar o Web SDK.
+No arquivo `service-worker.js` de seu projeto, adicione o seguinte trecho e defina a opção de [`manageServiceWorkerExternally`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize) para `true` ao inicializar o Web SDK or kit de desenvolvimento de software.
 
 <script src="{{site.baseurl}}/assets/js/embed.js?target=https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/cdn/service-worker.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
@@ -32,7 +32,7 @@ No MacOS, tanto **o Google Chrome** quanto **o Google Chrome Helper (Alertas)** 
 
 O arquivo de serviço do Braze chamará automaticamente o endereço `skipWaiting` após a instalação. Se quiser desativar essa funcionalidade, adicione o seguinte código ao seu arquivo de service worker, depois de importar o Braze:
 
-<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Fservice-worker-skip-waiting.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-SDK or kit de desenvolvimento de software%2Fblob%2Fmaster%2Fsnippets%2Fservice-worker-skip-waiting.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 ## Cancelamento da inscrição de um usuário
 
@@ -92,17 +92,17 @@ document.getElementById("opt-in").onclick = function(){
 
 #### Etapa 2: Registro para push
 
-No momento, o site `secure.com` abrirá uma janela pop-up na qual você poderá inicializar o Braze Web SDK para o mesmo ID de usuário e solicitar a permissão do usuário para o web push.
+No momento, o site `secure.com` abrirá uma janela pop-up na qual você poderá inicializar o Braze Web SDK or kit de desenvolvimento de software para o mesmo ID de usuário e solicitar a permissão do usuário para o web push.
 
 **https://secure.com/push-registration.html**
 
-<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Falternate-push-domain-registration.html&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-SDK or kit de desenvolvimento de software%2Fblob%2Fmaster%2Fsnippets%2Falternate-push-domain-registration.html&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 #### Etapa 3: Comunicação entre domínios (opcional)
 
 Agora que os usuários podem fazer a aceitação a partir desse fluxo de trabalho originado em `insecure.com`, convém modificar seu site com base no fato de o usuário já ter feito a aceitação ou não. Não faz sentido pedir ao usuário que se registre no push se ele já estiver registrado.
 
-Você pode usar iFrames e a API [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) para se comunicar entre seus dois domínios. 
+Você pode usar iFrames e a API or interface de programação do aplicativo (API) [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) para se comunicar entre seus dois domínios. 
 
 **insecure.com**
 
@@ -129,7 +129,7 @@ function getPushStatus(event){
 
 **secure.com/push-status.html**
 
-<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-sdk%2Fblob%2Fmaster%2Fsnippets%2Falternate-push-domain-status.html&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+<script src="{{site.baseurl}}/assets/js/embed.js?target=https%3A%2F%2Fgithub.com%2Fbraze-inc%2Fbraze-web-SDK or kit de desenvolvimento de software%2Fblob%2Fmaster%2Fsnippets%2Falternate-push-domain-status.html&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
 
 ## Perguntas frequentes (FAQ)
 

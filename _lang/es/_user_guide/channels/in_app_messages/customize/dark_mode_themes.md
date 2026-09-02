@@ -26,7 +26,7 @@ El modo oscuro, ubicado en la pestaña **Diseño** al [crear un mensaje dentro d
 
 ![Usuario alternando entre los estilos de modo claro y modo oscuro en la pestaña de estilo al crear un mensaje dentro de la aplicación.]({% image_buster /assets/img_archive/iam-dark-mode.gif %})
 
-Cuando esta opción está habilitada, puedes elegir colores de tema oscuro para tu mensaje dentro de la aplicación usando el selector de color, o seleccionando [perfiles de color]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) existentes para reutilizar temas oscuros o claros ya creados.
+Cuando esta opción está habilitada, puedes elegir colores de tema oscuro para tu mensaje dentro de la aplicación usando el SELECTOR de color, o seleccionando [perfiles de color]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#color-profile) existentes para reutilizar temas oscuros o claros ya creados.
 
 {% alert note %}
 Puedes usar esta característica incluso si tu aplicación no ofrece su propio tema oscuro. Sin embargo, los dispositivos que no admiten el modo oscuro mostrarán el tema claro de forma predeterminada. Cambiar el tema del dispositivo en Android mientras se muestra un mensaje dentro de la aplicación no cambiará el tema utilizado para ese mensaje dentro de la aplicación.
@@ -45,7 +45,7 @@ Al crear una versión de modo oscuro de un mensaje dentro de la aplicación, pue
 ## Compatibilidad {#compatibility}
 
 - Tus usuarios deben estar en dispositivos iOS versión 13 o superior, o dispositivos Android versión 10 o superior.
-- Se requiere Braze iOS SDK v3.21.0+ y Braze Android SDK v3.8.0+.
+- Se requiere Braze iOS SDK or kit de desarrollo de software v3.21.0+ y Braze Android SDK or kit de desarrollo de software v3.8.0+.
 
 {% alert note %}
 Las aplicaciones con modo oscuro se introdujeron con Android 10 e iOS 13. Los usuarios que no hayan actualizado sus teléfonos al menos a estas versiones solo verán el tema claro. <br><br>Las campañas seguirán entregándose a todos los usuarios que sean elegibles para la audiencia que hayas seleccionado, independientemente de la configuración de modo oscuro o la versión del sistema operativo de los usuarios.

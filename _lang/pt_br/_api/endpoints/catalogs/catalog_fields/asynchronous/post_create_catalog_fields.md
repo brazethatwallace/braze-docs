@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Criar campos de catálogo\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Criar campos de catálogo {#create-catalog-fields}
 {% apimethod post %}
 /catalogs/{catalog_name}/fields
@@ -19,7 +19,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Criar c
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_fields`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_fields`.
 
 ## Limite de frequência {#rate-limit}
 

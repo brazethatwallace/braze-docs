@@ -44,7 +44,7 @@ description: "Cet article de référence répertorie et explique les différents
 Vous devez inclure un objet notification push Apple dans `messages` si vous souhaitez que les utilisateurs ciblés reçoivent une notification push sur leurs appareils iOS. Le nombre total d'octets dans votre chaîne de caractères `alert`, votre objet `extra` et vos autres paramètres facultatifs ne doit pas dépasser 1912. L'API d'envoi de messages renvoie une erreur si vous dépassez la taille de message autorisée par Apple. Les messages qui incluent les clés `ab` ou `aps` dans l'objet `extra` sont rejetés.
 
 {% alert note %}
-Si vous envoyez l'objet Apple Push dans le cadre d'un payload Live Activities, veillez à inclure votre chaîne de caractères `sound` dans l'objet `alert`.
+Si vous envoyez l'objet Apple Push dans le cadre d'un payload en direct or en ligne/en production/instantané Activities, veillez à inclure votre chaîne de caractères `sound` dans l'objet `alert`.
 {% endalert %}
 
 ### Objet alerte notification push Apple {#apple-push-alert-object}

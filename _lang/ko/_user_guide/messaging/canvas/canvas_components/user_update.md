@@ -54,7 +54,7 @@ tool: Canvas
 
 ### 객체 배열 업데이트 {#updating-an-array-of-objects}
 
-[객체 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)은 고객 프로필에 저장되는 데이터가 풍부한 커스텀 속성입니다. 이를 사용하여 브랜드와의 사용자 상호작용 기록을 생성하고, 구매 이력이나 총 생애주기 가치와 같은 계산된 필드를 기반으로 Segments를 만들 수 있습니다.
+[객체 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)은 고객 프로필에 저장되는 데이터가 풍부한 커스텀 속성입니다. 이를 사용하여 브랜드와의 사용자 상호작용 기록을 생성하고, 구매 이력이나 총 LTV or 생애주기 가치와 같은 계산된 필드를 기반으로 Segments를 만들 수 있습니다.
 
 **Advanced JSON Editor** 옵션을 사용하면 JSON을 삽입하여 이 객체 배열에 항목을 추가하거나 제거할 수 있습니다.
 

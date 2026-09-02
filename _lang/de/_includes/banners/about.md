@@ -4,7 +4,7 @@
 
 ## Voraussetzungen {#prerequisites}
 
-Die Verfügbarkeit von Bannern hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Bannern hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um loszulegen.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements) in Ihrer App oder Website erstellt haben.
 
@@ -30,7 +30,7 @@ Zu den Features für Banner gehören:
 
 - **Einfache Erstellung von Inhalten:** Erstellen Sie Ihr Banner mit einem visuellen Drag-and-Drop-Editor, der Bilder, Text, Buttons, Formulare zur Erfassung von E-Mails, angepassten Code und vieles mehr unterstützt, und zeigen Sie eine Vorschau an. Teams, die ihr eigenes Markup verwalten möchten, können stattdessen den HTML-Editor für die volle Kontrolle über HTML und Stile des Banners verwenden, oder [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) bitten, HTML aus einer Beschreibung zu generieren.
 - **Flexible Platzierungen:** Definieren Sie mehrere Standorte innerhalb Ihrer Anwendung oder Website, an denen Banner erscheinen können, und ermöglichen Sie so ein präzises Targeting auf bestimmte Kontexte oder Nutzererlebnisse.
-- **Dynamische Personalisierung:** Banner berechnen die Personalisierung (Liquid-Logik) und Segmentierung bei jeder Aktualisierung des Banners neu. Wenn Nutzer:innen ihr Profil aktualisieren oder sich ein angepasstes Attribut ändert, spiegelt die nächste Banner-Aktualisierung diese Änderungen wider.
+- **Dynamische Personalisierung:** Banner berechnen die Personalisierung (Liquid-Logik) und Segmentierung bei jeder Aktualisierung des Banners neu. Wenn Nutzer:innen ihr Profil Update or aktualisieren or aktualisieren oder sich ein angepasstes Attribut ändert, spiegelt die nächste Banner-Aktualisierung diese Änderungen wider.
 - **Native Priorisierung:** Legen Sie die Anzeigepriorität fest, wenn mehrere Banner auf dieselbe Platzierung abzielen, um sicherzustellen, dass die richtige Nachricht die Nutzer:innen zur richtigen Zeit erreicht.
 - **Editor-Block für angepassten Code:** Verwenden Sie den Editor-Block für angepassten Code, um angepasstes HTML für erweiterte Anpassungen oder eine nahtlose Integration in Ihre bestehenden Webstile hinzuzufügen.
 
@@ -38,7 +38,7 @@ Zu den Features für Banner gehören:
 
 ### Platzierungs-IDs {#placement-id}
 
-Bannerplatzierungen sind bestimmte Standorte in Ihrer App oder Website, [die Sie mit dem Braze SDK erstellen]({{site.baseurl}}/developer_guide/banners/placements) und die festlegen, wo Banner erscheinen können.
+Bannerplatzierungen sind bestimmte Standorte in Ihrer App oder Website, [die Sie mit dem Braze SDK or Software-Development-Kit erstellen]({{site.baseurl}}/developer_guide/banners/placements) und die festlegen, wo Banner erscheinen können.
 
 Zu den üblichen Standorten gehören der obere Teil Ihrer Homepage, Produktdetailseiten und Checkout-Abläufe. Nachdem die Platzierungen erstellt wurden, können Banner [in Ihrer Banner-Campaign zugewiesen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner) werden.
 
@@ -60,7 +60,7 @@ Wenn mehrere Banner auf dieselbe Priorität eingestellt sind, wird das neueste B
 
 ### Zustellung von Nachrichten {#message-delivery}
 
-Banner-Nachrichten werden Ihrer App oder Website als HTML-Inhalt zugestellt, der in der Regel innerhalb eines iFrames gerendert wird. Dadurch wird sichergestellt, dass Ihre Banner auf allen Geräten konsistent dargestellt werden, und Sie können deren Stile und Skripte vom Rest Ihres Codes trennen.
+Banner-Nachrichten werden Ihrer App oder Website als HTML-Inhalt zugestellt, der in der Regel innerhalb eines iFrames gerendert wird. Dadurch wird sichergestellt, dass Ihre Banner auf allen Geräten konsistent dargestellt werden, und Sie können deren Stile und Skripte vom Representational State Transfer Ihres Codes trennen.
 
 iFrames ermöglichen dynamische und personalisierte Inhaltsaktualisierungen, ohne dass Änderungen an Ihrer Codebasis erforderlich sind. Jeder iFrame ruft den HTML-Code für jede Nutzersitzung ab und zeigt ihn mithilfe der Logik für das Campaign-Targeting und die Personalisierung an.
 
@@ -70,7 +70,7 @@ iFrames ermöglichen dynamische und personalisierte Inhaltsaktualisierungen, ohn
 
 Hier erfahren Sie, was Sie über die Abmessungen und die Größe von Bannern wissen müssen:
 
-- Der Composer erlaubt Ihnen zwar die Vorschau von Bannern in verschiedenen Abmessungen, aber diese Informationen werden nicht gespeichert oder an das SDK gesendet.
+- Der Composer erlaubt Ihnen zwar die Vorschau von Bannern in verschiedenen Abmessungen, aber diese Informationen werden nicht gespeichert oder an das SDK or Software-Development-Kit gesendet.
 - Der HTML-Code nimmt die gesamte Breite des Containers ein, in dem er gerendert wird.
 - Wir empfehlen, ein Element mit festen Abmessungen zu erstellen und diese Abmessungen im Composer zu testen.
 

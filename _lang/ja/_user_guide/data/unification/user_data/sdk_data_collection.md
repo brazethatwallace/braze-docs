@@ -44,11 +44,11 @@ Brazeは3つのインプットから算出指標を生成します：[SDKトラ�
 | First used app                                 | 時刻                                                                 |
 | Last used app                                  | 時刻                                                                 |
 | Total session count                            | 数値                                                               |
-| Clicked card                                   | 数値                                                               |
+| Clicked カード                                   | 数値                                                               |
 | Last received any message                      | 時刻                                                                 |
 | Last received email campaign                   | 時刻                                                                 |
 | Last received push campaign                    | 時刻                                                                 |
-| Number of feedback items                       | 数値                                                               |
+| Number of フィードバック items                       | 数値                                                               |
 | Number of sessions in the last Y days          | 数値と時刻                                                      |
 | Received message from campaign                 | ブール値。このフィルターは、以前のキャンペーンを受信したかどうかに基づいてユーザーをターゲティングします。 |
 | Received message from campaign with tag        | ブール値。このフィルターは、現在タグが付いているキャンペーンを受信したかどうかに基づいてユーザーをターゲティングします。 |

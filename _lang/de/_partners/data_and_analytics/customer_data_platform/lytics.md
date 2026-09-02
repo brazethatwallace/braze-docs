@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lytics
 
-> [Lytics](https://www.lytics.com/) ist die Customer Data Platform (CDP) der Wahl für die nächste Generation kundenorientierter Unternehmen. Die Lösungen Lytics Decision Engine, Conductor und Cloud Connect bieten Marketern und Datenteams die Möglichkeit, Identitätsauflösung, Orchestrierung und Kampagnenoptimierung in Realtime und unter Wahrung des Datenschutzes durchzuführen.
+> [Lytics](https://www.lytics.com/) ist die Customer Data Platform (Customer Data Platform (CDP)) der Wahl für die nächste Generation kundenorientierter Unternehmen. Die Lösungen Lytics Decision Engine, Conductor und Cloud Connect bieten Marketern und Datenteams die Möglichkeit, Identitätsauflösung, Orchestrierung und Kampagnenoptimierung in Realtime und unter Wahrung des Datenschutzes durchzuführen.
 
 _Diese Integration wird von Lytics gepflegt._
 
@@ -20,11 +20,11 @@ Die Integration von Braze und Lytics bietet eine einheitliche Sicht auf Ihre Kun
 Die Integration ermöglicht es Marken:
 
 - Zielgruppen direkt aus Lytics nach Braze zu exportieren
-- Ereignisse aus Braze-Campaigns oder Canvases in Realtime an Lytics zu senden, um personalisierte Kampagnen durchzuführen und umfassende Nutzer:innen-Profile zu erstellen
+- Ereignisse aus Braze-Campaigns oder Canvase in Realtime an Lytics zu senden, um personalisierte Kampagnen durchzuführen und umfassende Nutzer:innen-Profile zu erstellen
 
 ## Anwendungsfälle {#use-cases}
 
-Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
+Verbinden Sie Braze mit Lytics, um E-Mail-, Kurzmitteilungsdienst or SMS- und Push-Aktivitäten zu [importieren](#importing-data-from-braze-to-lytics) und Lytics-Nutzer:innen-Profile anzureichern. Wenn Sie Braze und Lytics zusammen verwenden, können Sie auch die kanalübergreifenden, verhaltensgestützten Zielgruppen von Lytics [exportieren](#integration), um anhand von First-Party-Daten hochgradig personalisierte Braze-Customer-Journeys zu erstellen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -32,9 +32,9 @@ Verbinden Sie Braze mit Lytics, um E-Mail-, SMS- und Push-Aktivitäten zu [impor
 | ----------- | ----------- |
 | Lytics-Konto | Um die Vorteile dieser Integration zu nutzen, ist ein Lytics-Konto erforderlich. |
 | Lytics-Kontonummer | Für die Konfiguration der Webhook-Endpunkt-URL ist eine Lytics-Kontonummer erforderlich. |
-| Lytics-API-Token | Ein Lytics-REST-API-Token mit Data-Manager-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token** erstellt werden. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in, wenn Sie sich nicht sicher sind. |
+| Lytics-API-Token / Textbaustein | Ein Lytics-Representational State Transfer-API-Token / Textbaustein mit Data-Manager:in-Berechtigungen. <br><br> Dieses kann im Lytics-Dashboard unter **Account Settings Console** > **Access Tokens** > **Create New Token / Textbaustein** erstellt werden. |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-Instanz | Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Wenden Sie sich an Ihre:n Braze-Onboarding-Manager:in:in, wenn Sie sich nicht sicher sind. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration {#integration}
@@ -45,7 +45,7 @@ In diesem Abschnitt wird beschrieben, wie Sie Lytics-Daten nach Braze exportiere
 
 Navigieren Sie in Lytics zum Dashboard **Authorization** innerhalb der **Data**-Konsole in der Navigationsleiste. Wählen Sie **Create New Authorization**, suchen Sie nach **Braze** und wählen Sie es aus.
 
-Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und geben Sie Ihren REST-API-Schlüssel und Ihre Braze-Instanz ein. Wählen Sie **Complete**, wenn Sie fertig sind.
+Geben Sie in der daraufhin erscheinenden Aufforderung **Configure Authorization** eine Bezeichnung und eine Beschreibung ein und geben Sie Ihren Representational State Transfer-API-Schlüssel und Ihre Braze-Instanz ein. Wählen Sie **Complete**, wenn Sie fertig sind.
 
 ![Lytics-Aufforderung „Configure Authorization“ für Braze mit Feldern für Bezeichnung, Beschreibung, REST-API-Schlüssel und Braze-Instanz.]({% image_buster /assets/img/lytics/braze_authorization.png %}){: style="max-width:80%;"}
 
@@ -112,13 +112,13 @@ Sie können Zielgruppendaten aus Braze mit den folgenden Methoden in Lytics impo
 
 ### Webhooks verwenden {#using-webhooks}
 
-#### Schritt 1: Ein Lytics-API-Token erstellen {#step-1-create-a-lytics-api-token}
+#### Schritt 1: Ein Lytics-API-Token / Textbaustein erstellen {#step-1-create-a-lytics-api-token}
 
-Navigieren Sie zum Lytics-Kontomenü, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token**.
+Navigieren Sie zum Lytics-Kontomenü, indem Sie Ihren Kontonamen auswählen, und wählen Sie im Dropdown-Menü **Access Tokens** aus. Wählen Sie als Nächstes **Create API Token / Textbaustein**.
 
 ![Lytics-Bildschirm „Access Tokens“ mit ausgewählter Option „Create API Token“ im Kontomenü.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token ein. Aktivieren Sie als Nächstes den Bereich **Data Manager** für API-Berechtigungen und wählen Sie **Generate Token**. Kopieren Sie den Token und bewahren Sie ihn an einem sicheren Ort auf.
+Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer für den Token / Textbaustein ein. Aktivieren Sie als Nächstes den Bereich **Data Manager:in** für API-Berechtigungen und wählen Sie **Generate Token / Textbaustein**. Kopieren Sie den Token / Textbaustein und bewahren Sie ihn an einem sicheren Ort auf.
 
 ![Lytics-API-Token-Berechtigungen mit aktiviertem Bereich „Data Manager“ vor der Token-Generierung.]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 
@@ -127,7 +127,7 @@ Geben Sie einen Namen, eine optionale Beschreibung und eine Gültigkeitsdauer f�
 Die Lytics-Webhook-URL wird von Braze verwendet, um eine Nachricht von Braze an die Lytics-API zu senden. Diese Nachricht kann zur Personalisierung Ihrer Kampagnen in Lytics oder zur Anreicherung Ihres Lytics-Kundenprofils verwendet werden. Die folgenden zwei Parameter müssen in der Lytics-Webhook-URL hinzugefügt werden:
 
 - Lytics-Kontonummer
-- Lytics-API-Token
+- Lytics-API-Token / Textbaustein
 
 Konfigurieren Sie Ihre Webhook-URL wie folgt:
 
@@ -135,7 +135,7 @@ Konfigurieren Sie Ihre Webhook-URL wie folgt:
 https://api.lytics.io/c/<ACCOUNT-NUMBER>/braze_users?key=<LYTICS-API-TOKEN>
 ```
 
-Ersetzen Sie `<ACCOUNT-NUMBER>` durch Ihre Kontonummer und `<LYTICS-API-TOKEN>` durch Ihr Lytics-API-Token.
+Ersetzen Sie `<ACCOUNT-NUMBER>` durch Ihre Kontonummer und `<LYTICS-API-TOKEN>` durch Ihr Lytics-API-Token / Textbaustein.
 
 #### Schritt 3: Einen Webhook in Braze erstellen {#step-3-create-a-webhook-on-braze}
 

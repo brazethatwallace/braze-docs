@@ -140,7 +140,7 @@ Solo se admiten consultas de solo lectura, incluidas las cláusulas `JOIN`. Para
 
 ### Paso 4: Previsualiza y valida tu consulta {#step-4-preview-and-validate-your-query}
 
-Selecciona **Preview and validate** para ejecutar tu consulta.
+Selecciona **vista previa and validate** para ejecutar tu consulta.
 
 La vista previa:
 
@@ -283,7 +283,7 @@ Cuando ves "Vista previa no disponible", uno de los siguientes tipos de error su
 
 | Tipo de error | Pasos para resolver |
 |---|---|
-| "No preview available" | Lee el banner de error para obtener pistas. |
+| "No vista previa available" | Lee el banner de error para obtener pistas. |
 | "Unable to connect to the source" | Verifica el nombre de usuario configurado, el localizador de cuenta y la configuración de autenticación por par de claves RSA.<br>Verifica que el almacén esté en ejecución.<br>Confirma el acceso a la red. |
 | "SQL syntax error" | Revisa tu sintaxis SQL. |
 | "Object does not exist or not authorized" | Asegúrate de que el rol tenga acceso `SELECT` a la tabla.<br>Confirma los permisos de base de datos y esquema.<br>Verifica errores tipográficos en el nombre de la tabla. |

@@ -30,7 +30,7 @@ Los siguientes ejemplos muestran algunas formas de aprovechar los agentes person
 | Ejemplo | Descripción |
 | --- | --- |
 | Gestión de comentarios de clientes | Pasa los comentarios de los usuarios a un agente para analizar el sentimiento y generar mensajes de seguimiento empáticos. Para usuarios de alto valor, el agente podría escalar la respuesta o incluir beneficios. |
-| Localizar contenido | Traduce el texto del catálogo a otro idioma para campañas globales, o ajusta el tono y la extensión para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster", o acorta las descripciones para campañas de SMS. |
+| Localizar contenido | Traduce el texto del catálogo a otro idioma para campañas globales, o ajusta el tono y la extensión para canales específicos de cada región. Por ejemplo, traduce "Classic Clubmaster Sunglasses" al español como "Gafas de sol Classic Clubmaster", o acorta las descripciones para campañas de servicio de mensajes cortos. |
 | Resumir reseñas o comentarios | Resume el sentimiento o los comentarios en un nuevo campo, como asignar puntuaciones de sentimiento como Positivo, Neutral o Negativo, o crear un breve resumen de texto como "La mayoría de los clientes mencionan un gran ajuste, pero señalan envíos lentos." |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cómo funciona" }
 
@@ -60,7 +60,7 @@ A continuación, configura los detalles de tu agente:
 2. (opcional) Añade etiquetas para filtrar tu agente.
 3. Elige el [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) que usará tu agente.
 4. Si no estás usando el modelo **Braze Auto**, selecciona el [nivel de razonamiento]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) del modelo. Puedes elegir entre mínimo, bajo, medio o alto. Recomendamos empezar con **Minimal** y probar las respuestas de tu agente, ajustando según sea necesario.
-5. Establece un límite diario de invocaciones. De forma predeterminada, este valor está configurado en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, contacta a tu administrador de éxito de cliente para obtener más información. Establece el límite lo suficientemente alto para el tamaño de audiencia planificado después de las pruebas. Un límite demasiado bajo provoca fallos por límite diario (que no consumen créditos pero sí aplican valores alternativos o dejan la salida como `null`).
+5. Establece un límite diario de invocaciones. De forma predeterminada, este valor está configurado en 250 000, pero puede aumentarse hasta 1 000 000. Si te interesa aumentar el límite por encima de 1 000 000, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para obtener más información. Establece el límite lo suficientemente alto para el tamaño de audiencia planificado después de las pruebas. Un límite demasiado bajo provoca fallos por límite diario (que no consumen créditos pero sí aplican valores alternativos o dejan la salida como `null`).
 
 El campo **Daily action credit cost limit** especifica el número máximo de créditos que este agente puede consumir por día. Braze lo calcula a partir de la proporción de créditos por invocación de tu espacio de trabajo para el modelo seleccionado (según tu contrato, que se muestra en la página [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)) multiplicada por el límite diario de invocaciones. La estimación se actualiza cuando cambias el modelo o el límite de invocaciones.
 
@@ -87,7 +87,7 @@ Selecciona **+ Agent context** para elegir a qué puede hacer referencia tu agen
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): dale al agente acceso a los datos de tu catálogo para obtener respuestas más precisas.
 - [Fuentes de conocimiento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): dale al agente acceso a datos de catálogo a través de una fuente de conocimiento para una recuperación más precisa que adjuntar un catálogo directamente.
 - [Pertenencia a Segments]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): permite que el agente personalice las respuestas en función de a qué Segments pertenece un usuario. Puedes seleccionar hasta cinco Segments.
-- [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): haz referencia a las directrices de voz y estilo de marca que el agente debe seguir. Por ejemplo, si quieres que tu agente genere textos de SMS para animar a los usuarios a suscribirse a una membresía de gimnasio, puedes usar este campo para hacer referencia a tus directrices predefinidas de tono audaz y motivacional.
+- [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): haz referencia a las directrices de voz y estilo de marca que el agente debe seguir. Por ejemplo, si quieres que tu agente genere textos de servicio de mensajes cortos para animar a los usuarios a suscribirse a una membresía de gimnasio, puedes usar este campo para hacer referencia a tus directrices predefinidas de tono audaz y motivacional.
 - [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): analiza todos los datos de contexto de Canvas de un usuario cuando se invoca este agente, incluidas las variables que no se mencionan en la sección **Instructions**.
 - [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaigns y Canvas de cada usuario.
 
@@ -130,7 +130,7 @@ Para conocer el comportamiento en tiempo de ejecución, consulta [Manejo de erro
 
 ### Paso 6: Prueba el agente {#step-6-test-the-agent}
 
-El panel **Preview** es una instancia del agente que aparece como un panel lateral dentro de la experiencia de configuración. Puedes usar esta sección para probar el agente mientras lo creas o realizas actualizaciones, experimentándolo de forma similar a los usuarios finales. Este paso te ayuda a confirmar que se comporta como esperas y te da la oportunidad de ajustarlo antes de que entre en vivo.
+El panel **vista previa** es una instancia del agente que aparece como un panel lateral dentro de la experiencia de configuración. Puedes usar esta sección para probar el agente mientras lo creas o realizas actualizaciones, experimentándolo de forma similar a los usuarios finales. Este paso te ayuda a confirmar que se comporta como esperas y te da la oportunidad de ajustarlo antes de que entre en vivo.
 
 1. En el campo **Test your agent**, introduce datos de ejemplo del cliente o respuestas del cliente, cualquier cosa que refleje escenarios reales que tu agente manejará.
 2. Previsualiza la respuesta del agente para un usuario aleatorio, un usuario existente o un usuario personalizado.

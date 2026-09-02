@@ -1,13 +1,13 @@
 ---
 nav_title: Fehlerbehebung
-article_title: Fehlerbehebung für Canvases
+article_title: Fehlerbehebung für Canvase
 page_order: 7
 page_type: reference
 description: "Diagnostizieren Sie Probleme beim Canvas-Eintritt, beim Senden und bei Analytics mithilfe eines standardisierten Untersuchungspfads, eines Symptomindex und Links zum Messaging-Verlauf und zum Messaging-Diagnostics-Dashboard."
 tool: Canvas
 ---
 
-# Fehlerbehebung für Canvases {#troubleshoot-canvases}
+# Fehlerbehebung für Canvase {#troubleshoot-canvases}
 
 > Verwenden Sie diese Seite, um Probleme beim Canvas-Eintritt, beim Senden und bei Analytics zu diagnostizieren. Definitionen und weiterführende Informationen finden Sie in den [Canvas-FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs).
 
@@ -36,7 +36,7 @@ tool: Canvas
 Verwenden Sie diesen Workflow, um ein Problem bei bestimmten Nutzer:innen oder einem aggregierten Versand zu untersuchen. Beginnen Sie bei jedem Vorfall mit Schritt 1.
 
 1. Bestätigen Sie, dass das Canvas aktiv ist (nicht im Entwurfsstatus, gestoppt oder archiviert).
-2. Bestätigen Sie, dass der Entry-Zeitplan (geplantes Fenster, Zeitzone, aktionsbasierter Trigger oder API-gesteuerter Entry) mit dem erwarteten Eintrittszeitpunkt der Nutzer:innen übereinstimmt.
+2. Bestätigen Sie, dass der Entry-Zeitplan (geplantes Fenster, Zeitzone, aktionsbasierter Trigger or triggern oder API-gesteuerter Entry) mit dem erwarteten Eintrittszeitpunkt der Nutzer:innen übereinstimmt.
 3. Überprüfen Sie den Nachrichtenverlauf einer Nutzer:in, indem Sie zu **Audience** > **Search users** navigieren, das Profil öffnen und **Messaging History** (letzte 30 Tage) auswählen.
    - Wenn für den erwarteten Sendezeitpunkt kein Eintrag vorhanden ist, liegt das Problem beim Entry, nicht bei der Nachricht. Gehen Sie zu [Nutzer:in hat das Canvas nicht betreten](#user-didnt-enter-the-canvas).
 4. Überprüfen Sie den Canvas-**Changelog** und die Changelogs aller im Targeting verwendeten Segmente. Bestätigen Sie, dass die Zielgruppe, die Schritte oder die Sendeeinstellungen während des Vorfalls nicht geändert wurden.
@@ -45,13 +45,13 @@ Verwenden Sie diesen Workflow, um ein Problem bei bestimmten Nutzer:innen oder e
    - Wenn ein Canvas-Schritt null Eintritte anzeigt (nicht null Sendungen), überprüfen Sie den vorherigen Schritttyp ([Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths), [Verzögerung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) oder [Decision-Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)).
 6. Wenn Sie weiterhin nicht weiterkommen, wenden Sie sich innerhalb von 30 Tagen an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit der Canvas-ID, den betroffenen Nutzer:innen-IDs, Zeitstempeln (mit Zeitzone) und Screenshots aus Messaging History oder Messaging Diagnostics.
 
-Verwenden Sie vor dem Start [Test-Canvases senden]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) und [Nutzerpfade in der Vorschau anzeigen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths), um Ihre Einrichtung zu validieren.
+Verwenden Sie vor dem Start [Test-Canvase senden]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) und [Nutzerpfade in der Vorschau anzeigen]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths), um Ihre Einrichtung zu validieren.
 
 ## Nutzer:in ist nicht in den Canvas eingetreten {#user-didnt-enter-the-canvas}
 
-**Symptom:** Eine Nutzer:in ist nicht wie erwartet in den Canvas eingetreten, oder es sind weniger Nutzer:innen eingetreten, als die Trigger-Events vermuten lassen.
+**Symptom:** Eine Nutzer:in ist nicht wie erwartet in den Canvas eingetreten, oder es sind weniger Nutzer:innen eingetreten, als die Trigger or triggern-Events vermuten lassen.
 
-Nutzer:innen müssen zur **Zielgruppe** gehören, bevor Braze den Entry-Trigger auswertet (mit Ausnahme von [Attributänderungs-]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)Triggern). Ein Trigger allein garantiert keinen Entry, wenn die Nutzer:in zum Zeitpunkt der Auswertung nicht zur Zielgruppe gehörte.
+Nutzer:innen müssen zur **Zielgruppe** gehören, bevor Braze den Entry-Trigger or triggern auswertet (mit Ausnahme von [Attributänderungs-]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)Trigger or triggern or triggern). Ein Trigger or triggern allein garantiert keinen Entry, wenn die Nutzer:in zum Zeitpunkt der Auswertung nicht zur Zielgruppe gehörte.
 
 Wiederzulässigkeit und Wiedereintritt sind separate Einstellungen unter [Entry-Kontrollen auswählen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls):
 
@@ -62,27 +62,27 @@ Eine Nutzer:in kann wiederzulässig sein, aber blockiert werden, weil sie sich n
 
 Überprüfen Sie Folgendes:
 
-- **Entry-Zeitplan und Zeitzone:** Bestätigen Sie, dass der Canvas aktiv war und die Nutzer:in den Trigger während des [Entry-Fensters]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) ausgelöst hat.
+- **Entry-Zeitplan und Zeitzone:** Bestätigen Sie, dass der Canvas aktiv war und die Nutzer:in den Trigger or triggern während des [Entry-Fensters]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule) ausgelöst hat.
 - **Zielgruppe zum Zeitpunkt der Auswertung:** Überprüfen Sie Segment- und Filter-Changelogs. Die [Nutzer:innensuche]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) kann bei einigen Filtertypen falsch positive Ergebnisse anzeigen (z. B. als String formatierte Datumsattribute).
 - **Entry-Limits:** [Maximale Eintritte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) oder Zielgruppen-Limits wurden möglicherweise erreicht.
-- **Globale Kontrollgruppe:** Nutzer:innen in der [globalen Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) treten nicht in Messaging-Canvases ein.
+- **Globale Kontrollgruppe:** Nutzer:innen in der [globalen Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) treten nicht in Messaging-Canvase ein.
 - **Canvas-Kontrollgruppe:** Nutzer:innen, die beim Entry der Canvas-Kontrollgruppe zugewiesen werden, erhalten keine Varianten-Nachrichten. Die Variantenzuweisung erfolgt beim Entry, nicht über Segmentfilter. Siehe [Abweichungen bei Canvas-Analytics](#canvas-analytics-mismatches).
 - **Exit-Kriterien:** Die Nutzer:in hat möglicherweise die [Exit-Kriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) vor oder während des Entry erfüllt. Wenn Entry und Exit dasselbe Event verwenden, siehe [Übereinstimmung von Entry- und Exit-Kriterien]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
 - **API-getriggerter Entry:** Bestätigen Sie, dass die Nutzer:in mit dem [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) hinzugefügt wurde. Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mit einem Canvas-Entry-Filter und Nutzer:innen mit [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) exportieren.
 
-### Trigger-Event-Anzahl ist höher als Canvas-Eintritte {#trigger-event-count-is-higher-than-canvas-entries}
+### Trigger or triggern-Event-Anzahl ist höher als Canvas-Eintritte {#trigger-event-count-is-higher-than-canvas-entries}
 
-**Symptom:** Das Trigger-Event-Volumen ist höher als die Anzahl der Canvas-Eintritte.
+**Symptom:** Das Trigger or triggern-Event-Volumen ist höher als die Anzahl der Canvas-Eintritte.
 
-Braze dedupliziert mehrere Entry-Versuche, die im selben Moment auftreten, sodass Sie möglicherweise weniger Canvas-Eintritte als Trigger-Events sehen. Zum Testen mehrerer Eintritte sollten Trigger-Events mindestens eine Sekunde Abstand haben.
+Braze dedupliziert mehrere Entry-Versuche, die im selben Moment auftreten, sodass Sie möglicherweise weniger Canvas-Eintritte als Trigger or triggern-Events sehen. Zum Testen mehrerer Eintritte sollten Trigger or triggern-Events mindestens eine Sekunde Abstand haben.
 
-Wenn eine Nutzer:in denselben Trigger innerhalb einer Sekunde mehrmals ausführt, verarbeitet Braze nur einen Entry. Überprüfen Sie die Messaging-Diagnose auf Ergebnisse wie **Nutzer:in nicht wiederzulässig**, wenn Wiedereintritts- oder Wiederzulässigkeitsregeln gelten.
+Wenn eine Nutzer:in denselben Trigger or triggern innerhalb einer Sekunde mehrmals ausführt, verarbeitet Braze nur einen Entry. Überprüfen Sie die Messaging-Diagnose auf Ergebnisse wie **Nutzer:in nicht wiederzulässig**, wenn Wiedereintritts- oder Wiederzulässigkeitsregeln gelten.
 
-{% details Sommerzeit und täglich geplante Canvases %}
+{% details Sommerzeit und täglich geplante Canvase %}
 
-An Tagen der Sommerzeitumstellung (DST) können täglich geplante Canvases bis zu eine Stunde früher oder später als gewöhnlich ausgeführt werden. Wenn Ihre Entry-Kriterien auf angepassten Attributen oder Events mit Zeitstempeln basieren, die innerhalb einer Stunde der geplanten Entry-Zeit liegen, qualifizieren sich Nutzer:innen am DST-Tag möglicherweise noch nicht, weil das Attribut oder Event noch nicht protokolliert wurde.
+An Tagen der Sommerzeitumstellung (DST) können täglich geplante Canvase bis zu eine Stunde früher oder später als gewöhnlich ausgeführt werden. Wenn Ihre Entry-Kriterien auf angepassten Attributen oder Events mit Zeitstempeln basieren, die innerhalb einer Stunde der geplanten Entry-Zeit liegen, qualifizieren sich Nutzer:innen am DST-Tag möglicherweise noch nicht, weil das Attribut oder Event noch nicht protokolliert wurde.
 
-Angenommen, Nutzer:innen erhalten üblicherweise um 15:00 Uhr in der Zeitzone Ihres Canvas ein angepasstes Attribut-Update und Ihr Canvas läuft täglich um 15:30 Uhr in derselben Zeitzone. An einem Frühjahrs-DST-Tag kann der Canvas Nutzer:innen bis zu eine Stunde früher als gewöhnlich relativ zu diesem Attribut-Update auswerten – bevor das Attribut protokolliert wurde. Wenn die Wiederzulässigkeit deaktiviert ist, können Nutzer:innen, die an vorherigen Tagen eingetreten sind, nicht erneut eintreten, was für diesen Tag null Eintritte zur Folge hat.
+Angenommen, Nutzer:innen erhalten üblicherweise um 15:00 Uhr in der Zeitzone Ihres Canvas ein angepasstes Attribut-Update or aktualisieren und Ihr Canvas läuft täglich um 15:30 Uhr in derselben Zeitzone. An einem Frühjahrs-DST-Tag kann der Canvas Nutzer:innen bis zu eine Stunde früher als gewöhnlich relativ zu diesem Attribut-Update or aktualisieren auswerten – bevor das Attribut protokolliert wurde. Wenn die Wiederzulässigkeit deaktiviert ist, können Nutzer:innen, die an vorherigen Tagen eingetreten sind, nicht erneut eintreten, was für diesen Tag null Eintritte zur Folge hat.
 
 Um dies zu vermeiden, stellen Sie sicher, dass Ihre angepassten Attribut- oder Event-Updates mehr als eine Stunde vor der geplanten Entry-Zeit des Canvas erfolgen.
 
@@ -94,14 +94,14 @@ Um dies zu vermeiden, stellen Sie sicher, dass Ihre angepassten Attribut- oder E
 
 Überprüfen Sie den [**Nachrichtenverlauf**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#messaging-history-tab) der Nutzerin bzw. des Nutzers für den Canvas-Schritt und den Zeitstempel. Wenn kein Eintrag vorhanden ist, kehren Sie zu [Nutzer:in ist nicht in den Canvas eingetreten](#user-didnt-enter-the-canvas) zurück.
 
-Überprüfen Sie dann je nach Trigger- oder Schritttyp Folgendes:
+Überprüfen Sie dann je nach Trigger or triggern- oder Schritttyp Folgendes:
 
-- **Angepasste Events oder Kauf-Trigger:** Bestätigen Sie, dass das Event unter **Analytics** > **Custom Events Report** (oder **Revenue** für Käufe) angezeigt wird. Vergleichen Sie den Event-Zeitstempel mit dem Zeitpunkt, zu dem der Canvas live ging, und mit einer eventuell konfigurierten Verzögerung auf dem Schritt.
+- **Angepasste Events oder Kauf-Trigger or triggern:** Bestätigen Sie, dass das Event unter **Analytics** > **Custom Events Report** (oder **Revenue** für Käufe) angezeigt wird. Vergleichen Sie den Event-Zeitstempel mit dem Zeitpunkt, zu dem der Canvas live ging, und mit einer eventuell konfigurierten Verzögerung auf dem Schritt.
 - **API-getriggerte Eintritte:** Bestätigen Sie den Eintritt mit einem Canvas-Segment-Filter und Export, wie unter [Nutzer:in ist nicht in den Canvas eingetreten](#user-didnt-enter-the-canvas) beschrieben.
-- **Aktionspfade oder Nachrichtenschritt-Trigger:** Bestätigen Sie, dass die Nutzerin bzw. der Nutzer das vorausgesetzte Event ausgeführt hat und dass [Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#event-properties) auf dem Schritt verfügbar sind.
-- **In-App-Nachricht-Schritte:** In-App-Nachrichten werden beim nächsten Sitzungsstart gesendet, nachdem die Nutzerin bzw. der Nutzer den Schritt erreicht hat, und nur über SDK-Events (nicht über die REST API). Siehe [Wann werden In-App-Nachrichten in Canvas gesendet?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) in den Canvas-FAQ.
+- **Aktionspfade oder Nachrichtenschritt-Trigger or triggern:** Bestätigen Sie, dass die Nutzerin bzw. der Nutzer das vorausgesetzte Event ausgeführt hat und dass [Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#event-properties) auf dem Schritt verfügbar sind.
+- **In-App-Nachricht-Schritte:** In-App-Nachrichten werden beim nächsten Sitzungsstart gesendet, nachdem die Nutzerin bzw. der Nutzer den Schritt erreicht hat, und nur über SDK or Software-Development-Kit-Events (nicht über die Representational State Transfer API). Siehe [Wann werden In-App-Nachrichten in Canvas gesendet?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) in den Canvas-FAQ.
 - **Canvas-Kontrollgruppe:** Überprüfen Sie, ob die Nutzerin bzw. der Nutzer beim Eintritt nicht der Canvas-Kontrollgruppe zugewiesen wurde.
-- **Kanalberechtigung und Sendeeinstellungen:** Bestätigen Sie den Abo-Status, den Push-aktiviert-Status und die [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) pro Schritt (zum Beispiel **Subscription Settings** nur für Nutzer:innen mit Opt-in). Fügen Sie keine Einzelkanal-Filter zur **Zielgruppe** bei mehrkanaligen Canvases hinzu.
+- **Kanalberechtigung und Sendeeinstellungen:** Bestätigen Sie den Abo-Status, den Push-aktiviert-Status und die [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) pro Schritt (zum Beispiel **Subscription Settings** nur für Nutzer:innen mit Opt-in). Fügen Sie keine Einzelkanal-Filter zur **Zielgruppe** bei mehrkanaligen Canvase hinzu.
 - **Zustellungsvalidierungen:** Wenn Sie **Validate audience at message send** auf einem Nachrichtenschritt aktiviert haben, erhalten Nutzer:innen, die zum Sendezeitpunkt nicht mehr den Filtern entsprechen, die Nachricht nicht. Siehe [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
 - **Ruhezeiten, intelligentes Timing, Frequency Capping und Rate-Limits:** Diese können Sendungen verschieben, unterdrücken oder abbrechen. Nutzer:innen können nach einem Abbruch durch Ruhezeiten weiterhin im Canvas verbleiben.
 - **Race-Conditions:** Wenn die Nutzerin bzw. der Nutzer mehrere Aktionen gleichzeitig ausgelöst hat, siehe [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
@@ -205,7 +205,7 @@ Wenn der Canvas sich nicht laden lässt und nicht weiterkommt, wurde eine frühe
 
 Fügen Sie für „Request Timed Out“-Support-Tickets eine Bildschirmaufnahme, einen Zeitstempel mit Zeitzone, den Browser und die Version, Schritte zur Reproduktion und optional ein HAR-Log aus den Entwicklertools Ihres Browsers bei. Siehe [Was sollte ich bei der Einreichung eines Support-Tickets für einen „Request Timed Out“-Fehler angeben?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) in den Canvas-FAQ.
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas-Variante archived segment' %}
 
 ## Verhalten bei gestopptem Canvas {#stopped-canvas-behavior}
 
@@ -228,7 +228,7 @@ So beheben Sie das Problem:
 - Reduzieren Sie die Schritt-Verzweigungen im Canvas.
 - Verkleinern Sie die Eintrittszielgruppe.
 - Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), um Verzweigungen zu konsolidieren, anstatt viele parallele Pfade zu nutzen.
-- Wenn Ihr Canvas den ursprünglichen Editor verwendet, [klonen Sie es zu Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) und bauen Sie es mit Canvas-Komponenten neu auf.
+- Wenn Ihr Canvas den ursprünglichen Editor verwendet, [Klon or klonen Sie es zu Canvas Flow]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) und bauen Sie es mit Canvas-Komponenten neu auf.
 
 Wenn Sie das Canvas dennoch ohne Änderungen starten müssen und nicht zu Canvas Flow wechseln können, kontaktieren Sie den [Support]({{site.baseurl}}/support_contact).
 

@@ -4,11 +4,11 @@
 
 ### Paso 1: Obtener el archivo de integración de Braze {#step-1-get-the-braze-integration-file}
 
-Copia el archivo `braze.js` de nuestro [repositorio de integración de aplicaciones ChatGPT](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts) a tu proyecto. Este archivo contiene toda la configuración necesaria del SDK de Braze y las funciones auxiliares.
+Copia el archivo `braze.js` de nuestro [repositorio de integración de aplicaciones ChatGPT](https://github.com/braze-inc/chatgpt-apps-braze-integration/blob/main/src/braze/braze.ts) a tu proyecto. Este archivo contiene toda la configuración necesaria del SDK or kit de desarrollo de software de Braze y las funciones auxiliares.
 
 ### Paso 2: Instalar dependencias {#step-2-install-dependencies}
 
-Instala nuestro SDK Web para disfrutar del conjunto de características más actualizado de Braze:
+Instala nuestro SDK or kit de desarrollo de software Web para disfrutar del conjunto de características más actualizado de Braze:
 
 **Para la integración del lado del cliente:**
 ```bash
@@ -50,7 +50,7 @@ Add the following metadata to your MCP server file to allow Braze domains, ensur
 }
 ```
 
-Reemplaza `YOUR-SDK-ENDPOINT` por tu punto final de SDK de Braze real.
+Reemplaza `YOUR-SDK-ENDPOINT` por tu punto final de SDK or kit de desarrollo de software de Braze real.
 
 #### Configurar el hook useBraze {#set-up-the-usebraze-hook}
 
@@ -126,7 +126,7 @@ const handleItemInteraction = (itemId) => {
 ### Integración del lado del servidor (servidor MCP) {#server-side-integration-mcp-server}
 
 <!-- For tracking events and purchases from your MCP server, add these code snippets to your server file (typically `server.js` or `server.ts`) where you handle ChatGPT app requests and tool calls. -->
-Si también necesitas una integración del lado del servidor para la funcionalidad de mensajería en tu servidor MCP, ponte en contacto con <span style="white-space:nowrap;">`mcp-product@braze.com`</span>. Para realizar el seguimiento de eventos y compras desde tu servidor MCP, utiliza nuestra [REST API]({{site.baseurl}}/api/home/).
+Si también necesitas una integración del lado del servidor para la funcionalidad de mensajería en tu servidor MCP, ponte en contacto con <span style="white-space:nowrap;">`mcp-product@braze.com`</span>. Para realizar el seguimiento de eventos y compras desde tu servidor MCP, utiliza nuestra [REST or transferencia de estado representacional API]({{site.baseurl}}/api/home/).
 
 <!-- #### Import the Braze functions
 
@@ -188,5 +188,5 @@ await logPurchase(
 ```
 
 {% alert tip %}
-Use the [SDK debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) to verify your integration and troubleshoot any issues.
+Use the [SDK or kit de desarrollo de software debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging/) to verify your integration and troubleshoot any issues.
 {% endalert %} -->

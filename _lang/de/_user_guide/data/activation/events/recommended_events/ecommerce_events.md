@@ -8,9 +8,9 @@ description: "Erfahren Sie, wie Sie empfohlene E-Commerce-Events in Braze verwen
 
 # So verwenden Sie E-Commerce-Events {#how-to-use-ecommerce-events}
 
-> Empfohlene E-Commerce-[Events]({{site.baseurl}}/recommended_events) verwenden ein gemeinsames Schema auf Bestellebene, das es Braze ermöglicht, zuverlässige Features auf Basis Ihrer E-Commerce-Daten zu erstellen – einschließlich Nutzerprofilen, Segmentierung, Messaging, Reporting und KI-gestützten Empfehlungen. Die Abschnitte in diesem Artikel beschreiben, wie Sie jede Funktion in Braze nutzen können.<br><br> Unter [Event-Schemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas) finden Sie Anforderungen an Eigenschaften und Datentypen, und unter [Event-Validierung und Fehlerbehebung]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting) erfahren Sie, was passiert, wenn ein Event die Validierung nicht besteht.
+> Empfohlene E-Commerce-[Events]({{site.baseurl}}/recommended_events) verwenden ein gemeinsames Schema auf Bestellebene, das es Braze ermöglicht, zuverlässige Features auf Basis Ihrer E-Commerce-Daten zu erstellen – einschließlich Nutzerprofilen, Segmentierung, Messaging, Reporting und KI or künstliche Intelligenz-gestützten Empfehlungen. Die Abschnitte in diesem Artikel beschreiben, wie Sie jede Funktion in Braze nutzen können.<br><br> Unter [Event-Schemas]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-schemas) finden Sie Anforderungen an Eigenschaften und Datentypen, und unter [Event-Validierung und Fehlerbehebung]({{site.baseurl}}/user_guide/data/activation/events/recommended_events#event-validation-and-troubleshooting) erfahren Sie, was passiert, wenn ein Event die Validierung nicht besteht.
 
-Da E-Commerce-Events einem vorhersehbaren Schema folgen, kann Braze zuverlässige Features darauf aufbauen – von Umsatz-Tracking und vorgefertigten Canvas-Templates bis hin zu KI-gestützten Empfehlungen. Die folgenden Abschnitte geben Ihnen einen schnellen Überblick über jede Funktion mit Links zur vollständigen Dokumentation.
+Da E-Commerce-Events einem vorhersehbaren Schema folgen, kann Braze zuverlässige Features darauf aufbauen – von Umsatz-Tracking und vorgefertigten Canvas-Templates bis hin zu KI or künstliche Intelligenz-gestützten Empfehlungen. Die folgenden Abschnitte geben Ihnen einen schnellen Überblick über jede Funktion mit Links zur vollständigen Dokumentation.
 
 {% alert note %}
 E-Commerce-Events von Braze und ihre segmentierbaren Event-Eigenschaften zählen nicht als [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
@@ -20,11 +20,11 @@ E-Commerce-Events von Braze und ihre segmentierbaren Event-Eigenschaften zählen
 
 ## Tab „Commerce“ {#commerce-tab}
 
-Der Tab **Commerce** in jedem Nutzerprofil kombiniert zwei Module: **Order activity** (berechnete Umsatz- und Bestellmetriken) und **Active cart** (der neueste Warenkorb aus `ecommerce.cart_updated`-Events).
+Der Tab **Commerce** in jedem Kundenprofil or Nutzerprofil kombiniert zwei Module: **Order activity** (berechnete Umsatz- und Bestellmetriken) und **Active cart** (der neueste Warenkorb aus `ecommerce.cart_updated`-Events).
 
 ### Bestellaktivität {#order-activity}
 
-Das Modul **Order activity** zeigt drei berechnete Metriken an, die sich in Echtzeit aktualisieren, sobald Events verarbeitet werden. Das Modell auf Bestellebene dieser Berechnungen trennt Produktpreise sauber vom Gesamtbestellwert.
+Das Modul **Order activity** zeigt drei berechnete Metriken an, die sich in Echtzeit Update or aktualisieren or aktualisieren, sobald Events verarbeitet werden. Das Modell auf Bestellebene dieser Berechnungen trennt Produktpreise sauber vom Gesamtbestellwert.
 
 {% alert note %}
 Empfohlene E-Commerce-Events werden nicht im Abschnitt **Purchase history** des Tabs **Commerce** angezeigt. Die Kaufhistorie wird durch Legacy-Kauf-Events befüllt. Verwenden Sie die Metriken in der folgenden Tabelle für Umsatz und Bestellaktivität aus empfohlenen Events.
@@ -39,7 +39,7 @@ Empfohlene E-Commerce-Events werden nicht im Abschnitt **Purchase history** des 
 
 ### Aktiver Warenkorb {#active-cart}
 
-Das Modul **Active cart** zeigt den neuesten Warenkorb im Nutzerprofil an. Diese Ansicht ist besonders hilfreich beim Testen. Sie können damit Warenkorb-Inhalte bestätigen, warenkorbbasierte Journeys validieren oder überprüfen, ob `ecommerce.cart_updated`-Events das Profil wie erwartet aktualisieren.
+Das Modul **Active cart** zeigt den neuesten Warenkorb im Kundenprofil or Nutzerprofil an. Diese Ansicht ist besonders hilfreich beim Testen. Sie können damit Warenkorb-Inhalte bestätigen, warenkorbbasierte Journeys validieren oder überprüfen, ob `ecommerce.cart_updated`-Events das Profil wie erwartet Update or aktualisieren or aktualisieren.
 
 **Active cart** umfasst Folgendes:
 
@@ -59,14 +59,14 @@ Braze bietet drei Möglichkeiten, Nutzer:innen auf Basis von E-Commerce-Daten zu
 - **Segmenterweiterungen:** Für die Segmentierung anhand verschachtelter Event-Eigenschaften – einschließlich des verschachtelten Produkt-Arrays oder der Eigenschaften von Metadatenobjekten – verwenden Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) mit Filterung nach verschachtelten Event-Eigenschaften. So können Sie Zielgruppen wie „Nutzer:innen, die Produkt SKU-123 in den letzten 90 Tagen gekauft haben“ erstellen oder Kriterien über verschiedene Eigenschaften derselben Bestellung hinweg kombinieren.
 
 {% alert important %}
-Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature mit eingeschränktem Vorabzugang. Wenn Sie am Vorabzugang teilnehmen möchten, wenden Sie sich an Ihren Customer-Success-Manager. Bestätigen Sie, dass Ihr Tarif den Zugang zur Segmentierung nach verschachtelten Eigenschaften umfasst, bevor Sie diese Funktion Ihrem Team empfehlen.
+Segmenterweiterungen für empfohlene E-Commerce-Events sind ein kostenpflichtiges Feature mit eingeschränktem Vorabzugang. Wenn Sie am Vorabzugang teilnehmen möchten, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in. Bestätigen Sie, dass Ihr Tarif den Zugang zur Segmentierung nach verschachtelten Eigenschaften umfasst, bevor Sie diese Funktion Ihrem Team empfehlen.
 {% endalert %}
 
 ### Triggering {#triggering}
 
-Sie können Trigger für ausgeführte angepasste Events mit E-Commerce-Events in Braze verwenden, genau wie bei anderen angepassten Events. Für Warenkorb-Abbruch-Flows verwenden Sie den Trigger **Perform Cart Updated Event**, um Warenkorb-Aktualisierungen korrekt zu erfassen.
+Sie können Trigger or triggern für ausgeführte angepasste Events mit E-Commerce-Events in Braze verwenden, genau wie bei anderen angepassten Events. Für Warenkorb-Abbruch-Flows verwenden Sie den Trigger or triggern **Perform Cart Updated Event**, um Warenkorb-Aktualisierungen korrekt zu erfassen.
 
-Darüber hinaus bietet Braze einen dedizierten Trigger **Places Order**, mit dem Sie Journeys starten oder Aktionen auf Basis jeder aufgegebenen Bestellung oder auf Basis von Bestellungen auslösen können, die ein bestimmtes Produkt enthalten. Sie können diesen Trigger nach Produktname, `product_id` oder `variant_id` filtern, um bestimmte Kaufszenarien anzusprechen. Weitere Informationen finden Sie unter [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+Darüber hinaus bietet Braze einen dedizierten Trigger or triggern **Places Order**, mit dem Sie Journeys starten oder Aktionen auf Basis jeder aufgegebenen Bestellung oder auf Basis von Bestellungen auslösen können, die ein bestimmtes Produkt enthalten. Sie können diesen Trigger or triggern nach Produktname, `product_id` oder `variant_id` filtern, um bestimmte Kaufszenarien anzusprechen. Weitere Informationen finden Sie unter [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
 
 ![Trigger „Places Order“ mit ausgewählter Option zur Aufgabe einer beliebigen Bestellung.]({% image_buster /assets/img/recommended_events/places_order_trigger.png %})
 
@@ -148,7 +148,7 @@ Verwenden Sie dieses Template, wenn Sie die Kommunikation nach dem Kauf optimier
 
 Diese Templates sind als Ausgangspunkt konzipiert. Häufige Anpassungen umfassen:
   - **E-Mail anpassen:** Jedes Template enthält eine vorkonfigurierte E-Mail, die mit dem Drag-and-Drop-Editor erstellt wurde und vollständig bearbeitbar ist, um sie an Ihre Marke und Ihre Inhalte anzupassen.
-  - **Kanäle hinzufügen:** Kombinieren Sie E-Mail mit Push, SMS oder In-App-Nachrichten für kanalübergreifende Verstärkung.
+  - **Kanäle hinzufügen:** Kombinieren Sie E-Mail mit Push, Kurzmitteilungsdienst or SMS oder In-App-Nachrichten für kanalübergreifende Verstärkung.
   - **Verzögerungen und Decision-Splits hinzufügen:** Verzweigen Sie Nutzer:innen nach Verhalten (z. B. hochwertiger Warenkorb im Vergleich zu niedrigwertigem Warenkorb) oder Wartezeiten zwischen Nachrichten.
   - **Gestaltung austauschen:** Ersetzen Sie das enthaltene E-Mail-Template durch den visuellen Stil Ihrer Marke.
   - **Produktblöcke verwenden:** Nutzen Sie Drag-and-Drop-Produktblöcke (im Vorabzugangsprogramm), um abgebrochene Warenkorbinhalte oder angesehene Produkte dynamisch darzustellen, ohne eigenes Liquid schreiben zu müssen.
@@ -162,9 +162,9 @@ E-Commerce-Empfehlungs-Events unterstützen dieselben Umsatz-Oberflächen, die K
 | Bericht | Was er anzeigt |
 |---------------------------------------------|-------------------------------------------|
 | Umsatzbericht | Gesamtumsatz, durchschnittlicher Tagesumsatz, tägliche Käufe und Umsatz pro Nutzer:in im Zeitverlauf über alle Quellen für den ausgewählten Datumsbereich und die ausgewählten Apps. |
-| Last-Touch-Attribution-Umsatz-Dashboard | Umsatz, der der letzten Campaign oder dem letzten Canvas zugeordnet wird, mit der bzw. dem ein:e Nutzer:in vor einer Bestellung interagiert hat. Touch-Events umfassen E-Mail-Klicks, Push-Öffnungen, Content-Card-Klicks, In-App-Nachrichten-Klicks sowie SMS- oder WhatsApp-Kurzlink-Klicks. |
+| Last-Touch-Attribution-Umsatz-Dashboard | Umsatz, der der letzten Campaign oder dem letzten Canvas zugeordnet wird, mit der bzw. dem ein:e Nutzer:in vor einer Bestellung interagiert hat. Touch-Events umfassen E-Mail-Klicks, Push-Öffnungen, Content-Card-Klicks, In-App-Nachrichten-Klicks sowie Kurzmitteilungsdienst or SMS- oder WhatsApp-Kurzlink-Klicks. |
 | Campaign- und Canvas-Analytics | Gesamtumsatz, der einer bestimmten Campaign oder einem bestimmten Canvas innerhalb des primären Konversionsfensters zugeordnet wird. |
-| Konversionsbericht | Umsatz, der an Konversions-Events in Campaigns und Canvases gebunden ist.<br> **Hinweis:** Um den Umsatz von `ecommerce.order_placed` zu zählen, muss die Campaign oder das Canvas den Konversions-Event-Typ „Place Order“ als Konversions-Event verwenden. |
+| Konversionsbericht | Umsatz, der an Konversions-Events in Campaigns und Canvase gebunden ist.<br> **Hinweis:** Um den Umsatz von `ecommerce.order_placed` zu zählen, muss die Campaign oder das Canvas den Konversions-Event-Typ „Place Order“ als Konversions-Event verwenden. |
 | Segment-Insights | Umsatzvergleiche über Segmente im Segment-Insights-Dashboard. |
 | Berichts-Builder | Umsatz-Metriken in angepassten Berichten, die im Berichts-Builder erstellt wurden. |
 | Dashboard-Builder | Umsatz-Metriken in angepassten Dashboards, die im Dashboard-Builder erstellt wurden. |
@@ -174,7 +174,7 @@ Für nicht nutzerbezogene berechnete Felder (zum Beispiel Campaign- oder Canvas-
 
 {% alert note %}
 Umsatzberechnungen begrenzen einzelne Produktmengen auf 1.000 Einheiten pro Bestellung. Wenn ein Mengenfeld für ein Produkt fehlt, wird standardmäßig eine Einheit angenommen. Das ursprüngliche `ecommerce.order_placed`-Event behält die vollständige Menge bei, die Sie gesendet haben – nur die Umsatzberechnung wendet die Obergrenze an.<br><br>
-Wenn Sie von veralteten Kauf-Events zu `ecommerce.order_placed` migrieren, stimmen Sie sich mit Ihrem Braze-Kontoteam ab, bevor Sie Änderungen an der Integration vornehmen. Senden Sie während der Übergangsphase sowohl veraltete Kauf-Events als auch `ecommerce.order_placed`-Events, um zu bestätigen, dass sie korrekt ausgelöst werden, und um Ihre aktiven Campaigns, Canvases und Segmente für die Migration auf das neue Event vorzubereiten. Ihr Kontoteam kann Ihnen dann bei der Planung der Umstellung helfen, um das Umsatz-Reporting von veralteten Kauf-Events auf `ecommerce.order_placed` umzustellen.
+Wenn Sie von veralteten Kauf-Events zu `ecommerce.order_placed` migrieren, stimmen Sie sich mit Ihrem Braze-Kontoteam ab, bevor Sie Änderungen an der Integration vornehmen. Senden Sie während der Übergangsphase sowohl veraltete Kauf-Events als auch `ecommerce.order_placed`-Events, um zu bestätigen, dass sie korrekt ausgelöst werden, und um Ihre aktiven Campaigns, Canvase und Segmente für die Migration auf das neue Event vorzubereiten. Ihr Kontoteam kann Ihnen dann bei der Planung der Umstellung helfen, um das Umsatz-Reporting von veralteten Kauf-Events auf `ecommerce.order_placed` umzustellen.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>
@@ -190,7 +190,7 @@ Braze bietet verschiedene Möglichkeiten, E-Commerce-Event-Daten für die Verwen
 | [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) | E-Commerce-Events werden als angepasste Events gestreamt. Suchen Sie im Namespace `ecommerce.*`, um sie zu finden. Produkte aus jeder Bestellung sind als Käufe verfügbar. |
 | [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing) | E-Commerce-Events werden als angepasste Events geteilt. Suchen Sie im Namespace `ecommerce.*`, um sie zu finden. Produkte aus jeder Bestellung sind in der Kauftabelle verfügbar. |
 | [Segmentdaten als CSV exportieren]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) | CSV-Export von Segmentmitgliedern. Um E-Commerce-Events einzuschließen, wählen Sie sie namentlich aus dem Dropdown der angepassten Events aus. |
-| [Nutzerprofil nach Segment exportieren (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Nutzerprofile für Segmentmitglieder, die über die API zurückgegeben werden. E-Commerce-Events sind als angepasste Events enthalten. |
+| [Kundenprofil or Nutzerprofil nach Segment exportieren (API)]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#prerequisites) | Nutzerprofile für Segmentmitglieder, die über die API zurückgegeben werden. E-Commerce-Events sind als angepasste Events enthalten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Daten exportieren" }
 
 ### Wie segmentiere ich Nutzer:innen nach einem bestimmten Produkt? {#how-do-i-segment-users-by-a-specific-product}

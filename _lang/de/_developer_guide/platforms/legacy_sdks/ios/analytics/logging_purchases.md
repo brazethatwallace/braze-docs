@@ -12,7 +12,7 @@ noindex: true
 
 # Käufe für iOS protokollieren {#log-purchases-for-ios}
 
-Erfassen Sie In-App-Käufe, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Umsatzquellen hinweg verfolgen und Ihre Nutzer:innen nach ihrem Lifetime-Value segmentieren können.
+Erfassen Sie In-App-Käufe, damit Sie Ihren Umsatz im Zeitverlauf und über verschiedene Umsatzquellen hinweg verfolgen und Ihre Nutzer:innen nach ihrem LTV or Lifetime-Value or Lifetime-Value segmentieren können.
 
 Braze unterstützt Einkäufe in mehreren Währungen. Einkäufe, die Sie in einer anderen Währung als dem USD melden, werden im Dashboard in USD auf der Grundlage des Wechselkurses an dem Tag, an dem sie gemeldet wurden, angezeigt.
 
@@ -42,7 +42,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% endtabs %}
 
 - Unterstützte Währungssymbole sind unter anderem: USD, CAD, EUR, GBP, JPY, AUD, CHF, NOK, MXN, NZD, CNY, RUB, TRY, INR, IDR, ILS, SAR, ZAR, AED, SEK, HKD, SPD, DKK.
-  - Jedes andere angegebene Währungssymbol führt zu einer protokollierten Warnung, ohne dass das SDK weitere Aktionen durchführt.
+  - Jedes andere angegebene Währungssymbol führt zu einer protokollierten Warnung, ohne dass das SDK or Software-Development-Kit weitere Aktionen durchführt.
 - Der Produkt-Bezeichner kann maximal 255 Zeichen lang sein.
 - Beachten Sie, dass der Kauf nicht in Braze protokolliert wird, wenn der Produkt-Bezeichner leer ist.
 
@@ -55,9 +55,9 @@ Weitere Details finden Sie in der [iOS-Klassendokumentation](http://appboy.githu
 ### Menge hinzufügen {#adding-quantity}
 Sie können Ihren Käufen eine Menge hinzufügen, wenn Kund:innen denselben Kauf mehrmals in einem einzelnen Bezahlvorgang tätigen. Dazu übergeben Sie einen `NSUInteger` für die Menge.
 
-* Der Mengenwert muss im Bereich [0, 100] liegen, damit das SDK einen Kauf protokolliert.
+* Der Mengenwert muss im Bereich [0, 100] liegen, damit das SDK or Software-Development-Kit einen Kauf protokolliert.
 * Methoden ohne Mengeneingabe haben einen Standardwert von 1.
-* Methoden mit Mengeneingabe haben keinen Standardwert und **müssen** eine Mengeneingabe erhalten, damit das SDK einen Kauf protokolliert.
+* Methoden mit Mengeneingabe haben keinen Standardwert und **müssen** eine Mengeneingabe erhalten, damit das SDK or Software-Development-Kit einen Kauf protokolliert.
 
 Weitere Details finden Sie in der [iOS-Klassendokumentation](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa).
 
@@ -99,6 +99,6 @@ Die folgenden Schlüssel sind reserviert und können nicht als Kauf-Eigenschafte
 - `price`
 - `currency`
 
-### REST API
+### Representational State Transfer API
 
-Sie können auch unsere REST API verwenden, um Käufe zu erfassen. Weitere Details finden Sie in der [User-API-Dokumentation]({{site.baseurl}}/api/endpoints/user_data).
+Sie können auch unsere Representational State Transfer API verwenden, um Käufe zu erfassen. Weitere Details finden Sie in der [User-API-Dokumentation]({{site.baseurl}}/api/endpoints/user_data).

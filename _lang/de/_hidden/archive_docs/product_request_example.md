@@ -21,7 +21,7 @@ _Hier können Links zu Campaigns und Canvas sowie eine Beschreibung helfen._
 
 Da wir immer mehr getriggerte Campaigns einführen werden, die auf dem Verhalten der Nutzer:innen basieren, besteht die Möglichkeit, dass sich einige E-Mails gegenseitig überlagern und dass die für den frühen Tag geplanten E-Mails Vorrang vor den E-Mails am Nachmittag haben, da wir eine Obergrenze von einer E-Mail pro Tag festlegen. Das ist nicht ideal, denn E-Mails, die den unteren Teil des Funnels betreffen (Retargeting), führen zu mehr Ergebnissen als ihre TOFU-Gegenstücke (z. B. Newsletter), und wir würden sie gerne priorisieren können.
 
-Wir würden zum Beispiel gerne festlegen, dass das Frequency-Capping bei maximal einem Tag liegt, aber dass alle Campaigns und Canvases, die mit Redirect-Retargeting getaggt sind, P0 sind, alle Inspirations-Campaigns P3, alle Retargetings für Suchanfragen P2, Xsell könnte P1 sein, usw.
+Wir würden zum Beispiel gerne festlegen, dass das Frequency-Capping bei maximal einem Tag liegt, aber dass alle Campaigns und Canvase, die mit Redirect-Retargeting getaggt sind, P0 sind, alle Inspirations-Campaigns P3, alle Retargetings für Suchanfragen P2, Xsell könnte P1 sein, usw.
 
 Zur Veranschaulichung: Das Ergebnis wäre dann, Tags in der Reihenfolge ihrer Priorität zu definieren.
 

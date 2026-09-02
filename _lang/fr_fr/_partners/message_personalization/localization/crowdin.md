@@ -43,7 +43,7 @@ Crowdin propose deux applications pour Braze : [Braze Campaigns & Canvas](https:
 
 ## Intégration Braze Campaigns & Canvas {#braze-campaigns-canvas-integration}
 
-Si vous localisez du contenu dans des messages en direct, utilisez l'[application Braze Campaigns & Canvas](https://store.crowdin.com/braze-content-translation) pour synchroniser les chaînes traduisibles de vos brouillons de Campaign et Canvas avec le support multilingue de Braze.
+Si vous localisez du contenu dans des messages en direct or en ligne/en production/instantané, utilisez l'[application Braze Campaigns & Canvas](https://store.crowdin.com/braze-content-translation) pour synchroniser les chaînes traduisibles de vos brouillons de Campaign et Canvas avec le support multilingue de Braze.
 
 Pour une présentation vidéo, consultez [Intégration Braze Campaigns & Canvas](https://youtu.be/ahG1ET4VRKA).
 
@@ -185,7 +185,7 @@ L'écran d'intégration affiche votre bibliothèque Braze :
 
 1. Dans le panneau **Braze**, cochez la case à côté des modèles ou blocs que vous souhaitez localiser.
 2. Sélectionnez **Sync to Crowdin**.
-3. Crowdin récupère le code HTML source. Les traducteurs travaillent dans l'éditeur Crowdin avec un **aperçu WYSIWYG** en direct pour préserver la mise en page.
+3. Crowdin récupère le code HTML source. Les traducteurs travaillent dans l'éditeur Crowdin avec un **aperçu WYSIWYG** en direct or en ligne/en production/instantané pour préserver la mise en page.
 
 ![Onglet d'aperçu de l'éditeur Crowdin montrant le HTML d'e-mail localisé et les chaînes traduisibles.]({% image_buster /assets/img/crowdin/crowdin_editor_wysiwyg_preview.png %}){: style="max-width:85%;"}
 

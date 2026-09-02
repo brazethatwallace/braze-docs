@@ -56,7 +56,7 @@ O modal de configuração exibe até 5.000 das coleções atualizadas mais recen
 
 ### Posso filtrar por tags e coleções ao mesmo tempo em uma única seleção de catálogo? {#can-i-filter-by-both-tags-and-collections-in-a-single-catalog-selection}
 
-Não. As seleções de catálogo suportam apenas um campo de array por filtro de seleção. Não é possível combinar tags e coleções na mesma seleção. Se você precisa segmentar usuários com base em critérios de tag e coleção simultaneamente, use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com consultas de SQL.
+Não. As seleções de catálogo suportam apenas um campo de array por filtro de seleção. Não é possível combinar tags e coleções na mesma seleção. Se você precisa segmentar usuários com base em critérios de tag e coleção simultaneamente, use [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) com consultas de SQL.
 
 ### Quais são os limites de seleção de catálogo? {#what-are-the-catalog-selection-limits}
 

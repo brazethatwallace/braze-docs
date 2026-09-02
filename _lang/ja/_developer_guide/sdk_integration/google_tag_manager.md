@@ -1,29 +1,29 @@
 ---
-nav_title: Google tag manager
-article_title: Google Tag Manager with the Braze SDK
+nav_title: Google tag マネージャー
+article_title: Google Tag マネージャー with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager."
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag マネージャー."
 
 ---
-## Google Tag Manager for Webについて {#google-tag-manager}
+## Google Tag マネージャー for Webについて {#google-tag-manager}
 
-Google Tag Manager（GTM）を使えば、プロダクションコードのリリースやエンジニアリングリソースを必要とせずに、Webサイトのタグをリモートで追加、削除、編集できます。BrazeはWeb SDK用に以下のテンプレートを提供しています。
+Google Tag マネージャー（GTM）を使えば、プロダクションコードのリリースやエンジニアリングリソースを必要とせずに、Webサイトのタグをリモートで追加、削除、編集できます。BrazeはWeb SDK用に以下のテンプレートを提供しています。
 
 | タグの種類 | ユースケース |
 |--------|--------|
 | 初期化タグ | このタグにより、サイトのコードを変更することなく、[Web Braze SDKを統合する]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web)ことができます。|
 | アクションタグ | このタグで[Content Cardsの作成]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager)、[ユーザー属性の設定]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web)、[データ収集の管理]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web)ができます。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Google Tag Manager for Webについて" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Google Tag マネージャー for Webについて" }
 
 ## Brazeアクションタグのタグシーケンス {#tag-sequencing-for-braze-action-tags}
 
 Braze初期化タグは、Braze SDKメソッド（`braze.getUser()`、`braze.logCustomEvent()`、`braze.logPurchase()`など）を呼び出すすべてのタグよりも先に発火する必要があります。SDKが初期化される前にこれらのメソッドが発火すると、`Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')` のようなエラーが発生する可能性があります。
 
-Google Tag Managerでタグシーケンスを設定するには：
+Google Tag マネージャーでタグシーケンスを設定するには：
 
 1. Braze SDKメソッドを呼び出すタグ（Custom HTMLタグやBrazeアクションタグなど）を開きます。
 2. **Advanced Settings** > **Tag Sequencing**に移動します。

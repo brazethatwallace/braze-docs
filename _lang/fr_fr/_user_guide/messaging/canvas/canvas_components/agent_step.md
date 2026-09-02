@@ -76,7 +76,7 @@ Vous pouvez tester une étape Agent de deux manières :
 **Test Canvas (parcours complet) :** Sélectionnez **Test Canvas** dans le pied de page du Canvas pour prévisualiser le parcours utilisateur de bout en bout. Lorsque le test atteint votre étape Agent, Braze demande **Voulez-vous exécuter l'agent « {agentName} » ?**
 
 - Sélectionnez **Oui** pour éventuellement ajouter du contexte, puis sélectionnez **Simuler la réponse** pour invoquer l'agent pour l'utilisateur de prévisualisation. Vous pouvez décrire des entrées d'exemple en langage naturel (par exemple, le contenu du panier ou le texte du message) pour compléter le profil de l'utilisateur test et tout contexte Canvas déjà défini en amont.
-- Sélectionnez **Non** pour ignorer l'invocation en direct et utiliser à la place la **sortie de secours** configurée pour l'agent depuis la console Agent.
+- Sélectionnez **Non** pour ignorer l'invocation en direct or en ligne/en production/instantané et utiliser à la place la **sortie de secours** configurée pour l'agent depuis la console Agent.
 
 Les invocations depuis **Simuler la réponse** sont comptabilisées dans la limite d'invocations quotidiennes de l'agent et apparaissent dans **Console Agent** > **Logs**. Pour le comportement complet du test Canvas, consultez [Prévisualiser les parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
@@ -120,7 +120,7 @@ Le schéma suivant utilise trois agents pour un exemple dans le domaine du voyag
 
 Pour tester les performances de votre agent et sa consommation de crédits par rapport à vos parcours existants, ajoutez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
 
-Par exemple, vous pouvez commencer par envoyer quelques milliers d'utilisateurs par jour sur un parcours avec l'agent, et diriger le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant une à deux semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours. Vous pourrez ainsi gagner en confiance et prouver le ROI avant d'augmenter le trafic vers la branche utilisant l'agent, tout en maîtrisant la consommation d'invocations.
+Par exemple, vous pouvez commencer par envoyer quelques milliers d'utilisateurs par jour sur un parcours avec l'agent, et diriger le reste vers un parcours de contrôle ou un parcours sans agent. Collectez des données pendant une à deux semaines et comparez les indicateurs clés de performance (KPI), les contre-indicateurs et la consommation de crédits de l'agent entre les parcours. Vous pourrez ainsi gagner en confiance et prouver le ROI or retour sur investissement avant d'augmenter le trafic vers la branche utilisant l'agent, tout en maîtrisant la consommation d'invocations.
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

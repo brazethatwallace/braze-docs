@@ -6,7 +6,7 @@
 
 ### Em quais plataformas as Feature Flags da Braze são suportadas? {#platforms}
 
-A Braze suporta Feature Flags nas plataformas iOS, Android e web com os seguintes requisitos mínimos de versão do SDK:
+A Braze suporta Feature Flags nas plataformas iOS, Android e web com os seguintes requisitos mínimos de versão do SDK or kit de desenvolvimento de software:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -81,7 +81,7 @@ Ao lançar novo código escondido atrás de uma Feature Flag, sua equipe pode at
 
 ### Um Feature Flag pode ser liberado apenas para um grupo específico de usuários? {#target-users}
 
-Sim, crie um Segment na Braze que direcione usuários específicos — por endereço de e-mail, `user_id` ou qualquer outro atributo nos perfis de usuário. Em seguida, implante o Feature Flag para 100% desse Segment.
+Sim, crie um Segment or segmento na Braze que direcione usuários específicos — por endereço de e-mail, `user_id` ou qualquer outro atributo nos perfis de usuário. Em seguida, implante o Feature Flag para 100% desse Segment or segmento.
 
 ### Como o ajuste da porcentagem de implementação afeta os usuários que já foram alocados no grupo ativado? {#random-buckets}
 
@@ -95,13 +95,13 @@ Essa estratégia ajuda a garantir que os usuários tenham uma experiência consi
 
 ## Tópicos técnicos {#technical-topics}
 
-### Feature Flags podem ser usados para controlar quando o SDK da Braze é inicializado? {#initialization}
+### Feature Flags podem ser usados para controlar quando o SDK or kit de desenvolvimento de software da Braze é inicializado? {#initialization}
 
-Não, o SDK precisa ser inicializado para baixar e sincronizar as Feature Flags do usuário atual. Isso significa que você não pode usar Feature Flags para limitar quais usuários são criados ou rastreados na Braze.
+Não, o SDK or kit de desenvolvimento de software precisa ser inicializado para baixar e sincronizar as Feature Flags do usuário atual. Isso significa que você não pode usar Feature Flags para limitar quais usuários são criados ou rastreados na Braze.
 
-### Com que frequência o SDK atualiza as Feature Flags? {#refresh-frequency}
+### Com que frequência o SDK or kit de desenvolvimento de software atualiza as Feature Flags? {#refresh-frequency}
 
-As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) do SDK. As atualizações de Feature Flags têm um limite de frequência de uma vez a cada cinco minutos (sujeito a alterações).
+As Feature Flags são atualizadas no início da sessão e ao trocar de usuário ativo. As Feature Flags também podem ser atualizadas manualmente usando o [método de atualização]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) do SDK or kit de desenvolvimento de software. As atualizações de Feature Flags têm um limite de frequência de uma vez a cada cinco minutos (sujeito a alterações).
 
 Tenha em mente que boas práticas de dados recomendam não atualizar Feature Flags com muita rapidez (com possível limite de frequência se isso for feito), então o ideal é atualizar apenas antes de o usuário interagir com novos recursos ou periodicamente no app, se necessário.
 

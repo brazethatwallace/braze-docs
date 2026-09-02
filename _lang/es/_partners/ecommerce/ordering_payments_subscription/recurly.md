@@ -28,8 +28,8 @@ Puedes encontrar más información sobre el uso de Recurly con Braze en [los doc
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Recurly | Se requiere un plan de suscripción Elite de [Recurly](https://recurly.com/) con el conmutador de características de Braze habilitado para aprovechar esta asociación. También es necesaria la activación de las facturas de crédito en tu plataforma Recurly. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. Como Recurly solo utiliza el punto de conexión `users.track`, recomendamos aprovisionar una clave específica de Recurly solo con este permiso. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. Como Recurly solo utiliza el punto de conexión `users.track`, recomendamos aprovisionar una clave específica de Recurly solo con este permiso. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -42,8 +42,8 @@ Antes de empezar, asegúrate de que tienes cuentas activas tanto en Braze como e
 
 2. Proporciona las siguientes credenciales:
 
-- **Instance URL:** El punto de conexión REST de Braze de la instancia a la que estás aprovisionado.
-- **API Key (Identifier):** La clave de API REST de Braze que Recurly debe utilizar al enviar solicitudes a Braze.
+- **Instance URL:** El punto de conexión REST or transferencia de estado representacional de Braze de la instancia a la que estás aprovisionado.
+- **API Key (Identifier):** La clave de API REST or transferencia de estado representacional de Braze que Recurly debe utilizar al enviar solicitudes a Braze.
 
 Recuerda copiar la URL de tu instancia de Braze. Por ejemplo, tu URL podría ser así:
 

@@ -19,7 +19,7 @@ También es importante considerar si debes utilizar una estrategia de subclase f
 
 ## Personalización de la interfaz de usuario {#customizing-ui}
 
-Los siguientes fragmentos de código muestran cómo dar estilo y modificar Content Cards para adaptarlas a tus necesidades de interfaz de usuario utilizando los métodos proporcionados por el SDK. Estos métodos te permiten personalizar todos los aspectos de la interfaz de usuario de Content Cards, incluyendo fuentes personalizadas, componentes de color personalizados, texto personalizado y mucho más.
+Los siguientes fragmentos de código muestran cómo dar estilo y modificar Content Cards para adaptarlas a tus necesidades de interfaz de usuario utilizando los métodos proporcionados por el SDK or kit de desarrollo de software. Estos métodos te permiten personalizar todos los aspectos de la interfaz de usuario de Content Cards, incluyendo fuentes personalizadas, componentes de color personalizados, texto personalizado y mucho más.
 
 Existen dos formas distintas de personalizar la interfaz de usuario de Content Cards:
 - Método dinámico: actualizar la interfaz de usuario de la tarjeta por tarjeta

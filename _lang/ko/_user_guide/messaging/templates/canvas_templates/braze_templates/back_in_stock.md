@@ -3,7 +3,7 @@ nav_title: 재입고
 article_title: 재입고
 page_order: 2
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 재입고된 상품을 개인화된 메시징으로 사용자에게 알려 구매를 유도하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 재입고된 상품을 개인화된 메시징으로 사용자에게 알려 구매를 유도하는 방법을 설명합니다."
 tool: Canvas
 ---
 
@@ -11,7 +11,7 @@ tool: Canvas
 
 > 재입고 템플릿을 사용하면 이전에 품절된 상품을 조회했거나 관심을 표현한 사용자에게 해당 상품이 다시 구매 가능해졌음을 알리는 메시지를 생성할 수 있습니다. 이를 통해 제품이 다시 입고되는 중요한 순간에 사용자의 참여를 유도하여 원하는 제품을 구매할 수 있도록 도와줍니다.
 
-이 문서에서는 사용자 라이프사이클의 전환 단계를 위해 설계된 **재입고** 템플릿의 사용 사례를 안내합니다. 이 과정을 마치면 상품이 재입고되었을 때 사용자에게 푸시(웹 또는 모바일), SMS 또는 이메일을 발송하고 최대 두 번의 리마인더를 보내는 Canvas를 만들 수 있습니다.
+이 문서에서는 사용자 라이프사이클의 전환 단계를 위해 설계된 **재입고** 템플릿의 사용 사례를 안내합니다. 이 과정을 마치면 상품이 재입고되었을 때 사용자에게 푸시(웹 또는 모바일), 단문 메시지 서비스 또는 이메일을 발송하고 최대 두 번의 리마인더를 보내는 Canvas를 만들 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -91,7 +91,7 @@ Classic Straight Leg 청바지를 구매할 가능성이 높은 사용자로 타
 
 ### 6단계: Canvas 커스터마이즈하기 {#step-6-customize-your-canvas}
 
-이제 사용자에게 발송할 채널과 콘텐츠를 커스터마이즈하여 Canvas를 구축합니다. 네 가지 템플릿 채널(모바일 및 웹 푸시, SMS, 이메일)을 모두 사용하고 [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 필터를 사용하므로 추가하거나 제거할 항목이 없습니다.
+이제 사용자에게 발송할 채널과 콘텐츠를 커스터마이즈하여 Canvas를 구축합니다. 네 가지 템플릿 채널(모바일 및 웹 푸시, 단문 메시지 서비스, 이메일)을 모두 사용하고 [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 필터를 사용하므로 추가하거나 제거할 항목이 없습니다.
 
 {% alert tip %}
 [Canvas 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)을 사용하여 참조하는 제품에 따라 Canvas의 메시지를 커스터마이즈할 수 있습니다.

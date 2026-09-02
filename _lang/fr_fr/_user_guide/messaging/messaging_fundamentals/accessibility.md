@@ -159,7 +159,7 @@ Utilisez ce tableau pour comparer les canaux. Les valeurs par défaut peuvent di
 | E-mail (code HTML) | Braze n'ajoute pas de balise de langue pour vous. Ajoutez-la dans votre HTML si vous en avez besoin. |
 | Messages in-app (glisser-déposer) | Lorsque vous choisissez une langue sous **Accessibilité**, Braze ajoute cette langue au HTML externe du message afin que les lecteurs d'écran traitent l'ensemble du message dans cette langue. Avec les messages multilingues activés, les nouveaux messages peuvent utiliser par défaut les langues de vos locales. L'**aperçu** peut n'afficher aucune langue tant que vous n'en avez pas choisi une sous **Paramètres**. |
 | Bannières | Même comportement que les messages in-app. |
-| Pages de destination | Vous pouvez définir la langue sur la page en direct. Choisissez une langue, ou utilisez Liquid si votre compte autorise Liquid sur les pages de destination. Les valeurs par défaut diffèrent également de celles des messages in-app et des bannières : vérifiez la page publiée. |
+| Pages de destination | Vous pouvez définir la langue sur la page en direct or en ligne/en production/instantané. Choisissez une langue, ou utilisez Liquid si votre compte autorise Liquid sur les pages de destination. Les valeurs par défaut diffèrent également de celles des messages in-app et des bannières : vérifiez la page publiée. |
 | Content Cards | Les Content Cards utilisent un champ **Langue** pour les applications au lieu d'une langue d'accessibilité explicite. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prise en charge des canaux et des éditeurs" }
 
@@ -443,7 +443,7 @@ Ne remplissez pas le texte alt avec des termes SEO ou des appels à l'action qui
   <tbody>
     <tr>
       <td>« Ordinateur portable affichant le graphique d'analyse du tableau de bord de Braze »</td>
-      <td>« Boostez vos conversions et faites exploser votre ROI avec la meilleure plateforme au monde ! » (Ajoute un langage marketing inutile)</td>
+      <td>« Boostez vos conversions et faites exploser votre ROI or retour sur investissement avec la meilleure plateforme au monde ! » (Ajoute un langage marketing inutile)</td>
     </tr>
     <tr>
       <td>« Ensemble de terrasse avec quatre chaises et une table en verre »</td>
@@ -580,7 +580,7 @@ Voici quelques exemples particulièrement utiles dans les contextes de messageri
 - [aria-labelledby](#aria-labelledby)
 - [aria-hidden="true"](#aria-hiddentrue)
 - [role="presentation"](#rolepresentation)
-- [aria-live="polite"](#aria-livepolite)
+- [aria-en direct or en ligne/en production/instantané="polite"](#aria-livepolite)
 
 #### aria-label {#aria-label}
 
@@ -631,7 +631,7 @@ En général, il est préférable d'utiliser `alt=""` pour les [images décorati
 
 Les e-mails créés dans l'éditeur d'e-mail par glisser-déposer ont les éléments de présentation automatiquement marqués avec l'attribut ARIA `role="presentation"`.
 
-#### aria-live="polite" {#aria-livepolite}
+#### aria-en direct or en ligne/en production/instantané="polite" {#aria-livepolite}
 
 `aria-live="polite"` annonce les mises à jour lorsque le contenu change sans nécessiter d'interaction de l'utilisateur. Utilisez-le lorsque vous affichez des mises à jour dynamiques dans un message, comme des succès, des erreurs ou d'autres notifications.
 

@@ -40,7 +40,7 @@ Braze는 세션 시작 시 사용자 기기로 다음 유형의 인앱 메시지
 
 - `canvas_entry_properties`
 - `connected_content`
-- {% raw %}`{sms.${*}}`{% endraw %}와 같은 SMS 변수
+- {% raw %}`{sms.${*}}`{% endraw %}와 같은 단문 메시지 서비스 변수
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`
@@ -191,13 +191,13 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 {% subtab Android %}
 Android의 경우 Braze 설정 편집기에서 **Automatically Display In-App Messages**를 선택 해제합니다. 또는 Unity 프로젝트의 `braze.xml`에서 `com_braze_inapp_show_inapp_messages_automatically`를 `false`로 설정할 수 있습니다.
 
-초기 인앱 메시지 표시 작업은 Braze 설정에서 "In App Message Manager Initial Display Operation"을 사용하여 설정할 수 있습니다.
+초기 인앱 메시지 표시 작업은 Braze 설정에서 "In App Message 매니저 Initial Display Operation"을 사용하여 설정할 수 있습니다.
 {% endsubtab %}
 
 {% subtab iOS %}
 iOS의 경우 Braze 설정 편집기에서 게임 오브젝트 리스너를 설정하고 **Braze Displays In-App Messages**가 선택되어 있지 않은지 확인합니다.
 
-초기 인앱 메시지 표시 작업은 Braze 설정에서 "In App Message Manager Initial Display Operation"을 사용하여 설정할 수 있습니다.
+초기 인앱 메시지 표시 작업은 Braze 설정에서 "In App Message 매니저 Initial Display Operation"을 사용하여 설정할 수 있습니다.
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

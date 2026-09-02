@@ -12,7 +12,7 @@ tool:
 
 # Snapchat에 오디언스 동기화 {#audience-sync-to-snapchat}
 
-Braze Audience Sync to Snapchat을 사용하면 브랜드는 Braze 통합의 사용자 데이터를 Snapchat 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용하는 모든 기준을 이제 Snapchat 고객 목록에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
+Braze Audience Sync to Snapchat을 사용하면 브랜드는 Braze 통합의 사용자 데이터를 Snapchat 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, 단문 메시지 서비스, 웹훅 등)를 트리거하는 데 사용하는 모든 기준을 이제 Snapchat 고객 목록에서 해당 사용자에게 광고를 트리거하는 데 사용할 수 있습니다.
 
 **오디언스 동기화의 일반적인 사용 사례는 다음과 같습니다.**
 
@@ -31,8 +31,8 @@ Canvas에서 Snapchat 오디언스 단계를 설정하기 전에 다음 항목�
 
 | 요구 사항 | Origin | 설명 |
 | --- | --- | --- |
-| Snapchat Business Manager | Snapchat | 브랜드의 Snapchat 자산(예: 광고 계정, 페이지, 앱)을 관리하기 위한 중앙 집중식 도구입니다. |
-| Snapchat 광고 계정 | Snapchat | 브랜드의 Snapchat Business Manager에 연결된 활성 Snapchat 광고 계정입니다.<br><br>Snapchat Business Manager 관리자가 Braze와 함께 사용할 Snapchat 광고 계정에 대한 관리자 권한을 부여했는지 확인하세요. |
+| Snapchat Business 매니저 | Snapchat | 브랜드의 Snapchat 자산(예: 광고 계정, 페이지, 앱)을 관리하기 위한 중앙 집중식 도구입니다. |
+| Snapchat 광고 계정 | Snapchat | 브랜드의 Snapchat Business 매니저에 연결된 활성 Snapchat 광고 계정입니다.<br><br>Snapchat Business 매니저 관리자가 Braze와 함께 사용할 Snapchat 광고 계정에 대한 관리자 권한을 부여했는지 확인하세요. |
 | Snapchat 약관 및 정책 | [Snapchat](https://www.snap.com/en-US/policies) | Snapchat 오디언스 동기화 사용과 관련하여 Snapchat에서 요구하는 약관, 정책, 가이드라인 및 설명서(여기에 참조로 포함된 약관, 정책, 가이드라인 및 설명서 포함)를 준수하는 데 동의해야 합니다. 여기에는 서비스 약관, 비즈니스 서비스 약관, 개발자 약관, Audience Match, 광고 정책, 상업 콘텐츠 정책, 커뮤니티 가이드라인 및 공급업체 책임이 포함될 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="사전 요구 사항" }
 
@@ -58,7 +58,7 @@ Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동�
 
 ![성공적으로 연결된 광고 계정을 보여주는 업데이트된 Snapchat 기술 파트너 페이지.]({% image_buster /assets/img/snapchat/snapchat3.png %}){: style="max-width:80%;"}
 
-Snapchat 연결은 Braze 워크스페이스 수준에서 적용됩니다. Snapchat 관리자가 Snapchat Business Manager에서 사용자를 제거하거나 연결된 Snapchat 광고 계정에 대한 액세스를 제거하면, Braze는 유효하지 않은 토큰을 감지합니다. 그 결과, Snapchat을 사용하는 활성 Canvases에 오류가 표시되며, Braze는 사용자를 동기화할 수 없게 됩니다.
+Snapchat 연결은 Braze 워크스페이스 수준에서 적용됩니다. Snapchat 관리자가 Snapchat Business 매니저에서 사용자를 제거하거나 연결된 Snapchat 광고 계정에 대한 액세스를 제거하면, Braze는 유효하지 않은 토큰을 감지합니다. 그 결과, Snapchat을 사용하는 활성 Canvases에 오류가 표시되며, Braze는 사용자를 동기화할 수 없게 됩니다.
 
 ### 2단계: Snapchat으로 오디언스 동기화 단계 추가하기 {#step-2-add-an-audience-sync-step-with-snapchat}
 
@@ -147,7 +147,7 @@ Snapchat은 데이터 프라이버시 정책에 따라 이 정보를 제공하�
 
 ### 유효하지 않은 토큰 오류가 발생하면 어떻게 해야 하나요? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Snapchat 파트너 페이지에서 Snapchat 계정의 연결을 해제한 후 다시 연결할 수 있습니다. Snapchat Business Manager 관리자에게 동기화하려는 광고 계정에 대한 적절한 권한이 있는지 확인하세요.
+Snapchat 파트너 페이지에서 Snapchat 계정의 연결을 해제한 후 다시 연결할 수 있습니다. Snapchat Business 매니저 관리자에게 동기화하려는 광고 계정에 대한 적절한 권한이 있는지 확인하세요.
 
 ### Canvas를 시작할 수 없는 이유는 무엇인가요? {#why-is-my-canvas-not-allowed-to-launch}
 

@@ -9,7 +9,7 @@ search_rank: 2
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Events {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Dieser Artikel beschreibt angepasste Events und Eigenschaften, den Event-Verlauf im Nutzerprofil, verwandte Segmentierungsfilter, Canvas-Entry-Eigenschaften, relevante Analytics und mehr. Mehr über Braze-Events im Allgemeinen erfahren Sie unter [Events]({{site.baseurl}}/user_guide/data/activation/events).
+> Dieser Artikel beschreibt angepasste Events und Eigenschaften, den Event-Verlauf im Kundenprofil or Nutzerprofil, verwandte Segmentierungsfilter, Canvas-Entry-Eigenschaften, relevante Analytics und mehr. Mehr über Braze-Events im Allgemeinen erfahren Sie unter [Events]({{site.baseurl}}/user_guide/data/activation/events).
 
 Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchgeführt werden. Wenn angepasste Events protokolliert werden, können sie beliebig viele und verschiedene Folgekampagnen auslösen. Mit Hilfe von [Segmentierungsfiltern](#segmentation-filters) können Sie Nutzer:innen dann danach segmentieren, wie kürzlich und wie häufig diese angepassten Events aufgetreten sind. Dadurch eignen sich angepasste Events am besten für das Tracking hochwertiger Nutzer:innen-Interaktionen innerhalb Ihrer Anwendung.
 
@@ -37,7 +37,7 @@ Wenn Sie ein angepasstes Event blockieren:
 
 {% multi_lang_include data_activation/custom_event_block_effects.md %}
 
-Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warndialog, der erklärt, dass alle Instanzen der Filter oder Trigger, die darauf verweisen, entfernt und archiviert werden.
+Wenn ein blockiertes angepasstes Event derzeit von Filtern oder Trigger or triggern or triggern in anderen Bereichen von Braze referenziert wird, erscheint zusätzlich ein Warndialog, der erklärt, dass alle Instanzen der Filter oder Trigger or triggern, die darauf verweisen, entfernt und archiviert werden.
 
 Weitere Details zum Blocklisting und Löschen angepasster Daten finden Sie unter [Angepasste Daten auf die Blockliste setzen]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
@@ -59,7 +59,7 @@ Es gibt keine feste Dashboard-Obergrenze für die Anzahl unterschiedlicher **ang
 
 ## Nutzungsberichte anzeigen {#viewing-usage-reports}
 
-Der Nutzungsbericht listet alle Canvases, Campaigns und Segments auf, die ein bestimmtes angepasstes Event verwenden. Diese Liste enthält keine Verwendungen von Liquid.
+Der Nutzungsbericht listet alle Canvase, Campaigns und Segments auf, die ein bestimmtes angepasstes Event verwenden. Diese Liste enthält keine Verwendungen von Liquid.
 
 Sie können bis zu 100 Nutzungsberichte gleichzeitig anzeigen, indem Sie die Kontrollkästchen neben den entsprechenden angepassten Events aktivieren und dann **Nutzungsbericht anzeigen** auswählen.
 
@@ -81,7 +81,7 @@ Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden Plat
 
 ## Speicherung angepasster Events {#custom-event-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
+Alle im **Kundenprofil or Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
 
 ## Event-Verlauf von Nutzer:innen anzeigen {#view-a-users-event-history}
 
@@ -103,7 +103,7 @@ Jedes Event enthält:
 
 Häufige Anwendungsfälle sind:
 
-- Überprüfen, ob Ihre SDK- oder API-Integration während der Entwicklung oder nach einem Release Events wie erwartet sendet.
+- Überprüfen, ob Ihre SDK or Software-Development-Kit- oder API-Integration während der Entwicklung oder nach einem Release Events wie erwartet sendet.
 - Fehlerbehebung, warum Nutzer:innen eine event-getriggerte Campaign oder ein Canvas betreten haben oder nicht.
 - Untersuchung eines Support-Problems für bestimmte Nutzer:innen, ohne einen Datenexport einrichten zu müssen.
 
@@ -137,7 +137,7 @@ Auf der Seite **Custom Events Report** können Sie in aggregierter Form sehen, w
 
 ![Diagramm der Anzahl angepasster Events auf der Seite „Custom Events“ im Dashboard mit Trends für ein angepasstes Event]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Sie können auch **Filter** verwenden, um Ihre angepassten Events nach Stunde, monatlich aktiven Nutzer:innen (MAU), Segments oder KPI-Formeln aufzuschlüsseln.
+Sie können auch **Filter** verwenden, um Ihre angepassten Events nach Stunde, monatlich aktiven Nutzer:innen (MAU or monatlich aktive:r Nutzer:in), Segments oder KPI or Leistungskennzahl or Leistungskennzahlen-Formeln aufzuschlüsseln.
 
 ![Filter für das Diagramm angepasster Events]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
@@ -151,6 +151,6 @@ Segments, die mit Daten angepasster Events erstellt wurden, können keine frühe
 
 ## Angepasste Event-Eigenschaften {#custom-event-properties}
 
-Angepasste Event-Eigenschaften sind Metadaten oder Attribute eines angepassten Events, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu erhöhen, Conversions zu tracken und durch den Export von Rohdaten anspruchsvollere Analytics zu erstellen.
+Angepasste Event-Eigenschaften sind Metadaten oder Attribute eines angepassten Events, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger or triggern-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu erhöhen, Conversions zu tracken und durch den Export von Rohdaten anspruchsvollere Analytics zu erstellen.
 
 Weitere Informationen finden Sie unter [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).

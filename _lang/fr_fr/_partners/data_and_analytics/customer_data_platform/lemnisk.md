@@ -23,7 +23,7 @@ L'intégration de Lemnisk et de Braze permet aux marques et aux entreprises de l
 | Condition | Description |
 | --- | --- |
 | Comptes Lemnisk | Un compte [Lemnisk](https://www.lemnisk.co/) est nécessaire pour bénéficier de ce partenariat. |
-| API externe dans Lemnisk | Contactez votre CSM Lemnisk pour faire activer l'**API externe** pour votre compte. |
+| API externe dans Lemnisk | Contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Lemnisk pour faire activer l'**API externe** pour votre compte. |
 | Clé API REST Braze | Une clé API REST Braze avec l'autorisation `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre compte]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }

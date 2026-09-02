@@ -40,7 +40,7 @@ La fuga de datos es el error de backfill más crítico. Ocurre cuando el proceso
 
 Si el modelo se entrena con datos que "conocen el futuro", parecerá tener un buen rendimiento durante el entrenamiento, pero producirá resultados deficientes en producción, porque las decisiones en tiempo real no tienen acceso a datos futuros.
 
-Por ejemplo, considera calcular una característica histórica de "valor de duración del ciclo de vida" utilizando el gasto total de un cliente hasta la fecha (es decir, hasta hoy), y luego usar ese valor para predecir un comportamiento que ocurrió hace meses. En el momento de ese evento histórico, el valor de duración del ciclo de vida completo aún no se conocía.
+Por ejemplo, considera calcular una característica histórica de "LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida" utilizando el gasto total de un cliente hasta la fecha (es decir, hasta hoy), y luego usar ese valor para predecir un comportamiento que ocurrió hace meses. En el momento de ese evento histórico, el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida completo aún no se conocía.
 
 Esto se puede evitar reconstruyendo siempre las características históricas utilizando únicamente la información que habría estado disponible en la marca de tiempo histórica, no la información que se acumuló después.
 

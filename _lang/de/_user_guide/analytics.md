@@ -5,7 +5,7 @@ page_order: 7.5
 layout: dev_guide
 
 guide_top_header: "Analytics"
-guide_top_text: "Braze bietet umfassende Metriken und Berichtstools, um die Kampagnen-Performance zu messen, das Nutzer:innen-Engagement zu verfolgen und datengestützte Entscheidungen zu treffen. Nutzen Sie Dashboards für einen schnellen Überblick, Berichte für tiefergehende Analysen über Campaigns und Canvases hinweg und Tracking-Einstellungen, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Ergänzen Sie Ihre Analytics außerdem mit <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, einem Daten-Streaming-Export-Tool, mit dem Sie große Mengen granularer Kundendaten in Ihren eigenen BI-Plattformen nutzen können."
+guide_top_text: "Braze bietet umfassende Metriken und Berichtstools, um die Kampagnen-Performance zu messen, das Nutzer:innen-Engagement zu verfolgen und datengestützte Entscheidungen zu treffen. Nutzen Sie Dashboards für einen schnellen Überblick, Berichte für tiefergehende Analysen über Campaigns und Canvase hinweg und Tracking-Einstellungen, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Ergänzen Sie Ihre Analytics außerdem mit <a href='/docs/user_guide/data/distribution/braze_currents'>Currents</a>, einem Daten-Streaming-Export-Tool, mit dem Sie große Mengen granularer Kundendaten in Ihren eigenen BI-Plattformen nutzen können."
 description: "Nutzen Sie Braze Analytics, um die Kampagnen-Performance zu messen, das Nutzer:innen-Engagement zu verfolgen und auf detaillierte Berichte und Dashboards zuzugreifen."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
@@ -25,13 +25,13 @@ guide_featured_list:
 
 ---
 
-Verwenden Sie **Dashboards** für einen schnellen Performance-Überblick, **Berichte** für tiefergehende Analysen über Campaigns und Canvases hinweg und **Tracking**, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Wenn Sie sich nicht sicher sind, was eine bestimmte Metrik bedeutet, schauen Sie im **Metriken-Glossar** nach.
+Verwenden Sie **Dashboards** für einen schnellen Performance-Überblick, **Berichte** für tiefergehende Analysen über Campaigns und Canvase hinweg und **Tracking**, um zu konfigurieren, wie Braze Nutzer:innen-Aktionen erfasst. Wenn Sie sich nicht sicher sind, was eine bestimmte Metrik bedeutet, schauen Sie im **Metriken-Glossar** nach.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
 ### Welche Analytics-Dashboards sind in Braze verfügbar? {#what-analytics-dashboards-are-available-in-braze}
 
-Braze enthält vorgefertigte und anpassbare Dashboards für die Performance von Campaigns, Canvases und Kanälen. Unter [Dashboards]({{site.baseurl}}/user_guide/analytics/dashboards) finden Sie verfügbare Ansichten und Einrichtungsschritte.
+Braze enthält vorgefertigte und anpassbare Dashboards für die Performance von Campaigns, Canvase und Kanälen. Unter [Dashboards]({{site.baseurl}}/user_guide/analytics/dashboards) finden Sie verfügbare Ansichten und Einrichtungsschritte.
 
 ### Wie exportiere ich Braze-Analytics-Daten? {#how-do-i-export-braze-analytics-data}
 

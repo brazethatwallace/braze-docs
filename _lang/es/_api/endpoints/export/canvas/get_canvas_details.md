@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint Exportar 
 {% api %}
 # Exportar detalles del Canvas {#export-canvas-details}
 {% apimethod get %}
-/canvas/details
+/Canvas/details
 {% endapimethod %}
 
 > Usa este endpoint para exportar metadatos sobre un Canvas, como el nombre, la hora de creación, el estado actual y más.
@@ -106,7 +106,7 @@ Todos los pasos en Canvas tienen un campo `next_paths`, que es una matriz de dat
 
 ### Mensajes por canal {#messages-by-channel}
 
-A continuación se muestra un ejemplo de respuesta que incluye mensajes de Canvas enviados a través de diferentes canales (correo electrónico, push, SMS y mensajes dentro de la aplicación):
+A continuación se muestra un ejemplo de respuesta que incluye mensajes de Canvas enviados a través de diferentes canales (correo electrónico, push, servicio de mensajes cortos y mensajes dentro de la aplicación):
 
 ```json
 {

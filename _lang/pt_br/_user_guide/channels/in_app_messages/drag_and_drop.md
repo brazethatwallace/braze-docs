@@ -24,36 +24,36 @@ Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou 
 
 ## Pré-requisitos {#prerequisites}
 
-### Requisitos do SDK {#sdk-requirements}
+### Requisitos do SDK or kit de desenvolvimento de software {#sdk-requirements}
 
-| Versão mínima do SDK                                                          | Versão recomendada do SDK                                                       |
+| Versão mínima do SDK or kit de desenvolvimento de software                                                          | Versão recomendada do SDK or kit de desenvolvimento de software                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK or kit de desenvolvimento de software" }
 
 {% details Mais informações sobre SDKs mínimos %}
 
-As mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (consulte a tabela na seção anterior). Se um usuário não tiver atualizado o aplicativo (ou seja, estiver em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
+As mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK or kit de desenvolvimento de software (consulte a tabela na seção anterior). Se um usuário não tiver atualizado o aplicativo (ou seja, estiver em uma versão mais antiga do SDK or kit de desenvolvimento de software), ele não receberá a mensagem no app.
 
-Para aproveitar todos os recursos disponíveis no editor de arrastar e soltar, atualize seus SDKs para as versões recomendadas do SDK. Isso permite que você aproveite os seguintes recursos adicionais:
+Para aproveitar todos os recursos disponíveis no editor de arrastar e soltar, atualize seus SDKs para as versões recomendadas do SDK or kit de desenvolvimento de software. Isso permite que você aproveite os seguintes recursos adicionais:
 
 - Links de texto que não fecham a mensagem
 - Ação de botão para solicitar push primer
 
-A seguir estão os requisitos mínimos individuais do SDK para esses recursos:
+A seguir estão os requisitos mínimos individuais do SDK or kit de desenvolvimento de software para esses recursos:
 
 | Links de texto*                                                         | Solicitar push primer                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos do SDK or kit de desenvolvimento de software" }
 
-*Se você incluir um link na sua mensagem no app que redireciona para uma URL e o usuário final não estiver nas versões mínimas do SDK especificadas, selecionar o link fechará a mensagem e o usuário não poderá retornar à mensagem para enviar o formulário.
+*Se você incluir um link na sua mensagem no app que redireciona para uma URL e o usuário final não estiver nas versões mínimas do SDK or kit de desenvolvimento de software especificadas, selecionar o link fechará a mensagem e o usuário não poderá retornar à mensagem para enviar o formulário.
 
 {% enddetails %}
 
 ### Pré-requisitos adicionais {#additional-prerequisites}
 
-- Para o SDK web, a opção de inicialização [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) deve ser definida como `true`. A opção `enableHtmlInAppMessages` também permitirá que essas mensagens funcionem, mas está descontinuada e deve ser atualizada para `allowUserSuppliedJavascript`.
+- Para o SDK or kit de desenvolvimento de software web, a opção de inicialização [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) deve ser definida como `true`. A opção `enableHtmlInAppMessages` também permitirá que essas mensagens funcionem, mas está descontinuada e deve ser atualizada para `allowUserSuppliedJavascript`.
 - Se você estiver usando o Google Tag Manager, será necessário ativar "Allow HTML In-App Messages" na configuração do GTM.
 
 ## Etapa 1: Crie uma mensagem no app {#step-1-create-an-in-app-message}
@@ -170,7 +170,7 @@ Considere as seguintes perguntas ao testar sua mensagem no app:
 
 ### Por que os cliques no corpo não aparecem na minha página de análise de dados? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
-Os cliques no corpo não são coletados automaticamente para mensagens no app criadas com o editor de arrastar e soltar. Para mais detalhes, consulte os changelogs do SDK para [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) e [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
+Os cliques no corpo não são coletados automaticamente para mensagens no app criadas com o editor de arrastar e soltar. Para mais detalhes, consulte os changelogs do SDK or kit de desenvolvimento de software para [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) e [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### Posso segmentar com base em cliques de botão? {#can-i-segment-based-on-button-clicks}
 

@@ -82,5 +82,5 @@ Campaigns 및 Canvases에서 개별 사용량 제한을 설정할 수도 있습�
 
 - [트랜잭션 이메일 Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email)을 사용하여 발송된 메시지는 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 자체적으로 사용량 제한이 적용되며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
 - [시드 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) 및 [테스트 발송]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages)으로 보내는 메시지는 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 사용량 제한이 적용되지 않으며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
-- SMS 자동 응답은 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 사용량 제한이 적용되지 않으며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
+- 단문 메시지 서비스 자동 응답은 워크스페이스 메시징 사용량 제한에 포함되지 않습니다. 즉, 사용량 제한이 적용되지 않으며, 설정된 워크스페이스 메시징 사용량 제한에 포함되지 않습니다.
 - 워크스페이스 메시징 사용량 제한은 인앱 메시지, 기능 플래그, 배너에는 지원되지 않습니다.

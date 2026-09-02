@@ -2,7 +2,7 @@
 nav_title: Lokalisierung
 article_title: Lokalisierung
 page_order: 3.50
-description: "Erfahren Sie mehr über die Lokalisierung für das Braze SDK."
+description: "Erfahren Sie mehr über die Lokalisierung für das Braze SDK or Software-Development-Kit."
 platform:
   - Android
   - FireOS
@@ -11,12 +11,12 @@ platform:
 
 # Lokalisierung {#localization}
 
-> Erfahren Sie mehr über Lokalisierung und unterstützte Sprachen für das Braze SDK, damit Sie mit Ihren Nutzer:innen auf der ganzen Welt in Kontakt treten können. Informationen zum Einrichten lokalisierter Nachrichten finden Sie unter [Lokalisierung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) in unserem Abschnitt „Grundlagen des Messaging“.
+> Erfahren Sie mehr über Lokalisierung und unterstützte Sprachen für das Braze SDK or Software-Development-Kit, damit Sie mit Ihren Nutzer:innen auf der ganzen Welt in Kontakt treten können. Informationen zum Einrichten lokalisierter Nachrichten finden Sie unter [Lokalisierung]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) in unserem Abschnitt „Grundlagen des Messaging“.
 
 ## Über Lokalisierung {#about-localization}
 
-Neben Englisch unterstützt Braze mehrere Sprachen für SDK-Nachrichten, die in Ihrer App angezeigt werden.
+Neben Englisch unterstützt Braze mehrere Sprachen für SDK or Software-Development-Kit-Nachrichten, die in Ihrer App angezeigt werden.
 
-Wenn die Sprache des Telefons von Nutzer:innen auf eine der unterstützten Sprachen eingestellt ist, werden SDK-Nachrichten, die standardmäßig für den Messaging-Kanal enthalten sind, in diese Sprache übersetzt. Wenn Ihre App beispielsweise eine Nachricht zu Verbindungsproblemen anzeigt, wird diese in die von den Nutzer:innen gewählte Sprache übersetzt.
+Wenn die Sprache des Telefons von Nutzer:innen auf eine der unterstützten Sprachen eingestellt ist, werden SDK or Software-Development-Kit-Nachrichten, die standardmäßig für den Messaging-Kanal enthalten sind, in diese Sprache übersetzt. Wenn Ihre App beispielsweise eine Nachricht zu Verbindungsproblemen anzeigt, wird diese in die von den Nutzer:innen gewählte Sprache übersetzt.
 
 {% multi_lang_include messaging/localization/supported_language_codes.md %}

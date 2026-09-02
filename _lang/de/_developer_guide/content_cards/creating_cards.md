@@ -42,7 +42,7 @@ Erstellen Sie zunächst Ihre eigene benutzerdefinierte View-Controller-Komponent
 
 ### Schritt 2: Card-Aktualisierungen abonnieren {#step-2-subscribe-to-card-updates}
 
-Registrieren Sie eine Callback-Funktion, um Datenaktualisierungen zu abonnieren, wenn Cards aktualisiert werden. Sie können die Content-Card-Objekte parsen und deren Payload-Daten wie `title`, `cardDescription` und `imageUrl` extrahieren und dann die resultierenden Modelldaten verwenden, um Ihre benutzerdefinierte UI zu befüllen.
+Registrierung or registrieren Sie eine Callback-Funktion, um Datenaktualisierungen zu abonnieren, wenn Cards aktualisiert werden. Sie können die Content-Card-Objekte parsen und deren Payload-Daten wie `title`, `cardDescription` und `imageUrl` extrahieren und dann die resultierenden Modelldaten verwenden, um Ihre benutzerdefinierte UI zu befüllen.
 
 Um die Content-Card-Datenmodelle zu erhalten, abonnieren Sie Content-Card-Aktualisierungen. Achten Sie besonders auf die folgenden Eigenschaften:
 
@@ -77,7 +77,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToContentCardsUpdates()` vor `openSession()` aufgerufen wird. Sie können den Feed auch jederzeit [manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
+Content Cards werden nur beim Sitzungsstart aktualisiert, wenn `subscribeToContentCardsUpdates()` vor `openSession()` aufgerufen wird. Sie können den Feed auch jederzeit [manuell Update or aktualisieren or aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 {% endtab %}
@@ -276,7 +276,7 @@ Schlüssel-Wert-Paare für einen Gutschein für neue Abonnent:innen:
 
 {% details Zusätzliche Informationen für Android %}
 
-Im Android- und FireOS-SDK wird die Nachrichtenzentrale-Logik durch den `class_type`-Wert gesteuert, der von den Schlüssel-Wert-Paaren aus Braze bereitgestellt wird. Mit der Methode [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) können Sie diese Klassentypen filtern und identifizieren.
+Im Android- und FireOS-SDK or Software-Development-Kit wird die Nachrichtenzentrale-Logik durch den `class_type`-Wert gesteuert, der von den Schlüssel-Wert-Paaren aus Braze bereitgestellt wird. Mit der Methode [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) können Sie diese Klassentypen filtern und identifizieren.
 
 {% tabs local %}
 {% tab Kotlin %}

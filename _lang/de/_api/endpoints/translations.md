@@ -9,7 +9,7 @@ description: "Diese Landing-Page listet die Braze-Übersetzungsendpunkte auf."
 page_type: landing
 
 guide_top_header: "Übersetzungsendpunkte"
-guide_top_text: "Verwenden Sie die Braze-Übersetzungsendpunkte, um Übersetzungen in Ihren Campaigns, Canvases, Content Blocks, E-Mail-Templates und Webhook-Templates zu verwalten und zu aktualisieren."
+guide_top_text: "Verwenden Sie die Braze-Übersetzungsendpunkte, um Übersetzungen in Ihren Campaigns, Canvase, Content Blocks, E-Mail-Templates und Webhook-Templates zu verwalten und zu Update or aktualisieren or aktualisieren."
 
 guide_featured_title: "Campaign-Endpunkte"
 guide_featured_list:
@@ -85,12 +85,12 @@ Bevor Sie diese Endpunkte verwenden, müssen Sie [Ihre Locales hinzufügen]({{si
 
 ### So testen Sie Ihre Übersetzungen {#how-to-test-your-translations}
 
-Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung mithilfe der API und des Braze-Dashboards für Campaigns, Canvases (einschließlich einzelner Schritte), Content Blocks, E-Mail-Templates und Webhook-Templates zu validieren:
+Es gibt zwei Möglichkeiten, die Übersetzungsunterstützung mithilfe der API und des Braze-Dashboards für Campaigns, Canvase (einschließlich einzelner Schritte), Content Blocks, E-Mail-Templates und Webhook-Templates zu validieren:
 
 - Während der Erstellung (vor dem Start)
 - Nach dem Start (mithilfe von Entwürfen nach dem Start)
 
-Bevor Sie das Aktualisieren von Übersetzungen testen, müssen Sie:
+Bevor Sie das Update or aktualisieren or aktualisieren von Übersetzungen testen, müssen Sie:
 
 1. [Ihre Locales hinzufügen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings#add-a-locale).
 2. Eine Nachricht erstellen und an den entsprechenden Stellen Übersetzungs-Tags verwenden.

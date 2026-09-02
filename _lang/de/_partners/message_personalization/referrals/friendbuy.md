@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Friendbuy
 
-> Nutzen Sie die Integration zwischen [Friendbuy](https://www.friendbuy.com/) und Braze, um Ihre E-Mail- und SMS-Funktionen zu erweitern und gleichzeitig die Kommunikation Ihrer Empfehlungs- und Kundenbindungs-Programme mühelos zu automatisieren. Braze erstellt Kundenprofile für alle Opt-in-Telefonnummern, die über Friendbuy erfasst wurden.
+> Nutzen Sie die Integration zwischen [Friendbuy](https://www.friendbuy.com/) und Braze, um Ihre E-Mail- und Kurzmitteilungsdienst or SMS-Funktionen zu erweitern und gleichzeitig die Kommunikation Ihrer Empfehlungs- und Kundenbindungs-Programme mühelos zu automatisieren. Braze erstellt Kundenprofile für alle Opt-in-Telefonnummern, die über Friendbuy erfasst wurden.
 
 _Diese Integration wird von Friendbuy gepflegt._
 
@@ -21,8 +21,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein Friendbuy-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Friendbuy-Konto](https://retailer.friendbuy.io/). |
-| Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), die von der URL Ihrer Braze-Instanz abhängt. |
+| Ein Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Ein Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), die von der URL Ihrer Braze-Instanz abhängt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration von Friendbuy {#integrating-friendbuy}
@@ -31,11 +31,11 @@ Gehen Sie in [Friendbuy](https://retailer.friendbuy.io/) zu **Developer Center**
 
 ![Die Braze-Integrationskarte in Friendbuy.]({% image_buster /assets/img/friendbuy/choosing_braze.png %}){: style="max-width:75%;"}
 
-Geben Sie im Formular Ihren REST-Endpunkt und API-Schlüssel ein und wählen Sie dann **Install Integration** aus.
+Geben Sie im Formular Ihren Representational State Transfer-Endpunkt und API-Schlüssel ein und wählen Sie dann **Install Integration** aus.
 
 ![Das Friendbuy-Integrationsformular.]({% image_buster /assets/img/friendbuy/install_form.png %}){: style="max-width:55%;"}
 
-Gehen Sie zurück zu Ihrem [Friendbuy-Konto](https://retailer.friendbuy.io/) und aktualisieren Sie die Seite. Wenn Ihre Integration erfolgreich war, sehen Sie eine Nachricht ähnlich der folgenden:
+Gehen Sie zurück zu Ihrem [Friendbuy-Konto](https://retailer.friendbuy.io/) und Update or aktualisieren or aktualisieren Sie die Seite. Wenn Ihre Integration erfolgreich war, sehen Sie eine Nachricht ähnlich der folgenden:
 
 ![Integration installiert]({% image_buster /assets/img/friendbuy/install_success.png %}){: style="max-width:55%;"}
 

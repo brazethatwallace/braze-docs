@@ -24,7 +24,7 @@ La integración de Wunderkind Signals permite que señales de comportamiento de 
 | ----------- | ----------- |
 | Cuenta de Wunderkind | Se requiere una cuenta de Wunderkind con Signals habilitado. Contacta a tu representante de Wunderkind para confirmar la elegibilidad. |
 | Cuenta de Braze | Se requiere una cuenta de Braze con acceso a Canvas. El equipo de Wunderkind debe tener acceso a tu cuenta. Para más detalles, consulta [Otorgar acceso a Wunderkind a tu cuenta de Braze](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account). |
-| Clave de API REST de Braze | Creas una clave de API dedicada con permisos específicos durante la configuración (consulta el [Paso 1](#step-1-create-a-braze-api-key-for-wunderkind)). |
+| Clave de API REST or transferencia de estado representacional de Braze | Creas una clave de API dedicada con permisos específicos durante la configuración (consulta el [Paso 1](#step-1-create-a-braze-api-key-for-wunderkind)). |
 | Identificación de usuario | Wunderkind normalmente resuelve a un consumidor en Braze usando `user_alias` con `alias_label: "wknd_email_id"` (a menudo con el correo electrónico como `alias_name`). Cada destinatario de [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) debe incluir exactamente uno de `external_user_id`, `user_alias`, `braze_id` o `email` ([objeto de destinatarios]({{site.baseurl}}/api/objects_filters/recipient_object)); si usas `email`, incluye [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers). Cuando usas `user_alias`, el perfil ya debe existir en Braze antes del desencadenamiento. Crea o actualiza usuarios y alias primero con [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Para más información, consulta [Limitaciones](#limitations). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -46,14 +46,14 @@ En tu panel de Braze:
 4. Copia la clave de API para ingresarla en la plataforma Wunderkind en la siguiente sección.
 
 {% alert note %}
-Para Wunderkind Signals, las solicitudes de la [REST API]({{site.baseurl}}/api/basics) de Braze se autentican con una clave de API REST, no con tokens OAuth. Crea una clave de API dedicada en el panel y proporciona esa clave a Wunderkind.
+Para Wunderkind Signals, las solicitudes de la [REST or transferencia de estado representacional API]({{site.baseurl}}/api/basics) de Braze se autentican con una clave de API REST or transferencia de estado representacional, no con tokens OAuth. Crea una clave de API dedicada en el panel y proporciona esa clave a Wunderkind.
 {% endalert %}
 
 ### Paso 2: Conectar Braze a la plataforma Wunderkind {#step-2-connect-braze-to-the-wunderkind-platform}
 
 1. Inicia sesión en la plataforma Wunderkind y ve a **Integrations Hub**.
 2. Selecciona el mosaico de **Braze** y luego selecciona **Connect**.
-3. Ingresa tu clave de API REST de Braze y selecciona tu clúster.
+3. Ingresa tu clave de API REST or transferencia de estado representacional de Braze y selecciona tu clúster.
 4. Selecciona **Save**.
 
 ### Paso 3: Revisar los nuevos activos de Braze {#step-3-review-new-braze-assets}
@@ -110,7 +110,7 @@ Wunderkind admite seis tipos de señal. Cada uno entrega un conjunto distinto de
 | `WKCouponPurpose` | Cadena | Descripción de la oferta del cupón (cadena vacía si no se usa) |
 | `Items` | Array | Array de objetos de producto (consulta los campos de producto en esta sección) |
 | `WkOpen` | Cadena | Píxel de seguimiento disponible para fines de reporte |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos comunes (todos los tipos de Canvas) #canvas-types-table" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos comunes (todos los tipos de Canvas) #Canvas-types-table" }
 
 ### Campos de artículo de producto {#product-item-fields}
 
@@ -425,7 +425,7 @@ Las siguientes métricas estarán disponibles próximamente en el panel de infor
 ## Limitaciones {#limitations}
 
 - **Sin sincronización de supresión/cancelación de suscripción.** La supresión debe gestionarse de forma nativa en Braze. Nota: Para los clientes actuales de Wunderkind que migran a Braze Signals, Wunderkind trabaja con tu equipo para preservar tu configuración actual.
-- **Solo canal de correo electrónico.** Actualmente, SMS no es compatible con esta integración.
+- **Solo canal de correo electrónico.** Actualmente, servicio de mensajes cortos no es compatible con esta integración.
 - **El perfil de usuario debe existir antes del desencadenador de Canvas.** [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) con un destinatario `user_alias` solo resuelve perfiles de Braze **existentes** que ya tienen ese alias. No puedes usar `send_to_existing_only` con alias, y el desencadenador de Canvas no crea un perfil completamente nuevo solo a partir del alias. El usuario debe crearse o actualizarse y el alias `wknd_email_id` debe configurarse primero (por ejemplo, usando [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)). Wunderkind puede esperar brevemente después de esa operación de upsert para que Braze termine de procesar antes de disparar el desencadenador.
 - **El correo electrónico como identificador.** Si el desencadenador de Canvas identifica al destinatario con `email` en lugar de `user_alias`, incluye [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) en ese objeto de destinatario, tal como lo requiere Braze.
 

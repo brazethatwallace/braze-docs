@@ -11,7 +11,7 @@ description: "이 문서에서는 유효하지 않은 전화번호 제거 Braze 
 {% api %}
 # 유효하지 않은 전화번호 제거 {#remove-invalid-phone-numbers}
 {% apimethod post %}
-/sms/invalid_phone_numbers/remove
+/단문 메시지 서비스/invalid_phone_numbers/remove
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 유효하지 않은 전화번호 목록에서 "유효하지 않은" 전화번호를 제거할 수 있습니다.

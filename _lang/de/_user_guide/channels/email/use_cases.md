@@ -64,4 +64,4 @@ Senden Sie Updates zu neuen oder verbesserten Features an alle Ihre Nutzer:innen
 
 Wenn Ihr Feature eine Erklärung oder Demo erfordert, fügen Sie einen Link in die Nachricht ein. Hier ist ein Beispiel von Allrecipes.com:
 
-![Update-fokussiertes E-Mail-Beispiel von Allrecipes, das Nutzer:innen über ein neues Feature informiert. Der obere Teil der E-Mail lautet: „Too. Many. Passwords. Tired of passwords? So are we.“ Der E-Mail-Text leitet Nutzer:innen an, sich mit Facebook oder Google Plus anzumelden, mit der Handlungsaufforderung „See How“.]({% image_buster /assets/img_archive/Allrecipes_email.png %}){: style="max-width:70%;"}
+![Update or aktualisieren-fokussiertes E-Mail-Beispiel von Allrecipes, das Nutzer:innen über ein neues Feature informiert. Der obere Teil der E-Mail lautet: „Too. Many. Passwords. Tired of passwords? So are we.“ Der E-Mail-Text leitet Nutzer:innen an, sich mit Facebook oder Google Plus anzumelden, mit der Handlungsaufforderung „See How“.]({% image_buster /assets/img_archive/Allrecipes_email.png %}){: style="max-width:70%;"}

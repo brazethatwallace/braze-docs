@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Atualizar aliases de usuário\"."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar alias de usuário {#update-user-alias}
 {% apimethod post %}
 /users/alias/update
@@ -27,7 +27,7 @@ Esse endpoint não garante a sequência de objetos `alias_updates` que estão se
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.alias.update`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.alias.update`.
 
 ## Limite de frequência {#rate-limit}
 

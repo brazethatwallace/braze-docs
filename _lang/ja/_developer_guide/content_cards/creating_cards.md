@@ -229,11 +229,11 @@ Content Cardsをテストするには、以下の手順に従います。
 
 ![テスト受信者として独自のユーザーIDを追加してContent Cardsをテストできることを示すBraze Content Cardsキャンペーン。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
 
-## Content Cardの配置 {#content-card-placements}
+## Content カードの配置 {#content-card-placements}
 
 Content Cardsはさまざまな方法で使用できます。一般的な実装として、メッセージセンター、ダイナミック画像広告、画像カルーセルの3つがあります。これらの配置それぞれで、Content Cardsに[キーと値のペア]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior)（データモデルの`extras`プロパティ）を割り当て、その値に基づいてランタイム時にカードの動作、外観、機能をダイナミックに調整します。
 
-![メッセージ受信トレイ、ダイナミック画像広告、画像カルーセルの3つのContent Card配置例を示す図。]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
+![メッセージ受信トレイ、ダイナミック画像広告、画像カルーセルの3つのContent カード配置例を示す図。]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
 
 ### メッセージ受信トレイ {#message-inbox}
 
@@ -404,7 +404,7 @@ protected void onCreate(Bundle savedInstanceState) {
 Content Cardsカルーセルを実装するには：
 
 1. [Content Cardsの変更]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed)を監視し、Content Cardsの到着を処理するカスタムロジックを作成します。
-2. カルーセルに一度に表示するカードの特定数を決定するカスタムクライアントサイドロジックを作成します。たとえば、配列から最初の5つのContent Cardオブジェクトを選択したり、キーと値のペアを導入して条件ロジックを構築したりできます。
+2. カルーセルに一度に表示するカードの特定数を決定するカスタムクライアントサイドロジックを作成します。たとえば、配列から最初の5つのContent カードオブジェクトを選択したり、キーと値のペアを導入して条件ロジックを構築したりできます。
 
 {% alert tip %}
 カルーセルをセカンダリのContent Cardsフィードとして実装する場合は、[キーと値のペアを使用してカードを正しいフィードにソート]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed)してください。

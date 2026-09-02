@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar usuários em Grupos de Controle Global\"."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Exportar perfil de usuário por grupo de controle global {#export-user-profile-by-global-control-group}
 {% apimethod post %}
 /users/export/global_control_group
@@ -17,13 +17,13 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 Os dados de usuários são exportados como vários arquivos de objetos JSON de usuários separados por novas linhas (como um objeto JSON por linha). Todos os usuários de um grupo de controle global são incluídos sempre que os arquivos são gerados. A Braze não armazena um histórico de quando os usuários são adicionados e removidos de um grupo de controle global.
 
-Para localizar o identificador do segmento do seu grupo de controle global, consulte [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
+Para localizar o identificador do Segment or segmento or segmento do seu grupo de controle global, consulte [Tipos de identificadores de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/identifier_types?tab=segments#segment-identifier).
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aa3d8b90-d984-48f0-9287-57aa30469de2 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.global_control_group`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.global_control_group`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -61,7 +61,7 @@ Recomendamos fortemente configurar suas próprias credenciais de S3 ou Azure (ac
 
 Se você não tiver fornecido suas credenciais de armazenamento em nuvem, a resposta à solicitação fornecerá a URL onde um ZIP contendo todos os arquivos do usuário pode ser baixado. A URL se torna um local válido apenas após a exportação estar pronta.
 
-Esteja ciente de que, se você não fornecer suas credenciais de armazenamento em nuvem, haverá uma limitação na quantidade de dados que você pode exportar desse endpoint. Dependendo dos campos que você está exportando e do número de usuários, a transferência do arquivo pode falhar se ele for muito grande. Uma prática recomendada é especificar quais campos você deseja exportar usando `fields_to_export` e incluindo apenas os campos necessários para manter o tamanho da transferência menor. Se você estiver recebendo erros ao gerar o arquivo, considere dividir sua base de usuários em mais segmentos com base em um número de bucket aleatório (por exemplo, crie um segmento em que o número de bucket aleatório seja menor que 1.000 ou entre 1.000 e 2.000).
+Esteja ciente de que, se você não fornecer suas credenciais de armazenamento em nuvem, haverá uma limitação na quantidade de dados que você pode exportar desse endpoint. Dependendo dos campos que você está exportando e do número de usuários, a transferência do arquivo pode falhar se ele for muito grande. Uma prática recomendada é especificar quais campos você deseja exportar usando `fields_to_export` e incluindo apenas os campos necessários para manter o tamanho da transferência menor. Se você estiver recebendo erros ao gerar o arquivo, considere dividir sua base de usuários em mais segmentos com base em um número de bucket aleatório (por exemplo, crie um Segment or segmento or segmento em que o número de bucket aleatório seja menor que 1.000 ou entre 1.000 e 2.000).
 
 Em qualquer um dos cenários, você pode opcionalmente fornecer um `callback_endpoint` para receber uma notificação quando a exportação estiver pronta. Se o `callback_endpoint` for fornecido, fazemos uma solicitação POST para o endereço fornecido quando o download estiver pronto. O corpo do post é `"success":true`. Se você não adicionou suas credenciais de armazenamento em nuvem à Braze, o corpo do post adicionalmente terá o atributo `url` com a URL de download como valor.
 
@@ -109,7 +109,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 
 ## Campos a serem exportados {#fields-to-export}
 
-A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para minimizar os dados retornados pode melhorar o tempo de resposta desse endpoint da API:
+A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para minimizar os dados retornados pode melhorar o tempo de resposta desse endpoint da API or interface de programação do aplicativo (API):
 
 | Campo a ser exportado | Tipo de dados | Descrição |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

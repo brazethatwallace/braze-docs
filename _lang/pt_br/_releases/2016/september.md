@@ -9,7 +9,7 @@ description: "Este artigo contém notas de versão de setembro de 2016."
 # Setembro de 2016
 
 ## Changelogs de segmentos
-Agora você pode ver um histórico das alterações feitas em um Segmento.
+Agora você pode ver um histórico das alterações feitas em um Segment or segmento or segmento.
 
 ## Dispositivo usado mais recentemente
 É possível modelar os seguintes atributos para o dispositivo mais recente do usuário em todas as plataformas.

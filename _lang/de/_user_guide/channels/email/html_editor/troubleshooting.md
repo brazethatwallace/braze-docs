@@ -49,7 +49,7 @@ Eine [Test-E-Mail]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/
 Bestimmte Browser-Erweiterungen können Probleme mit dem E-Mail-Editor verursachen. Ein Beispiel ist [Grammarly](https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen?hl=en) in Verbindung mit Google Chrome. Wenn Sie eine dieser Erweiterungen verwenden, sollten Sie entweder:
 
 - Braze-E-Mails in einem Browser bearbeiten, in dem Grammarly nicht als Browser-Erweiterung installiert ist
-- Ihren Braze Account Manager kontaktieren und darum bitten, Ihre E-Mail-Editoren auf reines HTML oder Nur-Text umzustellen.
+- Ihren Braze Account Manager:in kontaktieren und darum bitten, Ihre E-Mail-Editoren auf reines HTML oder Nur-Text umzustellen.
 
 Die Nur-Text-Ansicht entfernt Ihren `WYSIWYG`-Editor (What You See Is What You Get), daher sollten Sie zunächst sicherstellen, dass alle Teammitglieder mit HTML vertraut sind, bevor Sie diese Änderung anfordern.
 
@@ -73,7 +73,7 @@ Braze verwendet einen internen HTML-Parser, um E-Mails vor dem Versand aufzubere
 - Ungewöhnliche Abstände durch `<p>`-Tags, die dem E-Mail-Body hinzugefügt werden
 - Inhalte des `<head>`-Tags werden in den Preheader verschoben
 - Inkonsistentes Rendering auf verschiedenen mobilen Betriebssystemen
-- AMP-spezifischer Code wird aus AMP-E-Mail-Bodys entfernt, was zu Validierungsfehlern führt
+- AMP or Accelerated Mobile Pages-spezifischer Code wird aus AMP or Accelerated Mobile Pages-E-Mail-Bodys entfernt, was zu Validierungsfehlern führt
 - Fehlerhafte Links bei Verwendung vieler verschiedener Query-Parameter oder Media Queries
 
 #### HTML innerhalb von Liquid-Blöcken ausgleichen {#balance-html-within-liquid-blocks}

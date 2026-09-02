@@ -10,11 +10,11 @@ description: "Este artigo contém notas de versão de outubro de 2017."
 
 ## Push Stories
 
-No iOS e no Android, agora você pode [criar notificações]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) com várias páginas, cada uma contendo uma imagem, um comportamento ao clicar e um título e subtítulo opcionais. Esse recurso requer o iOS SDK 3.2.1 e o Android SDK 2.2.0. Para obter acesso a esse novo produto, entre em contato com seu gerente de sucesso do cliente, gerente de conta ou abra um [tíquete de suporte]({{site.baseurl}}/braze_support/).
+No iOS e no Android, agora você pode [criar notificações]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) com várias páginas, cada uma contendo uma imagem, um comportamento ao clicar e um título e subtítulo opcionais. Esse recurso requer o iOS SDK or kit de desenvolvimento de software 3.2.1 e o Android SDK or kit de desenvolvimento de software 2.2.0. Para obter acesso a esse novo produto, entre em contato com seu gerente de sucesso do cliente, gerente de conta ou abra um [tíquete de suporte]({{site.baseurl}}/braze_support/).
 
 ## Currents
 
-O [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) exibe um conjunto de conexões de dados em tempo real e de alto volume para dados de clientes, com conexões pré-construídas diretamente em tecnologias como data warehouses, ferramentas de business intelligence e plataformas de gerenciamento de dados. Ele é lançado com integrações para Amazon Redshift, Amplitude e as plataformas de gerenciamento de dados Segment e mParticle. Para obter acesso a esse novo produto, entre em contato com seu gerente de sucesso do cliente, gerente de conta ou abra um [tíquete de suporte]({{site.baseurl}}/braze_support/).
+O [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/) exibe um conjunto de conexões de dados em tempo real e de alto volume para dados de clientes, com conexões pré-construídas diretamente em tecnologias como data warehouses, ferramentas de business intelligence e plataformas de gerenciamento de dados. Ele é lançado com integrações para Amazon Redshift, Amplitude e as plataformas de gerenciamento de dados Segment or segmento e mParticle. Para obter acesso a esse novo produto, entre em contato com seu gerente de sucesso do cliente, gerente de conta ou abra um [tíquete de suporte]({{site.baseurl}}/braze_support/).
 
 ## Login único da Okta (outubro de 2017) {#okta-single-sign-on-october-2017}
 

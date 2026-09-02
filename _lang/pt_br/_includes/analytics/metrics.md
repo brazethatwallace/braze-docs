@@ -155,9 +155,9 @@ As <i>compras diárias</i> são a média do total de <code>PurchaseEvents</code>
 {% endif %}
 
 {% if include.metric == "Machine Opens" %}
-As <i>aberturas de máquina</i> incluem aberturas não humanas e humanas que indicam uma abertura por um usuário com a proteção de privacidade de e-mail (MPP) da Apple ativada. Isso significa que um usuário pode registrar múltiplas <i>aberturas de máquina</i>. As <i>aberturas de máquina</i> não são geradas automaticamente se o dispositivo não estiver conectado ao Wi-Fi, então um usuário pode potencialmente abrir um e-mail no app Apple Mail antes que a Apple pré-carregue as imagens, o que ainda resulta em uma <i>abertura de máquina</i>.
+As <i>aberturas de máquina</i> incluem aberturas não humanas e humanas que indicam uma abertura por um usuário com a MPP or proteção de privacidade de e-mail or proteção de privacidade de e-mail (MPP or proteção de privacidade de e-mail) da Apple ativada. Isso significa que um usuário pode registrar múltiplas <i>aberturas de máquina</i>. As <i>aberturas de máquina</i> não são geradas automaticamente se o dispositivo não estiver conectado ao Wi-Fi, então um usuário pode potencialmente abrir um e-mail no app Apple Mail antes que a Apple pré-carregue as imagens, o que ainda resulta em uma <i>abertura de máquina</i>.
 <br><br>
-Para usuários com MPP ativada:
+Para usuários com MPP or proteção de privacidade de e-mail ativada:
 <ul>
   <li>1+ <i>abertura de máquina</i>: a Apple pré-carregou a mensagem ou o usuário abriu proativamente um e-mail em um dispositivo iOS</li>
   <li>2+ <i>aberturas de máquina</i>: a Braze não tem visibilidade sobre aberturas humanas versus não humanas, então isso pode ser composto por múltiplas aberturas humanas (em um dispositivo Apple ou em vários) ou uma combinação de aberturas humanas e 1 abertura associada ao pré-carregamento da mensagem pela Apple</li>
@@ -165,23 +165,23 @@ Para usuários com MPP ativada:
 {% endif %}
 
 {% if include.metric == "Other Opens" %}
-<i>Outras aberturas</i> inclui aberturas humanas que não são impactadas pela MPP (como um usuário abrindo um e-mail no app do Gmail ou no Gmail desktop, o que aciona um pixel de rastreamento e registra uma abertura regular). As <i>outras aberturas</i> são tipicamente aberturas humanas, mas também pode haver cenários em que uma máquina abre o e-mail (um bot ou um provedor de serviços de caixa de entrada como Gmail ou Yahoo). Também é possível que um usuário abra um e-mail em um dispositivo não iOS e registre a <i>outra abertura</i> antes que uma <i>abertura de máquina</i> seja registrada.
+<i>Outras aberturas</i> inclui aberturas humanas que não são impactadas pela MPP or proteção de privacidade de e-mail (como um usuário abrindo um e-mail no app do Gmail ou no Gmail desktop, o que aciona um pixel de rastreamento e registra uma abertura regular). As <i>outras aberturas</i> são tipicamente aberturas humanas, mas também pode haver cenários em que uma máquina abre o e-mail (um bot ou um provedor de serviços de caixa de entrada como Gmail ou Yahoo). Também é possível que um usuário abra um e-mail em um dispositivo não iOS e registre a <i>outra abertura</i> antes que uma <i>abertura de máquina</i> seja registrada.
 <br><br>
-Como as <i>aberturas de máquina</i> podem ser geradas pelo usuário, a relação entre <i>aberturas de máquina</i> e <i>outras aberturas</i> não é humano versus não humano, mas sim impactado pela MPP versus não impactado pela MPP. Embora as <i>outras aberturas</i> ainda possam ser usadas para medir uma parte das aberturas humanas, atualmente não é possível determinar a porcentagem de <i>aberturas de máquina</i> que são geradas por humanos, então determinar uma taxa de abertura "verdadeira" precisa não é possível no momento.
+Como as <i>aberturas de máquina</i> podem ser geradas pelo usuário, a relação entre <i>aberturas de máquina</i> e <i>outras aberturas</i> não é humano versus não humano, mas sim impactado pela MPP or proteção de privacidade de e-mail versus não impactado pela MPP or proteção de privacidade de e-mail. Embora as <i>outras aberturas</i> ainda possam ser usadas para medir uma parte das aberturas humanas, atualmente não é possível determinar a porcentagem de <i>aberturas de máquina</i> que são geradas por humanos, então determinar uma taxa de abertura "verdadeira" precisa não é possível no momento.
 <br><br>
-Para usuários com MPP ativada:
+Para usuários com MPP or proteção de privacidade de e-mail ativada:
 <ul>
   <li>+1 <i>outra(s) abertura(s)</i>: o usuário abriu proativamente um e-mail em um dispositivo não iOS</li>
   <li>+1 <i>abertura(s) de máquina</i> e +1 <i>outras aberturas</i>: a Apple pré-carregou a mensagem ou o usuário abriu proativamente um e-mail em um dispositivo iOS e abriu proativamente um e-mail em um dispositivo não iOS</li>
 </ul>
-Para usuários sem MPP ativada:
+Para usuários sem MPP or proteção de privacidade de e-mail ativada:
 <ul>
   <li>+1 <i>outra(s) abertura(s)</i>: o usuário abriu proativamente um e-mail em qualquer dispositivo</li>
 </ul>
 {% endif %}
 
 {% if include.metric == "Opens" %}
-As <i>aberturas</i> são instâncias que incluem <i>Aberturas Diretas</i> e <i>Aberturas por Influência</i> nas quais o SDK da Braze determinou, usando um algoritmo proprietário, que uma notificação por push fez com que um usuário abrisse o app.
+As <i>aberturas</i> são instâncias que incluem <i>Aberturas Diretas</i> e <i>Aberturas por Influência</i> nas quais o SDK or kit de desenvolvimento de software da Braze determinou, usando um algoritmo proprietário, que uma notificação por push fez com que um usuário abrisse o app.
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
@@ -192,7 +192,7 @@ As <i>aberturas</i> são instâncias que incluem <i>Aberturas Diretas</i> e <i>A
 <i>Tentativa pendente</i> é o número de solicitações que foram temporariamente rejeitadas pelo servidor de recebimento, mas que ainda tentaram ser reentregues pelo provedor de serviços de e-mail (ESP). O ESP tentará novamente a entrega até que um período de tempo limite seja atingido (normalmente após 72 horas).
 {% endif %}
 
-{% if include.metric == "Primary Conversions (A) or Primary Conversion Event" %}
+{% if include.metric == "Primary Conversions (A) or conversão primária Event" %}
 <i>Conversões primárias (A)</i> ou <i>evento de conversão primária</i> é o número de vezes que um evento definido ocorreu após a interação ou a visualização de uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign.
 {% endif %}
 

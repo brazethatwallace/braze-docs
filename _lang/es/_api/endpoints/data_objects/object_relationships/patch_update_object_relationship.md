@@ -126,7 +126,7 @@ La siguiente tabla enumera los errores comunes de este endpoint y cómo resolver
 |---|---|---|
 | `400` | Error de validación | Confirma que `rel_kind`, `anchor` y `attributes` son válidos para el tipo de relación. |
 | `404` | Relación no encontrada (`data-object-relationship-not-found`) | Confirma que el objeto de origen, el objeto relacionado y los valores de clave de relación existen. |
-| `401` | Clave de API REST faltante o no válida | Verifica que el encabezado `Authorization` use `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
+| `401` | Clave de API REST or transferencia de estado representacional faltante o no válida | Verifica que el encabezado `Authorization` use `Bearer YOUR_REST_API_KEY` y que la clave esté activa. |
 | `403` | La clave de API no tiene permiso o la solicitud está bloqueada por la lista de permitidos | Confirma que la clave tiene el permiso `data_objects.object_relationships.update` y que tu IP de origen está en la lista de permitidos de la clave, si está configurada. |
 | `429` | Límite de velocidad excedido | Reintenta después de `X-RateLimit-Reset` y reduce la frecuencia de solicitudes. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de actualizar relación de objeto" }

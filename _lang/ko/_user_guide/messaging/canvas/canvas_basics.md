@@ -62,7 +62,7 @@ Canvas에 태그를 추가하고 단계와 배리언트에 이름을 지정할 �
 
 *"무엇을"을 기반으로, 왜 이 Canvas를 구축하나요?*
 
-명확한 목표를 염두에 두는 것은 항상 중요하며, Canvas는 세션 참여, 구매, 커스텀 이벤트와 같은 핵심 성과 지표(KPI)에 대한 성과를 파악하는 데 도움을 줍니다.
+명확한 목표를 염두에 두는 것은 항상 중요하며, Canvas는 세션 참여, 구매, 커스텀 이벤트와 같은 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI))에 대한 성과를 파악하는 데 도움을 줍니다.
 
 하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 선택하면 Canvas 내에서 성과를 최적화하는 방법을 이해할 수 있습니다. Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 전환 이벤트를 사용하여 이 목표를 달성하기 위한 최적의 배리에이션을 결정합니다.
 
@@ -108,7 +108,7 @@ Canvas의 [시간 기반 기능]({{site.baseurl}}/user_guide/messaging/messaging
 * [푸시]({{site.baseurl}}/user_guide/channels/push)
 * [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)
 * [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
-* [SMS 또는 MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [단문 메시지 서비스 또는 MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 * [웹훅]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### "어떻게": 완전한 경험 구축하기 {#the-how-build-the-complete-experience}

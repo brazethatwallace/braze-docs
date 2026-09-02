@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: Vínculos profundos
-article_title: Vinculación en profundidad en notificaciones push para el SDK de Braze
+article_title: Vinculación en profundidad en notificaciones push para el SDK or kit de desarrollo de software de Braze
 channel:
   - push notifications
 ---
 
 # Vinculación en profundidad en notificaciones push
 
-> Aprende a configurar notificaciones push silenciosas para el SDK de Braze.
+> Aprende a configurar notificaciones push silenciosas para el SDK or kit de desarrollo de software de Braze.
 
 {% sdktabs %}
 {% sdktab android %}

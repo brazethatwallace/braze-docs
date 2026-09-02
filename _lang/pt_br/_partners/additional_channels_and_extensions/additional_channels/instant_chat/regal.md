@@ -22,7 +22,7 @@ Use dados da Braze para definir o que seus agentes de IA dizem, como respondem e
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Regal | Uma conta Regal é necessária para aproveitar esta parceria. |
-| Chave de API Regal | Uma chave de API Regal permite que você envie eventos da Braze para a Regal.<br><br>Envie um e-mail para [support@regal.io](mailto:support@regal.io) para obter essa chave. |
+| Chave de API or interface de programação do aplicativo (API) Regal | Uma chave de API or interface de programação do aplicativo (API) Regal permite que você envie eventos da Braze para a Regal.<br><br>Envie um e-mail para [support@regal.io](mailto:support@regal.io) para obter essa chave. |
 | Transformação de Dados da Braze | Uma [Transformação de Dados]({{site.baseurl}}/user_guide/data/unification/data_transformation) é necessária para receber dados da Regal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

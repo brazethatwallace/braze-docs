@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Remover endereços de e-mail com hard bounce\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Remover e-mails com hard bounce {#remove-hard-bounced-emails}
 {% apimethod post %}
 /email/bounce/remove
@@ -20,7 +20,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Remover 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.bounce.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.bounce.remove`.
 
 ## Limite de frequência {#rate-limit}
 

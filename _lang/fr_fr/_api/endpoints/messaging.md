@@ -84,7 +84,7 @@ guide_menu_list2:
     link: /docs/api/endpoints/messaging/duplicate_messages/post_duplicate_canvases
     image: /assets/img/braze_icons/copy-04.svg
 
-guide_menu_title3: "Endpoints Live Activity"
+guide_menu_title3: "Endpoints en direct or en ligne/en production/instantané Activity"
 guide_menu_list3:
   - name: "POST : Mettre à jour une Live Activity"
     link: /docs/api/endpoints/messaging/live_activity/update

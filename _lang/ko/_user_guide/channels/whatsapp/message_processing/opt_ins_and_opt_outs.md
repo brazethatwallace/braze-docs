@@ -13,7 +13,7 @@ channel:
 
 > WhatsApp 옵트인 및 옵트아웃을 처리하는 것은 매우 중요합니다. WhatsApp은 [전화번호 품질 등급](https://www.facebook.com/business/help/896873687365001)을 모니터링하며, 등급이 낮으면 메시지 한도가 줄어들 수 있습니다. <br><br>높은 품질 등급을 유지하는 한 가지 방법은 사용자가 비즈니스를 차단하거나 신고하지 않도록 하는 것입니다. 이를 위해 [고품질 메시징](https://developers.facebook.com/docs/whatsapp/messaging-limits#quality-rating-and-messaging-limits)(사용자에게 가치를 제공하는 것 등)을 제공하고, 메시지 빈도를 조절하며, 고객이 향후 커뮤니케이션 수신을 옵트아웃할 수 있도록 해야 합니다. <br><br>WhatsApp 구독 상태에 대한 크로스채널 개요는 [구독 상태]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp)를 참조하세요. 이 페이지에서는 옵트인 및 옵트아웃 설정 방법과 "정규식" 및 "is" 수정자 간의 차이점을 설명합니다.
 
-옵트인은 외부 소스 또는 SMS, 인앱 및 인브라우저 메시지와 같은 Braze 방법을 통해 수집할 수 있습니다. 옵트아웃은 Braze에서 설정한 키워드와 WhatsApp 마케팅 버튼을 사용하여 처리할 수 있습니다. 옵트인 및 옵트아웃 설정에 대한 안내는 다음 방법을 참조하세요.
+옵트인은 외부 소스 또는 단문 메시지 서비스, 인앱 및 인브라우저 메시지와 같은 Braze 방법을 통해 수집할 수 있습니다. 옵트아웃은 Braze에서 설정한 키워드와 WhatsApp 마케팅 버튼을 사용하여 처리할 수 있습니다. 옵트인 및 옵트아웃 설정에 대한 안내는 다음 방법을 참조하세요.
 
 ## 옵트인 방법 {#opt-in-methods}
 - [Braze 외부 옵트인 방법](#external-to-braze-opt-in-methods)
@@ -92,7 +92,7 @@ WhatsApp 구독 상태는 발신 전화번호와 연결된 구독 그룹에 적�
 
 ### Braze 기반 옵트인 방법 {#braze-powered-opt-in-methods}
 
-#### SMS 메시지 {#sms-message}
+#### 단문 메시지 서비스 메시지 {#sms-message}
 
 Canvas에서 다음 방법 중 하나를 사용하여 고객에게 WhatsApp 메시지 수신 옵트인 여부를 묻는 Campaign을 설정합니다:
 - 고객 Segment: 미국 외 구독 마케팅 그룹

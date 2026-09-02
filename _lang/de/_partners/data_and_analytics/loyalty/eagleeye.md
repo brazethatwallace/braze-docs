@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Eagle Eye
 
-> [Eagle Eye](https://eagleeye.com/) ist ein führendes SaaS- und KI-Technologieunternehmen, das Marken aus den Bereichen Einzelhandel, Reisen und Gastgewerbe dabei unterstützt, die Loyalität ihrer Endkund:innen zu gewinnen, indem es ihre Realtime-, Omnichannel- und personalisierten Marketing-Aktivitäten in großem Umfang ermöglicht.
+> [Eagle Eye](https://eagleeye.com/) ist ein führendes SaaS or Software-as-a-Service- und KI or künstliche Intelligenz-Technologieunternehmen, das Marken aus den Bereichen Einzelhandel, Reisen und Gastgewerbe dabei unterstützt, die Loyalität ihrer Endkund:innen zu gewinnen, indem es ihre Realtime-, Omnichannel- und personalisierten Marketing-Aktivitäten in großem Umfang ermöglicht.
 
 _Diese Integration wird von Eagle Eye verwaltet._
 
@@ -19,7 +19,7 @@ Eagle Eye Connect ist eine bidirektionale Integration zwischen Braze und AIR, di
 
 ## Anwendungsfälle {#use-cases}
 
-- Triggern Sie Braze-Campaigns auf der Grundlage von Treue-Events wie Punkteschwellen oder verdienten Rewards.
+- Trigger or triggern or triggern Sie Braze-Campaigns auf der Grundlage von Treue-Events wie Punkteschwellen oder verdienten Rewards.
 - Reichern Sie Braze-Nutzerprofile mit Realtime-Treuedaten an, um ein personalisierteres Targeting zu ermöglichen.
 - Verfolgen Sie die Wirksamkeit von Campaigns in Verbindung mit der Einlösung von Rewards und erstellen Sie Berichte darüber.
 - Geben Sie Rewards in AIR aus, wenn Nutzer:innen Campaigns in Braze beitreten.
@@ -29,8 +29,8 @@ Eagle Eye Connect ist eine bidirektionale Integration zwischen Braze und AIR, di
 | Anforderung              | Beschreibung |
 |--------------------------|-------------|
 | Eagle Eye AIR-Konto    | Sie benötigen ein aktives Eagle Eye AIR-Konto, um von dieser Partnerschaft zu profitieren. Wenden Sie sich an das Partnerships-Team von Eagle Eye unter [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com), um loszulegen. |
-| Braze REST-API-Schlüssel       | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen > API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt      | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze Representational State Transfer-API-Schlüssel       | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen > API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt      | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Ausgehend vs. eingehend {#outbound-vs-inbound}
@@ -58,7 +58,7 @@ In den folgenden Tabellen werden die beiden Arten von Integrationen beschrieben,
       <td>
         Senden Sie Kundenbindungsdaten als angepasste Attribute über angepasste Events in Braze-Nutzerprofile. Innerhalb von Braze können die aufgenommenen Daten verwendet werden, um:
         <ul>
-          <li>Nutzer:innen zu segmentieren und Campaigns zu triggern</li>
+          <li>Nutzer:innen zu segmentieren und Campaigns zu Trigger or triggern or triggern</li>
           <li>Nachrichten zu personalisieren</li>
         </ul>
       </td>
@@ -92,7 +92,7 @@ In den folgenden Tabellen werden die beiden Arten von Integrationen beschrieben,
       <td>Braze</td>
       <td>Zur Eagle Eye API über Webhook</td>
       <td>
-        Wenn Verbraucher:innen in Braze aus einer beliebigen Quelle eine Zielgruppe betreten, kann Braze einen Webhook an EE Connect triggern, sodass EE ein Reward (Coupon oder Punkte) ausgeben kann.<br><br>
+        Wenn Verbraucher:innen in Braze aus einer beliebigen Quelle eine Zielgruppe betreten, kann Braze einen Webhook an EE Connect Trigger or triggern or triggern, sodass EE ein Reward (Coupon oder Punkte) ausgeben kann.<br><br>
         Nach Abschluss der Aktion in AIR würde Braze ein ausgehendes Event von AIR erhalten.
       </td>
       <td>
@@ -125,7 +125,7 @@ Zunächst geben Sie Ihrem Eagle Eye Team die folgenden Informationen:
 
 | Sie liefern            | Beschreibung |
 |------------------------|-------------|
-| Braze-API-Zugangsdaten  | Teilen Sie Ihren Braze REST-Endpunkt, Ihren App-Bezeichner und Ihren API-Schlüssel sicher mit Ihrem Eagle Eye Kontakt. |
+| Braze-API-Zugangsdaten  | Teilen Sie Ihren Braze Representational State Transfer-Endpunkt, Ihren App-Bezeichner und Ihren API-Schlüssel sicher mit Ihrem Eagle Eye Kontakt. |
 | Bezeichner-Abgleich    | Bestimmen und teilen Sie den primären Nutzer:innen-Bezeichner für Profil-Updates, der in AIR und Braze gemeinsam verwendet wird, z. B. externe ID oder E-Mail. |
 | Authentifizierungsschlüssel               | Legen Sie für jeden eingehenden und ausgehenden Konnektor einen geheimen Authentifizierungsschlüssel fest und teilen Sie ihn. |
 | Währungscode          | Geben Sie den 3-stelligen Währungscode für die Anzeige von Geldbeträgen an (z. B. USD). |
@@ -156,7 +156,7 @@ Fügen Sie außerdem Nutzer:innen zu Zielgruppen hinzu und bestätigen Sie, dass
 
 Nachdem die Tests erfolgreich verlaufen sind, kann die Integration in Betrieb genommen werden, um kontinuierlich Daten an Braze zu senden. Die gleichen Konfigurationsschritte sind für Produktionsumgebungen in AIR und Braze erforderlich.
 
-Wenden Sie sich an Ihren Eagle Eye Customer-Success-Manager, damit Ihnen eine Ressource zugewiesen wird, um EE Connect einzurichten.
+Wenden Sie sich an Ihren Eagle Eye CSM or Customer-Success-Manager or Customer-Success-Manager:in, damit Ihnen eine Ressource zugewiesen wird, um EE Connect einzurichten.
 
 ## Support
 

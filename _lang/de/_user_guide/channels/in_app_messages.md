@@ -12,13 +12,13 @@ search_rank: 5
 
 # In-App-Nachrichten {#in-app-messages}
 
-> In-App-Nachrichten liefern Inhalte innerhalb Ihrer App oder Website, ohne Nutzer:innen mit einer Push-Benachrichtigung zu unterbrechen. Angepasste In-App-Nachrichten verbessern das Nutzererlebnis und helfen Ihrer Zielgruppe, durch Layouts, Personalisierung und Targeting-Tools mehr Wert aus Ihrem Produkt zu ziehen. Dieser Hub behandelt Nachrichtentypen, den Drag-and-Drop-Editor, Voraussetzungen und gängige Anwendungsfälle wie Onboarding und Aktionen. Integrieren Sie das [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web), bevor Sie Ihre erste In-App-Nachricht erstellen, und wählen Sie dann ein Standard- oder angepasstes Layout für Ihre Campaign.
+> In-App-Nachrichten liefern Inhalte innerhalb Ihrer App oder Website, ohne Nutzer:innen mit einer Push-Benachrichtigung zu unterbrechen. Angepasste In-App-Nachrichten verbessern das Nutzererlebnis und helfen Ihrer Zielgruppe, durch Layouts, Personalisierung und Targeting-Tools mehr Wert aus Ihrem Produkt zu ziehen. Dieser Hub behandelt Nachrichtentypen, den Drag-and-Drop-Editor, Voraussetzungen und gängige Anwendungsfälle wie Onboarding und Aktionen. Integrieren Sie das [Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web), bevor Sie Ihre erste In-App-Nachricht erstellen, und wählen Sie dann ein Standard- oder angepasstes Layout für Ihre Campaign.
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie In-App-Nachrichten senden können, müssen Sie das [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) in Ihre App oder Website integrieren. Eine zusätzliche Einrichtung ist nicht erforderlich.
+Bevor Sie In-App-Nachrichten senden können, müssen Sie das [Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) in Ihre App oder Website integrieren. Eine zusätzliche Einrichtung ist nicht erforderlich.
 
-Informationen zu Mindest-SDK-Versionen und Feature-spezifischen Anforderungen finden Sie unter:
+Informationen zu Mindest-SDK or Software-Development-Kit-Versionen und Feature-spezifischen Anforderungen finden Sie unter:
 - [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 - [Nachrichtentypen]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 

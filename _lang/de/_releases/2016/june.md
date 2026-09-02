@@ -8,9 +8,9 @@ description: "Dieser Artikel enthält Versionshinweise für Juni 2016."
 
 # Juni 2016
 
-## Aktionsbasierter Trigger für die Durchführung eines Ausnahme-Events
+## Aktionsbasierter Trigger or triggern für die Durchführung eines Ausnahme-Events
 
-Ausnahme-Events werden verwendet, um leistungsstarke Logik in aktionsbasierten Kampagnen zu erstellen. Sie werden verwendet, um Endnutzer:innen vom Empfang einer Nachricht auszuschließen. Ein Beispiel ist: "Senden Sie Nutzern:innen, die ihren Warenkorb-Abbruch melden, eine Push-Benachrichtigung, sofern sie nicht zur Kasse gehen." Indem Sie ein Ausnahme-Event triggern, können Kunden zusätzliche Nachrichten und Aufmerksamkeit an die Nutzer richten, die nach dem Abbruch ihres Warenkorbs zur Kasse gegangen sind, und so ein nahtloses und kohärentes Erlebnis schaffen.
+Ausnahme-Events werden verwendet, um leistungsstarke Logik in aktionsbasierten Kampagnen zu erstellen. Sie werden verwendet, um Endnutzer:innen vom Empfang einer Nachricht auszuschließen. Ein Beispiel ist: "Senden Sie Nutzern:innen, die ihren Warenkorb-Abbruch melden, eine Push-Benachrichtigung, sofern sie nicht zur Kasse gehen." Indem Sie ein Ausnahme-Event Trigger or triggern or triggern, können Kunden zusätzliche Nachrichten und Aufmerksamkeit an die Nutzer richten, die nach dem Abbruch ihres Warenkorbs zur Kasse gegangen sind, und so ein nahtloses und kohärentes Erlebnis schaffen.
 
 ## Segment Filter "Empfangene Nachricht aus Kampagne mit Tag"
 

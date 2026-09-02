@@ -18,7 +18,7 @@ noindex: true
 
 Sans la distribution en temps réel, le SDK demande les messages in-app éligibles au démarrage de la session et les met en cache sur l'appareil. Un utilisateur qui devient éligible en cours de session ne reçoit le message qu'au début de la session suivante. Pour plus d'informations sur ce comportement, consultez [Déclencher des messages in-app]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
 
-Avec la distribution en temps réel, Braze envoie le message à l'appareil via une connexion en direct que le SDK maintient pendant la session. Braze envoie un message dans deux cas :
+Avec la distribution en temps réel, Braze envoie le message à l'appareil via une connexion en direct or en ligne/en production/instantané que le SDK maintient pendant la session. Braze envoie un message dans deux cas :
 
 - Un utilisateur devient éligible pour une campagne de message in-app.
 - Un utilisateur atteint une étape de message in-app dans un Canvas.

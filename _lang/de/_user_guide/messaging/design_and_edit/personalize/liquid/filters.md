@@ -13,7 +13,7 @@ description: "Diese Referenzseite listet Filter auf, mit denen Sie statischen od
 Filter ermöglichen es Ihnen, die Ausgabe von Zahlen, Strings, Variablen und Objekten in Liquid zu verändern. Sie können Filter verwenden, um statischen oder dynamischen Text umzuformatieren, z. B. um einen String von Kleinbuchstaben in Großbuchstaben umzuwandeln oder mathematische Operationen wie Addition oder Division durchzuführen.
 
 {% alert important %}
-Braze unterstützt nicht alle Liquid-Filter von Shopify. Diese Seite versucht, die Liquid-Filter aufzulisten, die Braze getestet hat, aber es handelt sich möglicherweise nicht um eine vollständige Liste. Testen Sie Ihr Liquid immer, bevor Sie Nachrichten versenden. <br><br>Wenn Sie Fragen zu einem Filter haben, der hier nicht aufgeführt ist, wenden Sie sich an Ihren Customer-Success-Manager.
+Braze unterstützt nicht alle Liquid-Filter von Shopify. Diese Seite versucht, die Liquid-Filter aufzulisten, die Braze getestet hat, aber es handelt sich möglicherweise nicht um eine vollständige Liste. Testen Sie Ihr Liquid immer, bevor Sie Nachrichten versenden. <br><br>Wenn Sie Fragen zu einem Filter haben, der hier nicht aufgeführt ist, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 ## Filter-Syntax {#filter-syntax}
@@ -114,7 +114,7 @@ Mathematische Filter ermöglichen es Ihnen, mathematische Operationen durchzufü
 | [plus](https://shopify.dev/api/liquid/filters/plus)       | Addiert eine Zahl zu einer Ausgabe.     | ✅  Ja   |
 | [round](https://shopify.dev/api/liquid/filters/round)      | Rundet die Ausgabe auf die nächste ganze Zahl oder die angegebene Anzahl von Dezimalstellen.  | ✅  Ja   |
 | [times](https://shopify.dev/api/liquid/filters/times)     | Multipliziert eine Ausgabe mit einer Zahl.       | ✅  Ja   |
-| [modulo](https://shopify.dev/api/liquid/filters/modulo)    | Teilt eine Ausgabe durch eine Zahl und gibt den Rest zurück.   | ✅  Ja   |
+| [modulo](https://shopify.dev/api/liquid/filters/modulo)    | Teilt eine Ausgabe durch eine Zahl und gibt den Representational State Transfer zurück.   | ✅  Ja   |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mathematische Filter" }
 
 {% alert tip %}

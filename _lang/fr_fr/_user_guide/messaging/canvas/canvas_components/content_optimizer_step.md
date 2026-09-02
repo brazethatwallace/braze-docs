@@ -13,7 +13,7 @@ page_type: reference
 > L'étape Optimiseur de contenu vous permet de configurer et de tester plusieurs versions de composants de contenu au sein d'une même étape. Elle vous aide à expérimenter des variations de contenu et optimise automatiquement les combinaisons les plus performantes au fil du temps. Pour une introduction, consultez [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre CSM.
+L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients.
 {% endalert %}
 
 ## Créer une étape Otimisateur de Contenu {#create-a-content-optimizer-step}

@@ -72,12 +72,12 @@ Ihr Dashboard zeigt einen Fehler an, wenn eine Campaign, ein Canvas oder ein Seg
 Sie können auch den [Support kontaktieren]({{site.baseurl}}/user_guide/administer/personal/braze_support), um weitere Unterstützung bei der Filter-Optimierung zu erhalten.
 
 {% alert note %}
-Wir haben im April 2025 begonnen, Zeichenanzahlen zu begrenzen. Campaigns und Canvases, die vor April 2025 gestartet wurden, waren davon ausgenommen, d. h. sie können den Grenzwert weiterhin überschreiten, während neu erstellte Campaigns und Canvases den Grenzwert nicht überschreiten können. Wenn Sie eine ausgenommene Campaign oder ein ausgenommenes Canvas bearbeiten oder klonen, können Sie es nicht starten, bis die Zielgruppe so aktualisiert wurde, dass sie unter dem Grenzwert liegt.
+Wir haben im April 2025 begonnen, Zeichenanzahlen zu begrenzen. Campaigns und Canvase, die vor April 2025 gestartet wurden, waren davon ausgenommen, d. h. sie können den Grenzwert weiterhin überschreiten, während neu erstellte Campaigns und Canvase den Grenzwert nicht überschreiten können. Wenn Sie eine ausgenommene Campaign oder ein ausgenommenes Canvas bearbeiten oder Klon or klonen, können Sie es nicht starten, bis die Zielgruppe so aktualisiert wurde, dass sie unter dem Grenzwert liegt.
 {% endalert %}
 
-### X aktive oder gestoppte Campaigns oder Canvases überschreiten den Schwellenwert für die Zielgruppenkomplexität {#x-active-or-stopped-campaigns-or-canvases-exceed-the-audience-complexity-threshold}
+### X aktive oder gestoppte Campaigns oder Canvase überschreiten den Schwellenwert für die Zielgruppenkomplexität {#x-active-or-stopped-campaigns-or-canvases-exceed-the-audience-complexity-threshold}
 
-Dieses Banner wird oben in einer Campaign- oder Canvas-Liste angezeigt, wenn aktive oder gestoppte Campaigns oder Canvases Zielgruppen haben, die den Schwellenwert für die Zielgruppenkomplexität überschreiten. Wählen Sie das Banner aus, um die Liste auf die Campaigns oder Canvases zu filtern, die den Schwellenwert überschreiten, und befolgen Sie dann die Schritte zur Fehlerbehebung unter [Zielgruppe ist zu komplex zum Starten](#target-audience-is-too-complex-to-launch).
+Dieses Banner wird oben in einer Campaign- oder Canvas-Liste angezeigt, wenn aktive oder gestoppte Campaigns oder Canvase Zielgruppen haben, die den Schwellenwert für die Zielgruppenkomplexität überschreiten. Wählen Sie das Banner aus, um die Liste auf die Campaigns oder Canvase zu filtern, die den Schwellenwert überschreiten, und befolgen Sie dann die Schritte zur Fehlerbehebung unter [Zielgruppe ist zu komplex zum Starten](#target-audience-is-too-complex-to-launch).
 
 ![Fehlerbanner mit dem Hinweis, dass 4 aktive oder gestoppte Canvases den Schwellenwert für die Zielgruppenkomplexität überschreiten.]({% image_buster /assets/img/segment/audience_complexity_threshold_banner.png %})
 
@@ -99,7 +99,7 @@ Dieser Fehler tritt sehr selten auf, aber wenn er auftritt, betrifft er typische
 
 ### Nutzer:in ist nicht mehr in einem Segment {#user-is-no-longer-in-a-segment}
 
-Wenn eine:r Nutzer:in beim Erstellen eines Segments nicht verfügbar ist, haben sich möglicherweise die Nutzerdaten, die die Segment-Zugehörigkeit bestimmen, durch eigene Aktivitäten oder andere Campaigns und Canvases geändert, mit denen sie zuvor interagiert haben. Wenn die erneute Berechtigung aktiviert ist, zeigt das Nutzerprofil die aktuellsten Daten der empfangenen Campaign an.
+Wenn eine:r Nutzer:in beim Erstellen eines Segments nicht verfügbar ist, haben sich möglicherweise die Nutzerdaten, die die Segment-Zugehörigkeit bestimmen, durch eigene Aktivitäten oder andere Campaigns und Canvase geändert, mit denen sie zuvor interagiert haben. Wenn die erneute Berechtigung aktiviert ist, zeigt das Kundenprofil or Nutzerprofil die aktuellsten Daten der empfangenen Campaign an.
 
 Um zu testen, ob eine:r bestimmte:r Nutzer:in heute Ihrem Segment entspricht, verwenden Sie die [Nutzer:innenvorschau oder Nutzer:innensuche]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments).
 
@@ -115,7 +115,7 @@ Ihre Filteroptionen hängen mit dem Format (Datentyp) zusammen, das Sie für Ihr
 
 Wenn sich Ihre Filteroptionen geändert haben, deutet dies darauf hin, dass Ihre Daten in einem anderen Format (Datentyp) als zuvor an Braze übergeben werden. Ausführliche Beschreibungen der verschiedenen Datentypen und ihrer Filteroptionen finden Sie unter [Datentypen für angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
-Beachten Sie, dass eine Änderung des Datentyps eines angepassten Attributs im Dashboard dazu führt, dass Daten, die in einem anderen Format an Braze gesendet werden, abgelehnt werden. Sie können den Datentyp eines angepassten Attributs nicht ändern, solange dieses Attribut in aktiven Campaigns, Canvases oder Segments referenziert wird. Das Dashboard zeigt einen Fehler an und blockiert die Änderung.
+Beachten Sie, dass eine Änderung des Datentyps eines angepassten Attributs im Dashboard dazu führt, dass Daten, die in einem anderen Format an Braze gesendet werden, abgelehnt werden. Sie können den Datentyp eines angepassten Attributs nicht ändern, solange dieses Attribut in aktiven Campaigns, Canvase oder Segments referenziert wird. Das Dashboard zeigt einen Fehler an und blockiert die Änderung.
 
 Der Tab **Werte** eines angepassten Attributs zeigt Ergebnisse aus einer Stichprobe von etwa 250.000 Nutzer:innen. Verwenden Sie den Tab **Werte** nicht, um zur Fehlerbehebung zu prüfen, ob ein bestimmter Attributwert vorhanden ist. Weitere Informationen finden Sie unter [Tab „Werte“]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#values-tab).
 
@@ -139,7 +139,7 @@ Wenn die Anzahl der *gesendeten Nachrichten* oder *eindeutigen Empfänger:innen*
 
 2. **Für die Campaign ist eine erneute Berechtigung eingestellt, sodass Nutzer:innen die Campaign mehrfach durchlaufen können**<br><br>Angenommen, eine E-Mail-Campaign hat die erneute Berechtigung auf null Minuten eingestellt (Nutzer:innen können die Campaign erneut durchlaufen, solange sie die Zielgruppen-Segment-Anforderungen erfüllen) und die Campaign läuft seit über einem Monat. Die Anzahl der *gesendeten Nachrichten* in **Campaign Analytics** würde nicht mit der Anzahl im Segment übereinstimmen, da dieses Feld auch Nachrichten enthält, die an doppelte Nutzer:innen gesendet wurden.<br><br>Das liegt daran, dass Braze eindeutige Nutzer:innen als *Eindeutige tägliche Empfänger:innen* zählt, also die Anzahl der Nutzer:innen, die eine bestimmte Nachricht an einem Tag erhalten haben. Das bedeutet, dass erneut berechtigte Nutzer:innen mehr als einmal als eindeutige:r Empfänger:in gezählt werden, da das „Eindeutigkeits“-Fenster nur einen Tag umfasst. Dies kann dazu führen, dass die Anzahl der *eindeutigen täglichen Empfänger:innen* höher ist als die Anzahl der Nutzerprofile im CSV-Export. Die Nutzerprofile in der CSV-Datei sind tatsächlich eindeutig.<br><br>
 
-3. **Nutzer:innen, die einen Kanalbezeichner teilen, haben den Filter erfüllt**<br><br>Der Filter `Has received message from campaign X` (und andere „Empfangen“-Filter) kann Nutzer:innen zuordnen, die einen Kanalbezeichner teilen – zum Beispiel dasselbe Push-Token oder dieselbe E-Mail-Adresse – mit einem anderen Nutzerprofil, das die Nachricht empfangen, geöffnet oder angeklickt hat.
+3. **Nutzer:innen, die einen Kanalbezeichner teilen, haben den Filter erfüllt**<br><br>Der Filter `Has received message from campaign X` (und andere „Empfangen“-Filter) kann Nutzer:innen zuordnen, die einen Kanalbezeichner teilen – zum Beispiel dasselbe Push-Token / Textbaustein oder dieselbe E-Mail-Adresse – mit einem anderen Kundenprofil or Nutzerprofil, das die Nachricht empfangen, geöffnet oder angeklickt hat.
 
 ### Nutzer:in wird zwei Apps zugeordnet, obwohl nur in einer App eine Sitzung protokolliert wurde {#user-is-assigned-to-two-apps-despite-logging-a-session-in-only-one-app}
 

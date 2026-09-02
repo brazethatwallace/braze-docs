@@ -236,6 +236,6 @@ CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 �
 
 ### API 트리거 Campaigns의 전달 실패 확인 {#viewing-delivery-failures-for-api-triggered-campaigns}
 
-[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) 엔드포인트는 집계된 일별 통계(예: SMS의 `delivery_failed` 또는 웹훅의 `errors`)를 반환합니다. 수신자별 실패 사유는 반환하지 않습니다.
+[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) 엔드포인트는 집계된 일별 통계(예: 단문 메시지 서비스의 `delivery_failed` 또는 웹훅의 `errors`)를 반환합니다. 수신자별 실패 사유는 반환하지 않습니다.
 
 API 트리거 또는 API Campaigns의 메시지별 전송 실패, 반송, 중단에 대해서는 대시보드의 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 사용하세요. 전송 및 전달 이벤트에 대한 커스텀 보고서를 작성하려면 [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)에서 [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) 또는 커스텀 SQL을 사용하세요. 워크스페이스에서 해당 제품이 활성화되어 있는 경우 Currents 또는 Snowflake 데이터 공유를 통해 실패 이벤트를 스트리밍할 수도 있습니다.

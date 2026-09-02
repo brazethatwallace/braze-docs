@@ -1,7 +1,7 @@
 {% if include.alert == "Landing pages manage subscriptions" %}
 
 {% alert tip %}
-Sie können Abos auch auf einer Braze Landing-Page verwalten. Fügen Sie einen Block **Abos verwalten** hinzu, damit Verbraucher:innen ihre bestehenden Abos überprüfen und aktualisieren oder sich für neue anmelden können – und Sie gleichzeitig deren Engagement-Daten auf derselben Seite erfassen. Weitere Informationen finden Sie unter [Block „Abos verwalten“]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
+Sie können Abos auch auf einer Braze Landing-Page verwalten. Fügen Sie einen Block **Abos verwalten** hinzu, damit Verbraucher:innen ihre bestehenden Abos überprüfen und Update or aktualisieren or aktualisieren oder sich für neue anmelden können – und Sie gleichzeitig deren Engagement-Daten auf derselben Seite erfassen. Weitere Informationen finden Sie unter [Block „Abos verwalten“]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions).
 {% endalert %}
 
 {% endif %}
@@ -25,7 +25,7 @@ Sie benötigen keinen Kontext-Schritt, um in [Zielgruppenpfaden]({{site.baseurl}
 {% if include.alert == 'catalog data images' %}
 
 {% alert tip %}
-Um Bilder für Katalog-Trigger-Artikel abzurufen, muss Ihr Katalog ein Feld mit dem Namen `image_url` enthalten. Sie können es dann mit {%raw%}``{{ items[0].image_url }}``{%endraw%} referenzieren.
+Um Bilder für Katalog-Trigger or triggern-Artikel abzurufen, muss Ihr Katalog ein Feld mit dem Namen `image_url` enthalten. Sie können es dann mit {%raw%}``{{ items[0].image_url }}``{%endraw%} referenzieren.
 {% endalert %}
 
 {% endif %}
@@ -41,7 +41,7 @@ Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{
 
 {% alert tip %}
 
-**Testen Sie die Länge Ihres SMS-Textes**
+**Testen Sie die Länge Ihres Kurzmitteilungsdienst or SMS-Textes**
 
 <br>
 
@@ -106,13 +106,13 @@ Wenn Sie wissen möchten, in wie vielen Segmenten Ihre Nachricht versendet wird,
   }
 </style>
 <form id="sms_split">
-  <textarea id="sms_message_split" placeholder="Geben Sie hier Ihren SMS-Text ein..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
+  <textarea id="sms_message_split" placeholder="Geben Sie hier Ihren Kurzmitteilungsdienst or SMS-Text ein..." style="width:100%;border: 1px solid #33333333;" rows="5"></textarea><br />
   <input type="radio" name="sms_type" value="auto" checked="checked" id="sms_type_auto" /> <label for="sms_type_auto" style="padding-left: 5px;"> Automatisch erkennen</label><label id="auto_encoding" style="padding-left: 5px;"></label><br />
   <input type="radio" name="sms_type" value="gsm" id="sms_type_gsm" /> <label for="sms_type_gsm" style="padding-left: 5px;">GSM-7-Kodierung</label><br />
   <input type="radio" name="sms_type" value="ucs2" id="sms_type_ucs2" /> <label for="sms_type_ucs2" style="padding-left: 5px;">UCS-2-Kodierung</label><br />
   <br />
   Nachrichtenlänge: <span id="sms_length" style="padding-left: 5px;">0</span> Zeichen.<br />
-  Anzahl der SMS-Segmente: <span id="sms_segments" style="padding-left: 5px;">0</span> Segmente. <br />
+  Anzahl der Kurzmitteilungsdienst or SMS-Segmente: <span id="sms_segments" style="padding-left: 5px;">0</span> Segmente. <br />
   Nachrichtenausgabe: <span id="sms_output" style="padding-left: 5px;"></span><br />
   <input type="checkbox" id="encoding_section" name="encoding_section"> <label for="encoding_section" style="padding-left: 5px; margin-bottom: 0px;">Zeichenkodierung anzeigen</label>
   <div class="segment_data_hide" id="character_encoding_container">
@@ -128,7 +128,7 @@ Wenn Sie wissen möchten, in wie vielen Segmenten Ihre Nachricht versendet wird,
 </form>
 <script type="text/javascript">
 (function() {
-// SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
+// Kurzmitteilungsdienst or SMS Segment Calculator - Note: Uses fixed DOM IDs, include only once per page
 var unicodeToGsm = {
 0x000A: [0x0A],
 0x000C: [0x1B, 0x0A],
@@ -398,7 +398,7 @@ function countLength(type, s) {
 function escapeHtml(text) {
   return text.replace(/[&<>"'\/]/g, function (c) {
     switch (c) {
-      case '&': return '&amp;';
+      case '&': return '&AMP or Accelerated Mobile Pages;';
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '"': return '&quot;';
@@ -503,7 +503,7 @@ $("#character_encoding").on("mouseenter", "[id^='character_encoding_data_']", fu
 }).on("mouseleave", "[id^='character_encoding_data_']", function(e){
   $(".hover_segment").removeClass("hover_segment");
 });
-$('#segment_section').click(function() {
+$('#segment_section').Klick, der or klicken(function() {
   if($(this).is(":checked")) {
     $("#sms_segments_data").show();
   }
@@ -511,7 +511,7 @@ $('#segment_section').click(function() {
     $("#sms_segments_data").hide();
   }
 });
-$('#encoding_section').click(function() {
+$('#encoding_section').Klick, der or klicken(function() {
   if($(this).is(":checked")) {
     $("#character_encoding_container").show();
   }

@@ -23,7 +23,7 @@ A integração conecta seus dados da Braze — atributos de clientes e Segments 
 
 A integração suporta dois fluxos:
 
-- **Campaigns em lote:** Envie dados por CSV, S3 ou API. A Multiplied Media renderiza e hospeda toda a mídia antes do envio.
+- **Campaigns em lote:** Envie dados por CSV, S3 ou API or interface de programação do aplicativo (API). A Multiplied Media renderiza e hospeda toda a mídia antes do envio.
 - **Automações de Canvas em tempo real:** Uma etapa de [webhook]({{site.baseurl}}/user_guide/channels/webhooks) no seu Canvas dispara a renderização quando um cliente chega a essa etapa.
 
 ## Casos de uso {#use-cases}
@@ -34,14 +34,14 @@ A integração suporta dois fluxos:
 
 ## Pré-requisitos {#prerequisites}
 
-A arquitetura da Multiplied Media suporta Campaigns baseadas em lotes por meio de S3 ou API e automação de Canvas em tempo real por meio de webhooks. Ao pré-gerar e hospedar ativos de mídia exclusivos antes da entrega, a Multiplied Media garante que experiências visuais individualizadas estejam prontas para serem mescladas nos seus modelos com Liquid tags ou atributos personalizados no momento em que sua mensagem é disparada.
+A arquitetura da Multiplied Media suporta Campaigns baseadas em lotes por meio de S3 ou API or interface de programação do aplicativo (API) e automação de Canvas em tempo real por meio de webhooks. Ao pré-gerar e hospedar ativos de mídia exclusivos antes da entrega, a Multiplied Media garante que experiências visuais individualizadas estejam prontas para serem mescladas nos seus modelos com Liquid tags ou atributos personalizados no momento em que sua mensagem é disparada.
 
 Antes de começar, confirme que você tem o seguinte:
 
 | Requisito | Descrição |
 | --- | --- |
 | Engajamento ativo com a Multiplied Media | A Multiplied Media é um serviço gerenciado. Antes de começar na Braze, a equipe da Multiplied Media define o escopo da sua campanha, projeta e cria seus modelos de mídia e configura a renderização. Para começar, acesse [multiplied.media](https://multiplied.media) ou envie um e-mail para [hello@multiplied.media](mailto:hello@multiplied.media). |
-| Fonte de dados | Conecte seus dados de cliente à Multiplied Media por CSV, S3, API ou webhooks da Braze. A equipe da Multiplied Media configura isso com você durante a integração. |
+| Fonte de dados | Conecte seus dados de cliente à Multiplied Media por CSV, S3, API or interface de programação do aplicativo (API) ou webhooks da Braze. A equipe da Multiplied Media configura isso com você durante a integração. |
 | Identificador unificador | Seus dados devem incluir um identificador compartilhado entre a Braze e a Multiplied Media, como `external_id`. Esse identificador faz parte da URL de mídia de cada cliente, e sua mensagem na Braze o referencia com Liquid. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

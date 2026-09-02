@@ -34,7 +34,7 @@ Para archivar una Campaign:
 3. Selecciona **Archivar**.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 Para archivar un Canvas:
 
 1. Ve a **Mensajería** > **Canvas**.

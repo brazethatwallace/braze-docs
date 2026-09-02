@@ -30,9 +30,9 @@ Banners e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_message
 
 | Tópico | Banners | Mensagens no app |
 | --- | --- | --- |
-| Onde as mensagens aparecem | Inline nos [posicionamentos]({{site.baseurl}}/developer_guide/banners/placements) que você define no seu app ou site | Overlays em tela inteira, modal ou slide-up gerenciados pelo SDK |
+| Onde as mensagens aparecem | Inline nos [posicionamentos]({{site.baseurl}}/developer_guide/banners/placements) que você define no seu app ou site | Overlays em tela inteira, modal ou slide-up gerenciados pelo SDK or kit de desenvolvimento de software |
 | Quando o conteúdo é atualizado | Quando seu app ou site solicita uma atualização de Banner (por exemplo, no início da sessão ou durante a sessão) | Mensagens com modelo avaliam o Liquid quando a mensagem no app é disparada (por exemplo, em um evento personalizado ou início de sessão), após a carga útil ser armazenada no dispositivo |
-| Disparadores baseados em ação | Sem [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery); use Segments, prioridade e tempo de atualização | Suporta entrega baseada em ação e disparada por API |
+| Disparadores baseados em ação | Sem [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery); use Segments, prioridade e tempo de atualização | Suporta entrega baseada em ação e disparada por API or interface de programação do aplicativo (API) |
 | Testes | Visualize um usuário e confirme se a atualização do posicionamento no seu app ou site exibe o Banner esperado | Use **Test Send** ou fluxos de prévia no app para exibição baseada em disparadores |
 | Relatórios | Visualizações e cliques de Banners seguem a análise de dados de Banners | Impressões e cliques de mensagens no app seguem a análise de dados de mensagens no app |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Qual é a diferença entre Banners e mensagens no app?" }
@@ -46,22 +46,22 @@ O construtor padrão de Banners suporta imagens, texto e botões. Para incluir u
 Embora os Banners não suportem [entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), você pode direcionar usuários com base em suas ações anteriores usando segmentação e prioridade.
 
 Por exemplo, para exibir um Banner especial apenas para usuários que concluíram um evento `purchase`:
-1. **Direcionamento:** Na sua Campaign, direcione um Segment de usuários que realizaram o evento personalizado `purchase` pelo menos uma vez.
+1. **Direcionamento:** Na sua Campaign, direcione um Segment or segmento de usuários que realizaram o evento personalizado `purchase` pelo menos uma vez.
 2. **Prioridade:** Se você tem um Banner geral para todos os usuários e este Banner específico para compradores direcionando o mesmo posicionamento, defina a prioridade do Banner específico como **High** e a do Banner geral como **Medium** ou **Low**.
 
-Quando o usuário inicia uma nova sessão ou atualiza os Banners após realizar a ação, a Braze avalia sua elegibilidade. Se ele corresponder ao Segment "Purchase", o Banner de alta prioridade será exibido.
+Quando o usuário inicia uma nova sessão ou atualiza os Banners após realizar a ação, a Braze avalia sua elegibilidade. Se ele corresponder ao Segment or segmento "Purchase", o Banner de alta prioridade será exibido.
 
 ## Os usuários podem dispensar um Banner? {#can-users-dismiss-a-banner}
 
 Sim. Você pode permitir que os usuários dispensem manualmente um Banner. Consulte [Configurar comportamento de dispensar]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#dismiss-behavior) para detalhes sobre como configurar a dispensa tanto no construtor quanto no editor de HTML.
 
-Os usuários só podem dispensar Banners manualmente se o comportamento de dispensa estiver ativado. Se a dispensa não estiver ativada, você pode controlar a visibilidade do Banner gerenciando a elegibilidade do Segment do usuário. Quando um usuário não atende mais aos critérios de direcionamento de uma Campaign de Banner, ele não o verá novamente na próxima sessão.
+Os usuários só podem dispensar Banners manualmente se o comportamento de dispensa estiver ativado. Se a dispensa não estiver ativada, você pode controlar a visibilidade do Banner gerenciando a elegibilidade do Segment or segmento do usuário. Quando um usuário não atende mais aos critérios de direcionamento de uma Campaign de Banner, ele não o verá novamente na próxima sessão.
 
 Quando um usuário dispensa um Banner, ele se torna inelegível para essa Campaign por padrão. Para permitir que usuários que dispensaram vejam o Banner novamente, [configure a reelegibilidade]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility) na etapa **Delivery Controls** da Campaign. Etapas de Banner no Canvas usam as configurações de reentrada do Canvas para controlar a reelegibilidade.
 
-Por exemplo, se você exibe um Banner promocional até que um usuário faça uma compra, registrar um evento como `purchase_completed` pode remover esse usuário do Segment de direcionamento, ocultando efetivamente o Banner nas sessões subsequentes.
+Por exemplo, se você exibe um Banner promocional até que um usuário faça uma compra, registrar um evento como `purchase_completed` pode remover esse usuário do Segment or segmento de direcionamento, ocultando efetivamente o Banner nas sessões subsequentes.
 
-## Posso exportar análises de dados de Campaigns de Banners usando a API da Braze? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
+## Posso exportar análises de dados de Campaigns de Banners usando a API or interface de programação do aplicativo (API) da Braze? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
 Sim. Você pode usar o [endpoint `/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) para obter dados sobre quantas Campaigns de Banners foram visualizadas, clicadas ou convertidas.
 
@@ -88,8 +88,8 @@ Não. No entanto, a maioria das Liquid tags é compatível com mensagens de Bann
 
 Sim. A forma como os eventos de clique são capturados depende de como o seu Banner é renderizado:
 
-- **Builder — componentes padrão:** Se o seu Banner usa componentes padrão do editor (imagens, botões, texto), os cliques são rastreados automaticamente ao usar os métodos de inserção do SDK.
-- **Builder — blocos de Custom Code:** Se você deseja rastrear cliques em elementos dentro de um bloco do editor de Custom Code, é necessário chamar `brazeBridge.logClick()` de dentro do seu HTML personalizado. Isso se aplica mesmo ao usar os métodos do SDK para inserir e renderizar o Banner.
+- **Builder — componentes padrão:** Se o seu Banner usa componentes padrão do editor (imagens, botões, texto), os cliques são rastreados automaticamente ao usar os métodos de inserção do SDK or kit de desenvolvimento de software.
+- **Builder — blocos de Custom Code:** Se você deseja rastrear cliques em elementos dentro de um bloco do editor de Custom Code, é necessário chamar `brazeBridge.logClick()` de dentro do seu HTML personalizado. Isso se aplica mesmo ao usar os métodos do SDK or kit de desenvolvimento de software para inserir e renderizar o Banner.
 - **Editor de HTML:** O rastreamento de cliques não é automático. Você deve chamar `brazeBridge.logClick()` para cada elemento clicável que deseja rastrear. Para a referência completa, consulte [Custom code e ponte JavaScript para Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
 - **UI personalizada (headless):** Se você está construindo uma UI totalmente personalizada usando as propriedades personalizadas do Banner em vez de renderizar o HTML do Banner, chame `logClick()` no objeto Banner a partir do código da sua aplicação.
 

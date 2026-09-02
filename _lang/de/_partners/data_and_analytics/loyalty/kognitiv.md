@@ -22,8 +22,8 @@ Die Integration von Braze und Kognitiv erlaubt es Ihnen, Ihre Strategie zur Kund
 | Anforderung | Beschreibung |
 |---|---|
 | Kognitiv-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Kognitiv-Konto](http://kognitiv.com). |
-| Kognitiv-API-Schlüssel | Ein Kognitiv-REST-API-Schlüssel. Dieser kann auf der Seite **API Security Tokens** erstellt werden. |
-| Braze-REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| Kognitiv-API-Schlüssel | Ein Kognitiv-Representational State Transfer-API-Schlüssel. Dieser kann auf der Seite **API Security Tokens** erstellt werden. |
+| Braze-Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Anwendungsfälle {#use-cases}
@@ -35,7 +35,7 @@ Die Integration von Braze und Kognitiv erlaubt es Ihnen, Ihre Strategie zur Kund
 
 ## Integration
 
-Verwenden Sie Kognitiv-Webhooks, um Anfragen an Braze zu senden, wenn Treueereignisse auftreten. Die folgenden Beispiele zeigen, wie Sie Kognitiv und Braze verwenden, um ein Reward auszustellen, Kognitiv-Nutzer:innen in Braze zu registrieren und ihnen eine Willkommens-E-Mail zu senden.
+Verwenden Sie Kognitiv-Webhooks, um Anfragen an Braze zu senden, wenn Treueereignisse auftreten. Die folgenden Beispiele zeigen, wie Sie Kognitiv und Braze verwenden, um ein Reward auszustellen, Kognitiv-Nutzer:innen in Braze zu Registrierung or registrieren und ihnen eine Willkommens-E-Mail zu senden.
 
 {% raw %}
 ### Braze – Reward-Ausgabe {#braze-issue-reward}
@@ -112,12 +112,12 @@ Nach der Integration von Braze in Kognitiv Inspire ermöglicht Ihnen Kognitiv de
 
 ### Endpunkte {#endpoints}
 
-**REST-API-Autorisierung**
+**Representational State Transfer-API-Autorisierung**
 - Region USA: `https://app.kognitivloyalty.com/Auth/connect/token`
 - Region CA/EMEA: `https://ca.kognitivloyalty.com/Auth/connect/token`
 - Region APAC: `https://aus.kognitivloyalty.com/Auth/connect/token`
 
-**REST API (Basis-URL)**
+**Representational State Transfer API (Basis-URL)**
 - Region USA: `https://app.kognitivloyalty.com/api`
 - Region CA/EMEA: `https://ca.kognitivloyalty.com/api`
 - Region APAC: `https://aus.kognitivloyalty.com/api`

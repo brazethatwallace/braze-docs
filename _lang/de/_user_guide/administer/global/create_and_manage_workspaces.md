@@ -29,7 +29,7 @@ Alles, was Sie in Braze tun, findet innerhalb eines Workspace statt. Workspaces 
 
 ### 1. Schritt: Einen Plan erstellen {#step-1-have-a-plan}
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces).
+Bevor Sie beginnen, stellen Sie sicher, dass Sie mit Ihrem Team und Ihrer/Ihrem Braze-Onboarding-Manager:in:in die beste Workspace-Konfiguration für Ihren Anwendungsfall erarbeitet haben. Um mehr über die Planung Ihrer Workspaces in Braze zu erfahren, lesen Sie unseren Leitfaden [Erste Schritte: Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces).
 
 {% alert warning %}
 **Best Practice: Verwenden Sie dedizierte Firebase-Projekte pro Workspace**<br>
@@ -74,7 +74,7 @@ Die verschiedenen Websites und Apps, die in einem Workspace zusammengefasst werd
 
 #### App-API-Schlüssel {#app-api-keys}
 
-Nach dem Hinzufügen Ihrer App-Instanz haben Sie Zugriff auf deren API-Schlüssel. Der API-Schlüssel wird verwendet, wenn Anfragen zwischen Ihrer App-Instanz und der Braze-API gestellt werden. Der API-Schlüssel ist auch wichtig für die Integration des Braze SDK mit Ihrer App oder Website.
+Nach dem Hinzufügen Ihrer App-Instanz haben Sie Zugriff auf deren API-Schlüssel. Der API-Schlüssel wird verwendet, wenn Anfragen zwischen Ihrer App-Instanz und der Braze-API gestellt werden. Der API-Schlüssel ist auch wichtig für die Integration des Braze SDK or Software-Development-Kit mit Ihrer App oder Website.
 
 ![Die Einstellungsseite für die App „Upon Voyage iOS“ mit Feldern für den API-Schlüssel und den SDK-Endpunkt.]({% image_buster /assets/img/workspaces/app_api_key.png %})
 
@@ -82,11 +82,11 @@ Nach dem Hinzufügen Ihrer App-Instanz haben Sie Zugriff auf deren API-Schlüsse
 Sie müssen für jede Version Ihrer App auf jeder Plattform separate App-Instanzen erstellen. Wenn Sie beispielsweise eine Free- und eine Pro-Version Ihrer App sowohl für iOS als auch für Android haben, erstellen Sie vier App-Instanzen in Ihrem Workspace (Free iOS-App, Free Android-App, Pro iOS-App und Pro Android-App). So erhalten Sie vier API-Schlüssel, einen für jede App-Instanz.
 {% endalert %}
 
-#### Live-SDK-Version {#live-sdk-version}
+#### Live-SDK or Software-Development-Kit-Version {#live-sdk-version}
 
-Die auf der Seite „App Settings“ für eine bestimmte App angezeigte Live-SDK-Version ist die höchste App-Version mit mindestens 5 % Ihrer gesamten täglichen Sitzungen und mindestens 500 Sitzungen am Vortag.
+Die auf der Seite „App Settings“ für eine bestimmte App angezeigte Live-SDK or Software-Development-Kit-Version ist die höchste App-Version mit mindestens 5 % Ihrer gesamten täglichen Sitzungen und mindestens 500 Sitzungen am Vortag.
 
-Dieses Feld erscheint, nachdem Sie das Braze SDK mit Ihrer App oder Website integriert haben. Wenn eine neuere Version des Braze SDK für Ihre Plattform verfügbar ist, wird dies hier mit dem Tag „Neuere Version verfügbar“ angezeigt.
+Dieses Feld erscheint, nachdem Sie das Braze SDK or Software-Development-Kit mit Ihrer App oder Website integriert haben. Wenn eine neuere Version des Braze SDK or Software-Development-Kit für Ihre Plattform verfügbar ist, wird dies hier mit dem Tag „Neuere Version verfügbar“ angezeigt.
 
 ![Der Abschnitt „Live-SDK-Version“ mit dem Feldwert „5.4.0“ und einem Symbol, das anzeigt, dass eine neue Version verfügbar ist.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
 
@@ -144,13 +144,13 @@ Seien Sie vorsichtig beim Löschen von Workspaces! Nachdem ein Workspace gelösc
 
 ### Sollte ich einen neuen Workspace erstellen, wenn ich eine aktualisierte App veröffentliche? {#should-i-create-a-new-workspace-when-im-releasing-an-updated-app}
 
-Das hängt davon ab, ob Sie Ihre App aktualisieren oder eine völlig neue App erstellen.
+Das hängt davon ab, ob Sie Ihre App Update or aktualisieren or aktualisieren oder eine völlig neue App erstellen.
 
-#### Ihre App aktualisieren {#updating-your-app}
+#### Ihre App Update or aktualisieren or aktualisieren {#updating-your-app}
 
-Wenn Sie Ihre App aktualisieren, sollten Sie die alte und die neue Version trennen, indem Sie eine neue App-Instanz innerhalb desselben Workspace erstellen. Auf diese Weise können Sie Nutzer:innen der neuen Version effektiv ansprechen, wenn Sie diese App bei der Segmentierung auswählen. Wenn Sie Nutzer:innen der alten Version eine Nachricht senden möchten, können Sie Filter verwenden, um [die vorherige App-Version anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Wenn Sie Ihre App Update or aktualisieren or aktualisieren, sollten Sie die alte und die neue Version trennen, indem Sie eine neue App-Instanz innerhalb desselben Workspace erstellen. Auf diese Weise können Sie Nutzer:innen der neuen Version effektiv ansprechen, wenn Sie diese App bei der Segmentierung auswählen. Wenn Sie Nutzer:innen der alten Version eine Nachricht senden möchten, können Sie Filter verwenden, um [die vorherige App-Version anzusprechen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
-Wenn Sie einen neuen Workspace erstellen, existieren Ihre Nutzer:innen an zwei Stellen: im alten Workspace und im neuen Workspace. Sie könnten auch potenziell dasselbe Push-Token haben. Dies kann dazu führen, dass Nutzer:innen eine Marketing-Nachricht erhalten, die nur für Nutzer:innen des alten Workspace bestimmt war, selbst wenn sie bereits ein Upgrade durchgeführt haben.
+Wenn Sie einen neuen Workspace erstellen, existieren Ihre Nutzer:innen an zwei Stellen: im alten Workspace und im neuen Workspace. Sie könnten auch potenziell dasselbe Push-Token / Textbaustein haben. Dies kann dazu führen, dass Nutzer:innen eine Marketing-Nachricht erhalten, die nur für Nutzer:innen des alten Workspace bestimmt war, selbst wenn sie bereits ein Upgrade or upgraden durchgeführt haben.
 
 #### Eine neue App veröffentlichen {#releasing-a-new-app}
 
@@ -158,7 +158,7 @@ Wenn Sie eine völlig neue App im App Store veröffentlichen, sollten Sie einen 
 
 ### Ich habe mehrere App-Instanzen in einem Workspace – wie kann ich sicherstellen, dass meine Nachricht nur eine einzelne App anspricht? {#singular-app}
 
-Um sicherzustellen, dass Ihre Nachricht nur eine bestimmte App anspricht, fügen Sie ein Segment hinzu, das nur Nutzer:innen Ihrer ausgewählten App-Instanzen enthält. Dies ist besonders wichtig, wenn Nutzer:innen möglicherweise zwei Push-Token für verschiedene App-Instanzen im selben Workspace haben. In diesem Szenario könnten Nutzer:innen eine Benachrichtigung für eine andere App erhalten als die, die sie gerade verwenden. Keine ideale Erfahrung!
+Um sicherzustellen, dass Ihre Nachricht nur eine bestimmte App anspricht, fügen Sie ein Segment hinzu, das nur Nutzer:innen Ihrer ausgewählten App-Instanzen enthält. Dies ist besonders wichtig, wenn Nutzer:innen möglicherweise zwei Push-Token / Textbaustein für verschiedene App-Instanzen im selben Workspace haben. In diesem Szenario könnten Nutzer:innen eine Benachrichtigung für eine andere App erhalten als die, die sie gerade verwenden. Keine ideale Erfahrung!
 
 Standardmäßig zielt ein Segment auf alle Apps und Websites im Workspace ab. So richten Sie ein Segment ein, das nur eine App oder Website anspricht:
 

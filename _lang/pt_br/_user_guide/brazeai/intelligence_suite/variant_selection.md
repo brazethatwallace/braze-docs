@@ -22,7 +22,7 @@ Para uma Campaign com vários envios, você também deve:
 
 ## Ativar a otimização {#turn-on-optimization}
 
-Na etapa **Públicos-alvo**, acesse **A/B Testing** e ative **Optimize with BrazeAI<sup>TM</sup>**.
+Na etapa **Públicos-alvo**, acesse **Testes A/B** e ative **Optimize with BrazeAI<sup>TM</sup>**.
 
 ## Campaigns de envio único {#single-send-campaigns}
 
@@ -43,12 +43,12 @@ A duração padrão do experimento é de 4 horas. Se você otimizar para um even
 | Notificações por push | *Opens* |
 | E-mail | *Unique Clicks* |
 | SMS, MMS, RCS e WhatsApp | *Clicks* |
-| Outros canais compatíveis | *Primary Conversion Event - A* |
+| Outros canais compatíveis | *conversão primária Event - A* |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Metas de otimização padrão por canal" }
 
 ## Campaigns com múltiplos envios {#multi-send-campaigns}
 
-Para Campaigns recorrentes, baseadas em ação e disparadas por API que enviam várias vezes, o BrazeAI<sup>TM</sup> otimiza continuamente a distribuição do seu público. Após o prazo inicial de conversão, a Braze analisa o desempenho a cada 12 horas e envia mais usuários para as variantes com melhor desempenho.
+Para Campaigns recorrentes, baseadas em ação e disparadas por API or interface de programação do aplicativo (API) que enviam várias vezes, o BrazeAI<sup>TM</sup> otimiza continuamente a distribuição do seu público. Após o prazo inicial de conversão, a Braze analisa o desempenho a cada 12 horas e envia mais usuários para as variantes com melhor desempenho.
 
 A distribuição inicial pode ser uniforme enquanto o BrazeAI<sup>TM</sup> coleta dados de desempenho. A distribuição muda conforme a otimização identifica tendências de desempenho.
 

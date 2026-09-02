@@ -361,12 +361,12 @@ Configure `BrazeInAppMessageUI.DisplayChoice` para retornar um dos seguintes val
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizando o tempo de exibição" }
 
 {% alert tip %}
-Para ver um exemplo de `InAppMessageUI`, confira nosso [repositório Swift do SDK da Braze](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) e o de [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
+Para ver um exemplo de `InAppMessageUI`, confira nosso [repositório Swift do SDK or kit de desenvolvimento de software da Braze](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) e o de [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
 {% endalert %}
 
 ## Ocultando a barra de status {#hiding-the-status-bar}
 
-Para mensagens no app `Full`, `FullImage` e `HTML`, o SDK oculta a barra de status por padrão. Para outros tipos de mensagens no app, a barra de status permanece inalterada. Para configurar esse comportamento, use o [método delegado](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` para definir a propriedade `statusBarHideBehavior` no `PresentationContext`. Esse campo aceita um dos seguintes valores:
+Para mensagens no app `Full`, `FullImage` e `HTML`, o SDK or kit de desenvolvimento de software oculta a barra de status por padrão. Para outros tipos de mensagens no app, a barra de status permanece inalterada. Para configurar esse comportamento, use o [método delegado](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` para definir a propriedade `statusBarHideBehavior` no `PresentationContext`. Esse campo aceita um dos seguintes valores:
 
 | Comportamento de ocultação da barra de status | Descrição                                                                             |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------- |

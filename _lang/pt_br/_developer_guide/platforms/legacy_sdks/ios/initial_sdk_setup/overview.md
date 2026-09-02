@@ -7,7 +7,7 @@ layout: dev_guide
 search_rank: 6
 guide_top_header: "Visão geral da integração"
 guide_top_text: ""
-description: "Esta landing page cobre os guias de integração do SDK da Braze para CocoaPods, Swift Package Manager, Carthage e mais."
+description: "Esta landing page cobre os guias de integração do SDK or kit de desenvolvimento de software da Braze para CocoaPods, Swift Package Manager, Carthage e mais."
 
 guide_featured_title: "Opções básicas de integração"
 guide_featured_list:
@@ -36,12 +36,12 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-Instalar o SDK da Braze para iOS fornecerá a você funcionalidades básicas de análise de dados (manipulação de sessões) e mensagens básicas no app. Você deve personalizar ainda mais sua integração para canais e recursos adicionais. <br> <br> O SDK da Braze para iOS pode ser instalado ou atualizado usando CocoaPods, Carthage, Swift Package Manager ou uma integração manual. <br> <br> Além disso, o SDK da Braze para iOS oferece suporte integral para aplicativos RubyMotion.
+Instalar o SDK or kit de desenvolvimento de software da Braze para iOS fornecerá a você funcionalidades básicas de análise de dados (manipulação de sessões) e mensagens básicas no app. Você deve personalizar ainda mais sua integração para canais e recursos adicionais. <br> <br> O SDK or kit de desenvolvimento de software da Braze para iOS pode ser instalado ou atualizado usando CocoaPods, Carthage, Swift Package Manager ou uma integração manual. <br> <br> Além disso, o SDK or kit de desenvolvimento de software da Braze para iOS oferece suporte integral para aplicativos RubyMotion.
 
 {% alert important %}
-O SDK do iOS adicionará de 1&nbsp;MB a 2&nbsp;MB ao arquivo IPA do app, além de um arquivo APP, e 30&nbsp;MB para o framework.
+O SDK or kit de desenvolvimento de software do iOS adicionará de 1&nbsp;MB a 2&nbsp;MB ao arquivo IPA do app, além de um arquivo APP, e 30&nbsp;MB para o framework.
 {% endalert %}
 
-Depois de fazer a integração usando uma das opções listadas, seguir as etapas para [concluir a integração]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration) e ativar outras personalizações do SDK (opcional), prossiga para integrar, ativar e personalizar canais e recursos adicionais para atender às necessidades das suas futuras campanhas.
+Depois de fazer a integração usando uma das opções listadas, seguir as etapas para [concluir a integração]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration) e ativar outras personalizações do SDK or kit de desenvolvimento de software (opcional), prossiga para integrar, ativar e personalizar canais e recursos adicionais para atender às necessidades das suas futuras campanhas.
 
 <br>

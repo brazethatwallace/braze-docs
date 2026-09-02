@@ -5,13 +5,13 @@ Dafür kann es mehrere Gründe geben:
 
 - Wenn eine globale Kontrollgruppe für eine Campaign oder ein Canvas gilt, werden Nutzer:innen in dieser globalen Kontrollgruppe bei der Zählung der erreichbaren Nutzer:innen ausgeschlossen.
 - Die Zielpopulation einer Campaign oder eines Canvas schließt Nutzer:innen aus, die nicht über die verschiedenen Nachrichten-Kanäle kontaktiert werden können; das Verhalten unterscheidet sich von Kanal zu Kanal. So schließt die erreichbare Zielgruppe für eine Campaign oder ein Canvas beispielsweise Nutzer:innen aus, die abgemeldet, als Spam markiert (bei E-Mails) oder als Hard Bounce (bei E-Mails) eingestuft sind. Das Segment selbst schließt jedoch nur Opt-outs aus, wenn es die geschätzte Anzahl der per E-Mail erreichbaren Nutzer:innen anzeigt.
-- Braze sendet SMS-Nachrichten nur an Nutzer:innen innerhalb der ausgewählten Abo-Gruppe. Daher schließt die SMS-Zielpopulation für eine Campaign oder ein Canvas auch alle Nutzer:innen aus, die nicht zu Ihrer ausgewählten Abo-Gruppe gehören.
+- Braze sendet Kurzmitteilungsdienst or SMS-Nachrichten nur an Nutzer:innen innerhalb der ausgewählten Abo-Gruppe. Daher schließt die Kurzmitteilungsdienst or SMS-Zielpopulation für eine Campaign oder ein Canvas auch alle Nutzer:innen aus, die nicht zu Ihrer ausgewählten Abo-Gruppe gehören.
 
 {% endif %}
 
 {% if include.section == "Refresh settings" %}
 
-Wenn Sie Ihre Erweiterung nicht regelmäßig aktualisieren müssen, können Sie sie ohne Aktualisierungseinstellungen speichern. Braze generiert Ihre Segmenterweiterung dann standardmäßig auf Grundlage der aktuellen Nutzerzugehörigkeit zu diesem Zeitpunkt. Verwenden Sie das Standardverhalten, wenn Sie die Zielgruppe nur einmal generieren und sie dann mit einer einmaligen Campaign ansprechen möchten.
+Wenn Sie Ihre Erweiterung nicht regelmäßig Update or aktualisieren or aktualisieren müssen, können Sie sie ohne Aktualisierungseinstellungen speichern. Braze generiert Ihre Segmenterweiterung dann standardmäßig auf Grundlage der aktuellen Nutzerzugehörigkeit zu diesem Zeitpunkt. Verwenden Sie das Standardverhalten, wenn Sie die Zielgruppe nur einmal generieren und sie dann mit einer einmaligen Campaign ansprechen möchten.
 
 Die Verarbeitung Ihres Segments beginnt immer nach dem ersten Speichern. Jedes Mal, wenn Ihr Segment aktualisiert wird, führt Braze das Segment erneut aus und aktualisiert die Segmentmitgliedschaft, um die Nutzer:innen in Ihrem Segment zum Zeitpunkt der Aktualisierung widerzuspiegeln. So können Ihre wiederkehrenden Campaigns die relevantesten Nutzer:innen erreichen.
 
@@ -22,7 +22,7 @@ Um einen wiederkehrenden Zeitplan einzurichten, wählen Sie **Aktualisierung akt
 {% alert important %}
 Um Ihre Datenverwaltung zu optimieren, werden die Aktualisierungseinstellungen für nicht verwendete Segmenterweiterungen automatisch deaktiviert. Segmenterweiterungen gelten als ungenutzt, wenn sie:
 
-- In keinen aktiven oder inaktiven (Entwurf, gestoppt, archiviert) Campaigns, Canvases oder Segmenten verwendet werden; oder
+- In keinen aktiven oder inaktiven (Entwurf, gestoppt, archiviert) Campaigns, Canvase oder Segmenten verwendet werden; oder
 - Seit mehr als 7 Tagen nicht geändert wurden
 
 Braze benachrichtigt den Unternehmenskontakt und die erstellende Person der Erweiterung, wenn diese Einstellung deaktiviert wird. Die Option, Erweiterungen täglich zu regenerieren, kann jederzeit wieder aktiviert werden.
@@ -56,7 +56,7 @@ Segmente können aufgrund von Datenverarbeitungszeiten bis zu 60 Minuten für di
 
 Geplante Aktualisierungen werden automatisch deaktiviert, sobald eine Segmenterweiterung veraltet ist. Eine Segmenterweiterung gilt als veraltet, wenn sie die folgenden Kriterien erfüllt:
 
-- Nicht in aktiven Campaigns oder Canvases verwendet
+- Nicht in aktiven Campaigns oder Canvase verwendet
 - In keinem Segment verwendet, das in einer aktiven Campaign oder einem Canvas eingesetzt wird
 - In keinem Segment verwendet, für das [Analytics-Tracking]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) aktiviert ist
 - Seit mehr als sieben Tagen nicht geändert wurde
@@ -72,16 +72,16 @@ Wenn Sie bereit sind, eine veraltete Segmenterweiterung zu verwenden, überprüf
 
 {% if include.section == "same channel identifier" %}
 
-Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanal-Bezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse bei E-Mails oder dieselbe Telefonnummer bei SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit einer Person teilen, die die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign enthalten waren oder die Nachricht nicht direkt erhalten haben.
+Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanal-Bezeichner wie das Profil teilen, das die Interaktion protokolliert hat (z. B. dieselbe E-Mail-Adresse bei E-Mails oder dieselbe Telefonnummer bei Kurzmitteilungsdienst or SMS oder WhatsApp). Nutzer:innen, die einen Bezeichner mit einer Person teilen, die die Nachricht empfangen, geöffnet oder angeklickt hat, können diesem Filter entsprechen, auch wenn sie ursprünglich nicht in der Campaign enthalten waren oder die Nachricht nicht direkt erhalten haben.
 
 {% endif %}
 
-{% if include.section == "Canvas variant archived segment" %}
+{% if include.section == "Canvas-Variante archived segment" %}
 
 ### Eine Canvas-Variante kann aufgrund eines archivierten Segments nicht gelöscht werden {#cant-delete-a-canvas-variant-because-of-an-archived-segment}
 
 Wenn Braze das Löschen einer Canvas-Variante blockiert, weil ein Segment-Filter diese Variante noch referenziert, öffnen Sie das Segment, das die Referenz verwendet – einschließlich archivierter Segmente – und entfernen Sie die Variante aus den Filtern. Nachdem Sie das Segment gespeichert haben, kehren Sie zum Canvas zurück und versuchen Sie erneut, die Variante zu löschen.
 
-Um herauszufinden, welche Segmente ein Canvas referenzieren, öffnen Sie das Canvas und überprüfen Sie seine Zielgruppenfilter, oder prüfen Sie den Abschnitt [Messaging-Nutzung]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) jedes Segments auf verknüpfte Canvases.
+Um herauszufinden, welche Segmente ein Canvas referenzieren, öffnen Sie das Canvas und überprüfen Sie seine Zielgruppenfilter, oder prüfen Sie den Abschnitt [Messaging-Nutzung]({{site.baseurl}}/user_guide/audience/segments/managing_segments#messaging-use) jedes Segments auf verknüpfte Canvase.
 
 {% endif %}

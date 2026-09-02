@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Snowflake
 
-> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) ist ein speziell entwickeltes SQL Data Warehouse in der Cloud, das als Software-as-a-Service (SaaS) angeboten wird. Snowflake bietet ein Data Warehouse, das schneller, benutzerfreundlicher und wesentlich flexibler ist als herkömmliche Data-Warehouse-Angebote. Mit der einzigartigen und patentierten Architektur von Snowflake ist es ein Leichtes, all Ihre Daten zu sammeln, schnelle Analytics zu ermöglichen und datengestützte Insights für alle Ihre Nutzer:innen zu gewinnen.
+> [Snowflake](https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html) ist ein speziell entwickeltes SQL Data Warehouse in der Cloud, das als SaaS or Software-as-a-Service or Software-as-a-Service (SaaS or Software-as-a-Service) angeboten wird. Snowflake bietet ein Data Warehouse, das schneller, benutzerfreundlicher und wesentlich flexibler ist als herkömmliche Data-Warehouse-Angebote. Mit der einzigartigen und patentierten Architektur von Snowflake ist es ein Leichtes, all Ihre Daten zu sammeln, schnelle Analytics zu ermöglichen und datengestützte Insights für alle Ihre Nutzer:innen zu gewinnen.
 
 Braze bietet zwei Integrationen mit Snowflake an. Zusammen ermöglichen sie eine vollständige, bidirektionale Datenpipeline zwischen Ihren Braze- und Snowflake-Umgebungen.
 
@@ -35,7 +35,7 @@ Eine Einrichtungsanleitung finden Sie unter [Snowflake Datenfreigabe]({{site.bas
 - Nutzer:innen-Attribute von Snowflake mit Braze-Nutzerprofilen synchronisieren
 - Ereignis- oder Kaufdaten aus Snowflake an Braze senden
 - Braze mit Datentransformationen synchron halten, die in Ihrem Data Warehouse stattfinden
-- Die Erstellung und Wartung benutzerdefinierter ETL-Pipelines von Snowflake zu Braze vermeiden
+- Die Erstellung und Wartung benutzerdefinierter ETL or Extract, Transform, Load-Pipelines von Snowflake zu Braze vermeiden
 
 Weitere Informationen zur Datenfreigabe von Snowflake finden Sie unter [Introduction to Secure Data Sharing](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html#how-does-secure-data-sharing-work).
 
@@ -45,7 +45,7 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, müssen Sie sich an Ihren Braze-Konto- oder Customer-Success-Manager wenden. |
+| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, müssen Sie sich an Ihren Braze-Konto- oder CSM or Customer-Success-Manager or Customer-Success-Manager:in wenden. |
 | Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. Für Nicht-HIPAA-Kund:innen wird die Snowflake Standard oder Enterprise Edition unterstützt. Für HIPAA-konforme Datenfreigabe ist die Business Critical Edition erforderlich. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -143,6 +143,6 @@ Ereignisdaten in den Data-Sharing-Views (z. B. `USERS_BEHAVIORS_CUSTOMEVENT_SHAR
 
 Die Geschwindigkeit, Performance und Kosten jeder Abfrage, die auf den Daten ausgeführt wird, werden durch die Warehouse-Größe bestimmt, die Sie für die Abfrage verwenden. In einigen Fällen – abhängig davon, wie viel Daten Sie für Analysen abrufen – kann es notwendig sein, eine größere Warehouse-Größe zu verwenden, damit die Abfrage erfolgreich ausgeführt werden kann. Snowflake bietet hervorragende Ressourcen dazu, wie Sie die richtige Größe bestimmen, darunter [Übersicht über Warehouses](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) und [Warehouse-Überlegungen](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
-> Beispielabfragen, die Sie bei der Einrichtung von Snowflake als Referenz verwenden können, finden Sie in unseren Beispielen für [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) und die [ETL-Ereignis-Pipeline einrichten]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
+> Beispielabfragen, die Sie bei der Einrichtung von Snowflake als Referenz verwenden können, finden Sie in unseren Beispielen für [Beispielabfragen]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries) und die [ETL or Extract, Transform, Load-Ereignis-Pipeline einrichten]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup).
 
 Anweisungen zur Einrichtung finden Sie unter [Cloud Data Ingestion: Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).

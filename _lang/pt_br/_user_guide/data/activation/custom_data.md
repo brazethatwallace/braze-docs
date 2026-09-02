@@ -41,7 +41,7 @@ Para saber mais, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/d
 
 Enquanto atributos e eventos focam nos seus usuários, os catálogos permitem trazer dados que não são de usuários, como inventários de produtos, detalhes de cursos ou listagens de eventos.
 
-Ao importar esses metadados via CSV ou API, você pode enriquecer suas mensagens com informações que não estão armazenadas no perfil do usuário. Por exemplo, você pode usar um catálogo para notificar automaticamente os clientes quando um item que eles visualizaram anteriormente voltou ao estoque ou teve uma queda de preço.
+Ao importar esses metadados via CSV ou API or interface de programação do aplicativo (API), você pode enriquecer suas mensagens com informações que não estão armazenadas no perfil do usuário. Por exemplo, você pode usar um catálogo para notificar automaticamente os clientes quando um item que eles visualizaram anteriormente voltou ao estoque ou teve uma queda de preço.
 
 Para saber mais, consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs).
 

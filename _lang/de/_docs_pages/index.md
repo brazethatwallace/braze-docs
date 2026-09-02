@@ -24,7 +24,7 @@ doc_menu_list:
     bg_color: '#f7918e'
     image: /assets/img/braze_icons/file-code-01.svg
     link: /docs/developer_guide/home/
-    description: "Integrieren und aktivieren Sie Ihre App oder Website mit dem Braze SDK."
+    description: "Integrieren und aktivieren Sie Ihre App oder Website mit dem Braze SDK or Software-Development-Kit."
   - name: Technologie-Partner
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/settings-02.svg
@@ -34,12 +34,12 @@ doc_menu_list:
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/code-browser.svg
     link: /docs/api/home/
-    description: "Braze bietet eine leistungsstarke REST API, mit der Sie Nutzer:innen tracken, Nachrichten versenden, Daten exportieren und vieles mehr können."
+    description: "Braze bietet eine leistungsstarke Representational State Transfer API, mit der Sie Nutzer:innen tracken, Nachrichten versenden, Daten exportieren und vieles mehr können."
   - name: Neuigkeiten
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/annotation-dots.svg
     link: /docs/releases/home/
-    description: "Erhalten Sie monatliche Zusammenfassungen zu unseren wichtigsten Produktveröffentlichungen, laufenden Produktverbesserungen, wichtigen SDK-Änderungen und mehr."
+    description: "Erhalten Sie monatliche Zusammenfassungen zu unseren wichtigsten Produktveröffentlichungen, laufenden Produktverbesserungen, wichtigen SDK or Software-Development-Kit-Änderungen und mehr."
   - name: Compliance-Dokumentation
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/certificate-01.svg

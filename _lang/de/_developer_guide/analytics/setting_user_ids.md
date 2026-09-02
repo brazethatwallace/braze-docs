@@ -2,12 +2,12 @@
 nav_title: Nutzer-IDs festlegen
 article_title: Nutzer-IDs festlegen
 page_order: 1.1
-description: "Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK festlegen."
+description: "Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK or Software-Development-Kit festlegen."
 ---
 
 # Nutzer-IDs festlegen {#set-user-ids}
 
-> Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK festlegen. Dabei handelt es sich um eindeutige Bezeichner, mit denen Sie Nutzer:innen geräte- und plattformübergreifend tracken, ihre Daten über die [Nutzerdaten-API]({{site.baseurl}}/api/endpoints/user_data) importieren und gezielte Nachrichten über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) versenden können. Wenn Sie einer Nutzer:in keine eindeutige ID zuweisen, weist Braze stattdessen eine anonyme ID zu. Solange Sie dies nicht tun, können Sie diese Features jedoch nicht nutzen.
+> Erfahren Sie, wie Sie Nutzer-IDs über das Braze SDK or Software-Development-Kit festlegen. Dabei handelt es sich um eindeutige Bezeichner, mit denen Sie Nutzer:innen geräte- und plattformübergreifend tracken, ihre Daten über die [Nutzerdaten-API]({{site.baseurl}}/api/endpoints/user_data) importieren und gezielte Nachrichten über die [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) versenden können. Wenn Sie einer Nutzer:in keine eindeutige ID zuweisen, weist Braze stattdessen eine anonyme ID zu. Solange Sie dies nicht tun, können Sie diese Features jedoch nicht nutzen.
 
 {% alert note %}
 Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die entsprechende native Android- oder Swift-Methode.
@@ -19,10 +19,10 @@ Für Wrapper-SDKs, die nicht aufgeführt sind, verwenden Sie stattdessen die ent
 
 ### Anonymes Nutzer:innen-Tracking verhindern {#preventing-anonymous-user-tracking}
 
-Wenn Ihr Anwendungsfall erfordert, dass keine Daten erfasst werden, bevor ein:e Nutzer:in identifiziert ist, können Sie die Initialisierung des Braze SDK verzögern, bis sich die Nutzer:in anmeldet und eine `external_id` verfügbar ist. Setzen Sie ein Flag in Ihrem Code, das auf `true` wechselt, wenn sich die Nutzer:in anmeldet, und initialisieren Sie das SDK erst, wenn dieses Flag gesetzt ist.
+Wenn Ihr Anwendungsfall erfordert, dass keine Daten erfasst werden, bevor ein:e Nutzer:in identifiziert ist, können Sie die Initialisierung des Braze SDK or Software-Development-Kit verzögern, bis sich die Nutzer:in anmeldet und eine `external_id` verfügbar ist. Setzen Sie ein Flag in Ihrem Code, das auf `true` wechselt, wenn sich die Nutzer:in anmeldet, und initialisieren Sie das SDK or Software-Development-Kit erst, wenn dieses Flag gesetzt ist.
 
 {% alert warning %}
-Verzögern Sie die Initialisierung nur beim **ersten Mal**, wenn ein:e Nutzer:in Ihre App herunterlädt (bevor eine `external_id` gesetzt wurde). Wenn Sie verhindern, dass das SDK bei jeder Abmeldung oder bei jedem neuen Sitzungsstart initialisiert wird, beeinträchtigt dies das Vorladen von In-App-Nachrichten und Content-Card-Assets, was zu Zustellbarkeitsfehlern für diese Campaigns führen kann.
+Verzögern Sie die Initialisierung nur beim **ersten Mal**, wenn ein:e Nutzer:in Ihre App herunterlädt (bevor eine `external_id` gesetzt wurde). Wenn Sie verhindern, dass das SDK or Software-Development-Kit bei jeder Abmeldung oder bei jedem neuen Sitzungsstart initialisiert wird, beeinträchtigt dies das Vorladen von In-App-Nachrichten und Content-Card-Assets, was zu Zustellbarkeitsfehlern für diese Campaigns führen kann.
 {% endalert %}
 
 ## Nutzer-ID festlegen {#setting-a-user-id}
@@ -33,13 +33,13 @@ Wenn Sie stattdessen einen eindeutigen Bezeichner hashen, stellen Sie sicher, da
 
 {% tabs local %}
 {% tab WEB %}
-Für eine Standard-Internet-SDK-Implementierung können Sie die folgende Methode verwenden:
+Für eine Standard-Internet-SDK or Software-Development-Kit-Implementierung können Sie die folgende Methode verwenden:
 
 ```javascript
 braze.changeUser(YOUR_USER_ID_STRING);
 ```
 
-Wenn Sie stattdessen Google Tag Manager verwenden möchten, können Sie den Tag-Typ **Change User** verwenden, um die [`changeUser`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) aufzurufen. Verwenden Sie ihn immer dann, wenn sich eine Nutzer:in anmeldet oder anderweitig mit dem eindeutigen `external_id`-Bezeichner identifiziert wird.
+Wenn Sie stattdessen Google Tag Manager:in verwenden möchten, können Sie den Tag-Typ **Change User** verwenden, um die [`changeUser`-Methode](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) aufzurufen. Verwenden Sie ihn immer dann, wenn sich eine Nutzer:in anmeldet oder anderweitig mit dem eindeutigen `external_id`-Bezeichner identifiziert wird.
 
 Geben Sie die eindeutige ID der aktuellen Nutzer:in im Feld **External User ID** ein, das in der Regel über eine von Ihrer Website gesendete Datenschichtvariable befüllt wird.
 
@@ -137,7 +137,7 @@ Wenn Sie `changeUser()` aufrufen, gelten die folgenden Verhaltensweisen:
 - Wenn eine anonyme Nutzer:in `changeUser()` mit einer **vorhandenen** Nutzer-ID aufruft, werden die Daten des anonymen Profils nicht mit dem identifizierten Profil zusammengeführt.
 
 {% alert note %}
-Der Aufruf von `changeUser()` löst im Rahmen des Schließens der Sitzung der aktuellen Nutzer:in einen Daten-Flush aus. Das SDK sendet automatisch alle ausstehenden Daten der vorherigen Nutzer:in, bevor zur neuen Nutzer:in gewechselt wird. Sie müssen daher keinen manuellen Daten-Flush vor dem Aufruf von `changeUser()` anfordern.
+Der Aufruf von `changeUser()` löst im Rahmen des Schließens der Sitzung der aktuellen Nutzer:in einen Daten-Flush aus. Das SDK or Software-Development-Kit sendet automatisch alle ausstehenden Daten der vorherigen Nutzer:in, bevor zur neuen Nutzer:in gewechselt wird. Sie müssen daher keinen manuellen Daten-Flush vor dem Aufruf von `changeUser()` anfordern.
 {% endalert %}
 
 {% alert warning %}
@@ -193,7 +193,7 @@ Appboy.sharedInstance()?.user.addAlias(ALIAS_NAME, ALIAS_LABEL)
 {% endsubtabs %}
 {% endtab %}
 
-{% tab rest api %}
+{% tab Representational State Transfer api %}
 ```json
 {
   "alias_name" : (required, string),
@@ -213,12 +213,12 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 Wir empfehlen Ihnen, Nutzer-IDs nach dem [UUID-Standard (Universally Unique Identifier)](https://en.wikipedia.org/wiki/Universally_unique_identifier) zu erstellen, d. h. es handelt sich um 128-Bit-Strings, die zufällig und gut verteilt sind.
 
-Alternativ können Sie einen vorhandenen eindeutigen Bezeichner (z. B. einen Namen oder eine E-Mail-Adresse) hashen, um Ihre Nutzer-IDs zu generieren. Wenn Sie dies tun, stellen Sie sicher, dass Sie eine [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication) implementieren, damit Sie einen Identitätswechsel verhindern können.
+Alternativ können Sie einen vorhandenen eindeutigen Bezeichner (z. B. einen Namen oder eine E-Mail-Adresse) hashen, um Ihre Nutzer-IDs zu generieren. Wenn Sie dies tun, stellen Sie sicher, dass Sie eine [SDK or Software-Development-Kit-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication) implementieren, damit Sie einen Identitätswechsel verhindern können.
 
 {% alert warning %}
 Verwenden Sie für Ihre Nutzer-ID keine leicht zu erratenden Werte oder fortlaufende Zahlen. Dies könnte Ihr Unternehmen böswilligen Angriffen oder Datenexfiltration aussetzen.
 
-Für zusätzliche Sicherheit verwenden Sie die [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
+Für zusätzliche Sicherheit verwenden Sie die [SDK or Software-Development-Kit-Authentifizierung]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
 Es ist zwar wichtig, dass Sie Ihre Nutzer-IDs von Anfang an richtig benennen, aber Sie können sie in Zukunft jederzeit mit dem [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration)-Endpunkt umbenennen.

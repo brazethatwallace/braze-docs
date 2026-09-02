@@ -3,16 +3,16 @@ nav_title: Nutzer:innen Produkte empfehlen
 article_title: Nutzer:innen Produkte empfehlen
 page_order: 4
 page_type: reference
-description: "Dieser Referenzartikel zeigt Ihnen, wie Sie die Braze REST API, Kataloge und Connected-Content nutzen, um Nutzer:innen über verschiedene Messaging-Kanäle personalisierte Produktempfehlungen anzuzeigen."
+description: "Dieser Referenzartikel zeigt Ihnen, wie Sie die Braze Representational State Transfer API, Kataloge und Connected-Content nutzen, um Nutzer:innen über verschiedene Messaging-Kanäle personalisierte Produktempfehlungen anzuzeigen."
 ---
 
 # Nutzer:innen Produkte empfehlen {#recommending-products-to-users}
 
-> Nutzen Sie die Braze REST API zusammen mit [Katalogen]({{site.baseurl}}/user_guide/data/activation/catalogs/create) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), um personalisierte Produktempfehlungen in Ihren Nachrichten anzuzeigen. Mit diesem Ansatz können Sie Ihr eigenes Empfehlungssystem in das Braze-Messaging-Ökosystem einbinden, sodass nicht-technische Nutzer:innen den Inhalt und die Nachrichten rund um jede Empfehlung eigenständig verwalten können.
+> Nutzen Sie die Braze Representational State Transfer API zusammen mit [Katalogen]({{site.baseurl}}/user_guide/data/activation/catalogs/create) oder [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), um personalisierte Produktempfehlungen in Ihren Nachrichten anzuzeigen. Mit diesem Ansatz können Sie Ihr eigenes Empfehlungssystem in das Braze-Messaging-Ökosystem einbinden, sodass nicht-technische Nutzer:innen den Inhalt und die Nachrichten rund um jede Empfehlung eigenständig verwalten können.
 
 Mit diesem Ansatz können Sie:
 
-- Produktempfehlungen aus Ihrem Backend über die REST API in Nutzerprofilen speichern.
+- Produktempfehlungen aus Ihrem Backend über die Representational State Transfer API in Nutzerprofilen speichern.
 - Produkt-Metadaten zum Sendezeitpunkt über Kataloge oder Connected-Content abrufen.
 - Personalisierte Empfehlungen über jeden Messaging-Kanal anzeigen, einschließlich E-Mail, Push, In-App-Nachrichten und mehr.
 
@@ -22,7 +22,7 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Braze-REST-API-Schlüssel | Ein Schlüssel mit der Berechtigung `users.track` und, falls Kataloge über die API verwaltet werden, den entsprechenden Katalogberechtigungen. Um einen zu erstellen, navigieren Sie zu **Einstellungen** > **API-Schlüssel**. |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Schlüssel mit der Berechtigung `users.track` und, falls Kataloge über die API verwaltet werden, den entsprechenden Katalogberechtigungen. Um einen zu erstellen, navigieren Sie zu **Einstellungen** > **API-Schlüssel**. |
 | Braze-Katalog | Ein Katalog, der Ihre Produktmetadaten enthält (z. B. Name, Kategorie, Preis und Bild-URL). Um einen zu erstellen, siehe [Katalog erstellen]({{site.baseurl}}/user_guide/data/activation/catalogs/create). |
 | Liquid-Kenntnisse | Mittlere Vertrautheit mit [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) für das Erstellen von Templates mit personalisierten Variablen und die Verwendung von Connected-Content. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -32,7 +32,7 @@ Um diese Anleitung abzuschließen, benötigen Sie:
 Speichern Sie zunächst die von Ihrem Empfehlungssystem generierten Produktempfehlungen als angepasste Attribute in Braze-Nutzerprofilen. So können Sie bei der Nachrichtenzustellung auf die empfohlenen Produkte der einzelnen Nutzer:innen zugreifen.
 
 1. Legen Sie fest, welche Empfehlungsdaten gespeichert werden sollen, z. B. Produkt-IDs oder bevorzugte Kategorien.
-2. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um die Empfehlung als angepasstes Attribut im Nutzerprofil zu speichern.
+2. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um die Empfehlung als angepasstes Attribut im Kundenprofil or Nutzerprofil zu speichern.
 
 ### Beispielanfrage {#example-request}
 
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 ```
 
-Ersetzen Sie `YOUR_REST_ENDPOINT` durch die [REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints) für Ihren Workspace.
+Ersetzen Sie `YOUR_REST_ENDPOINT` durch die [Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints) für Ihren Workspace.
 
 ```json
 {
@@ -55,11 +55,11 @@ Ersetzen Sie `YOUR_REST_ENDPOINT` durch die [REST-Endpunkt-URL]({{site.baseurl}}
 }
 ```
 
-Verwenden Sie aussagekräftige Attributnamen (wie `recommended_product_id`), damit Sie später in Liquid-Templates leicht darauf verweisen können. Halten Sie die Empfehlungen aktuell, indem Sie sie regelmäßig aktualisieren, sobald Ihr Empfehlungssystem neue Ergebnisse liefert.
+Verwenden Sie aussagekräftige Attributnamen (wie `recommended_product_id`), damit Sie später in Liquid-Templates leicht darauf verweisen können. Halten Sie die Empfehlungen aktuell, indem Sie sie regelmäßig Update or aktualisieren or aktualisieren, sobald Ihr Empfehlungssystem neue Ergebnisse liefert.
 
 ## Schritt 2: Produktmetadaten abrufen {#step-2-retrieve-product-metadata}
 
-Nachdem Sie einen Empfehlungsbezeichner in jedem Nutzerprofil gespeichert haben, müssen Sie die vollständigen Produktmetadaten (Name, Preis, Bild usw.) abrufen, um sie in Ihre Nachricht einzubinden. Dafür stehen Ihnen zwei Optionen zur Verfügung:
+Nachdem Sie einen Empfehlungsbezeichner in jedem Kundenprofil or Nutzerprofil gespeichert haben, müssen Sie die vollständigen Produktmetadaten (Name, Preis, Bild usw.) abrufen, um sie in Ihre Nachricht einzubinden. Dafür stehen Ihnen zwei Optionen zur Verfügung:
 
 - **Option A:** [Braze-Kataloge](#option-a-braze-catalogs) — Produktinformationen direkt in Braze speichern, um schnelle, integrierte Abfragen zu ermöglichen.
 - **Option B:** [Connected Content](#option-b-connected-content) — Produktinformationen zum Sendezeitpunkt von einer externen API abrufen.
@@ -138,13 +138,13 @@ Vermeiden Sie es, Connected Content zu verwenden, um eine große Liste von Produ
 
 Überprüfen Sie nach Abschluss der Einrichtung Ihre Integration:
 
-1. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um eine Testempfehlung in Ihr eigenes Nutzerprofil zu schreiben.
+1. Verwenden Sie den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um eine Testempfehlung in Ihr eigenes Kundenprofil or Nutzerprofil zu schreiben.
 2. Senden Sie eine Testnachricht, die auf das empfohlene Produkt verweist – entweder über Catalogs oder Connected-Content.
 3. Bestätigen Sie, dass die Produktdetails in der zugestellten Nachricht korrekt dargestellt werden.
 4. Gehen Sie im Braze-Dashboard zur Ergebnisseite der Campaign oder des Canvas und bestätigen Sie, dass der Versand aufgezeichnet wurde.
 
 ## Überlegungen {#considerations}
 
-- Halten Sie die Empfehlungsdaten aktuell, indem Sie angepasste Attribute regelmäßig aktualisieren, sobald Ihr Empfehlungssystem neue Ergebnisse liefert.
+- Halten Sie die Empfehlungsdaten aktuell, indem Sie angepasste Attribute regelmäßig Update or aktualisieren or aktualisieren, sobald Ihr Empfehlungssystem neue Ergebnisse liefert.
 - Nutzen Sie die [Personalisierungs-Features]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize) von Braze, um Nachrichten weiter anzupassen, z. B. durch die Einbindung nutzerspezifischer Daten neben Produktdetails.
-- Erwägen Sie die Verwendung von [API-gesteuerter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery), um Nachrichten über Ihr Backend mithilfe von im Braze-Dashboard definierten Templates zu triggern.
+- Erwägen Sie die Verwendung von [API-gesteuerter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery), um Nachrichten über Ihr Backend mithilfe von im Braze-Dashboard definierten Templates zu Trigger or triggern or triggern.

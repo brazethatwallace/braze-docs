@@ -2,15 +2,15 @@
 nav_title: Enlaces profundos de acciones de Braze
 article_title: Enlaces profundos de acciones de Braze
 page_order: 100
-description: "Este artículo de referencia explica cómo utilizar los enlaces profundos de acciones de Braze para realizar acciones del SDK dentro de los botones del canal de mensajería."
+description: "Este artículo de referencia explica cómo utilizar los enlaces profundos de acciones de Braze para realizar acciones del SDK or kit de desarrollo de software dentro de los botones del canal de mensajería."
 hidden: true
 ---
 
 # Enlaces profundos de acciones de Braze {#braze-actions-deeplinks}
 
-> Las acciones de Braze te permiten utilizar "enlaces profundos" para realizar funciones nativas del SDK.<br><br>El panel de Braze incluye varias acciones estándar al hacer clic (Solicitar permiso push, Registrar evento personalizado y Registrar atributo personalizado) que pueden utilizarse en mensajes dentro de la aplicación y en Content Cards.<br><br>Para todas las demás acciones, o para combinar varias acciones, utiliza esta guía para construir tu propio enlace profundo de acción de Braze.
+> Las acciones de Braze te permiten utilizar "enlaces profundos" para realizar funciones nativas del SDK or kit de desarrollo de software.<br><br>El panel de Braze incluye varias acciones estándar al hacer clic (Solicitar permiso push, Registrar evento personalizado y Registrar atributo personalizado) que pueden utilizarse en mensajes dentro de la aplicación y en Content Cards.<br><br>Para todas las demás acciones, o para combinar varias acciones, utiliza esta guía para construir tu propio enlace profundo de acción de Braze.
 
-## Soporte del SDK {#sdk-support}
+## Soporte del SDK or kit de desarrollo de software {#sdk-support}
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 

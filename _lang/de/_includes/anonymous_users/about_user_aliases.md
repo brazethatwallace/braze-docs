@@ -5,6 +5,6 @@ Obwohl anonyme Nutzer:innen nicht über `external_ids` verfügen, können Sie ih
 
 {% if include.section == "user_guide" %}
 {% alert tip %}
-Eine vollständige Anleitung finden Sie unter [Braze SDK: Einstellen eines Nutzer:in-Alias]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#setting-a-user-id).
+Eine vollständige Anleitung finden Sie unter [Braze SDK or Software-Development-Kit: Einstellen eines Nutzer:in-Alias]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#setting-a-user-id).
 {% endalert %}
 {% endif %}

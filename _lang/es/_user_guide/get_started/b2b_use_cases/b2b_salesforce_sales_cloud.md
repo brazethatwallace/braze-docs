@@ -8,7 +8,7 @@ description: "Aprende a utilizar webhooks de Braze para crear y actualizar clien
 
 # Administrar clientes potenciales con Salesforce Sales Cloud {#manage-leads-with-salesforce-sales-cloud}
 
-> [Salesforce](https://www.salesforce.com/) es una de las principales plataformas de administración de las relaciones con el cliente (CRM) en la nube del mundo, diseñada para ayudar a las empresas a gestionar todo su proceso de ventas, incluida la generación de clientes potenciales, el seguimiento de oportunidades y la administración de cuentas.<br><br>Esta página muestra cómo utilizar webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud mediante una integración enviada por la comunidad.
+> [Salesforce](https://www.salesforce.com/) es una de las principales plataformas de CRM or administración de las relaciones con el cliente or administración de las relaciones con el cliente (CRM or administración de las relaciones con el cliente) en la nube del mundo, diseñada para ayudar a las empresas a gestionar todo su proceso de ventas, incluida la generación de clientes potenciales, el seguimiento de oportunidades y la administración de cuentas.<br><br>Esta página muestra cómo utilizar webhooks de Braze para crear y actualizar clientes potenciales en Salesforce Sales Cloud mediante una integración enviada por la comunidad.
 
 {% alert important %}
 Se trata de una integración enviada por la comunidad y no cuenta con soporte directo de Braze. Solo las plantillas oficiales de webhook proporcionadas por Braze cuentan con soporte de Braze.
@@ -43,7 +43,7 @@ Como plataforma de interacción con los clientes, Braze puede generar nuevos cli
 
 ### Paso 1: Recopila tu `client_id` y `client_secret` {#step-1-collect-your-client_id-and-client_secret}
 
-1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Manager**.
+1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Administrador**.
 2. Busca tu aplicación Braze recién creada y selecciona **View**.
 3. En **Consumer Key and Secret**, selecciona **Manage Consumer Details**.
 4. En la página resultante, toma nota de tu **Consumer Key** y tu **Consumer Secret**. La **Consumer Key** es tu `client_id`, y el **Consumer Secret** es tu `client_secret`.
@@ -100,7 +100,7 @@ Este ejemplo muestra específicamente cómo actualizar la etapa de un cliente po
 
 ### Paso 1: Recopila tu `client_id` y `client_secret`
 
-1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Manager**.
+1. En Salesforce, ve a **Platform Tools** > **Apps** > **App Administrador**.
 2. Busca tu aplicación Braze recién creada y selecciona **View**.
 3. En **Consumer Key and Secret**, selecciona **Manage Consumer Details**.
 4. En la página resultante, toma nota de tu **Consumer Key** y tu **Consumer Secret**.

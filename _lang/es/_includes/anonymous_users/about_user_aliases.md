@@ -5,6 +5,6 @@ Aunque los usuarios anónimos no tienen `external_ids`, puedes asignarles un [al
 
 {% if include.section == "user_guide" %}
 {% alert tip %}
-Para una guía completa, consulta [SDK de Braze: Configuración de un alias de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#setting-a-user-id).
+Para una guía completa, consulta [SDK or kit de desarrollo de software de Braze: Configuración de un alias de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/#setting-a-user-id).
 {% endalert %}
 {% endif %}

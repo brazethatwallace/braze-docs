@@ -61,7 +61,7 @@ page_type: reference
 
 [Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)는 자연어로 결과를 설명하면 추가 대시보드 페이지에서 작업을 완료할 수 있습니다. 예를 들어 보고서 및 대시보드 구축, 이메일 템플릿 및 Content Block 목록 페이지에서 작업, 사용자 가져오기 또는 관리, 예측 생성, 더 많은 관리 및 설정 화면 업데이트 등이 포함됩니다.
 
-예를 들어, 보고서 빌더 페이지에서 Operator에게 최근 30일간의 워크스페이스 SMS 인게이지먼트를 보여주는 보고서를 작성하도록 요청할 수 있습니다.
+예를 들어, 보고서 빌더 페이지에서 Operator에게 최근 30일간의 워크스페이스 단문 메시지 서비스 인게이지먼트를 보여주는 보고서를 작성하도록 요청할 수 있습니다.
 
 대표적인 범위는 [Operator로 할 수 있는 것]({{site.baseurl}}/user_guide/brazeai/operator/capabilities)을 참조하세요. 가장 최신 답변을 얻으려면 현재 페이지에서 Operator에게 물어보세요.
 
@@ -118,7 +118,7 @@ page_type: reference
 
 [연결된 콘텐츠 디버거]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/debugger)는 **미리보기 및 테스트**에서 각 연결된 콘텐츠 호출에 대한 실시간 요청 및 응답을 표시하여 Campaign 또는 Canvas를 출시하기 전에 엔드포인트, 헤더 및 Liquid 태그를 확인할 수 있습니다. **세부 정보 보기**를 열어 URL, 메서드, 상태 코드, 요청 및 응답 헤더, 페이로드, 기간, 응답이 캐시에서 제공되었는지 여부를 검사할 수 있습니다.
 
-얼리 액세스 기간 동안 디버거는 Content Cards, 이메일, 인앱 메시지, 푸시, SMS/MMS/RCS, 웹훅, WhatsApp에서 사용할 수 있습니다.
+얼리 액세스 기간 동안 디버거는 Content Cards, 이메일, 인앱 메시지, 푸시, 단문 메시지 서비스/MMS/RCS, 웹훅, WhatsApp에서 사용할 수 있습니다.
 
 #### 인앱 메시지 및 랜딩 페이지 설문조사 {#in-app-message-and-landing-page-surveys}
 
@@ -162,11 +162,11 @@ Braze 설문조사는 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in
 
 ### 파트너십 {#partnerships}
 
-#### 오디언스 동기화: Google Data Manager API {#audience-sync-google-data-manager-api}
+#### 오디언스 동기화: Google Data 매니저 API {#audience-sync-google-data-manager-api}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Google로의 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)가 얼리 액세스로 Google Data Manager API를 지원합니다.
+[Google로의 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)가 얼리 액세스로 Google Data 매니저 API를 지원합니다.
 
 #### Amazon Bedrock - AI 모델 제공업체 {#amazon-bedrock-ai-model-provider}
 
@@ -253,13 +253,13 @@ Braze 설문조사는 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in
 - 기타 식별자 및 API 제한
 - 연락처 정보
 
-예를 들어, 방해금지 시간 페이지에서 Operator에게 SMS에 대해 오후 9시부터 오전 8시까지 방해금지 시간을 설정하도록 요청할 수 있습니다.
+예를 들어, 방해금지 시간 페이지에서 Operator에게 단문 메시지 서비스에 대해 오후 9시부터 오전 8시까지 방해금지 시간을 설정하도록 요청할 수 있습니다.
 
 #### 원격 Braze MCP 서버 {#remote-braze-mcp-server}
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)는 Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity, Claude Code와 같은 AI 에이전트를 Braze에 직접 연결할 수 있는 원격 호스팅 연결입니다. 자연어를 통해 에이전트는 Campaign, Canvas, Segment 분석, 커스텀 속성, 이벤트, KPI, 카탈로그를 읽고, 이메일 템플릿, Content Blocks, 미디어 라이브러리 자산을 생성하거나 업데이트할 수 있습니다. 사용자 프로필 PII는 노출되지 않습니다.
+[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)는 Claude, ChatGPT, Cursor, VSCode, Codex, Google Antigravity, Claude Code와 같은 AI 에이전트를 Braze에 직접 연결할 수 있는 원격 호스팅 연결입니다. 자연어를 통해 에이전트는 Campaign, Canvas, Segment 분석, 커스텀 속성, 이벤트, KPI or 핵심 성과 지표(KPI), 카탈로그를 읽고, 이메일 템플릿, Content Blocks, 미디어 라이브러리 자산을 생성하거나 업데이트할 수 있습니다. 사용자 프로필 PII는 노출되지 않습니다.
 
 연결하려면 MCP 클라이언트에 단일 엔드포인트 URL을 붙여넣으세요. US의 경우 `https://mcp.braze.com/mcp`, EU의 경우 `https://mcp.braze.eu/mcp`입니다. 그런 다음 SSO를 포함한 OAuth로 로그인하면 서버가 사용 가능한 도구와 함께 시작됩니다.
 
@@ -315,7 +315,7 @@ Braze 설문조사는 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in
 
 [공유 가능한 미리보기]({{site.baseurl}}/user_guide/channels/email/html_editor#step-3b-preview-and-test-your-message)가 이제 다음 추가 채널을 지원합니다:
 
-- SMS, MMS, RCS
+- 단문 메시지 서비스, MMS, RCS
 - WhatsApp
 - 푸시
 - Content Cards
@@ -333,7 +333,7 @@ Campaign이나 메시지에서 링크를 생성하여 Braze 대시보드 액세�
 
 #### Refiner - 설문조사 {#refiner-surveys}
 
-[Refiner](https://refiner.io)는 SaaS 및 모바일 앱을 위한 인앱 설문조사 플랫폼입니다. 제품 및 고객의 소리 팀이 타겟팅된 인앱 설문조사를 출시하고 NPS, CSAT, CES, 제품 피드백, 제로파티 사용자 데이터를 지속적으로 수집할 수 있습니다.
+[Refiner](https://refiner.io)는 SaaS(software-as-a-service) 및 모바일 앱을 위한 인앱 설문조사 플랫폼입니다. 제품 및 고객의 소리 팀이 타겟팅된 인앱 설문조사를 출시하고 NPS, CSAT, CES, 제품 피드백, 제로파티 사용자 데이터를 지속적으로 수집할 수 있습니다.
 
 #### Stayfilm - 시각적 및 인터랙티브 콘텐츠 {#stayfilm-visual-and-interactive-content}
 
@@ -490,7 +490,7 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 #### Convercus - 데이터 및 분석 - 로열티 {#convercus-data-and-analytics-loyalty}
 
-[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS 로열티 및 쿠폰 플랫폼입니다.
+[Convercus]({{site.baseurl}}/partners/data_and_analytics/loyalty/convercus)는 브랜드와 소매업체가 옴니채널 로열티 프로그램과 개인화된 쿠폰 캠페인을 통해 고객 빈도, 장바구니 가치 및 재구매율을 높일 수 있도록 돕는 SaaS(software-as-a-service) 로열티 및 쿠폰 플랫폼입니다.
 
 #### Copy Pastd - 메시지 오케스트레이션 - 템플릿 {#copy-pastd-message-orchestration-templates}
 
@@ -502,7 +502,7 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 #### DinMo - 데이터 및 분석 - 리버스 ETL {#dinmo-data-and-analytics-reverse-etl}
 
-[DinMo]({{site.baseurl}}/partners/dinmo)는 리버스 ETL을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(CDP)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
+[DinMo]({{site.baseurl}}/partners/dinmo)는 리버스 ETL을 통해 클라우드 데이터 웨어하우스를 Braze에 연결하는 구성 가능한 고객 데이터 플랫폼(고객 데이터 플랫폼)입니다. 마케팅 팀은 웨어하우스 데이터에서 오디언스 세그먼트를 구축하고, 사용자 속성 및 이벤트를 Braze에 동기화하며, CSV 업로드나 엔지니어링 지원 없이 구독 상태를 최신으로 유지할 수 있습니다.
 
 #### EmailShepherd - 메시지 오케스트레이션 - 템플릿 {#emailshepherd-message-orchestration-templates}
 
@@ -540,7 +540,7 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 #### 보고서 빌더에 배너 및 RCS 추가 {#banner-and-rcs-for-report-builder}
 
-[보고서 빌더]({{site.baseurl}}/report_builder)는 배너를 채널로, RCS를 SMS의 하위 카테고리로 지원하므로 다른 모든 Braze 채널과 함께 커스텀 보고서에서 두 가지 모두의 성과를 직접 측정할 수 있습니다.
+[보고서 빌더]({{site.baseurl}}/report_builder)는 배너를 채널로, RCS를 단문 메시지 서비스의 하위 카테고리로 지원하므로 다른 모든 Braze 채널과 함께 커스텀 보고서에서 두 가지 모두의 성과를 직접 측정할 수 있습니다.
 
 #### `ecommerce.cart_updated` 이벤트 액션 {#ecommercecart_updated-event-actions}
 
@@ -548,11 +548,11 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 ### BrazeAI<sup>TM</sup>
 
-#### SMS, MMS 및 RCS 메시지를 위한 Content Optimizer {#content-optimizer-for-sms-mms-and-rcs-messages}
+#### 단문 메시지 서비스, MMS 및 RCS 메시지를 위한 Content Optimizer {#content-optimizer-for-sms-mms-and-rcs-messages}
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)를 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. Content Optimizer는 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
+[Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer)를 사용하여 단문 메시지 서비스, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. Content Optimizer는 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
 
 ### 오케스트레이션
 
@@ -570,7 +570,7 @@ Quick Push A/B 테스트는 이제 배리언트 그룹을 통해 멀티 플랫�
 
 Meta의 인바운드 메시징 웹훅에서 사용자의 WhatsApp 표시 이름을 자동으로 캡처하여 사용자의 Braze 프로필에 기록할 수 있습니다. 인바운드 WhatsApp 메시지가 수신되면 Braze는 프로필 이름을 새로운 WhatsApp Liquid 속성인 [{% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %}]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)으로 노출하며, 이를 Canvas 사용자 업데이트 단계에서 참조하여 프로필 필드에 저장할 수 있습니다.
 
-#### 고아 SMS 구독 상태 {#orphaned-sms-subscription-states}
+#### 고아 단문 메시지 서비스 구독 상태 {#orphaned-sms-subscription-states}
 
 Braze는 [고아 구독 상태 레코드를 자동으로 관리]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#how-braze-handles-orphaned-subscription-states)합니다(사용자 프로필에 연결되지 않은 전화번호 또는 이메일 주소에 저장된 구독 데이터). 이를 통해 의도하지 않은 구독 상태 상속을 방지합니다. 이는 새로 생성된 사용자 프로필이 이전에 삭제되었거나 관련 없는 사용자의 구독 상태를 잘못 상속하는 시나리오로부터 사용자를 보호합니다.
 
@@ -710,7 +710,7 @@ Canvas에서 이제 컨텍스트 변수를 참조하여 다음을 설정할 수 
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[GRAVTY®](https://www.lji.io/)는 Loyalty Juggernaut Inc.(LJI)의 엔터프라이즈급 로열티 플랫폼으로, 소매, 여행, 레스토랑(퀵서비스 레스토랑 포함) 및 금융 서비스 전반의 브랜드가 차세대 프로그램을 설계, 관리 및 확장할 수 있도록 지원하여 개인화된 데이터 중심 경험을 통해 인게이지먼트, 유지 및 고객 생애주기 가치에서 측정 가능한 성장을 이끌어냅니다.
+[GRAVTY®](https://www.lji.io/)는 Loyalty Juggernaut Inc.(LJI)의 엔터프라이즈급 로열티 플랫폼으로, 소매, 여행, 레스토랑(퀵서비스 레스토랑 포함) 및 금융 서비스 전반의 브랜드가 차세대 프로그램을 설계, 관리 및 확장할 수 있도록 지원하여 개인화된 데이터 중심 경험을 통해 인게이지먼트, 유지 및 고객 LTV or 생애주기 가치에서 측정 가능한 성장을 이끌어냅니다.
 
 <!-- Use this section to list any new SDKs or SDK updates that are already released. -->
 ### SDK
@@ -901,7 +901,7 @@ Braze는 사용자 액세스를 관리하는 더 유연한 방법인 [세분화�
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-멀티채널 Campaign 또는 Canvas에 대한 전달 속도 사용량 제한을 설정할 때 공유 사용량 제한 또는 [채널 기반 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)을 설정할 수 있습니다. 멀티채널 Campaign 또는 Canvas가 채널 기반 사용량 제한을 사용하면 선택한 각 채널에 사용량 제한이 적용됩니다. 예를 들어, Campaign 또는 Canvas에서 분당 최대 5,000개의 웹훅과 2,500개의 SMS 메시지를 전송하도록 설정할 수 있습니다.
+멀티채널 Campaign 또는 Canvas에 대한 전달 속도 사용량 제한을 설정할 때 공유 사용량 제한 또는 [채널 기반 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#multichannel-campaigns-and-canvases)을 설정할 수 있습니다. 멀티채널 Campaign 또는 Canvas가 채널 기반 사용량 제한을 사용하면 선택한 각 채널에 사용량 제한이 적용됩니다. 예를 들어, Campaign 또는 Canvas에서 분당 최대 5,000개의 웹훅과 2,500개의 단문 메시지 서비스 메시지를 전송하도록 설정할 수 있습니다.
 
 #### Canvas 컨텍스트 단계 {#canvas-context-step}
 
@@ -961,7 +961,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### Open Loyalty - 데이터 및 분석 - 로열티 {#open-loyalty-data-and-analytics-loyalty}
 
-[Open Loyalty]({{site.baseurl}}/partners/data_and_analytics/loyalty/openloyalty)는 고객 로열티 및 보상 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, SMS)를 트리거할 수 있습니다.
+[Open Loyalty]({{site.baseurl}}/partners/data_and_analytics/loyalty/openloyalty)는 고객 로열티 및 보상 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, 단문 메시지 서비스)를 트리거할 수 있습니다.
 
 #### OpenAI - AI 모델 제공업체 {#openai-ai-model-provider}
 
@@ -1031,7 +1031,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### LinkedIn – Canvas 오디언스 동기화 {#linkedin-canvas-audience-sync}
 
-[Braze 오디언스 동기화를 LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync)에 사용하면 Braze 통합의 사용자 데이터를 LinkedIn 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 사용했던 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거할 수 있습니다.
+[Braze 오디언스 동기화를 LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync)에 사용하면 Braze 통합의 사용자 데이터를 LinkedIn 고객 목록에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 게재할 수 있습니다. 일반적으로 사용자 데이터를 기반으로 BRAZE 캔버스에서 메시지(푸시, 이메일, 단문 메시지 서비스, 웹훅 등)를 트리거하는 데 사용했던 모든 기준을 이제 LinkedIn 고객 목록에서 해당 사용자에게 광고를 트리거할 수 있습니다.
 
 #### Oracle CrowdTwist - 데이터 및 분석 {#oracle-crowdtwist-data-analytics}
 
@@ -1043,7 +1043,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### Open Loyalty - 데이터 및 분석 {#open-loyalty-data-analytics}
 
-[Open Loyalty]({{site.baseurl}}/partners/openloyalty)는 고객 로열티 및 보상 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, SMS)를 트리거할 수 있습니다.
+[Open Loyalty]({{site.baseurl}}/partners/openloyalty)는 고객 로열티 및 보상 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, 단문 메시지 서비스)를 트리거할 수 있습니다.
 
 #### DOTS.ECO - 확장 {#dotseco-extensions}
 
@@ -1073,7 +1073,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-이제 이메일, LINE, 푸시 알림, SMS, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 설정의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
+이제 이메일, LINE, 푸시 알림, 단문 메시지 서비스, 웹훅, WhatsApp 채널에 새로운 [재시도 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 사용할 수 있습니다. 이러한 이벤트는 최대 게재빈도 설정으로 인해 예약된 메시지가 중단되지 않고 지연되는 경우에 대한 가시성을 제공합니다. 메시지의 우선순위가 낮아지거나 게재빈도가 제한되는 경우 이제 구성된 재시도 기간 내에 재시도할 수 있어 메시지 전달 패턴과 최대 게재빈도 설정의 영향에 대해 더 나은 인사이트를 얻을 수 있습니다. 자세한 내용은 [Currents 체인지로그]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-in-version-5-release-date-2026-02-04)를 참조하세요.
 
 #### TokenStateChange 이벤트에 새로운 'time_ms' 필드 추가 {#add-new-time_ms-field-to-tokenstatechange-event}
 

@@ -15,7 +15,7 @@ Möglicherweise sind Sie hierher gelangt, weil Sie nach einem Begriff für eine 
 ## Veraltete Artikel {#deprecated-articles}
 
 - [Angepasster Push-Empfänger für Android]({{site.baseurl}}/releases/deprecations/custom_broadcast_receiver/)
-- [Eclipse SDK Einrichtung]({{site.baseurl}}/releases/deprecations/eclipse_setup_deprecated/)
+- [Eclipse SDK or Software-Development-Kit Einrichtung]({{site.baseurl}}/releases/deprecations/eclipse_setup_deprecated/)
 - [TLS 1.0 und 1.1 veraltet]({{site.baseurl}}/releases/deprecations/tls_deprecation/)
 - [Twilio Webhook Integration]({{site.baseurl}}/releases/deprecations/twilio/)
 - [Apptimize Partnerschaft]({{site.baseurl}}/releases/deprecations/apptimize/)
@@ -42,9 +42,9 @@ Die Verwendung eines angepassten `BroadcastReceiver` für Push-Benachrichtigunge
 
 Die Unterstützung für Grouparoo wurde im April 2022 eingestellt.
 
-### Braze Windows SDK
+### Braze Windows SDK or Software-Development-Kit
 
-**24. März 2022**: Das Braze Windows SDK ist veraltet, und im Braze-Dashboard können keine neuen Windows-Apps erstellt werden.<br>
+**24. März 2022**: Das Braze Windows SDK or Software-Development-Kit ist veraltet, und im Braze-Dashboard können keine neuen Windows-Apps erstellt werden.<br>
 **15. September 2022**: Es können keine neuen Nachrichten an Windows-Apps gesendet werden. Bestehende Nachrichten und Datenerfassung sind davon nicht betroffen.<br>
 **11. Januar 2024**: Braze wird keine Nachrichten mehr übermitteln oder Daten von Windows-Apps erfassen.
 
@@ -77,7 +77,7 @@ Die Unterstützung für Factual wurde im Juni 2020 eingestellt. Factual wurde k�
 
 **Unterstützung zurückgezogen**: Januar 2020
 
-Die Unterstützung für die [Twilio Webhook Integration]({{site.baseurl}}/partners/twilio/) wurde zum 31. Januar 2020 eingestellt. Wenn Sie mit Braze weiterhin auf SMS-Dienste zugreifen möchten, lesen Sie unsere [SMS-Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
+Die Unterstützung für die [Twilio Webhook Integration]({{site.baseurl}}/partners/twilio/) wurde zum 31. Januar 2020 eingestellt. Wenn Sie mit Braze weiterhin auf Kurzmitteilungsdienst or SMS-Dienste zugreifen möchten, lesen Sie unsere [Kurzmitteilungsdienst or SMS-Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
 
 ### Apptimize Partnerschaft {#apptimize-partnership}
 
@@ -92,7 +92,7 @@ Wenn Sie derzeit [Apptimize mit Braze]({{site.baseurl}}/releases/deprecations/ap
 
 Braze hat das Aussehen der In-App-Nachrichten verbessert, um den neuesten UX- und UI-Best-Practices zu entsprechen, und unterstützt die ursprünglichen In-App-Nachrichten nicht mehr.
 
-Mit den folgenden SDK-Versionen ist Braze zu einer neuen Form von In-App-Nachrichten übergegangen:
+Mit den folgenden SDK or Software-Development-Kit-Versionen ist Braze zu einer neuen Form von In-App-Nachrichten übergegangen:
 - iOS: `2.19.0`
 - Android: `1.13.0`
 - Web: `1.3.0`
@@ -103,18 +103,18 @@ Vor diesen Versionen unterstützte Braze „originale In-App-Nachrichten“. Zuv
 
 **Unterstützung zurückgezogen**: 1. Juli 2019.
 
-Das Braze SDK stellte ein Feedback-Widget zur Verfügung, das zu Ihrer App hinzugefügt werden konnte, um Nutzer:innen die Möglichkeit zu geben, mit der Methode `submitfeedback` ein Feedback zu hinterlassen, das entweder an Desk.com oder an Zendesk weitergeleitet und auf dem Dashboard verwaltet wurde.
+Das Braze SDK or Software-Development-Kit stellte ein Feedback-Widget zur Verfügung, das zu Ihrer App hinzugefügt werden konnte, um Nutzer:innen die Möglichkeit zu geben, mit der Methode `submitfeedback` ein Feedback zu hinterlassen, das entweder an Desk.com oder an Zendesk weitergeleitet und auf dem Dashboard verwaltet wurde.
 
 ### Google Cloud Messaging (GCM)
 
 **Unterstützung zurückgezogen**: Braze hat die Unterstützung eingestellt: Juli 2018, Google hat die Unterstützung eingestellt: 29. Mai 2019<br>
 **Ersetzt durch**: [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
 
-Ab dem 29. Mai 2019 hat Google [die Unterstützung für GCM eingestellt](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html). Braze hat die Unterstützung für GCM in den Android SDKs im Juli 2018 eingestellt, was in unseren [SDK Changelogs für Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md) vermerkt wurde. Das bedeutet, dass bestehende GCM-Token weiterhin funktionieren und Sie Ihren bestehenden Nutzer:innen Nachrichten schicken können. Allerdings können Sie neuen Nutzer:innen keine Nachrichten schicken.
+Ab dem 29. Mai 2019 hat Google [die Unterstützung für GCM eingestellt](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html). Braze hat die Unterstützung für GCM in den Android SDKs im Juli 2018 eingestellt, was in unseren [SDK or Software-Development-Kit Changelogs für Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md) vermerkt wurde. Das bedeutet, dass bestehende GCM-Token / Textbaustein weiterhin funktionieren und Sie Ihren bestehenden Nutzer:innen Nachrichten schicken können. Allerdings können Sie neuen Nutzer:innen keine Nachrichten schicken.
 
 Kund:innen, die noch nicht auf [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) migriert sind, können von dieser Änderung betroffen sein.
 
-Wenn Sie nicht auf FCM umgestellt haben, werden alle Registrierungen von GCM-Push-Token fehlschlagen. Wenn Ihre Apps derzeit GCM unterstützen, müssen Sie mit Ihren Entwicklerteams an der [Umstellung von GCM auf Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/android/android-migrate-fcm) arbeiten.
+Wenn Sie nicht auf FCM umgestellt haben, werden alle Registrierungen von GCM-Push-Token / Textbaustein fehlschlagen. Wenn Ihre Apps derzeit GCM unterstützen, müssen Sie mit Ihren Entwicklerteams an der [Umstellung von GCM auf Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/android/android-migrate-fcm) arbeiten.
 
 ### Eclipse
 

@@ -45,7 +45,7 @@ Ao criar uma versão em modo escuro de uma mensagem no app, você pode seleciona
 ## Compatibilidade {#compatibility}
 
 - Seus usuários devem estar em dispositivos iOS versão 13 ou superior, ou dispositivos Android versão 10 ou superior.
-- É necessário o SDK da Braze para iOS v3.21.0+ e o SDK da Braze para Android v3.8.0+.
+- É necessário o SDK or kit de desenvolvimento de software da Braze para iOS v3.21.0+ e o SDK or kit de desenvolvimento de software da Braze para Android v3.8.0+.
 
 {% alert note %}
 Os apps com modo escuro foram introduzidos com o Android 10 e o iOS 13. Usuários que não atualizaram seus telefones para pelo menos essas versões verão apenas o tema claro. <br><br>As campanhas ainda serão entregues a todos os usuários elegíveis para o público que você selecionou, independentemente da configuração de modo escuro ou da versão do sistema operacional dos usuários.

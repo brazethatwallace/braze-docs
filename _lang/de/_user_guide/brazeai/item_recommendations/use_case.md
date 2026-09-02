@@ -1,19 +1,19 @@
 ---
 nav_title: Anwendungsfall
 article_title: "Anwendungsfall: Entdeckung von Inhalten nach dem Ansehen fördern"
-description: "Dieses Beispiel veranschaulicht, wie eine fiktive Marke KI-Artikelempfehlungen von Braze nutzt, um personalisierte Inhalte und Produktempfehlungen in wichtigen Kundenmomenten bereitzustellen."
+description: "Dieses Beispiel veranschaulicht, wie eine fiktive Marke KI or künstliche Intelligenz-Artikelempfehlungen von Braze nutzt, um personalisierte Inhalte und Produktempfehlungen in wichtigen Kundenmomenten bereitzustellen."
 page_type: tutorial
 ---
 
 # Anwendungsfall: Entdeckung von Inhalten nach dem Ansehen fördern {#use-case-drive-content-discovery-after-viewing}
 
-> Dieses Beispiel veranschaulicht, wie eine fiktive Marke KI-Artikelempfehlungen von Braze nutzt, um personalisierte Inhalte und Produktempfehlungen in wichtigen Kundenmomenten bereitzustellen. Erfahren Sie, wie Empfehlungslogik das Engagement verbessern, Conversions steigern und den manuellen Aufwand reduzieren kann.
+> Dieses Beispiel veranschaulicht, wie eine fiktive Marke KI or künstliche Intelligenz-Artikelempfehlungen von Braze nutzt, um personalisierte Inhalte und Produktempfehlungen in wichtigen Kundenmomenten bereitzustellen. Erfahren Sie, wie Empfehlungslogik das Engagement verbessern, Conversions steigern und den manuellen Aufwand reduzieren kann.
 
-Nehmen wir an, Camila ist CRM-Manager:in bei MovieCanon, einer Streaming-Plattform, die kuratierte Filme und Serien anbietet.
+Nehmen wir an, Camila ist CRM or Customer-Relationship-Management [-System] (CRM)-Manager:in:in bei MovieCanon, einer Streaming-Plattform, die kuratierte Filme und Serien anbietet.
 
 Camilas Ziel ist es, das Engagement der Zuschauer:innen auch nach dem Anschauen eines Inhalts aufrechtzuerhalten. In der Vergangenheit basierten die „Das könnte Ihnen auch gefallen“-Nachrichten von MovieCanon auf einer groben Genre-Zuordnung und wurden zu beliebigen Zeitpunkten versendet – häufig Stunden oder Tage nach einer Sitzung. Das Engagement war gering, und ihr Team war sich bewusst, dass es besser geht.
 
-Mithilfe von [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) richtet Camila ein System ein, das automatisch neue Titel basierend auf dem Verlauf jeder Zuschauer:in empfiehlt. Diese Empfehlungen werden unmittelbar nach Beendigung eines Films oder einer Episode zugestellt. Dies ist eine intelligentere und persönlichere Methode, um Nutzer:innen dabei zu helfen, Inhalte zu entdecken, die sie tatsächlich als Nächstes sehen möchten, und sie auf der Plattform zu halten.
+Mithilfe von [KI or künstliche Intelligenz-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) richtet Camila ein System ein, das automatisch neue Titel basierend auf dem Verlauf jeder Zuschauer:in empfiehlt. Diese Empfehlungen werden unmittelbar nach Beendigung eines Films oder einer Episode zugestellt. Dies ist eine intelligentere und persönlichere Methode, um Nutzer:innen dabei zu helfen, Inhalte zu entdecken, die sie tatsächlich als Nächstes sehen möchten, und sie auf der Plattform zu halten.
 
 ![In-App-Nachricht mit dem Text „Als Nächstes, speziell für Sie. Da Sie „Nomads of the Sun“ angesehen haben", mit einem Bild, dem Titelnamen, einer Beschreibung und den CTAs „Jetzt ansehen“ oder „Überspringen“ zur nächsten Empfehlung.]({% image_buster /assets/img/ai_use_cases/recommendation_rendered.png %})
 
@@ -26,9 +26,9 @@ Dieses Tutorial führt Sie durch die Vorgehensweise von Camila:
 
 Camila beginnt damit, eine Empfehlung zu erstellen, die relevante Titel anzeigt, sobald eine Nutzer:in etwas fertig angesehen hat. Sie möchte eine dynamische Lösung, sodass Nutzer:innen verschiedene Vorschläge erhalten, die auf ihren zuletzt angesehenen Inhalten basieren.
 
-1. Im Braze-Dashboard navigiert Camila zu **KI-Artikelempfehlungen**.
+1. Im Braze-Dashboard navigiert Camila zu **KI or künstliche Intelligenz-Artikelempfehlungen**.
 2. Sie erstellt eine neue Empfehlung und benennt sie „Vorschläge nach dem Anschauen“.
-3. Für den Empfehlungstyp wählt sie **AI Personalized**, sodass jede Nutzer:in auf der Grundlage ihres bisherigen Verhaltens personalisierte Empfehlungen erhält.
+3. Für den Empfehlungstyp wählt sie **KI or künstliche Intelligenz Personalized**, sodass jede Nutzer:in auf der Grundlage ihres bisherigen Verhaltens personalisierte Empfehlungen erhält.
 4. Sie wählt **Do not recommend items users have previously interacted with**, damit Nutzer:innen keine Empfehlungen für Inhalte erhalten, die sie bereits angesehen haben.
 5. Sie wählt den Katalog aus, der die aktuelle Inhaltsbibliothek von MovieCanon enthält. Camila fügt keine Katalogauswahl hinzu, da sie möchte, dass alle Artikel im Katalog für Empfehlungen in Frage kommen.
 6. Camila verknüpft die Empfehlung mit dem angepassten Event `Watched Content`, das abgeschlossene Aufrufe nachverfolgt, und legt den **Property Name** auf den Titel des Inhalts fest.
@@ -84,4 +84,4 @@ Sie plant außerdem einen A/B-Test:
 - Inhaltslayout (Karussell versus Liste)
 - CTA-Varianten („Jetzt ansehen“ versus „Zur Warteschlange hinzufügen“)
 
-Durch die Kombination von ereignisgesteuerten Nachrichten mit KI-Artikelempfehlungen verwandelt Camila die Entdeckung von Inhalten in ein automatisches, personalisiertes Erlebnis. MovieCanon sorgt dafür, dass Nutzer:innen ohne Spekulationen engagiert bleiben – indem relevante Inhalte zum richtigen Zeitpunkt bereitgestellt werden, um die Sitzungstiefe zu erhöhen und Churn zu verringern.
+Durch die Kombination von ereignisgesteuerten Nachrichten mit KI or künstliche Intelligenz-Artikelempfehlungen verwandelt Camila die Entdeckung von Inhalten in ein automatisches, personalisiertes Erlebnis. MovieCanon sorgt dafür, dass Nutzer:innen ohne Spekulationen engagiert bleiben – indem relevante Inhalte zum richtigen Zeitpunkt bereitgestellt werden, um die Sitzungstiefe zu erhöhen und Abwanderung or Abwanderung, Churn or Abwanderung, churnen zu verringern.

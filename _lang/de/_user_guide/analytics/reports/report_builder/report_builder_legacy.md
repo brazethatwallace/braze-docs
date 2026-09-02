@@ -12,23 +12,23 @@ tool:
 
 # Berichts-Builder (Legacy) {#report-builder-legacy}
 
-> Mit dem Berichts-Builder können Sie die Ergebnisse mehrerer Campaigns oder Canvases in einer einzigen Ansicht vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre wichtigsten Metriken am stärksten beeinflusst haben. Sowohl für Campaigns als auch für Canvases können Sie Ihre Daten exportieren und Ihren Bericht speichern, um ihn in Zukunft erneut aufzurufen.<br><br>Eine beschreibende Liste der Metriken, die Sie in Ihren Berichten finden, finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
+> Mit dem Berichts-Builder können Sie die Ergebnisse mehrerer Campaigns oder Canvase in einer einzigen Ansicht vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre wichtigsten Metriken am stärksten beeinflusst haben. Sowohl für Campaigns als auch für Canvase können Sie Ihre Daten exportieren und Ihren Bericht speichern, um ihn in Zukunft erneut aufzurufen.<br><br>Eine beschreibende Liste der Metriken, die Sie in Ihren Berichten finden, finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ![Beispiel für einen Campaign-Vergleich]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
 Verwenden Sie diesen Bericht, um wichtige Engagement-Fragen zu beantworten, zum Beispiel:
 
-- Welche Campaigns oder Canvases hatten die beste Performance für einen bestimmten Tag oder Kanal?
+- Welche Campaigns oder Canvase hatten die beste Performance für einen bestimmten Tag oder Kanal?
 - Welche Varianten von multivarianten Campaigns hatten den größten Uplift gegenüber der Kontrollgruppe?
 - Welche saisonale Aktions-Campaign führte zu einer höheren Kaufrate – der Sommerschlussverkauf, der Herbstverkauf oder der Winterverkauf?
 - Welche Push-Benachrichtigungen innerhalb dieses Canvas hatten die höchsten Öffnungsraten?
-- Welche Schritte in dieser Gruppe von Canvases hatten die meisten Conversions?
+- Welche Schritte in dieser Gruppe von Canvase hatten die meisten Conversions?
 - Hat Version 1 einer Willkommens-E-Mail oder Version 2 einer Willkommens-E-Mail zu höherem Engagement und mehr Conversions geführt? Haben die Änderungen gewirkt?
 - Wie wirken sich verschiedene Zustellmethoden (zum Beispiel 3 geplante Push-Benachrichtigungen, 3 aktionsbasierte Push-Benachrichtigungen und 3 API-getriggerte Push-Benachrichtigungen) auf Ihre Öffnungsraten, Konversionsraten oder Kaufraten aus?
 - Haben die laufenden Verbesserungen an Nachrichten für inaktive Nutzer:innen Ihre KPIs im Laufe der Zeit positiv beeinflusst?
 
 {% alert tip %}
-Versuchen Sie, dieselben Konversions-Events für Conversion A, B usw. über alle Campaigns und Canvases hinweg zu verwenden, die Sie vergleichen möchten, damit Sie diese Conversions in Ihren Berichts-Builder-Berichten aufeinander abstimmen können.
+Versuchen Sie, dieselben Konversions-Events für Conversion A, B usw. über alle Campaigns und Canvase hinweg zu verwenden, die Sie vergleichen möchten, damit Sie diese Conversions in Ihren Berichts-Builder-Berichten aufeinander abstimmen können.
 {% endalert %}
 
 ## Einen Bericht erstellen {#running-a-report}
@@ -39,7 +39,7 @@ Navigieren Sie im Dashboard zu **Analytics** > **Berichts-Builder**.
 
 Wählen Sie **Neuen Bericht erstellen** und wählen Sie entweder einen Campaign-Vergleichsbericht oder einen Canvas-Vergleichsbericht.
 
-Wenn Sie sich für einen Bericht über Campaigns entscheiden, können Sie zwischen einem **manuellen** oder einem **automatisierten** Bericht wählen. Berichte können entweder Campaigns oder Canvases enthalten, aber nicht beides zusammen. Alle Campaigns und Canvases, deren letzte Nachrichten innerhalb der letzten 12 Monate gesendet wurden, kommen für einen Bericht infrage.
+Wenn Sie sich für einen Bericht über Campaigns entscheiden, können Sie zwischen einem **manuellen** oder einem **automatisierten** Bericht wählen. Berichte können entweder Campaigns oder Canvase enthalten, aber nicht beides zusammen. Alle Campaigns und Canvase, deren letzte Nachrichten innerhalb der letzten 12 Monate gesendet wurden, kommen für einen Bericht infrage.
 
 ![Campaign-Dashboard]({% image_buster /assets/img/campaign_comparison/create_report.png %}){: style="max-width:80%;"}
 
@@ -56,7 +56,7 @@ Im Folgenden finden Sie die Unterschiede zwischen diesen beiden Optionen:
 Sowohl **manuelle** als auch **automatisierte** Berichte können maximal 250 Campaigns in einem Bericht enthalten.
 {% endalert %}
 
-Canvas-Berichte funktionieren ähnlich wie ein manueller Campaign-Bericht, da Canvas-Auswahlen und Berichtsaktualisierungen ebenfalls manuell vorgenommen werden müssen. Sie können maximal fünf Canvases in einem Bericht einschließen.
+Canvas-Berichte funktionieren ähnlich wie ein manueller Campaign-Bericht, da Canvas-Auswahlen und Berichtsaktualisierungen ebenfalls manuell vorgenommen werden müssen. Sie können maximal fünf Canvase in einem Bericht einschließen.
 
 ### 2. Schritt: Metriken auswählen {#step-2-choose-your-metrics}
 
@@ -96,11 +96,11 @@ Wenn Sie eine Variante aus einer multivarianten Campaign löschen, stehen die Da
 
 ## Aufschlüsselung des Canvas-Vergleichsberichts {#canvas-comparison-report-breakdown}
 
-Innerhalb eines Canvas-Berichts können Sie Ihre Canvases aufgeschlüsselt nach Variante, Schritten oder Nachricht anzeigen.
+Innerhalb eines Canvas-Berichts können Sie Ihre Canvase aufgeschlüsselt nach Variante, Schritten oder Nachricht anzeigen.
 
 ### Variante {#variant}
 
-Wenn Sie **Aufschlüsselung nach Variante** auswählen, können Sie die übergeordneten Statistiken für Ihre gesamten Canvases sowie Statistiken für jede Variante anzeigen, die durch Klicken auf den Pfeil neben dem Canvas-Namen erweitert werden können.
+Wenn Sie **Aufschlüsselung nach Variante** auswählen, können Sie die übergeordneten Statistiken für Ihre gesamten Canvase sowie Statistiken für jede Variante anzeigen, die durch Klicken auf den Pfeil neben dem Canvas-Namen erweitert werden können.
 
 ![Varianten]({% image_buster /assets/img/campaign_comparison/campaign_comparison1.png %}){: style="max-width:90%;"}
 

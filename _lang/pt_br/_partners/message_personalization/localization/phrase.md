@@ -23,8 +23,8 @@ A integração do Phrase e da Braze permite traduzir modelos de e-mail e Content
 | Requisito | Descrição |
 | --- | --- |
 | Conta Phrase TMS | É necessário ter uma conta Phrase TMS Ultimate ou Enterprise para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -34,7 +34,7 @@ A integração do Phrase e da Braze permite traduzir modelos de e-mail e Content
 No Phrase, navegue até **Settings > Integrations > Connectors > New**.
 
 1. Forneça um nome para a conexão e altere o tipo para **Braze**.<br><br>
-2. Insira a chave da API REST e o endpoint REST da Braze. <br><br>
+2. Insira a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional e o endpoint REST or transferir estado representacional da Braze. <br><br>
 3. Selecione como o conector deve importar modelos de e-mail com Content Blocks vinculados.
 - Somente o modelo de e-mail selecionado
 - Incluir Content Blocks<br><br>
@@ -69,7 +69,7 @@ No Phrase, navegue até **Settings > Integrations > Connectors > New**.
     {% endif %}
     ```
     O Liquid acima deve ser rigorosamente seguido, mas o atributo de idioma, as chaves e os valores são ajustáveis.<br><br>
-    Cada código de idioma só pode ser usado uma vez. No entanto, vários idiomas podem ser usados para um segmento, por exemplo:
+    Cada código de idioma só pode ser usado uma vez. No entanto, vários idiomas podem ser usados para um Segment or segmento or segmento, por exemplo:
     ```liquid
     {% elsif {{custom_attribute.${attribute_name}}} == 'de-DE' or {{custom_attribute.${attribute_name}}} == 'de-AT' or {{custom_attribute.${attribute_name}}} == 'de-CH' %}
     {% endraw %}
@@ -83,4 +83,4 @@ No Phrase, navegue até **Settings > Integrations > Connectors > New**.
 2. Use o [Automated Project Creation (APC)](https://support.phrase.com/hc/en-us/articles/5709647363356) para que o Phrase TMS crie automaticamente novos projetos quando for detectada uma alteração nos estados especificados do fluxo de trabalho.<br><br>
 3. Os itens de conteúdo selecionados são importados na primeira vez em que o APC é executado.
 
-A [API do conector](https://cloud.memsource.com/web/docs/api#) pode automatizar etapas que, de outra forma, seriam executadas manualmente por meio da interface do usuário. [Webhooks](https://support.phrase.com/hc/en-us/articles/5709693398812) podem ser usados para que o Phrase TMS notifique sistemas de terceiros sobre determinados eventos (por exemplo, uma alteração no status do trabalho).
+A [API or interface de programação do aplicativo (API) do conector](https://cloud.memsource.com/web/docs/api#) pode automatizar etapas que, de outra forma, seriam executadas manualmente por meio da interface do usuário. [Webhooks](https://support.phrase.com/hc/en-us/articles/5709693398812) podem ser usados para que o Phrase TMS notifique sistemas de terceiros sobre determinados eventos (por exemplo, uma alteração no status do trabalho).

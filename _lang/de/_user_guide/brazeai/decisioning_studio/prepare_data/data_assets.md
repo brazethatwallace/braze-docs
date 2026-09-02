@@ -3,14 +3,14 @@ nav_title: Kritische Datenressourcen
 article_title: Kritische Datenressourcen für Decisioning Studio
 page_order: 3
 page_type: reference
-description: "Dieser Referenzartikel behandelt die erforderlichen und optionalen Datenressourcen für BrazeAI Decisioning Studio, einschließlich der Feedback-Daten, die zum Schließen der KI-Entscheidungsschleife benötigt werden."
+description: "Dieser Referenzartikel behandelt die erforderlichen und optionalen Datenressourcen für BrazeAI Decisioning Studio, einschließlich der Feedback-Daten, die zum Schließen der KI or künstliche Intelligenz-Entscheidungsschleife benötigt werden."
 ---
 
 # Kritische Datenressourcen {#critical-data-assets}
 
 > Decisioning Studio benötigt bestimmte Datenressourcen, um zu funktionieren, und profitiert von zusätzlichen optionalen Daten. Dieser Artikel beschreibt, was jede Ressource ist, warum sie wichtig ist und welche Felder erforderlich sind.
 
-## Die KI-Entscheidungsschleife schließen {#close-the-ai-decisioning-loop}
+## Die KI or künstliche Intelligenz-Entscheidungsschleife schließen {#close-the-ai-decisioning-loop}
 
 Die drei erforderlichen Ereignis-Ressourcen (Aktivierungen, Engagements und Conversions) bilden zusammen die Feedback-Schleife, die es Decisioning Studio ermöglicht, im Laufe der Zeit zu lernen und sich zu verbessern.
 
@@ -26,7 +26,7 @@ Wenn Decisioning Studio nativ in Ihre Customer-Engagement-Plattform integriert i
 
 ## Erforderliche Ressourcen {#required-assets}
 
-### Kundenprofil {#customer-profile}
+### Kundenprofil or Kundenprofil or Nutzerprofil {#customer-profile}
 
 Kundenprofildaten beschreiben, wer Ihre Kund:innen sind. Decisioning Studio nutzt diese Daten, um den aktuellen Zustand jeder Kundin und jedes Kunden zu verstehen und relevante Empfehlungen zu generieren.
 
@@ -36,7 +36,7 @@ Häufige Profilattribute umfassen:
 - Geografie (sofern durch Ihre Branche und Datenschutzanforderungen erlaubt)
 - Akquisitionskanal (z. B. Internet, Telefon, im Shop)
 - Zufriedenheits- oder Stimmungswert
-- Modellbasierte Scores (z. B. Churn-Wahrscheinlichkeit, Lifetime-Value-Schätzung)
+- Modellbasierte Scores (z. B. Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Wahrscheinlichkeit, LTV or Lifetime-Value or Lifetime-Value-Schätzung)
 - Treuestufe oder Programmmitgliedschaft
 
 ### Aktivierungs- und Engagement-Daten {#activation-and-engagement-data}
@@ -79,7 +79,7 @@ Mehr Daten führen in der Regel zu einer besseren Modell-Performance, sollten je
 
 ### Weiteres Marketing-Engagement {#other-marketing-engagement}
 
-- Ausgehende Kommunikation, die außerhalb von Decisioning-Studio-Empfehlungen gesendet wurde (z. B. E-Mails, SMS)
+- Ausgehende Kommunikation, die außerhalb von Decisioning-Studio-Empfehlungen gesendet wurde (z. B. E-Mails, Kurzmitteilungsdienst or SMS)
 - E-Mail-Engagement, das nicht von Decisioning Studio getriggert wurde (z. B. Öffnungen, Klicks)
-- Umfrageantworten (z. B. NPS-Scores, Engagement-Umfragen)
+- Umfrageantworten (z. B. Net Promoter Score-Scores, Engagement-Umfragen)
 - Web- und Mobile-App-Aktivität (z. B. durchsuchte Seiten, angesehene Produkte)

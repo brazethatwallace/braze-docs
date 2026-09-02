@@ -41,19 +41,19 @@ inAppMessageStreamSubscription = braze.subscribeToInAppMessages((BrazeInAppMessa
 inAppMessageStreamSubscription.cancel();
 ```
 
-Ein Beispiel finden Sie in [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) in der Braze Flutter SDK Beispiel-App.
+Ein Beispiel finden Sie in [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) in der Braze Flutter SDK or Software-Development-Kit Beispiel-App.
 
 ### In-App-Nachrichten-Daten aus dem nativen Layer weiterleiten {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
-{% tab Flutter SDK 18.0.0+ %}
+{% tab Flutter SDK or Software-Development-Kit 18.0.0+ %}
 
 In-App-Nachrichten-Daten werden automatisch von den nativen Android- und iOS-Layern weitergeleitet. Es ist keine zusätzliche Einrichtung erforderlich.
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 und älter %}
+{% tab Flutter SDK or Software-Development-Kit 17.1.0 und älter %}
 
-Wenn Sie Flutter SDK 17.1.0 oder älter verwenden, erfordert die Weiterleitung von In-App-Nachrichten-Daten aus dem nativen iOS-Layer eine manuelle Einrichtung. Ihre Anwendung enthält wahrscheinlich eine der folgenden Varianten. Um auf Flutter SDK 18.0.0 zu migrieren, entfernen Sie den Aufruf von `BrazePlugin.processInAppMessage(_:)` – die Datenweiterleitung wird jetzt automatisch gehandhabt.
+Wenn Sie Flutter SDK or Software-Development-Kit 17.1.0 oder älter verwenden, erfordert die Weiterleitung von In-App-Nachrichten-Daten aus dem nativen iOS-Layer eine manuelle Einrichtung. Ihre Anwendung enthält wahrscheinlich eine der folgenden Varianten. Um auf Flutter SDK or Software-Development-Kit 18.0.0 zu migrieren, entfernen Sie den Aufruf von `BrazePlugin.processInAppMessage(_:)` – die Datenweiterleitung wird jetzt automatisch gehandhabt.
 
 {% subtabs %}
 {% subtab UI Delegate %}

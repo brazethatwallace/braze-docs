@@ -23,8 +23,8 @@ La integración de Phrase y Braze permite traducir plantillas de correo electró
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta Phrase TMS | Se requiere una cuenta Phrase TMS Ultimate o Enterprise para beneficiarse de esta alianza. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -34,7 +34,7 @@ La integración de Phrase y Braze permite traducir plantillas de correo electró
 En Phrase, ve a **Settings > Integrations > Connectors > New**.
 
 1. Introduce un nombre para la conexión y cambia el tipo a **Braze**.<br><br>
-2. Introduce la clave de API REST y el punto de conexión REST de Braze. <br><br>
+2. Introduce la clave de API REST or transferencia de estado representacional y el punto de conexión REST or transferencia de estado representacional de Braze. <br><br>
 3. Selecciona cómo debe importar el conector las plantillas de correo electrónico con Content Blocks vinculados.
 - Solo plantilla de correo electrónico seleccionada
 - Incluir Content Blocks<br><br>

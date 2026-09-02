@@ -9,7 +9,7 @@ channel: push
 
 # Solución de problemas de push {#troubleshoot-push}
 
-> Usa esta página para solucionar problemas de entrega push, comportamiento de clics y credenciales. Para la configuración específica del SDK, consulta [Solución de problemas de notificaciones push del SDK de Braze]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting). Para códigos de error, consulta [Mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
+> Usa esta página para solucionar problemas de entrega push, comportamiento de clics y credenciales. Para la configuración específica del SDK or kit de desarrollo de software, consulta [Solución de problemas de notificaciones push del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting). Para códigos de error, consulta [Mensajes de error push comunes]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
 ## Empieza aquí: identifica tu síntoma {#start-here-match-your-symptom}
 
@@ -98,7 +98,7 @@ Si se trata de una Campaign de un solo canal o un Canvas con un grupo de control
 
 Un token de push es un identificador que los remitentes utilizan para dirigirse a un dispositivo específico con una notificación push. Sin un token de push válido, Braze no puede enviar una notificación push a ese dispositivo.
 
-Braze almacena hasta 20 dispositivos por perfil de usuario. Cuando un dispositivo número 21 se registra, el dispositivo más antiguo se elimina (primero en entrar, primero en salir, o FIFO). Llamar a [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) en el SDK vuelve a registrar el dispositivo actual en el perfil.
+Braze almacena hasta 20 dispositivos por perfil de usuario. Cuando un dispositivo número 21 se registra, el dispositivo más antiguo se elimina (primero en entrar, primero en salir, o FIFO). Llamar a [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) en el SDK or kit de desarrollo de software vuelve a registrar el dispositivo actual en el perfil.
 
 ### Tipo de notificación push {#push-notification-type}
 
@@ -172,7 +172,7 @@ Si al hacer clic en una notificación push no se abre tu aplicación, comprueba 
 
 1. **Verifica el comportamiento al hacer clic:** Confirma que la Campaign está configurada para abrir la aplicación al hacer clic.
 2. **Comprueba la gestión de vínculos profundos:** En tu archivo `braze.xml`, comprueba si `com_braze_handle_push_deep_links_automatically` está configurado como `true` o `false`.
-   - Si está configurado como `true`, el SDK de Braze gestiona los vínculos profundos directamente y la aplicación debería abrirse como se espera.
+   - Si está configurado como `true`, el SDK or kit de desarrollo de software de Braze gestiona los vínculos profundos directamente y la aplicación debería abrirse como se espera.
    - Si está configurado como `false`, tu aplicación necesita un receptor de difusión para escuchar y gestionar los intents de push recibidos y abiertos. Verifica que este receptor esté implementado correctamente.
 3. **Recopila registros detallados:** [Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduce el problema y proporciona los registros junto con tu `braze.xml` y `AndroidManifest.xml` a soporte de Braze.
 
@@ -186,13 +186,13 @@ Si al hacer clic en una notificación push no se abre tu aplicación, comprueba 
 
 **Síntoma:** Los enlaces en las notificaciones push se abren dentro de la aplicación en lugar del navegador web del dispositivo.
 
-Si tienes problemas con enlaces en notificaciones push que se abren inesperadamente dentro de tu aplicación en lugar de en tu navegador web, puede haber un problema con la configuración de tu Campaign o la implementación del SDK. Consulta estos pasos para obtener ayuda.
+Si tienes problemas con enlaces en notificaciones push que se abren inesperadamente dentro de tu aplicación en lugar de en tu navegador web, puede haber un problema con la configuración de tu Campaign o la implementación del SDK or kit de desarrollo de software. Consulta estos pasos para obtener ayuda.
 
 ### Verifica el comportamiento al hacer clic {#verify-on-click-behavior}
 
 En tu Campaign o paso en Canvas, verifica que **Open web URL inside mobile app** no esté seleccionado. Si lo está, desmarca la selección y vuelve a lanzar.
 
-La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK. Para las versiones del SDK iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abren en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
+La interacción predeterminada para el comportamiento al hacer clic "Open web URL" difiere según la versión del SDK or kit de desarrollo de software. Para las versiones del SDK or kit de desarrollo de software iOS 2.29.0 y Android 2.0.0 y superiores, esta opción está seleccionada de forma predeterminada y las URL web se abren en una vista web dentro de la aplicación. Antes de estas versiones, esta opción está desmarcada de forma predeterminada y las URL web se abren en el navegador web predeterminado del dispositivo.
 
 Si este no es el problema, puede haber un problema con tu implementación push.
 
@@ -231,7 +231,7 @@ Cuando reemplazas un certificado `.p12` con una clave `.p8` (o cargas una nueva 
 
 En **Settings** > **App Settings** > **Push Notification Settings**, confirma que **App Bundle ID**, **Team ID** y **Key ID** (para claves `.p8`) coincidan con los valores en tu cuenta de Apple Developer. Varios espacios de trabajo de Braze pueden usar la misma credencial push de Apple cuando el **bundle ID** de la aplicación iOS es idéntico; el entorno de la credencial (desarrollo frente a producción) debe coincidir con la forma en que se compiló la aplicación.
 
-Las aplicaciones con [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) o posterior pueden usar la [gestión dinámica de la puerta de enlace de APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), que enruta los tokens al entorno de APNs correcto automáticamente.
+Las aplicaciones con [Braze Swift SDK or kit de desarrollo de software 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) o posterior pueden usar la [gestión dinámica de la puerta de enlace de APNs]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management), que enruta los tokens al entorno de APNs correcto automáticamente.
 
 ## Las notificaciones push web no se comportan como se espera {#web-push-notifications-are-not-behaving-as-expected}
 

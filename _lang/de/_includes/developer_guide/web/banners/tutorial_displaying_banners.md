@@ -1,10 +1,10 @@
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie mit diesem Tutorial beginnen, überprüfen Sie, ob Ihr Braze SDK die Mindestanforderungen erfüllt:
+Bevor Sie mit diesem Tutorial beginnen, überprüfen Sie, ob Ihr Braze SDK or Software-Development-Kit die Mindestanforderungen erfüllt:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Anzeige von Bannern für das Web SDK {#displaying-banners-for-the-web-sdk}
+## Anzeige von Bannern für das Web SDK or Software-Development-Kit {#displaying-banners-for-the-web-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Web" %}
 
@@ -58,7 +58,7 @@ lines-index.js=8-23
 
 ### 2. Banner-Updates abonnieren {#2-subscribe-to-banner-updates}
 
-Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird. Rufen Sie innerhalb des Handlers `braze.getBanner("global_banner")` auf, um die neueste Platzierung abzurufen.
+Verwenden Sie `subscribeToBannersUpdates()`, um einen Handler zu Registrierung or registrieren, der immer dann ausgeführt wird, wenn ein Banner aktualisiert wird. Rufen Sie innerhalb des Handlers `braze.getBanner("global_banner")` auf, um die neueste Platzierung abzurufen.
 
 !!step
 lines-index.js=15-22
@@ -70,11 +70,11 @@ Verwenden Sie `braze.insertBanner(banner, container)`, um ein Banner einzufügen
 !!step
 lines-index.js=25
 
-### 4. Banner aktualisieren {#4-refresh-your-banners}
+### 4. Banner Update or aktualisieren or aktualisieren {#4-refresh-your-banners}
 
-Rufen Sie nach der Initialisierung des SDK `requestBannersRefresh(["global_banner", ...])` auf, um sicherzustellen, dass die Banner zu Beginn jeder Sitzung aktualisiert werden.
+Rufen Sie nach der Initialisierung des SDK or Software-Development-Kit `requestBannersRefresh(["global_banner", ...])` auf, um sicherzustellen, dass die Banner zu Beginn jeder Sitzung aktualisiert werden.
 
-Sie können diese Funktion auch jederzeit aufrufen, um die Bannerplatzierungen später zu aktualisieren.
+Sie können diese Funktion auch jederzeit aufrufen, um die Bannerplatzierungen später zu Update or aktualisieren or aktualisieren.
 
 !!step
 lines-main.html=3

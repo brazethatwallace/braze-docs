@@ -172,7 +172,7 @@ Braze 대시보드로 이동하여 SSO를 사용하여 로그인을 시도합니
 
 ### 3단계: 내보내기 및 Braze에 전송 {#step-3-export-and-send-to-braze}
 
-**Export**를 선택합니다. **Select cookie-filter profile**에서 **None**을 선택합니다. 그런 다음 **Export**를 선택합니다. 이렇게 하면 추가 문제 해결을 위해 Braze 지원팀에 보낼 수 있는 JSON 파일이 생성됩니다.
+**Export**를 선택합니다. **Select 쿠키-filter profile**에서 **None**을 선택합니다. 그런 다음 **Export**를 선택합니다. 이렇게 하면 추가 문제 해결을 위해 Braze 지원팀에 보낼 수 있는 JSON 파일이 생성됩니다.
 
 ![옵션 'None'이 선택된 'SAML 트레이스 내보내기 환경설정' 메뉴.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
 

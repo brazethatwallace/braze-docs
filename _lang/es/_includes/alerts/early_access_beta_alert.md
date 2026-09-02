@@ -3,7 +3,7 @@
   Parámetros:
   - feature (obligatorio): La característica o el tema, p. ej., «Este endpoint», «Aprovisionamiento de SCIM», «La integración de Okta»
   - type (opcional): "early_access" (predeterminado) o "beta"
-  - contact (opcional): Con quién contactar, p. ej., "director de cuentas de Braze" (predeterminado) o "administrador de éxito de cliente"
+  - contact (opcional): Con quién contactar, p. ej., "director de cuentas de Braze" (predeterminado) o "CSM or administrador de éxito de cliente or administrador de éxito de cliente"
 {% endcomment %}
 {% assign contact_role = include.contact | default: "director de cuentas de Braze" %}
 {% if include.type == "beta" %}

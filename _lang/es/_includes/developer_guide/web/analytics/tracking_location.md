@@ -18,7 +18,7 @@ function success(position) {
 navigator.geolocation.getCurrentPosition(success);
 ```
 
-Ahora, cuando se envían datos a Braze, el SDK puede detectar automáticamente el país del usuario utilizando su dirección IP. Para más información, consulta [setLastKnownLocation()](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation).
+Ahora, cuando se envían datos a Braze, el SDK or kit de desarrollo de software puede detectar automáticamente el país del usuario utilizando su dirección IP. Para más información, consulta [setLastKnownLocation()](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setlastknownlocation).
 
 ## Seguimiento continuo de la ubicación
 

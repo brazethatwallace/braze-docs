@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Remover números de telefone inválidos da Braze."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Remover números de telefone inválidos {#remove-invalid-phone-numbers}
 {% apimethod post %}
 /sms/invalid_phone_numbers/remove
@@ -22,7 +22,7 @@ Isso pode ser usado para revalidar números de telefone depois de terem sido mar
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sms.invalid_phone_numbers.remove`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sms.invalid_phone_numbers.remove`.
 
 ## Limite de frequência {#rate-limit}
 

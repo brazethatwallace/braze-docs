@@ -34,7 +34,7 @@ Se a prévia de uma Campaign exibir um erro de permissão, limpe o cache e os co
 Para testar sua mensagem de e-mail no Inbox Vision:
 
 1. Acesse o editor de arrastar e soltar ou o editor de HTML de e-mail.
-2. No editor, selecione **Preview & Test**.
+2. No editor, selecione **prévia & Test**.
 3. Selecione **Inbox Vision**.
 4. Selecione **Run Inbox Vision**. Isso leva até dez minutos.
 5. Em seguida, selecione um bloco para visualizar a prévia com mais detalhes. Essas prévias são agrupadas nas seguintes seções: **Web Clients**, **Application Clients** e **Mobile Clients**.
@@ -68,7 +68,7 @@ A análise de código pode aparecer mais rápido do que a prévia para um determ
 
 ## Testes de SPAM {#spam-testing}
 
-Os testes de SPAM estimam se um e-mail pode ser filtrado como SPAM. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de ISP como Gmail e Outlook, usando caixas de entrada de teste estáticas que não abrem nem clicam por padrão.
+Os testes de SPAM estimam se um e-mail pode ser filtrado como SPAM. Os testes são executados em filtros como IronPort, SpamAssassin e Barracuda, além de filtros de ISP or provedor de acesso à internet or provedor de serviços de internet como Gmail e Outlook, usando caixas de entrada de teste estáticas que não abrem nem clicam por padrão.
 
 {% alert important %}
 O posicionamento na caixa de entrada é determinado principalmente pelo engajamento dos destinatários em tempo real. Os resultados dos testes de SPAM podem não corresponder ao que você observa em Campaigns reais.

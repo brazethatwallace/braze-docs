@@ -34,7 +34,7 @@ Antes de empezar, necesitas lo siguiente:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% alert important %}
-Braze Agents, Canvas Context y los tokens de autorización de contenido conectado se encuentran en acceso anticipado. Si te interesa aprovechar esta solución, habla con tu CSM de Braze para habilitar estas herramientas.
+Braze Agents, Canvas Context y los tokens de autorización de contenido conectado se encuentran en acceso anticipado. Si te interesa aprovechar esta solución, habla con tu CSM or administrador de éxito de cliente de Braze para habilitar estas herramientas.
 {% endalert %}
 
 ## Integrar Fullstory {#integrate-fullstory}

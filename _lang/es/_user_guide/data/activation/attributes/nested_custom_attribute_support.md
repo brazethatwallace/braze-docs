@@ -30,14 +30,14 @@ En el siguiente ejemplo, el atributo personalizado `favorite_book` contiene los 
 
 ## Consideraciones {#considerations}
 
-- Los atributos personalizados anidados están diseñados para atributos personalizados enviados a través de Braze SDK o API.
+- Los atributos personalizados anidados están diseñados para atributos personalizados enviados a través de Braze SDK or kit de desarrollo de software o API.
 - Los objetos tienen un tamaño máximo de 100&nbsp;KB. Si una actualización hace que el objeto supere los 100&nbsp;KB, Braze descarta la actualización y el atributo no se modifica.
 - Los nombres de clave y los valores de cadena tienen un límite de tamaño de 255 caracteres.
 - Los nombres de clave no pueden contener espacios.
 - Los puntos (`.`) y los signos de dólar (`$`) no son caracteres admitidos en una carga útil de API si estás intentando enviar un atributo personalizado anidado a un perfil de usuario.
 - No todos los partners de Braze son compatibles con los atributos personalizados anidados. Consulta la [documentación de partners]({{site.baseurl}}/partners/home) para confirmar si integraciones de partners específicas son compatibles con esta característica.
 - Los atributos personalizados anidados no se pueden usar como filtro al realizar una llamada a la API de Connected Audience.
-- De forma predeterminada, el filtro de Segment de **atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el selector de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+- De forma predeterminada, el filtro de Segment de **atributos personalizados anidados** incluye atributos personalizados de tipo objeto, atributos de matriz de objetos y atributos personalizados de tipo matriz. Cuando seleccionas un atributo, el SELECTOR de esquema de propiedades incluye rutas de matriz (usando la notación `[]`) para campos de matriz anidados. Para ocultar los atributos personalizados de matriz de nivel superior de ese filtro, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 - Al previsualizar mensajes en el panel usando **Vista previa como usuario personalizado**, solo puedes introducir datos simulados como cadena o matriz de cadenas: los objetos anidados no son compatibles. Para previsualizar un mensaje que hace referencia a atributos personalizados anidados, selecciona un usuario existente que ya tenga el atributo anidado en su perfil. Para propiedades de eventos personalizados anidados, debes lanzar una campaña en vivo dirigida a un usuario de prueba para verificar la representación.
 
 ## Ejemplo de API {#api-example}
@@ -126,14 +126,14 @@ Este enfoque no se puede utilizar para eliminar una clave anidada dentro de una 
 {% endtab %}
 {% endtabs %}
 
-## Ejemplo del SDK {#sdk-example}
+## Ejemplo del SDK or kit de desarrollo de software {#sdk-example}
 
 {% sdk_min_versions android:25.0.0 ios:6.1.0 web:4.7.0 unity:5.1.0 %}
 
-Los siguientes ejemplos muestran cómo crear, actualizar mediante combinación y eliminar el mismo objeto de atributo personalizado anidado (`most_played_song`) en cada SDK.
+Los siguientes ejemplos muestran cómo crear, actualizar mediante combinación y eliminar el mismo objeto de atributo personalizado anidado (`most_played_song`) en cada SDK or kit de desarrollo de software.
 
 {% tabs local %}
-{% tab Android SDK %}
+{% tab Android SDK or kit de desarrollo de software %}
 
 **Crear**
 ```kotlin
@@ -172,7 +172,7 @@ braze.getCurrentUser { user ->
 ```
 
 {% endtab %}
-{% tab Swift SDK %}
+{% tab Swift SDK or kit de desarrollo de software %}
 
 **Crear**
 ```swift
@@ -205,7 +205,7 @@ braze.user.unsetCustomAttribute(key: "most_played_song")
 ```
 
 {% endtab %}
-{% tab Web SDK %}
+{% tab Web SDK or kit de desarrollo de software %}
 
 **Crear**
 ```javascript
@@ -240,7 +240,7 @@ braze.getUser().setCustomUserAttribute("most_played_song", null);
 ```
 
 {% endtab %}
-{% tab Unity SDK %}
+{% tab Unity SDK or kit de desarrollo de software %}
 
 **Crear**
 ```csharp
@@ -316,7 +316,7 @@ Para usar Liquid de atributos personalizados anidados en tu mensaje:
 
 1. Ve a una Campaign o Canvas y abre el paso de mensaje donde quieras añadir personalización.
 2. En el creador de mensajes, inserta el fragmento de código Liquid donde quieras que aparezca el valor.
-3. Usa **Preview & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
+3. Usa **vista previa & Test** con un usuario existente que ya tenga el atributo personalizado anidado en su perfil para confirmar que el valor se muestra como se espera.
 
 ### Personalización {#personalization}
 
@@ -408,7 +408,7 @@ Para diagnosticar y resolver este problema:
    - Después de que se genere el esquema, selecciona el icono de más en la columna **Attribute Name** para ese atributo.
    - En el modal **Edit schema**, revisa los atributos anidados y sus valores correspondientes en la columna **Data type**.
 
-Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto utilizando la solicitud de API o el método de SDK apropiado.
+Si encuentras que el tipo de datos no coincide con el formato previsto en los perfiles de usuario, elimina el valor con formato incorrecto de los perfiles de usuario afectados y reenvía el atributo en el formato correcto utilizando la solicitud de API o el método de SDK or kit de desarrollo de software apropiado.
 
 ## Comportamiento de la segmentación con matrices de objetos {#segmentation-behavior-with-arrays-of-objects}
 

@@ -3,12 +3,12 @@ nav_title: Campaign- und Canvas-Attribute über Quellen hinweg
 article_title: Campaign- und Canvas-Attribute über Quellen hinweg
 page_order: 1.5
 page_type: reference
-description: "Dieser Referenzartikel vergleicht die Attributnamen und IDs von Campaigns und Canvas über Liquid, die REST API und Currents hinweg."
+description: "Dieser Referenzartikel vergleicht die Attributnamen und IDs von Campaigns und Canvas über Liquid, die Representational State Transfer API und Currents hinweg."
 ---
 
 # Campaign- und Canvas-Attribute über Quellen hinweg {#campaign-and-canvas-attributes-across-sources}
 
-> Campaign-, Canvas- und Canvas-Schritt-Namen und -IDs sind alle in Liquid, der Braze REST API und Currents verfügbar. Diese Attribute bilden in allen drei Quellen denselben Wert ab, können jedoch unterschiedlich benannt sein. Verwenden Sie diese Seite, um die Zusammenhänge zwischen den drei Quellen herzustellen.
+> Campaign-, Canvas- und Canvas-Schritt-Namen und -IDs sind alle in Liquid, der Braze Representational State Transfer API und Currents verfügbar. Diese Attribute bilden in allen drei Quellen denselben Wert ab, können jedoch unterschiedlich benannt sein. Verwenden Sie diese Seite, um die Zusammenhänge zwischen den drei Quellen herzustellen.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -16,9 +16,9 @@ description: "Dieser Referenzartikel vergleicht die Attributnamen und IDs von Ca
 
 Campaign- und Canvas-Attribute sind als Liquid-Tags im Dashboard verfügbar {% raw %}(z. B. `{{campaign.${api_id}}}`){% endraw %}. Verwenden Sie Liquid, um diese Attribute in der Nachricht selbst, in einem Connected-Content-Aufruf oder als Schlüssel-Wert-Paare zu übergeben. Dies wird in der Regel zu Tracking-Zwecken durchgeführt.
 
-### REST API
+### Representational State Transfer API
 
-Campaign- und Canvas-Attribute sind auch im [Endpunkt „Campaign-Details exportieren“]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) oder im [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) verfügbar. Verwenden Sie die Braze REST API, um Abbildungen zu erstellen – also eine Liste aller Canvas-Namen und ihrer zugehörigen IDs.
+Campaign- und Canvas-Attribute sind auch im [Endpunkt „Campaign-Details exportieren“]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) oder im [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) verfügbar. Verwenden Sie die Braze Representational State Transfer API, um Abbildungen zu erstellen – also eine Liste aller Canvas-Namen und ihrer zugehörigen IDs.
 
 ### Currents
 
@@ -26,7 +26,7 @@ Campaign- und Canvas-Attribute sind mit [Nachrichten-Engagement-Ereignissen]({{s
 
 ## Campaign-Attribute {#campaign-attributes}
 
-| Attribut | Liquid | REST API | Currents |
+| Attribut | Liquid | Representational State Transfer API | Currents |
 | --- | --- | --- | --- |
 | Campaign-Name | {% raw %}`{{campaign.${name}}}`{% endraw %} | `name` | `campaign_name` |
 | Campaign-ID | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A (wird als Eingabe für den API-Aufruf selbst verwendet) | `campaign_id` |
@@ -36,7 +36,7 @@ Campaign- und Canvas-Attribute sind mit [Nachrichten-Engagement-Ereignissen]({{s
 
 ## Canvas-Attribute {#canvas-attributes}
 
-| Attribut | Liquid | REST API | Currents |
+| Attribut | Liquid | Representational State Transfer API | Currents |
 | --- | --- | --- | --- |
 | Canvas-Name | {% raw %}`{{canvas.${name}}}`{% endraw %} | `name` | `canvas_name` |
 | Canvas-ID | {% raw %}`{{canvas.${api_id}}}`{% endraw %} | N/A (wird als Eingabe für den API-Aufruf selbst verwendet) | `canvas_id` |

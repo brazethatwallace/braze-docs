@@ -1,6 +1,6 @@
 ---
-nav_title: "ETL-Ereignis-Pipeline einrichten"
-article_title: Snowflake ETL-Ereignis-Pipeline einrichten
+nav_title: "ETL or Extract, Transform, Load-Ereignis-Pipeline einrichten"
+article_title: Snowflake ETL or Extract, Transform, Load-Ereignis-Pipeline einrichten
 page_order: 2
 description: "Auf dieser Partnerseite finden Sie ein Beispiel für die Einrichtung einer E-Mail-Klick-Abfrage, das Sie bei der Einrichtung Ihrer eigenen Abfragen als Referenz verwenden können."
 page_type: partner
@@ -8,11 +8,11 @@ search_tag: Partner
 
 ---
 
-# ETL-Ereignis-Pipeline einrichten {#etl-event-pipeline-setup}
+# ETL or Extract, Transform, Load-Ereignis-Pipeline einrichten {#etl-event-pipeline-setup}
 
 > Auf dieser Partnerseite finden Sie ein Beispiel für die Einrichtung einer E-Mail-Klick-Abfrage, das Sie bei der Einrichtung Ihrer eigenen Abfragen als Referenz verwenden können.
 
-Sie können diese E-Mail-Klick-Abfrage verwenden, um die Interaktionen mit bestimmten E-Mails in Ihren Braze-Campaigns und Canvases zu analysieren.
+Sie können diese E-Mail-Klick-Abfrage verwenden, um die Interaktionen mit bestimmten E-Mails in Ihren Braze-Campaigns und Canvase zu analysieren.
 
 ## Diese Abfrage einrichten {#set-up-this-query}
 

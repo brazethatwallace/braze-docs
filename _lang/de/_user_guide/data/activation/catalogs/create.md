@@ -61,7 +61,7 @@ Bevor Sie Ihre CSV-Datei hochladen, stellen Sie sicher, dass Ihre CSV-Datei die 
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert note %}
-Benötigen Sie mehr Speicherplatz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze Account Manager, um weitere Informationen über ein Upgrade Ihrer Kataloge zu erhalten.
+Benötigen Sie mehr Speicherplatz für Ihre CSV-Dateien? Wenden Sie sich an Ihren Braze Account Manager:in, um weitere Informationen über ein Upgrade or upgraden Ihrer Kataloge zu erhalten.
 {% endalert %}
 
 ### Schritt 2: CSV hochladen {#step-2-upload-csv}
@@ -177,11 +177,11 @@ Sie können auch [Templates in einem Katalognamen verwenden](#template-catalog-n
 
 ### Schritt 2: Ihren Katalog erstellen {#step-2-create-your-catalog}
 
-Wählen Sie Ihren Katalog aus der Liste aus und wählen Sie dann **Katalog aktualisieren** > **Felder hinzufügen**. Geben Sie den **Feldnamen** ein und verwenden Sie das Dropdown-Menü, um den Datentyp auszuwählen. Wiederholen Sie dies bei Bedarf.
+Wählen Sie Ihren Katalog aus der Liste aus und wählen Sie dann **Katalog Update or aktualisieren or aktualisieren** > **Felder hinzufügen**. Geben Sie den **Feldnamen** ein und verwenden Sie das Dropdown-Menü, um den Datentyp auszuwählen. Wiederholen Sie dies bei Bedarf.
 
 ![Zwei Beispielfelder „rating“ und „name“.]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-Wählen Sie **Katalog aktualisieren** > **Artikel hinzufügen**, um einen Artikel zu Ihrem Katalog hinzuzufügen, indem Sie die Informationen basierend auf den zuvor hinzugefügten Feldern eingeben. Wählen Sie dann **Artikel speichern** oder **Speichern und weiteren hinzufügen**, um weitere Artikel hinzuzufügen.
+Wählen Sie **Katalog Update or aktualisieren or aktualisieren** > **Artikel hinzufügen**, um einen Artikel zu Ihrem Katalog hinzuzufügen, indem Sie die Informationen basierend auf den zuvor hinzugefügten Feldern eingeben. Wählen Sie dann **Artikel speichern** oder **Speichern und weiteren hinzufügen**, um weitere Artikel hinzuzufügen.
 
 ![Einen Katalogartikel hinzufügen.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
@@ -201,7 +201,7 @@ Kataloge unterstützen verschiedene Datentypen, die Ihnen helfen, Ihre Daten eff
 | Time | ISO 8601 oder Unix-Zeitstempel (Sekunden) | `"2024-03-15T14:30:00Z"` | Datums- und Zeitwerte im ISO-8601-Format oder als Unix-Zeitstempel in Sekunden. Entspricht dem Typ `time` in der API und dem Typ `datetime` in CSV-Importen. |
 | Boolean | `true` oder `false` | `true` | Logische Werte, die Wahr- oder Falsch-Zustände darstellen. Entspricht dem Typ `boolean` in CSV- und API-Importen. |
 | Number | Ganzzahl oder Dezimalzahl | `42` oder `19.99` | Numerische Werte einschließlich Ganzzahlen und Gleitkommazahlen für Preise, Mengen, Bewertungen und mehr. Entspricht den Typen `integer` und `float` in CSV-Importen und dem Typ `number` in der API. |
-| Geolocation | `[longitude, latitude]`-Array | `[-73.988103, 40.779109]` | Ein Koordinatenpaar, das einen geografischen Standort darstellt. Der Längengrad muss zwischen -180 und 180 liegen; der Breitengrad muss zwischen -90 und 90 liegen. Der API-`type`-Wert ist `geo`. Kann über die Schaltfläche **Felder hinzufügen** in der Katalog-UI, per CSV-Upload oder über die REST API hinzugefügt werden. |
+| Geolocation | `[longitude, latitude]`-Array | `[-73.988103, 40.779109]` | Ein Koordinatenpaar, das einen geografischen Standort darstellt. Der Längengrad muss zwischen -180 und 180 liegen; der Breitengrad muss zwischen -90 und 90 liegen. Der API-`type`-Wert ist `geo`. Kann über die Schaltfläche **Felder hinzufügen** in der Katalog-UI, per CSV-Upload oder über die Representational State Transfer API hinzugefügt werden. |
 | Object | JSON-Objekt | `{"key": "value", "price": 10}` | Komplexe verschachtelte Datenstrukturen. Der API-`type`-Wert ist `object`. Wird im Dashboard als JSON Object angezeigt. Nur über die API oder Cloud Data Ingestion (CDI) verfügbar. |
 | Array | String-Array | `["red", "blue", "green"]` | Listen von String-Werten. Der API-`type`-Wert ist `array`. Wird im Dashboard als String array angezeigt. Nur über die API oder CDI verfügbar. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
@@ -223,13 +223,13 @@ Bei der Benennung Ihres Katalogs können Sie auch Templates in einem Katalogname
 
 ### Im Dashboard {#in-the-dashboard}
 
-Um Ihren Katalog nach dem Hochladen einer CSV-Datei oder dem Erstellen eines Katalogs im Browser zu aktualisieren, wählen Sie **Katalog aktualisieren > CSV hochladen** und dann, ob Sie Artikel in Ihrem Katalog aktualisieren, hinzufügen oder löschen möchten.
+Um Ihren Katalog nach dem Hochladen einer CSV-Datei oder dem Erstellen eines Katalogs im Browser zu Update or aktualisieren or aktualisieren, wählen Sie **Katalog Update or aktualisieren or aktualisieren > CSV hochladen** und dann, ob Sie Artikel in Ihrem Katalog Update or aktualisieren or aktualisieren, hinzufügen oder löschen möchten.
 
-### Mit der REST API {#using-the-rest-api}
+### Mit der Representational State Transfer API {#using-the-rest-api}
 
 Wenn Sie mehr Kataloge erstellen, können Sie auch den [Endpunkt „Kataloge auflisten“]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) verwenden, um eine Liste der Kataloge in einem Workspace zurückzugeben.
 
-Die REST API unterstützt alle [Katalog-Datentypen](#supported-data-types), einschließlich JSON-Objekte und String-Arrays. JSON-Objekte und String-Arrays können nur über die REST API erstellt oder aktualisiert werden.
+Die Representational State Transfer API unterstützt alle [Katalog-Datentypen](#supported-data-types), einschließlich JSON-Objekte und String-Arrays. JSON-Objekte und String-Arrays können nur über die Representational State Transfer API erstellt oder aktualisiert werden.
 
 ### Mit Cloud Data Ingestion {#using-cloud-data-ingestion}
 
@@ -246,7 +246,7 @@ Wenn Sie beispielsweise einen einzelnen Katalogartikel bearbeiten möchten, kön
 Die kostenlose Version von Catalogs unterstützt CSV-Dateien mit einer Gesamtgröße von bis zu 500 MB für alle CSV-Dateien in Ihrem Unternehmen, während die Catalogs-Pro-Version CSV-Dateien mit einer Größe von bis zu 2 GB für eine einzelne CSV-Datei unterstützt.
 
 {% alert important %}
-Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager.
+Der im Braze-Dashboard angezeigte Paketanspruch wird aus optischen Gründen auf die nächste Einheit gerundet; Sie haben jedoch weiterhin Anspruch auf den vollen erworbenen Umfang. Um ein Upgrade or upgraden für den Katalogspeicher anzufordern, wenden Sie sich an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ### Kostenlose Version {#free-version}

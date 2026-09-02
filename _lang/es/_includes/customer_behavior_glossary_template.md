@@ -58,7 +58,7 @@ Ciertos eventos devuelven un valor `platform` que especifica la plataforma del d
 {% details Consideraciones para eventos de comportamiento del cliente y de usuario %}
 
 - Currents descarta eventos con cargas útiles excesivamente grandes de más de 900&nbsp;KB.
-- Muchos de los eventos en este glosario son iniciados por el SDK. Algunos eventos, como `token_state_change`, pueden ser iniciados por el SDK o por el backend (por ejemplo, en respuesta a un rebote de push). Los campos `sdk_version`, `gender`, `language` y `country` solo se establecen para eventos iniciados por el SDK; para eventos iniciados por el backend, o cuando esa información no está disponible o no se ha establecido para el usuario, estos campos pueden ser `null`.
+- Muchos de los eventos en este glosario son iniciados por el SDK or kit de desarrollo de software. Algunos eventos, como `token_state_change`, pueden ser iniciados por el SDK or kit de desarrollo de software o por el backend (por ejemplo, en respuesta a un rebote de push). Los campos `sdk_version`, `gender`, `language` y `country` solo se establecen para eventos iniciados por el SDK or kit de desarrollo de software; para eventos iniciados por el backend, o cuando esa información no está disponible o no se ha establecido para el usuario, estos campos pueden ser `null`.
 
 {% enddetails %}
 

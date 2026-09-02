@@ -112,7 +112,7 @@ Voici les références de la payload JSON transmise à votre compartiment de sto
 }
 ```
 
-Le champ `extras` contient les paires clé-valeur configurées dans le champ **Email Extras** lors de la rédaction d'un e-mail dans l'éditeur HTML. Les extras d'e-mail sont compatibles avec tous les fournisseurs de services d'e-mailing (y compris SendGrid et SparkPost) et sont inclus dans les messages archivés, quel que soit le fournisseur utilisé. Pour plus d'informations sur la configuration des extras d'e-mail, consultez [Création d'une campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Pour renvoyer des données à Currents, consultez [Suppléments de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
+Le champ `extras` contient les paires clé-valeur configurées dans le champ **Email Extras** lors de la rédaction d'un e-mail dans l'éditeur HTML. Les extras d'e-mail sont compatibles avec tous les fournisseurs de services d'e-mail marketing or e-mailing (y compris SendGrid et SparkPost) et sont inclus dans les messages archivés, quel que soit le fournisseur utilisé. Pour plus d'informations sur la configuration des extras d'e-mail, consultez [Création d'une campagne par e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras). Pour renvoyer des données à Currents, consultez [Suppléments de messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras).
 
 ![Section Email Extras du compositeur d'e-mail avec des champs clé et valeur et l'option Ajouter un nouvel extra.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 

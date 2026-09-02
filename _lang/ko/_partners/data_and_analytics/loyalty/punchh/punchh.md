@@ -20,7 +20,7 @@ Braze와 Punchh 통합을 통해 두 플랫폼 간에 기프팅 및 로열티 �
 ## 이점은 무엇인가요? {#what-are-the-benefits}
 
 - Punchh의 로열티 데이터를 Braze로 실시간으로 수집합니다.
-- Braze의 강력한 오디언스 데이터를 활용하고 레이어링하여 의미 있고 동적인 크로스채널 경험(앱, 모바일, 웹, 이메일, SMS)을 제공합니다.
+- Braze의 강력한 오디언스 데이터를 활용하고 레이어링하여 의미 있고 동적인 크로스채널 경험(앱, 모바일, 웹, 이메일, 단문 메시지 서비스)을 제공합니다.
   - 고객이 이메일을 열었나요? 고객이 매장 근처에서 앱을 열었나요?
 - Braze를 통해 전송되는 트랜잭션 이메일의 디자인과 느낌을 표준화합니다.
 - A/B 테스트와 최적화를 진행하면서 여정을 생성합니다.
@@ -45,7 +45,7 @@ Braze와 Punchh 통합을 통해 두 플랫폼 간에 기프팅 및 로열티 �
 
 - Punchh는 기본 사용자 속성을 Braze로 전송하는 기능을 비활성화할 수 있는 옵션을 추가했습니다. 이를 통해 고객이 데이터 포인트 초과량을 발생시키지 않도록 할 수 있습니다. 이 설정은 어댑터 설정 시 구성됩니다.
 - 반복 Campaign에서 커스텀 Segments를 사용하는 경우, Campaign이 실행될 때마다 ID가 변경되므로 Campaign ID 대신 Campaign 이름을 사용해야 합니다.
-- 각 Punchh 선물 Campaign 내에서 사용할 수 있는 커뮤니케이션 채널에는 리치 메시지, 푸시 알림, SMS, 이메일이 포함됩니다.
+- 각 Punchh 선물 Campaign 내에서 사용할 수 있는 커뮤니케이션 채널에는 리치 메시지, 푸시 알림, 단문 메시지 서비스, 이메일이 포함됩니다.
 - Braze에서 Punchh 커스텀 Segment로 사용자를 전송한 후에는 해당 사용자를 제거할 수 없습니다. 기존 커스텀 Segment에는 새로운 게스트만 추가할 수 있습니다. 기존 Punchh 커스텀 Segment에서 게스트를 제거해야 하는 경우, Braze에서 새로운 웹훅 Campaign을 생성하여 사용자를 새 Punchh 커스텀 Segment로 전송해야 합니다.
 
 ## 통합 {#integration}
@@ -148,7 +148,7 @@ curl --location --request PUT 'https://server_name_goes_here.punchh.com/api2/mob
 Braze와 Punchh 통합을 설정하려면 다음을 수행합니다:
 
 1. Punchh 대시보드에서 **Cockpit** > **Dashboard** > **Major Features** > **Enable Webhook Management**로 이동하여 **Enable Webhook Management**를 토글합니다.<br><br>
-2. 다음으로, **Settings** > **Webhooks Manager** > **Configurations** > **Show Adapters Tab**으로 이동하여 **Show Adapters Tab**을 토글하여 어댑터를 활성화합니다.<br><br>
+2. 다음으로, **Settings** > **Webhooks 매니저** > **Configurations** > **Show Adapters Tab**으로 이동하여 **Show Adapters Tab**을 토글하여 어댑터를 활성화합니다.<br><br>
 3. **Settings** 탭에서 **Webhooks Manager**로 이동하고, **Adapters** 탭을 선택한 다음 **Create Adapter**를 클릭합니다. <br><br>![Create Adapter가 선택된 Punchh Webhooks Manager Adapters 탭]({% image_buster /assets/img/punchh/punchh1.png %})<br><br>
 4. 어댑터 이름, 설명 및 관리자 이메일을 입력합니다. 어댑터로 **Braze**를 선택하고 Braze REST API 엔드포인트와 Braze API 키를 제공합니다.<br><br>
 5. 다음으로, 활성화할 동기화 가능한 이벤트를 선택합니다. 이벤트 목록은 [동기화 가능한 이벤트](#available-events-to-sync)에서 확인할 수 있습니다.<br><br>![Braze 동기화를 위한 선택 가능한 이벤트가 표시된 Punchh 어댑터 설정]({% image_buster /assets/img/punchh/punchh3.png %})<br><br>

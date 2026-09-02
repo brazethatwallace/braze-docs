@@ -30,7 +30,7 @@ OpenAI로 전송되는 각 요청 페이로드에는 다음이 포함될 수 있
 
 ### 하위 처리자 또는 서드파티 제공자로서의 모델 제공자 {#model-providers-as-sub-processors-or-third-party-providers}
 
-Braze 서비스를 통해 Braze가 제공하는 LLM 제공자와의 통합("Braze 제공 LLM")을 사용하는 경우, 해당 Braze 제공 LLM의 제공자는 귀하와 Braze 간의 데이터 처리 부록(DPA) 조건에 따라 Braze 하위 처리자로 활동합니다. BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합됩니다.
+Braze 서비스를 통해 Braze가 제공하는 LLM 제공자와의 통합("Braze 제공 LLM")을 사용하는 경우, 해당 Braze 제공 LLM의 제공자는 귀하와 Braze 간의 데이터 처리 부록(데이터 보호 어드바이저) 조건에 따라 Braze 하위 처리자로 활동합니다. BrazeAI Operator<sup>TM</sup>는 OpenAI와 통합됩니다.
 
 ### OpenAI에서 데이터가 사용되는 방식 {#how-data-is-used-with-openai}
 
@@ -58,7 +58,7 @@ Operator를 통해 전송된 데이터를 OpenAI가 유지하는 기간은 클�
 
 ### 모델 교육 {#model-training}
 
-Braze를 통해 OpenAI의 API로 전송된 데이터는 OpenAI 모델을 교육하거나 개선하는 데 사용되지 않습니다. 이는 Braze와 OpenAI 간의 계약 및 OpenAI의 API 플랫폼 약속에 의해 규율됩니다. OpenAI는 Braze 하위 처리자로 활동하며, 모든 개인 데이터는 Braze와 클라이언트 간의 DPA에 따릅니다.
+Braze를 통해 OpenAI의 API로 전송된 데이터는 OpenAI 모델을 교육하거나 개선하는 데 사용되지 않습니다. 이는 Braze와 OpenAI 간의 계약 및 OpenAI의 API 플랫폼 약속에 의해 규율됩니다. OpenAI는 Braze 하위 처리자로 활동하며, 모든 개인 데이터는 Braze와 클라이언트 간의 데이터 보호 어드바이저에 따릅니다.
 
 ### EU 데이터 라우팅 {#eu-data-routing}
 

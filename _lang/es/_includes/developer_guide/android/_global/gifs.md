@@ -14,7 +14,7 @@ El delegado del cargador de imágenes debe implementar los siguientes métodos:
 * [`renderUrlIntoInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/render-url-into-in-app-message-view.html)
 * [`setOffline()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/set-offline.html)
 
-El siguiente ejemplo de integración está tomado de la [aplicación de ejemplo de integración con Glide](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) incluida con el SDK de Braze para Android.
+El siguiente ejemplo de integración está tomado de la [aplicación de ejemplo de integración con Glide](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) incluida con el SDK or kit de desarrollo de software de Braze para Android.
 
 {% tabs %}
 {% tab JAVA %}
@@ -160,9 +160,9 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
 {% endtab %}
 {% endtabs %}
 
-### Corrección de la carga de imágenes para Android SDK 36.0.0 y posteriores {#fixing-image-loading-for-android-sdk-3600-and-later}
+### Corrección de la carga de imágenes para Android SDK or kit de desarrollo de software 36.0.0 y posteriores {#fixing-image-loading-for-android-sdk-3600-and-later}
 
-En Android SDK 36.0.0 y posteriores, `displayInAppMessage()` es una función `suspend`. Esto significa que `renderUrlIntoInAppMessageView()` se ejecuta en un hilo en segundo plano en lugar del hilo principal.
+En Android SDK or kit de desarrollo de software 36.0.0 y posteriores, `displayInAppMessage()` es una función `suspend`. Esto significa que `renderUrlIntoInAppMessageView()` se ejecuta en un hilo en segundo plano en lugar del hilo principal.
 
 Si tu cargador de imágenes personalizado llama a `Glide.into(imageView)` en `renderUrlIntoInAppMessageView()`, tu aplicación puede fallar con el error "You must call this method on the main thread."
 
@@ -172,7 +172,7 @@ Para evitar esto:
 2. Publica la actualización de la interfaz de usuario en el hilo principal con `imageView.post { ... }`.
 3. Si el resultado cargado es un drawable GIF, inicia la animación después de configurarlo en la vista.
 
-Esto separa la carga de imágenes del renderizado de la interfaz de usuario y mantiene tu cargador de imágenes personalizado compatible con Android SDK 36.0.0 y posteriores.
+Esto separa la carga de imágenes del renderizado de la interfaz de usuario y mantiene tu cargador de imágenes personalizado compatible con Android SDK or kit de desarrollo de software 36.0.0 y posteriores.
 
 Esta guía aplica a cargadores de imágenes personalizados de Android. Los mensajes dentro de la aplicación Web admiten GIF de forma nativa.
 
@@ -208,7 +208,7 @@ private fun renderUrlIntoView(
 
 ### Paso 2: Configurar el delegado del cargador de imágenes {#step-2-setting-the-image-loader-delegate}
 
-El SDK de Braze utilizará cualquier cargador de imágenes personalizado configurado con [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html). Recomendamos configurar el cargador de imágenes personalizado en una subclase personalizada de la aplicación:
+El SDK or kit de desarrollo de software de Braze utilizará cualquier cargador de imágenes personalizado configurado con [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html). Recomendamos configurar el cargador de imágenes personalizado en una subclase personalizada de la aplicación:
 
 {% tabs %}
 {% tab JAVA %}
@@ -242,7 +242,7 @@ class GlideIntegrationApplication : Application() {
 
 Si las imágenes dejan de cargarse después de configurar un [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html) personalizado (por ejemplo, con Glide), verifica si un interceptor global de OkHttp está añadiendo encabezados de autenticación a cada solicitud.
 
-El ejemplo de Glide en esta página utiliza la misma ruta de carga para Content Cards, mensajes dentro de la aplicación y push. Las imágenes alojadas en Braze son URLs de CDN y no utilizan la autenticación de tu REST API. Limita el alcance de los interceptores a los hosts de tu propia API, o excluye los hosts de imágenes de Braze. Una imagen de Content Cards que falla tras una integración con Glide es un síntoma común de este patrón de interceptor.
+El ejemplo de Glide en esta página utiliza la misma ruta de carga para Content Cards, mensajes dentro de la aplicación y push. Las imágenes alojadas en Braze son URLs de CDN y no utilizan la autenticación de tu REST or transferencia de estado representacional API. Limita el alcance de los interceptores a los hosts de tu propia API, o excluye los hosts de imágenes de Braze. Una imagen de Content Cards que falla tras una integración con Glide es un síntoma común de este patrón de interceptor.
 
 ## Carga de imágenes personalizada con Jetpack Compose {#custom-image-loading-with-jetpack-compose}
 

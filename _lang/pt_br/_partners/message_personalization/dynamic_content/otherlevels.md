@@ -16,7 +16,7 @@ search_tag: OtherLevels
 
 ## Visão geral {#overview}
 
-A integração entre a Braze e a OtherLevels permite criar vídeos GenAI personalizados por meio de chamadas de API para a OtherLevels Experience Platform e, em seguida, enviar esses vídeos aos seus usuários como vídeos push para iOS por meio do [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+A integração entre a Braze e a OtherLevels permite criar vídeos GenAI personalizados por meio de chamadas de API or interface de programação do aplicativo (API) para a OtherLevels Experience Platform e, em seguida, enviar esses vídeos aos seus usuários como vídeos push para iOS por meio do [Conteúdo conectado da Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 Ofereça aos seus usuários uma experiência melhor com as experiências baseadas em IA da OtherLevels. Transforme conteúdo existente e de terceiros em vídeo altamente escalável e mídia avançada para públicos que já consomem conteúdo de forma diferente e respondem fortemente a experiências contextualmente personalizadas.
 
@@ -27,11 +27,11 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito          | Descrição                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta OtherLevels   | É necessário ter uma conta OtherLevels para aproveitar essa parceria.                                                                     |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões de `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Um endpoint REST da Braze | [Seu URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
+| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze  | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões de `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Um endpoint REST or transferir estado representacional da Braze | [Seu URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-Essa integração requer a chamada da API da OtherLevels Experience Platform como parte do processo de geração de vídeo antes que as mensagens possam ser enviadas aos seus usuários pela Braze. Exemplos de cURL são fornecidos como parte desta documentação, mas recomendamos o uso de clientes de API como o Postman para automatizar as chamadas de API.
+Essa integração requer a chamada da API or interface de programação do aplicativo (API) da OtherLevels Experience Platform como parte do processo de geração de vídeo antes que as mensagens possam ser enviadas aos seus usuários pela Braze. Exemplos de cURL são fornecidos como parte desta documentação, mas recomendamos o uso de clientes de API or interface de programação do aplicativo (API) como o Postman para automatizar as chamadas de API or interface de programação do aplicativo (API).
 
 ## Casos de uso {#use-cases}
 
@@ -42,15 +42,15 @@ Use os vídeos GenAI criados com a OtherLevels Experience Platform para:
 
 ## Integração da OtherLevels Experience Platform {#integrating-the-otherlevels-experience-platform}
 
-### Etapa 1: Chame a API da OtherLevels Experience Platform para gerar um vídeo {#step-1}
+### Etapa 1: Chame a API or interface de programação do aplicativo (API) da OtherLevels Experience Platform para gerar um vídeo {#step-1}
 
-A primeira etapa da integração envolve chamar a API da OtherLevels Experience Platform para gerar um novo vídeo. Note que a geração de vídeo não é instantânea. Dependendo da duração e da complexidade do vídeo, o conteúdo pode levar até meia hora para ser gerado. Planeje suas programações de envio de mensagens e chamadas de API adequadamente para que as chamadas de API para gerar vídeos sejam feitas com antecedência suficiente em relação ao horário programado de envio das mensagens da Braze.
+A primeira etapa da integração envolve chamar a API or interface de programação do aplicativo (API) da OtherLevels Experience Platform para gerar um novo vídeo. Note que a geração de vídeo não é instantânea. Dependendo da duração e da complexidade do vídeo, o conteúdo pode levar até meia hora para ser gerado. Planeje suas programações de envio de mensagens e chamadas de API or interface de programação do aplicativo (API) adequadamente para que as chamadas de API or interface de programação do aplicativo (API) para gerar vídeos sejam feitas com antecedência suficiente em relação ao horário programado de envio das mensagens da Braze.
 
 {% alert important %}
-A solicitação a seguir usa cURL. Para um gerenciamento mais eficiente das solicitações de API, recomendamos o uso de um cliente de API como o Postman.
+A solicitação a seguir usa cURL. Para um gerenciamento mais eficiente das solicitações de API or interface de programação do aplicativo (API), recomendamos o uso de um cliente de API or interface de programação do aplicativo (API) como o Postman.
 {% endalert %}
 
-Consulte o exemplo a seguir para saber como estruturar sua chamada de API. Para saber mais sobre como personalizar os detalhes do vídeo e estruturar sua chamada de API, consulte [Personalização do vídeo GenAI](#customizing-the-genai-video).
+Consulte o exemplo a seguir para saber como estruturar sua chamada de API or interface de programação do aplicativo (API). Para saber mais sobre como personalizar os detalhes do vídeo e estruturar sua chamada de API or interface de programação do aplicativo (API), consulte [Personalização do vídeo GenAI](#customizing-the-genai-video).
 
 {% raw %}
 ```bash
@@ -132,11 +132,11 @@ Substitua o seguinte:
 | `TALENT_TEMPLATE` | Um ID de modelo de talento. A OtherLevels trabalhará com você durante o provisionamento da conta para criar um talento (avatar). Você receberá um ou vários IDs de talento que podem ser usados.                                                 |
 | `TALENT_MODEL` | Um ID de modelo de talento. A OtherLevels trabalhará com você durante o provisionamento da conta para criar um talento (avatar). Você receberá um ou vários modelos de talento que podem ser usados.                                                 |
 | `INSERT_SCRIPT` | O roteiro exato que você gostaria que o talento dissesse durante o vídeo.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Chame a API da OtherLevels Experience Platform para gerar um vídeo" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Chame a API or interface de programação do aplicativo (API) da OtherLevels Experience Platform para gerar um vídeo" }
 
-Como parte da resposta da API, a OtherLevels retornará uma carga útil JSON indicando uma chamada de API bem-sucedida. O JSON conterá um `recipe_id` exclusivo para identificar o vídeo gerado. O `recipe_id` será necessário na próxima etapa.
+Como parte da resposta da API or interface de programação do aplicativo (API), a OtherLevels retornará uma carga útil JSON indicando uma chamada de API or interface de programação do aplicativo (API) bem-sucedida. O JSON conterá um `recipe_id` exclusivo para identificar o vídeo gerado. O `recipe_id` será necessário na próxima etapa.
 
-Aqui está um exemplo de resposta da API:
+Aqui está um exemplo de resposta da API or interface de programação do aplicativo (API):
 
 {% raw %}
 ```bash
@@ -151,7 +151,7 @@ O `recipe_id` recebido na [Etapa 1](#step-1) agora é definido como um atributo 
 Dependendo do seu caso de uso, você pode ter gerado um único vídeo destinado a um grande público e, nesse caso, o mesmo `recipe_id` pode ser definido para vários usuários. Como alternativa, você pode ter gerado vários vídeos exclusivos, cada um direcionado a um usuário diferente; nesse caso, cada usuário deve ter seu `recipe_id` personalizado definido como atributos personalizados da Braze.
 
 {% alert important %}
-A solicitação a seguir usa cURL. Para um gerenciamento mais eficiente das solicitações de API, recomendamos o uso de um cliente de API como o Postman.
+A solicitação a seguir usa cURL. Para um gerenciamento mais eficiente das solicitações de API or interface de programação do aplicativo (API), recomendamos o uso de um cliente de API or interface de programação do aplicativo (API) como o Postman.
 {% endalert %}
 
 {% raw %}
@@ -174,10 +174,10 @@ Substitua o seguinte:
 
 | Espaço reservado             | Descrição                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | O URL do endpoint REST da Braze da sua instância atual. Para saber mais, consulte [Chaves da API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
-| `BRAZE_API_KEY`         | Sua chave da API REST da Braze com a permissão `users.track`.                                                                                                                                      |
+| `BRAZE_API_ENDPOINT`    | O URL do endpoint REST or transferir estado representacional da Braze da sua instância atual. Para saber mais, consulte [Chaves da API or interface de programação do aplicativo (API) REST or transferir estado representacional]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
+| `BRAZE_API_KEY`         | Sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com a permissão `users.track`.                                                                                                                                      |
 | `USER_ID`              | O ID do usuário que receberá esse vídeo específico. Para mais exemplos dos identificadores que podem ser usados, consulte [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).                                                                                                                                                  |
-| `RECIPE_ID`       | O `recipe_id` recebido da resposta da API da OtherLevels na [Etapa 1](#step-1).                                                                                                                                                                            |
+| `RECIPE_ID`       | O `recipe_id` recebido da resposta da API or interface de programação do aplicativo (API) da OtherLevels na [Etapa 1](#step-1).                                                                                                                                                                            |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Definir o recipe_id como um atributo personalizado" }
 
 ### Etapa 3: Envio por meio do Conteúdo conectado da Braze {#step-3-sending-through-braze-connected-content}
@@ -235,7 +235,7 @@ As opções de sobreposição de vídeo podem ser especificadas na chave `image_
 
 Como parte do provisionamento, a OtherLevels trabalhará com você para gerar um ou vários talentos (às vezes chamados de avatares) para uso em seus vídeos. Dependendo do seu caso de uso e da sua marca, isso pode ser feito na forma de um dos embaixadores existentes da sua marca ou de uma criação exclusiva.
 
-Depois que forem criados, você receberá IDs `TALENT_TEMPLATE` e `TALENT_MODEL` utilizáveis para usar com nossa API.
+Depois que forem criados, você receberá IDs `TALENT_TEMPLATE` e `TALENT_MODEL` utilizáveis para usar com nossa API or interface de programação do aplicativo (API).
 
 O modelo de voz usado para processar scripts de entrada funciona melhor quando você fornece um roteiro natural que um ser humano leria. Na maioria dos casos, você não precisa de pontuação extra para orientar manualmente o roteiro. No entanto, recomendamos testar todos os seus roteiros antes de enviá-los a um público real. A velocidade com que o talento lê o roteiro pode ser especificada na chave `talking_talent_speed`.
 

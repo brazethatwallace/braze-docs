@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt angepasste Event-Eigenschaften, ihr erwa
 
 > Dieser Artikel beschreibt angepasste Event-Eigenschaften, ihr erwartetes Format, wie Sie sie für Messaging und Segmentierung verwenden können und die Speicherung angepasster Event-Eigenschaften.
 
-Angepasste Event-Eigenschaften sind Metadaten oder Attribute eines angepassten Events, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu erhöhen, Conversions zu tracken und durch den Export von Rohdaten anspruchsvollere Analytics zu erstellen.
+Angepasste Event-Eigenschaften sind Metadaten oder Attribute eines angepassten Events, die ein bestimmtes Vorkommen eines Events beschreiben. Diese Eigenschaften können verwendet werden, um Trigger or triggern-Bedingungen weiter zu qualifizieren, die Personalisierung im Messaging zu erhöhen, Conversions zu tracken und durch den Export von Rohdaten anspruchsvollere Analytics zu erstellen.
 
 Angepasste Event-Eigenschaften werden nicht im Braze-Profil gespeichert und verbrauchen daher keine Datenpunkte (siehe [Datenpunkte](#data-points) für Ausnahmen).
 
@@ -44,9 +44,9 @@ Sie können keine reservierten Schlüssel als Event-Eigenschaftsnamen verwenden.
 
 ## Angepasste Event-Eigenschaften verwenden {#using-custom-event-properties}
 
-Angepasste Event-Eigenschaften können verwendet werden, um Campaign-Trigger zu qualifizieren, Konversionen zu tracken und Nachrichten zu personalisieren.
+Angepasste Event-Eigenschaften können verwendet werden, um Campaign-Trigger or triggern zu qualifizieren, Konversionen zu tracken und Nachrichten zu personalisieren.
 
-### Nachrichten triggern {#trigger-messages}
+### Nachrichten Trigger or triggern or triggern {#trigger-messages}
 
 Verwenden Sie angepasste Event-Eigenschaften, um Ihre Zielgruppe für eine bestimmte Campaign oder ein Canvas weiter einzugrenzen. Wenn Sie beispielsweise eine E-Commerce-Anwendung haben und eine Nachricht an Nutzer:innen senden möchten, wenn diese ihren Warenkorb abbrechen, können Sie eine angepasste Event-Eigenschaft `price` hinzufügen, um Ihre Zielgruppe zu verbessern und eine stärkere Campaign-Personalisierung zu ermöglichen.
 
@@ -58,7 +58,7 @@ Verschachtelte angepasste Event-Eigenschaften werden auch bei der [aktionsbasier
 
 ### Nachrichten personalisieren {#personalize-messages}
 
-Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit einem Trigger-Event verwendet, kann angepasste Event-Eigenschaften dieses Events für die Messaging-Personalisierung nutzen.
+Sie können angepasste Event-Eigenschaften auch zur Personalisierung innerhalb des Messaging-Templates verwenden. Jede Campaign, die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit einem Trigger or triggern-Event verwendet, kann angepasste Event-Eigenschaften dieses Events für die Messaging-Personalisierung nutzen.
 
 #### Hinweise zu Filtern {#considerations-with-filters}
 
@@ -111,7 +111,7 @@ In Canvas dienen `context` und `event_properties` unterschiedlichen Zwecken:
 - **`event_properties`**: Eigenschaften eines angepassten Events oder Kaufs, der während der Journey stattfindet. Verwenden Sie sie nur im ersten Nachrichtenschritt nach einem [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)-Schritt – nicht auf dem „Alle anderen“-Pfad und nicht in späteren Nachrichtenschritten.
 
 {% alert important %}
-Verwenden Sie im ersten Nachrichtenschritt eines Canvas `context` anstelle von `event_properties`, oder fügen Sie einen Aktionspfade-Schritt vor dem Nachrichtenschritt hinzu. Ausnahme: Bei In-App-Nachrichten können Sie `event_properties` im ersten Nachrichtenschritt verwenden, wenn dieses Event der Canvas-Entry-Trigger ist.
+Verwenden Sie im ersten Nachrichtenschritt eines Canvas `context` anstelle von `event_properties`, oder fügen Sie einen Aktionspfade-Schritt vor dem Nachrichtenschritt hinzu. Ausnahme: Bei In-App-Nachrichten können Sie `event_properties` im ersten Nachrichtenschritt verwenden, wenn dieses Event der Canvas-Entry-Trigger or triggern ist.
 {% endalert %}
 
 Weitere Informationen finden Sie unter [Kontext und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) und [Canvas-Entry-Eigenschaften und Event-Eigenschaften](#canvas-entry-properties-and-event-properties).
@@ -126,7 +126,7 @@ Event-Eigenschaften für angepasste Events werden in Echtzeit für jedes Segment
 
 Sie benötigen die Nutzerberechtigung „Edit Custom Event Property Segmentation“ ([Nutzerberechtigung]({{site.baseurl}}/user_guide/data/infrastructure/data_points#viewing-data-point-usage)), um Segmente basierend auf der Aktualität und Häufigkeit von Event-Eigenschaften zu erstellen.
 
-Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Wenden Sie sich an Ihren Braze Account Manager, um dieses Limit zu erhöhen.
+Standardmäßig können Sie 20 segmentierbare Event-Eigenschaften pro Workspace haben. Wenden Sie sich an Ihren Braze Account Manager:in, um dieses Limit zu erhöhen.
 
 Um Event-Eigenschaften für die Segmentierung hinzuzufügen, gehen Sie wie folgt vor:
 
@@ -150,11 +150,11 @@ In Bezug auf die Abo-Nutzung werden angepasste Event-Eigenschaften, die für die
 
 ### Canvas-Entry-Eigenschaften und Event-Eigenschaften {#canvas-entry-properties-and-event-properties}
 
-{% multi_lang_include canvas/entry_event_properties.md %}
+{% multi_lang_include Canvas/entry_event_properties.md %}
 
 ### Verschachtelte Objekte {#nested-objects}
 
-Sie können verschachtelte Objekte (Objekte innerhalb eines anderen Objekts) verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können für die Vorlagenerstellung personalisierter Informationen in Nachrichten, das Triggern von Nachrichtenversand und die Segmentierung von Nutzer:innen verwendet werden.
+Sie können verschachtelte Objekte (Objekte innerhalb eines anderen Objekts) verwenden, um verschachtelte JSON-Daten als Eigenschaften von angepassten Events und Käufen zu senden. Diese verschachtelten Daten können für die Vorlagenerstellung personalisierter Informationen in Nachrichten, das Trigger or triggern or triggern von Nachrichtenversand und die Segmentierung von Nutzer:innen verwendet werden.
 
 Weitere Informationen finden Sie auf unserer speziellen Seite zu [Verschachtelte Objekte]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
@@ -167,4 +167,4 @@ Sie können auf zwei Arten basierend auf den Werten von Event-Eigenschaften segm
 1. **Innerhalb von 30 Tagen:** Sie können die Segmentierung nach Event-Eigenschaften basierend auf der Häufigkeit und Aktualität bestimmter Event-Eigenschaftswerte innerhalb von Braze-Segments nutzen. Diese Option wirkt sich auf die Datennutzung aus.<br><br>
 2. **Innerhalb und über 30 Tage hinaus:** Um sowohl kurzfristige als auch langfristige Segmentierung nach Event-Eigenschaften abzudecken, können Sie [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verwenden. Dieses Feature segmentiert Nutzer:innen basierend auf angepassten Events und Event-Eigenschaften, die innerhalb der letzten zwei Jahre erfasst wurden. Diese Option wirkt sich nicht auf die Datennutzung aus.
 
-Wenden Sie sich an Ihren Customer-Success-Manager bei Braze, um Empfehlungen zum besten Ansatz für Ihre spezifischen Anforderungen zu erhalten.
+Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in bei Braze, um Empfehlungen zum besten Ansatz für Ihre spezifischen Anforderungen zu erhalten.

@@ -11,7 +11,7 @@ description: "En este artículo se describen los detalles del endpoint de Braze 
 {% api %}
 # Actualizar Canvas programados desencadenados por la API {#update-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/trigger/schedule/update
+/Canvas/trigger/schedule/update
 {% endapimethod %}
 
 > Utiliza este endpoint para actualizar los Canvas programados desencadenados por la API que se crearon en el panel.

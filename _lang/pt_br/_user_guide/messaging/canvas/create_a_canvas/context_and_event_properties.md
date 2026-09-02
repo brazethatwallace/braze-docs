@@ -15,7 +15,7 @@ local_redirect:
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-As propriedades de contexto e as propriedades de evento funcionam de maneira diferente nos seus fluxos de trabalho do Canvas. As propriedades de eventos ou chamadas de API que disparam a entrada de um usuário em um Canvas são conhecidas como `context`. As propriedades de eventos que ocorrem enquanto um usuário avança em uma jornada do Canvas são conhecidas como `event_properties`. A diferença principal é que `context` vai além dos eventos, acessando também as propriedades das cargas úteis de entrada em Canvas disparados por API.
+As propriedades de contexto e as propriedades de evento funcionam de maneira diferente nos seus fluxos de trabalho do Canvas. As propriedades de eventos ou chamadas de API or interface de programação do aplicativo (API) que disparam a entrada de um usuário em um Canvas são conhecidas como `context`. As propriedades de eventos que ocorrem enquanto um usuário avança em uma jornada do Canvas são conhecidas como `event_properties`. A diferença principal é que `context` vai além dos eventos, acessando também as propriedades das cargas úteis de entrada em Canvas disparados por API or interface de programação do aplicativo (API).
 
 Consulte a tabela a seguir para um resumo das diferenças entre propriedades de contexto e de evento.
 
@@ -32,7 +32,7 @@ Não é mais possível criar ou duplicar Canvas usando o editor original. Observ
 
 **Propriedades de entrada do Canvas:**
 - É necessário ter as propriedades de entrada persistentes ativadas.
-- Só podem referenciar `canvas_entry_properties` na primeira etapa completa de um Canvas. O Canvas deve ser baseado em ação ou disparado por API.
+- Só podem referenciar `canvas_entry_properties` na primeira etapa completa de um Canvas. O Canvas deve ser baseado em ação ou disparado por API or interface de programação do aplicativo (API).
 
 **Propriedades de entrada:**
 - Podem referenciar `event_properties` em qualquer etapa completa que use entrega baseada em ação em um Canvas.
@@ -51,7 +51,7 @@ Não é mais possível criar ou duplicar Canvas usando o editor original. Observ
 - Quando uma etapa de jornada de ação contém um disparador "Sent an SMS Inbound Message" ou "Sent a WhatsApp Inbound Message", as etapas subsequentes do Canvas podem incluir uma propriedade Liquid de SMS ou WhatsApp. Isso reflete como as propriedades de evento funcionam em Canvas. Dessa forma, você pode alavancar suas mensagens para salvar e referenciar dados primários em perfis de usuário e envio de mensagens conversacionais.
 
 {% alert note %}
-A elegibilidade do público é avaliada uma única vez na entrada do Canvas. Se um usuário for mesclado durante a entrada, o usuário identificado continua pelo Canvas e não é reavaliado em relação aos critérios de Segment do Canvas.
+A elegibilidade do público é avaliada uma única vez na entrada do Canvas. Se um usuário for mesclado durante a entrada, o usuário identificado continua pelo Canvas e não é reavaliado em relação aos critérios de Segment or segmento do Canvas.
 {% endalert %}
 
 {% multi_lang_include alerts/tip_alerts.md alert='Reference properties from triggering event' %}

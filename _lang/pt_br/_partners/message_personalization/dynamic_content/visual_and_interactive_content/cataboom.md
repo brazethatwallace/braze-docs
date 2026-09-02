@@ -24,13 +24,13 @@ Antes de começar, você precisa do seguinte:
 | Pré-requisito | Descrição |
 | --- | --- |
 | Conta na Catapult | É necessária uma conta na Catapult para usar essa integração. |
-| Chave da API REST da Braze (opcional) | Se você usar webhooks da Catapult, precisará de uma chave da API REST da Braze com as permissões de dados de usuários que seu caso de uso exige. Crie a chave na Braze em **Configurações** > **APIs e Identificadores** > **Chaves de API**. |
-| Endpoint REST da Braze (opcional) | Se você usar webhooks da Catapult, use a URL do endpoint REST que corresponde à URL da Braze para a [sua instância da Braze]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze (opcional) | Se você usar webhooks da Catapult, precisará de uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões de dados de usuários que seu caso de uso exige. Crie a chave na Braze em **Configurações** > **APIs e Identificadores** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze (opcional) | Se você usar webhooks da Catapult, use a URL do endpoint REST or transferir estado representacional que corresponde à URL da Braze para a [sua instância da Braze]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Etapa 1: Crie sua experiência de jogo {#step-1-create-your-game-experience}
 
-Crie sua experiência de jogo na plataforma Catapult. As etapas a seguir mostram uma configuração simples de roleta que usa a API Request Unique URL na página **Link Configuration**. A CataBoom oferece mais de 200 opções de jogos, incluindo mecânicas baseadas em sorte, mecânicas baseadas em habilidade e utilitários como cartões de fidelidade e colecione-e-ganhe. Você pode seguir um fluxo semelhante para outros tipos de jogos. Para saber mais sobre a CataBoom e o Catapult, consulte [o site da CataBoom](https://www.cataboom.com).
+Crie sua experiência de jogo na plataforma Catapult. As etapas a seguir mostram uma configuração simples de roleta que usa a API or interface de programação do aplicativo (API) Request Unique URL na página **Link Configuration**. A CataBoom oferece mais de 200 opções de jogos, incluindo mecânicas baseadas em sorte, mecânicas baseadas em habilidade e utilitários como cartões de fidelidade e colecione-e-ganhe. Você pode seguir um fluxo semelhante para outros tipos de jogos. Para saber mais sobre a CataBoom e o Catapult, consulte [o site da CataBoom](https://www.cataboom.com).
 
 1. Crie a campanha.
 
@@ -39,11 +39,11 @@ Selecione **New Campaign** na área de navegação superior. Insira um nome para
 ![Formulário New Campaign do dashboard da CataBoom com campos de nome da campanha, URL, categoria do jogo e tipo de jogo.]({% image_buster /assets/img/cataboom/new_campaign.png %})
 
 {: start="2"}
-2. Ative a API Request Unique URL.
+2. Ative a API or interface de programação do aplicativo (API) Request Unique URL.
 
 No menu de navegação, selecione **Link Configuration**.
 
-Na página **Link Configuration**, ative **Request Unique URL API**. Essa opção cria uma URL de sistema para sistema que você pode usar posteriormente na Braze, como em um cartão de conteúdo.
+Na página **Link Configuration**, ative **Request Unique URL API or interface de programação do aplicativo (API)**. Essa opção cria uma URL de sistema para sistema que você pode usar posteriormente na Braze, como em um cartão de conteúdo.
 
 ![Página Link Configuration da CataBoom com a Request Unique URL API ativada e a URL da API visível.]({% image_buster /assets/img/cataboom/link_configuration.png %})
 
@@ -100,7 +100,7 @@ Substitua a URL base e os parâmetros de consulta `username` e `password` pelos 
 ```
 {% endraw %}
 
-Use o `result` salvo no seu cartão (por exemplo, como a URL do link ou no corpo da mensagem). Siga o formato de resposta da API do CataBoom para a sua campanha. Para saber mais sobre parâmetros de consulta e Liquid em URLs, consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+Use o `result` salvo no seu cartão (por exemplo, como a URL do link ou no corpo da mensagem). Siga o formato de resposta da API or interface de programação do aplicativo (API) do CataBoom para a sua campanha. Para saber mais sobre parâmetros de consulta e Liquid em URLs, consulte [Fazendo uma chamada de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 ![Criador de cartão de conteúdo da Braze mostrando Connected Content no campo de mensagem e uma prévia mobile do cartão.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 

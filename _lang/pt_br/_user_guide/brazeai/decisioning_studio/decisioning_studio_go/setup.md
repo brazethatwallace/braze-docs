@@ -29,39 +29,39 @@ Se o seu espaço de trabalho não foi provisionado para o Decisioning Studio Go,
 1. No dashboard da Braze, acesse a guia **AI Decisioning**.
 2. Selecione **Create Agent**.
 3. Dê ao seu agente um nome que o diferencie de outros agentes no seu espaço de trabalho. Um exemplo seria "Membros Fidelidade—Engajamento Semanal" em vez de "Agente de E-mail".
-4. (Opcional) Adicione uma descrição para fornecer contexto que você ou um colega de equipe possam precisar depois. Isso pode incluir para que o agente serve, qual Segment ele direciona e como é o sucesso.
+4. (Opcional) Adicione uma descrição para fornecer contexto que você ou um colega de equipe possam precisar depois. Isso pode incluir para que o agente serve, qual Segment or segmento ele direciona e como é o sucesso.
 
 
 O agente otimiza o criativo do seu e-mail para maximizar o engajamento genuíno, medido pela atividade de cliques significativos por usuário. Os cliques passam por múltiplos filtros de validação independentes que filtram atividades automatizadas e cliques relacionados a cancelamento de inscrição, de modo que o sinal reflete o interesse real do cliente em vez do volume bruto de cliques.
 
 ## Etapa 2: Selecione o público-alvo {#step-2-select-the-target-audience}
 
-Selecione o Segment da Braze para o qual seu agente envia mensagens. Os usuários nesse Segment são automaticamente divididos em dois grupos:
+Selecione o Segment or segmento da Braze para o qual seu agente envia mensagens. Os usuários nesse Segment or segmento são automaticamente divididos em dois grupos:
 
 - **Grupo do Decisioning Studio:** Recebe conteúdo de e-mail otimizado por IA. O agente escolhe a melhor combinação de variantes para cada usuário.
-- **Grupo de controle aleatório:** No mínimo, 5% do Segment. Recebe combinações selecionadas aleatoriamente das mesmas opções em dias selecionados aleatoriamente. Esse grupo é obrigatório.
+- **Grupo de controle aleatório:** No mínimo, 5% do Segment or segmento. Recebe combinações selecionadas aleatoriamente das mesmas opções em dias selecionados aleatoriamente. Esse grupo é obrigatório.
 
 ![Um Segment selecionado com 1.100 usuários estimados.]({% image_buster /assets/img/decisioning_studio_go/audience_details.png %})
 
-### Por que um Segment dedicado é importante {#why-a-dedicated-segment-matters}
+### Por que um Segment or segmento dedicado é importante {#why-a-dedicated-segment-matters}
 
-Se os usuários no Segment selecionado também recebem mensagens de outros Canvas ou Campaigns, o engajamento que o agente observa é afetado por essas outras mensagens. O agente não consegue distinguir se um usuário clicou por causa de suas decisões ou por outro motivo. Um alerta é exibido se o Segment selecionado estiver em uso em outro lugar. Você pode prosseguir, mas espere resultados com mais ruído.
+Se os usuários no Segment or segmento selecionado também recebem mensagens de outros Canvas ou Campaigns, o engajamento que o agente observa é afetado por essas outras mensagens. O agente não consegue distinguir se um usuário clicou por causa de suas decisões ou por outro motivo. Um alerta é exibido se o Segment or segmento selecionado estiver em uso em outro lugar. Você pode prosseguir, mas espere resultados com mais ruído.
 
 ### Busca de usuários {#user-lookup}
 
-Use a **Busca de usuários** para verificar se usuários específicos atendem aos critérios do seu Segment. Isso é útil para validar a definição do seu Segment.
+Use a **Busca de usuários** para verificar se usuários específicos atendem aos critérios do seu Segment or segmento. Isso é útil para validar a definição do seu Segment or segmento.
 
 ### Filtros de público {#audience-filters}
 
-Filtros de público não são compatíveis nesta versão. Se você precisar de critérios de direcionamento adicionais, [crie um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com esses filtros aplicados e, em seguida, selecione esse Segment como seu público de entrada.
+Filtros de público não são compatíveis nesta versão. Se você precisar de critérios de direcionamento adicionais, [crie um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com esses filtros aplicados e, em seguida, selecione esse Segment or segmento como seu público de entrada.
 
 ### Integrar com Canvas existentes {#integrate-with-existing-canvases}
 
 Para usar o Decisioning Studio Go dentro de uma jornada mais ampla:
 
-1. Crie um Segment dedicado para os usuários que devem estar no agente.
-2. No seu [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), use uma etapa de Atualização de Usuário para adicionar o usuário a esse Segment no momento certo da jornada.
-3. Confirme que os usuários saem do Canvas para que o agente (e não o Canvas) cuide do envio de e-mails para todos no Segment a partir desse ponto.
+1. Crie um Segment or segmento dedicado para os usuários que devem estar no agente.
+2. No seu [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), use uma etapa de Atualização de Usuário para adicionar o usuário a esse Segment or segmento no momento certo da jornada.
+3. Confirme que os usuários saem do Canvas para que o agente (e não o Canvas) cuide do envio de e-mails para todos no Segment or segmento a partir desse ponto.
 
 ## Etapa 3: Configure o cronograma {#step-3-configure-the-schedule}
 
@@ -147,7 +147,7 @@ Restrições no nível de variante para imagens ou CTAs específicos não são c
 
 ## Etapa 6: Revisar e lançar {#step-6-review-and-launch}
 
-A tela **Review** exibe sua configuração completa: público e divisão do grupo de controle aleatório, cronograma, criativos base, contagem de variantes e restrições ativas. Revise e resolva quaisquer avisos de validação (por exemplo, sobreposição de Segment com outra Campaign) que apareçam nesta seção.
+A tela **Review** exibe sua configuração completa: público e divisão do grupo de controle aleatório, cronograma, criativos base, contagem de variantes e restrições ativas. Revise e resolva quaisquer avisos de validação (por exemplo, sobreposição de Segment or segmento com outra Campaign) que apareçam nesta seção.
 
 Selecione **Launch** para ativar o agente. Ele passa de **Draft** para **Active** e começa a enviar no próximo dia elegível.
 
@@ -189,7 +189,7 @@ A tabela a seguir resume as áreas do Decisioning Studio Go e os detalhes relaci
 | **Canal** | Somente e-mail |
 | **Métrica de conversão** | Somente cliques (cliques diários únicos por usuário) |
 | **Pontos de personalização** | Linha de assunto, CTA, imagem principal (por criativo base) |
-| **Público** | Um Segment da Braze, com controle aleatório obrigatório (mínimo de 5%) |
+| **Público** | Um Segment or segmento da Braze, com controle aleatório obrigatório (mínimo de 5%) |
 | **Frequência** | Seleção única (sem decisão de frequência) |
 | **Envios de teste** | Pelo criador da Braze |
 | **Relatórios** | Visualizações de Performance, Configuração e Preferências do agente, além de detalhamentos por elemento |
@@ -199,7 +199,7 @@ A tabela a seguir resume as áreas do Decisioning Studio Go e os detalhes relaci
 
 - Content Blocks não são aceitos como pontos de substituição de personalização.
 - URLs de imagens devem ser adicionados manualmente. No momento, a integração com a biblioteca de mídia não é compatível.
-- Filtros de público não são aceitos além da seleção de Segment.
+- Filtros de público não são aceitos além da seleção de Segment or segmento.
 - Personalização de corpo do texto, pré-cabeçalho e cabeçalho ainda não estão disponíveis.
 
 ## Solução de problemas {#troubleshooting}

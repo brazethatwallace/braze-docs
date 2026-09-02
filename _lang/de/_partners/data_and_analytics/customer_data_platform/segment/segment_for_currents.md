@@ -21,7 +21,7 @@ Die Integration von Braze und Segment ermöglicht es Ihnen, Braze-Currents zu nu
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Segment-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Segment-Konto](https://app.segment.com/login) erforderlich. |
-| Braze-Ziel | Sie müssen [Braze bereits als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben in Ihrer Segment-Integration.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des REST-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
+| Braze-Ziel | Sie müssen [Braze bereits als Ziel eingerichtet]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) haben in Ihrer Segment-Integration.<br><br>Dazu gehört die Angabe des richtigen Braze-Rechenzentrums und des Representational State Transfer-API-Schlüssels in Ihren [Verbindungseinstellungen]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
 | Currents | Um Daten zurück nach Segment zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -59,7 +59,7 @@ Wählen Sie abschließend **Launch Current**.
 
 Weitere Informationen finden Sie in der Segment-[Dokumentation](https://segment.com/docs/connections/sources/catalog/cloud-apps/braze/).
 
-## Ihren Current aktualisieren {#updating-your-current}
+## Ihren Current Update or aktualisieren or aktualisieren {#updating-your-current}
 
 {% multi_lang_include currents/updating_currents.md %}
 

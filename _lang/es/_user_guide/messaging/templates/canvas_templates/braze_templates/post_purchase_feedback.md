@@ -3,7 +3,7 @@ nav_title: Comentarios posteriores a la compra
 article_title: Comentarios posteriores a la compra
 page_order: 6
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de Braze Canvas para orquestar experiencias personalizadas que te permitan responder a los comentarios y construir una relación con tus usuarios."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE Canvas para orquestar experiencias personalizadas que te permitan responder a los comentarios y construir una relación con tus usuarios."
 tool: Canvas
 ---
 
@@ -45,7 +45,7 @@ Ajustemos los detalles del Canvas para reflejar nuestro objetivo.
 
 ### Paso 2: Asignar eventos de conversión {#step-2-assign-conversion-events}
 
-A continuación, asignemos nuestros eventos de conversión. Actualiza el **Primary Conversion Event - A** a **Make a specific purchase** y selecciona **Proxy War**.
+A continuación, asignemos nuestros eventos de conversión. Actualiza el **conversión primaria Event - A** a **Make a specific purchase** y selecciona **Proxy War**.
 
 ![Sección "Assign Conversion Events" para el tipo de evento de conversión de compra del producto del juego Proxy War.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/select_conversion_event.png %}){: style="max-width:90%;"}
 
@@ -80,7 +80,7 @@ Para nuestro ejemplo, omitiremos las demás configuraciones (limitación de frec
 
 ### Paso 6: Personalizar tu Canvas {#step-6-customize-your-canvas}
 
-A continuación, construiremos nuestro Canvas personalizando los canales de mensajería y el contenido que se enviará a los usuarios. Dado que solo buscamos comentarios usando canales de correo electrónico, mensajes dentro de la aplicación y webhook, recorreremos la plantilla y eliminaremos las variantes de SMS de los pasos de mensaje.
+A continuación, construiremos nuestro Canvas personalizando los canales de mensajería y el contenido que se enviará a los usuarios. Dado que solo buscamos comentarios usando canales de correo electrónico, mensajes dentro de la aplicación y webhook, recorreremos la plantilla y eliminaremos las variantes de servicio de mensajes cortos de los pasos de mensaje.
 
 Comenzaremos nuestra personalización recorriendo cada componente de mensajería para actualizar el contenido. Nuestro atributo personalizado de referencia es `Experience Feedback`.
 

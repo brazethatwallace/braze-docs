@@ -22,7 +22,7 @@ Use conjuntos de permissões para agrupar permissões relacionadas a áreas de a
 {% tab conjuntos de permissões de exemplo %}
 | Nome | Permissões |
 |-----------|----------------|
-| Desenvolvedores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
+| Desenvolvedores | "View API or interface de programação do aplicativo (API) Keys", "Edit API or interface de programação do aplicativo (API) Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API or interface de programação do aplicativo (API) identifiers", "View API or interface de programação do aplicativo (API) Usage Dashboard", "View API or interface de programação do aplicativo (API) Limits", "View API or interface de programação do aplicativo (API) Usage Alerts", "Edit API or interface de programação do aplicativo (API) Usage Alerts", "View SDK or kit de desenvolvimento de software Debugger", "Edit SDK or kit de desenvolvimento de software Debugger". |
 | Profissionais de marketing | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents". |
 | Gerenciamento de usuários | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo de conjunto de permissões" }
@@ -301,13 +301,13 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 
 | Área do produto | Permissão | Definição |
 | --- | --- | --- |
-| Identificadores de API | Ver identificadores de API | Visualizar identificadores de API e outros identificadores |
-| Chaves de API | Ver chaves de API | Visualizar chaves de API |
-| Chaves de API | Editar chaves de API | Criar e atualizar chaves de API |
-| Limites de API | Ver limites de API | Visualizar limites de frequência de API |
-| Alertas de uso de API | Ver alertas de uso de API | Visualizar alertas de uso de API |
-| Alertas de uso de API | Editar alertas de uso de API | Criar e atualizar alertas de uso de API |
-| Dados de uso de API | Ver dashboard de uso de API | Visualizar o dashboard de uso de API |
+| Identificadores de API or interface de programação do aplicativo (API) | Ver identificadores de API or interface de programação do aplicativo (API) | Visualizar identificadores de API or interface de programação do aplicativo (API) e outros identificadores |
+| Chaves de API or interface de programação do aplicativo (API) | Ver chaves de API or interface de programação do aplicativo (API) | Visualizar chaves de API or interface de programação do aplicativo (API) |
+| Chaves de API or interface de programação do aplicativo (API) | Editar chaves de API or interface de programação do aplicativo (API) | Criar e atualizar chaves de API or interface de programação do aplicativo (API) |
+| Limites de API or interface de programação do aplicativo (API) | Ver limites de API or interface de programação do aplicativo (API) | Visualizar limites de frequência de API or interface de programação do aplicativo (API) |
+| Alertas de uso de API or interface de programação do aplicativo (API) | Ver alertas de uso de API or interface de programação do aplicativo (API) | Visualizar alertas de uso de API or interface de programação do aplicativo (API) |
+| Alertas de uso de API or interface de programação do aplicativo (API) | Editar alertas de uso de API or interface de programação do aplicativo (API) | Criar e atualizar alertas de uso de API or interface de programação do aplicativo (API) |
+| Dados de uso de API or interface de programação do aplicativo (API) | Ver dashboard de uso de API or interface de programação do aplicativo (API) | Visualizar o dashboard de uso de API or interface de programação do aplicativo (API) |
 | Configurações do app | Editar configurações do app | Criar, editar e atualizar apps nas configurações do app |
 | Configurações do app | Ver configurações do app | Visualizar a página de configurações do app |
 | Configurações de sincronização de público | Ver configurações de sincronização de público | Visualizar todas as configurações dos parceiros conectados de sincronização de público |
@@ -327,8 +327,8 @@ Para baixar uma lista dos seus usuários e suas permissões, acesse **Configura�
 | Centrais de Preferências | Lançar Centrais de Preferências | Tornar ativa uma Central de Preferências em rascunho ou atualizar uma existente |
 | Configurações de push | Ver configurações de push | Visualizar configurações de push |
 | Configurações de push | Editar configurações de push | Criar e atualizar configurações de push |
-| Depurador do SDK | Ver depurador do SDK | Visualizar o depurador do SDK ou sessões de depuração |
-| Depurador do SDK | Editar depurador do SDK | Criar e baixar sessões do depurador do SDK |
+| Depurador do SDK or kit de desenvolvimento de software | Ver depurador do SDK or kit de desenvolvimento de software | Visualizar o depurador do SDK or kit de desenvolvimento de software ou sessões de depuração |
+| Depurador do SDK or kit de desenvolvimento de software | Editar depurador do SDK or kit de desenvolvimento de software | Criar e baixar sessões do depurador do SDK or kit de desenvolvimento de software |
 | Tags | Ver tags | Visualizar tags |
 | Tags | Excluir tags | Excluir tags permanentemente |
 | Tags | Editar tags | Criar e atualizar tags |

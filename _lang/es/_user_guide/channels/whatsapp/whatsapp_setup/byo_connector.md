@@ -2,7 +2,7 @@
 nav_title: Conector BYO WhatsApp
 article_title: Conector Bring Your Own WhatsApp
 page_order: 2
-description: "Este artículo de referencia proporciona un recorrido paso a paso para configurar un conector Bring Your Own WhatsApp, que otorga a Braze acceso a tu Infobip WhatsApp Business Manager."
+description: "Este artículo de referencia proporciona un recorrido paso a paso para configurar un conector Bring Your Own WhatsApp, que otorga a Braze acceso a tu Infobip WhatsApp Business Administrador."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,7 +10,7 @@ channel:
 
 # Conector Bring Your Own WhatsApp {#bring-your-own-whatsapp-connector}
 
-> El conector Bring Your Own (BYO) WhatsApp ofrece una asociación entre Braze e Infobip, en la que le das a Braze acceso a tu Infobip WhatsApp Business Manager (WABA). Esto te permite gestionar y pagar los costos de mensajería directamente con Infobip mientras usas Braze para segmentación, personalización y orquestación de campañas. Braze mantiene toda la funcionalidad existente que ofrece el canal de WhatsApp, como mensajes salientes, procesamiento de mensajes entrantes, flujos de WhatsApp y análisis.
+> El conector Bring Your Own (BYO) WhatsApp ofrece una asociación entre Braze e Infobip, en la que le das a Braze acceso a tu Infobip WhatsApp Business Administrador (WABA). Esto te permite gestionar y pagar los costos de mensajería directamente con Infobip mientras usas Braze para segmentación, personalización y orquestación de campañas. Braze mantiene toda la funcionalidad existente que ofrece el canal de WhatsApp, como mensajes salientes, procesamiento de mensajes entrantes, flujos de WhatsApp y análisis.
 
 {% alert note %}
 Para migrar desde otros proveedores de soluciones de negocio (BSP) a la integración de Braze, consulta [Migrar desde otro proveedor de soluciones de negocio]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider).
@@ -82,7 +82,7 @@ Antes de configurar el conector BYO WhatsApp, confirma que los envíos anteriore
 - Debes crear un nuevo WABA, no seleccionar uno existente.
 
 {% alert note %}
-Para recibir el código de verificación, ve a tu panel de Infobip > **Analyze** > **Logs** y obtén el código del mensaje SMS entrante.
+Para recibir el código de verificación, ve a tu panel de Infobip > **Analyze** > **Logs** y obtén el código del mensaje servicio de mensajes cortos entrante.
 {% endalert %}
 
 ![Registros de mensajes que muestran un mensaje SMS entrante con el código de verificación.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})

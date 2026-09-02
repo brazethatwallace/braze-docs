@@ -35,9 +35,9 @@ Xcode で、**Signing & Capabilities** ペインからメインアプリター�
 #### リッチプッシュフレームワークをアプリに追加する {#adding-the-rich-push-framework-to-your-app}
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package マネージャー %}
 
-[Swift Package Manager 統合ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)に従った後、以下の手順で `BrazeNotificationService` を `Notification Service Extension` に追加します。
+[Swift Package マネージャー 統合ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)に従った後、以下の手順で `BrazeNotificationService` を `Notification Service Extension` に追加します。
 
 1. Xcode で、フレームワークとライブラリの下にある <i class="fas fa-plus" aria-label="追加アイコン"></i> 追加アイコンを選択してフレームワークを追加します。<br><br>![Xcode のフレームワークとライブラリの下にあるプラスアイコン。]({% image_buster /assets/img_archive/rich_notification.png %}){: width="1930" height="446"}<br><br>
 

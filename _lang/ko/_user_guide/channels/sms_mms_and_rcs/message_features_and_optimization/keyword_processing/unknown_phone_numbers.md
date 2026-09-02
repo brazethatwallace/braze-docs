@@ -13,7 +13,7 @@ channel:
 
 # 알 수 없는 전화번호 처리 - 신규 사용자 {#handle-unknown-phone-numbers-new-users}
 
-> Braze에서 SMS, MMS, RCS를 설정하고 운영하다 보면 알 수 없는 사용자로부터 메시지를 수신할 수 있습니다. 다음 단계에서는 식별되지 않은 사용자와 번호가 어떻게 처리되는지 설명합니다.
+> Braze에서 단문 메시지 서비스, MMS, RCS를 설정하고 운영하다 보면 알 수 없는 사용자로부터 메시지를 수신할 수 있습니다. 다음 단계에서는 식별되지 않은 사용자와 번호가 어떻게 처리되는지 설명합니다.
 
 ## 알 수 없는 번호에 대한 옵트인/옵트아웃 및 커스텀 키워드 워크플로 {#opt-inout-and-custom-keyword-workflow-for-unknown-numbers}
 

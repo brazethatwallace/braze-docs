@@ -1,35 +1,35 @@
 ---
-nav_title: Android 11 Upgrade-Anleitung
-article_title: Android 11 Upgrade-Anleitung
+nav_title: Android 11 Upgrade or upgraden-Anleitung
+article_title: Android 11 Upgrade or upgraden-Anleitung
 page_order: 9
 platform: 
   - Android
   - FireOS
-description: "Dieser referenzierende Artikel behandelt das Android 11 SDK Update und hebt Änderungen wie Deeplinks, SDK-Kompatibilität und mehr hervor."
+description: "Dieser referenzierende Artikel behandelt das Android 11 SDK or Software-Development-Kit Update or aktualisieren und hebt Änderungen wie Deeplinks, SDK or Software-Development-Kit-Kompatibilität und mehr hervor."
 hidden: true
 ---
 
-# Android 11 SDK upgrade Anleitung
+# Android 11 SDK or Software-Development-Kit Upgrade or upgraden Anleitung
 
-Dieser Leitfaden beschreibt die relevanten Änderungen, die mit Android 11 (veröffentlicht am 8\. September 2020) eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze Android SDK-Integration.
+Dieser Leitfaden beschreibt die relevanten Änderungen, die mit Android 11 (veröffentlicht am 8\. September 2020) eingeführt wurden, sowie die erforderlichen Upgrade or upgraden-Schritte für Ihre Braze Android SDK or Software-Development-Kit-Integration.
 
 Eine vollständige Anleitung zur Migration von Android 11 finden Sie in der [Dokumentation für Android-Entwickler](https://developer.android.com/preview/migration):in.
 
-## Braze SDK Kompatibilität
+## Braze SDK or Software-Development-Kit Kompatibilität
 
-Alle Apps, die _auf_ Android 11 (API 30) _zielen_, müssen auf [Braze Android SDK v8.1.0+](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) upgraden, um die Messaging Features von Braze weiterhin nutzen zu können.
+Alle Apps, die _auf_ Android 11 (API 30) _zielen_, müssen auf [Braze Android SDK or Software-Development-Kit v8.1.0+](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) upgraden, um die Messaging Features von Braze weiterhin nutzen zu können.
 
 {% alert important %}
-Aufgrund von Änderungen in den Android 11 APIs werden Apps, die auf Android 11 abzielen und nicht auf Braze Android SDK v8.1.0+ aktualisieren, Probleme mit Deeplinks von Braze UI-Komponenten haben und angepasste HTML In-App-Nachrichten nicht korrekt anzeigen.
+Aufgrund von Änderungen in den Android 11 APIs werden Apps, die auf Android 11 abzielen und nicht auf Braze Android SDK or Software-Development-Kit v8.1.0+ Update or aktualisieren or aktualisieren, Probleme mit Deeplinks von Braze UI-Komponenten haben und angepasste HTML In-App-Nachrichten nicht korrekt anzeigen.
 {% endalert %}
 
 ### Deeplinks
 
-Apps, die auf Android 11 oder höher (API Version 30+) Targeting betreiben, müssen auf [Braze Android SDK v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) upgraden, um weiterhin Deeplinks innerhalb von Braze Nachrichten zu verwenden. Aufgrund einer Änderung der Android 11 APIs werden Apps, die nicht mindestens auf Android SDK v8.1.0 aktualisieren, Probleme mit Deeplinks innerhalb von Braze Nachrichten (In-App-Nachrichten oder Content-Cards) haben.
+Apps, die auf Android 11 oder höher (API Version 30+) Targeting betreiben, müssen auf [Braze Android SDK or Software-Development-Kit v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) upgraden, um weiterhin Deeplinks innerhalb von Braze Nachrichten zu verwenden. Aufgrund einer Änderung der Android 11 APIs werden Apps, die nicht mindestens auf Android SDK or Software-Development-Kit v8.1.0 Update or aktualisieren or aktualisieren, Probleme mit Deeplinks innerhalb von Braze Nachrichten (In-App-Nachrichten oder Content-Cards) haben.
 
 ### HTML In-App-Nachrichten
 
-Apps, die auf Android 11 oder höher (API Version 30+) zielen, müssen auf Braze Android SDK v8.1.0 upgraden, um weiterhin angepasste HTML In-App-Nachrichten verwenden zu können. Aufgrund einer Änderung in den Android 11 WebView-Einstellungen werden HTML In-App-Nachrichten auf Android 11 Targeting-Apps erst nach einem Upgrade auf [Braze Android SDK v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) korrekt angezeigt. 
+Apps, die auf Android 11 oder höher (API Version 30+) zielen, müssen auf Braze Android SDK or Software-Development-Kit v8.1.0 upgraden, um weiterhin angepasste HTML In-App-Nachrichten verwenden zu können. Aufgrund einer Änderung in den Android 11 WebView-Einstellungen werden HTML In-App-Nachrichten auf Android 11 Targeting-Apps erst nach einem Upgrade or upgraden auf [Braze Android SDK or Software-Development-Kit v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) korrekt angezeigt. 
 
 ### Berechtigungen für Standorte
 

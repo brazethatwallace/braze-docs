@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Workspace-Daten isoliert sind, was Braze zwische
 
 # Daten zwischen Workspaces und Instanzen migrieren {#migrate-data-between-workspaces-and-instances}
 
-> Workspaces halten Ihre Braze-Daten getrennt. Diese Seite erklärt, wie sich diese Isolation auf die Migration auswirkt, was Sie mit Produktfeatures und APIs verschieben können und was Sie außerhalb von Braze neu aufbauen oder handhaben müssen. Eine Migration ist in der Regel eine bereichsübergreifende Aufgabe – nicht nur eine Aufgabe für Unternehmensadministrator:innen. Administrator:innen sind oft für die Workspace-Einrichtung und Kanalkonfiguration zuständig; Entwickler:innen kümmern sich um SDK- und API-Änderungen; Marketer bauen Segmente neu auf und übernehmen Messaging-Inhalte. Jeder Schritt erfordert die entsprechenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) im Quell- und Ziel-Workspace.
+> Workspaces halten Ihre Braze-Daten getrennt. Diese Seite erklärt, wie sich diese Isolation auf die Migration auswirkt, was Sie mit Produktfeatures und APIs verschieben können und was Sie außerhalb von Braze neu aufbauen oder handhaben müssen. Eine Migration ist in der Regel eine bereichsübergreifende Aufgabe – nicht nur eine Aufgabe für Unternehmensadministrator:innen. Administrator:innen sind oft für die Workspace-Einrichtung und Kanalkonfiguration zuständig; Entwickler:innen kümmern sich um SDK or Software-Development-Kit- und API-Änderungen; Marketer bauen Segmente neu auf und übernehmen Messaging-Inhalte. Jeder Schritt erfordert die entsprechenden [Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) im Quell- und Ziel-Workspace.
 
 Alles, was Sie in Braze speichern – Nutzerprofile, Segmente, Messaging-Inhalte und Engagement-Verlauf – befindet sich innerhalb eines Workspace. Ein Segment, eine Campaign oder ein Canvas kann keine Daten aus einem anderen Workspace lesen oder darauf abzielen. Dashboard-Nutzer:innen verwenden häufig mehrere Workspaces auf demselben Unternehmens-Dashboard für Staging und Produktion, für verschiedene Marken oder für regionale Aufteilungen. Dieses Setup bietet Ihnen Isolation, bedeutet aber auch, dass es keine einzelne Aktion im Dashboard gibt, die alle Workspace-Daten in einen anderen Workspace oder eine andere Braze-Instanz verschiebt.
 
@@ -23,7 +23,7 @@ Folgendes wird nicht automatisch migriert, wenn Sie SDKs oder APIs auf einen neu
 | **Nutzerprofile** | Profile werden nicht als Paket übertragen. Erstellen oder importieren Sie Nutzer:innen im Ziel-Workspace neu (siehe [Nutzerprofildaten](#user-profile-data)). |
 | **Segmente und Filter** | Segmentdefinitionen verbleiben im Quell-Workspace. Bauen Sie Segmente im Ziel-Workspace mit derselben Logik neu auf, wo dies möglich ist. |
 | **Messaging-Verlauf** | Der Campaign- und Canvas-Empfangsverlauf eines Profils ist an den Quell-Workspace gebunden. Er erscheint nicht auf einem neuen Profil in einem anderen Workspace, es sei denn, Sie modellieren ihn selbst (z. B. über angepasste Attribute), wie in den [Braze-Onboarding-FAQs]({{site.baseurl}}/onboarding_faq) beschrieben. |
-| **Kanalspezifische Konfiguration** | Versanddomains, SMS-Abos, WhatsApp-Nummern und ähnliche Einstellungen sind Workspace-bezogen. Konfigurieren Sie sie im Ziel-Workspace neu, wo zutreffend. |
+| **Kanalspezifische Konfiguration** | Versanddomains, Kurzmitteilungsdienst or SMS-Abos, WhatsApp-Nummern und ähnliche Einstellungen sind Workspace-bezogen. Konfigurieren Sie sie im Ziel-Workspace neu, wo zutreffend. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Was Braze nicht automatisch zwischen Workspaces migriert" }
 
 {% alert important %}
@@ -34,13 +34,13 @@ Wenn Sie separate Workspaces für Staging und Produktion verwenden, denken Sie d
 
 ### Campaign-, Canvas- und Landing-Page-Inhalte {#campaign-canvas-and-landing-page-content}
 
-Sie können viele Campaign-, Canvas- und Landing-Page-Definitionen als Entwürfe in einen anderen Workspace kopieren. Unterstützte Kanäle, ausgelassene Felder und Liquid-Einschränkungen sind in [Campaigns, Canvases und Landing-Pages zwischen Workspaces kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces) dokumentiert. Aktualisieren Sie nach dem Kopieren Segmente, Trigger und alle Workspace-spezifischen Referenzen, bevor Sie starten oder veröffentlichen.
+Sie können viele Campaign-, Canvas- und Landing-Page-Definitionen als Entwürfe in einen anderen Workspace kopieren. Unterstützte Kanäle, ausgelassene Felder und Liquid-Einschränkungen sind in [Campaigns, Canvase und Landing-Pages zwischen Workspaces kopieren]({{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces) dokumentiert. Update or aktualisieren or aktualisieren Sie nach dem Kopieren Segmente, Trigger or triggern und alle Workspace-spezifischen Referenzen, bevor Sie starten oder veröffentlichen.
 
 ### Nutzerprofildaten {#user-profile-data}
 
 Typische Ansätze:
 
-- **REST API:** Verwenden Sie [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um Nutzer:innen im Ziel-Workspace mit den benötigten Bezeichnern und Attributen zu erstellen oder zu aktualisieren. Dies ist dasselbe Muster, das für die [Migration von Legacy-Nutzerdaten]({{site.baseurl}}/developer_guide/getting_started/integration_overview#migrating-legacy-user-data) beim Einbringen historischer Daten in Braze beschrieben wird.
+- **Representational State Transfer API:** Verwenden Sie [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um Nutzer:innen im Ziel-Workspace mit den benötigten Bezeichnern und Attributen zu erstellen oder zu Update or aktualisieren or aktualisieren. Dies ist dasselbe Muster, das für die [Migration von Legacy-Nutzerdaten]({{site.baseurl}}/developer_guide/getting_started/integration_overview#migrating-legacy-user-data) beim Einbringen historischer Daten in Braze beschrieben wird.
 - **CSV-Import:** Für Marketer-gesteuerte Importe siehe [Nutzer:innen importieren]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) und [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 - **Cloud-Datenaufnahme:** Um Attribute aus einem Warehouse in den Ziel-Workspace zu synchronisieren, siehe [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 - **Exporte aus dem Quell-Workspace:** Verwenden Sie [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) oder [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), um Daten zu extrahieren, die Sie verschieben dürfen, und ordnen Sie sie dann `users/track` oder CSV für das Ziel zu. Beachten Sie Ihre Datenaufbewahrungs-, Datenschutz- und vertraglichen Verpflichtungen beim Exportieren und erneuten Laden von Daten.
@@ -51,16 +51,16 @@ Das Zusammenführen doppelter Profile mit dem Endpunkt [Nutzer:innen zusammenfü
 
 ### Nutzerexportfelder, die nicht auf Standard-Profil-APIs abgebildet werden können {#user-export-fields-that-dont-map-to-standard-profile-apis}
 
-Wenn Sie Nutzer:innen in einem Ziel-Workspace aus einem [Nutzerexport]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) neu aufbauen, können einige Exportfelder nicht über die REST API oder CSV in die Standard-Profilfelder von Braze zurückgeschrieben werden (so wie das SDK und der Server sie befüllen). Sie können die Werte oft stattdessen als angepasste Attribute speichern. Beachten Sie die folgenden Einschränkungen.
+Wenn Sie Nutzer:innen in einem Ziel-Workspace aus einem [Nutzerexport]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) neu aufbauen, können einige Exportfelder nicht über die Representational State Transfer API oder CSV in die Standard-Profilfelder von Braze zurückgeschrieben werden (so wie das SDK or Software-Development-Kit und der Server sie befüllen). Sie können die Werte oft stattdessen als angepasste Attribute speichern. Beachten Sie die folgenden Einschränkungen.
 
 #### Geräteinformationen (`devices`) {#device-information-devices}
 
-Gerätedatensätze im Export werden vom SDK befüllt. Sie können diese Daten nicht über die REST API in die Standard-Gerätefelder von Braze migrieren.
+Gerätedatensätze im Export werden vom SDK or Software-Development-Kit befüllt. Sie können diese Daten nicht über die Representational State Transfer API in die Standard-Gerätefelder von Braze migrieren.
 
-Wenn Sie diese Informationen benötigen, bevor Nutzer:innen eine Sitzung in einer App starten, die auf den Ziel-Workspace ausgerichtet ist, senden Sie sie als angepasste Attribute, wenn Sie die Nutzer:innen importieren. Standard-Segmentierungsfilter und Liquid-Referenzen, die auf integrierten Gerätedaten basieren, verwenden die exportierten Gerätedaten erst, wenn Nutzer:innen eine Sitzung in einer App-Instanz öffnen, die mit dem neuen Workspace verbunden ist (wenn das SDK die Standard-Gerätefelder aktualisiert).
+Wenn Sie diese Informationen benötigen, bevor Nutzer:innen eine Sitzung in einer App starten, die auf den Ziel-Workspace ausgerichtet ist, senden Sie sie als angepasste Attribute, wenn Sie die Nutzer:innen importieren. Standard-Segmentierungsfilter und Liquid-Referenzen, die auf integrierten Gerätedaten basieren, verwenden die exportierten Gerätedaten erst, wenn Nutzer:innen eine Sitzung in einer App-Instanz öffnen, die mit dem neuen Workspace verbunden ist (wenn das SDK or Software-Development-Kit die Standard-Gerätefelder aktualisiert).
 
 {% alert note %}
-Dies ist getrennt von der [Push-Token-Migration](#push-tokens), die das Feld `push_tokens` auf [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwendet.
+Dies ist getrennt von der [Push-Token / Textbaustein-Migration](#push-tokens), die das Feld `push_tokens` auf [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) verwendet.
 {% endalert %}
 
 #### Gesamtsitzungen und App-bezogene Sitzungsdaten (`apps` und verschachtelte `sessions`) {#total-sessions-and-per-app-session-data-apps-and-nested-sessions}
@@ -77,11 +77,11 @@ Wenn Sie sich auf die alte Nummer für Holdouts oder Stichproben verlassen (z. B
 
 #### Partner-Attributionsfelder (`attributed_*`) {#partner-attribution-fields-attributed_}
 
-Attributionsfelder aus Partnerintegrationen (die `attributed_*`-Felder in einem Export) können nicht über die REST API auf die Standard-Attributionsfelder von Braze gesetzt werden. Ordnen Sie sie angepassten Attributen im Ziel-Workspace zu, wenn Sie sie für Segmentierung oder Messaging benötigen.
+Attributionsfelder aus Partnerintegrationen (die `attributed_*`-Felder in einem Export) können nicht über die Representational State Transfer API auf die Standard-Attributionsfelder von Braze gesetzt werden. Ordnen Sie sie angepassten Attributen im Ziel-Workspace zu, wenn Sie sie für Segmentierung oder Messaging benötigen.
 
-### Push-Token {#push-tokens}
+### Push-Token / Textbaustein {#push-tokens}
 
-Wenn Nutzer:innen bereits Push-Token von einem früheren Anbieter oder einer früheren App-Version haben, können Sie Token für mobile Apps über die API importieren oder sich nach der Integration auf das SDK verlassen. Web-Push-Token haben API-Einschränkungen. Vollständige Details und Beispiele finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Wenn Nutzer:innen bereits Push-Token / Textbaustein von einem früheren Anbieter oder einer früheren App-Version haben, können Sie Token / Textbaustein für mobile Apps über die API importieren oder sich nach der Integration auf das SDK or Software-Development-Kit verlassen. Web-Push-Token / Textbaustein haben API-Einschränkungen. Vollständige Details und Beispiele finden Sie unter [Push-Token / Textbaustein migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 
@@ -91,7 +91,7 @@ Telefonnummern und Abo-Gruppen können mit einem speziellen Übertragungsablauf 
 
 Wenn Sie bei der Konsolidierung von Umgebungen einen historischen Datensatz von Sendungen, Öffnungen oder Klicks benötigen, sind [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) und andere Exporte der unterstützte Weg, diese Daten in Ihr Warehouse oder Ihre Tools zu übertragen. Diese Daten werden nicht als native nutzerbezogene Nachrichtenhistorie in einem anderen Workspace wieder in Braze aufgenommen.
 
-## Bevor Sie SDK- oder API-Schlüssel ändern {#before-you-change-sdk-or-api-keys}
+## Bevor Sie SDK or Software-Development-Kit- oder API-Schlüssel ändern {#before-you-change-sdk-or-api-keys}
 
 Wenn Sie Ihre App oder Website auf einen neuen Workspace ausgerichtet haben:
 

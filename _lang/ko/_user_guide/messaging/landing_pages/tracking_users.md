@@ -7,7 +7,7 @@ page_order: 2
 
 # 폼을 통한 사용자 추적 {#track-users-through-a-form}
 
-> 랜딩 페이지 Liquid 태그를 메시지에 추가하여 랜딩 페이지를 통해 폼을 제출하는 사용자를 추적하는 방법을 알아보세요. 이 Liquid 태그는 이메일, SMS, 인앱 메시지 등 모든 Braze 메시징 채널에서 지원됩니다. 추적 데이터에 대해 자세히 알아보려면 [랜딩 페이지 추적 데이터 정보]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data)를 참조하세요.
+> 랜딩 페이지 Liquid 태그를 메시지에 추가하여 랜딩 페이지를 통해 폼을 제출하는 사용자를 추적하는 방법을 알아보세요. 이 Liquid 태그는 이메일, 단문 메시지 서비스, 인앱 메시지 등 모든 Braze 메시징 채널에서 지원됩니다. 추적 데이터에 대해 자세히 알아보려면 [랜딩 페이지 추적 데이터 정보]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data)를 참조하세요.
 
 ## 사전 요구 사항 {#prerequisites}
 

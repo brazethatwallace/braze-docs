@@ -27,8 +27,8 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito          | Descripción                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta de OtherLevels   | Se requiere una cuenta de OtherLevels para aprovechar esta asociación.                                                                     |
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Un endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia.                                                 |
+| Una clave de API REST or transferencia de estado representacional de Braze  | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Un endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 Esta integración requiere llamar a la API de OtherLevels Experience Platform como parte del proceso de generación de video antes de que los mensajes puedan enviarse a tus usuarios desde Braze. Se proporcionan ejemplos cURL como parte de esta documentación; sin embargo, recomendamos usar clientes API como Postman para automatizar las llamadas API.
@@ -174,8 +174,8 @@ Sustituye lo siguiente:
 
 | Marcador de posición             | Descripción                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | La URL del endpoint REST de Braze de tu instancia de Braze actual. Para más información, consulta [Claves de API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
-| `BRAZE_API_KEY`         | Tu clave de API REST de Braze con el permiso `users.track`.                                                                                                                                      |
+| `BRAZE_API_ENDPOINT`    | La URL del endpoint REST or transferencia de estado representacional de Braze de tu instancia de Braze actual. Para más información, consulta [Claves de API REST or transferencia de estado representacional]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
+| `BRAZE_API_KEY`         | Tu clave de API REST or transferencia de estado representacional de Braze con el permiso `users.track`.                                                                                                                                      |
 | `USER_ID`              | El ID de usuario que recibirá este video en particular. Para más ejemplos de los identificadores que pueden utilizarse, consulta [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).                                                                                                                                                  |
 | `RECIPE_ID`       | El `recipe_id` recibido de la respuesta de la API de OtherLevels en el [paso 1](#step-1).                                                                                                                                                                            |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configurar el recipe_id como atributo personalizado" }

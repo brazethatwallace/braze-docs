@@ -24,7 +24,7 @@ Wenn Sie zum ersten Mal eine E-Mail-Campaign erstellen, empfehlen wir Ihnen drin
 
 ## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Verwenden Sie Campaigns für einzelne, einfache Nachrichten. Verwenden Sie Canvases für mehrstufige User-Journeys.
+Verwenden Sie Campaigns für einzelne, einfache Nachrichten. Verwenden Sie Canvase für mehrstufige User-Journeys.
 
 {% tabs %}
 {% tab Campaign %}
@@ -68,7 +68,7 @@ Wir empfehlen, pro E-Mail-Campaign eine Bearbeitungserfahrung auszuwählen. Wäh
 
 ## Schritt 3: E-Mail verfassen {#step-3-compose-your-email}
 
-Nachdem Sie Ihr Template ausgewählt haben, sehen Sie eine Übersicht Ihrer E-Mail, von der aus Sie direkt zum Vollbild-Editor springen können, um Ihre E-Mail zu entwerfen, Ihre Versandinformationen zu ändern und Warnungen zur Zustellbarkeit oder Rechtskonformität einzusehen. Sie können beim Verfassen zwischen den Tabs HTML, Klassisch, Nur-Text und [AMP]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) wechseln.
+Nachdem Sie Ihr Template ausgewählt haben, sehen Sie eine Übersicht Ihrer E-Mail, von der aus Sie direkt zum Vollbild-Editor springen können, um Ihre E-Mail zu entwerfen, Ihre Versandinformationen zu ändern und Warnungen zur Zustellbarkeit oder Rechtskonformität einzusehen. Sie können beim Verfassen zwischen den Tabs HTML, Klassisch, Nur-Text und [AMP or Accelerated Mobile Pages]({{site.baseurl}}/user_guide/channels/email/customize/amp_for_email) wechseln.
 
 ![Der Button „Aus HTML regenerieren“.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
@@ -84,7 +84,7 @@ Braze entfernt automatisch HTML-Event-Handler, die als Attribute referenziert we
 {% endalert %}
 
 {% alert tip %}
-Brauchen Sie Hilfe beim Erstellen überzeugender Texte? Nutzen Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
+Brauchen Sie Hilfe beim Erstellen überzeugender Texte? Nutzen Sie den [KI or künstliche Intelligenz-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI or künstliche Intelligenz generiert menschenähnliche Marketingtexte zur Verwendung in Ihren Nachrichten.
 
 ![Button „KI-Textassistent starten“ auf dem Tab „Body“ des E-Mail-Composers.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
@@ -162,7 +162,7 @@ Vermeiden Sie die Verwendung der folgenden Schlüssel:
 </thead>
 <tbody>
   <tr>
-    <td>BCC</td>
+    <td>BCC or Banner-Content-Card</td>
     <td>dkim-signature</td>
     <td>Reply-To</td>
   </tr>
@@ -251,18 +251,18 @@ Vor dem Versand hebt der Editor häufige Probleme hervor:
 - Fehlender Abmeldelink
 - Absender-Domain nicht auf der Allowlist (Versand wird stark gedrosselt)
 
-## Schritt 4: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 4: Erstellen Sie den Representational State Transfer Ihrer Campaign oder Ihres Canvas {#step-4-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
-Erstellen Sie als Nächstes den Rest Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie Braze-Tools zur Erstellung Ihrer E-Mail-Campaign verwenden.
+Erstellen Sie als Nächstes den Representational State Transfer Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie Braze-Tools zur Erstellung Ihrer E-Mail-Campaign verwenden.
 
-### Zustellungszeitplan oder Trigger wählen {#choose-delivery-schedule-or-trigger}
+### Zustellungszeitplan oder Trigger or triggern wählen {#choose-delivery-schedule-or-trigger}
 
-Stellen Sie E-Mails basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zu. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Stellen Sie E-Mails basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger or triggern zu. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 {% alert note %}
-Wenn bei API-getriggerten Campaigns die Trigger-Aktion auf **Mit Campaign interagieren** eingestellt ist, wird durch die Auswahl der Option **Empfangen** als Interaktion Ihre neue Campaign ausgelöst, sobald Braze die ausgewählte Campaign als gesendet markiert – auch wenn die Nachricht bounct oder nicht zugestellt werden kann.
+Wenn bei API-getriggerten Campaigns die Trigger or triggern-Aktion auf **Mit Campaign interagieren** eingestellt ist, wird durch die Auswahl der Option **Empfangen** als Interaktion Ihre neue Campaign ausgelöst, sobald Braze die ausgewählte Campaign als gesendet markiert – auch wenn die Nachricht bounct oder nicht zugestellt werden kann.
 {% endalert %}
 
 Sie können auch die Dauer der Campaign festlegen, [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) angeben und [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln einrichten.

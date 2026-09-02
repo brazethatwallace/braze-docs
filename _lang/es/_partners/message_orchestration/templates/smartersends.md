@@ -22,8 +22,8 @@ La asociación entre Braze y SmarterSends te permite combinar la potencia de Bra
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta SmarterSends | Se necesita una [cuenta de SmarterSends](https://smartersends.com) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con estos permisos: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. Para mayor seguridad, añade la dirección IP de SmarterSends a la lista blanca (disponible en tu instancia). |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con estos permisos: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. Para mayor seguridad, añade la dirección IP de SmarterSends a la lista blanca (disponible en tu instancia). |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | ID de Campaign de API de Braze | El [ID de Campaign de API de Braze]({{site.baseurl}}/api/api_campaigns/) es el identificador único de todas las campañas enviadas a través de SmarterSends. Se puede crear en el dashboard de Braze en **Messaging** > **Campaigns**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -39,7 +39,7 @@ Con la integración de Braze y SmarterSends, puedes aprovechar las ventajas del 
 
 ## Integración {#integration}
 
-### Paso 1: Crear una clave de API REST {#step-1-create-a-rest-api-key}
+### Paso 1: Crear una clave de API REST or transferencia de estado representacional {#step-1-create-a-rest-api-key}
 
 1. En Braze, ve a **Configuración** > **Claves de API** y haz clic en **Crear nueva clave de API**.
 2. Introduce un nombre para la clave de API.

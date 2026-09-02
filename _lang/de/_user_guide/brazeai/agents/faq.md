@@ -14,7 +14,7 @@ toc_headers: h2
 
 ### Was ist der Unterschied zwischen Canvas-Schritt-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Schritt-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt die Arten von Anweisungen und Optionen, die der Agent unterstützen kann. Canvas-Schritt-Agents verarbeiten Nutzer:innen in Echtzeit innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
+Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Schritt-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt die Arten von Anweisungen und Optionen, die der Agent unterstützen kann. Canvas-Schritt-Agents verarbeiten Nutzer:innen in Echtzeit innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder Update or aktualisieren or aktualisieren.
 
 ### Welche Vorteile bietet das Auto-Modell gegenüber einem eigenen (BYO) Modell? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -45,7 +45,7 @@ Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/operator), um herau
 
 ### Warum hat mein Catalog-Agent einige Zeilen übersprungen? {#why-did-my-catalog-agent-skip-some-rows}
 
-Catalog-Agents überspringen eine Zeile, wenn eine Spalte, die Sie als **für die Ausführung erforderlich** markiert haben, leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das nicht ausgefüllt wurde. Nachdem Sie Eingabespalten ausgewählt haben, aktivieren Sie die Pflichtfeld-Steuerung für das Katalogfeld und wählen Sie aus, welche Spalten Werte enthalten müssen, bevor der Agent ausgeführt wird. Ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. So werden keine Token für unvollständige Daten verschwendet.
+Catalog-Agents überspringen eine Zeile, wenn eine Spalte, die Sie als **für die Ausführung erforderlich** markiert haben, leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das nicht ausgefüllt wurde. Nachdem Sie Eingabespalten ausgewählt haben, aktivieren Sie die Pflichtfeld-Steuerung für das Katalogfeld und wählen Sie aus, welche Spalten Werte enthalten müssen, bevor der Agent ausgeführt wird. Ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. So werden keine Token / Textbaustein für unvollständige Daten verschwendet.
 
 Der Agent berücksichtigt auch Spaltenabhängigkeiten. Wenn eine Ausgabespalte von anderen Spalten abhängt (zum Beispiel erfordert Spalte D Werte in den Spalten B und C), wird der Agent erst ausgeführt, wenn diese vorgelagerten Spalten für die jeweilige Zeile befüllt sind.
 
@@ -84,7 +84,7 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 
 #### So reduzieren Sie Timeouts {#how-to-reduce-timeouts}
 
-Wenn Ihr Agent häufig Timeouts hat, versuchen Sie Folgendes, bevor Sie Ihren Account Manager wegen eines höheren Timeout-Limits kontaktieren:
+Wenn Ihr Agent häufig Timeouts hat, versuchen Sie Folgendes, bevor Sie Ihren Account Manager:in wegen eines höheren Timeout-Limits kontaktieren:
 
 - **Wählen Sie ein einfacheres oder kostengünstigeres Modell:** Schnellere Modelle werden in der Regel innerhalb des Standard-Timeout-Fensters fertig. Siehe [Bestimmen, welches Modell verwendet werden soll]({{site.baseurl}}/user_guide/brazeai/agents/reference#determine-which-model-to-use).
 - **Senken Sie das Thinking-Level (nur BYO-Modelle):** Beginnen Sie mit **Minimal** und erhöhen Sie nur, wenn die Ausgabequalität leidet. Siehe [Thinking-Levels]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels).
@@ -109,7 +109,7 @@ Wenn Ihr Agent beim Testen korrekt funktioniert, aber in einem Live-Canvas keine
 
 ### Ist Agent Console DSGVO-/CCPA-konform? {#is-agent-console-gdprccpa-compliant}
 
-Ja. Wenn Kund:innen das Braze-Auto-Modell (basierend auf Gemini) verwenden, agiert Google als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (DPA) zwischen den Kund:innen und Braze.
+Ja. Wenn Kund:innen das Braze-Auto-Modell (basierend auf Gemini) verwenden, agiert Google als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (Datenschutzbeauftragte:r) zwischen den Kund:innen und Braze.
 
 ### Ist Agent Console HIPAA-konform? {#is-agent-console-hipaa-compliant}
 

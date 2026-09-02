@@ -41,7 +41,7 @@ La création d'un workflow d'évaluation des prospects dans Braze repose sur deu
 
 #### Étape 3a : Sélectionner des segments {#step-3a-select-segments}
 
-Tous les utilisateurs sont éligibles à l'évaluation des prospects. Vous pouvez donc ajouter des règles spécifiques à votre entreprise pour déterminer qui évaluer en sélectionnant les [segments]({{site.baseurl}}/user_guide/audience/segments) d'utilisateurs à cibler et en appliquant des [filtres]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) supplémentaires. Par exemple, vous pouvez exclure les employés, les utilisateurs déjà clients, etc.
+Tous les utilisateurs sont éligibles à l'évaluation des prospects. Vous pouvez donc ajouter des règles spécifiques à votre entreprise pour déterminer qui évaluer en sélectionnant les [segments]({{site.baseurl}}/user_guide/audience/segments) d'utilisateurs à cibler et en appliquant des [filtres]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) supplémentaires. Par exemple, vous pouvez exclure les employé or salariés, les utilisateurs déjà clients, etc.
 
 ![Étape 3 de la création d'un Canvas avec des options de sélection de segments et de filtres pour affiner l'audience d'entrée.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 

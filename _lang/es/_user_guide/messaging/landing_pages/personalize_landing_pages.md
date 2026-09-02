@@ -68,7 +68,7 @@ El rellenado previo solo funciona para [usuarios identificados](#use-liquid-for-
 - **Casillas de verificación, botones de radio y controles similares:** Permanecen sin seleccionar hasta que el usuario interactúe con ellos.
 
 {% alert warning %}
-Si un usuario reenvía un enlace de página de destino (desde un correo electrónico, SMS u otro mensaje) a otra persona, el destinatario verá los datos rellenados previamente destinados al usuario original. Esta es la misma consideración de seguridad que se aplica a los enlaces de cancelación de suscripción y a los enlaces del centro de preferencias. Ten en cuenta la sensibilidad de los datos que estás rellenando previamente y el comportamiento de compartición de tu audiencia al usar esta característica.
+Si un usuario reenvía un enlace de página de destino (desde un correo electrónico, servicio de mensajes cortos u otro mensaje) a otra persona, el destinatario verá los datos rellenados previamente destinados al usuario original. Esta es la misma consideración de seguridad que se aplica a los enlaces de cancelación de suscripción y a los enlaces del centro de preferencias. Ten en cuenta la sensibilidad de los datos que estás rellenando previamente y el comportamiento de compartición de tu audiencia al usar esta característica.
 {% endalert %}
 
 ## Obtener datos externos con código personalizado {#fetching-external-data-with-custom-code}

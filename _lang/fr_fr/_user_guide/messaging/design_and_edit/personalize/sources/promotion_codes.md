@@ -26,7 +26,7 @@ Si vous placez plusieurs extraits de code provenant de la même liste dans un se
 
 {% tabs local %}
 {% tab Exemple %}
-Pensez aux codes de promotion comme à des coupons dans un bureau de poste. Une fois que l'employé a retiré un coupon de la pile pour votre lettre, il est parti — même si la lettre n'arrive jamais.
+Pensez aux codes de promotion comme à des coupons dans un bureau de poste. Une fois que l'employé or salarié a retiré un coupon de la pile pour votre lettre, il est parti — même si la lettre n'arrive jamais.
 
 Par exemple, dans le Liquid conditionnel suivant, les codes des deux listes (`vip-deal` et `regular-deal`) sont déduits, même si chaque utilisateur ne voit qu'une seule branche :
 

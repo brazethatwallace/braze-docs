@@ -24,13 +24,13 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung          | Beschreibung                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Swym  | Die Apps Swym Wishlist Plus, Back in Stock oder beide müssen auf Ihrer E-Commerce-Plattform (Shopify oder BigCommerce) installiert sein, und Sie müssen den Enterprise-Tarif nutzen.       |
-| Ein Braze-REST-API-Schlüssel  | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Ein Braze-REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
+| Ein Braze-Representational State Transfer-API-Schlüssel  | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Ein Braze-Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Indem Sie die Apps Wishlist Plus und Back in Stock Alerts von Swym mit Braze verbinden, können Sie automatisch Events für Kundenaktivitäten – wie z. B. Hinzufügungen zur Wunschliste, Back-in-Stock-Abos, Preissenkungswarnungen und Erinnerungen – als angepasste Events an Braze senden. Diese Events können dann verwendet werden, um automatisierte Nachrichten in Braze zu triggern und so eine zeitnahe, relevante und ansprechende Kommunikation zu ermöglichen, die die Kunden zum Kauf zurückbringt.
+Indem Sie die Apps Wishlist Plus und Back in Stock Alerts von Swym mit Braze verbinden, können Sie automatisch Events für Kundenaktivitäten – wie z. B. Hinzufügungen zur Wunschliste, Back-in-Stock-Abos, Preissenkungswarnungen und Erinnerungen – als angepasste Events an Braze senden. Diese Events können dann verwendet werden, um automatisierte Nachrichten in Braze zu Trigger or triggern or triggern und so eine zeitnahe, relevante und ansprechende Kommunikation zu ermöglichen, die die Kunden zum Kauf zurückbringt.
 
 ## Integration von Swym {#integrating-swym}
 
@@ -38,7 +38,7 @@ Indem Sie die Apps Wishlist Plus und Back in Stock Alerts von Swym mit Braze ver
 
 Derzeit ist die Braze-Integration mit Swym eine verwaltete Integration und kann nicht selbst eingerichtet werden. Wenden Sie sich an das Swym-Support-Team unter [support@getswym.com](mailto:support@getswym.com) und geben Sie die folgenden Informationen an, damit Swym die Integration in Ihrem Namen einrichten kann:
 
-1. Erstellen Sie einen [REST-API-Schlüssel]({{site.baseurl}}/api/basics/#about-rest-api-keys) in Ihrem Braze-Dashboard mit der Berechtigung `users.track`.
+1. Erstellen Sie einen [Representational State Transfer-API-Schlüssel]({{site.baseurl}}/api/basics/#about-rest-api-keys) in Ihrem Braze-Dashboard mit der Berechtigung `users.track`.
 
 ![Generierung eines API-Schlüssels in Braze.]({% image_buster /assets/img/swym/braze-api-key.png %})
 
@@ -47,7 +47,7 @@ Um Ihre API-Schlüssel zu schützen, empfiehlt Swym die sichere Weitergabe von Z
 {% endalert %}
 
 {: start="2"}
-2. Braze verwaltet mehrere Instanzen für sein Dashboard und seine REST-Endpunkte. Geben Sie den [REST-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) für die Instanz an, für die Sie bereitgestellt wurden.
+2. Braze verwaltet mehrere Instanzen für sein Dashboard und seine Representational State Transfer-Endpunkte. Geben Sie den [Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) für die Instanz an, für die Sie bereitgestellt wurden.
 
 3. Nachdem Sie den API-Schlüssel und die Instanz-URL an das Swym-Support-Team weitergegeben haben, wird dieses die Integration für Sie einrichten und Ihnen eine Bestätigung schicken.
 
@@ -87,7 +87,7 @@ Gehen Sie in Ihrer Wishlist Plus App auf den Tab **Marketing** und suchen Sie de
 
 ### 3. Schritt: Erstellen Sie eine Braze-Kampagne oder ein Canvas {#step-3-create-a-braze-campaign-or-canvas}
 
-Um die Zustellung personalisierter Nachrichten für Ihre Kunden zu automatisieren, müssen Sie in Braze für jedes Event, das Sie abonniert haben, eine eigene Kampagne oder ein eigenes Canvas erstellen. Jede Kampagne oder jedes Canvas sollte so konfiguriert werden, dass sie/es auf der Grundlage eines bestimmten Events getriggert wird und die entsprechenden Event-Eigenschaften verwendet, um dynamischen Content in Ihre Nachrichten einzufügen. Eine schrittweise Anleitung finden Sie unter [Erste Schritte: Campaigns und Canvases]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Um die Zustellung personalisierter Nachrichten für Ihre Kunden zu automatisieren, müssen Sie in Braze für jedes Event, das Sie abonniert haben, eine eigene Kampagne oder ein eigenes Canvas erstellen. Jede Kampagne oder jedes Canvas sollte so konfiguriert werden, dass sie/es auf der Grundlage eines bestimmten Events getriggert wird und die entsprechenden Event-Eigenschaften verwendet, um dynamischen Content in Ihre Nachrichten einzufügen. Eine schrittweise Anleitung finden Sie unter [Erste Schritte: Campaigns und Canvase]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 
 ![Ein aktionsbasiertes Event.]({% image_buster /assets/img/swym/braze-canvas-setup.png %})
 

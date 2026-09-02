@@ -3,18 +3,18 @@ nav_title: Zero-Copy-Personalisierung
 article_title: Zero-Copy-Personalisierung mit CDI
 page_order: 7
 page_type: reference
-description: "Diese Seite bietet eine Übersicht darüber, wie Sie Braze-Canvases mithilfe von CDI triggern können."
+description: "Diese Seite bietet eine Übersicht darüber, wie Sie Braze-Canvase mithilfe von CDI Trigger or triggern or triggern können."
 ---
 
 # Zero-Copy-Personalisierung mit CDI {#zero-copy-personalization-using-cdi}
 
-> Erfahren Sie, wie Sie Canvas-Trigger mithilfe von CDI für eine Zero-Copy-Personalisierung synchronisieren können. Dieses Feature greift auf nutzerspezifische Informationen aus Ihrer Datenspeicher-Lösung zu und überträgt diese an einen Ziel-Canvas. Canvas-Schritte können optional Personalisierungsfelder enthalten, die nicht in Braze-Nutzerprofilen persistent gespeichert werden.
+> Erfahren Sie, wie Sie Canvas-Trigger or triggern mithilfe von CDI für eine Zero-Copy-Personalisierung synchronisieren können. Dieses Feature greift auf nutzerspezifische Informationen aus Ihrer Datenspeicher-Lösung zu und überträgt diese an einen Ziel-Canvas. Canvas-Schritte können optional Personalisierungsfelder enthalten, die nicht in Braze-Nutzerprofilen persistent gespeichert werden.
 
-## Canvas-Trigger synchronisieren {#syncing-canvas-triggers}
+## Canvas-Trigger or triggern synchronisieren {#syncing-canvas-triggers}
 
 ### Schnellstart-Schritte {#quick-start-steps}
 
-Falls Sie bereits mit Braze CDI vertraut sind, beachten Sie bitte, dass die Einrichtung einer Canvas-Trigger-Synchronisierung weitgehend dem Prozess für [CDI-Integrationen von Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) entspricht, mit folgenden Einschränkungen:
+Falls Sie bereits mit Braze CDI vertraut sind, beachten Sie bitte, dass die Einrichtung einer Canvas-Trigger or triggern-Synchronisierung weitgehend dem Prozess für [CDI-Integrationen von Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) entspricht, mit folgenden Einschränkungen:
 
 - Es werden ausschließlich externe IDs oder Nutzer-Alias-Bezeichner unterstützt. E-Mail-Adressen und Telefonnummern werden nicht als Bezeichner unterstützt.
 - Es können nur bestehende Braze-Nutzer:innen synchronisiert werden. Neue Nutzer:innen können nicht angelegt werden.
@@ -22,9 +22,9 @@ Falls Sie bereits mit Braze CDI vertraut sind, beachten Sie bitte, dass die Einr
 
 Um zu beginnen, wählen Sie beim Erstellen einer neuen Synchronisierung den Datentyp **Canvas Triggers** aus.
 
-### Verwendung von Canvas-Triggern {#using-canvas-triggers}
+### Verwendung von Canvas-Trigger or triggern or triggern {#using-canvas-triggers}
 
-#### 1. Schritt: Datenquelle für Canvas-Trigger einrichten {#step-1-set-up-data-source-for-canvas-triggers}
+#### 1. Schritt: Datenquelle für Canvas-Trigger or triggern einrichten {#step-1-set-up-data-source-for-canvas-triggers}
 
 {% tabs %}
 {% tab Snowflake %}
@@ -50,7 +50,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 Sie können die Datenbank, das Schema und die Tabelle nach Ihren Wünschen benennen, jedoch sollten die Spaltennamen mit der vorangegangenen Definition übereinstimmen.
 
 * `UPDATED_AT`: Der Zeitpunkt, zu dem diese Zeile aktualisiert oder zur Tabelle hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen mit exakt dem Grenz-Zeitstempel können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen.
-* Entweder `external_id` oder `alias_name` und `alias_label` als Spalte für den Bezeichner der Nutzer:innen. Diese identifizieren die Nutzer:innen, für die Sie Canvas-Messaging triggern möchten.
+* Entweder `external_id` oder `alias_name` und `alias_label` als Spalte für den Bezeichner der Nutzer:innen. Diese identifizieren die Nutzer:innen, für die Sie Canvas-Messaging Trigger or triggern or triggern möchten.
   * `EXTERNAL_ID`: Identifiziert die Nutzer:in, die in den Canvas eintreten soll. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen.
   * `ALIAS_NAME` und `ALIAS_LABEL`: Diese Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Alias-Typ an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen alias_name pro `alias_label`.
 * `PROPERTIES`: Ein JSON-String mit Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten.
@@ -61,7 +61,7 @@ Eigenschaften sind nicht für jede Zeile oder jede Nutzer:in erforderlich. Die E
 
 ##### Schritt 1.2: Zugangsdaten einrichten {#step-12-set-up-credentials}
 
-Richten Sie eine Rolle, ein Warehouse und eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits Zugangsdaten aus einer bestehenden Synchronisierung haben, können Sie diese wiederverwenden. Stellen Sie jedoch sicher, dass Sie den Zugriff auf die Quelltabelle der Canvas-Trigger erweitern.
+Richten Sie eine Rolle, ein Warehouse und eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits Zugangsdaten aus einer bestehenden Synchronisierung haben, können Sie diese wiederverwenden. Stellen Sie jedoch sicher, dass Sie den Zugriff auf die Quelltabelle der Canvas-Trigger or triggern erweitern.
 
 ```sql
 
@@ -107,7 +107,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC (
 Sie können die Datenbank, das Schema und die Tabelle nach Ihren Wünschen benennen, jedoch sollten die Spaltennamen mit der vorangegangenen Definition übereinstimmen.
 
 * `UPDATED_AT`: Der Zeitpunkt, zu dem diese Zeile aktualisiert oder zur Tabelle hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen mit exakt dem Grenz-Zeitstempel können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen.
-* Entweder `external_id` oder `alias_name` und `alias_label` als Spalte für den Bezeichner der Nutzer:innen. Diese identifizieren die Nutzer:innen, für die Sie Canvas-Messaging triggern möchten.
+* Entweder `external_id` oder `alias_name` und `alias_label` als Spalte für den Bezeichner der Nutzer:innen. Diese identifizieren die Nutzer:innen, für die Sie Canvas-Messaging Trigger or triggern or triggern möchten.
   * `EXTERNAL_ID`: Identifiziert die Nutzer:in, die in den Canvas eintreten soll. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen.
   * `ALIAS_NAME` und `ALIAS_LABEL`: Diese Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Alias-Typ an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`.
 * `PROPERTIES`: Ein JSON-String mit Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten.
@@ -118,7 +118,7 @@ Eigenschaften sind nicht für jede Zeile oder jede Nutzer:in erforderlich. Die E
 
 ##### Schritt 1.2: Zugangsdaten einrichten
 
-Richten Sie eine Rolle, ein Warehouse und eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits Zugangsdaten aus einer bestehenden Synchronisierung haben, können Sie diese wiederverwenden. Stellen Sie jedoch sicher, dass Sie den Zugriff auf die Quelltabelle der Canvas-Trigger erweitern.
+Richten Sie eine Rolle, ein Warehouse und eine Nutzer:in ein und erteilen Sie die entsprechenden Berechtigungen. Wenn Sie bereits Zugangsdaten aus einer bestehenden Synchronisierung haben, können Sie diese wiederverwenden. Stellen Sie jedoch sicher, dass Sie den Zugriff auf die Quelltabelle der Canvas-Trigger or triggern erweitern.
 
 ```sql
 CREATE USER braze_user PASSWORD '{password}';
@@ -170,7 +170,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CANVAS_TRIGGERS_SYNC`
 
 ##### Schritt 1.3: Zugangsdaten einrichten {#step-13-set-up-credentials}
 
-Erstellen Sie eine Nutzer:in und erteilen Sie Berechtigungen. Sollten Sie bereits Zugangsdaten aus einer anderen Synchronisierung besitzen, können Sie diese wiederverwenden, sofern sie Zugriff auf die Canvas-Trigger-Tabelle haben.
+Erstellen Sie eine Nutzer:in und erteilen Sie Berechtigungen. Sollten Sie bereits Zugangsdaten aus einer anderen Synchronisierung besitzen, können Sie diese wiederverwenden, sofern sie Zugriff auf die Canvas-Trigger or triggern-Tabelle haben.
 
 | Berechtigung | Zweck |
 | :---- | :---- |
@@ -210,7 +210,7 @@ Beachten Sie beim Erstellen Ihrer Quelltabelle Folgendes:
 Sie können das Schema und die Tabelle nach Belieben benennen, jedoch sollten die Spaltennamen mit der vorangegangenen Definition übereinstimmen.
 
 * `UPDATED_AT`: Der Zeitpunkt, zu dem diese Zeile aktualisiert oder zur Tabelle hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen mit exakt dem Grenz-Zeitstempel können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen.
-* Entweder `external_id` oder `alias_name` und `alias_label` als Spalte für den Bezeichner der Nutzer:innen. Diese identifizieren die Nutzer:innen, für die Sie Canvas-Messaging triggern möchten.
+* Entweder `external_id` oder `alias_name` und `alias_label` als Spalte für den Bezeichner der Nutzer:innen. Diese identifizieren die Nutzer:innen, für die Sie Canvas-Messaging Trigger or triggern or triggern möchten.
   * `EXTERNAL_ID`: Identifiziert die Nutzer:in, die in den Canvas eintreten soll. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen.
   * `ALIAS_NAME` und `ALIAS_LABEL`: Diese Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Alias-Typ an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen alias_name pro `alias_label`.
 * `PROPERTIES`: Ein String oder eine Struktur von Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten.
@@ -237,10 +237,10 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 Erstellen Sie ein persönliches Zugriffstoken in Databricks:
 
 1. Wählen Sie Ihren Benutzernamen und dann **User Settings** aus.
-2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new token** aus.
-3. Fügen Sie einen Kommentar hinzu, um das Token zu identifizieren, z. B. „Braze CDI“.
+2. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token / Textbaustein** aus.
+3. Fügen Sie einen Kommentar hinzu, um das Token / Textbaustein zu identifizieren, z. B. „Braze CDI“.
 4. Lassen Sie das Feld **Lifetime (days)** leer, wenn keine Ablaufzeit festgelegt werden soll, und wählen Sie dann **Generate** aus.
-5. Kopieren Sie das Token und bewahren Sie es sicher auf, um es im Braze-Dashboard zu verwenden.
+5. Kopieren Sie das Token / Textbaustein und bewahren Sie es sicher auf, um es im Braze-Dashboard zu verwenden.
 
 ##### Schritt 1.4: Netzwerkrichtlinien konfigurieren
 
@@ -276,11 +276,11 @@ Falls für Ihr Konto Netzwerkrichtlinien gelten, fügen Sie die IP-Adressen von 
 {% endtab %}
 {% tab Dateispeicher %}
 
-Um Canvas-Trigger aus dem Dateispeicher zu synchronisieren, erstellen Sie eine Quelldatei mit den folgenden Feldern.
+Um Canvas-Trigger or triggern aus dem Dateispeicher zu synchronisieren, erstellen Sie eine Quelldatei mit den folgenden Feldern.
 
 | Feld | Erforderlich | Beschreibung |
 | :---- | :---- | :---- |
-| `EXTERNAL_ID` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen. |
+| `EXTERNAL_ID` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte dem in Braze verwendeten Wert `external_id` entsprechen. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Ja, eines von `external_id` oder `alias_name` und `alias_label` | Diese beiden Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein, und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`. |
 | `PROPERTIES` | Ja | JSON-String von Feldern, die als Personalisierungs-Eigenschaften in Ihrem Canvas verfügbar gemacht werden sollen. Dieser sollte nutzerspezifische Informationen enthalten. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 1.3: Netzwerkrichtlinien konfigurieren" }
@@ -294,8 +294,8 @@ Dateinamen müssen den AWS-Regeln entsprechen und eindeutig sein. Fügen Sie Zei
 
 #### 2. Schritt: Ziel-Canvas konfigurieren {#step-2-configure-your-destination-canvas}
 
-1. Richten Sie Ihren Ziel-Canvas für Canvas-Trigger ein. Erstellen Sie einen neuen oder wählen Sie einen vorhandenen API-getriggerten Canvas aus. Anweisungen zum Erstellen eines Canvas mit einem API-getriggerten Zustellungszeitplan finden Sie unter [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types).
-2. Nachdem Sie den API-getriggerten Zustellungszeitplan ausgewählt haben, fahren Sie mit der Canvas-Einrichtung fort und erstellen Sie Ihren Canvas. Canvases können von einfachen Einzelnachrichten bis hin zu komplexen Kunden-Workflows mit mehreren Schritten reichen.
+1. Richten Sie Ihren Ziel-Canvas für Canvas-Trigger or triggern ein. Erstellen Sie einen neuen oder wählen Sie einen vorhandenen API-getriggerten Canvas aus. Anweisungen zum Erstellen eines Canvas mit einem API-getriggerten Zustellungszeitplan finden Sie unter [Entry-Zeitplantypen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types).
+2. Nachdem Sie den API-getriggerten Zustellungszeitplan ausgewählt haben, fahren Sie mit der Canvas-Einrichtung fort und erstellen Sie Ihren Canvas. Canvase können von einfachen Einzelnachrichten bis hin zu komplexen Kunden-Workflows mit mehreren Schritten reichen.
 3. Verwenden Sie innerhalb Ihrer Canvas-Schritte [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), um Nachrichten mit Eigenschaftsfeldern zu personalisieren, die Sie aus Ihrer Quelltabelle synchronisieren möchten.
   * Wenn Sie beispielsweise in [Schritt 1](#step-1-set-up-data-source-for-canvas-triggers) ein Eigenschaftsfeld für `account_balance` eingerichtet haben, würden Sie die folgende Liquid-Vorlage verwenden, um Ihre Nachricht zu personalisieren: `\{\{canvas_entry_properties.\$\{account_balance\}\}\}`.
 5. Nachdem Sie Ihren Canvas erstellt haben, starten Sie ihn und fahren Sie mit [Schritt 3](#step-3-create-your-zero-copy-sync) fort.
@@ -312,7 +312,7 @@ Nachdem Sie die Quellkonfiguration abgeschlossen und den Ziel-Canvas gestartet h
 5. Wählen Sie eine Synchronisierungshäufigkeit aus.
 6. Konfigurieren Sie Ihre Benachrichtigungseinstellungen.
 7. Wählen Sie **Test Connection**, um zu bestätigen, dass alles wie erwartet funktioniert. Wenn Sie eine Verbindung zu Snowflake herstellen, fügen Sie zunächst den auf dem Dashboard angezeigten Public Key der Nutzer:in hinzu, die für die Braze-Verbindung zu Snowflake erstellt wurde. Um diesen Schritt abzuschließen, benötigen Sie in Snowflake mindestens **SECURITYADMIN**-Zugriff.
-8. Speichern Sie die Synchronisierung, um mit der Synchronisierung der Canvas-Trigger zu beginnen.
+8. Speichern Sie die Synchronisierung, um mit der Synchronisierung der Canvas-Trigger or triggern zu beginnen.
 
 Wenn die Synchronisierung ausgeführt wird, beginnen die Nutzer:innen in Ihrer Quelltabelle, in den Canvas einzutreten. Nutzen Sie die Canvas-Analytics und die Seite mit den Cloud-Datenaufnahme-Synchronisierungsprotokollen, um die Performance zu überwachen.
 
@@ -322,16 +322,16 @@ Wenn die Synchronisierung ausgeführt wird, beginnen die Nutzer:innen in Ihrer Q
 
 ### Überlegungen {#considerations}
 
-CDI Canvas-Trigger nutzen Ihr REST API-Rate-Limit für `/canvas/trigger/send`. Wenn Sie diesen Endpunkt gleichzeitig mit CDI Canvas-Triggern und Ihrer REST API-Integration verwenden, wird die kombinierte Nutzung auf Ihr Rate-Limit angerechnet.
+CDI Canvas-Trigger or triggern nutzen Ihr Representational State Transfer API-Rate-Limit für `/canvas/trigger/send`. Wenn Sie diesen Endpunkt gleichzeitig mit CDI Canvas-Trigger or triggern or triggern und Ihrer Representational State Transfer API-Integration verwenden, wird die kombinierte Nutzung auf Ihr Rate-Limit angerechnet.
 
 Bei jedem Synchronisierungslauf werden Nutzer:innen mit einer maximalen Rate von etwa 3,75 Millionen Nutzer:innen pro Stunde in den jeweiligen Ziel-Canvas aufgenommen. Rechnen Sie mit längeren Zeiten zwischen Quelle und Canvas-Eintritt, wenn:
 
 * Mehr als 3,75 Millionen Nutzer:innen pro Synchronisierungslauf synchronisiert werden.
-* CDI Canvas-Trigger verwendet werden, während das [Rate-Limit Ihrer REST API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit) bereits ausgeschöpft ist.
+* CDI Canvas-Trigger or triggern verwendet werden, während das [Rate-Limit Ihrer Representational State Transfer API für `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#rate-limit) bereits ausgeschöpft ist.
 
 Beachten Sie Folgendes zur Zero-Copy-CDI, wenn die Nachrichtenarchivierung aktiviert ist:
 
 * Die Ergebnisse der Tabelle werden während der Verarbeitung vorübergehend in Braze gespeichert. Sie werden außerdem für 30 Tage nach Snowflake exportiert, damit Sie genau nachvollziehen können, was synchronisiert wurde.
 * Archivierte Nachrichten werden nirgendwo innerhalb von Braze gespeichert. Die Kopien werden ausschließlich in Ihrem konfigurierten Speicher abgelegt.
-* Bei der Verwendung von Zero-Copy-CDI mit Canvas-Triggern speichert Braze keine Sicherungskopie der Abfrageergebnisse aus dem Data Warehouse, und es werden keine Daten in das Nutzerprofil kopiert.
+* Bei der Verwendung von Zero-Copy-CDI mit Canvas-Trigger or triggern or triggern speichert Braze keine Sicherungskopie der Abfrageergebnisse aus dem Data Warehouse, und es werden keine Daten in das Kundenprofil or Nutzerprofil kopiert.
 * Canvas-Kontext-Eigenschaften können bis zu 30 Tage lang in internen Systemen protokolliert werden.

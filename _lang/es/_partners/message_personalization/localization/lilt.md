@@ -42,8 +42,8 @@ Utiliza la IA de LILT para obtener traducciones inmediatas y ajustadas a la marc
 | Requisitos       | Descripción |
 |-----------------------|-----------------|
 | Una cuenta LILT   | Es necesario tener una cuenta LILT para beneficiarse de esta asociación.  |
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con los siguientes permisos:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Crea esta clave en el panel de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia.  |
+| Una clave de API REST or transferencia de estado representacional de Braze  | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos:<br>- `templates.email.create`<br>- `templates.email.update`<br>- `templates.email.info`<br>- `templates.email.list`<br>- `templates.translations.source.get`<br>- `templates.translations.update`<br>- `templates.translations.get`<br>- `templates.translations.all.get`. <br><br> Crea esta clave en el panel de Braze desde **Settings** > **API Keys**. |
+| Un punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia.  |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 
@@ -63,7 +63,7 @@ Utiliza la IA de LILT para obtener traducciones inmediatas y ajustadas a la marc
 {: start="3"}
 3. Introduce y verifica los detalles de configuración necesarios:
 - Tu clave de API de Braze
-- Punto de conexión REST de Braze
+- Punto de conexión REST or transferencia de estado representacional de Braze
 
 ![Completa las credenciales de la API.]({% image_buster /assets/img/lilt/image_3_api_creds.png %})
 

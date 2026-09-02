@@ -155,7 +155,7 @@ Si una fusión programada incluye perfiles de usuario pendientes de eliminación
 
 ### ¿Qué sucede con los datos enviados a usuarios pendientes de eliminación? {#what-happens-to-data-sent-to-users-pending-deletion}
 
-Los datos enviados desde sistemas externos o SDK se siguen aceptando, pero los usuarios se eliminarán según lo programado independientemente de la actividad.
+Los datos enviados desde sistemas externos o SDK or kit de desarrollo de software se siguen aceptando, pero los usuarios se eliminarán según lo programado independientemente de la actividad.
 
 ### ¿Se desencadenan Canvas y Campaigns para usuarios pendientes de eliminación? {#do-canvases-and-campaigns-trigger-for-users-pending-deletion}
 

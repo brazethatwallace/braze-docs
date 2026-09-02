@@ -7,7 +7,7 @@ layout: dev_guide
 search_rank: 2
 
 guide_top_header: "Predictive Suite"
-guide_top_text: "Mit der Braze Predictive Suite verfügen Sie über Tools für maschinelles Lernen. Von der Vorhersage des Churn-Risikos bis hin zur Prognose von Events – diese Tools erleichtern die effektive Nutzung von Daten, sodass Sie Ihre Nutzer:innen identifizieren, ansprechen und binden können."
+guide_top_text: "Mit der Braze Predictive Suite verfügen Sie über Tools für maschinelles Lernen. Von der Vorhersage des Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Risikos bis hin zur Prognose von Events – diese Tools erleichtern die effektive Nutzung von Daten, sodass Sie Ihre Nutzer:innen identifizieren, ansprechen und binden können."
 
 guide_featured_title: "Themen"
 guide_featured_list:
@@ -21,5 +21,5 @@ guide_featured_list:
 ---
 
 {% alert tip %}
-Weitere Informationen zu Predictive Churn und Predictive Events finden Sie im [Braze-Lernkurs](https://learning.braze.com/).
+Weitere Informationen zu Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen und Predictive Events finden Sie im [Braze-Lernkurs](https://learning.braze.com/).
 {% endalert %}

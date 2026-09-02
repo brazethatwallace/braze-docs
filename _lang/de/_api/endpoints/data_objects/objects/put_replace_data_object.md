@@ -115,7 +115,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie Sie die
 | `400` | Validierungsfehler | Überprüfen Sie, ob jedes Feld in `attributes` im Typschema existiert und den richtigen Datentyp verwendet. |
 | `404` | Typ nicht gefunden (`data-object-type-not-found`) | Überprüfen Sie, ob `type_name` im Workspace existiert und exakt mit dem Maschinennamen übereinstimmt. |
 | `422` | Datensatzlimit erreicht (`data-object-record-limit-exceeded`), wenn diese Anfrage ein neues Objekt erstellen würde | Reduzieren Sie die Anzahl der Objekte für den Typ oder kontaktieren Sie den Braze-Support bezüglich Ihrer Workspace-Limits. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Allowlist blockiert | Überprüfen Sie, ob der Schlüssel über die Berechtigung `data_objects.update` verfügt und ob Ihre Quell-IP auf der Schlüssel-Allowlist steht, sofern konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Ersetzen von Datenobjekten" }

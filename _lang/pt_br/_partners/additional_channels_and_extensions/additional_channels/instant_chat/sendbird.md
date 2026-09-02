@@ -27,8 +27,8 @@ Ao aproveitar os recursos combinados da Braze e do Sendbird Notifications, as em
 | ----------- | ----------- |
 | Conta Sendbird | É necessário ter uma conta Sendbird para aproveitar essa parceria. |
 | Sendbird UIKit | Você deve ter o Sendbird UIKit instalado no seu app [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit) ou [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit). |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para a sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para a sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -50,9 +50,9 @@ Os [modelos do Sendbird](https://sendbird.com/docs/notifications/v1/templates) p
 
 ### Etapa 2: Configurar a integração da Braze no dashboard do Sendbird {#step-2-set-up-the-braze-integration-on-sendbird-dashboard}
 
-No **Sendbird Dashboard**, selecione seu aplicativo, navegue até **Notifications > Integrations** e clique em **Add** na seção **Braze**. Aqui, você precisará da sua chave da API REST da Braze e do endpoint REST da Braze.
+No **Sendbird Dashboard**, selecione seu aplicativo, navegue até **Notifications > Integrations** e clique em **Add** na seção **Braze**. Aqui, você precisará da sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e do endpoint REST or transferir estado representacional da Braze.
 
-Depois de preencher todos os campos, clique em **Save** para concluir a integração e acessar os endpoints de integração e o token de API.
+Depois de preencher todos os campos, clique em **Save** para concluir a integração e acessar os endpoints de integração e o token de API or interface de programação do aplicativo (API).
 
 ### Etapa 3: Instalar o Sendbird Notification Builder {#step-3-install-sendbird-notification-builder}
 
@@ -62,7 +62,7 @@ Em seguida, você deve instalar o [Sendbird Notification Builder](https://chrome
 
 #### Adicionar credenciais do Sendbird à extensão {#add-sendbird-credentials-to-the-extension}
 
-Depois que a extensão estiver instalada, clique no ícone do Sendbird na barra de ferramentas do seu navegador e selecione **Settings**. Aqui, forneça seu app ID e token de API encontrados no **Sendbird Notification Builder**.
+Depois que a extensão estiver instalada, clique no ícone do Sendbird na barra de ferramentas do seu navegador e selecione **Settings**. Aqui, forneça seu app ID e token de API or interface de programação do aplicativo (API) encontrados no **Sendbird Notification Builder**.
 
 ### Etapa 4: Mapear o ID de usuário do Sendbird para o ID de usuário da Braze {#step-4-map-sendbird-user-id-to-braze-user-id}
 
@@ -78,7 +78,7 @@ Na Braze, em **Modelos e mídias**, acesse **Modelos de webhook** e escolha o **
 3. No campo **Receiver**, clique no ícone <i class="fas fa-plus"></i> e insira o atributo de usuário mapeado para o ID de usuário do Sendbird.
     - `{{ '{{' }}custom_attribute.${sendbird_id}}}` se você estiver usando um atributo personalizado `sendbird_id` como o ID de usuário do Sendbird.
     - `{{ '{{' }}${user_id}}}` se você estiver usando o ID de usuário da Braze como o ID de usuário do Sendbird.
-4. Na guia **Settings**, substitua `SENDBIRD_API_TOKEN` pelo token de API de notificações do dashboard do Sendbird.
+4. Na guia **Settings**, substitua `SENDBIRD_API_TOKEN` pelo token de API or interface de programação do aplicativo (API) de notificações do dashboard do Sendbird.
 5. Salve o modelo.
 {% endraw %}
 

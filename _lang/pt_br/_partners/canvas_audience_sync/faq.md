@@ -29,7 +29,7 @@ Por exemplo, ao configurar um Audience Sync para o Facebook, é possível usar u
 
 ## O que acontece quando meus dados estão sendo processados para serem enviados a cada parceiro do Audience Sync? {#what-happens-when-my-data-is-being-processed-to-send-to-each-audience-sync-partner}
 
-Os dados que você selecionar para enviar ao destino do Audience Sync serão normalizados. Cada parceiro pode ter especificações diferentes para a normalização de dados com base em seus requisitos de API, portanto, examine o endpoint específico de cada parceiro para obter mais detalhes.
+Os dados que você selecionar para enviar ao destino do Audience Sync serão normalizados. Cada parceiro pode ter especificações diferentes para a normalização de dados com base em seus requisitos de API or interface de programação do aplicativo (API), portanto, examine o endpoint específico de cada parceiro para obter mais detalhes.
 
 Além disso, a Braze criará hashes para todos os dados antes de sincronizar os usuários com nossos parceiros do Audience Sync, garantindo que todas as IPI sejam criptografadas usando SHA256.
 

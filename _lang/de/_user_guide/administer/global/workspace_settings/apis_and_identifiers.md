@@ -8,17 +8,17 @@ description: "Dieser Artikel behandelt die Seite „APIs und Bezeichner“, auf 
 
 # API-Schlüssel {#api-keys}
 
-> Die Seite **APIs und Bezeichner** ist Ihre zentrale Anlaufstelle für die Verwaltung all Ihrer REST-API-Schlüssel an einem Ort. Hier können Sie auf die API-Schlüssel und App-Bezeichner jedes Workspaces zugreifen.
+> Die Seite **APIs und Bezeichner** ist Ihre zentrale Anlaufstelle für die Verwaltung all Ihrer Representational State Transfer-API-Schlüssel an einem Ort. Hier können Sie auf die API-Schlüssel und App-Bezeichner jedes Workspaces zugreifen.
 
 Sie finden die Seite **APIs und Bezeichner** unter **Einstellungen**.
 
 ## API-Schlüssel
 
-Dieser Abschnitt enthält die REST-API-Schlüssel Ihres Workspace – die eindeutigen Bezeichner, die Ihnen den Zugriff auf die Daten eines Workspace ermöglichen. Ein REST-API-Schlüssel ist bei jeder Anfrage an die Braze-API erforderlich. Weitere Informationen zum Erstellen und Verwenden von API-Schlüsseln finden Sie in unserer [Übersicht über REST-API-Schlüssel]({{site.baseurl}}/api/basics).
+Dieser Abschnitt enthält die Representational State Transfer-API-Schlüssel Ihres Workspace – die eindeutigen Bezeichner, die Ihnen den Zugriff auf die Daten eines Workspace ermöglichen. Ein Representational State Transfer-API-Schlüssel ist bei jeder Anfrage an die Braze-API erforderlich. Weitere Informationen zum Erstellen und Verwenden von API-Schlüsseln finden Sie in unserer [Übersicht über Representational State Transfer-API-Schlüssel]({{site.baseurl}}/api/basics).
 
 ### IP-Zulassungsliste für die API {#api-ip-allowlisting}
 
-Für zusätzliche Sicherheit können Sie eine Liste von IP-Adressen und Subnetzen angeben, die REST-API-Anfragen für einen bestimmten REST-API-Schlüssel senden dürfen. Dies wird als Zulassungsliste (Allowlisting bzw. Whitelisting) bezeichnet. Um bestimmte IP-Adressen oder Subnetze zuzulassen, fügen Sie diese beim Erstellen eines neuen REST-API-Schlüssels im Abschnitt **Whitelist IPs** hinzu:
+Für zusätzliche Sicherheit können Sie eine Liste von IP-Adressen und Subnetzen angeben, die Representational State Transfer-API-Anfragen für einen bestimmten Representational State Transfer-API-Schlüssel senden dürfen. Dies wird als Zulassungsliste (Allowlisting bzw. Whitelisting) bezeichnet. Um bestimmte IP-Adressen oder Subnetze zuzulassen, fügen Sie diese beim Erstellen eines neuen Representational State Transfer-API-Schlüssels im Abschnitt **Whitelist IPs** hinzu:
 
 ![Abschnitt „IP-Whitelisting“ der API beim Erstellen eines neuen API-Schlüssels]({% image_buster /assets/img_archive/api-key-ip-whitelisting.png %})
 
@@ -34,8 +34,8 @@ Richten Sie API-Nutzungsbenachrichtigungen ein, um wichtige API-Aktivitäten zu 
 
 Sie können zwei Arten von API-Aktivitäten verfolgen:
 
-- **REST-API-Endpunkte:** Aktionen wie das Senden von Nachrichten, das Erstellen von Campaigns oder das Exportieren von Daten.
-- **SDK-API-Anfragen:** Ereignisse aus Ihrem Kundenerlebnis, wie das Triggern von In-App-Nachrichten oder das Synchronisieren von Nutzerprofilen. *Dieses Feature ist verfügbar, wenn Sie Monthly Active Users (CY 24–25) erworben haben.*
+- **Representational State Transfer-API-Endpunkte:** Aktionen wie das Senden von Nachrichten, das Erstellen von Campaigns oder das Exportieren von Daten.
+- **SDK or Software-Development-Kit-API-Anfragen:** Ereignisse aus Ihrem Kundenerlebnis, wie das Trigger or triggern or triggern von In-App-Nachrichten oder das Synchronisieren von Nutzerprofilen. *Dieses Feature ist verfügbar, wenn Sie Monthly Active Users (CY 24–25) erworben haben.*
 
 Sobald Sie festgelegt haben, was Sie verfolgen möchten, können Sie Benachrichtigungsbedingungen definieren. Lassen Sie sich beispielsweise benachrichtigen, wenn die Fehlerantworten innerhalb einer Stunde um 20 % ansteigen. Sie erhalten eine Benachrichtigung per E-Mail, Webhook oder beides, je nach Ihren Einstellungen. Informationen zu den ersten Schritten finden Sie unter [API-Nutzungsbenachrichtigungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts).
 

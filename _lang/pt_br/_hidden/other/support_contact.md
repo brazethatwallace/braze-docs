@@ -143,11 +143,11 @@ lable.lable-gpt {
 }
 
 
- .svg-dot path {
+ .svg-dot jornada {
   stroke: gray; /* default */
 }
 
-.svg-dot.active path {
+.svg-dot.active jornada {
   stroke: #5711E5; /* when active */
 }
 
@@ -177,7 +177,7 @@ div#ticket_thankyou {
   }
   .gpt-res-buttons {
   display: flex;
-  justify-content: space-between; /* Back on left, rest on right */
+  justify-content: space-between; /* Back on left, REST or transferir estado representacional on right */
   align-items: center;
   width: 100%;
   margin-top: 15px;
@@ -223,8 +223,8 @@ button.submit-btn {
 }
 
 
-.svg2 svg path {
-  stroke-dasharray: 1250;   /* total path length */
+.svg2 svg jornada {
+  stroke-dasharray: 1250;   /* total jornada length */
   stroke-dashoffset: 1250;  /* initially hidden */
   animation: progressAnim 3s linear forwards;
 }
@@ -975,19 +975,19 @@ a:hover {
               <strong>Resolva problemas mais rápido com o BrazeAI Operator&#8482;</strong>
               <span class="operator-callout-badge">Novo</span>
             </div>
-            <p class="operator-callout-body">O Operator pode solucionar muitos problemas em tempo real. Se não conseguir, ele ajuda você a abrir um ticket. <a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Obter ajuda com o Operator<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (abre em nova aba)</span></a></p>
+            <p class="operator-callout-body">O Operator pode solucionar muitos problemas em tempo real. Se não conseguir, ele ajuda você a abrir um ticket. <a href="https://dashboard.braze.com/?openOperator=troubleshooting" target="_blank" rel="noopener noreferrer">Obter ajuda com o Operator<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-left:3px;vertical-align:middle;" aria-hidden="true"><jornada d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span class="sr-only"> (abre em nova aba)</span></a></p>
           </div>
         </aside>
         <div class="main-border">
         <div class="steps">
             <div class="step active">Detalhes básicos</div>
             <svg xmlns="http://www.w3.org/2000/svg" width="282" height="2" viewBox="0 0 282 2" fill="none">
-  <path d="M0 1L282 1.00002" stroke="#5711E5" stroke-dasharray="3 3"/>
+  <jornada d="M0 1L282 1.00002" stroke="#5711E5" stroke-dasharray="3 3"/>
 </svg>
             <div class="step">Conteúdo sugerido</div>
             <div class="svg-dot">
             <svg xmlns="http://www.w3.org/2000/svg" width="282" height="2" viewBox="0 0 282 2" >
-  <path d="M0 1L282 1.00002"  stroke-dasharray="3 3"/>
+  <jornada d="M0 1L282 1.00002"  stroke-dasharray="3 3"/>
 </svg>
 </div>
             <div class="step">Enviar o caso</div>
@@ -995,7 +995,7 @@ a:hover {
 
         <div class='svg-hr'>
         <svg xmlns="http://www.w3.org/2000/svg" width="1310" height="2" viewBox="0 0 1310 2" fill="none">
-  <path d="M0 1H1310" stroke="#D0D5DD" stroke-width="2"/>
+  <jornada d="M0 1H1310" stroke="#D0D5DD" stroke-width="2"/>
 </svg>
         </div>
 
@@ -1023,9 +1023,9 @@ a:hover {
                 <div class="gptGradientContainer">
                  <div class='gpt-responce'>
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-  <path d="M16.1 14.5812L15.305 16.3662L13.544 17.1722C13.456 17.2137 13.3816 17.2793 13.3295 17.3615C13.2774 17.4436 13.2498 17.5389 13.2498 17.6362C13.2498 17.7335 13.2774 17.8287 13.3295 17.9109C13.3816 17.9931 13.456 18.0587 13.544 18.1002L15.305 18.9062L16.1 20.7062C16.1389 20.7952 16.203 20.8709 16.2844 20.9241C16.3657 20.9773 16.4608 21.0056 16.558 21.0056C16.6551 21.0056 16.7502 20.9773 16.8315 20.9241C16.9129 20.8709 16.977 20.7952 17.016 20.7062L17.811 18.9212L19.582 18.1152C19.6699 18.0737 19.7443 18.0081 19.7964 17.9259C19.8485 17.8437 19.8762 17.7485 19.8762 17.6512C19.8762 17.5539 19.8485 17.4586 19.7964 17.3765C19.7443 17.2943 19.6699 17.2287 19.582 17.1872L17.821 16.3812L17.026 14.5812C16.9857 14.4921 16.9206 14.4165 16.8385 14.3635C16.7564 14.3104 16.6607 14.2822 16.563 14.2822C16.4652 14.2822 16.3695 14.3104 16.2874 14.3635C16.2053 14.4165 16.1402 14.4921 16.1 14.5812Z" fill="#91186E"/>
-  <path d="M9.14095 7.94993L7.54095 4.37893C7.46284 4.20119 7.33468 4.05003 7.17211 3.9439C7.00954 3.83776 6.81959 3.78125 6.62545 3.78125C6.4313 3.78125 6.24135 3.83776 6.07878 3.9439C5.91621 4.05003 5.78806 4.20119 5.70995 4.37893L4.10995 7.94993L0.584947 9.57193C0.408701 9.6548 0.259678 9.78611 0.155296 9.95053C0.0509136 10.1149 -0.0045166 10.3057 -0.0045166 10.5004C-0.0045166 10.6952 0.0509136 10.8859 0.155296 11.0503C0.259678 11.2148 0.408701 11.3461 0.584947 11.4289L4.10695 13.0509L5.70695 16.6219C5.78506 16.7997 5.91321 16.9508 6.07578 17.057C6.23835 17.1631 6.4283 17.2196 6.62245 17.2196C6.81659 17.2196 7.00654 17.1631 7.16911 17.057C7.33168 16.9508 7.45984 16.7997 7.53795 16.6219L9.13795 13.0509L12.6599 11.4289C12.8362 11.3461 12.9852 11.2148 13.0896 11.0503C13.194 10.8859 13.2494 10.6952 13.2494 10.5004C13.2494 10.3057 13.194 10.1149 13.0896 9.95053C12.9852 9.78611 12.8362 9.6548 12.6599 9.57193L9.14095 7.94993Z" fill="#801ED7"/>
-  <path d="M17.0259 6.41957L17.8209 4.63457L19.5819 3.82857C19.6699 3.78709 19.7443 3.72143 19.7964 3.63928C19.8485 3.55712 19.8761 3.46185 19.8761 3.36457C19.8761 3.2673 19.8485 3.17203 19.7964 3.08987C19.7443 3.00772 19.6699 2.94206 19.5819 2.90057L17.8209 2.09257L17.0259 0.292575C16.9869 0.203559 16.9229 0.127833 16.8415 0.074658C16.7602 0.0214831 16.6651 -0.00683594 16.5679 -0.00683594C16.4708 -0.00683594 16.3757 0.0214831 16.2943 0.074658C16.213 0.127833 16.1489 0.203559 16.1099 0.292575L15.3149 2.07757L13.5449 2.89257C13.4569 2.93406 13.3826 2.99972 13.3305 3.08187C13.2784 3.16403 13.2507 3.2593 13.2507 3.35658C13.2507 3.45385 13.2784 3.54912 13.3305 3.63128C13.3826 3.71343 13.4569 3.77909 13.5449 3.82057L15.3059 4.62657L16.1009 6.42657C16.142 6.51509 16.2076 6.58992 16.29 6.64212C16.3724 6.69433 16.4681 6.7217 16.5657 6.72096C16.6632 6.72022 16.7585 6.69141 16.8401 6.63796C16.9218 6.58452 16.9863 6.5087 17.0259 6.41957Z" fill="#E9371F"/>
+  <jornada d="M16.1 14.5812L15.305 16.3662L13.544 17.1722C13.456 17.2137 13.3816 17.2793 13.3295 17.3615C13.2774 17.4436 13.2498 17.5389 13.2498 17.6362C13.2498 17.7335 13.2774 17.8287 13.3295 17.9109C13.3816 17.9931 13.456 18.0587 13.544 18.1002L15.305 18.9062L16.1 20.7062C16.1389 20.7952 16.203 20.8709 16.2844 20.9241C16.3657 20.9773 16.4608 21.0056 16.558 21.0056C16.6551 21.0056 16.7502 20.9773 16.8315 20.9241C16.9129 20.8709 16.977 20.7952 17.016 20.7062L17.811 18.9212L19.582 18.1152C19.6699 18.0737 19.7443 18.0081 19.7964 17.9259C19.8485 17.8437 19.8762 17.7485 19.8762 17.6512C19.8762 17.5539 19.8485 17.4586 19.7964 17.3765C19.7443 17.2943 19.6699 17.2287 19.582 17.1872L17.821 16.3812L17.026 14.5812C16.9857 14.4921 16.9206 14.4165 16.8385 14.3635C16.7564 14.3104 16.6607 14.2822 16.563 14.2822C16.4652 14.2822 16.3695 14.3104 16.2874 14.3635C16.2053 14.4165 16.1402 14.4921 16.1 14.5812Z" fill="#91186E"/>
+  <jornada d="M9.14095 7.94993L7.54095 4.37893C7.46284 4.20119 7.33468 4.05003 7.17211 3.9439C7.00954 3.83776 6.81959 3.78125 6.62545 3.78125C6.4313 3.78125 6.24135 3.83776 6.07878 3.9439C5.91621 4.05003 5.78806 4.20119 5.70995 4.37893L4.10995 7.94993L0.584947 9.57193C0.408701 9.6548 0.259678 9.78611 0.155296 9.95053C0.0509136 10.1149 -0.0045166 10.3057 -0.0045166 10.5004C-0.0045166 10.6952 0.0509136 10.8859 0.155296 11.0503C0.259678 11.2148 0.408701 11.3461 0.584947 11.4289L4.10695 13.0509L5.70695 16.6219C5.78506 16.7997 5.91321 16.9508 6.07578 17.057C6.23835 17.1631 6.4283 17.2196 6.62245 17.2196C6.81659 17.2196 7.00654 17.1631 7.16911 17.057C7.33168 16.9508 7.45984 16.7997 7.53795 16.6219L9.13795 13.0509L12.6599 11.4289C12.8362 11.3461 12.9852 11.2148 13.0896 11.0503C13.194 10.8859 13.2494 10.6952 13.2494 10.5004C13.2494 10.3057 13.194 10.1149 13.0896 9.95053C12.9852 9.78611 12.8362 9.6548 12.6599 9.57193L9.14095 7.94993Z" fill="#801ED7"/>
+  <jornada d="M17.0259 6.41957L17.8209 4.63457L19.5819 3.82857C19.6699 3.78709 19.7443 3.72143 19.7964 3.63928C19.8485 3.55712 19.8761 3.46185 19.8761 3.36457C19.8761 3.2673 19.8485 3.17203 19.7964 3.08987C19.7443 3.00772 19.6699 2.94206 19.5819 2.90057L17.8209 2.09257L17.0259 0.292575C16.9869 0.203559 16.9229 0.127833 16.8415 0.074658C16.7602 0.0214831 16.6651 -0.00683594 16.5679 -0.00683594C16.4708 -0.00683594 16.3757 0.0214831 16.2943 0.074658C16.213 0.127833 16.1489 0.203559 16.1099 0.292575L15.3149 2.07757L13.5449 2.89257C13.4569 2.93406 13.3826 2.99972 13.3305 3.08187C13.2784 3.16403 13.2507 3.2593 13.2507 3.35658C13.2507 3.45385 13.2784 3.54912 13.3305 3.63128C13.3826 3.71343 13.4569 3.77909 13.5449 3.82057L15.3059 4.62657L16.1009 6.42657C16.142 6.51509 16.2076 6.58992 16.29 6.64212C16.3724 6.69433 16.4681 6.7217 16.5657 6.72096C16.6632 6.72022 16.7585 6.69141 16.8401 6.63796C16.9218 6.58452 16.9863 6.5087 17.0259 6.41957Z" fill="#E9371F"/>
 </svg>
 <div class='gpt-text'>Gerando... </div>
 <div class='gpt-text1'>Resposta gerada para você </div>
@@ -1035,7 +1035,7 @@ a:hover {
                 <div class= "for-line">
 
                 <div class="svg1"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="9" viewBox="0 0 1250 9" fill="none">
-  <path d="M1246.26 0H3.74224C1.67546 0 0 2.01472 0 4.5C0 6.98528 1.67546 9 3.74224 9H1246.26C1248.32 9 1250 6.98528 1250 4.5C1250 2.01472 1248.32 0 1246.26 0Z" fill="url(#paint0_linear_45139_47694)" fill-opacity="0.4"/>
+  <jornada d="M1246.26 0H3.74224C1.67546 0 0 2.01472 0 4.5C0 6.98528 1.67546 9 3.74224 9H1246.26C1248.32 9 1250 6.98528 1250 4.5C1250 2.01472 1248.32 0 1246.26 0Z" fill="url(#paint0_linear_45139_47694)" fill-opacity="0.4"/>
   <defs>
     <linearGradient id="paint0_linear_45139_47694" x1="0" y1="4.5" x2="890.654" y2="4.5" gradientUnits="userSpaceOnUse">
       <stop offset="0.3" stop-color="#C9C4FF"/>
@@ -1045,7 +1045,7 @@ a:hover {
   </defs>
 </svg></div>
                 <div class="svg2"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="9" viewBox="0 0 1250 9" fill="none">
-  <path d="M3.74231 0H1246.26C1248.32 0 1250 2.01472 1250 4.5C1250 6.98528 1248.32 9 1246.26 9H3.74231C1.67554 9 0 6.98528 0 4.5C0 2.01472 1.67554 0 3.74231 0Z" fill="url(#paint0_linear_45139_47693)" fill-opacity="0.4"/>
+  <jornada d="M3.74231 0H1246.26C1248.32 0 1250 2.01472 1250 4.5C1250 6.98528 1248.32 9 1246.26 9H3.74231C1.67554 9 0 6.98528 0 4.5C0 2.01472 1.67554 0 3.74231 0Z" fill="url(#paint0_linear_45139_47693)" fill-opacity="0.4"/>
   <defs>
     <linearGradient id="paint0_linear_45139_47693" x1="890.652" y1="4.5" x2="-0.00114137" y2="4.5" gradientUnits="userSpaceOnUse">
       <stop offset="0.3" stop-color="#C9C4FF"/>
@@ -1176,7 +1176,7 @@ a:hover {
         <!-- Pergunta (largura total) -->
         <div class="form-group">
           <label for="ticket_issue" class="required">Pergunta </label>
-          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Inclua detalhes como plataforma, versão do SDK, endpoints da REST API, passos para reproduzir..."></textarea>
+          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Inclua detalhes como plataforma, versão do SDK or kit de desenvolvimento de software, endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API), passos para reproduzir..."></textarea>
         </div>
 
         <!-- Texto informativo -->
@@ -1265,8 +1265,8 @@ String.prototype.mapReplace = function(map) {
 };
 
 var wordmap = {
-  'REST' : 'REST',
-  'API' : 'API',
+  'REST or transferir estado representacional' : 'REST or transferir estado representacional',
+  'API or interface de programação do aplicativo (API)' : 'API or interface de programação do aplicativo (API)',
   'APIs' : 'APIs',
   'iOS' : 'iOS',
   'ID' : 'ID',
@@ -1288,10 +1288,10 @@ var ticket_lookuptable = {
       'LinksTitle': ['Platform Features'],
       'Links' : ['{{site.baseurl}}/developer_guide/platform_wide/platform_features/'],
       'SelectOption' : {
-        'SDK Integrations' : {
+        'SDK or kit de desenvolvimento de software Integrations' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['Self-Service SDK Debugging Tool','iOS: Initial SDK Setup','Android: Initial SDK Setup','Web: Initial SDK Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+          'LinksTitle': ['Self-Service SDK or kit de desenvolvimento de software Debugging Tool','iOS: Initial SDK or kit de desenvolvimento de software Setup','Android: Initial SDK or kit de desenvolvimento de software Setup','Web: Initial SDK or kit de desenvolvimento de software Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
           'Links': ['{{site.baseurl}}/developer_guide/sdk_integration/debugging','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overview','{{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits'],
           'SelectOption' : {
             'Push' : {
@@ -1317,7 +1317,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desenvolvimento de software Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1345,7 +1345,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desenvolvimento de software Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1372,7 +1372,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK or kit de desenvolvimento de software Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1402,41 +1402,41 @@ var ticket_lookuptable = {
             }
           }
         },
-        'REST APIs' : {
+        'REST or transferir estado representacional APIs' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['REST API: Endpoint Dictionary'],
-          'Links': ['{{site.baseurl}}/api/home'],
+          'LinksTitle': ['REST or transferir estado representacional API or interface de programação do aplicativo (API): Endpoint Dictionary'],
+          'Links': ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/home'],
           'SelectOption' : {
             'Errors' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API Errors and Responses'],
-              'Links' : ['{{site.baseurl}}/api/errors/']
+              'LinksTitle': ['API or interface de programação do aplicativo (API) Errors and Responses'],
+              'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/errors/']
             },
             'Importing Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['User Import', 'REST API: User Data Endpoints'],
-              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/','{{site.baseurl}}/api/endpoints/user_data']
+              'LinksTitle': ['User Import', 'REST or transferir estado representacional API or interface de programação do aplicativo (API): User Data Endpoints'],
+              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/user_data']
             },
             'Exporting Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Exporting Braze Data','REST API: Export Endpoints', 'Export Frequently Asked Questions'],
-              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/api/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
+              'LinksTitle': ['Exporting Braze Data','REST or transferir estado representacional API or interface de programação do aplicativo (API): Export Endpoints', 'Export Frequently Asked Questions'],
+              'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
             },
-            'API Campaigns' : {
+            'API or interface de programação do aplicativo (API) Campaigns' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API Campaign Overview','REST API: Send API-Triggered Campaign Endpoint','REST API: Schedule API-Triggered Campaign Endpoint'],
-              'Links' : ['{{site.baseurl}}/api/api_campaigns/','{{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
+              'LinksTitle': ['API or interface de programação do aplicativo (API) Campaign Overview','REST or transferir estado representacional API or interface de programação do aplicativo (API): Send API or interface de programação do aplicativo (API)-Triggered Campaign Endpoint','REST or transferir estado representacional API or interface de programação do aplicativo (API): agendar/cronograma API or interface de programação do aplicativo (API)-Triggered Campaign Endpoint'],
+              'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/api_campaigns/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
             },
             'Rate Limits' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API Rate Limits'],
-               'Links' : ['{{site.baseurl}}/api/api_limits/']
+              'LinksTitle': ['API or interface de programação do aplicativo (API) Rate Limits'],
+               'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/api_limits/']
              },
              'Other' : {
                'ShowSubmit': true,
-               'LinksTitle': ['API Basics', 'API Connectivity Issues','Postman and Sample Requests'],
-               'Links' : ['{{site.baseurl}}/api/basics/','{{site.baseurl}}/api/network_connectivity_issues','{{site.baseurl}}/api/postman_collection/']
+               'LinksTitle': ['API or interface de programação do aplicativo (API) Basics', 'API or interface de programação do aplicativo (API) Connectivity Issues','Postman and Sample Requests'],
+               'Links' : ['{{site.baseurl}}/API or interface de programação do aplicativo (API)/basics/','{{site.baseurl}}/API or interface de programação do aplicativo (API)/network_connectivity_issues','{{site.baseurl}}/API or interface de programação do aplicativo (API)/postman_collection/']
              }
           }
         },
@@ -1448,7 +1448,7 @@ var ticket_lookuptable = {
           'SelectOption': {
             'Setup (whitelabeled IPs, DNS records)' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Email Onboarding Resources','Setting Up IPs and Domains','IP warming'],
+              'LinksTitle': ['Email Onboarding Resources','Setting Up IPs and Domains','aquecimento de IP'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup','{{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/','{{site.baseurl}}/user_guide/channels/email/email_setup#ip-warming']
             },
             'Reporting and Analytics' : {
@@ -1463,7 +1463,7 @@ var ticket_lookuptable = {
             },
             'Deliverability' :{
               'ShowSubmit': true,
-              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email Deliverability'],
+              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','aquecimento de IP','Braze Learning Course: Achieving High Email Deliverability'],
                'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
             },
             'User Subscriptions' :{
@@ -1662,7 +1662,7 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'ShowSubmit': true,
-          'LinksTitle': ['System Status','SDK Changelogs'],
+          'LinksTitle': ['System Status','SDK or kit de desenvolvimento de software Changelogs'],
           'Links' : ['https://braze.statuspage.io/','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs'],
         }
       }
@@ -2630,7 +2630,7 @@ function initCaseForm() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(searchPayload)
         })
-        .catch(err => console.error("API Error (search):", err));
+        .catch(err => console.error("API or interface de programação do aplicativo (API) Error (search):", err));
     }
 
 
@@ -2698,7 +2698,7 @@ function initCaseForm() {
                     "internal": ""
                 })
             })
-            .catch(error => console.error("API Error (caseCreated):", error));
+            .catch(error => console.error("API or interface de programação do aplicativo (API) Error (caseCreated):", error));
         });
     });
 }

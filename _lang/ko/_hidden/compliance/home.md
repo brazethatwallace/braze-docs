@@ -50,9 +50,9 @@ _개정 날짜: 2026년 3월 30일_
 
 **"수집자"**, **"통신사"** 또는 **"모바일 메시지 중개자"**란 (i) 모바일 메시지 제공자와 통신사 간에 모바일 메시지를 전송하거나, (ii) 무선 서비스 제공자(예: T-Mobile, AT\&T 등)이거나, (iii) 모바일 메시지 제공자로부터 최종 사용자에게 RCS 메시지 전송에 관여하는 타사 중개자를 의미합니다.
 
-**"SMS/MMS 제공자" 또는 "모바일 메시지 제공자"**란 [www.braze.com/subprocessors](http://www.braze.com/subprocessors)에 명시된 바와 같이 SMS, MMS 및/또는 RCS 메시지 전송에 사용되는 Braze 하위 처리자를 의미합니다.
+**"단문 메시지 서비스/MMS 제공자" 또는 "모바일 메시지 제공자"**란 [www.braze.com/subprocessors](http://www.braze.com/subprocessors)에 명시된 바와 같이 단문 메시지 서비스, MMS 및/또는 RCS 메시지 전송에 사용되는 Braze 하위 처리자를 의미합니다.
 
-**"SMS/MMS 메시지"** 또는 **"모바일 메시지"**란 SMS, MMS 및/또는 RCS 메시지를 의미합니다.
+**"단문 메시지 서비스/MMS 메시지"** 또는 **"모바일 메시지"**란 단문 메시지 서비스, MMS 및/또는 RCS 메시지를 의미합니다.
 
 ### 적용 가능한 산업 표준 및 모범 사례 {#applicable-industry-standards-and-best-practices}
 
@@ -64,15 +64,15 @@ _개정 날짜: 2026년 3월 30일_
 
 Braze는 [www.braze.com/subprocessors](https://www.braze.com/subprocessors/)의 하위 처리자 목록에 포함된 모든 모바일 메시지 제공자를 사용할 수 있습니다.
 
-위 내용에도 불구하고, 고객이 "자체 SMS 커넥터(BYO SMS Connector)" 모델을 사용하여 모바일 메시지를 발송하는 경우, 발송에 관여하는 모바일 메시지 제공자는 Braze의 하위 처리자가 아닌 타사 제공자(계약에 정의된 바와 같이)로 간주되며, 아래의 면책 조항이 해당 타사 제공자에 적용됩니다.
+위 내용에도 불구하고, 고객이 "자체 단문 메시지 서비스 커넥터(BYO 단문 메시지 서비스 Connector)" 모델을 사용하여 모바일 메시지를 발송하는 경우, 발송에 관여하는 모바일 메시지 제공자는 Braze의 하위 처리자가 아닌 타사 제공자(계약에 정의된 바와 같이)로 간주되며, 아래의 면책 조항이 해당 타사 제공자에 적용됩니다.
 
 ### 웹훅 사용 예외 조건 {#webhook-use-exception-terms}
 
 2024년 12월 9일 이후에 액션 크레딧을 구독한 고객(주문서 발효일 기준)에게 적용됩니다: 웹훅 채널 규정 준수 설명서에 명시된 제한 사항은 타사 제공자 플랫폼을 통해 모바일 메시지를 발송하기 위한 웹훅 사용에는 적용되지 않습니다.
 
-### 자체 SMS 커넥터(BYO SMS Connector) {#bring-your-own-byo-sms-connector}
+### 자체 단문 메시지 서비스 커넥터(BYO 단문 메시지 서비스 Connector) {#bring-your-own-byo-sms-connector}
 
-고객은 "BYO SMS Connector" 모델을 통해 타사 제공자를 사용하여 Braze에서 모바일 메시지를 발송할 수 있습니다. 위 내용에도 불구하고, 고객은 BYO SMS Connector 모델을 사용하여 미국 및 캐나다로 모바일 메시지를 발송해서는 안 됩니다.
+고객은 "BYO 단문 메시지 서비스 Connector" 모델을 통해 타사 제공자를 사용하여 Braze에서 모바일 메시지를 발송할 수 있습니다. 위 내용에도 불구하고, 고객은 BYO 단문 메시지 서비스 Connector 모델을 사용하여 미국 및 캐나다로 모바일 메시지를 발송해서는 안 됩니다.
 
 ### 면책 조항 {#disclaimers}
 
@@ -153,7 +153,7 @@ LINE 조건에 상반되는 내용이 있더라도, 고객은 LINE 서비스 사
 
 ### 하위 처리자 또는 타사 제공자로서의 LLM 제공자 {#llm-providers-as-sub-processors-or-third-party-providers}
 
-고객이 Braze 서비스의 Braze Auto 옵션을 통해 Braze가 제공하는 대규모 언어 모델("Braze 제공 LLM")과의 통합을 사용하는 경우, 해당 Braze 제공 LLM의 제공자는 고객과 Braze 간의 데이터 처리 부록(DPA) 조건에 따라 Braze 하위 처리자로서 활동합니다.
+고객이 Braze 서비스의 Braze Auto 옵션을 통해 Braze가 제공하는 대규모 언어 모델("Braze 제공 LLM")과의 통합을 사용하는 경우, 해당 Braze 제공 LLM의 제공자는 고객과 Braze 간의 데이터 처리 부록(데이터 보호 어드바이저) 조건에 따라 Braze 하위 처리자로서 활동합니다.
 
 고객이 Braze AI 기능과 통합하기 위해 자체 API 키를 가져오는 경우, 고객 자체 LLM 구독의 제공자는 고객과 Braze 간의 계약에 정의된 바와 같이 타사 제공자로 간주됩니다.
 

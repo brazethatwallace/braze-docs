@@ -23,8 +23,8 @@ A integração entre a Braze e a Knak permite que você crie e-mails totalmente 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Knak | É necessário ter uma conta Knak para aproveitar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Modelos**. <br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Modelos**. <br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -42,7 +42,7 @@ Na Knak, navegue para **Integrations** > **Platforms** > **+ Add New Integration
 
 ![Botão de adicionar integração]({% image_buster /assets/img/knak/integration-setup-step-2-add-new-integration.png %})
 
-Em seguida, selecione a plataforma **Braze** e forneça a chave de API e o endpoint REST da Braze. Clique em **Create New Integration** para concluir sua integração.
+Em seguida, selecione a plataforma **Braze** e forneça a chave de API or interface de programação do aplicativo (API) e o endpoint REST or transferir estado representacional da Braze. Clique em **Create New Integration** para concluir sua integração.
 
 ![Criar nova integração]({% image_buster /assets/img/knak/integration-setup-step-4-add-api-key.png %})
 

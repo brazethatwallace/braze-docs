@@ -40,7 +40,7 @@ Si solo tienes el permiso "Editar Segments" a nivel de equipo (no a nivel de esp
 
 Elige a qué aplicaciones o plataformas te gustaría dirigirte seleccionando **Usuarios de todas las aplicaciones** (predeterminado) o **Usuarios de aplicaciones específicas**. **Usuarios de aplicaciones específicas** se dirige a usuarios con al menos una sesión en las aplicaciones especificadas.
 
-Por ejemplo, si deseas enviar un mensaje dentro de la aplicación solo a dispositivos iOS, selecciona tu aplicación iOS. Esto garantiza que los usuarios que utilizan tanto un dispositivo iOS como uno Android solo reciban el mensaje en su dispositivo iOS. En la lista de aplicaciones específicas, la opción **Usuarios sin aplicaciones** te permite incluir usuarios sin sesiones ni datos de aplicación (normalmente creados mediante importación de usuarios o REST API).
+Por ejemplo, si deseas enviar un mensaje dentro de la aplicación solo a dispositivos iOS, selecciona tu aplicación iOS. Esto garantiza que los usuarios que utilizan tanto un dispositivo iOS como uno Android solo reciban el mensaje en su dispositivo iOS. En la lista de aplicaciones específicas, la opción **Usuarios sin aplicaciones** te permite incluir usuarios sin sesiones ni datos de aplicación (normalmente creados mediante importación de usuarios o REST or transferencia de estado representacional API).
 
 ![Panel de detalles de Segment con la opción "Usuarios de todas las aplicaciones" seleccionada en la sección Aplicaciones utilizadas.]({% image_buster /assets/img_archive/Segment2.png %}){: style="max-width:80%;"}
 

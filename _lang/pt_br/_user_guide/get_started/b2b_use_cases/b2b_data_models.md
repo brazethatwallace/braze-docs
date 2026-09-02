@@ -53,7 +53,7 @@ Há dois métodos para criar e gerenciar seus objetos de negócios na Braze: cat
 
 Os catálogos são tabelas de dados hospedadas e gerenciadas na Braze. Embora os dados de contas e oportunidades sejam originários do sistema de CRM de vendas de sua escolha, você os duplicaria na Braze para serem usados para fins de marketing: segmentação baseada em contas, marketing baseado em contas, gerenciamento de leads e muito mais.
 
-Para essa opção, recomendamos criar um catálogo para suas contas e outro para suas oportunidades e atualizá-los com frequência enviando atualizações para a Braze por meio da nossa [API de catálogos]({{site.baseurl}}/api/endpoints/catalogs) ou da [Ingestão de dados na nuvem (CDI) de catálogos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data). Ao criar esses catálogos, certifique-se de que o `id` (primeira coluna) do seu catálogo corresponda ao `id` no seu sistema de CRM de vendas.
+Para essa opção, recomendamos criar um catálogo para suas contas e outro para suas oportunidades e atualizá-los com frequência enviando atualizações para a Braze por meio da nossa [API or interface de programação do aplicativo (API) de catálogos]({{site.baseurl}}/api/endpoints/catalogs) ou da [Ingestão de dados na nuvem (CDI) de catálogos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data). Ao criar esses catálogos, certifique-se de que o `id` (primeira coluna) do seu catálogo corresponda ao `id` no seu sistema de CRM de vendas.
 
 #### Mapeie seus campos de CRM {#map-over-your-crm-fields}
 
@@ -146,7 +146,7 @@ Neste caso de uso, o Salesforce é o sistema de CRM de exemplo. Você pode mapea
 
 ### Opção 2: Usar fontes conectadas para contas e oportunidades {#option-2-use-connected-sources-for-accounts-and-opportunities}
 
-Fontes conectadas são tabelas de dados hospedadas por você em seu próprio data warehouse e consultadas pelas [extensões de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) da Braze. Ao contrário dos catálogos, em vez de duplicar seus objetos de negócios (contas e oportunidades) na Braze, você os manteria em seu data warehouse e os usaria como a fonte da verdade.
+Fontes conectadas são tabelas de dados hospedadas por você em seu próprio data warehouse e consultadas pelas [extensões de Segment or segmento or segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments) da Braze. Ao contrário dos catálogos, em vez de duplicar seus objetos de negócios (contas e oportunidades) na Braze, você os manteria em seu data warehouse e os usaria como a fonte da verdade.
 
 Para configurar fontes conectadas, consulte [Integração de fontes conectadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources#integrating-connected-sources).
 
@@ -155,7 +155,7 @@ Para configurar fontes conectadas, consulte [Integração de fontes conectadas](
 
 ## Etapa 2: Relacione seus objetos de negócios aos perfis de usuário {#step-2-relate-your-business-objects-to-user-profiles}
 
-Os perfis de usuário são o principal objeto na Braze, que alimenta a maior parte da sua segmentação demográfica, disparo e personalização. Os perfis de usuário incluem [dados de usuários padrão]({{site.baseurl}}/user_guide/data/unification/user_data) coletados pelo nosso SDK e outras fontes, incluindo [dados personalizados]({{site.baseurl}}/user_guide/data/activation), que assumem a forma de atributos (dados demográficos), eventos (dados comportamentais) ou compras (dados transacionais).
+Os perfis de usuário são o principal objeto na Braze, que alimenta a maior parte da sua segmentação demográfica, disparo e personalização. Os perfis de usuário incluem [dados de usuários padrão]({{site.baseurl}}/user_guide/data/unification/user_data) coletados pelo nosso SDK or kit de desenvolvimento de software e outras fontes, incluindo [dados personalizados]({{site.baseurl}}/user_guide/data/activation), que assumem a forma de atributos (dados demográficos), eventos (dados comportamentais) ou compras (dados transacionais).
 
 ### Etapa 2.1: Mapear IDs de CRM de vendas para a Braze {#step-21-map-sales-crm-ids-to-braze}
 

@@ -16,7 +16,7 @@ noindex: true
 
 Bevor Sie Banner-Nachrichten in Braze testen können, müssen Sie eine [Banner-Campaign in Braze erstellen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner). Stellen Sie außerdem sicher, dass die Platzierung, die Sie testen möchten, bereits [in Ihrer App oder Website platziert]({{site.baseurl}}/developer_guide/banners/placements) ist.
 
-Um einen Test an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und gültige Push-Token für die Testnutzer:in registriert sein, bevor Sie den Versand durchführen.
+Um einen Test an [Inhalts-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und gültige Push-Token / Textbaustein für die Testnutzer:in registriert sein, bevor Sie den Versand durchführen.
 
 ## Banner testen {#test-a-banner}
 

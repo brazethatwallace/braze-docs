@@ -10,7 +10,7 @@ channel:
 
 # Nutzer:innen-Retargeting {#user-retargeting}
 
-> Zusätzlich zur Änderung des Abo-Status von Nutzer:innen zeichnet Braze auch Interaktionen mit dem Nutzerprofil auf, um Nachrichten zu filtern und zu triggern.<br><br>Diese Filter und Trigger ermöglichen es Ihnen, Nutzer:innen zu filtern, die WhatsApp-Nachrichten erhalten haben oder WhatsApp-Nachrichten aus einer bestimmten WhatsApp-Campaign oder einem bestimmten Canvas-Schritt erhalten haben.
+> Zusätzlich zur Änderung des Abo-Status von Nutzer:innen zeichnet Braze auch Interaktionen mit dem Kundenprofil or Nutzerprofil auf, um Nachrichten zu filtern und zu Trigger or triggern or triggern.<br><br>Diese Filter und Trigger or triggern ermöglichen es Ihnen, Nutzer:innen zu filtern, die WhatsApp-Nachrichten erhalten haben oder WhatsApp-Nachrichten aus einer bestimmten WhatsApp-Campaign oder einem bestimmten Canvas-Schritt erhalten haben.
 
 ## Retargeting-Optionen {#retargeting-options}
 

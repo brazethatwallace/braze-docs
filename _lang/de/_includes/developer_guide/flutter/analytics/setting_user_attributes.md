@@ -22,7 +22,7 @@ Alle String-Werte wie Vorname, Nachname, Land und Wohnort sind auf 255 Zeichen b
 
 ### Einstellung von Standardattributen 
 
-Um Nutzer:innen-Attribute zu setzen, die von Braze automatisch erfasst werden, können Sie die im SDK enthaltenen Setter-Methoden verwenden.
+Um Nutzer:innen-Attribute zu setzen, die von Braze automatisch erfasst werden, können Sie die im SDK or Software-Development-Kit enthaltenen Setter-Methoden verwenden.
 
 ```dart
 braze.setFirstName('Name');

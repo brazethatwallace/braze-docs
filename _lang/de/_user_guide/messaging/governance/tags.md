@@ -3,7 +3,7 @@ nav_title: Tags
 article_title: Tags
 page_order: 10
 page_type: reference
-description: "Dieser Referenzartikel behandelt Tags für Campaigns, Canvases, Segments und angepasste Daten im Braze-Dashboard."
+description: "Dieser Referenzartikel behandelt Tags für Campaigns, Canvase, Segments und angepasste Daten im Braze-Dashboard."
 tool:
   - Campaigns
   - Canvas
@@ -11,9 +11,9 @@ tool:
 
 # Tags {#tags}
 
-> Braze erfasst Informationen zu Autor:in, Bearbeiter:in, Datum und Status von Segments, Campaigns und Canvases und bietet Ihnen die Möglichkeit, Tags zu erstellen, um Ihre Engagements weiter zu organisieren und zu sortieren.
+> Braze erfasst Informationen zu Autor:in, Bearbeiter:in, Datum und Status von Segments, Campaigns und Canvase und bietet Ihnen die Möglichkeit, Tags zu erstellen, um Ihre Engagements weiter zu organisieren und zu sortieren.
 
-## Tags für Campaigns, Canvases und Segments {#campaign-canvas-and-segment-tags}
+## Tags für Campaigns, Canvase und Segments {#campaign-canvas-and-segment-tags}
 
 Sie können Tags hinzufügen, wenn Sie eine Campaign, ein Canvas oder ein Segment erstellen oder bearbeiten. Klicken Sie unter dem Engagement-Namen auf <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tags** und wählen Sie ein vorhandenes Tag aus, oder beginnen Sie zu tippen, um ein neues Tag hinzuzufügen.
 
@@ -25,7 +25,7 @@ Sie können bis zu 175 Tags zu einer Campaign, einem Canvas oder einem Segment h
 
 ### Massen-Tagging {#bulk-tagging}
 
-Sie können auch Tags zu mehreren Campaigns, Canvases oder Segments hinzufügen, indem Sie mehrere Engagements auswählen und <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tag As** auswählen.
+Sie können auch Tags zu mehreren Campaigns, Canvase oder Segments hinzufügen, indem Sie mehrere Engagements auswählen und <span style="font-size: 14px;margin-bottom: .5rem;height: 16px;width: 16px;" class="fas fa-tag" ></span>**Tag As** auswählen.
 
 ![Gleichzeitiges Hinzufügen von Tags zu mehreren Campaigns.]({% image_buster /assets/img_archive/tags_apply_multiple.gif %})
 
@@ -41,7 +41,7 @@ Die Tags, die für eine Campaign, ein Canvas oder ein Segment festgelegt wurden,
 
 ### Nach Tag filtern {#filtering-by-tag}
 
-Tags sind in der Liste der Campaigns, Canvases oder Segments sichtbar, zusammen mit zusätzlichen Tags für Statusbezeichnungen wie **Archived** und **Draft**. Um nach einem Tag zu filtern, wählen Sie den Tag-Namen aus der Liste der Tags aus.
+Tags sind in der Liste der Campaigns, Canvase oder Segments sichtbar, zusammen mit zusätzlichen Tags für Statusbezeichnungen wie **Archived** und **Draft**. Um nach einem Tag zu filtern, wählen Sie den Tag-Namen aus der Liste der Tags aus.
 
 ![Tags in der Liste der Campaigns.]({% image_buster /assets/img_archive/tags_grid.png %})
 
@@ -50,7 +50,7 @@ Tags sind in der Liste der Campaigns, Canvases oder Segments sichtbar, zusammen 
 Tags können auch zu angepassten Daten hinzugefügt werden, wenn Sie [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) und [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#adding-tags) verwalten.
 
 {% alert important %}
-Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Dieses Feature befindet sich derzeit im Early Access. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 Informationen zum Umbenennen, Entfernen oder Verschachteln von Tags in Ihrem Dashboard finden Sie unter [Tags verwalten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

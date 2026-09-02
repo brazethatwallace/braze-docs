@@ -20,7 +20,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **E-Mail-Abo-Gruppen** testen
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d1c3b617-22f1-47bf-9ee8-499526824470 {% endapiref %}
 
-Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS-Abo-Gruppen** testen möchten:
+Wenn Sie Beispiele sehen oder diesen Endpunkt für **Kurzmitteilungsdienst or SMS-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#54bd7ca8-60d9-4654-aff5-406479f3c666 {% endapiref %}
 
@@ -59,7 +59,7 @@ Wenn mehrere Nutzer:innen (mehrere `external_ids`) dieselbe E-Mail-Adresse haben
 `https://rest.iad-03.braze.com/subscription/user/status?external_id[]=1&external_id[]=2`
 {% endraw %}
 {% endtab %}
-{% tab SMS und WhatsApp %}
+{% tab Kurzmitteilungsdienst or SMS und WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&limit=100&offset=1&phone=+11112223333' \
@@ -79,7 +79,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 
 ## Beispielantwort {#example-response}
 
-Nur Abo-Gruppen, für die im Verlauf einer Nutzer:in ein Update des Abo-Status erfolgt ist, werden in einer erfolgreichen Antwort berücksichtigt. Das bedeutet, dass neu erstellte Abo-Gruppen nicht aufgelistet werden.
+Nur Abo-Gruppen, für die im Verlauf einer Nutzer:in ein Update or aktualisieren des Abo-Status erfolgt ist, werden in einer erfolgreichen Antwort berücksichtigt. Das bedeutet, dass neu erstellte Abo-Gruppen nicht aufgelistet werden.
 
 ```json
 {

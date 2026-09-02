@@ -42,7 +42,7 @@ Os seguintes nomes `ClaimType` podem ser usados para garantir a exclusividade de
 - `first_name`: captura o nome do usuário.
 - `last_name`: captura o sobrenome do usuário.
 
-Para usar a API de código de cupom dinâmico da Punchh, um token JWT deve ser construído. Adicione o seguinte modelo Liquid ao seu dashboard da Braze no corpo da mensagem do canal que deseja usar:
+Para usar a API or interface de programação do aplicativo (API) de código de cupom dinâmico da Punchh, um token JWT deve ser construído. Adicione o seguinte modelo Liquid ao seu dashboard da Braze no corpo da mensagem do canal que deseja usar:
 
 {% raw %}
 ```liquid

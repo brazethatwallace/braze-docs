@@ -59,7 +59,7 @@ braze.getUser().addAlias(ALIAS_NAME, ALIAS_LABEL);
 AppDelegate.braze?.user.add(alias: ALIAS_NAME, label: ALIAS_LABEL)
 ```
 
-{% elsif include.platform == "REST" %}
+{% elsif include.platform == "REST or transferir estado representacional" %}
 
 ```json
 {

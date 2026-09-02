@@ -2,7 +2,7 @@ Los mensajes dentro de la aplicación se entregan como mensajes dentro de la apl
 
 - `canvas_entry_properties`
 - `connected_content`
-- Variables de SMS como {% raw %}`{sms.${*}}`{% endraw %}
+- Variables de servicio de mensajes cortos como {% raw %}`{sms.${*}}`{% endraw %}
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`

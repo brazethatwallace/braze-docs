@@ -12,10 +12,10 @@ channel:
 # Twilio
 
 {% alert warning %}
-Twilio 웹훅 통합에 대한 지원은 2020년 1월 31일에 중단됩니다. Braze에서 여전히 SMS 서비스에 액세스하려면 [SMS 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)를 참조하세요.
+Twilio 웹훅 통합에 대한 지원은 2020년 1월 31일에 중단됩니다. Braze에서 여전히 단문 메시지 서비스 서비스에 액세스하려면 [단문 메시지 서비스 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)를 참조하세요.
 {% endalert %}
 
-이 예제에서는 Twilio의 [메시지 전송 API](https://www.twilio.com/docs/api/rest/sending-messages)를 통해 사용자에게 SMS 및 MMS를 보낼 수 있도록 Braze 웹훅 채널을 구성합니다. 편의를 위해 대시보드에 Twilio 웹훅 템플릿이 포함되어 있습니다.
+이 예제에서는 Twilio의 [메시지 전송 API](https://www.twilio.com/docs/api/rest/sending-messages)를 통해 사용자에게 단문 메시지 서비스 및 MMS를 보낼 수 있도록 Braze 웹훅 채널을 구성합니다. 편의를 위해 대시보드에 Twilio 웹훅 템플릿이 포함되어 있습니다.
 
 ## HTTP URL
 
@@ -29,7 +29,7 @@ Twilio 예제에서 웹훅 URL은 `https://api.twilio.com/2010-04-01/Accounts/TW
 
 Twilio API는 요청 본문이 URL 인코딩되어야 하므로, Braze 웹훅 작성기에서 요청 유형을 `Raw Text`로 변경하는 것부터 시작해야 합니다. 요청 본문에 필요한 매개변수는 *To*, *From*, 및 *Body*입니다.
 
-다음 스크린샷은 각 사용자의 전화번호로 "Hello from Braze!"라는 본문의 SMS를 보내는 경우 요청이 어떻게 보일 수 있는지에 대한 예시입니다.
+다음 스크린샷은 각 사용자의 전화번호로 "Hello from Braze!"라는 본문의 단문 메시지 서비스를 보내는 경우 요청이 어떻게 보일 수 있는지에 대한 예시입니다.
 
 - 타겟 오디언스의 각 고객 프로필에 유효한 전화번호가 있어야 합니다.
 - Twilio의 요청 형식을 충족하려면 메시지 콘텐츠에 `url_param_escape` Liquid 필터를 사용하세요. 이 필터는 문자열을 인코딩하여 모든 문자가 HTML 요청에서 허용되도록 합니다. 예를 들어, 전화번호 `+12125551212`의 더하기 문자(`+`)는 URL 인코딩된 데이터에서 금지되어 있으며 `%2B12125551212`로 변환됩니다.

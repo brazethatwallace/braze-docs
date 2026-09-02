@@ -4,13 +4,13 @@
 
 A Apple define "dados de rastreamento" como os dados coletados em seu app sobre um usuário final ou dispositivo que estão vinculados a dados de terceiros (como publicidade direcionada) ou a um corretor de dados. Para uma definição completa com exemplos, consulte [Apple: Rastreamento](https://developer.apple.com/app-store/app-privacy-details/#user-tracking).
 
-Por padrão, o SDK da Braze não coleta dados de rastreamento. No entanto, dependendo da configuração do SDK da Braze, talvez seja necessário listar dados específicos da Braze no manifesto de privacidade do seu app.
+Por padrão, o SDK or kit de desenvolvimento de software da Braze não coleta dados de rastreamento. No entanto, dependendo da configuração do SDK or kit de desenvolvimento de software da Braze, talvez seja necessário listar dados específicos da Braze no manifesto de privacidade do seu app.
 
 ### O que é um manifesto de privacidade? {#what-is-a-privacy-manifest}
 
 Um manifesto de privacidade é um arquivo em seu projeto Xcode que descreve o motivo pelo qual seu app e SDKs de terceiros coletam dados, juntamente com seus métodos de coleta de dados. Cada um dos seus SDKs de terceiros que rastreiam dados exige seu próprio manifesto de privacidade. Quando você [cria o relatório de privacidade do seu app](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187), esses arquivos de manifesto de privacidade são automaticamente agregados em um único relatório.
 
-### Domínios de dados de rastreamento da API {#api-tracking-data-domains}
+### Domínios de dados de rastreamento da API or interface de programação do aplicativo (API) {#api-tracking-data-domains}
 
 A partir do iOS 17.2, a Apple bloqueará todos os endpoints de rastreamento declarados em seu app até que o usuário final aceite um [aviso de Transparência de Rastreamento de Anúncios (ATT)](https://support.apple.com/en-us/HT212025). A Braze fornece endpoints de rastreamento para encaminhar seus dados de rastreamento e, ao mesmo tempo, permite que você encaminhe dados primários que não sejam de rastreamento para o endpoint original.
 
@@ -22,13 +22,13 @@ Para um passo a passo completo, consulte o [tutorial de dados de rastreamento de
 
 ### Pré-requisitos {#prerequisites}
 
-A seguinte versão do SDK da Braze é necessária para implementar este recurso:
+A seguinte versão do SDK or kit de desenvolvimento de software da Braze é necessária para implementar este recurso:
 
 {% sdk_min_versions swift:9.0.0 %}
 
 ### Etapa 1: Revise suas políticas atuais {#step-1-review-your-current-policies}
 
-Revise as políticas atuais de coleta de dados do SDK da Braze com sua equipe jurídica para determinar se o seu app coleta dados de rastreamento [conforme definido pela Apple](#what-is-tracking-data). Se você não estiver coletando nenhum dado de rastreamento, não é necessário personalizar o manifesto de privacidade do SDK da Braze neste momento. Para saber mais sobre as políticas de coleta de dados do SDK da Braze, consulte [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Revise as políticas atuais de coleta de dados do SDK or kit de desenvolvimento de software da Braze com sua equipe jurídica para determinar se o seu app coleta dados de rastreamento [conforme definido pela Apple](#what-is-tracking-data). Se você não estiver coletando nenhum dado de rastreamento, não é necessário personalizar o manifesto de privacidade do SDK or kit de desenvolvimento de software da Braze neste momento. Para saber mais sobre as políticas de coleta de dados do SDK or kit de desenvolvimento de software da Braze, consulte [Coleta de dados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 {% alert important %}
 Se algum dos seus SDKs que não são da Braze coletar dados de rastreamento, você precisará revisar essas políticas separadamente.
@@ -116,7 +116,7 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 
 ### Etapa 5: Evite loops de repetição infinitos {#step-5-prevent-infinite-retry-loops}
 
-Para evitar que o SDK entre em um loop de repetição infinito, use o método `set(adTrackingEnabled: enableAdTracking)` para gerenciar as permissões de ATT. A propriedade `adTrackingEnabled` no seu método `SceneDelegate.swift` deve ser tratada de forma semelhante ao seguinte:
+Para evitar que o SDK or kit de desenvolvimento de software entre em um loop de repetição infinito, use o método `set(adTrackingEnabled: enableAdTracking)` para gerenciar as permissões de ATT. A propriedade `adTrackingEnabled` no seu método `SceneDelegate.swift` deve ser tratada de forma semelhante ao seguinte:
 
 ```swift
 func sceneDidBecomeActive(_ scene: UIScene) {
@@ -131,15 +131,15 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 
 ## Desabilitando o rastreamento de dados {#disabling-data-tracking}
 
-Para desabilitar a atividade de rastreamento de dados no SDK Swift, defina a propriedade [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) como `false` na sua instância da Braze. Quando `enabled` é definido como `false`, o SDK da Braze ignora todas as chamadas à API pública. O SDK também cancela todas as ações em andamento, como solicitações de rede, processamento de eventos, etc.
+Para desabilitar a atividade de rastreamento de dados no SDK or kit de desenvolvimento de software Swift, defina a propriedade [`enabled`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/enabled) como `false` na sua instância da Braze. Quando `enabled` é definido como `false`, o SDK or kit de desenvolvimento de software da Braze ignora todas as chamadas à API or interface de programação do aplicativo (API) pública. O SDK or kit de desenvolvimento de software também cancela todas as ações em andamento, como solicitações de rede, processamento de eventos, etc.
 
 ## Limpando dados armazenados anteriormente {#wiping-previously-stored-data}
 
-Você pode usar o método [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) para limpar completamente os dados do SDK armazenados localmente no dispositivo de um usuário.
+Você pode usar o método [`wipeData()`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata()) para limpar completamente os dados do SDK or kit de desenvolvimento de software armazenados localmente no dispositivo de um usuário.
 
-Para versões 7.0.0 e posteriores do Braze Swift, o SDK e o método `wipeData()` geram aleatoriamente um UUID como ID do dispositivo. No entanto, se o seu `useUUIDAsDeviceId` estiver definido como `false` _ou_ se você estiver usando a versão 5.7.0 ou anterior do Swift SDK, também será necessário fazer uma solicitação POST para [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), pois o Identifier for Vendors (IDFV) será automaticamente usado como ID do dispositivo desse usuário.
+Para versões 7.0.0 e posteriores do Braze Swift, o SDK or kit de desenvolvimento de software e o método `wipeData()` geram aleatoriamente um UUID como ID do dispositivo. No entanto, se o seu `useUUIDAsDeviceId` estiver definido como `false` _ou_ se você estiver usando a versão 5.7.0 ou anterior do Swift SDK or kit de desenvolvimento de software, também será necessário fazer uma solicitação POST para [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), pois o Identifier for Vendors (IDFV) será automaticamente usado como ID do dispositivo desse usuário.
 
-Se você usa a integração manual de push e seu app chama `wipeData()` e depois reativa o SDK na mesma execução do app, chame `registerForRemoteNotifications()` novamente para que a Braze possa receber um token de dispositivo atualizado. Para saber mais, consulte [configuração de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
+Se você usa a integração manual de push e seu app chama `wipeData()` e depois reativa o SDK or kit de desenvolvimento de software na mesma execução do app, chame `registerForRemoteNotifications()` novamente para que a Braze possa receber um token de dispositivo atualizado. Para saber mais, consulte [configuração de notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift).
 
 ## Retomando o rastreamento de dados {#resuming-data-tracking}
 
@@ -147,14 +147,14 @@ Para retomar a coleta de dados, defina [`enabled`](https://braze-inc.github.io/b
 
 ## Logout e cancelamento de registro de push {#logout-and-unregister-push}
 
-O SDK da Braze fornece métodos para parar de direcionar um dispositivo quando um usuário cancela o registro de notificações por push ou faz logout. Esses métodos removem os dados de registro de push do usuário atual no servidor da Braze e no SDK, de modo que a Braze não envie mais Campaigns de notificação por push futuras para esse usuário.
+O SDK or kit de desenvolvimento de software da Braze fornece métodos para parar de direcionar um dispositivo quando um usuário cancela o registro de notificações por push ou faz logout. Esses métodos removem os dados de registro de push do usuário atual no servidor da Braze e no SDK or kit de desenvolvimento de software, de modo que a Braze não envie mais Campaigns de notificação por push futuras para esse usuário.
 
 ### Logout {#logout}
 
-Quando um usuário faz logout de um aplicativo, chame o método `logout` do SDK para remover o registro de push do dispositivo do usuário atual e executar automaticamente ações de limpeza no SDK. O método `logout` executa o seguinte:
+Quando um usuário faz logout de um aplicativo, chame o método `logout` do SDK or kit de desenvolvimento de software para remover o registro de push do dispositivo do usuário atual e executar automaticamente ações de limpeza no SDK or kit de desenvolvimento de software. O método `logout` executa o seguinte:
 
 - Cancela o registro do token de push do dispositivo e de quaisquer tokens push-to-start de Live Activities do usuário atual no servidor da Braze.
-- Se a chamada de cancelamento de registro for bem-sucedida, o SDK limpa os dados do SDK armazenados localmente e desativa o SDK.
+- Se a chamada de cancelamento de registro for bem-sucedida, o SDK or kit de desenvolvimento de software limpa os dados do SDK or kit de desenvolvimento de software armazenados localmente e desativa o SDK or kit de desenvolvimento de software.
 - Em caso de falha, gera um erro e uma flag `isRetriable` para permitir que o integrador tome uma ação.
 
 {% subtabs local %}
@@ -174,7 +174,7 @@ AppDelegate.braze?.logout { result in
 }
 ```
 
-O exemplo assíncrono a seguir mostra a API suspensa `logout`. Use-o para fluxos de trabalho assíncronos e personalize as ramificações de sucesso e falha para o seu app.
+O exemplo assíncrono a seguir mostra a API or interface de programação do aplicativo (API) suspensa `logout`. Use-o para fluxos de trabalho assíncronos e personalize as ramificações de sucesso e falha para o seu app.
 
 ```swift
 // Async/await
@@ -236,7 +236,7 @@ AppDelegate.braze?.notifications.unregisterPush { result in
 }
 ```
 
-O exemplo assíncrono a seguir mostra a API suspensa `unregisterPush`. Use-o para fluxos de trabalho assíncronos e personalize as ramificações de sucesso e falha para o seu app.
+O exemplo assíncrono a seguir mostra a API or interface de programação do aplicativo (API) suspensa `unregisterPush`. Use-o para fluxos de trabalho assíncronos e personalize as ramificações de sucesso e falha para o seu app.
 
 ```swift
 // Async/await
@@ -327,14 +327,14 @@ AppDelegate.braze?.liveActivities.unregisterPushToStart(types: ["ActivityType1",
 ```
 
 {% alert note %}
-`unregisterPushToStart` não possui uma API Objective-C, pois Live Activities dependem de tipos exclusivos do Swift.
+`unregisterPushToStart` não possui uma API or interface de programação do aplicativo (API) Objective-C, pois Live Activities dependem de tipos exclusivos do Swift.
 {% endalert %}
 
 ## Coleta de IDFV {#idfv-collection}
 
-Em versões anteriores do SDK da Braze para iOS, o campo IDFV (Identifier for Vendor) era coletado automaticamente como o ID do dispositivo do usuário. A partir da versão `v5.7.0` do Swift SDK, o campo IDFV passou a poder ser opcionalmente desativado e, em vez disso, a Braze definia um UUID aleatório como o ID do dispositivo. A partir da versão `v7.0.0` do Swift SDK, o campo IDFV não será coletado por padrão, e um UUID será definido como o ID do dispositivo.
+Em versões anteriores do SDK or kit de desenvolvimento de software da Braze para iOS, o campo IDFV (Identifier for Vendor) era coletado automaticamente como o ID do dispositivo do usuário. A partir da versão `v5.7.0` do Swift SDK or kit de desenvolvimento de software, o campo IDFV passou a poder ser opcionalmente desativado e, em vez disso, a Braze definia um UUID aleatório como o ID do dispositivo. A partir da versão `v7.0.0` do Swift SDK or kit de desenvolvimento de software, o campo IDFV não será coletado por padrão, e um UUID será definido como o ID do dispositivo.
 
-O recurso `useUUIDAsDeviceId` configura o [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) para definir o ID do dispositivo como um UUID. Tradicionalmente, o SDK para iOS atribuía ao ID do dispositivo o valor IDFV gerado pela Apple. Com esse recurso ativado por padrão no seu app iOS, todos os novos usuários criados pelo SDK receberão um ID de dispositivo igual a um UUID.
+O recurso `useUUIDAsDeviceId` configura o [Swift SDK or kit de desenvolvimento de software](https://github.com/braze-inc/braze-swift-sdk) para definir o ID do dispositivo como um UUID. Tradicionalmente, o SDK or kit de desenvolvimento de software para iOS atribuía ao ID do dispositivo o valor IDFV gerado pela Apple. Com esse recurso ativado por padrão no seu app iOS, todos os novos usuários criados pelo SDK or kit de desenvolvimento de software receberão um ID de dispositivo igual a um UUID.
 
 Se você ainda quiser coletar o IDFV separadamente, pode usar [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
 
@@ -343,7 +343,7 @@ A Apple é responsável por criar o IDFV, e o IDFV é gerenciado pela Apple. A B
 {% endalert %}
 
 {% alert note %}
-A leitura de `braze.deviceId` bloqueia a thread que fez a chamada até que o SDK conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use as alternativas não bloqueantes.
+A leitura de `braze.deviceId` bloqueia a thread que fez a chamada até que o SDK or kit de desenvolvimento de software conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use as alternativas não bloqueantes.
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -370,9 +370,9 @@ let deviceId = await AppDelegate.braze?.getDeviceId()
 
 ### Considerações {#considerations}
 
-#### Versão do SDK {#sdk-version}
+#### Versão do SDK or kit de desenvolvimento de software {#sdk-version}
 
-Na versão `v7.0.0+` do Swift SDK, quando `useUUIDAsDeviceId` está ativado (padrão), todos os novos usuários criados receberão um ID de dispositivo aleatório. Todos os usuários já existentes manterão o mesmo valor de ID de dispositivo, que pode ter sido o IDFV.
+Na versão `v7.0.0+` do Swift SDK or kit de desenvolvimento de software, quando `useUUIDAsDeviceId` está ativado (padrão), todos os novos usuários criados receberão um ID de dispositivo aleatório. Todos os usuários já existentes manterão o mesmo valor de ID de dispositivo, que pode ter sido o IDFV.
 
 Quando esse recurso não está ativado, os dispositivos continuarão recebendo o IDFV ao serem criados.
 
@@ -394,4 +394,4 @@ Sim, esse recurso pode ser ativado e desativado conforme sua necessidade. Os IDs
 
 #### Ainda posso capturar o valor do IDFV pela Braze de outra forma? {#can-i-still-capture-the-idfv-value-through-braze-elsewhere}
 
-Sim, você ainda pode coletar opcionalmente o IDFV por meio do Swift SDK (a coleta é desativada por padrão).
+Sim, você ainda pode coletar opcionalmente o IDFV por meio do Swift SDK or kit de desenvolvimento de software (a coleta é desativada por padrão).

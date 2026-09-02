@@ -35,8 +35,8 @@ Braze y Survicate trabajan juntos para cubrir una amplia gama de casos de uso de
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Survicate | Necesitas una cuenta de Survicate para activar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con el permiso `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **API e identificadores**. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con el permiso `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **API e identificadores**. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Características principales de la integración {#key-features-of-the-integration}

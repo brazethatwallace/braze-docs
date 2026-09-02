@@ -75,7 +75,7 @@ HTML-Push-Benachrichtigungen sind Push-Nachrichten, die in HTML fest codiert sin
 
 ## Benachrichtigungs-IDs und Kanal-IDs {#notification-ids-and-channel-ids}
 
-Benachrichtigungs-IDs und Kanal-IDs ermöglichen es Ihnen, Push-Benachrichtigungen zu ersetzen oder zu aktualisieren, die bereits von Nutzer:innen empfangen, aber noch nicht geöffnet wurden.
+Benachrichtigungs-IDs und Kanal-IDs ermöglichen es Ihnen, Push-Benachrichtigungen zu ersetzen oder zu Update or aktualisieren or aktualisieren, die bereits von Nutzer:innen empfangen, aber noch nicht geöffnet wurden.
 
 **Unterstützt auf:** iOS, Android
 
@@ -83,7 +83,7 @@ Weitere Informationen finden Sie unter [Benachrichtigungskanäle]({{site.baseurl
 
 ## Hintergrund- oder stille Push-Benachrichtigungen {#background-push-notifications}
 
-Push-Benachrichtigungen, die nicht auf dem Gerät angezeigt werden. Sie werden in der Regel verwendet, um Informationspakete an die App für Hintergrundprozesse und Uninstall-Tracking zu senden. Ein hintergrundfähiges Push-Token ist erforderlich, damit eine Hintergrund- oder stille Push-Benachrichtigung gesendet werden kann.
+Push-Benachrichtigungen, die nicht auf dem Gerät angezeigt werden. Sie werden in der Regel verwendet, um Informationspakete an die App für Hintergrundprozesse und Uninstall-Tracking zu senden. Ein hintergrundfähiges Push-Token / Textbaustein ist erforderlich, damit eine Hintergrund- oder stille Push-Benachrichtigung gesendet werden kann.
 
 **Unterstützt auf:** Web, Android, iOS
 

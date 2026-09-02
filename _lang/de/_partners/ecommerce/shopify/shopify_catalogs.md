@@ -149,7 +149,7 @@ Sie können auch synchronisierte Produkt-Tags, Metafelder und Kollektionen in Ih
 ![Shopify-Katalog mit synchronisierten Daten.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren Customer-Success-Manager, um bei Bedarf ein Upgrade Ihrer Stufe durchzuführen.
+Wenn Ihre Synchronisierung Ihr Katalogspeicherlimit überschreitet, stoppt Braze die Synchronisierung und neue Produkt-Updates werden nicht mehr berücksichtigt. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um bei Bedarf ein Upgrade or upgraden Ihrer Stufe durchzuführen.
 {% endalert %}
 
 ### Schritt 5: Konfiguration verwalten {#step-5-manage-your-configuration}
@@ -161,7 +161,7 @@ Sie können Ihre Shopify-Produktsynchronisierung jederzeit über die Shopify-Par
 ![Seite mit Integrationseinstellungen und einer aktiven Produkt-Katalogsynchronisierung.]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
 {% alert important %}
-Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Canvases oder Katalogauswahlen auswirken, die darauf verweisen. Aktualisieren Sie aktive Inhalte, damit sie ordnungsgemäß funktionieren, wenn Sie die Änderungen übernehmen.
+Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Canvase oder Katalogauswahlen auswirken, die darauf verweisen. Update or aktualisieren or aktualisieren Sie aktive Inhalte, damit sie ordnungsgemäß funktionieren, wenn Sie die Änderungen übernehmen.
 {% endalert %}
 
 ## Unterstützte Shopify-Katalogdaten {#supported-shopify-catalog-data}
@@ -182,7 +182,7 @@ Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Can
 | `product_url`        | String         | „https://your-store.myshopify.com/products/classic-leather-jacket“            |
 | `product_handle`     | String         | „classic-leather-jacket“                                                          |
 | `published_scope`    | String         | „web“, „global“                                                                   |
-| `price`              | Nummer         | `10.00`, `24.99`<br><br>Shopify gibt Preise oft als Strings zurück (zum Beispiel `"199.00"` in der REST Admin API). Braze konvertiert sie für dieses Katalogfeld in Nummern. |
+| `price`              | Nummer         | `10.00`, `24.99`<br><br>Shopify gibt Preise oft als Strings zurück (zum Beispiel `"199.00"` in der Representational State Transfer Admin API). Braze konvertiert sie für dieses Katalogfeld in Nummern. |
 | `compare_at_price`   | Nummer         | `15.00` wenn **Compare at price** in Shopify gesetzt ist<br><br>`0` wenn Shopify keinen Vergleichspreis hat. Shopify-APIs geben für einen nicht gesetzten Vergleichspreis in der Regel `null` zurück; Braze speichert `0` im Katalog, damit das Feld immer numerisch ist (dies ist ein Braze-Standardwert, kein Wert, den Shopify als `0` sendet). |
 | `inventory_quantity` | Nummer         | `20`, `0` oder ein negativer Wert, wenn Überverkauf erlaubt ist (zum Beispiel `-18`)   |
 | `options`            | String         | „Size,Color“<br><br>Shopify erlaubt bis zu drei Optionstypen pro Produkt (zum Beispiel Size, Color, Material). Der Wert von `options` ist eine kommagetrennte Liste dieser Namen. |
@@ -194,7 +194,7 @@ Das Ändern Ihrer synchronisierten Auswahlen kann sich auf aktive Campaigns, Can
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte Shopify-Katalogdaten" }
 
 {% alert warning %}
-Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu aktualisieren, nehmen Sie Änderungen direkt in Ihrem Shopify-Shop vor – sie werden automatisch mit Braze synchronisiert. Um Ihren Shopify-Katalog zu löschen, gehen Sie zur Shopify-Partnerseite in Braze und [deaktivieren Sie die Synchronisierung](#deactivate).
+Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu Update or aktualisieren or aktualisieren, nehmen Sie Änderungen direkt in Ihrem Shopify-Shop vor – sie werden automatisch mit Braze synchronisiert. Um Ihren Shopify-Katalog zu löschen, gehen Sie zur Shopify-Partnerseite in Braze und [deaktivieren Sie die Synchronisierung](#deactivate).
 {% endalert %}
 
 ## Anwendungsfälle für den Shopify-Katalog {#shopify-catalog-use-cases}
@@ -202,7 +202,7 @@ Ihr Shopify-Katalog wird von Shopify verwaltet. Um Ihren Katalog zu aktualisiere
 Diese Anwendungsfälle zeigen, wie Sie Ihre synchronisierten Shopify-Katalogdaten nutzen können, um Nachrichten zu personalisieren.
 
 {% alert warning %}
-Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalog. Varianten über dieses Limit hinaus werden nicht synchronisiert. Wenn Sie mehr als 250 Varianten pro Produkt benötigen, wenden Sie sich an Ihren Braze Customer-Success-Manager.
+Braze synchronisiert bis zu 250 Varianten jedes Shopify-Produkts in Ihren Katalog. Varianten über dieses Limit hinaus werden nicht synchronisiert. Wenn Sie mehr als 250 Varianten pro Produkt benötigen, wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 {% tabs %}
@@ -716,7 +716,7 @@ Sie können auch [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/d
 
 ## Produktsynchronisierung deaktivieren {#deactivate}
 
-Wenn Sie das Shopify-Feature zur Produktsynchronisierung deaktivieren, werden Ihr gesamter Katalog und Ihre Produkte gelöscht. Dies kann sich auch auf alle Nachrichten auswirken, die die Produktdaten dieses Katalogs aktiv nutzen. Vergewissern Sie sich, dass Sie diese Campaigns oder Canvases vor der Deaktivierung entweder aktualisiert oder pausiert haben, da dies dazu führen kann, dass Nachrichten ohne Produktangaben versendet werden. Löschen Sie den Shopify-Katalog nicht direkt auf der Katalogseite.
+Wenn Sie das Shopify-Feature zur Produktsynchronisierung deaktivieren, werden Ihr gesamter Katalog und Ihre Produkte gelöscht. Dies kann sich auch auf alle Nachrichten auswirken, die die Produktdaten dieses Katalogs aktiv nutzen. Vergewissern Sie sich, dass Sie diese Campaigns oder Canvase vor der Deaktivierung entweder aktualisiert oder pausiert haben, da dies dazu führen kann, dass Nachrichten ohne Produktangaben versendet werden. Löschen Sie den Shopify-Katalog nicht direkt auf der Katalogseite.
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -725,8 +725,8 @@ Wenn bei der Synchronisierung Ihrer Shopify-Produkte ein Fehler auftritt, kann d
 | Fehler | Ursache | Lösung |
 | --- | --- | --- |
 | Server-Fehler | Dies tritt auf, wenn auf der Seite von Shopify ein Serverfehler vorliegt, wenn wir versuchen, Ihre Produkte zu synchronisieren. | [Deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Produktbestand erneut. |
-| Doppelte SKU | Dies tritt auf, wenn Sie die SKU als Ihre Katalog-Artikel-ID verwenden und mehrere Varianten dieselbe SKU teilen. Jede `item_id` im Katalog muss eindeutig sein, sodass betroffene Artikel möglicherweise nicht synchronisiert werden, Fehlerdatensätze ansammeln oder Produktinformationen unbeabsichtigt überschrieben werden. | Überprüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass keine doppelten SKUs vorhanden sind. Falls doppelte SKUs vorhanden sind, aktualisieren Sie diese in Ihrem Shopify-Shop-Konto, sodass nur eindeutige SKUs verwendet werden. Nachdem dies korrigiert wurde, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Produktbestand erneut. |
-| Kataloglimit überschritten | Dies tritt auf, wenn Sie Ihr Kataloglimit überschreiten. Braze kann die Synchronisierung nicht abschließen oder aktiv halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Kontaktieren Sie Ihren Account Manager, um Ihr Paket zu aktualisieren und Ihr Kataloglimit zu erhöhen. <br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Selections<br><br> Nachdem Sie eine der beiden Lösungen angewendet haben, muss die Synchronisierung deaktiviert und anschließend erneut durchgeführt werden. |
+| Doppelte SKU | Dies tritt auf, wenn Sie die SKU als Ihre Katalog-Artikel-ID verwenden und mehrere Varianten dieselbe SKU teilen. Jede `item_id` im Katalog muss eindeutig sein, sodass betroffene Artikel möglicherweise nicht synchronisiert werden, Fehlerdatensätze ansammeln oder Produktinformationen unbeabsichtigt überschrieben werden. | Überprüfen Sie Ihre vollständige Liste der Produkte und Varianten in Shopify, um sicherzustellen, dass keine doppelten SKUs vorhanden sind. Falls doppelte SKUs vorhanden sind, Update or aktualisieren or aktualisieren Sie diese in Ihrem Shopify-Shop-Konto, sodass nur eindeutige SKUs verwendet werden. Nachdem dies korrigiert wurde, [deaktivieren Sie die Synchronisierung](#deactivate) und synchronisieren Sie Ihren gesamten Produktbestand erneut. |
+| Kataloglimit überschritten | Dies tritt auf, wenn Sie Ihr Kataloglimit überschreiten. Braze kann die Synchronisierung nicht abschließen oder aktiv halten, da kein Speicherplatz mehr verfügbar ist. | Es gibt zwei Lösungen für dieses Problem:<br><br>1. Kontaktieren Sie Ihren Account Manager:in, um Ihr Paket zu Update or aktualisieren or aktualisieren und Ihr Kataloglimit zu erhöhen. <br><br>2. Geben Sie Speicherplatz frei, indem Sie Folgendes löschen:<br>- Katalogartikel aus anderen Katalogen<br>- Andere Kataloge<br>- Erstellte Selections<br><br> Nachdem Sie eine der beiden Lösungen angewendet haben, muss die Synchronisierung deaktiviert und anschließend erneut durchgeführt werden. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehlerbehebung" }
 
 Weitere Informationen zur Validierung von Katalogartikeln finden Sie unter [Fehlerbehebung]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/asynchronous/post_create_catalog_items_bulk#troubleshooting) in der Katalog-API-Dokumentation.

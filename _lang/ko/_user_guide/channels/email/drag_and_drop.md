@@ -303,7 +303,7 @@ Liquid 개인화는 이미지 블록과 버튼 링크 유형 필드에서는 지
 
 유니버설 링크를 설정하려면 [유니버설 링크 및 App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)를 참조하세요.
 
-또는 [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) 또는 [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/deeplinking/appsflyer/appsflyer#integrate-appsflyer-with-braze-for-deep-linking)와 같은 기여도 파트너와 통합하여 유니버설 링크를 관리할 수 있습니다.
+또는 [Branch or 브랜치]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) 또는 [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/deeplinking/appsflyer/appsflyer#integrate-appsflyer-with-braze-for-deep-linking)와 같은 기여도 파트너와 통합하여 유니버설 링크를 관리할 수 있습니다.
 
 마지막으로, 메시지의 접근성을 높이기 위한 사전 정의된 속성을 사용할 수 있습니다. [Braze에서 접근 가능한 메시지 작성하기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) 문서에서 [이메일 클라이언트가 대체 텍스트를 표시하는 방식]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#how-email-clients-display-alt-text)을 포함하여 자세히 알아보세요.
 

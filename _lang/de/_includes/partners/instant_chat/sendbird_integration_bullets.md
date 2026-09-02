@@ -1,2 +1,2 @@
-- Nutzen Sie die Segmentierungs- und Trigger-Funktionen von Braze, um personalisierte In-App-Benachrichtigungen auszulösen.
+- Nutzen Sie die Segmentierungs- und Trigger or triggern-Funktionen von Braze, um personalisierte In-App-Benachrichtigungen auszulösen.
 - Erstellen Sie maßgeschneiderte In-App-Benachrichtigungen auf der Sendbird-Notifications-Plattform, die dann innerhalb der App-Umgebung zugestellt werden und so das Engagement der Nutzer:innen steigern.

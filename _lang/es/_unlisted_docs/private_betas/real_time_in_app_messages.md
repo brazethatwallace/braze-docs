@@ -16,9 +16,9 @@ noindex: true
 
 ## Cómo funciona {#how-it-works}
 
-Sin la entrega en tiempo real, el SDK solicita los mensajes dentro de la aplicación elegibles al inicio de la sesión y los almacena en caché en el dispositivo. Un usuario que se vuelve elegible a mitad de sesión no recibe el mensaje hasta que comienza su siguiente sesión. Para más información sobre este comportamiento, consulta [Desencadenar mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
+Sin la entrega en tiempo real, el SDK or kit de desarrollo de software solicita los mensajes dentro de la aplicación elegibles al inicio de la sesión y los almacena en caché en el dispositivo. Un usuario que se vuelve elegible a mitad de sesión no recibe el mensaje hasta que comienza su siguiente sesión. Para más información sobre este comportamiento, consulta [Desencadenar mensajes dentro de la aplicación]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
 
-Con la entrega en tiempo real, Braze envía el mensaje al dispositivo a través de una conexión en vivo que el SDK mantiene durante la sesión. Braze envía un mensaje en dos casos:
+Con la entrega en tiempo real, Braze envía el mensaje al dispositivo a través de una conexión en vivo que el SDK or kit de desarrollo de software mantiene durante la sesión. Braze envía un mensaje en dos casos:
 
 - Un usuario se vuelve elegible para una campaña de mensajes dentro de la aplicación.
 - Un usuario avanza a un paso de mensaje dentro de la aplicación en un Canvas.
@@ -33,26 +33,26 @@ La entrega en tiempo real cambia cuándo llega un mensaje al dispositivo. El com
 | Un usuario alcanza un paso de mensaje dentro de la aplicación en un Canvas a mitad de sesión | El mensaje llega en el siguiente inicio de sesión | El mensaje llega durante la sesión actual |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comparación de entrega de mensajes dentro de la aplicación en tiempo real" }
 
-## Requisitos del SDK {#sdk-requirements}
+## Requisitos del SDK or kit de desarrollo de software {#sdk-requirements}
 
-La entrega en tiempo real requiere las siguientes versiones mínimas del SDK:
+La entrega en tiempo real requiere las siguientes versiones mínimas del SDK or kit de desarrollo de software:
 
 {% sdk_min_versions swift:18.0.0 android:43.1.1 %}
 
-Los dispositivos continúan recibiendo mensajes dentro de la aplicación al inicio de sesión independientemente de la versión del SDK.
+Los dispositivos continúan recibiendo mensajes dentro de la aplicación al inicio de sesión independientemente de la versión del SDK or kit de desarrollo de software.
 
 ## Limitaciones actuales {#current-limitations}
 
-- **El SDK Web aún no es compatible:** la entrega en tiempo real está disponible para los SDK de Swift y Android durante el acceso anticipado.
+- **El SDK or kit de desarrollo de software Web aún no es compatible:** la entrega en tiempo real está disponible para los SDK or kit de desarrollo de software de Swift y Android durante el acceso anticipado.
 - **Las ediciones a una campaña en vivo se aplican en el siguiente inicio de sesión:** si cambias un mensaje dentro de la aplicación que un dispositivo ya ha recibido, ese dispositivo conserva la versión que tiene hasta que comience la siguiente sesión del usuario.
 
 ## Participar en el acceso anticipado {#participate-in-early-access}
 
 1. Contacta a tu director de cuentas de Braze para que tu espacio de trabajo sea añadido al acceso anticipado.
-2. Actualiza tu aplicación a la versión mínima del SDK para tu plataforma.
+2. Actualiza tu aplicación a la versión mínima del SDK or kit de desarrollo de software para tu plataforma.
 3. Publica la aplicación actualizada para tus usuarios.
 
-La entrega en tiempo real no requiere configuración en el panel, cambios en las campañas ni cambios en el código del SDK. Una vez que tu espacio de trabajo sea añadido al acceso anticipado, la entrega en tiempo real se aplica a tus campañas y Canvas de mensajes dentro de la aplicación existentes.
+La entrega en tiempo real no requiere configuración en el panel, cambios en las campañas ni cambios en el código del SDK or kit de desarrollo de software. Una vez que tu espacio de trabajo sea añadido al acceso anticipado, la entrega en tiempo real se aplica a tus campañas y Canvas de mensajes dentro de la aplicación existentes.
 
 ## Comparte tus comentarios {#share-feedback}
 

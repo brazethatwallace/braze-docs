@@ -12,13 +12,13 @@ search_rank: 5
 
 # Mensajes dentro de la aplicación {#in-app-messages}
 
-> Los mensajes dentro de la aplicación entregan contenido dentro de tu aplicación o sitio web sin interrumpir a los usuarios con una notificación push. Los mensajes dentro de la aplicación personalizados mejoran la experiencia del usuario y ayudan a tu audiencia a obtener más valor de tu producto a través de diseños, personalización y herramientas de segmentación. Este centro cubre los tipos de mensajes, el editor de arrastrar y soltar, los requisitos previos y ejemplos comunes como la incorporación y las promociones. Integra el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) antes de crear tu primer mensaje dentro de la aplicación y luego elige un diseño estándar o personalizado para tu Campaign.
+> Los mensajes dentro de la aplicación entregan contenido dentro de tu aplicación o sitio web sin interrumpir a los usuarios con una notificación push. Los mensajes dentro de la aplicación personalizados mejoran la experiencia del usuario y ayudan a tu audiencia a obtener más valor de tu producto a través de diseños, personalización y herramientas de segmentación. Este centro cubre los tipos de mensajes, el editor de arrastrar y soltar, los requisitos previos y ejemplos comunes como la incorporación y las promociones. Integra el [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) antes de crear tu primer mensaje dentro de la aplicación y luego elige un diseño estándar o personalizado para tu Campaign.
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder enviar mensajes dentro de la aplicación, necesitas integrar el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) en tu aplicación o sitio web. No se requiere configuración adicional.
+Antes de poder enviar mensajes dentro de la aplicación, necesitas integrar el [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) en tu aplicación o sitio web. No se requiere configuración adicional.
 
-Para las versiones mínimas del SDK y los requisitos específicos de cada característica, consulta:
+Para las versiones mínimas del SDK or kit de desarrollo de software y los requisitos específicos de cada característica, consulta:
 - [Editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
 - [Tipos de mensaje]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 

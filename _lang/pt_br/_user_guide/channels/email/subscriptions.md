@@ -37,11 +37,11 @@ Quando um endereço de e-mail sofre hard bounce, a Braze não altera automaticam
 
 Existem quatro maneiras de atualizar o estado de inscrição de e-mail de um usuário:
 
-#### Integração SDK {#sdk-integration}
+#### Integração SDK or kit de desenvolvimento de software {#sdk-integration}
 
-Use o SDK da Braze para atualizar o estado de inscrição de um usuário.
+Use o SDK or kit de desenvolvimento de software da Braze para atualizar o estado de inscrição de um usuário.
 
-#### REST API
+#### REST or transferir estado representacional API or interface de programação do aplicativo (API)
 
 Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para atualizar o [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) de um usuário. Por exemplo, para definir o estado de inscrição de e-mail de um usuário como cancelado quando ele usar um link de cancelamento de inscrição personalizado, inclua `email_subscribe: "unsubscribed"` nos atributos do usuário na sua requisição.
 
@@ -62,7 +62,7 @@ Inclua o Liquid da [Central de Preferências](#email-preference-center) na parte
 
 Use qualquer um dos métodos a seguir para verificar o estado de inscrição de e-mail de um usuário:
 
-1. **Exportação via REST API:** Use os endpoints [Exportar usuários por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Exportar usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para exportar perfis de usuários individuais em formato JSON.
+1. **Exportação via REST or transferir estado representacional API or interface de programação do aplicativo (API):** Use os endpoints [Exportar usuários por Segment or segmento]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Exportar usuários por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para exportar perfis de usuários individuais em formato JSON.
 2. **Perfil de usuário:** Encontre o perfil do usuário na página [Search Users]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), depois selecione a guia **Engagement** para visualizar e atualizar manualmente o estado de inscrição de um usuário.
 
 Quando um usuário atualiza seu endereço de e-mail, o estado de inscrição é definido como subscribed. Se o endereço de e-mail atualizado já existir em outro lugar em um espaço de trabalho da Braze, o usuário herda o estado de inscrição desse usuário existente, a menos que a opção **Resubscribe users when they update their email setting** esteja ativada em **Sending Configuration**.
@@ -73,8 +73,8 @@ As seguintes origens podem acionar uma alteração no estado de inscrição de e
 
 | Origem | Descrição |
 | ------ | ----------- |
-| SDK | Atualização de atributo de usuário enviada por meio de um SDK da Braze |
-| REST API | Atualização de atributo de usuário enviada por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) |
+| SDK or kit de desenvolvimento de software | Atualização de atributo de usuário enviada por meio de um SDK or kit de desenvolvimento de software da Braze |
+| REST or transferir estado representacional API or interface de programação do aplicativo (API) | Atualização de atributo de usuário enviada por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) |
 | Dashboard | Estado de inscrição alterado manualmente na página de perfil de usuário |
 | Importação CSV | Estado de inscrição definido durante uma importação de CSV de usuários |
 | Central de Preferências | Usuário atualizou sua preferência a partir de uma Central de Preferências hospedada pela Braze |
@@ -107,7 +107,7 @@ Você pode usar a Liquid tag {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%} 
 
 Quando um usuário seleciona "Cancelar inscrição de todos os tipos de e-mail listados" na Central de Preferências, a Braze define o status global de inscrição de e-mail como `unsubscribed` e cancela a inscrição de todos os grupos.
 
-Cancelamentos de inscrição feitos pelo destinatário — links de cancelamento de inscrição, list-unsubscribe, envios pela Central de Preferências e cancelamentos reportados pelo provedor de serviços de e-mail — aparecem na tabela `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` do Snowflake. Cancelamentos de inscrição feitos pela REST API não são incluídos nessa tabela; eles emitem eventos [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) ou [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events). Para ver o esquema da tabela, consulte [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
+Cancelamentos de inscrição feitos pelo destinatário — links de cancelamento de inscrição, list-unsubscribe, envios pela Central de Preferências e cancelamentos reportados pelo provedor de serviços de e-mail — aparecem na tabela `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` do Snowflake. Cancelamentos de inscrição feitos pela REST or transferir estado representacional API or interface de programação do aplicativo (API) não são incluídos nessa tabela; eles emitem eventos [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) ou [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events). Para ver o esquema da tabela, consulte [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
 
 ### Criando rodapés personalizados {#custom-footer}
 
@@ -130,7 +130,7 @@ Para usar uma landing page personalizada:
 
 Inclua um link de reinscrição (por exemplo {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) para que os usuários possam desfazer um cancelamento de inscrição acidental. Assim como {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, você pode usar essa tag apenas em Campaigns de e-mail e Canvas.
 
-Você também pode enviar os usuários para o seu site e atualizar o status com a REST API da Braze (por exemplo, link com {% raw %}`?user_id={{${user_id}}}`{% endraw %} e depois chamar [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
+Você também pode enviar os usuários para o seu site e atualizar o status com a REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze (por exemplo, link com {% raw %}`?user_id={{${user_id}}}`{% endraw %} e depois chamar [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
 
 {% alert note %}
 Se você usar o rodapé do dashboard em vez de apenas um bloco de conteúdo HTML, o modelo ainda deve conter {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} para salvar. Para usar uma URL de cancelamento de inscrição diferente temporariamente, você pode comentar a tag padrão. Um exemplo é: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.
@@ -172,6 +172,6 @@ A Braze suporta três estados de direcionamento:
 
 Use os filtros "Email Subscription Status" e "Push Subscription Status" para segmentar usuários por status de inscrição.
 
-Use isso para direcionar usuários que não fizeram opt-in nem opt-out e incentive um opt-in explícito. Crie um segmento com o filtro "Email/Push Subscription Status is Subscribed" e envie Campaigns para usuários que estão inscritos, mas não fizeram opt-in.
+Use isso para direcionar usuários que não fizeram opt-in nem opt-out e incentive um opt-in explícito. Crie um Segment or segmento or segmento com o filtro "Email/Push Subscription Status is Subscribed" e envie Campaigns para usuários que estão inscritos, mas não fizeram opt-in.
 
-![Email Subscription Status usado como filtro de segmento.]({% image_buster /assets/img_archive/not_optin.png %})
+![Email Subscription Status usado como filtro de Segment or segmento or segmento.]({% image_buster /assets/img_archive/not_optin.png %})

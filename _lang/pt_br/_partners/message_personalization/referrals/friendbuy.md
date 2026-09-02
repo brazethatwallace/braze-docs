@@ -21,8 +21,8 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito | Descrição |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta Friendbuy | Uma [conta Friendbuy](https://retailer.friendbuy.io/) é necessária para aproveitar esta parceria. |
-| Uma chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende da URL da sua instância da Braze. |
+| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
+| Um endpoint REST or transferir estado representacional da Braze | [A URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), que depende da URL da sua instância da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integrando o Friendbuy {#integrating-friendbuy}
@@ -31,7 +31,7 @@ No [Friendbuy](https://retailer.friendbuy.io/), acesse **Developer Center** > **
 
 ![O cartão de integração da Braze no Friendbuy.]({% image_buster /assets/img/friendbuy/choosing_braze.png %}){: style="max-width:75%;"}
 
-No formulário, insira seu endpoint REST e chave de API e selecione **Install Integration**.
+No formulário, insira seu endpoint REST or transferir estado representacional e chave de API or interface de programação do aplicativo (API) e selecione **Install Integration**.
 
 ![O formulário de integração do Friendbuy.]({% image_buster /assets/img/friendbuy/install_form.png %}){: style="max-width:55%;"}
 

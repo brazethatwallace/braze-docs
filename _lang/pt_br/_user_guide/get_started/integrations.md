@@ -16,17 +16,17 @@ Note que o conteúdo deste artigo não se aplica a e-mails. Confira na seção d
 
 ## O lado técnico do processo de integração {#the-technical-side-of-the-integration-process}
 
-Você pode estar pensando: "Meus desenvolvedores são mágicos! Eles podem fazer qualquer coisa, então geralmente eu só deixo com eles!" E provavelmente são e provavelmente podem! Mas não há motivo para você não saber o que eles estão fazendo nos bastidores. Na verdade, ajudaria todo o processo se você soubesse quando intervir com informações e o que procurar quando eles perguntam: "Pode me enviar a chave de API e o endpoint de API?"
+Você pode estar pensando: "Meus desenvolvedores são mágicos! Eles podem fazer qualquer coisa, então geralmente eu só deixo com eles!" E provavelmente são e provavelmente podem! Mas não há motivo para você não saber o que eles estão fazendo nos bastidores. Na verdade, ajudaria todo o processo se você soubesse quando intervir com informações e o que procurar quando eles perguntam: "Pode me enviar a chave de API or interface de programação do aplicativo (API) e o endpoint de API or interface de programação do aplicativo (API)?"
 
 Então, o que eles estão fazendo quando integram a Braze com seu app ou site? Que bom que você perguntou!
 
-### Etapa 1: Eles implementam o SDK da Braze {#step-1-they-implement-the-braze-sdk}
+### Etapa 1: Eles implementam o SDK or kit de desenvolvimento de software da Braze {#step-1-they-implement-the-braze-sdk}
 
-O SDK da Braze (kit de desenvolvimento de software) é como enviamos e recebemos informações do seu app ou site. Seus engenheiros estão, essencialmente, conectando nossos apps. Para fazer isso, eles precisam de algumas informações importantes:
+O SDK or kit de desenvolvimento de software da Braze (SDK or kit de desenvolvimento de software or kit de desenvolvimento de software) é como enviamos e recebemos informações do seu app ou site. Seus engenheiros estão, essencialmente, conectando nossos apps. Para fazer isso, eles precisam de algumas informações importantes:
 
-* Suas [chaves de API]({{site.baseurl}}/api/basics)
-* Seu [endpoint de SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
-  * A Braze não fornece mais endpoints personalizados, então use os endpoints de SDK predefinidos. Se você recebeu um endpoint personalizado pré-existente, aqui você encontra as etapas de configuração envolvidas para integração com [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) e [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk).
+* Suas [chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics)
+* Seu [endpoint de SDK or kit de desenvolvimento de software or endpoint do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
+  * A Braze não fornece mais endpoints personalizados, então use os endpoints de SDK or kit de desenvolvimento de software predefinidos. Se você recebeu um endpoint personalizado pré-existente, aqui você encontra as etapas de configuração envolvidas para integração com [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) e [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk).
 
 Você pode fornecer essas informações diretamente a eles ou pode dar acesso à Braze criando uma conta para eles.
 
@@ -42,12 +42,12 @@ Informe seus desenvolvedores sobre quais canais você deseja usar para garantir 
 
 | Canal | Detalhes |
 |---|---|
-| In-App Messages | Requer implementação do SDK, bem como etapas específicas do canal. |
-| Push | Requer implementação do SDK para fornecer o tratamento adequado de credenciais de mensagens e tokens por push. |
+| In-App Messages | Requer implementação do SDK or kit de desenvolvimento de software, bem como etapas específicas do canal. |
+| Push | Requer implementação do SDK or kit de desenvolvimento de software para fornecer o tratamento adequado de credenciais de mensagens e tokens por push. |
 | E-mail | Este é um processo completamente diferente. Confira a seção [Configuração de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup) para mais detalhes sobre a integração. |
 | Content Cards | Para começar com [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards), entre em contato com seu gerente de sucesso do cliente da Braze. |
 | SMS e MMS | Confira a seção [Configuração de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending) para mais detalhes sobre a integração. |
-| Webhooks | Requer implementação do SDK, bem como etapas específicas do canal. |
+| Webhooks | Requer implementação do SDK or kit de desenvolvimento de software, bem como etapas específicas do canal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Eles implementam os canais de envio de mensagens desejados" }
 
 {% alert tip %}
@@ -62,14 +62,14 @@ Então, o que você precisa fazer para fornecer essas informações a eles?
 
 1. Trabalhe com sua equipe de marketing para definir campanhas, objetivos, atributos e eventos que você precisa acompanhar. Defina esses casos de uso e compartilhe com suas equipes.
 2. Defina seus requisitos de dados personalizados ([atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events), etc.).
-3. A partir daí, discuta como esses dados devem ser rastreados (disparados pelo SDK, etc.).
+3. A partir daí, discuta como esses dados devem ser rastreados (disparados pelo SDK or kit de desenvolvimento de software, etc.).
 4. Defina quantos [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces) você precisa. Seus engenheiros precisarão saber como [testar e configurar]({{site.baseurl}}/user_guide/get_started/workspaces) esses espaços de trabalho.
 
 Depois de reunir todas essas informações, compartilhe com seu engenheiro. Ele usará essas informações para implementar seus [dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data). Talvez você até precise [importar alguns usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users). Você também deve ficar atento às [convenções de nomenclatura de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ### Etapa 4: Eles personalizam com base no que você deseja {#step-4-they-customize-based-on-what-you-want}
 
-Se você quiser recursos como disparo via API e Connected Content, discuta isso tanto com seu contato na Braze quanto com seus desenvolvedores para garantir que você consiga trazer dados que existem fora do seu app e da Braze para suas mensagens.
+Se você quiser recursos como disparo via API or interface de programação do aplicativo (API) e Connected Content, discuta isso tanto com seu contato na Braze quanto com seus desenvolvedores para garantir que você consiga trazer dados que existem fora do seu app e da Braze para suas mensagens.
 
 ### Etapa 5: Vocês realizam QA juntos na implementação {#step-5-you-both-perform-qa-on-your-implementation}
 

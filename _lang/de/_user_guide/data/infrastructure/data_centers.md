@@ -3,7 +3,7 @@ nav_title: Datenzentren
 article_title: Datenzentren
 page_order: 1
 page_type: reference
-description: "Dieser Referenzartikel enthält Informationen über Datenzentren, einschließlich ihrer Standorte und wie Sie sich für regionsspezifische Datenzentren registrieren können."
+description: "Dieser Referenzartikel enthält Informationen über Datenzentren, einschließlich ihrer Standorte und wie Sie sich für regionsspezifische Datenzentren Registrierung or registrieren können."
 ---
 
 # Datenzentren {#data-centers}
@@ -46,4 +46,4 @@ Nehmen wir an, Sie haben eine mobile App, die Push-Benachrichtigungen an Nutzer:
 
 ## Registrierung für regionsspezifische Datenzentren {#signing-up-for-region-specific-data-centers}
 
-Wenn Sie Ihr Braze-Konto einrichten, können Sie sich für regionsspezifische Datenzentren anmelden. Kontaktieren Sie Ihren Account Manager, um Informationen und Empfehlungen darüber zu erhalten, welche Datenzentren basierend auf den geografischen Regionen Ihrer Nutzer:innen am besten für Sie geeignet sind.
+Wenn Sie Ihr Braze-Konto einrichten, können Sie sich für regionsspezifische Datenzentren anmelden. Kontaktieren Sie Ihren Account Manager:in, um Informationen und Empfehlungen darüber zu erhalten, welche Datenzentren basierend auf den geografischen Regionen Ihrer Nutzer:innen am besten für Sie geeignet sind.

@@ -416,5 +416,5 @@ SendGridを使用している場合、以下の例もトラッキングされま
 | `"This site can't be reached" (DNS_PROBE_FINISHED_NXDOMAIN)` | DNS設定を確認してください。トラッキングサブドメインがCDNとメールサービスプロバイダー（ESP）の推奨設定に従って構成されていることを確認してください。 |
 | `525 / 526 SSL Error` | CDN（Cloudflareなど）のSSL設定がOriginの機能と一致していることを確認してください。 |
 | `404 Not Found` | CDNが空のルートディレクトリを指すのではなく、URLパス全体をメールサービスプロバイダー（ESP）に転送するように設定されていることを確認してください。 |
-| `400 Bad Request: Request Header or Cookie Too Large` | このエラーは通常、クリックトラッキングドメインがWebサイトのドメインから大量のCookieを継承している場合に発生します。Brazeはトラッキングドメインにおいてcookieの設定やブロックを行いません。CDNがクリックトラッキングリクエストをリバースプロキシする際に、それらのCookieをメールサービスプロバイダー（ESP）に送信しないように設定してください。nginx設定の`large_client_header_buffers`設定を増やす必要がある場合もあります（例：`large_client_header_buffers 4 32k;`で最大32&nbsp;KBのヘッダーを許可）。詳細については、CDNプロバイダーまたはWebサイト開発チームにお問い合わせください。 |
+| `400 Bad Request: Request Header or Cookie Too Large` | このエラーは通常、クリックトラッキングドメインがWebサイトのドメインから大量のCookieを継承している場合に発生します。BrazeはトラッキングドメインにおいてCookieの設定やブロックを行いません。CDNがクリックトラッキングリクエストをリバースプロキシする際に、それらのCookieをメールサービスプロバイダー（ESP）に送信しないように設定してください。nginx設定の`large_client_header_buffers`設定を増やす必要がある場合もあります（例：`large_client_header_buffers 4 32k;`で最大32&nbsp;KBのヘッダーを許可）。詳細については、CDNプロバイダーまたはWebサイト開発チームにお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="エラーコードとトラブルシューティング" }

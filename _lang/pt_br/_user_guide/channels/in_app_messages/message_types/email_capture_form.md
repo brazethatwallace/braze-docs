@@ -14,7 +14,7 @@ channel:
 
 Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
-Se você coleta e-mails por meio de um formulário personalizado em vez desse tipo de mensagem no app e, em seguida, define a associação ao grupo de inscrições por meio da REST API, verifique se já existe um perfil antes de criar um usuário. Consulte [Melhores práticas de coleta]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
+Se você coleta e-mails por meio de um formulário personalizado em vez desse tipo de mensagem no app e, em seguida, define a associação ao grupo de inscrições por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API), verifique se já existe um perfil antes de criar um usuário. Consulte [Melhores práticas de coleta]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
 
 ## Como funciona {#how-it-works}
 
@@ -51,7 +51,7 @@ Para saber mais, consulte o [Ciclo de vida do perfil de usuário]({{site.baseurl
 Para navegar até essa opção, você deve criar uma campanha de mensagem no app. A partir daí, dependendo do seu caso de uso, defina **Enviar para** como **Navegadores web**, **Apps móveis** ou **Apps móveis e navegadores web** e selecione **Formulário de captura de e-mail** como seu **Tipo de mensagem**.
 
 {% alert note %}
-**Direcionando usuários web?** <br>Para ativar mensagens no app em HTML por meio do SDK para web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é por motivos de segurança, já que mensagens no app em HTML podem executar JavaScript, então exigimos que um administrador do site as ative.
+**Direcionando usuários web?** <br>Para ativar mensagens no app em HTML por meio do SDK or kit de desenvolvimento de software para web, você deve fornecer a opção de inicialização `allowUserSuppliedJavascript` à Braze, por exemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Isso é por motivos de segurança, já que mensagens no app em HTML podem executar JavaScript, então exigimos que um administrador do site as ative.
 {% endalert %}
 
 ## Etapa 2: Personalize o formulário {#customizable-features}
@@ -84,6 +84,6 @@ Você também pode combinar os dois filtros usando a lógica `AND`, se desejar. 
 
 Depois de lançar o formulário de captura de e-mail e coletar endereços de e-mail dos seus usuários, você pode direcionar os usuários que preencheram o formulário.
 
-1. Em qualquer filtro de Segment na Braze, selecione o filtro `Clicked/Opened Campaign`.
+1. Em qualquer filtro de Segment or segmento na Braze, selecione o filtro `Clicked/Opened Campaign`.
 2. No menu suspenso, selecione `clicked in-app message button 1`.
 3. Selecione a Campaign do formulário de captura de e-mail.

@@ -77,7 +77,7 @@ Puedes crear una página de configuración en tu aplicación que permita a los u
 
 Cuando la aplicación de noticias quiera crear una Campaign dirigida solo a usuarios interesados en política, se añade el filtro de atributo `Subscribes to Politics` al Segment. Cuando se establece como verdadero, solo los usuarios que se suscriban a las notificaciones las recibirán.
 
-Para obtener más información sobre cómo configurar atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) o [REST API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
+Para obtener más información sobre cómo configurar atributos personalizados, consulta los siguientes artículos para [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) o [REST or transferencia de estado representacional API]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Aumenta las adhesiones voluntarias y la relevancia {#increase-opt-ins-and-relevance}
 

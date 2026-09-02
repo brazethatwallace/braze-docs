@@ -88,7 +88,7 @@ Segment를 정의한 후에는 Braze 메시징 도구를 사용하여 역동적�
 | [이메일]({{site.baseurl}}/user_guide/channels/email) | 서식 있는 텍스트 편집기, 드래그 앤 드롭 편집기를 사용하거나 기존 HTML 템플릿 중 하나를 업로드하여 이메일을 작성하고 서식 있는 HTML 메시지를 전송하세요. |
 | [인앱 메시지]({{site.baseurl}}/in-app_messages) | Braze의 맞춤형 기본 사용자 인터페이스를 사용하여 눈에 거슬리지 않는 인앱 알림을 전송하세요. |
 | [푸시]({{site.baseurl}}/user_guide/channels/push) | iOS용 Apple 푸시 알림 서비스(APNs)나 Android용 Firebase 클라우드 메시징(FCM)을 사용하여 메시징 캠페인이나 뉴스 항목에서 푸시 알림을 자동으로 트리거합니다. |
-| [SMS, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)* | SMS, MMS 또는 RCS를 사용하여 트랜잭션 알림을 보내고, 프로모션을 공유하고, 리마인더를 보내는 등 다양한 작업을 수행하세요. |
+| [단문 메시지 서비스, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)* | 단문 메시지 서비스, MMS 또는 RCS를 사용하여 트랜잭션 알림을 보내고, 프로모션을 공유하고, 리마인더를 보내는 등 다양한 작업을 수행하세요. |
 | [웹 푸시]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) | 사용자가 현재 사이트에서 활성 상태가 아니더라도 웹 브라우저 알림을 전송합니다. |
 | [웹훅]({{site.baseurl}}/about_webhooks) | 웹훅을 사용하여 앱 이외의 동작을 트리거해 다른 시스템 및 애플리케이션에 실시간 데이터를 제공합니다. |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)* | 인기 있는 P2P 메시징 플랫폼인 WhatsApp을 활용하여 사용자 및 고객과 직접 소통하세요. |

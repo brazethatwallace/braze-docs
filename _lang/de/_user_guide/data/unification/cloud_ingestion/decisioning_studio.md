@@ -14,7 +14,7 @@ toc_headers: h2
 Mit dem Decisioning-Studio-Ziel von CDI können Warehouse-Daten direkt mit BrazeAI Decisioning Studio synchronisiert werden. Daten aus diesen Synchronisierungen werden Decisioning Studio zur Aktivierung bereitgestellt, Ihre Nutzerprofile und Braze-Workspaces bleiben dabei unverändert.
 
 {% alert important %}
-Dieses Feature befindet sich im Early Access. Wenden Sie sich an Ihren Customer-Success-Manager oder Account Manager, um Zugang zu erhalten.
+Dieses Feature befindet sich im Early Access. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Account Manager:in, um Zugang zu erhalten.
 {% endalert %}
 
 ## Funktionsweise {#how-it-works}
@@ -40,13 +40,13 @@ Informationen zu weiteren Möglichkeiten, Daten für Decisioning Studio verfügb
 2. Wählen Sie **Create data sync**.
 3. Geben Sie einen **Integration Name** ein und wählen Sie dann Ihre Quelle unter **Data sources** aus.
 4. Setzen Sie unter **Destination** die **Data destination** auf **BrazeAI Decisioning Studio™**.
-5. Wählen Sie unter **Data category** den **Decisioning Studio data**-Typ, der am besten zu Ihrer Tabelle passt. Wählen Sie zwischen **Customer profile**, **Message engagement events**, **Conversion events** oder **Other**. Dies taggt die Daten für Decisioning Studio und ändert nicht, wie CDI Ihre Zeilen verarbeitet.
+5. Wählen Sie unter **Data category** den **Decisioning Studio data**-Typ, der am besten zu Ihrer Tabelle passt. Wählen Sie zwischen **Kundenprofil or Kundenprofil or Nutzerprofil or Kundenprofil or Nutzerprofil**, **Message engagement events**, **Conversion events** oder **Other**. Dies taggt die Daten für Decisioning Studio und ändert nicht, wie CDI Ihre Zeilen verarbeitet.
 
 ### Schritt 2: SQL-Abfrage schreiben {#step-2-write-your-sql-query}
 
 Schreiben Sie im Schritt **Data definition** eine SQL-Abfrage, die die Daten aus der Tabelle oder View zurückgibt, die Sie synchronisieren möchten. Das Abfrageergebnis wird zum Schema Ihrer Synchronisierung.
 
-Sie können den Source Explorer verwenden, um verfügbare Tabellen und Views zu durchsuchen, oder den KI-SQL-Generator nutzen, um Hilfe beim Schreiben Ihrer Abfrage zu erhalten.
+Sie können den Source Explorer verwenden, um verfügbare Tabellen und Views zu durchsuchen, oder den KI or künstliche Intelligenz-SQL-Generator nutzen, um Hilfe beim Schreiben Ihrer Abfrage zu erhalten.
 
 Ihre Abfrage muss eine `UPDATED_AT`-Spalte zurückgeben, da CDI `UPDATED_AT` für die inkrementelle Synchronisierung und Änderungsverfolgung verwendet. Bei jedem Synchronisierungslauf synchronisiert CDI nur Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Falls die von Ihnen identifizierte Zeitstempel-Spalte nicht bereits `UPDATED_AT` heißt, können Sie sie in Ihrer Abfrage mit einem Alias versehen:
 
@@ -75,7 +75,7 @@ Ein guter Primärschlüssel ist für jede Zeile eindeutig, niemals leer und übe
 ### Schritt 5: Benachrichtigungen und Zeitplan festlegen und Synchronisierung erstellen {#step-5-set-notifications-schedule-and-create-the-sync}
 
 1. Geben Sie im Schritt **Notifications** eine oder mehrere **Contact Email(s)** ein, um Benachrichtigungen über Synchronisierungsfehler zu erhalten. Sie können auch **Row Error**- und **Sync success**-Benachrichtigungen aktivieren.
-2. Aktivieren Sie im Schritt **Schedule** die Option **Recurring sync**, um die Synchronisierung automatisch nach einem Zeitplan auszuführen. Bei deaktiviertem **Recurring sync** wird die Synchronisierung nur ausgeführt, wenn Sie sie auslösen – entweder manuell über das Dashboard oder über den Endpunkt [Synchronisierung triggern]({{site.baseurl}}/api/endpoints/cdi/post_job_sync).
+2. Aktivieren Sie im Schritt **Schedule** die Option **Recurring sync**, um die Synchronisierung automatisch nach einem Zeitplan auszuführen. Bei deaktiviertem **Recurring sync** wird die Synchronisierung nur ausgeführt, wenn Sie sie auslösen – entweder manuell über das Dashboard oder über den Endpunkt [Synchronisierung Trigger or triggern or triggern]({{site.baseurl}}/api/endpoints/cdi/post_job_sync).
 3. Überprüfen Sie die **Summary** und erstellen Sie dann die Synchronisierung.
 
 ## Eine Synchronisierung bearbeiten {#editing-a-sync}
@@ -96,4 +96,4 @@ CDI behandelt Schemaänderungen an der Quelle additiv. Bei jedem Synchronisierun
 | Der Datentyp einer Spalte ändert sich | CDI konvertiert Werte, wo dies möglich ist. Zeilen, die nicht konvertiert werden können, werden als Zeilenfehler in den Laufdetails der Synchronisierung gemeldet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Umgang mit Schemaänderungen" }
 
-Wenn CDI eine Schemaänderung erkennt, wird diese in den Laufdetails der Synchronisierung und auf der Seite zur Bearbeitung der Synchronisierung angezeigt, und Ihre Benachrichtigungskontakte erhalten eine E-Mail-Benachrichtigung. Um zu ändern, welche Spalten geliefert werden, aktualisieren Sie Ihre SQL-Abfrage und validieren Sie erneut.
+Wenn CDI eine Schemaänderung erkennt, wird diese in den Laufdetails der Synchronisierung und auf der Seite zur Bearbeitung der Synchronisierung angezeigt, und Ihre Benachrichtigungskontakte erhalten eine E-Mail-Benachrichtigung. Um zu ändern, welche Spalten geliefert werden, Update or aktualisieren or aktualisieren Sie Ihre SQL-Abfrage und validieren Sie erneut.

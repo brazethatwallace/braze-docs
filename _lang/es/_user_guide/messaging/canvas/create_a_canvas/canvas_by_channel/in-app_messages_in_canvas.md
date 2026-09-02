@@ -231,7 +231,7 @@ Puedes elegir entre las siguientes acciones desencadenantes para dirigirte a tus
 
 - **Realizar compra:** Dirige a los usuarios que realizan cualquier compra o una compra específica
 - **Iniciar sesión:** Dirige a los usuarios que inician una sesión en cualquier aplicación o en una aplicación específica
-- **Realizar evento personalizado:** Dirige a los usuarios que realizan el evento personalizado seleccionado (el evento personalizado debe enviarse usando el SDK).
+- **Realizar evento personalizado:** Dirige a los usuarios que realizan el evento personalizado seleccionado (el evento personalizado debe enviarse usando el SDK or kit de desarrollo de software).
 
 Un usuario tiene que entrar en el paso en Canvas, iniciar una sesión y luego realizar el desencadenante para recibir un mensaje dentro de la aplicación. Esto significa que las actualizaciones a mitad de sesión no son compatibles. Por ejemplo, si el desencadenante es iniciar una sesión, el usuario solo necesita entrar en el paso en Canvas e iniciar una sesión para recibir el mensaje dentro de la aplicación. Si el desencadenante no es iniciar una sesión, el usuario tiene que entrar en el paso en Canvas, iniciar una sesión y luego realizar el desencadenante para recibir el mensaje dentro de la aplicación.
 

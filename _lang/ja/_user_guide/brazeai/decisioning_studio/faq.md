@@ -16,7 +16,7 @@ description: "このページでは、Decisioning Studioに関するよくある
 
 ### どの指標を最適化できますか？ {#what-metrics-can-i-optimize-for}
 
-目標に沿ったあらゆるビジネス指標に対して最適化できます。例えば、収益、コンバージョン、ユーザーあたりの平均収益（ARPU）、顧客生涯価値（CLV）、利益、契約更新、その他のビジネスKPIなどがあります。
+目標に沿ったあらゆるビジネス指標に対して最適化できます。例えば、収益、コンバージョン、ユーザーあたりの平均収益（ARPU）、顧客LTV or 生涯価値（CLV）、利益、契約更新、その他のビジネスKPIなどがあります。
 
 ### Decisioning Studioにおけるディメンションとは何ですか？ {#what-are-dimensions-in-decisioning-studio}
 

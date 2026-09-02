@@ -88,9 +88,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
 | Admin | `admin` |
-| Zugriff auf Campaigns, Canvases, Cards, Segmente, Medienbibliothek | `basic_access` |
-| Canvases genehmigen und ablehnen | `approve_deny_campaigns` |
-| Campaigns und Canvases senden | `send_campaigns_canvases` |
+| Zugriff auf Campaigns, Canvase, Cards, Segmente, Medienbibliothek | `basic_access` |
+| Canvase genehmigen und ablehnen | `approve_deny_campaigns` |
+| Campaigns und Canvase senden | `send_campaigns_canvases` |
 | Cards veröffentlichen | `publish_cards` |
 | Segmente bearbeiten | `edit_segments` |
 | Nutzerdaten exportieren | `export_user_data` |
@@ -99,7 +99,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Dashboard-Nutzer:innen verwalten | `manage_dashboard_users` |
 | Medienbibliothek-Assets verwalten | `manage_media_library` |
 | Nutzungsdaten anzeigen | `view_usage_data` |
-| Nutzerdaten importieren und aktualisieren | `import_update_user_data` |
+| Nutzerdaten importieren und Update or aktualisieren or aktualisieren | `import_update_user_data` |
 | Rechnungsdetails anzeigen | `view_billing_details` |
 | Dev-Konsole öffnen | `dev_console` |
 | Content Blocks starten | `launch_content_blocks` |
@@ -119,13 +119,13 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
 | Admin | `admin` |
-| Zugriff auf Campaigns, Canvases, Cards, Segmente, Medienbibliothek | `basic_access` |
-| Canvases genehmigen und ablehnen | `approve_deny_campaigns` |
-| Campaigns und Canvases senden | `send_campaigns_canvases` |
+| Zugriff auf Campaigns, Canvase, Cards, Segmente, Medienbibliothek | `basic_access` |
+| Canvase genehmigen und ablehnen | `approve_deny_campaigns` |
+| Campaigns und Canvase senden | `send_campaigns_canvases` |
 | Cards veröffentlichen | `publish_cards` |
 | Segmente bearbeiten | `edit_segments` |
 | Nutzerdaten exportieren | `export_user_data` |
-| Nutzerprofil anzeigen | `view_user_profile` |
+| Kundenprofil or Nutzerprofil anzeigen | `view_user_profile` |
 | Dashboard-Nutzer:innen verwalten | `manage_dashboard_users` |
 | Medienbibliothek-Assets verwalten | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungsstrings #team" }

@@ -147,9 +147,9 @@ Les données d'attribution pour les Campaigns Facebook et X (anciennement Twitte
 
 Les deep links&#8212;des liens qui dirigent les utilisateurs vers une page ou un emplacement spécifique au sein d'une application ou d'un site web&#8212;sont utilisés pour créer une expérience utilisateur sur mesure.
 
-Bien que largement utilisés, des problèmes peuvent survenir lors de l'utilisation de deep links dans des e-mails avec le suivi des clics&#8212;une autre fonctionnalité importante utilisée pour collecter les données utilisateur. Ces problèmes sont dus au fait que les fournisseurs de services d'e-mailing (ESP) encapsulent les deep links dans un domaine d'enregistrement des clics, ce qui casse le lien original. Par conséquent, la prise en charge des deep links nécessite une configuration supplémentaire.
+Bien que largement utilisés, des problèmes peuvent survenir lors de l'utilisation de deep links dans des e-mails avec le suivi des clics&#8212;une autre fonctionnalité importante utilisée pour collecter les données utilisateur. Ces problèmes sont dus au fait que les fournisseurs de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) encapsulent les deep links dans un domaine d'enregistrement des clics, ce qui casse le lien original. Par conséquent, la prise en charge des deep links nécessite une configuration supplémentaire.
 
-AppsFlyer fournit un [service](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) qui évite ces problèmes, en permettant à AppsFlyer de servir d'intermédiaire entre le serveur ESP et votre nom de domaine. Son rôle de proxy permet de fournir des fichiers d'association (AASA/asset links), ce qui facilite la création de liens profonds.
+AppsFlyer fournit un [service](https://support.appsflyer.com/hc/en-us/articles/26967438815377-Set-up-your-ESP-integration-with-AppsFlyer) qui évite ces problèmes, en permettant à AppsFlyer de servir d'intermédiaire entre le serveur fournisseur de services d'e-mailing et votre nom de domaine. Son rôle de proxy permet de fournir des fichiers d'association (AASA/asset links), ce qui facilite la création de liens profonds.
 
 ## Étape 1 - Créer un domaine de suivi des clics {#step-1-create-a-click-tracking-domain}
 
@@ -173,7 +173,7 @@ Créez un [modèle OneLink](https://support.appsflyer.com/hc/en-us/articles/2070
 Il est maintenant temps de configurer votre intégration Braze dans AppsFlyer. Cette étape et la suivante (« Configurer votre application ») peuvent être effectuées simultanément.
 Pour configurer votre intégration Braze dans AppsFlyer :
 
-### 1. Dans AppsFlyer, depuis le menu latéral, sélectionnez Engage > ESP integration. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
+### 1. Dans AppsFlyer, depuis le menu latéral, sélectionnez Engage > fournisseur de services d'e-mailing integration. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
 ![Interface AppsFlyer montrant le bouton « ESP Integration » dans le menu de navigation.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
 
@@ -200,9 +200,9 @@ Une fois terminé, cliquez sur **Next**.
 
 #### a. Copiez et envoyez les instructions préfabriquées personnalisées dans AppsFlyer à votre administrateur informatique ou de domaine. {#a-copy-and-send-the-customized-pre-fabricated-instructions-in-appsflyer-to-your-it-or-domain-administrator}
 
-Votre administrateur doit rediriger le trafic de vos Campaigns par e-mail des serveurs ESP vers les serveurs AppsFlyer en mettant à jour vos enregistrements DNS CNAME avec le nouveau domaine fourni par AppsFlyer.
+Votre administrateur doit rediriger le trafic de vos Campaigns par e-mail des serveurs fournisseur de services d'e-mailing vers les serveurs AppsFlyer en mettant à jour vos enregistrements DNS CNAME avec le nouveau domaine fourni par AppsFlyer.
 
-Ainsi, chaque fois qu'un lien est cliqué, le clic est redirigé vers AppsFlyer, qui à son tour le redirige vers l'endpoint ESP.
+Ainsi, chaque fois qu'un lien est cliqué, le clic est redirigé vers AppsFlyer, qui à son tour le redirige vers l'endpoint fournisseur de services d'e-mailing.
 
 ![Diagramme illustrant comment les données de clics transitent depuis votre domaine vers AppsFlyer, puis vers votre endpoint ESP.]({% image_buster /assets/img/attribution/appsflyer/6.png %})
 

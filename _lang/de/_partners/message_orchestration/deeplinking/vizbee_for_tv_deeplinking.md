@@ -23,15 +23,15 @@ Die Integration von Braze und Vizbee ermöglicht es Ihnen, über eine einzige Ko
 
 | Anforderung | Beschreibung |
 |---|---|
-| Vizbee-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Vizbee](https://vizbee.tv/)-Konto erforderlich. Sie müssen Ihre App bei Vizbee registrieren und eine zugewiesene Vizbee-ID erhalten. |
+| Vizbee-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Vizbee](https://vizbee.tv/)-Konto erforderlich. Sie müssen Ihre App bei Vizbee Registrierung or registrieren und eine zugewiesene Vizbee-ID erhalten. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. |
-| Vizbee SDK | Zusätzlich zum erforderlichen Braze SDK müssen Sie auch das Vizbee SDK installieren. |
+| Vizbee SDK or Software-Development-Kit | Zusätzlich zum erforderlichen Braze SDK or Software-Development-Kit müssen Sie auch das Vizbee SDK or Software-Development-Kit installieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
-Folgen Sie der [SDK-Integrationsanleitung](https://console.vizbee.tv/app/vzb1765003429/develop/guides/ios-continuity) von Vizbee, um die Integration von Vizbee und Braze einzurichten. Dort finden Sie Anleitungen zum Deeplinking von Mobilgeräten zu Fernsehern, zur Installation von TV-Apps und zur Attribution der Zuschauerzahlen.
+Folgen Sie der [SDK or Software-Development-Kit-Integrationsanleitung](https://console.vizbee.tv/app/vzb1765003429/develop/guides/ios-continuity) von Vizbee, um die Integration von Vizbee und Braze einzurichten. Dort finden Sie Anleitungen zum Deeplinking von Mobilgeräten zu Fernsehern, zur Installation von TV-Apps und zur Attribution der Zuschauerzahlen.
 
 ### Anzeigen von Installations- und Attributionsberichten {#vizbee-tv-app-installs-viewership-attribution}
 
-Vizbee und Braze ermöglichen es Ihnen außerdem, die ganzheitliche Performance Ihrer Kampagnen über mobile und CTV-Geräte hinweg einzusehen. Das Vizbee SDK sendet angepasste Events an das Braze SDK, die in Ihren Campaign-Berichten im Braze-Dashboard angezeigt werden können.
+Vizbee und Braze ermöglichen es Ihnen außerdem, die ganzheitliche Performance Ihrer Kampagnen über mobile und CTV-Geräte hinweg einzusehen. Das Vizbee SDK or Software-Development-Kit sendet angepasste Events an das Braze SDK or Software-Development-Kit, die in Ihren Campaign-Berichten im Braze-Dashboard angezeigt werden können.

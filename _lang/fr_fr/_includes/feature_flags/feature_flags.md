@@ -20,7 +20,7 @@ Utilisez les indicateurs de fonctionnalité pour activer progressivement des fon
 
 ![Image animée d'un curseur de trafic de déploiement passant de 0 % à 100 %.]({% image_buster /assets/img/feature_flags/feature-flags-rollout.gif %})
 
-Par exemple, imaginons que nous avons décidé d'ajouter un nouveau lien « Assistance par chat en direct » à notre application pour un service client plus rapide. Nous pourrions publier cette fonctionnalité à tous les clients en même temps. Cependant, une publication à grande échelle comporte des risques, tels que :
+Par exemple, imaginons que nous avons décidé d'ajouter un nouveau lien « Assistance par chat en direct or en ligne/en production/instantané » à notre application pour un service client plus rapide. Nous pourrions publier cette fonctionnalité à tous les clients en même temps. Cependant, une publication à grande échelle comporte des risques, tels que :
 
 * Notre équipe d'assistance est encore en formation, et les clients peuvent ouvrir des tickets d'assistance dès la publication. Cela ne nous laisse aucune marge si l'équipe d'assistance a besoin de plus de temps.
 * Nous ne connaissons pas le volume réel de nouveaux cas d'assistance que nous recevrons, et nous pourrions donc ne pas avoir les effectifs appropriés.
@@ -29,15 +29,15 @@ Par exemple, imaginons que nous avons décidé d'ajouter un nouveau lien « Assi
 
 Avec les indicateurs de fonctionnalité de Braze, nous pouvons déployer progressivement la fonctionnalité et atténuer tous ces risques :
 
-* Nous activerons la fonctionnalité « Assistance par chat en direct » lorsque l'équipe d'assistance confirmera qu'elle est prête.
+* Nous activerons la fonctionnalité « Assistance par chat en direct or en ligne/en production/instantané » lorsque l'équipe d'assistance confirmera qu'elle est prête.
 * Nous activerons cette nouvelle fonctionnalité pour seulement 10 % des utilisateurs afin de déterminer si nous avons les effectifs appropriés.
 * En cas de bugs, nous pouvons rapidement désactiver la fonctionnalité au lieu de nous précipiter pour publier une nouvelle version.
 
-Pour déployer progressivement cette fonctionnalité, nous pouvons [créer un indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create) nommé « Live Chat Widget ».
+Pour déployer progressivement cette fonctionnalité, nous pouvons [créer un indicateur de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/create) nommé « en direct or en ligne/en production/instantané Chat Widget ».
 
 ![Détails de l'indicateur de fonctionnalité pour un exemple nommé Live Chat Widget. L'ID est enable_live_chat. La description de cet indicateur de fonctionnalité indique que le widget de chat en direct s'affichera sur la page d'assistance.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
-Dans le code de notre application, nous n'afficherons le bouton **Start Live Chat** que lorsque l'indicateur de fonctionnalité Braze est activé :
+Dans le code de notre application, nous n'afficherons le bouton **Start en direct or en ligne/en production/instantané Chat** que lorsque l'indicateur de fonctionnalité Braze est activé :
 
 {% tabs %}
 {% tab JavaScript %}

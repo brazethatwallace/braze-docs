@@ -1,16 +1,16 @@
 ---
-nav_title: JavaScript SDK
-article_title: Guia do repositório do JavaScript SDK
+nav_title: JavaScript SDK or kit de desenvolvimento de software
+article_title: Guia do repositório do JavaScript SDK or kit de desenvolvimento de software
 page_order: 4
-description: "Referência do README do Braze JavaScript SDK espelhada do GitHub."
+description: "Referência do README do Braze JavaScript SDK or kit de desenvolvimento de software espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
-# Guia do repositório do JavaScript SDK {#javascript-sdk-repository-guide}
+# Guia do repositório do JavaScript SDK or kit de desenvolvimento de software {#javascript-sdk-repository-guide}
 
-## Sobre o Braze JavaScript SDK {#about-the-braze-javascript-sdk}
+## Sobre o Braze JavaScript SDK or kit de desenvolvimento de software {#about-the-braze-javascript-sdk}
 
-O Braze JavaScript SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
+O Braze JavaScript SDK or kit de desenvolvimento de software ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
 
 Para começar, consulte os seguintes recursos:
 
@@ -19,24 +19,24 @@ Para começar, consulte os seguintes recursos:
 
 ### Visão geral da arquitetura {#architecture-overview}
 
-O Braze JavaScript SDK é uma biblioteca **independente de plataforma** projetada para funcionar em qualquer ambiente JavaScript puro. Ele não contém APIs específicas de navegador ou Node.js, o que o torna adequado para uso em diversos runtimes JavaScript.
+O Braze JavaScript SDK or kit de desenvolvimento de software é uma biblioteca **independente de plataforma** projetada para funcionar em qualquer ambiente JavaScript puro. Ele não contém APIs específicas de navegador ou Node.js, o que o torna adequado para uso em diversos runtimes JavaScript.
 
 **Princípios de design principais:**
-- **Injeção de dependência**: O SDK requer implementações para armazenamento, rede e informações do dispositivo em vez de usar APIs específicas de plataforma
-- **Async-First**: A maioria dos métodos da API é assíncrona e retorna Promises; alguns métodos utilitários (por exemplo, `destroy`, `subscribeToInAppMessage`, `toggleLogging`, `setLogger`) são síncronos. Consulte as definições TypeScript para assinaturas exatas.
-- **Sessão singleton**: A API em nível de módulo (`initialize`/`destroy`) gerencia uma sessão ativa do SDK por vez.
+- **Injeção de dependência**: O SDK or kit de desenvolvimento de software requer implementações para armazenamento, rede e informações do dispositivo em vez de usar APIs específicas de plataforma
+- **Async-First**: A maioria dos métodos da API or interface de programação do aplicativo (API) é assíncrona e retorna Promises; alguns métodos utilitários (por exemplo, `destroy`, `subscribeToInAppMessage`, `toggleLogging`, `setLogger`) são síncronos. Consulte as definições TypeScript para assinaturas exatas.
+- **Sessão singleton**: A API or interface de programação do aplicativo (API) em nível de módulo (`initialize`/`destroy`) gerencia uma sessão ativa do SDK or kit de desenvolvimento de software por vez.
 - **Gerenciamento interno de dependências**: Cria e gerencia dependências internas (UserManager, SessionManager, DataFlushController, etc.) a partir das implementações fornecidas
 
 <!--
 Effective marketing automation is an essential part of successfully scaling and managing your business. Braze empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle. Braze helps you engage your users on an ongoing basis. We'll have you up and running in no time!
 
 - [Braze User Guide](https://www.braze.com/docs/user_guide/introduction)
-- [Initial Web SDK Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
-- [Braze Web SDK Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
+- [Initial Web SDK or kit de desenvolvimento de software Setup](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/initial_sdk_setup/)
+- [Braze Web SDK or kit de desenvolvimento de software Documentation](https://js.appboycdn.com/web-sdk/{{VERSION}}/doc/modules/braze.html) -->
 
 ## Início rápido {#quickstart}
 
-Instale o SDK com npm:
+Instale o SDK or kit de desenvolvimento de software com npm:
 
 ``` bash
 npm install @braze/javascript-sdk
@@ -48,7 +48,7 @@ Ou com yarn:
 yarn add @braze/javascript-sdk
 ```
 
-Com a API em nível de módulo:
+Com a API or interface de programação do aplicativo (API) em nível de módulo:
 ``` typescript
 import { initialize, openSession, changeUser } from '@braze/javascript-sdk';
 
@@ -69,22 +69,22 @@ await openSession();
 
 ## Pré-requisitos {#prerequisites}
 
-Antes de integrar o Braze JavaScript SDK, você precisará de:
+Antes de integrar o Braze JavaScript SDK or kit de desenvolvimento de software, você precisará de:
 
-- **Conta Braze**: Uma conta Braze com acesso à API
-- **Chave de API**: A chave de API do seu app no dashboard da Braze
-- **Endpoint do SDK**: A URL do endpoint do SDK da Braze (por exemplo, `sdk.iad-01.braze.com`)
+- **Conta Braze**: Uma conta Braze com acesso à API or interface de programação do aplicativo (API)
+- **Chave de API or interface de programação do aplicativo (API)**: A chave de API or interface de programação do aplicativo (API) do seu app no dashboard da Braze
+- **Endpoint do SDK or kit de desenvolvimento de software**: A URL do endpoint do SDK or kit de desenvolvimento de software da Braze (por exemplo, `sdk.iad-01.braze.com`)
 
 ### Obtendo suas credenciais {#getting-your-credentials}
 
-1. **Chave de API**: Encontrada no dashboard da Braze em **Configurações** → **Chaves de API**
-2. **Endpoint do SDK**: Localizado em **Configurações** → **Autenticação do SDK** → **Endpoints**
+1. **Chave de API or interface de programação do aplicativo (API)**: Encontrada no dashboard da Braze em **Configurações** → **Chaves de API or interface de programação do aplicativo (API)**
+2. **Endpoint do SDK or kit de desenvolvimento de software**: Localizado em **Configurações** → **Autenticação do SDK or kit de desenvolvimento de software** → **Endpoints**
 
 ## Integração {#integration}
 
-### Chamando a API {#calling-the-api}
+### Chamando a API or interface de programação do aplicativo (API) {#calling-the-api}
 
-Use a API em nível de módulo: chame `initialize()` uma vez e depois chame as funções exportadas. Para trocar a configuração, chame `destroy()` primeiro e depois `initialize()` novamente.
+Use a API or interface de programação do aplicativo (API) em nível de módulo: chame `initialize()` uma vez e depois chame as funções exportadas. Para trocar a configuração, chame `destroy()` primeiro e depois `initialize()` novamente.
 
 ``` typescript
 import { initialize, logPurchase, changeUser } from '@braze/javascript-sdk';
@@ -109,7 +109,7 @@ interface StorageManager {
   clearData(storageKeys: string[]): Promise<void>;
 }
 ```
-- O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de descadastramento. As implementações devem persistir esses dados entre reinicializações do app para que o SDK possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
+- O parâmetro `isId` indica **armazenamento persistente de ID**: quando `true`, o SDK or kit de desenvolvimento de software está armazenando um identificador persistente (ID do dispositivo, ID do usuário) ou a flag de descadastramento. As implementações devem persistir esses dados entre reinicializações do app para que o SDK or kit de desenvolvimento de software possa reconhecer o mesmo dispositivo/usuário. Quando `false`, o valor é dado de sessão/cache (eventos, atributos, etc.) e pode ficar apenas em memória. Para ambientes web, considere usar cookies para chaves armazenadas com `isId: true` para garantir persistência entre sessões.
 - Deve lidar com operações assíncronas para todas as operações de armazenamento
 
 **2. NetworkManager** (opcional) — Interface de requisição HTTP POST
@@ -122,9 +122,9 @@ interface NetworkManager {
   ): Promise<Partial<Record<string, unknown>>>;
 }
 ```
-- A implementação padrão usa a API `fetch` (requer `fetch` e `URL` globais)
-- Pode ser substituída se `fetch` não for a API preferida
-- Nota: O SDK já possui lógica de retry e limite de frequência integrada
+- A implementação padrão usa a API or interface de programação do aplicativo (API) `fetch` (requer `fetch` e `URL` globais)
+- Pode ser substituída se `fetch` não for a API or interface de programação do aplicativo (API) preferida
+- Nota: O SDK or kit de desenvolvimento de software já possui lógica de retry e limite de frequência integrada
 
 **3. PushManager** (opcional) — Interface de notificação por push
 ``` typescript
@@ -143,11 +143,11 @@ interface PushManager {
 
 #### Envio de dados (Data Flushing) {#data-flushing}
 
-O SDK envia automaticamente os dados em cache para os servidores da Braze a cada 10 segundos (configurável via `flushIntervalInSeconds`). Use `requestImmediateDataFlush()` para forçar a sincronização imediata.
+O SDK or kit de desenvolvimento de software envia automaticamente os dados em cache para os servidores da Braze a cada 10 segundos (configurável via `flushIntervalInSeconds`). Use `requestImmediateDataFlush()` para forçar a sincronização imediata.
 
 ### Padrões de integração {#integration-patterns}
 
-Para assinaturas de métodos, tipos de parâmetros e retorno, e detalhes completos da API, consulte as definições TypeScript no pacote.
+Para assinaturas de métodos, tipos de parâmetros e retorno, e detalhes completos da API or interface de programação do aplicativo (API), consulte as definições TypeScript no pacote.
 
 #### Integração básica {#basic-integration}
 
@@ -389,7 +389,7 @@ const storageManager = new IndexedDBStorageManager();
 
 #### Implementação de rede personalizada {#custom-network-implementation}
 
-NetworkManager que registra cada requisição de saída (o SDK já lida com erros e retries):
+NetworkManager que registra cada requisição de saída (o SDK or kit de desenvolvimento de software já lida com erros e retries):
 
 ``` typescript
 import type { NetworkManager } from '@braze/javascript-sdk';
@@ -625,14 +625,14 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 #### Condições de erro comuns {#common-error-conditions}
 
-**SDK não inicializado:**
-- A maioria dos métodos retorna `undefined` (não lança exceção) quando o SDK não está inicializado
+**SDK or kit de desenvolvimento de software não inicializado:**
+- A maioria dos métodos retorna `undefined` (não lança exceção) quando o SDK or kit de desenvolvimento de software não está inicializado
 - `initialize()` retorna `false` se já estiver inicializado ou se a validação falhar
-- `changeUser()` é um no-op e a promise é resolvida se o SDK não estiver inicializado
+- `changeUser()` é um no-op e a promise é resolvida se o SDK or kit de desenvolvimento de software não estiver inicializado
 - Sempre verifique se os valores de retorno são `undefined` antes de usá-los
 
 **Falhas de validação:**
-- Chave de API ou URL base inválida: `initialize()` retorna `false`, registra erro
+- Chave de API or interface de programação do aplicativo (API) ou URL base inválida: `initialize()` retorna `false`, registra erro
 - Nomes de eventos/chaves inválidos: Devem ter no máximo 255 caracteres, não podem começar com `$`, apenas alfanuméricos + pontuação
 - Valores de atributos inválidos: Strings com no máximo 255 caracteres, sem quebras de linha/tabulações/aspas duplas, não podem começar com `$`
 - Códigos de moeda inválidos: Códigos não suportados resultam em aviso, nenhuma ação é tomada
@@ -645,7 +645,7 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 **Erros de armazenamento:**
 - Os métodos do StorageManager devem tratar erros de forma adequada
-- Se o armazenamento falhar, o SDK pode não funcionar corretamente
+- Se o armazenamento falhar, o SDK or kit de desenvolvimento de software pode não funcionar corretamente
 - A flag `isId` determina a persistência: IDs persistem entre sessões, objetos têm escopo de sessão
 
 **Casos extremos de identificação de usuário:**
@@ -671,29 +671,29 @@ subscribeToInAppMessage(async (inAppMessage) => {
 
 ### Notas importantes de implementação {#important-implementation-notes}
 
-1. **A maioria dos métodos é assíncrona**: Métodos assíncronos do SDK retornam uma Promise (use `await` ou `.then()`). Alguns métodos de configuração e utilitários (por exemplo, `destroy`, `toggleLogging`, `setLogger`) são síncronos; consulte as definições TypeScript ou a tabela de referência rápida para detalhes.
+1. **A maioria dos métodos é assíncrona**: Métodos assíncronos do SDK or kit de desenvolvimento de software retornam uma Promise (use `await` ou `.then()`). Alguns métodos de configuração e utilitários (por exemplo, `destroy`, `toggleLogging`, `setLogger`) são síncronos; consulte as definições TypeScript ou a tabela de referência rápida para detalhes.
 
-2. **Métodos podem retornar `undefined`**: Se o SDK não estiver inicializado, a maioria dos métodos retorna `undefined` em vez de lançar exceção. Verifique se o valor é `undefined` antes de usar os valores de retorno.
+2. **Métodos podem retornar `undefined`**: Se o SDK or kit de desenvolvimento de software não estiver inicializado, a maioria dos métodos retorna `undefined` em vez de lançar exceção. Verifique se o valor é `undefined` antes de usar os valores de retorno.
 
-3. **Métodos podem retornar `null`**: Alguns métodos retornam `null` para indicar "não encontrado" (por exemplo, `getUserId()` retorna `null` se o usuário for anônimo). Isso é diferente de `undefined` (SDK não inicializado).
+3. **Métodos podem retornar `null`**: Alguns métodos retornam `null` para indicar "não encontrado" (por exemplo, `getUserId()` retorna `null` se o usuário for anônimo). Isso é diferente de `undefined` (SDK or kit de desenvolvimento de software não inicializado).
 
 4. **Chaves de armazenamento usam a flag `isId`**: O parâmetro `isId` nos métodos do StorageManager distingue entre:
    - Armazenamento de ID: Identificadores persistentes (ID do dispositivo, ID do usuário) que devem persistir entre sessões
    - Armazenamento de objetos: Dados com escopo de sessão que podem ser limpos
 
-5. **Tags de metadados do SDK**: O array `sdkMetadata` identifica a plataforma/wrapper que está usando o SDK (por exemplo, `['npm']` ou `[BrazeSdkMetadata.NPM]`). Tags válidas são definidas pelo enum `BrazeSdkMetadata` (como `npm`, `cdn`, `manu`, `shp`, `gg`, `kep`), e o SDK adiciona automaticamente `'wjs'` para indicar JavaScript SDK.
+5. **Tags de metadados do SDK or kit de desenvolvimento de software**: O array `sdkMetadata` identifica a plataforma/wrapper que está usando o SDK or kit de desenvolvimento de software (por exemplo, `['npm']` ou `[BrazeSdkMetadata.NPM]`). Tags válidas são definidas pelo enum `BrazeSdkMetadata` (como `npm`, `cdn`, `manu`, `shp`, `gg`, `kep`), e o SDK or kit de desenvolvimento de software adiciona automaticamente `'wjs'` para indicar JavaScript SDK or kit de desenvolvimento de software.
 
-6. **NetworkManager padrão**: Se `networkManager` não for fornecido, o SDK usa uma implementação padrão que requer as APIs globais `fetch` e `URL`. Forneça uma implementação personalizada se essas APIs não estiverem disponíveis.
+6. **NetworkManager padrão**: Se `networkManager` não for fornecido, o SDK or kit de desenvolvimento de software usa uma implementação padrão que requer as APIs globais `fetch` e `URL`. Forneça uma implementação personalizada se essas APIs não estiverem disponíveis.
 
 7. **PushManager é opcional**: Implemente o `PushManager` apenas se você precisar de funcionalidade de notificação por push. Caso contrário, pode ser omitido.
 
-8. **Destroy e limpeza**: Chame `destroy()` quando precisar encerrar o SDK. Apenas uma sessão ativa pode existir por vez; você deve chamar `destroy()` antes de chamar `initialize()` novamente. Isso interrompe timers, envia dados pendentes e libera recursos.
+8. **Destroy e limpeza**: Chame `destroy()` quando precisar encerrar o SDK or kit de desenvolvimento de software. Apenas uma sessão ativa pode existir por vez; você deve chamar `destroy()` antes de chamar `initialize()` novamente. Isso interrompe timers, envia dados pendentes e libera recursos.
 
 9. **Envio de dados**: Os dados são enviados automaticamente a cada 10 segundos (configurável). Use `requestImmediateDataFlush()` para sincronização imediata.
 
 10. **Gerenciamento de sessão**: Sempre chame `openSession()` após `changeUser()` ou `setIdentifierToken()` para evitar a criação de usuários anônimos duplicados.
 
-11. **Segurança de tipos**: O SDK é escrito em TypeScript com definições de tipos completas. Use TypeScript para a melhor experiência e verificação de tipos.
+11. **Segurança de tipos**: O SDK or kit de desenvolvimento de software é escrito em TypeScript com definições de tipos completas. Use TypeScript para a melhor experiência e verificação de tipos.
 
 12. **Regras de validação**: Nomes de eventos, chaves de atributos e chaves de propriedades têm validação rigorosa (máximo de 255 caracteres, não podem começar com `$`, apenas alfanuméricos + pontuação). Valores inválidos podem ser ignorados ou causar erros.
 

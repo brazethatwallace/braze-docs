@@ -1,21 +1,21 @@
 ---
-nav_title: "PUT: Übersetzungen für Webhook-Template aktualisieren"
-article_title: "PUT: Übersetzungen für Webhook-Template aktualisieren"
+nav_title: "PUT: Übersetzungen für Webhook-Template Update or aktualisieren or aktualisieren"
+article_title: "PUT: Übersetzungen für Webhook-Template Update or aktualisieren or aktualisieren"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Endpunkt zum Aktualisieren von Übersetzungen für ein Webhook-Template."
+description: "Dieser Artikel beschreibt den Endpunkt zum Update or aktualisieren or aktualisieren von Übersetzungen für ein Webhook-Template."
 ---
 
 {% api %}
-# Übersetzungen für ein Webhook-Template aktualisieren {#update-translations-for-a-webhook-template}
+# Übersetzungen für ein Webhook-Template Update or aktualisieren or aktualisieren {#update-translations-for-a-webhook-template}
 {% apimethod put %}
 /templates/webhook/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [Webhook-Template]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates) zu aktualisieren. Weitere Informationen zu Übersetzungs-Features finden Sie unter [Mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [Webhook-Template]({{site.baseurl}}/user_guide/messaging/templates/webhook_templates) zu Update or aktualisieren or aktualisieren. Weitere Informationen zu Übersetzungs-Features finden Sie unter [Mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ## Voraussetzungen {#prerequisites}
 

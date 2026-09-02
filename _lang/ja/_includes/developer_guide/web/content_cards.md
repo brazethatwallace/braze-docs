@@ -68,7 +68,7 @@ Content Cardsの切り替えに関する詳細は、[SDKリファレンスドキ
 
 ## カードの種類とプロパティ {#card-types-and-properties}
 
-Content CardsデータモデルはWeb SDKで利用でき、次のContent Cardsタイプを提供します：[ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)、[CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)、[ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html)です。各タイプはベースモデル [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) から共通のプロパティを継承し、以下の追加プロパティを持ちます。
+Content CardsデータモデルはWeb SDKで利用でき、次のContent Cardsタイプを提供します：[ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html)、[CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html)、[ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html)です。各タイプはベースモデル [カード](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) から共通のプロパティを継承し、以下の追加プロパティを持ちます。
 
 {% alert tip %}
 Content Cardsデータを記録するには、[分析の記録]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)を参照してください。
@@ -275,18 +275,18 @@ braze.subscribeToContentCardsUpdates((updates) => {
 - **クリック時の動作:** カードに設定されたクリック時アクション（URLへのナビゲーションやカスタムイベントの記録など）を実行するために `handleBrazeAction(card.url)` を呼び出します。
 
 {% alert warning %}
-`logContentCardClick()` に渡す引数は、オリジナルのBraze `Card` オブジェクトである必要があります。カードデータを変換または再構築した場合（例：シリアライズとデシリアライズ）、クリックは記録されず、「card must be a Card object.」というエラーが表示されます。
+`logContentCardClick()` に渡す引数は、オリジナルのBraze `Card` オブジェクトである必要があります。カードデータを変換または再構築した場合（例：シリアライズとデシリアライズ）、クリックは記録されず、「カード must be a カード object.」というエラーが表示されます。
 {% endalert %}
 
-## Google Tag Managerの使用 {#using-google-tag-manager}
+## Google Tag マネージャーの使用 {#using-google-tag-manager}
 
-Google Tag Managerは、[Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn)（当社Web SDKのバージョン）をWebサイトコードに直接注入することで機能します。つまり、Content Cardsを実装する場合を除き、Google Tag ManagerなしでSDKを統合した場合と同様に、すべてのSDKメソッドを利用できます。
+Google Tag マネージャーは、[Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn)（当社Web SDKのバージョン）をWebサイトコードに直接注入することで機能します。つまり、Content Cardsを実装する場合を除き、Google Tag マネージャーなしでSDKを統合した場合と同様に、すべてのSDKメソッドを利用できます。
 
 ### Content Cardsの設定 {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab google tag manager %}
-Content Cardsフィードを標準的に統合するには、Google Tag Managerで**カスタムHTML**タグを使用できます。以下をカスタムHTMLタグに追加すると、標準のContent Cardsフィードが有効になります。
+{% tab google tag マネージャー %}
+Content Cardsフィードを標準的に統合するには、Google Tag マネージャーで**カスタムHTML**タグを使用できます。以下をカスタムHTMLタグに追加すると、標準のContent Cardsフィードが有効になります。
 
 ```html
 <script>
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### テンプレートのアップグレード {#upgrading}
 
-Braze Web SDKの最新バージョンにアップグレードするには、Google Tag Managerダッシュボードで次の3つのステップを実行します。
+Braze Web SDKの最新バージョンにアップグレードするには、Google Tag マネージャーダッシュボードで次の3つのステップを実行します。
 
 1. **タグテンプレートを更新する**<br>ワークスペース内の**テンプレート**ページに移動します。更新が利用可能であることを示すアイコンが表示されます。<br><br>![更新が利用可能であることを示すテンプレートページ]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>そのアイコンをクリックし、変更を確認した後、**Accept Update**をクリックします。<br><br>![新旧のタグテンプレートを比較した画面と「Accept Update」ボタン]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **バージョン番号を更新する**<br>タグテンプレートが更新されたら、Braze初期化タグを編集し、SDKバージョンを最新の `major.minor` バージョンに更新します。たとえば、最新バージョンが `4.1.2` の場合、`4.1` と入力します。SDKのバージョン一覧は[変更ログ](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)で確認できます。<br><br>![SDKバージョンを変更するための入力フィールドを持つBraze初期化テンプレート]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **QAおよび公開**<br>Google Tag Managerの[デバッグツール](https://support.google.com/tagmanager/answer/6107056?hl=en)を使用して、新しいSDKバージョンが動作していることを確認してから、タグコンテナーに更新を公開します。
+3. **QAおよび公開**<br>Google Tag マネージャーの[デバッグツール](https://support.google.com/tagmanager/answer/6107056?hl=en)を使用して、新しいSDKバージョンが動作していることを確認してから、タグコンテナーに更新を公開します。
 
 ### トラブルシューティング {#troubleshooting}
 
@@ -338,7 +338,7 @@ Braze Web SDKの最新バージョンにアップグレードするには、Goog
 
 #### デバッグモードに入る {#enter-debug-mode}
 
-Google Tag Managerの統合をデバッグするもう1つの方法は、Googleの[プレビューモード](https://support.google.com/tagmanager/answer/6107056)機能を使用することです。
+Google Tag マネージャーの統合をデバッグするもう1つの方法は、Googleの[プレビューモード](https://support.google.com/tagmanager/answer/6107056)機能を使用することです。
 
 これにより、Webページのデータレイヤーからトリガーされた各Brazeタグに送信されている値を特定できるほか、トリガーされたタグとトリガーされなかったタグについても確認できます。
 
@@ -356,9 +356,9 @@ Google Tag Managerの統合をデバッグするもう1つの方法は、Google�
 
 #### 詳細ログの有効化 {#enable-verbose-logging}
 
-トラブルシューティング用の詳細なログをキャプチャするには、Google Tag Manager統合で詳細ログを有効にできます。これらのログは、ブラウザーの[開発者ツール](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)の**Console**タブに表示されます。
+トラブルシューティング用の詳細なログをキャプチャするには、Google Tag マネージャー統合で詳細ログを有効にできます。これらのログは、ブラウザーの[開発者ツール](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)の**Console**タブに表示されます。
 
-Google Tag Manager統合で、Braze初期化タグに移動し、**Enable Web SDK Logging**を選択します。
+Google Tag マネージャー統合で、Braze初期化タグに移動し、**Enable Web SDK Logging**を選択します。
 
 ![Braze初期化タグの概要ページで、Web SDKログを有効にするオプションがオンになっています。]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 

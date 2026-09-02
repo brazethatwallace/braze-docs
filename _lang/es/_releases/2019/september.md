@@ -10,7 +10,7 @@ description: "Este artículo contiene notas de la versión de septiembre de 2019
 
 ## Aplicación Braze dentro de OneLogin {#braze-app-within-onelogin}
 
-Los clientes podrán simplemente buscar y seleccionar Braze dentro de [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin) para iniciar sesión como SP o IdP. Esto significa que los clientes no tendrán que añadir una aplicación personalizada dentro de OneLogin. Como resultado, esto debería rellenar previamente ciertos ajustes como los atributos que hemos visto surgir desde el lanzamiento de SAML SSO.
+Los clientes podrán simplemente buscar y seleccionar Braze dentro de [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin) para iniciar sesión como SP o IdP. Esto significa que los clientes no tendrán que añadir una aplicación personalizada dentro de OneLogin. Como resultado, esto debería rellenar previamente ciertos ajustes como los atributos que hemos visto surgir desde el lanzamiento de SAML inicio de sesión único.
 
 ## Asociación con Rokt Calendar {#rokt-calendar-partnership}
 

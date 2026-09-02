@@ -17,7 +17,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Link-Aliase für
 {% api %}
 # Link-Aliase für Canvas auflisten {#list-link-alias-for-canvas}
 {% apimethod get %}
-/canvas/url_info/details
+/Canvas/url_info/details
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um die in einem bestimmten E-Mail-Canvas-Schritt festgelegten Link-Aliase aufzulisten.

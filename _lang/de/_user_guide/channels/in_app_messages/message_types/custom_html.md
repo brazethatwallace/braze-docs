@@ -21,14 +21,14 @@ HTML-In-App-Nachrichten ermöglichen eine größere Kontrolle über das Erschein
 - Angepasste Schriftarten und Stile
 - Videos
 - Mehrere Bilder
-- On-Click-Verhalten
+- On-Klick, der or klicken-Verhalten
 - Interaktive Komponenten
 - Angepasste Animationen
 
 Angepasste HTML-Nachrichten können die Methoden der [JavaScript Bridge](#javascript-bridge) verwenden, um Ereignisse zu protokollieren, angepasste Attribute festzulegen, die Nachricht zu schließen und vieles mehr! Schauen Sie sich unser [GitHub-Repository](https://github.com/braze-inc/in-app-message-templates) an, das detaillierte Anleitungen zur Verwendung und Anpassung von HTML-In-App-Nachrichten für Ihre Anforderungen enthält, sowie eine Reihe von HTML5-In-App-Nachrichten-Templates, die Ihnen den Einstieg erleichtern.
 
 {% alert note %}
-Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben: zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb ein:e Website-Administrator:in sie aktivieren muss.
+Um HTML-In-App-Nachrichten über das Web-SDK or Software-Development-Kit zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben: zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen, da HTML-In-App-Nachrichten JavaScript ausführen können, weshalb ein:e Website-Administrator:in sie aktivieren muss.
 {% endalert %}
 
 ### Rendering-Umgebungen {#rendering-environments}
@@ -64,7 +64,7 @@ Zusätzlich zu angepasstem JavaScript können Braze SDKs auch Analysedaten mit d
 ### Button-Klick-Tracking (veraltet) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-Die Verwendung von `abButtonID` wird in Nachrichtentypen mit [HTML mit Vorschau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) nicht unterstützt. Weitere Informationen finden Sie in unserem [Upgrade-Leitfaden]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
+Die Verwendung von `abButtonID` wird in Nachrichtentypen mit [HTML mit Vorschau]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) nicht unterstützt. Weitere Informationen finden Sie in unserem [Upgrade or upgraden-Leitfaden]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
 Um Button-Klicks für die In-App-Nachricht-Analytics zu protokollieren, können Sie `abButtonId` als Abfrageparameter zu jedem Deeplink, jeder Weiterleitungs-URL oder jedem Ankerelement `<a>` hinzufügen. Verwenden Sie `?abButtonId=0`, um einen Klick auf „Button 1“ zu protokollieren, und `?abButtonId=1`, um einen Klick auf „Button 2“ zu protokollieren.
@@ -110,7 +110,7 @@ Das Nachrichtenvorschau-Panel des Editors zeigt eine realistische Vorschau, die 
 ![Interaktion mit der HTML-Vorschau durch Wischen zwischen Seiten.]({% image_buster /assets/img/iam-beta-javascript-preview.gif %})
 
 {% alert tip %}
-Alle `brazeBridge`-JavaScript-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie im Dashboard eine Vorschau anzeigen.
+Alle `brazeBridge`-JavaScript-Methoden, die Sie in Ihrem HTML verwenden, Update or aktualisieren or aktualisieren keine Nutzerprofile, während Sie im Dashboard eine Vorschau anzeigen.
 {% endalert %}
 
 ### Campaign erstellen {#instructions}
@@ -148,7 +148,7 @@ Andernfalls fahren Sie mit der Maus über ein Asset in der Liste und wählen Sie
 
 ### HTML-Editor {#html-editor}
 
-Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, aktualisieren keine Nutzerprofile, während Sie im Dashboard eine Vorschau anzeigen.
+Änderungen, die Sie im HTML vornehmen, werden automatisch im Vorschau-Panel gerendert, während Sie tippen. Alle [`brazeBridge`-JavaScript](#bridge)-Methoden, die Sie in Ihrem HTML verwenden, Update or aktualisieren or aktualisieren keine Nutzerprofile, während Sie im Dashboard eine Vorschau anzeigen.
 
 {% alert tip %}
 Sie können <i class="fa-solid fa-magnifying-glass" aria-label="Suchen"></i> **Suchen** im HTML-Editor auswählen, um in Ihrem Code zu suchen!

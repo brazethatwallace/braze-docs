@@ -7,7 +7,7 @@ permalink: /iam_generations/
 
 # Generationen von In-App-Nachrichten {#in-app-messages-generations}
 
-Braze verfügt derzeit über drei Generationen von In-App-Nachrichten. Jede bietet ein eigenes Maß an Unterstützung. Um die neuesten Features unserer In-App-Nachrichten zu nutzen, empfehlen wir ein Upgrade auf die neuesten [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk)-, iOS- und Android-SDKs.
+Braze verfügt derzeit über drei Generationen von In-App-Nachrichten. Jede bietet ein eigenes Maß an Unterstützung. Um die neuesten Features unserer In-App-Nachrichten zu nutzen, empfehlen wir ein Upgrade or upgraden auf die neuesten [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#upgrading-the-sdk)-, iOS- und Android-SDKs.
 
 Dieses Chart zeigt die Features und Nachrichtentypen, die derzeit verfügbar sind, und wann sie in der jeweiligen Generation eingeführt wurden. Es wird außerdem ausdrücklich angegeben, was in einer bestimmten Generation nicht unterstützt wird.
 

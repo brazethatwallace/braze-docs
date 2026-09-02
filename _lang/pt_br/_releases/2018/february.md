@@ -12,17 +12,17 @@ description: "Este artigo contém notas de versão de fevereiro de 2018."
 Agora você pode [atualizar a contagem de badges]({{site.baseurl}}/help/best_practices/utilizing_badge_count#utilizing-badge-count) dentro do criador de push da Braze.
 Para cada mensagem push, você pode especificar qual contagem de badges aquela notificação dispara.
 
-## Exportando usuários via API usando endereços de e-mail {#exporting-users-via-api-using-email-addresses}
+## Exportando usuários via API or interface de programação do aplicativo (API) usando endereços de e-mail {#exporting-users-via-api-using-email-addresses}
 
-Agora você pode [exportar dados de perfil de usuário via API]({{site.baseurl}}/developer_guide/rest_api/export#user-export) especificando endereços de e-mail.
+Agora você pode [exportar dados de perfil de usuário via API or interface de programação do aplicativo (API)]({{site.baseurl}}/developer_guide/rest_api/export#user-export) especificando endereços de e-mail.
 Essa exportação inclui todos os perfis associados a esse endereço de e-mail.
 
 ## APIs de modelos de e-mail {#email-template-apis}
 
-Agora você pode criar e atualizar [modelos de e-mail via API]({{site.baseurl}}/developer_guide/rest_api/email_templates#email-templates). Cada modelo terá um **email_template_id** que pode ser referenciado em outras chamadas de API.
+Agora você pode criar e atualizar [modelos de e-mail via API or interface de programação do aplicativo (API)]({{site.baseurl}}/developer_guide/rest_api/email_templates#email-templates). Cada modelo terá um **email_template_id** que pode ser referenciado em outras chamadas de API or interface de programação do aplicativo (API).
 
-## Chaves da API REST e permissões {#rest-api-keys-permissions}
+## Chaves da API or interface de programação do aplicativo (API) REST or transferir estado representacional e permissões {#rest-api-keys-permissions}
 
-Agora você pode criar [várias chaves da API REST]({{site.baseurl}}/api/basics#creating-rest-api-keys) e configurar permissões de acesso para cada uma. Cada chave pode ser configurada para conceder acesso a determinados endpoints.
+Agora você pode criar [várias chaves da API or interface de programação do aplicativo (API) REST or transferir estado representacional]({{site.baseurl}}/api/basics#creating-rest-api-keys) e configurar permissões de acesso para cada uma. Cada chave pode ser configurada para conceder acesso a determinados endpoints.
 
-Você também pode especificar uma [lista de permissões de endereços IP]({{site.baseurl}}/developer_guide/rest_api/basics#api-ip-whitelisting) e sub-redes autorizadas a fazer solicitações à REST API para uma determinada chave da API REST.
+Você também pode especificar uma [lista de permissões de endereços IP]({{site.baseurl}}/developer_guide/rest_api/basics#api-ip-whitelisting) e sub-redes autorizadas a fazer solicitações à REST or transferir estado representacional API or interface de programação do aplicativo (API) para uma determinada chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional.

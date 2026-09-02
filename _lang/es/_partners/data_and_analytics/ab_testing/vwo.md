@@ -18,7 +18,7 @@ Al integrar VWO con Braze, puedes aprovechar los datos de los experimentos de VW
 | Requisito | Descripción |
 |-----------------|-------------|
 | Cuenta VWO | Una cuenta VWO con acceso a los datos de experimentación. |
-| Cuenta Braze | Una cuenta Braze activa con el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás que se habilite la segmentación de propiedades del evento. Para solicitarlo, consulta [Consideraciones](#request-event-property-segmentation). |
+| Cuenta Braze | Una cuenta Braze activa con el [SDK or kit de desarrollo de software Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás que se habilite la segmentación de propiedades del evento. Para solicitarlo, consulta [Consideraciones](#request-event-property-segmentation). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración de VWO con Braze {#integrating-vwo-with-braze}
@@ -67,7 +67,7 @@ Estas propiedades del evento personalizado también pueden utilizarse para la se
 
 ### Solicitar segmentación de propiedades del evento {#request-event-property-segmentation}
 
-Antes de poder utilizar la segmentación de propiedades del evento, necesitarás habilitarla en Braze. Utiliza la siguiente plantilla para ponerte en contacto con tu CSM de Braze o con el equipo de soporte para obtener acceso.
+Antes de poder utilizar la segmentación de propiedades del evento, necesitarás habilitarla en Braze. Utiliza la siguiente plantilla para ponerte en contacto con tu CSM or administrador de éxito de cliente de Braze o con el equipo de soporte para obtener acceso.
 
    <table aria-label="Solicitar segmentación de propiedades del evento">
      <caption>Solicitar segmentación de propiedades del evento</caption>

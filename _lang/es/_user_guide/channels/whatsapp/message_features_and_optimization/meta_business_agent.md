@@ -21,7 +21,7 @@ Meta continúa desarrollando activamente Meta Business Agent, por lo que algunos
 
 Meta Business Agent es un respondedor impulsado por IA que Meta opera directamente en un número de teléfono de WhatsApp Business. Cuando se habilita para un número elegible, puede responder a mensajes entrantes de los usuarios en nombre de la empresa, utilizando conocimiento (información del negocio, preguntas frecuentes, archivos, contenido del sitio web) y conectores configurados en las herramientas de Meta.
 
-La habilitación de Meta Business Agent se configura completamente en WhatsApp Manager y Meta Business Suite, y es independiente de tu espacio de trabajo de Braze. Braze no es necesario para la configuración, y actualmente no existe un control en el panel de Braze para ello.
+La habilitación de Meta Business Agent se configura completamente en WhatsApp Administrador y Meta Business Suite, y es independiente de tu espacio de trabajo de Braze. Braze no es necesario para la configuración, y actualmente no existe un control en el panel de Braze para ello.
 
 ## Cómo interactúa con tu número conectado a Braze {#how-it-interacts-with-your-braze-connected-number}
 
@@ -44,7 +44,7 @@ Meta Business Agent y Braze pueden coexistir en el mismo número de teléfono de
 
 Meta Business Agent se habilita por número de teléfono en las herramientas de Meta, no en Braze:
 
-1. Verifica la elegibilidad y habilítalo para un número de teléfono en [WhatsApp Manager](https://business.facebook.com/wa/manage/home/), aceptando los Términos de servicio de Meta Business Agent.
+1. Verifica la elegibilidad y habilítalo para un número de teléfono en [WhatsApp Administrador](https://business.facebook.com/wa/manage/home/), aceptando los Términos de servicio de Meta Business Agent.
 2. Configura el conocimiento y las habilidades del agente (información del negocio, preguntas frecuentes, archivos, conectores) a través de las [API de configuración del agente](https://developers.facebook.com/documentation/meta-business-agent/reference/configure/agent-skills) de Meta.
 3. Activa el agente usando la [Configuración del agente](https://developers.facebook.com/documentation/meta-business-agent/reference/onboard/agent-settings).
 

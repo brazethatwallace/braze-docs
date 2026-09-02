@@ -25,8 +25,8 @@ Die Integration von Braze und Komo ermöglicht es Ihnen, First-Party- und Zero-P
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Komo-Konto | Sie benötigen ein aktives Komo-Konto, um diese Partnerschaft nutzen zu können. Besuchen Sie [Komo](https://komo.tech/), um jetzt eine Testversion zu starten. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab.<br><br>Zum Beispiel sollte er in etwa so aussehen: https://rest.iad-03.braze.com |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab.<br><br>Zum Beispiel sollte er in etwa so aussehen: https://rest.iad-03.braze.com |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -68,9 +68,9 @@ Suchen Sie dann die Braze-Integration in der Liste und wählen Sie den Button **
 
 Jetzt müssen Sie einen Workflow innerhalb eines Workspace, einer Site oder einer Karte einrichten, um Daten mit Braze zu synchronisieren.
 
-Ob Sie den Workflow auf den gesamten Workspace, eine Site (die viele Karten enthält) oder eine einzelne Karte anwenden, hängt davon ab, ob Sie den Workflow über viele Karten oder Campaigns hinweg triggern möchten.
+Ob Sie den Workflow auf den gesamten Workspace, eine Site (die viele Karten enthält) oder eine einzelne Karte anwenden, hängt davon ab, ob Sie den Workflow über viele Karten oder Campaigns hinweg Trigger or triggern or triggern möchten.
 
-Nachdem Sie einen Workflow erstellt haben, definieren Sie Ihren Trigger, suchen Sie im Schrittmenü nach Braze und fügen Sie den Schritt „Track User“ hinzu.
+Nachdem Sie einen Workflow erstellt haben, definieren Sie Ihren Trigger or triggern, suchen Sie im Schrittmenü nach Braze und fügen Sie den Schritt „Track User“ hinzu.
 
 ![Einrichtung „Track User“.]({% image_buster /assets/img/Braze Komo Images v2/Braze-Komo-Step3a.png %})
 

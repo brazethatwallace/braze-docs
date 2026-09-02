@@ -18,12 +18,12 @@ Las campañas de conocimiento de características son una excelente manera de an
 
 ## Filtrado por versiones más recientes de la aplicación {#filtering-by-most-recent-app-versions}
 
-Los SDK de Braze rastrean automáticamente la versión más reciente de la aplicación de un usuario. Estas versiones se pueden usar en filtros y Segments para determinar qué usuarios deben recibir un mensaje o Campaign.
+Los SDK or kit de desarrollo de software de Braze rastrean automáticamente la versión más reciente de la aplicación de un usuario. Estas versiones se pueden usar en filtros y Segments para determinar qué usuarios deben recibir un mensaje o Campaign.
 
 ![El panel de opciones de segmentación en el paso Usuarios objetivo del flujo de trabajo de creación de Campaigns. La sección Filtros adicionales incluye el siguiente filtro "El número de versión más reciente de la aplicación para Android Stopwatch (Android) es inferior a 3.7.0 (134.0.0.0)".]({% image_buster /assets/img_archive/new_app_version.png %}){: style="max-width:90%;"}
 
 {% alert note %}
-Las versiones actuales de la aplicación pueden tardar en completarse. La versión de la aplicación en el perfil de usuario se actualiza cuando la información es capturada por el SDK, lo cual depende de cuándo los usuarios abren sus aplicaciones. Si el usuario no abre la aplicación, la versión actual no se actualizará. <br><br> Estos filtros tampoco se aplican de forma retroactiva. Es recomendable usar "mayor que" o "igual a" para versiones actuales y futuras, pero usar filtros de versiones anteriores puede causar comportamientos inesperados.
+Las versiones actuales de la aplicación pueden tardar en completarse. La versión de la aplicación en el perfil de usuario se actualiza cuando la información es capturada por el SDK or kit de desarrollo de software, lo cual depende de cuándo los usuarios abren sus aplicaciones. Si el usuario no abre la aplicación, la versión actual no se actualizará. <br><br> Estos filtros tampoco se aplican de forma retroactiva. Es recomendable usar "mayor que" o "igual a" para versiones actuales y futuras, pero usar filtros de versiones anteriores puede causar comportamientos inesperados.
 {% endalert %}
 
 ### Número de versión de la aplicación {#app-version-number}
@@ -46,27 +46,27 @@ Este filtro puede reemplazar el filtro heredado "Nombre de versión de la aplica
 - Esto puede causar confusión cuando el `versionName` y el `versionCode` de tu aplicación se desincronizan, especialmente porque ambos campos se pueden ver desde el panel de Braze. Como práctica recomendada, verifica que el `versionName` y el `versionCode` de tu aplicación se incrementen juntos.
 - Si necesitas filtrar por el campo legible `versionName` en su lugar (poco común), usa el filtro Nombre de versión de la aplicación.
 
-#### Requisitos del SDK {#sdk-requirements}
+#### Requisitos del SDK or kit de desarrollo de software {#sdk-requirements}
 
-Los valores para este filtro se recopilan a partir del SDK de Braze para Android v3.6.0+ y el SDK para iOS v3.21.0+. Aunque este filtro tiene requisitos de SDK, aún puedes segmentar usuarios que estén en versiones inferiores (más antiguas) de tu aplicación usando esta característica.
+Los valores para este filtro se recopilan a partir del SDK or kit de desarrollo de software de Braze para Android v3.6.0+ y el SDK or kit de desarrollo de software para iOS v3.21.0+. Aunque este filtro tiene requisitos de SDK or kit de desarrollo de software, aún puedes segmentar usuarios que estén en versiones inferiores (más antiguas) de tu aplicación usando esta característica.
 
 Para Android, este número de versión se basa en el [Package Long Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo.html#getLongVersionCode()) de la aplicación.
 
 Para iOS, este número de versión se basa en el [Short Version String](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleshortversionstring) de la aplicación.
 
 {% alert tip %}
-Este filtro completa los valores después de que los usuarios actualicen sus aplicaciones a las versiones compatibles del SDK de Braze. Hasta entonces, el filtro no muestra versiones cuando se selecciona.
+Este filtro completa los valores después de que los usuarios actualicen sus aplicaciones a las versiones compatibles del SDK or kit de desarrollo de software de Braze. Hasta entonces, el filtro no muestra versiones cuando se selecciona.
 {% endalert %}
 
 #### Caso de uso {#use-case}
 
-En el siguiente escenario, supongamos que primero actualizaste a los SDK de Braze que admiten este filtro en la versión `2.0.0` de tu aplicación.
+En el siguiente escenario, supongamos que primero actualizaste a los SDK or kit de desarrollo de software de Braze que admiten este filtro en la versión `2.0.0` de tu aplicación.
 
 Una vez que Braze reciba datos de la versión 2.0.0 de tu aplicación, puedes segmentar usuarios con versiones anteriores o posteriores.
 
 | Filtro  | Versión de la aplicación del usuario  | Resultado |
 | :------------- | :----------- | :--------- |
-| Menor que 2.0.0 | 1.0.0 | El usuario está en el segmento, aunque su SDK de Braze no admitía el filtro "Número de versión de la aplicación". |
+| Menor que 2.0.0 | 1.0.0 | El usuario está en el segmento, aunque su SDK or kit de desarrollo de software de Braze no admitía el filtro "Número de versión de la aplicación". |
 | Mayor que 2.0.0 | 2.5.1 | El usuario y todas las instalaciones futuras están en el segmento. |
 | Mayor que 2.0.0 | 1.9.9 | El usuario no está en el segmento. |
 | Menor o igual que 2.0.0 | 3.0.1 | El usuario no está en el segmento. |

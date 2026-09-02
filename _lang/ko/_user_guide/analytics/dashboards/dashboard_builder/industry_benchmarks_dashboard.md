@@ -10,17 +10,17 @@ description: "이 문서에서는 업종 벤치마크 대시보드에 대한 개
 
 > **업종 벤치마크** 대시보드는 워크스페이스의 인게이지먼트 성능을 각 업종의 동종 기업에서 집계된 개인정보 보호 기반 벤치마크와 비교합니다.
 
-**업종 벤치마크** 대시보드를 사용하여 이메일, 푸시, Content Cards, SMS 성능을 업종 내 동종 기업과 비교하고, 최적화 기회가 있는 채널과 지역을 파악할 수 있습니다.
+**업종 벤치마크** 대시보드를 사용하여 이메일, 푸시, Content Cards, 단문 메시지 서비스 성능을 업종 내 동종 기업과 비교하고, 최적화 기회가 있는 채널과 지역을 파악할 수 있습니다.
 
 **업종 벤치마크** 대시보드를 보려면 **Analytics** > **대시보드 빌더**로 이동한 다음 **Industry Benchmarks**를 선택합니다. 대시보드에 데이터가 없는 경우 **Run Dashboard**를 선택하여 최신 결과를 생성합니다. 대시보드 상단의 필터를 사용하여 업종 분류 또는 기간별로 결과를 세분화할 수 있습니다.
 
 ## 대시보드 정보 {#about-the-dashboard}
 
-대시보드는 **이메일**, **푸시 알림**, **Content Cards**, **SMS** 네 가지 채널 섹션으로 구성되어 있습니다.
+대시보드는 **이메일**, **푸시 알림**, **Content Cards**, **단문 메시지 서비스** 네 가지 채널 섹션으로 구성되어 있습니다.
 
 | 섹션              | 설명                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 핵심 성과 지표(KPI) 카드            | 각 핵심 측정기준에 대한 워크스페이스의 비율과 업계 비율 대비 변화량을 보여줍니다. 녹색 위쪽 화살표는 워크스페이스가 업계 비율보다 높음을, 빨간색 아래쪽 화살표는 낮음을 나타냅니다. |
+| KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 카드            | 각 핵심 측정기준에 대한 워크스페이스의 비율과 업계 비율 대비 변화량을 보여줍니다. 녹색 위쪽 화살표는 워크스페이스가 업계 비율보다 높음을, 빨간색 아래쪽 화살표는 낮음을 나타냅니다. |
 | 월별 추세 차트  | 시간 경과에 따른 워크스페이스 비율과 업계 비율을 비교하여 계절성 및 장기적 추세를 파악할 수 있습니다.                                   |
 | 지역별 분석   | 지역별로 워크스페이스 비율과 업계 비율을 비교하여 지역 성능이 업계와 어디서 차이가 나는지 확인할 수 있습니다.         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="섹션" }
@@ -78,13 +78,13 @@ description: "이 문서에서는 업종 벤치마크 대시보드에 대한 개
 ![푸시 산업 벤치마크 측정기준이 꺾은선 그래프와 막대 그래프로 표시됩니다.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
-{% tab SMS %}
+{% tab 단문 메시지 서비스 %}
 
-<table aria-label="SMS 측정기준"><thead><tr><th>측정기준</th><th>설명</th><th>공식</th></tr></thead><tbody>
+<table aria-label="단문 메시지 서비스 측정기준"><thead><tr><th>측정기준</th><th>설명</th><th>공식</th></tr></thead><tbody>
 <tr><td class="no-split"><i>전달율</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td><td class="no-split"><i>Deliveries</i> / <i>Unique Sends</i></td></tr>
-<tr><td class="no-split"><i>단축 링크 클릭률</i></td><td class="no-split">SMS를 수신한 후 단축 링크를 클릭한 사용자의 비율입니다.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
+<tr><td class="no-split"><i>단축 링크 클릭률</i></td><td class="no-split">단문 메시지 서비스를 수신한 후 단축 링크를 클릭한 사용자의 비율입니다.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS 측정기준" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="단문 메시지 서비스 측정기준" }
 
 ![SMS 산업 벤치마크 측정기준이 꺾은선 그래프와 막대 그래프로 표시됩니다.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 

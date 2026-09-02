@@ -16,7 +16,7 @@ noindex: true
 > [Shopify](https://www.shopify.com/) ist ein führendes globales Handelsunternehmen, das vertrauenswürdige Tools bereitstellt, um ein Unternehmen jeder Größe zu starten, auszubauen, zu vermarkten und zu verwalten. Die Plattform und Dienste von Shopify sind auf Zuverlässigkeit ausgelegt und bieten Verbraucher:innen überall ein besseres Einkaufserlebnis.
 
 {% alert important %}
-Diese Integration befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren Customer-Success-Manager.
+Diese Integration befindet sich derzeit in der Beta-Phase. Für weitere Informationen wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 Die Braze-Integration mit Shopify bietet eine leistungsstarke Lösung für E-Commerce-Unternehmen, die ihr Customer-Engagement verbessern und personalisierte Marketingmaßnahmen vorantreiben möchten. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) können Sie Daten mit Shopify verbinden, um internes Reporting zu unterstützen und die Last-Touch-Attribution für Käufe besser zu verfolgen.
@@ -46,12 +46,12 @@ Falls noch nicht geschehen, folgen Sie den Schritten zur [Shopify-Standardintegr
 
 ![Die Braze-Shopify-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail-Adresse und den Shopify-Shop.]({% image_buster /assets/img/shopify/shopify_currents.png %})
 
-## Nutzerprofil-Synchronisierung {#user-profile-sync}
+## Kundenprofil or Nutzerprofil-Synchronisierung {#user-profile-sync}
 
-Zusätzlich zu Ereignisdaten kann die Shopify-Integration Nutzerprofil-Aktualisierungen von Braze mit Ihrem Shopify-Shop synchronisieren. Wenn das Profil einer Nutzerin oder eines Nutzers in Braze aktualisiert wird, erstellt oder aktualisiert Currents den entsprechenden Kunden in Ihrem Shop.
+Zusätzlich zu Ereignisdaten kann die Shopify-Integration Kundenprofil or Nutzerprofil-Aktualisierungen von Braze mit Ihrem Shopify-Shop synchronisieren. Wenn das Profil einer Nutzerin oder eines Nutzers in Braze aktualisiert wird, erstellt oder aktualisiert Currents den entsprechenden Kunden in Ihrem Shop.
 
 {% alert note %}
-Die Nutzerprofil-Synchronisierung wird bei [Test-Currents-Konnektoren]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#testing-currents-connectors) nicht unterstützt. Andere Ereignis-Exporte sind davon nicht betroffen. Um Nutzerprofile zu synchronisieren, verwenden Sie einen [Standard-Shopify-Currents-Konnektor](#step-2-create-braze-current).
+Die Kundenprofil or Nutzerprofil-Synchronisierung wird bei [Test-Currents-Konnektoren]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#testing-currents-connectors) nicht unterstützt. Andere Ereignis-Exporte sind davon nicht betroffen. Um Nutzerprofile zu synchronisieren, verwenden Sie einen [Standard-Shopify-Currents-Konnektor](#step-2-create-braze-current).
 {% endalert %}
 
 ### Nutzer:innen-Zuordnung {#user-matching}
@@ -64,14 +64,14 @@ Die folgenden Braze-Profilfelder werden mit Shopify synchronisiert:
 
 | Braze-Feld | Shopify-Kundenfeld | Hinweise |
 | ----------- | ---------------------- | ----- |
-| `first_name` | `firstName` | Wird unverändert übernommen. Wird nur gesendet, wenn im Profil-Update vorhanden. |
-| `last_name` | `lastName` | Wird unverändert übernommen. Wird nur gesendet, wenn im Profil-Update vorhanden. |
+| `first_name` | `firstName` | Wird unverändert übernommen. Wird nur gesendet, wenn im Profil-Update or aktualisieren vorhanden. |
+| `last_name` | `lastName` | Wird unverändert übernommen. Wird nur gesendet, wenn im Profil-Update or aktualisieren vorhanden. |
 | `email_address` | `email` | Wird vor dem Senden getrimmt und in Kleinbuchstaben umgewandelt. |
 | `phone_number` | `phone` | Wird im [E.164](https://en.wikipedia.org/wiki/E.164)-Format gesendet. |
 | `language` | `locale` | Wird in ein von Shopify unterstütztes Gebietsschema konvertiert. Portugiesisch und Chinesisch erhalten eine regionale Variante (z. B. `pt-BR`) basierend auf dem Land der Nutzerin oder des Nutzers. Wenn die Sprache nicht von Shopify unterstützt wird, wird dieses Feld ausgelassen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-Es werden nur die Felder gesendet, die in einem Profil-Update enthalten sind. Felder, die in einem Update nicht enthalten sind, bleiben in Shopify unverändert – eine Synchronisierung löscht oder entfernt niemals ein Feld bei Ihrem Shopify-Kunden.
+Es werden nur die Felder gesendet, die in einem Profil-Update or aktualisieren enthalten sind. Felder, die in einem Update or aktualisieren nicht enthalten sind, bleiben in Shopify unverändert – eine Synchronisierung löscht oder entfernt niemals ein Feld bei Ihrem Shopify-Kunden.
 
 ### Felder, die nicht synchronisiert werden {#fields-that-are-not-synced}
 

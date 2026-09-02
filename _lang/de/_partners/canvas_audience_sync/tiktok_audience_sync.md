@@ -2,7 +2,7 @@
 nav_title: TikTok
 article_title: Canvas Audience Sync mit TikTok
 alias: /tiktok_audience_sync/
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync für TikTok verwenden, um Werbung auf der Grundlage von verhaltensbezogenen Triggern, Segmentierung und mehr zuzustellen."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync für TikTok verwenden, um Werbung auf der Grundlage von verhaltensbezogenen Trigger or triggern or triggern, Segmentierung und mehr zuzustellen."
 tool:
   - Canvas
 page_order: 8
@@ -11,7 +11,7 @@ page_order: 8
 
 # Audience Sync mit TikTok {#audience-sync-to-tiktok}
 
-Mit Braze Audience Sync to TikTok können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu TikTok Audiences hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr zuzustellen. Alle Kriterien, die Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas verwenden würden.
+Mit Braze Audience Sync to TikTok können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu TikTok Audiences hinzufügen, um Werbung auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr zuzustellen. Alle Kriterien, die Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas verwenden würden.
 
 **Zu den häufigen Anwendungsfällen für Audience Syncing gehören**:
 
@@ -21,7 +21,7 @@ Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party
 
 {% alert important %}
 **Audience Sync Pro – Haftungsausschluss**<br>
-Braze Audience Sync to TikTok ist eine Integration von Audience Sync Pro. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager.
+Braze Audience Sync to TikTok ist eine Integration von Audience Sync Pro. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -31,7 +31,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen und
 | Anforderung | Herkunft | Beschreibung |
 | ----------- | ------ | ----------- |
 | TikTok for Business Center-Konto | [TikTok](https://business.tiktok.com/) | Ein zentrales Tool zur Verwaltung der TikTok-Assets Ihrer Marke (z. B. Werbekonten, Seiten, Apps). |
-| TikTok-Werbekonto | [TikTok](https://ads.tiktok.com/) | Ein aktives TikTok-Werbekonto, das mit dem Business Center-Konto Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihnen der Admin-Manager Ihres TikTok Business Centers Administratorberechtigungen für die TikTok-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten. |
+| TikTok-Werbekonto | [TikTok](https://ads.tiktok.com/) | Ein aktives TikTok-Werbekonto, das mit dem Business Center-Konto Ihrer Marke verknüpft ist.<br><br>Stellen Sie sicher, dass Ihnen der Admin-Manager:in Ihres TikTok Business Centers Administratorberechtigungen für die TikTok-Werbekonten erteilt hat, die Sie mit Braze verwenden möchten. |
 | TikTok-Nutzungsbedingungen und -Richtlinien | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Stimmen Sie zu, alle erforderlichen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen von TikTok einzuhalten, die sich auf Ihre Nutzung von TikTok Audience Sync beziehen, einschließlich aller darin durch Verweis einbezogenen Nutzungsbedingungen, Richtlinien, Leitlinien und Dokumentationen, die unter anderem Folgendes umfassen können: die Commercial Terms of Service, Advertising Terms, Privacy Policy, Custom Audience Terms, Developer Terms of Service, Developer Data Sharing Agreement, Advertising Policies, Brand Guidelines und Community Guidelines. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
@@ -55,7 +55,7 @@ Sobald die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite
 
 ![Braze-TikTok-Partnerseite mit verbundenen TikTok-Anzeigenkonten.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvase, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
 ### Schritt 2: Eine TikTok Audience-Komponente in Canvas hinzufügen {#step-2-add-a-tiktok-audience-component-in-canvas}
 
@@ -104,7 +104,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden TikTok-Zielgrupp
 
 Sobald Sie Ihre TikTok Audience-Komponente konfiguriert haben, starten Sie den Canvas! Es wird eine neue Zielgruppe erstellt, und Nutzer:innen, die die TikTok Audience-Komponente durchlaufen, werden in diese Zielgruppe auf TikTok übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
-Sie können die Zielgruppe in TikTok einsehen, indem Sie Ihr **Ads Manager Account** aufrufen und **Audiences** aus dem Dropdown-Menü **Assets** auswählen. Auf der Seite **Audience** sehen Sie die Größe jeder Zielgruppe, sobald sie &#126;1.000 erreicht hat.
+Sie können die Zielgruppe in TikTok einsehen, indem Sie Ihr **Ads Manager:in Account** aufrufen und **Audiences** aus dem Dropdown-Menü **Assets** auswählen. Auf der Seite **Audience** sehen Sie die Größe jeder Zielgruppe, sobald sie &#126;1.000 erreicht hat.
 
 ![TikTok-Seite mit den folgenden Metriken für die angegebene Zielgruppe.]({% image_buster /assets/img/tiktok/tiktok5.png %})
 
@@ -125,7 +125,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Users Synced | Anzahl der Nutzer:innen, die erfolgreich mit TikTok synchronisiert wurden. Beachten Sie, dass dies nicht der Anzahl der auf TikTok abgeglichenen Nutzer:innen entspricht. |
 | Users Not Synced | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
 | Users Pending | Anzahl der Nutzer:innen, die derzeit von Braze verarbeitet werden, um mit TikTok synchronisiert zu werden. |
-| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit TikTok synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges TikTok-Token oder eine auf TikTok gelöschte Zielgruppe sein. |
+| Users Errored | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit TikTok synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges TikTok-Token / Textbaustein oder eine auf TikTok gelöschte Zielgruppe sein. |
 | Exited Canvas | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
@@ -149,7 +149,7 @@ TikTok stellt diese Informationen aufgrund seiner Datenschutzrichtlinien nicht z
 
 ### Wie lange dauert es, bis meine Zielgruppen in TikTok befüllt sind? {#how-long-will-it-take-for-my-audiences-to-populate-in-tiktok}
 
-Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Zielgruppenseite im TikTok Ads Manager aktualisiert.
+Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Zielgruppenseite im TikTok Ads Manager:in aktualisiert.
 
 ### Wie viele Zielgruppen kann ich maximal in meinem TikTok-Anzeigenkonto haben? {#what-is-the-maximum-number-of-audiences-i-can-have-in-my-tiktok-ad-account}
 

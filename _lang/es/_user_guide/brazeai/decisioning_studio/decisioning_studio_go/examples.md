@@ -18,11 +18,11 @@ Cada ejemplo en esta guía está etiquetado con uno de los siguientes niveles de
 |---|---|
 | **Mejor ajuste** | El agente tiene suficiente tiempo para aprender, tu audiencia es lo bastante estable como para mostrar mejoras, y la personalización puede afectar significativamente la participación. Empieza aquí. |
 | **Compatible** | El ejemplo puede funcionar bien, pero el éxito depende del momento, el tamaño de la audiencia o la secuenciación. Revisa las consideraciones antes de comprometerte. |
-| **No recomendado** | El ejemplo entra en conflicto con la forma en que el agente aprende. Elige un tipo de programa diferente, o habla con tu administrador de éxito de cliente o consultor de soluciones sobre una configuración diferente. |
+| **No recomendado** | El ejemplo entra en conflicto con la forma en que el agente aprende. Elige un tipo de programa diferente, o habla con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o consultor de soluciones sobre una configuración diferente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Niveles de ajuste" }
 
 {% alert note %}
-En todos los niveles de ajuste, el agente aprende mejor cuando tu audiencia genera suficiente señal de participación para que el algoritmo detecte patrones. Como regla general, apunta a audiencias de decenas de miles de usuarios o más, con un volumen de envío semanal constante. El agente puede funcionar con audiencias más pequeñas, pero espera un período de aprendizaje más largo y mejoras menos fiables. Tu administrador de éxito de cliente o consultor de soluciones puede ayudarte a confirmar si una audiencia determinada tiene el tamaño adecuado.
+En todos los niveles de ajuste, el agente aprende mejor cuando tu audiencia genera suficiente señal de participación para que el algoritmo detecte patrones. Como regla general, apunta a audiencias de decenas de miles de usuarios o más, con un volumen de envío semanal constante. El agente puede funcionar con audiencias más pequeñas, pero espera un período de aprendizaje más largo y mejoras menos fiables. Tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o consultor de soluciones puede ayudarte a confirmar si una audiencia determinada tiene el tamaño adecuado.
 {% endalert %}
 
 ## Mejor ajuste {#best-fit}
@@ -62,7 +62,7 @@ En todos los niveles de ajuste, el agente aprende mejor cuando tu audiencia gene
 |---|---|
 | Cómo se ve | Un correo electrónico individual o una secuencia desencadenada por una acción del cliente: abandono del carrito de compras, abandono de navegación o seguimiento posterior a la compra. |
 | Por qué funciona | Los desencadenadores crean un punto de entrada limpio. Si el recorrido es recurrente y el volumen de audiencia es constante, el agente puede aprender qué contenido funciona para cada usuario. |
-| Consideraciones | El momento importa. Si el correo electrónico debe enviarse a los pocos minutos del evento desencadenante, consulta con tu administrador de éxito de cliente o consultor de soluciones para confirmar que el calendario de envío del agente es compatible. Si los usuarios deben recibir los correos en un orden específico (correo A antes del correo B), necesitas orquestar los movimientos de audiencia tú mismo: el agente no secuencia envíos para un mismo usuario a lo largo de un recorrido con múltiples correos electrónicos. |
+| Consideraciones | El momento importa. Si el correo electrónico debe enviarse a los pocos minutos del evento desencadenante, consulta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o consultor de soluciones para confirmar que el calendario de envío del agente es compatible. Si los usuarios deben recibir los correos en un orden específico (correo A antes del correo B), necesitas orquestar los movimientos de audiencia tú mismo: el agente no secuencia envíos para un mismo usuario a lo largo de un recorrido con múltiples correos electrónicos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Recorridos basados en acciones o eventos" }
 
 ## No recomendado {#not-recommended}
@@ -73,7 +73,7 @@ En todos los niveles de ajuste, el agente aprende mejor cuando tu audiencia gene
 |---|---|
 | Cómo se ve | Una secuencia de varios correos electrónicos (por ejemplo, un tutorial de incorporación) en la que los usuarios deben recibir el correo electrónico A, luego el B y luego el C en orden. |
 | Por qué no encaja | El agente selecciona qué enviar a cada usuario en función de lo que probablemente genere un clic para ese usuario. No modela requisitos de secuencia. Si necesitas aplicar un orden específico, debes orquestar la audiencia tú mismo (moviendo a los usuarios de Segment a Segment después de cada correo electrónico), lo que reduce la mayor parte del beneficio de usar el agente. El agente tampoco puede confirmar de forma independiente que el correo electrónico A tuvo éxito antes de enviar el correo electrónico B. |
-| Qué hacer en su lugar | Usa [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) para orquestar la secuencia por goteo. Si quieres optimización con IA dentro de una secuencia por goteo, habla con tu administrador de éxito de cliente o consultor de soluciones sobre si [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) es una mejor opción. |
+| Qué hacer en su lugar | Usa [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) para orquestar la secuencia por goteo. Si quieres optimización con IA dentro de una secuencia por goteo, habla con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o consultor de soluciones sobre si [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) es una mejor opción. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Secuencias por goteo" }
 
 ### Envíos masivos de correo electrónico únicos {#one-time-email-blasts}
@@ -99,7 +99,7 @@ En todos los niveles de ajuste, el agente aprende mejor cuando tu audiencia gene
 
 ## Próximos pasos {#next-steps}
 
-Contacta a tu administrador de éxito de cliente o consultor de soluciones de Braze si no estás seguro de si tu programa es adecuado. Las señales fuertes incluyen:
+Contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o consultor de soluciones de Braze si no estás seguro de si tu programa es adecuado. Las señales fuertes incluyen:
 
 - La audiencia recibe correo electrónico de forma regular —al menos semanalmente— durante un periodo de un mes o más.
 - La audiencia es lo suficientemente grande como para generar una señal de participación consistente (decenas de miles de usuarios es un objetivo inicial útil).

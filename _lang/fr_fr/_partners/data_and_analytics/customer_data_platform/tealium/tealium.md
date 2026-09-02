@@ -23,7 +23,7 @@ L'intégration de Braze et Tealium vous permet de suivre vos utilisateurs et de 
 {% tab EventStream %}
 Tealium EventStream est un centre de collecte de données et d'API qui se trouve au cœur de vos données. EventStream gère l'ensemble de la chaîne d'approvisionnement en données, de la configuration et de l'installation à l'identification, la validation et l'enrichissement des données utilisateur entrantes. EventStream agit en temps réel grâce aux flux d'événements et aux connecteurs. Voici les fonctionnalités qui composent [EventStream](https://docs.tealium.com/server-side/getting-started/eventstream-api-hub/introduction/).
 - Sources de données (installation et collecte de données)
-- Événements en direct (inspection des données en temps réel)
+- Événements en direct or en ligne/en production/instantané (inspection des données en temps réel)
 - Spécifications et attributs d'événement (exigences et validation de la couche de données)
 - Flux d'événements (types d'événements filtrés)
 - Connecteurs d'événements (actions du centre d'API)
@@ -151,7 +151,7 @@ Tealium exige que vous configuriez d'abord une source de données valide pour qu
 - Voir les instructions d'installation
 - Retourner à la page **Get Code**
 - Ajouter ou supprimer des spécifications d'événement
-- Accéder à la vue des événements en direct liés à une spécification d'événement
+- Accéder à la vue des événements en direct or en ligne/en production/instantané liés à une spécification d'événement
 - Et plus encore...<br>
 6. Enfin, sélectionnez **Save / Publish** en haut de la page. Si vous ne publiez pas votre source, vous ne pourrez pas la trouver lors de la configuration de votre connecteur Braze.
 

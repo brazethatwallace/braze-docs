@@ -9,7 +9,7 @@ search_rank: 6
 
 # Pontos de dados {#data-points}
 
-> Na Braze, dados significam ação: cada dado que chega à Braze atualiza a associação do segmento, pode disparar e cancelar o envio de mensagens, está imediatamente disponível para a personalização de mensagens e muito mais. Os pontos de dados ajudam você a definir as informações mais impactantes para sua empresa. Ao considerar cuidadosamente quais informações devem ser rastreadas, você garante o direcionamento dos dados de maior impacto para a experiência dos usuários.
+> Na Braze, dados significam ação: cada dado que chega à Braze atualiza a associação do Segment or segmento or segmento, pode disparar e cancelar o envio de mensagens, está imediatamente disponível para a personalização de mensagens e muito mais. Os pontos de dados ajudam você a definir as informações mais impactantes para sua empresa. Ao considerar cuidadosamente quais informações devem ser rastreadas, você garante o direcionamento dos dados de maior impacto para a experiência dos usuários.
 
 Os pontos de dados são baseados em informações registradas em perfis de usuários. Você pode encontrar uma descrição mais detalhada dessa definição em seu contrato com a Braze. Nossa equipe de sucesso do cliente pode ajudar a recomendar as melhores práticas de dados para atender às suas necessidades.
 
@@ -42,20 +42,20 @@ Em resumo, os pontos de dados são acumulados quando os dados do perfil de um us
 
 Você pode encontrar um detalhamento de como a Braze acumula pontos de dados nas seções a seguir. Se tiver dúvidas sobre as nuances dos pontos de dados da Braze, seu gerente de conta da Braze pode respondê-las.
 
-Para ingestão por API, cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela requisição (consulte as tabelas de faturamento na seção a seguir e [Circunstâncias especiais](#special-circumstances)).
+Para ingestão por API or interface de programação do aplicativo (API), cada atualização faturável por meio de [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) segue as mesmas regras de outras atualizações de perfil: por exemplo, cada **evento personalizado** registrado conta como um ponto de dados, e **atributos personalizados** geralmente contam por atributo atualizado naquela requisição (consulte as tabelas de faturamento na seção a seguir e [Circunstâncias especiais](#special-circumstances)).
 
 As seguintes ações não registram pontos de dados:
 - Excluir usuários da Braze
 - Usar Connected Content no envio de mensagens
 - Alterações no estado de inscrição globalmente e em grupos de inscrições
-- Renomear os IDs externos dos seus usuários por meio de [chamadas de API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
+- Renomear os IDs externos dos seus usuários por meio de [chamadas de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Bloquear eventos, atributos ou propriedades de eventos
 
 ### Circunstâncias especiais {#special-circumstances}
 
 #### Arrays {#arrays}
 
-Um array é uma coleção ordenada de itens armazenados em um atributo personalizado. Atualizar um array custa um ponto de dados por chamada de API, mesmo que o array não seja realmente alterado. Por exemplo, enviar uma operação `remove` para um valor que não existe no array ainda consome um ponto de dados. Da mesma forma, definir um atributo personalizado como `null` para removê-lo do perfil consome um ponto de dados. Se você adicionar valores a um array de forma incremental, cada valor contará como um ponto de dados.
+Um array é uma coleção ordenada de itens armazenados em um atributo personalizado. Atualizar um array custa um ponto de dados por chamada de API or interface de programação do aplicativo (API), mesmo que o array não seja realmente alterado. Por exemplo, enviar uma operação `remove` para um valor que não existe no array ainda consome um ponto de dados. Da mesma forma, definir um atributo personalizado como `null` para removê-lo do perfil consome um ponto de dados. Se você adicionar valores a um array de forma incremental, cada valor contará como um ponto de dados.
 
 {% alert tip %}
 Para arrays simples, se você definir o array inteiro de uma vez, ele contará como um único ponto de dados. Sendo assim, arrays são uma ótima ferramenta para manter os perfis de usuário atualizados com informações relevantes e reduzir custos. <br><br> Arrays de objetos consomem um ponto de dados para cada chave atualizada. Reduza o consumo desnecessário de pontos de dados enviando apenas atualizações para a Braze.

@@ -23,8 +23,8 @@ Die Integration von Phrase und Braze erlaubt es Ihnen, E-Mail-Templates und Cont
 | Anforderung | Beschreibung |
 | --- | --- |
 | Phrase-TMS-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Phrase TMS Ultimate- oder Enterprise-Konto. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit allen Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -34,7 +34,7 @@ Die Integration von Phrase und Braze erlaubt es Ihnen, E-Mail-Templates und Cont
 Navigieren Sie in Phrase zu **Settings > Integrations > Connectors > New**.
 
 1. Geben Sie einen Namen für die Verbindung ein und ändern Sie den Typ in **Braze**.<br><br>
-2. Geben Sie den REST-API-Schlüssel und den Braze-REST-Endpunkt ein. <br><br>
+2. Geben Sie den Representational State Transfer-API-Schlüssel und den Braze-Representational State Transfer-Endpunkt ein. <br><br>
 3. Wählen Sie aus, wie der Konnektor E-Mail-Templates mit verknüpften Content Blocks importieren soll.
 - Nur ausgewähltes E-Mail-Template
 - Content Blocks einbinden<br><br>

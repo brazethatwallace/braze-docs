@@ -11,7 +11,7 @@ hidden: true
 > Der Shopify-Kollektionen-Sync ermöglicht es Ihnen, Ihre Produkte in Kollektionen zu gruppieren, damit Kund:innen Ihre Produkte nach Kategorie finden können. Für ein nahtloseres Einkaufserlebnis können Sie Artikel aus den Kollektionen Ihres Shops in Ihre Braze-Nachrichten einbinden.
 
 {% alert important %}
-Der Shopify-Kollektionen-Sync befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Beta teilnehmen möchten.
+Der Shopify-Kollektionen-Sync befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Beta teilnehmen möchten.
 {% endalert %}
 
 ## Einrichtung der Shopify-Kollektions-Synchronisierung {#setting-up-shopify-collections-sync}
@@ -35,14 +35,14 @@ In Ihrem Shopify-Katalog können Sie Ihre Shopify-Kollektion im Tab **Selections
 Verwenden Sie Ihre Shopify-Kollektionen, um eine Nachricht für jede:n Nutzer:in in Ihrer Campaign zu personalisieren, ähnlich wie Sie eine [Braze-Selektion]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) verwenden würden.
 
 {% alert warning %}
-Beachten Sie das folgende Verhalten in der Beta: <br><br>Wenn Sie die Beschreibung der Shopify-Kollektion oder die Filtereinstellungen aktualisieren, wird die Synchronisierung Ihrer Shopify-Kollektion unterbrochen. Infolgedessen funktioniert Ihre Shopify-Kollektion nicht wie erwartet.
+Beachten Sie das folgende Verhalten in der Beta: <br><br>Wenn Sie die Beschreibung der Shopify-Kollektion oder die Filtereinstellungen Update or aktualisieren or aktualisieren, wird die Synchronisierung Ihrer Shopify-Kollektion unterbrochen. Infolgedessen funktioniert Ihre Shopify-Kollektion nicht wie erwartet.
 {% endalert %}
 
 ### Schritt 1: Sortierreihenfolge Ihrer Shopify-Kollektion konfigurieren {#step-1-configure-the-sort-order-of-your-shopify-collection}
 
 1. Legen Sie die Reihenfolge fest, in der Ihre Shopify-Kollektionsergebnisse zurückgegeben werden, indem Sie die **Sortierreihenfolge** im Selektions-Tab Ihrer Shopify-Kollektion auswählen. Dazu gehört auch die Option, die Sortierreihenfolge zufällig festzulegen.
 2. Geben Sie die maximale Anzahl der Ergebnisse (bis zu 50) für die **Ergebnisanzahl begrenzen** ein.
-3. Wählen Sie **Selektion aktualisieren** aus.
+3. Wählen Sie **Selektion Update or aktualisieren or aktualisieren** aus.
 
 ![Die Seite „Selektion bearbeiten“, auf der Sie die Filtereinstellungen, den Sortiertyp und das Ergebnislimit auswählen können.][4]
 

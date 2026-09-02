@@ -20,9 +20,9 @@ Utiliza la [plantilla de mensaje dentro de la aplicación de cuestionario simple
 
 Ahora se puede desactivar el seguimiento de píxeles de apertura y de clics por perfil de usuario. Esta flexibilidad ayuda a los clientes a cumplir las leyes de privacidad regionales, en las que un perfil de usuario individual puede indicar que ya no desea ser objeto de seguimiento. Consulta [Seguimiento de píxeles de apertura y de clics]({{site.baseurl}}/user_guide/channels/email/email_setup/open_pixel_and_click_tracking) para obtener más información.
 
-## Opciones de recopilación de datos del SDK {#sdk-data-collection-options}
+## Opciones de recopilación de datos del SDK or kit de desarrollo de software {#sdk-data-collection-options}
 
-Obtén más información sobre cómo se puede integrar el SDK de Braze para permitir una recopilación de datos flexible en nuestra nueva documentación sobre [las opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Obtén más información sobre cómo se puede integrar el SDK or kit de desarrollo de software de Braze para permitir una recopilación de datos flexible en nuestra nueva documentación sobre [las opciones de recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Resumen de SSL {#ssl-overview}
 

@@ -2,7 +2,7 @@
 
 ## Erstellen eines universellen Delegaten {#creating-a-universal-delegate}
 
-Das Android SDK bietet die Möglichkeit, ein einzelnes Delegatenobjekt festzulegen, um alle von Braze geöffneten Deeplinks über Content Cards, In-App-Nachrichten und Push-Benachrichtigungen individuell zu verarbeiten.
+Das Android SDK or Software-Development-Kit bietet die Möglichkeit, ein einzelnes Delegatenobjekt festzulegen, um alle von Braze geöffneten Deeplinks über Content Cards, In-App-Nachrichten und Push-Benachrichtigungen individuell zu verarbeiten.
 
 Ihr Delegatenobjekt sollte die [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html)-Schnittstelle implementieren und mit [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html) festgelegt werden. In den meisten Fällen sollte der Delegat in `Application.onCreate()` Ihrer App festgelegt werden.
 

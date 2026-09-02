@@ -13,7 +13,7 @@ tool: in-app messages
 
 ## O que é uma mensagem no navegador e como ela difere de uma mensagem no app? {#what-is-an-in-browser-message-and-how-does-it-differ-from-an-in-app-message}
 
-Mensagens no navegador são mensagens no app enviadas para navegadores web. Para criar uma mensagem no navegador, selecione **Web Browser** no campo **Send To** ao criar sua Campaign de mensagem no app ou Canvas.
+Mensagens no navegador são mensagens no app enviadas para navegadores web. Para criar uma mensagem no navegador, selecione **navegador de internet or navegador web** no campo **Send To** ao criar sua Campaign de mensagem no app ou Canvas.
 
 ## Uma mensagem no app é exibida se o dispositivo estiver offline? {#does-an-in-app-message-display-if-a-device-is-offline}
 
@@ -59,7 +59,7 @@ Quando a mensagem no app aparece, a elegibilidade depende de quando a mensagem n
 
 ## Por que minha Campaign de mensagem no app arquivada ainda está entregando impressões de mensagem no app? {#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions}
 
-Isso pode ocorrer para usuários que atenderam aos critérios do Segment quando a Campaign de mensagem no app estava ativa.
+Isso pode ocorrer para usuários que atenderam aos critérios do Segment or segmento quando a Campaign de mensagem no app estava ativa.
 
 Para evitar isso, durante a configuração da sua Campaign, selecione **Re-evaluate campaign eligibility before displaying**.
 
@@ -135,7 +135,7 @@ A Braze não registra nenhum evento de interrupção no caso de Sam porque isso 
 
 ### Comportamento de interrupção de mensagens no app com template {#templated-in-app-message-abort-behavior}
 
-[Mensagens no app com template](#what-are-templated-in-app-messages) forçam o SDK a reavaliar se uma mensagem deve ser exibida quando o evento-gatilho ocorre. Isso gera um comportamento de interrupção diferente. Para demonstrar, considere este exemplo:
+[Mensagens no app com template](#what-are-templated-in-app-messages) forçam o SDK or kit de desenvolvimento de software a reavaliar se uma mensagem deve ser exibida quando o evento-gatilho ocorre. Isso gera um comportamento de interrupção diferente. Para demonstrar, considere este exemplo:
 
 1. Sam inicia uma sessão da Braze abrindo um app com Braze no celular.
 2. Os critérios de público das Campaigns ativas dizem que Sam pode ser elegível para uma mensagem no app com template, então as informações do gatilho são enviadas ao dispositivo sem a carga útil da mensagem.
@@ -157,7 +157,7 @@ Esta tabela compara os fluxos de mensagens no app que Sam experimentou:
 
 Para [mensagens no app com template](#what-are-templated-in-app-messages), o Connected Content e outras tags Liquid são resolvidos quando o evento-gatilho ocorre e o dispositivo solicita a carga útil da mensagem — não quando o usuário clica em um botão dentro da mensagem. Cada busca com template pode incluir chamadas de Connected Content para aquela exibição.
 
-Se o seu HTML referencia dados REST retornados pelo Connected Content, esses dados ficam disponíveis para a sessão em que a mensagem recebeu o template. Múltiplos botões podem referenciar a mesma resposta do Connected Content sem disparar chamadas adicionais ao clicar.
+Se o seu HTML referencia dados REST or transferir estado representacional retornados pelo Connected Content, esses dados ficam disponíveis para a sessão em que a mensagem recebeu o template. Múltiplos botões podem referenciar a mesma resposta do Connected Content sem disparar chamadas adicionais ao clicar.
 
 ### Qual é o atraso máximo após um gatilho para Campaigns de mensagens no app? {#what-is-the-maximum-delay-after-a-trigger-for-in-app-message-campaigns}
 
@@ -185,11 +185,11 @@ Quando a **Imagem de fundo** está ativada em uma página de uma mensagem no app
 
 ### Como posso testar mensagens no app para web? {#how-do-i-test-web-in-app-messages}
 
-Envios de teste de mensagens no app para web requerem que o push esteja ativado no dispositivo de teste, pois o fluxo de teste entrega uma notificação por push que abre o app ou site onde a mensagem no app é exibida. O mesmo caminho de teste baseado em push se aplica em qualquer plataforma onde o push não está configurado com a Braze, embora a ausência de push seja mais frequentemente encontrada na web porque muitas integrações mobile já têm o push ativado. Use uma campanha ativa para um Segment de teste interno em vez disso. Para os passos, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
+Envios de teste de mensagens no app para web requerem que o push esteja ativado no dispositivo de teste, pois o fluxo de teste entrega uma notificação por push que abre o app ou site onde a mensagem no app é exibida. O mesmo caminho de teste baseado em push se aplica em qualquer plataforma onde o push não está configurado com a Braze, embora a ausência de push seja mais frequentemente encontrada na web porque muitas integrações mobile já têm o push ativado. Use uma campanha ativa para um Segment or segmento de teste interno em vez disso. Para os passos, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ### Mensagens no app requerem integração de push? {#do-in-app-messages-require-push-integration}
 
-Mensagens no app não requerem notificações por push para funcionar em produção. As mensagens no app são entregues pelo SDK da Braze e aparecem durante uma sessão ativa do app sem necessidade de integração de push.
+Mensagens no app não requerem notificações por push para funcionar em produção. As mensagens no app são entregues pelo SDK or kit de desenvolvimento de software da Braze e aparecem durante uma sessão ativa do app sem necessidade de integração de push.
 
 No entanto, envios de teste de mensagens no app requerem que o push esteja ativado nos seus dispositivos de teste. Isso ocorre porque as mensagens no app de teste são entregues por meio de uma notificação por push que dispara a exibição da mensagem no app. O usuário teste deve ter o push ativado e tocar na notificação por push de teste para visualizar a mensagem no app.
 
@@ -205,9 +205,9 @@ Para corrigir caracteres soltos ou não renderizados, redigite o texto afetado n
 
 Em dispositivos com telas de borda a borda (incluindo Android 15+), mensagens no app HTML em tela inteira podem ser renderizadas atrás da barra de status do sistema e ocultar o controle de fechar na parte superior do layout.
 
-O SDK da Braze para Android versão 37.0.0 e posteriores aplicam insets de janela a mensagens no app HTML por padrão, para que os controles permaneçam na área segura. Se os usuários ainda virem sobreposição, faça upgrade para a versão mais recente do SDK da Braze para Android.
+O SDK or kit de desenvolvimento de software da Braze para Android versão 37.0.0 e posteriores aplicam insets de janela a mensagens no app HTML por padrão, para que os controles permaneçam na área segura. Se os usuários ainda virem sobreposição, faça upgrade para a versão mais recente do SDK or kit de desenvolvimento de software da Braze para Android.
 
-Em versões anteriores do SDK, os desenvolvedores podiam ativar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de esse comportamento se tornar o padrão.
+Em versões anteriores do SDK or kit de desenvolvimento de software, os desenvolvedores podiam ativar `BrazeConfig.setIsHtmlInAppMessageApplyWindowInsetsEnabled(true)` antes de esse comportamento se tornar o padrão.
 
 ## O que devo saber ao personalizar mensagens no app com o editor de arrastar e soltar? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
@@ -225,7 +225,7 @@ Tenha em mente:
 
 Para saber mais sobre considerações do editor, consulte o [Guia de preparação para mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations).
 
-## O que significa "Event was published, but no subscribers were found" nos logs do SDK Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
+## O que significa "Event was published, but no subscribers were found" nos logs do SDK or kit de desenvolvimento de software Android? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 
 Essa linha de log geralmente não é um erro. Ela costuma aparecer quando a Braze publica um evento interno (como `NoMatchingTriggerEvent`) e nenhum listener de mensagem no app ou Content Cards está inscrito naquele momento.
 

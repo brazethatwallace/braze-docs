@@ -22,7 +22,7 @@ Isso mantém as Campaigns da Braze alinhadas com a fonte única de verdade da By
 ## Casos de uso {#use-cases}
 
 - Profissionais de marketing que estão criando um e-mail, uma mensagem no app ou um Content Block na Braze podem inserir imagens de destaque, banners ou links de vídeos promocionais obtidos diretamente da Bynder, garantindo que as Campaigns usem a versão aprovada mais recente de um ativo.
-- Gerentes de Campaign podem usar a barra de pesquisa e filtro da Universal Compact View para localizar criativos regionais ou localizados aprovados para um Segment de público específico antes de adicioná-los a uma etapa do Canvas.
+- Gerentes de Campaign podem usar a barra de pesquisa e filtro da Universal Compact View para localizar criativos regionais ou localizados aprovados para um Segment or segmento de público específico antes de adicioná-los a uma etapa do Canvas.
 - Equipes criativas podem aplicar a Dynamic Asset Transformation da Bynder para redimensionar ou reformatar um ativo para um canal específico antes de copiar o link para a Braze. Por exemplo, usar um recorte compacto para uma notificação por push ou um banner em tamanho completo para e-mail.
 
 ## Pré-requisitos {#prerequisites}

@@ -171,7 +171,7 @@ Has language - Default language
 {% endraw %}
 
 {% raw %}
-**Erklärung:** Hier verwenden wir zwei gruppierte, verschachtelte `if`-Anweisungen. Die erste `if`-Anweisung prüft, ob der/die Nutzer:in eine Sitzung gestartet hat, indem geprüft wird, ob `last_used_app_date` den Wert `nil` hat. Das liegt daran, dass `{{${language}}}` automatisch vom SDK erfasst wird, wenn eine Sitzung protokolliert wird. Wenn keine Sitzung protokolliert wurde, haben wir die Sprache noch nicht, daher wird geprüft, ob sprachbezogene angepasste Attribute gespeichert wurden, und basierend auf diesen Informationen wird die Nachricht nach Möglichkeit in dieser Sprache angezeigt.
+**Erklärung:** Hier verwenden wir zwei gruppierte, verschachtelte `if`-Anweisungen. Die erste `if`-Anweisung prüft, ob der/die Nutzer:in eine Sitzung gestartet hat, indem geprüft wird, ob `last_used_app_date` den Wert `nil` hat. Das liegt daran, dass `{{${language}}}` automatisch vom SDK or Software-Development-Kit erfasst wird, wenn eine Sitzung protokolliert wird. Wenn keine Sitzung protokolliert wurde, haben wir die Sprache noch nicht, daher wird geprüft, ob sprachbezogene angepasste Attribute gespeichert wurden, und basierend auf diesen Informationen wird die Nachricht nach Möglichkeit in dieser Sprache angezeigt.
 {% endraw %}
 
 Die zweite `if`-Anweisung prüft einfach das Standard-Attribut, da `last_used_app_date` nicht `nil` ist, was bedeutet, dass eine Sitzung protokolliert wurde und wir die Sprache haben.
@@ -873,7 +873,7 @@ Miscellaneous
 
 ### E-Mail-Versand an Kund:innen vermeiden, die Marketing-E-Mails blockiert haben {#misc-avoid-blocked-emails}
 
-Dieser Anwendungsfall nimmt eine Liste blockierter Nutzer:innen, die in einem Content-Block gespeichert ist, und stellt sicher, dass diese blockierten Nutzer:innen in kommenden Campaigns oder Canvases nicht kontaktiert oder angesprochen werden.
+Dieser Anwendungsfall nimmt eine Liste blockierter Nutzer:innen, die in einem Content-Block gespeichert ist, und stellt sicher, dass diese blockierten Nutzer:innen in kommenden Campaigns oder Canvase nicht kontaktiert oder angesprochen werden.
 
 {% alert important %}
 Um dieses Liquid zu verwenden, speichern Sie zunächst die Liste der blockierten E-Mail-Adressen in einem Content-Block. Die Liste sollte keine zusätzlichen Leerzeichen oder Zeichen zwischen den E-Mail-Adressen enthalten (z. B. `test@braze.com,abc@braze.com`).
@@ -1200,7 +1200,7 @@ All episodes of {{new_shows_clean | join: ', ' }} expire on 9/8 - watch them now
 
 ### String als Telefonnummer formatieren {#phone-number}
 
-Dieser Anwendungsfall zeigt, wie das Nutzerprofil-Feld `phone_number` (standardmäßig als String aus Ziffern formatiert) indiziert und basierend auf Ihren lokalen Telefonnummernstandards neu formatiert wird. Beispiel: 1234567890 wird zu (123)-456-7890.
+Dieser Anwendungsfall zeigt, wie das Kundenprofil or Nutzerprofil-Feld `phone_number` (standardmäßig als String aus Ziffern formatiert) indiziert und basierend auf Ihren lokalen Telefonnummernstandards neu formatiert wird. Beispiel: 1234567890 wird zu (123)-456-7890.
 
 {% raw %}
 ```liquid
@@ -1339,17 +1339,17 @@ This is a message for Verizon users!
 
 {% api %}
 
-## SMS
+## Kurzmitteilungsdienst or SMS
 
 {% apitags %}
-SMS
+Kurzmitteilungsdienst or SMS
 {% endapitags %}
 
-- [Verschiedene Nachrichten basierend auf eingehenden SMS-Schlüsselwörtern senden](#sms-keyword-response)
+- [Verschiedene Nachrichten basierend auf eingehenden Kurzmitteilungsdienst or SMS-Schlüsselwörtern senden](#sms-keyword-response)
 
-### Verschiedene Nachrichten basierend auf eingehenden SMS-Schlüsselwörtern senden {#sms-keyword-response}
+### Verschiedene Nachrichten basierend auf eingehenden Kurzmitteilungsdienst or SMS-Schlüsselwörtern senden {#sms-keyword-response}
 
-Dieser Anwendungsfall nutzt die dynamische SMS-Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
+Dieser Anwendungsfall nutzt die dynamische Kurzmitteilungsdienst or SMS-Schlüsselwortverarbeitung, um auf bestimmte eingehende Nachrichten mit unterschiedlichem Nachrichtentext zu antworten. Beispielsweise können Sie verschiedene Antworten senden, wenn jemand „START“ im Vergleich zu „JOIN“ schreibt.
 
 {% raw %}
 ```liquid

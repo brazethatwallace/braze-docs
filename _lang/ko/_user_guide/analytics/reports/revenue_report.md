@@ -28,7 +28,7 @@ tool: Reports
 **Performance Over Time** 그래프는 다양한 파라미터에 대한 데이터를 표시하며, **Statistics for** 드롭다운에서 선택할 수 있습니다. 선택적으로 **Breakdown** 드롭다운에서 특정 파라미터의 데이터를 세분화할 수 있습니다.
 
 **Performance Over Time** 그래프에서 다음 데이터를 확인할 수 있습니다:
-- KPI 수식
+- KPI or 핵심 성과 지표(KPI) 수식
 - 구매
     - (선택 사항) 제품별 구매
 - 매출
@@ -64,8 +64,8 @@ tool: Reports
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">사용자당 생애주기 가치</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">사용자당 LTV or 생애주기 가치</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or LTV or 생애주기 가치 Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">일평균 매출</a></td>

@@ -145,7 +145,7 @@ Si una etapa muestra un fallo, el panel muestra el error y los pasos sugeridos a
 - El número de teléfono del destinatario tiene un límite de tasa aplicado
 - Las variables Liquid del mensaje no se completaron para el usuario de prueba seleccionado
 
-Para problemas persistentes, verifica el estado de tu plantilla en Meta Business Manager o comprueba que tu destinatario de prueba tenga los atributos de usuario requeridos completados en Braze.
+Para problemas persistentes, verifica el estado de tu plantilla en Meta Business Administrador o comprueba que tu destinatario de prueba tenga los atributos de usuario requeridos completados en Braze.
 
 ## Características compatibles {#supported-whatsapp-features}
 

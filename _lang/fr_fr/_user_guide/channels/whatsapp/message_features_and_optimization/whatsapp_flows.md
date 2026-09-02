@@ -25,7 +25,7 @@ channel:
 ![WhatsApp Manager avec une page pour créer un modèle Flows.]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
 {% alert tip %}
-Vous pouvez également créer un modèle de Flow Marketing ou Utilitaire dans Braze avec le [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder). Créez et gérez le Flow lui-même dans le WhatsApp Manager de Meta, puis sélectionnez ce Flow lorsque vous construisez le modèle dans Braze.
+Vous pouvez également créer un modèle de Flow Marketing ou Utilitaire dans Braze avec le [générateur de modèles WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder). Créez et gérez le Flow lui-même dans le WhatsApp gestionnaire de Meta, puis sélectionnez ce Flow lorsque vous construisez le modèle dans Braze.
 {% endalert %}
 
 {: start="3"}

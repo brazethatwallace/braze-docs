@@ -10,7 +10,7 @@ search_tag: Partner
 
 # loplat
 
-> [A Loplat](https://www.loplat.com/) é a principal plataforma offline baseada em localização. Use o SDK da loplat para aumentar o número de visitantes da sua loja de forma inteligente e executar campanhas de marketing que incentivem compras na loja. Você pode medir o desempenho da loja por meio da análise de tráfego após o término da campanha.
+> [A Loplat](https://www.loplat.com/) é a principal plataforma offline baseada em localização. Use o SDK or kit de desenvolvimento de software da loplat para aumentar o número de visitantes da sua loja de forma inteligente e executar campanhas de marketing que incentivem compras na loja. Você pode medir o desempenho da loja por meio da análise de tráfego após o término da campanha.
 
 _Esta integração é mantida pela Loplat._
 
@@ -23,8 +23,8 @@ A integração da Braze com a loplat permite que você use os serviços de local
 | Requisito | Descrição |
 | --- | --- |
 | Conta loplat X | É necessário ter uma conta do loplat X para aproveitar essa integração.<br><br>Envie um e-mail para [support@loplat.com](mailto:support@loplat.com) para solicitar uma conta do loplat X. |
-| SDK da loplat | O SDK da loplat reconhece as visitas dos usuários à loja, processa eventos de localização e distingue se os usuários estão em um local ou se estão em movimento. Você pode usar o SDK da loplat para analisar o tráfego da sua loja, enviar mensagens push quando os usuários entram na loja etc.<br><br>Observe que o SDK está disponível apenas para Android e iOS. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| SDK or kit de desenvolvimento de software da loplat | O SDK or kit de desenvolvimento de software da loplat reconhece as visitas dos usuários à loja, processa eventos de localização e distingue se os usuários estão em um local ou se estão em movimento. Você pode usar o SDK or kit de desenvolvimento de software da loplat para analisar o tráfego da sua loja, enviar mensagens push quando os usuários entram na loja etc.<br><br>Observe que o SDK or kit de desenvolvimento de software está disponível apenas para Android e iOS. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -40,15 +40,15 @@ As informações de localização do evento personalizado fornecidas pela loplat
 
 ### Etapa 1: Integrar os SDKs {#step-1-integrate-the-sdks}
 
-Integre o SDK da loplat e o SDK da Braze ao seu app usando as etapas fornecidas na documentação da [integração loplat-Braze](https://developers.loplat.com/braze/).
+Integre o SDK or kit de desenvolvimento de software da loplat e o SDK or kit de desenvolvimento de software da Braze ao seu app usando as etapas fornecidas na documentação da [integração loplat-Braze](https://developers.loplat.com/braze/).
 
 ### Etapa 2: Sincronizar os dashboards da Braze e do loplat X e criar uma campanha {#step-2-sync-the-braze-and-loplat-x-dashboards-and-create-a-campaign}
 
-Crie uma nova chave de API no dashboard da Braze. Copie a chave de API e cole-a em **Settings > API Settings** no dashboard do loplat X. Consulte o [guia do usuário do loplat X](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e?pvs=25) para obter mais detalhes.
+Crie uma nova chave de API or interface de programação do aplicativo (API) no dashboard da Braze. Copie a chave de API or interface de programação do aplicativo (API) e cole-a em **Settings > API or interface de programação do aplicativo (API) Settings** no dashboard do loplat X. Consulte o [guia do usuário do loplat X](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e?pvs=25) para obter mais detalhes.
 
-#### Entrega disparada por API {#api-triggered-delivery}
+#### Entrega disparada por API or interface de programação do aplicativo (API) {#api-triggered-delivery}
 
-1. Crie uma Campaign ou um Canvas na Braze que envie com **API-Triggered Delivery** e copie o ID da campanha.
+1. Crie uma Campaign ou um Canvas na Braze que envie com **API or interface de programação do aplicativo (API)-Triggered Delivery** e copie o ID da campanha.
 2. Lance a campanha na Braze depois de concluir todas as etapas.
 3. Acesse o loplat X e crie uma campanha seguindo as instruções do [guia do usuário do loplat X](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb).
 4. Cole o ID da campanha da Braze em **Campaign Message Settings** e inicie a campanha.

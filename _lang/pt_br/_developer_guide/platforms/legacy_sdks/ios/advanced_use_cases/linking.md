@@ -157,7 +157,7 @@ Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred, and a secur
 NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9802)
 ```
 
-A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador web.
+A conformidade com ATS é aplicada para links abertos dentro do app móvel (nosso tratamento padrão de links clicados) e não se aplica a sites abertos externamente por meio de um navegador de internet or navegador web.
 
 ### Atendendo aos requisitos do ATS {#handling-ats-requirements}
 
@@ -209,7 +209,7 @@ Consulte [Shipping an App With App Transport Security](http://timekl.com/blog/20
 
 ## Codificação de URL {#url-encoding}
 
-A partir do SDK da Braze para iOS v2.21.0, o SDK codifica percentualmente os links para criar `NSURL`s válidos. Todos os caracteres de link que não são permitidos em um URL devidamente formado, como caracteres Unicode, serão escapados por porcentagem.
+A partir do SDK or kit de desenvolvimento de software da Braze para iOS v2.21.0, o SDK or kit de desenvolvimento de software codifica percentualmente os links para criar `NSURL`s válidos. Todos os caracteres de link que não são permitidos em um URL devidamente formado, como caracteres Unicode, serão escapados por porcentagem.
 
 Para decodificar um link codificado, use o método `NSString` [`stringByRemovingPercentEncoding`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html#//apple_ref/occ/instm/NSString/stringByRemovingPercentEncoding). Note que você também precisa retornar `YES` no `ABKURLDelegate` e que uma chamada para ação é necessária para disparar o tratamento do URL pelo app. Por exemplo:
 
@@ -242,7 +242,7 @@ Para decodificar um link codificado, use o método `NSString` [`stringByRemoving
 
 ### Personalização padrão do WebView {#default-webview-customization}
 
-A classe personalizável `ABKModalWebViewController` exibe URLs da web abertas pelo SDK, normalmente quando "Abrir URL da Web Dentro do App" é selecionado para um deep link da web.
+A classe personalizável `ABKModalWebViewController` exibe URLs da web abertas pelo SDK or kit de desenvolvimento de software, normalmente quando "Abrir URL da Web Dentro do App" é selecionado para um deep link da web.
 
 Você pode declarar uma categoria para, ou modificar diretamente, a classe `ABKModalWebViewController` para aplicar a personalização à visualização da web. Verifique o [arquivo .h](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKModalWebViewController.h) e o [arquivo .m](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/ABKModalWebViewController.m) da classe para mais detalhes.
 

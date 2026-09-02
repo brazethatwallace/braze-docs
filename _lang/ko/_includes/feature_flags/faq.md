@@ -65,7 +65,7 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 ### 기능 플래그가 제품 팀에 어떤 이점을 줄 수 있나요? {#product-teams}
 
-제품 팀은 기능 플래그를 사용하여 새로운 기능의 단계적 출시 또는 소프트 런칭을 수행하고, 모든 사용자에게 제공하기 전에 핵심 성과 지표(KPI)와 고객 피드백을 모니터링할 수 있습니다.
+제품 팀은 기능 플래그를 사용하여 새로운 기능의 단계적 출시 또는 소프트 런칭을 수행하고, 모든 사용자에게 제공하기 전에 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI))와 고객 피드백을 모니터링할 수 있습니다.
 
 제품 팀은 [기능 플래그 속성]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties)을 사용하여 딥링크, 텍스트, 이미지 또는 기타 동적 콘텐츠와 같은 앱 내 콘텐츠를 원격으로 채울 수 있습니다.
 

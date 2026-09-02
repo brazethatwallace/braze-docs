@@ -36,7 +36,7 @@ Braze에서 제공하는 표준 Campaign 및 Canvas 통계 목록에 "영향받�
 
 ## 웹 URL에 대한 새로운 옵션 {#new-options-for-web-urls}
 
-이제 푸시 메시지, 인앱 및 인브라우저 메시지, 뉴스피드 카드에 대해 외부 웹 브라우저에서 웹 URL을 열 수 있는 옵션이 제공됩니다. "앱으로 딥링크" 동작은 이제 HTTP/HTTPS 딥링크와도 호환됩니다. Branch 또는 Apple의 유니버설 링크와 같은 파트너를 사용하는 경우 SDK 커스터마이징이 필요합니다. [딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)에 대해 자세히 알아보세요.
+이제 푸시 메시지, 인앱 및 인브라우저 메시지, 뉴스피드 카드에 대해 외부 웹 브라우저에서 웹 URL을 열 수 있는 옵션이 제공됩니다. "앱으로 딥링크" 동작은 이제 HTTP/HTTPS 딥링크와도 호환됩니다. Branch or 브랜치 또는 Apple의 유니버설 링크와 같은 파트너를 사용하는 경우 SDK 커스터마이징이 필요합니다. [딥링킹]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)에 대해 자세히 알아보세요.
 
 ## 새로운 "전환 수행" 이벤트 Canvas {#new-performed-conversion-event-canvas}
 

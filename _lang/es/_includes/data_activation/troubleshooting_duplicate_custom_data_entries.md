@@ -13,5 +13,5 @@ Para solucionar y corregir esto:
     - Actualiza cualquier flujo de trabajo del panel, importaciones CSV y runbooks internos para usar la clave canónica.
     - [Bloquea datos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data) de la entrada incorrecta cuando estés listo para retirarla.
 5. Verifica tus rutas de ingesta:
-    - Las cargas útiles de API y SDK eliminan automáticamente los espacios al inicio y al final.
+    - Las cargas útiles de API y SDK or kit de desarrollo de software eliminan automáticamente los espacios al inicio y al final.
     - Los nombres creados en el panel no se recortan automáticamente, por lo que se requieren entrada manual y gobernanza.

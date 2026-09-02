@@ -117,7 +117,7 @@ Seja usando um dos nossos [parceiros de tecnologia]({{site.baseurl}}/partners/ho
 
 ### Parceiros externos {#external-partners}
 
-Confira [Parceiros de tecnologia]({{site.baseurl}}/partners/home) para saber mais sobre nossos parceiros B2B que oferecem recursos de pontuação de leads. Não está vendo sua ferramenta lá? Você pode fazer a integração chamando o endpoint [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da nossa API.
+Confira [Parceiros de tecnologia]({{site.baseurl}}/partners/home) para saber mais sobre nossos parceiros B2B que oferecem recursos de pontuação de leads. Não está vendo sua ferramenta lá? Você pode fazer a integração chamando o endpoint [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da nossa API or interface de programação do aplicativo (API).
 
 ### Modelos internos de dados de pontuação de leads {#internal-lead-scoring-data-models}
 

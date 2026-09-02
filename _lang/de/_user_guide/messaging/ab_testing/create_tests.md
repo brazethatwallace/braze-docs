@@ -122,7 +122,7 @@ Nutzer:innen werden Nachrichtenvarianten, Canvas-Varianten oder ihren jeweiligen
 
 Es gibt einige häufige Fehler, die den Anschein von Unterschieden basierend auf dem Messaging-Kanal erwecken können, wenn Zielgruppen nicht korrekt gefiltert werden.
 
-Wenn Sie beispielsweise eine Push-Nachricht an eine breite Zielgruppe mit einer Kontrollgruppe senden, sendet die Testgruppe Nachrichten nur an Nutzer:innen mit einem Push-Token. Die Kontrollgruppe umfasst jedoch sowohl Nutzer:innen, die ein Push-Token haben, als auch solche, die keines haben. In diesem Fall muss Ihre anfängliche Zielgruppe für die Campaign oder das Canvas nach dem Vorhandensein eines Push-Tokens filtern (`Foreground Push Enabled` ist `true`). Dasselbe gilt für die Berechtigung zum Empfang von Nachrichten auf anderen Kanälen: Opt-in, Push-Token vorhanden oder abonniert.
+Wenn Sie beispielsweise eine Push-Nachricht an eine breite Zielgruppe mit einer Kontrollgruppe senden, sendet die Testgruppe Nachrichten nur an Nutzer:innen mit einem Push-Token / Textbaustein. Die Kontrollgruppe umfasst jedoch sowohl Nutzer:innen, die ein Push-Token / Textbaustein haben, als auch solche, die keines haben. In diesem Fall muss Ihre anfängliche Zielgruppe für die Campaign oder das Canvas nach dem Vorhandensein eines Push-Tokens filtern (`Foreground Push Enabled` ist `true`). Dasselbe gilt für die Berechtigung zum Empfang von Nachrichten auf anderen Kanälen: Opt-in, Push-Token / Textbaustein vorhanden oder abonniert.
 
 Beachten Sie: Wenn eine Kontrollvariante keine Canvas-Schritte enthält, werden für Nutzer:innen in der Kontrollvariante keine Exit-Kriterien-Events protokolliert.
 

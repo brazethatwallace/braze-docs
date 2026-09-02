@@ -88,7 +88,7 @@ Das Feld `Location` verwendet den Datentyp `geo`, der ein Array im Format `[long
 Es gibt drei Statuscode-Antworten für diesen Endpunkt: `202`, `400` und `404`.
 
 {% alert note %}
-Das System kann auch eine `400`-Antwort zurückgeben, wenn Ihr Unternehmen das Speicherlimit für Kataloge erreicht hat. Die kostenlose Version der Kataloge ist auf 500&nbsp;MB begrenzt. Weitere Informationen zu Speicherstufen und zum Upgrade finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+Das System kann auch eine `400`-Antwort zurückgeben, wenn Ihr Unternehmen das Speicherlimit für Kataloge erreicht hat. Die kostenlose Version der Kataloge ist auf 500&nbsp;MB begrenzt. Weitere Informationen zu Speicherstufen und zum Upgrade or upgraden finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Beispiel für eine erfolgreiche Antwort {#example-success-response}
@@ -131,7 +131,7 @@ In der folgenden Tabelle finden Sie mögliche zurückgegebene Fehler und die zug
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
 | `company-size-limit-already-reached` | Das Speicherlimit für Kataloge ist erreicht. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
-| `company-size-limit-surge` | Die Anfrage überschreitet den verbleibenden Katalogspeicher Ihres Unternehmens. Versuchen Sie es erneut mit einem kleineren Update. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
+| `company-size-limit-surge` | Die Anfrage überschreitet den verbleibenden Katalogspeicher Ihres Unternehmens. Versuchen Sie es erneut mit einem kleineren Update or aktualisieren. Weitere Informationen zu Speicherstufen finden Sie unter [Datenspeicherbeschränkungen]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `ids-not-string` | Bestätigen Sie, dass jede Artikel-ID ein String ist. |
 | `ids-not-unique` | Prüfen Sie, ob jede Artikel-ID eindeutig ist. |
 | `ids-too-large` | Die Zeichenbegrenzung für jede Artikel-ID beträgt 250 Zeichen. |

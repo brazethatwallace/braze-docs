@@ -1,23 +1,23 @@
 ---
-nav_title: "Objetos e apêndice da API SCIM"
-article_title: "Objetos e apêndice da API SCIM"
+nav_title: "Objetos e apêndice da API or interface de programação do aplicativo (API) SCIM"
+article_title: "Objetos e apêndice da API or interface de programação do aplicativo (API) SCIM"
 page_type: reference
-description: "Este artigo explica os diferentes objetos e o apêndice da API SCIM."
+description: "Este artigo explica os diferentes objetos e o apêndice da API or interface de programação do aplicativo (API) SCIM."
 alias: /scim_api_appendix/
 ---
 
-# Objetos e apêndice da API SCIM {#scim-api-objects-and-appendix}
+# Objetos e apêndice da API or interface de programação do aplicativo (API) SCIM {#scim-api-objects-and-appendix}
 
-> Este artigo explica os diferentes objetos e o apêndice da API SCIM.
+> Este artigo explica os diferentes objetos e o apêndice da API or interface de programação do aplicativo (API) SCIM.
 
 {% sdktabs %}
-{% sdktab Granular SCIM API %}
+{% sdktab Granular SCIM API or interface de programação do aplicativo (API) %}
 
 ## Migração para permissões granulares {#granular-permissions-migration}
 
-As integrações SCIM existentes e os [objetos da API SCIM legada]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api) continuam funcionando após a migração para permissões granulares, mas a Braze deixará de aceitar valores da API SCIM legada em dezembro de 2026.
+As integrações SCIM existentes e os [objetos da API or interface de programação do aplicativo (API) SCIM legada]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api) continuam funcionando após a migração para permissões granulares, mas a Braze deixará de aceitar valores da API or interface de programação do aplicativo (API) SCIM legada em dezembro de 2026.
 
-Não é necessário tomar nenhuma ação imediata. No entanto, revise suas integrações para verificar permissões que migram para permissões granulares. Por exemplo, se você está enviando `basic_access` na API atualmente, atualize sua integração após a migração para permissões granulares para incluir as permissões específicas (por exemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). A Braze continua aceitando strings legadas, como `basic_access`, após a migração para permissões granulares, para que as integrações existentes não sejam interrompidas.
+Não é necessário tomar nenhuma ação imediata. No entanto, revise suas integrações para verificar permissões que migram para permissões granulares. Por exemplo, se você está enviando `basic_access` na API or interface de programação do aplicativo (API) atualmente, atualize sua integração após a migração para permissões granulares para incluir as permissões específicas (por exemplo, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). A Braze continua aceitando strings legadas, como `basic_access`, após a migração para permissões granulares, para que as integrações existentes não sejam interrompidas.
 
 ## Objeto de permissões {#permissions-object}
 
@@ -93,7 +93,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão da empresa {#company}
 
-| Exibição na interface | String da API SCIM |
+| Exibição na interface | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Administrator | `admin` |
 | Manage Company Settings | `manage_company_settings` |
@@ -102,7 +102,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão do espaço de trabalho {#workspace-strings}
 
-| Nome da permissão | String da API SCIM |
+| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | View Campaigns | `view_campaigns` |
 | Edit Campaigns | `edit_campaigns` |
@@ -166,20 +166,20 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Edit User Data | `edit_user_data` |
 | View User Merge Records | `view_user_merge_records` |
 | Merge Duplicate Users | `merge_duplicate_users` |
-| View API Keys | `view_api_keys` |
-| Edit API Keys | `edit_api_keys` |
+| View API or interface de programação do aplicativo (API) Keys | `view_api_keys` |
+| Edit API or interface de programação do aplicativo (API) Keys | `edit_api_keys` |
 | View Internal Groups | `view_internal_user_groups` |
 | Edit Internal Groups | `edit_internal_user_groups` |
 | Delete Internal Groups | `delete_internal_user_groups` |
 | View Message Activity Log | `view_message_activity_log` |
 | View Event User Log | `view_event_user_log` |
-| View API Identifiers | `view_api_identifiers` |
-| View API Usage Dashboard | `view_api_usage_dashboard` |
-| View API Limits | `view_api_limits` |
-| View API Usage Alerts | `view_api_usage_alerts` |
-| Edit API Usage Alerts | `edit_api_usage_alerts` |
-| View SDK Debugger | `view_sdk_debugger` |
-| Edit SDK Debugger | `edit_sdk_debugger` |
+| View API or interface de programação do aplicativo (API) Identifiers | `view_api_identifiers` |
+| View API or interface de programação do aplicativo (API) Usage Dashboard | `view_api_usage_dashboard` |
+| View API or interface de programação do aplicativo (API) Limits | `view_api_limits` |
+| View API or interface de programação do aplicativo (API) Usage Alerts | `view_api_usage_alerts` |
+| Edit API or interface de programação do aplicativo (API) Usage Alerts | `edit_api_usage_alerts` |
+| View SDK or kit de desenvolvimento de software Debugger | `view_sdk_debugger` |
+| Edit SDK or kit de desenvolvimento de software Debugger | `edit_sdk_debugger` |
 | Launch Content Blocks | `launch_content_blocks` |
 | Edit Cloud Data Ingestion | `edit_cloud_data_ingestion` |
 | View App Settings | `view_app_settings` |
@@ -219,7 +219,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão de equipe {#team}
 
-| Nome da permissão | String da API SCIM |
+| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | View Campaigns | `view_campaigns` |
 | Edit Campaigns | `edit_campaigns` |
@@ -272,7 +272,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de departamento {#department-strings}
 
-| Exibição na interface | String da API SCIM |
+| Exibição na interface | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Agency / Third Party | `agency` |
 | BI / Analytics | `bi` |
@@ -283,11 +283,11 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Product Management | `pm` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Strings de departamento" }
 {% endsdktab %}
-{% sdktab Legacy SCIM API %}
+{% sdktab Legacy SCIM API or interface de programação do aplicativo (API) %}
 
 
 {% alert important %}
-A Braze agora oferece [permissões granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Para saber mais, consulte [Migração para permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) e a guia [API SCIM granular]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) para visualizar os objetos e o apêndice da API SCIM granular. A Braze deixará de aceitar valores da API SCIM legada em dezembro de 2026.
+A Braze agora oferece [permissões granulares]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), uma forma mais flexível de gerenciar o acesso dos usuários. Para saber mais, consulte [Migração para permissões granulares]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) e a guia [API or interface de programação do aplicativo (API) SCIM granular]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=granular%20scim%20api/) para visualizar os objetos e o apêndice da API or interface de programação do aplicativo (API) SCIM granular. A Braze deixará de aceitar valores da API or interface de programação do aplicativo (API) SCIM legada em dezembro de 2026.
 {% endalert %}
 
 ## Objeto de permissões
@@ -364,7 +364,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão da empresa
 
-| Exibição na interface | String da API SCIM |
+| Exibição na interface | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Administrator | `admin` |
 | Can Manage Company Settings | `manage_company_settings` |
@@ -373,7 +373,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão do espaço de trabalho
 
-| Nome da permissão | String da API SCIM |
+| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
@@ -382,8 +382,8 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
+| View IPI | `view_pii` |
+| View User Profiles IPI Compliant | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
@@ -404,7 +404,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de permissão de equipe
 
-| Nome da permissão | String da API SCIM |
+| Nome da permissão | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Admin | `admin` |
 | Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
@@ -420,7 +420,7 @@ Um objeto de função válido é um objeto JSON com os seguintes pares de chave-
 
 ### Strings de departamento
 
-| Exibição na interface | String da API SCIM |
+| Exibição na interface | String da API or interface de programação do aplicativo (API) SCIM |
 | --- | --- |
 | Agency / Third Party | `agency` |
 | BI / Analytics | `bi` |

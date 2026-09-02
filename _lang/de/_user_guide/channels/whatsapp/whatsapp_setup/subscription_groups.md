@@ -24,15 +24,15 @@ Definitionen der WhatsApp-Abo-Status und deren Zusammenhang mit den Opt-in-Anfor
 
 ### WhatsApp-Abo-Gruppen von Nutzer:innen festlegen {#setting-users-whatsapp-subscription-groups}
 
-- **REST API:** Nutzerprofile können programmgesteuert über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) mithilfe der Braze REST API festgelegt werden.
-- **Web SDK:** Nutzer:innen können über die Methode `addToSubscriptionGroup` zu einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe hinzugefügt werden – für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) oder [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Nutzerimport**: Nutzer:innen können über **Nutzer:innen importieren** zu E-Mail- oder SMS-Abo-Gruppen hinzugefügt werden. Beim Aktualisieren des Abo-Gruppenstatus müssen diese beiden Spalten in Ihrer CSV-Datei vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
+- **Representational State Transfer API:** Nutzerprofile können programmgesteuert über den [`/subscription/status/set`-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) mithilfe der Braze Representational State Transfer API festgelegt werden.
+- **Web SDK or Software-Development-Kit:** Nutzer:innen können über die Methode `addToSubscriptionGroup` zu einer E-Mail-, Kurzmitteilungsdienst or SMS- oder WhatsApp-Abo-Gruppe hinzugefügt werden – für [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) oder [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
+- **Nutzerimport**: Nutzer:innen können über **Nutzer:innen importieren** zu E-Mail- oder Kurzmitteilungsdienst or SMS-Abo-Gruppen hinzugefügt werden. Beim Update or aktualisieren or aktualisieren des Abo-Gruppenstatus müssen diese beiden Spalten in Ihrer CSV-Datei vorhanden sein: `subscription_group_id` und `subscription_state`. Weitere Informationen finden Sie unter [Nutzerimport]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 ### WhatsApp-Abo-Gruppe einer Nutzer:in überprüfen {#checking-a-users-whatsapp-subscription-group}
 
-- **Nutzerprofil:** Auf einzelne Nutzerprofile kann im Braze-Dashboard über **Zielgruppe** > **Nutzer:innen suchen** zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den zugehörigen Status einsehen.
+- **Kundenprofil or Nutzerprofil:** Auf einzelne Nutzerprofile kann im Braze-Dashboard über **Zielgruppe** > **Nutzer:innen suchen** zugegriffen werden. Dort können Sie Nutzerprofile nach E-Mail-Adresse, Telefonnummer oder externer Nutzer-ID suchen. Innerhalb eines Nutzerprofils können Sie unter dem Tab **Engagement** die WhatsApp-Abo-Gruppe und den zugehörigen Status einsehen.
 
-- **REST API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen der Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mithilfe der Braze REST API abgerufen werden.
+- **Representational State Transfer API:** Die Abo-Gruppe einzelner Nutzerprofile kann über den [Endpunkt „Abo-Gruppen der Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) oder den [Endpunkt „Abo-Gruppenstatus der Nutzer:in auflisten“]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) mithilfe der Braze Representational State Transfer API abgerufen werden.
 
 ## Abo-Gruppen archivieren {#archive-subscription-groups}
 
@@ -50,21 +50,21 @@ So archivieren Sie eine Abo-Gruppe:
 
 Einen Überblick über den WhatsApp-Abo-Status, Opt-in-Anforderungen und Opt-out-Verhalten finden Sie unter [Abo-Status]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 
-Derzeit können Nutzer:innen WhatsApp-Nachrichten auf verschiedene Arten abonnieren und sich [an- und abmelden]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs), darunter per [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), über eine Website, einen WhatsApp-Thread, per Telefon oder persönlich. Beachten Sie, dass Opt-ins erforderlich sind.
+Derzeit können Nutzer:innen WhatsApp-Nachrichten auf verschiedene Arten abonnieren und sich [an- und abmelden]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs), darunter per [Kurzmitteilungsdienst or SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), über eine Website, einen WhatsApp-Thread, per Telefon oder persönlich. Beachten Sie, dass Opt-ins erforderlich sind.
 
 Opt-in-Schlüsselwörter werden derzeit für den WhatsApp-Kanal nicht unterstützt, sodass Sie selbst für die Pflege einer Nutzerliste verantwortlich sind. WhatsApp verfolgt einen retrospektiven Ansatz für Opt-ins und Rate-Limits: Wenn Nutzer:innen beginnen, Sie zu melden oder zu blockieren, wird Ihr Rate-Limit herabgesetzt.
 
-## Abo-Status von Nutzer:innen für einen WhatsApp-Canvas aktualisieren {#update-subscription-status}
+## Abo-Status von Nutzer:innen für einen WhatsApp-Canvas Update or aktualisieren or aktualisieren {#update-subscription-status}
 
 Unabhängig davon, welche Opt-in- und Opt-out-Methoden Sie verwenden, können Sie den Abo-Status von Nutzerprofilen mit einer der folgenden Aktualisierungsmethoden ändern:
 
-- Erstellen Sie einen [Braze-zu-Braze-Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations), der den Abo-Status über die REST API aktualisiert, wie im folgenden Beispiel:
+- Erstellen Sie einen [Braze-zu-Braze-Webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations), der den Abo-Status über die Representational State Transfer API aktualisiert, wie im folgenden Beispiel:
 
 ![Webhook-Composer mit einer Nachricht, die die POST-Methode verwendet.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 
 Um Race-Conditions zu vermeiden, sollte jedes Folge-Messaging nach dem Webhook in einem zweiten Canvas enthalten sein, der durch Ergebnisse des ersten Canvas getriggert wird (z. B. wenn Nutzer:innen eine Canvas-Variante betreten haben und sich in einer WhatsApp-Abo-Gruppe befinden).
 
-- Verwenden Sie den erweiterten JSON-Editor, um das Nutzerprofil mit dem folgenden Template zu aktualisieren:
+- Verwenden Sie den erweiterten JSON-Editor, um das Kundenprofil or Nutzerprofil mit dem folgenden Template zu Update or aktualisieren or aktualisieren:
 
 	```json
 	{

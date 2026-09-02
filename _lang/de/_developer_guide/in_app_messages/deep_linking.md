@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: Deeplinking
-article_title: Deeplinking in In-App-Nachrichten für das Braze SDK
+article_title: Deeplinking in In-App-Nachrichten für das Braze SDK or Software-Development-Kit
 channel:
   - push notifications
 ---
 
 # Deeplinking in In-App-Nachrichten {#in-app-message-deep-linking}
 
-> Erfahren Sie, wie Sie Deeplinks innerhalb einer In-App-Nachricht für das Braze SDK setzen können.
+> Erfahren Sie, wie Sie Deeplinks innerhalb einer In-App-Nachricht für das Braze SDK or Software-Development-Kit setzen können.
 
 {% sdktabs %}
 {% sdktab android %}

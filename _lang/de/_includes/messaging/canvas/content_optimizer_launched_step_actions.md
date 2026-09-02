@@ -1,3 +1,3 @@
-- Fügen Sie neue Varianten zu jeder bestehenden Komponente hinzu, entweder manuell oder mithilfe von KI-generierten Vorschlägen, bis zum Limit von fünf Varianten pro Komponente.
+- Fügen Sie neue Varianten zu jeder bestehenden Komponente hinzu, entweder manuell oder mithilfe von KI or künstliche Intelligenz-generierten Vorschlägen, bis zum Limit von fünf Varianten pro Komponente.
 - Deaktivieren Sie Varianten, um deren Versand an Nutzer:innen zu stoppen.
 - Reaktivieren Sie zuvor deaktivierte Varianten, solange die Komponente dadurch das Limit von fünf Varianten nicht überschreitet.

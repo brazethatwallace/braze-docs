@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "Personalização de cartão de conteúdo do iOS"
 guide_top_text: "A personalização dos Content Cards e do feed em que estão localizados deve ser feita durante o processo de integração. Antes de personalizar, os desenvolvedores devem trabalhar com sua equipe de marketing para determinar qual abordagem de personalização funciona melhor para as necessidades da sua marca. Na Braze, destacamos três abordagens para personalização com base no nível de esforço associado e na flexibilidade fornecida: engatinhar, andar ou correr. Saiba mais sobre essas <a href='/docs/user_guide/message_building_by_channel/content_cards/customize#customization-approaches'>abordagens de personalização</a> em nosso guia do usuário."
-description: "Esta landing page cobre as opções de personalização de Content Cards do SDK iOS da Braze, como estilo personalizado, personalização do feed, manipulação de cliques, indicadores de lido e não lido, e mais."
+description: "Esta landing page cobre as opções de personalização de Content Cards do SDK or kit de desenvolvimento de software iOS da Braze, como estilo personalizado, personalização do feed, manipulação de cliques, indicadores de lido e não lido, e mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

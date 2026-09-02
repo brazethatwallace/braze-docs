@@ -16,7 +16,7 @@ Dieser Leitfaden verwendet das Hydrogen-Framework von Shopify als Beispiel. Sie 
 
 Um Ihren Shopify Headless Shop mit Braze zu integrieren, müssen Sie diese beiden Ziele erreichen:
 
-1. **Initialisieren und laden Sie das Braze Web SDK, um das Onsite-Tracking zu ermöglichen**<br><br> Fügen Sie manuell Code in Ihre Shopify-Website ein, um das Braze Onsite-Tracking zu aktivieren. Durch die Implementierung des Braze SDK in Ihrem Shopify Headless Shop können Sie Onsite-Aktivitäten nachverfolgen, einschließlich Sitzungen, anonymes Nutzer:innenverhalten, Aktionen vor dem Checkout und alle [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die Sie zusammen mit Ihrem Entwicklungsteam einbeziehen möchten. Sie können auch alle Kanäle hinzufügen, die von den SDKs unterstützt werden, wie In-App-Nachrichten oder Content Cards.
+1. **Initialisieren und laden Sie das Braze Web SDK or Software-Development-Kit, um das Onsite-Tracking zu ermöglichen**<br><br> Fügen Sie manuell Code in Ihre Shopify-Website ein, um das Braze Onsite-Tracking zu aktivieren. Durch die Implementierung des Braze SDK or Software-Development-Kit in Ihrem Shopify Headless Shop können Sie Onsite-Aktivitäten nachverfolgen, einschließlich Sitzungen, anonymes Nutzer:innenverhalten, Aktionen vor dem Checkout und alle [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die Sie zusammen mit Ihrem Entwicklungsteam einbeziehen möchten. Sie können auch alle Kanäle hinzufügen, die von den SDKs unterstützt werden, wie In-App-Nachrichten oder Content Cards.
 
 {: start="2"}
 2. **Installieren Sie die Braze Shopify-Integration**<br><br> Nachdem Sie Ihren Shopify-Shop mit Braze verbunden haben, erhalten Sie über Shopify-Webhooks Zugriff auf Kundendaten, Checkout-, Bestell- und Produktdaten.
@@ -27,22 +27,22 @@ Bevor Sie mit der Integration beginnen, vergewissern Sie sich, dass Sie die Chec
 
 Um diese Ziele zu erreichen, gehen Sie folgendermaßen vor:
 
-## Braze Web SDK initialisieren und laden {#initialize-and-load-the-braze-web-sdk}
+## Braze Web SDK or Software-Development-Kit initialisieren und laden {#initialize-and-load-the-braze-web-sdk}
 
-### Schritt 1: Website-App auswählen und SDK-Zugangsdaten kopieren {#step-1}
+### Schritt 1: Website-App auswählen und SDK or Software-Development-Kit-Zugangsdaten kopieren {#step-1}
 
 Bevor Sie Code zu Ihrer Hydrogen-Storefront hinzufügen, verbinden Sie Ihren Shopify-Shop und starten Sie das benutzerdefinierte Setup-Onboarding. Falls Sie Ihren Shop noch nicht verbunden haben, führen Sie zunächst [Ihren Shopify-Shop verbinden](#connect-your-shopify-store) durch, fahren Sie dann mit [Braze SDKs aktivieren](#enable-braze-sdks) fort und wählen Sie **Custom setup**.
 
 Im benutzerdefinierten Setup-Flow fordert Braze Sie auf, die Website-App für Ihre Headless-Storefront auszuwählen:
 
 1. Wählen Sie eine bestehende Website-App aus oder erstellen Sie eine neue. Sie können die App beliebig benennen, außer **Shopify** – diesen Namen reserviert Braze für den Standard-Shopify-Integrationspfad.
-2. Braze zeigt den API-Schlüssel und die Basis-URL (Ihren SDK-Endpunkt) der ausgewählten App im Onboarding-Schritt an. Wählen Sie **Kopieren** für jeden Wert – Sie müssen nicht **Einstellungen** > **App-Einstellungen** öffnen.
-3. Verwenden Sie den kopierten API-Schlüssel als `BRAZE_API_KEY` und den SDK-Endpunkt als `BRAZE_API_URL` in Ihren Shopify-Umgebungsvariablen ([Schritt 2](#step-2)).
+2. Braze zeigt den API-Schlüssel und die Basis-URL (Ihren SDK or Software-Development-Kit-Endpunkt) der ausgewählten App im Onboarding-Schritt an. Wählen Sie **Kopieren** für jeden Wert – Sie müssen nicht **Einstellungen** > **App-Einstellungen** öffnen.
+3. Verwenden Sie den kopierten API-Schlüssel als `BRAZE_API_KEY` und den SDK or Software-Development-Kit-Endpunkt als `BRAZE_API_URL` in Ihren Shopify-Umgebungsvariablen ([Schritt 2](#step-2)).
 
 Nachdem Sie den Shop verbunden haben, können Sie die ausgewählte Website-App unter **Einstellungen** > **App-Einstellungen** umbenennen. Sie können die App nicht löschen, solange sie mit Ihrer Shopify-Integration verbunden ist.
 
 {% alert warning %}
-Verwenden Sie den API-Schlüssel für die Website-App, die Sie beim Onboarding ausgewählt haben. Wenn Ihre Hydrogen-Umgebung einen anderen API-Schlüssel verwendet als den, der mit Ihrer Shopify-Integration verbunden ist, erstellt Braze möglicherweise doppelte Nutzer:innen und SDK-Methoden funktionieren unter Umständen nicht wie erwartet.
+Verwenden Sie den API-Schlüssel für die Website-App, die Sie beim Onboarding ausgewählt haben. Wenn Ihre Hydrogen-Umgebung einen anderen API-Schlüssel verwendet als den, der mit Ihrer Shopify-Integration verbunden ist, erstellt Braze möglicherweise doppelte Nutzer:innen und SDK or Software-Development-Kit-Methoden funktionieren unter Umständen nicht wie erwartet.
 {% endalert %}
 
 ### Schritt 2: Subdomain und Umgebungsvariablen hinzufügen {#step-2}
@@ -50,13 +50,13 @@ Verwenden Sie den API-Schlüssel für die Website-App, die Sie beim Onboarding a
 1. Richten Sie Ihre Shopify-Subdomain ein, um [Traffic von Ihrem Onlineshop zu Hydrogen umzuleiten](https://shopify.dev/docs/storefronts/headless/hydrogen/migrate/redirect-traffic).
 2. Fügen Sie einen [Callback-URI](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment) für die Anmeldung hinzu. (Der URI wird automatisch hinzugefügt, wenn die Domain hinzugefügt wird.)
 3. Richten Sie Ihre [Shopify-Umgebungsvariablen](https://shopify.dev/docs/storefronts/headless/hydrogen/environments#create-a-new-environment-variable) ein:
-  - Erstellen Sie zwei Umgebungsvariablen mit dem API-Schlüssel und dem SDK-Endpunkt, die Sie während des benutzerdefinierten Setup-Onboardings in [Schritt 1](#step-1) kopiert haben.
+  - Erstellen Sie zwei Umgebungsvariablen mit dem API-Schlüssel und dem SDK or Software-Development-Kit-Endpunkt, die Sie während des benutzerdefinierten Setup-Onboardings in [Schritt 1](#step-1) kopiert haben.
     - `BRAZE_API_KEY`
     - `BRAZE_API_URL`
 
 ### Schritt 3: Onsite-Tracking aktivieren {#step-3-enable-onsite-tracking}
 
-Der erste Schritt besteht darin, das Braze Web SDK zu initialisieren. Wir empfehlen dazu die Installation unseres NPM-Pakets:
+Der erste Schritt besteht darin, das Braze Web SDK or Software-Development-Kit zu initialisieren. Wir empfehlen dazu die Installation unseres NPM-Pakets:
 
 ```java
 npm install --save @braze/web-sdk@6.8.0
@@ -65,7 +65,7 @@ npm install --save @braze/web-sdk@6.8.0
 ```
 
 {% alert important %}
-Die minimale unterstützte Braze Web SDK-Version ist 5.4.0. Für benutzerdefinierte Shopify-Integrationen (einschließlich Headless-Storefronts) erhalten Sie Benachrichtigungen, wenn neue SDK-Versionen verfügbar sind, aber Sie verwalten Upgrades selbst, indem Sie sowohl Ihren Storefront-Code als auch die SDK-Version in den Integrationseinstellungen aktualisieren.
+Die minimale unterstützte Braze Web SDK or Software-Development-Kit-Version ist 5.4.0. Für benutzerdefinierte Shopify-Integrationen (einschließlich Headless-Storefronts) erhalten Sie Benachrichtigungen, wenn neue SDK or Software-Development-Kit-Versionen verfügbar sind, aber Sie verwalten Upgrades selbst, indem Sie sowohl Ihren Storefront-Code als auch die SDK or Software-Development-Kit-Version in den Integrationseinstellungen Update or aktualisieren or aktualisieren.
 {% endalert %}
 
 Dann [fügen Sie diese Einstellung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) als Top-Level-Schlüssel in Ihrer `vite.config.js`-Datei hinzu:
@@ -76,7 +76,7 @@ optimizeDeps: {
 }
 ```
 
-Nach der Installation des NPM-Pakets müssen Sie das SDK innerhalb eines `useEffect`-Hooks in der `Layout`-Komponente initialisieren. Je nach Hydrogen-Version befindet sich diese Komponente entweder in der Datei `root.jsx` oder `layout.jsx`:
+Nach der Installation des NPM-Pakets müssen Sie das SDK or Software-Development-Kit innerhalb eines `useEffect`-Hooks in der `Layout`-Komponente initialisieren. Je nach Hydrogen-Version befindet sich diese Komponente entweder in der Datei `root.jsx` oder `layout.jsx`:
 
 ```java
 // Add these imports
@@ -146,12 +146,12 @@ Content-Security-Policies (in der Regel in der Hydrogen-Datei `entry.server.jsx`
 Verfolgen Sie, wann sich eine Käuferin oder ein Käufer in ihr bzw. sein Konto einloggt und die Nutzerinformationen mit Braze synchronisiert werden. Dazu gehört der Aufruf unserer `changeUser`-Methode, um Kund:innen mit einer externen Braze-ID zu identifizieren.
 
 {% alert note %}
-Derzeit gibt es keine Anleitung zur Unterstützung einer benutzerdefinierten externen Braze-ID. Falls Sie dies für Ihre Integration benötigen, wenden Sie sich an Ihren Customer-Success-Manager.
+Derzeit gibt es keine Anleitung zur Unterstützung einer benutzerdefinierten externen Braze-ID. Falls Sie dies für Ihre Integration benötigen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 Stellen Sie vor dem Start sicher, dass Sie die Callback-URIs für die Kundenanmeldung eingerichtet haben, damit sie innerhalb von Hydrogen funktionieren. Weitere Informationen finden Sie unter [Using the Customer Account API with Hydrogen](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen).
 
-1. Nachdem Sie die Callback-URIs eingerichtet haben, definieren Sie eine Funktion zum Aufrufen des Braze SDK. Erstellen Sie eine neue Datei (z. B. `Tracking.jsx`) und importieren Sie sie aus Ihren Komponenten:
+1. Nachdem Sie die Callback-URIs eingerichtet haben, definieren Sie eine Funktion zum Aufrufen des Braze SDK or Software-Development-Kit. Erstellen Sie eine neue Datei (z. B. `Tracking.jsx`) und importieren Sie sie aus Ihren Komponenten:
 
 ```java
 import * as braze from "@braze/web-sdk";
@@ -192,7 +192,7 @@ export function trackCustomerLogin(customerData, storefrontUrl) {
 ```
 
 {: start="2"}
-2. Fügen Sie im selben `useEffect`-Hook, der das Braze SDK initialisiert, den Aufruf dieser Funktion hinzu:
+2. Fügen Sie im selben `useEffect`-Hook, der das Braze SDK or Software-Development-Kit initialisiert, den Aufruf dieser Funktion hinzu:
 
 ```java
 import { trackCustomerLogin } from './Tracking';
@@ -544,7 +544,7 @@ export function AddToCartButton({
 ```
 
 {: start="4"}
-4. Verwenden Sie denselben `fetcherKey` für die Aktionen, die für das Aktualisieren eines bestehenden Produkts in Ihrem Warenkorb zuständig sind. Fügen Sie Folgendes zu den Komponenten `CartLineRemoveButton` und `CartLineUpdateButton` hinzu (standardmäßig in der Datei `app/components/CartLineItem.jsx`):
+4. Verwenden Sie denselben `fetcherKey` für die Aktionen, die für das Update or aktualisieren or aktualisieren eines bestehenden Produkts in Ihrem Warenkorb zuständig sind. Fügen Sie Folgendes zu den Komponenten `CartLineRemoveButton` und `CartLineUpdateButton` hinzu (standardmäßig in der Datei `app/components/CartLineItem.jsx`):
 
 ```java
 function CartLineRemoveButton({lineIds, disabled}) {
@@ -590,9 +590,9 @@ Rufen Sie die Shopify-Partnerseite auf, um mit der Einrichtung zu beginnen. Wäh
 
 Für Shopify Hydrogen oder Headless-Shops wählen Sie die Option **Custom setup**.
 
-Die benutzerdefinierte Einrichtung enthält eine Website-App-Auswahl. Wählen Sie die App aus, die Ihren Storefront betreibt, oder erstellen Sie eine neue, und kopieren Sie dann den API-Schlüssel und den SDK-Endpunkt, die im Onboarding-Schritt angezeigt werden. Weitere Einzelheiten finden Sie unter [Schritt 1: Website-App auswählen und SDK-Zugangsdaten kopieren](#step-1).
+Die benutzerdefinierte Einrichtung enthält eine Website-App-Auswahl. Wählen Sie die App aus, die Ihren Storefront betreibt, oder erstellen Sie eine neue, und kopieren Sie dann den API-Schlüssel und den SDK or Software-Development-Kit-Endpunkt, die im Onboarding-Schritt angezeigt werden. Weitere Einzelheiten finden Sie unter [Schritt 1: Website-App auswählen und SDK or Software-Development-Kit-Zugangsdaten kopieren](#step-1).
 
-Bevor Sie mit dem Onboarding-Prozess fortfahren, bestätigen Sie, dass Sie das Braze SDK mit diesen Zugangsdaten zu Ihrer Shopify-Website hinzugefügt haben.
+Bevor Sie mit dem Onboarding-Prozess fortfahren, bestätigen Sie, dass Sie das Braze SDK or Software-Development-Kit mit diesen Zugangsdaten zu Ihrer Shopify-Website hinzugefügt haben.
 
 ![Einrichtungsschritt zur Aktivierung der Braze SDKs.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
@@ -650,7 +650,7 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
   </tbody>
 </table>
 
-Das SDK muss auf dem Gerät der Nutzerin bzw. des Nutzers initialisiert sein (auf Aktivitäten lauschen), um Events oder angepasste Attribute zu protokollieren. Weitere Informationen zum Protokollieren benutzerdefinierter Daten finden Sie unter [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) und [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
+Das SDK or Software-Development-Kit muss auf dem Gerät der Nutzerin bzw. des Nutzers initialisiert sein (auf Aktivitäten lauschen), um Events oder angepasste Attribute zu protokollieren. Weitere Informationen zum Protokollieren benutzerdefinierter Daten finden Sie unter [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) und [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
 ### Schritt 6: Nutzerverwaltung konfigurieren (optional) {#step-6}
 
@@ -731,11 +731,11 @@ Wiederholen Sie [Schritt 6](#step-6) und geben Sie Ihre Endpunkt-URL ein, nachde
 
 {% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
-#### Schritt 6.4: E-Mail- oder SMS-Opt-ins aus Shopify erfassen (optional) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
+#### Schritt 6.4: E-Mail- oder Kurzmitteilungsdienst or SMS-Opt-ins aus Shopify erfassen (optional) {#step-64-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
-Sie haben die Möglichkeit, Ihre E-Mail- oder SMS-Marketing-Opt-ins aus Shopify zu erfassen.
+Sie haben die Möglichkeit, Ihre E-Mail- oder Kurzmitteilungsdienst or SMS-Marketing-Opt-ins aus Shopify zu erfassen.
 
-Wenn Sie die E-Mail- oder SMS-Kanäle nutzen, können Sie Ihre E-Mail- und SMS-Marketing-Opt-in-Status in Braze synchronisieren. Wenn Sie E-Mail-Marketing-Opt-ins aus Shopify synchronisieren, erstellt Braze automatisch eine E-Mail-Abo-Gruppe für alle Nutzer:innen, die mit diesem bestimmten Shop verknüpft sind. Sie müssen einen eindeutigen Namen für diese Abo-Gruppe erstellen.
+Wenn Sie die E-Mail- oder Kurzmitteilungsdienst or SMS-Kanäle nutzen, können Sie Ihre E-Mail- und Kurzmitteilungsdienst or SMS-Marketing-Opt-in-Status in Braze synchronisieren. Wenn Sie E-Mail-Marketing-Opt-ins aus Shopify synchronisieren, erstellt Braze automatisch eine E-Mail-Abo-Gruppe für alle Nutzer:innen, die mit diesem bestimmten Shop verknüpft sind. Sie müssen einen eindeutigen Namen für diese Abo-Gruppe erstellen.
 
 ![Bereich „Abonnent:innen erfassen“ mit der Option, E-Mail- oder SMS-Marketing-Opt-ins zu erfassen.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
@@ -749,7 +749,7 @@ Sie können alle Produkte aus Ihrem Shopify-Shop in einen Braze-Katalog synchron
 
 ### Schritt 8: Kanäle aktivieren {#step-8-activate-channels}
 
-Um In-App Messages, Content Cards und Feature-Flags über die direkte Shopify-Integration zu aktivieren, fügen Sie jeden Kanal zu Ihrem SDK hinzu. Folgen Sie den für jeden Kanal bereitgestellten Dokumentationslinks:
+Um In-App Messages, Content Cards und Feature-Flags über die direkte Shopify-Integration zu aktivieren, fügen Sie jeden Kanal zu Ihrem SDK or Software-Development-Kit hinzu. Folgen Sie den für jeden Kanal bereitgestellten Dokumentationslinks:
 
 - **In-App Messages:** Informationen zur Aktivierung von In-App Messages für Lead-Erfassungsformular-Anwendungsfälle finden Sie unter [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
 - **Content Cards:** Informationen zur Aktivierung von Content Cards für Posteingangs- oder Website-Banner-Anwendungsfälle finden Sie unter [Content Cards]({{site.baseurl}}/developer_guide/content_cards).

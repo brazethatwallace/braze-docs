@@ -1,22 +1,22 @@
 ---
-nav_title: "GET: Liste der anstehenden geplanten Campaigns und Canvases"
-article_title: "GET: Liste der anstehenden geplanten Campaigns und Canvases"
+nav_title: "GET: Liste der anstehenden geplanten Campaigns und Canvase"
+article_title: "GET: Liste der anstehenden geplanten Campaigns und Canvase"
 search_tag: Endpoint
 page_order: 0
 layout: api_page
 page_type: reference
-description: "Dieser Artikel enthält Einzelheiten über den Braze-Endpunkt „Liste der anstehenden geplanten Campaigns und Canvases“."
+description: "Dieser Artikel enthält Einzelheiten über den Braze-Endpunkt „Liste der anstehenden geplanten Campaigns und Canvase“."
 
 ---
 {% api %}
-# Liste der anstehenden geplanten Campaigns und Canvases {#list-upcoming-scheduled-campaigns-and-canvases}
+# Liste der anstehenden geplanten Campaigns und Canvase {#list-upcoming-scheduled-campaigns-and-canvases}
 {% apimethod get %}
 /messages/scheduled_broadcasts
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine JSON-Liste mit Informationen über geplante Campaigns und Entry-Canvases zwischen jetzt und einer in der Anfrage angegebenen `end_time` zurückzugeben.
+> Verwenden Sie diesen Endpunkt, um eine JSON-Liste mit Informationen über geplante Campaigns und Entry-Canvase zwischen jetzt und einer in der Anfrage angegebenen `end_time` zurückzugeben.
 
-Tägliche, wiederkehrende Nachrichten erscheinen nur einmal mit ihrem nächsten Vorkommen. Die über diesen Endpunkt zurückgegebenen Ergebnisse umfassen Campaigns und Canvases, die im Braze-Dashboard erstellt und geplant wurden.
+Tägliche, wiederkehrende Nachrichten erscheinen nur einmal mit ihrem nächsten Vorkommen. Die über diesen Endpunkt zurückgegebenen Ergebnisse umfassen Campaigns und Canvase, die im Braze-Dashboard erstellt und geplant wurden.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6f623cc3-383b-4bf7-b14d-7c56fc5562f5 {% endapiref %}
 
@@ -32,7 +32,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `end_time` | Erforderlich | String im [ISO-8601-Format](https://en.wikipedia.org/wiki/ISO_8601) | Enddatum des Bereichs zum Abrufen der anstehenden geplanten Campaigns und Canvases. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
+| `end_time` | Erforderlich | String im [ISO-8601-Format](https://en.wikipedia.org/wiki/ISO_8601) | Enddatum des Bereichs zum Abrufen der anstehenden geplanten Campaigns und Canvase. Dies wird von der API als Mitternacht in UTC-Zeit behandelt. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}

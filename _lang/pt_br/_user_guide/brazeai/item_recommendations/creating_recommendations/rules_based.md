@@ -45,7 +45,7 @@ Ao decidir qual mecanismo de recomendação se adequa aos seus recursos disponí
       <td>&#10004;</td>
     </tr>
     <tr>
-      <td><strong>API de catálogos</strong></td>
+      <td><strong>API or interface de programação do aplicativo (API) de catálogos</strong></td>
       <td>&#10004;</td>
       <td></td>
       <td>&#10004;</td>
@@ -102,7 +102,7 @@ Digamos que você tenha um app de alimentos saudáveis e queira criar uma Campai
 | **image_url** | A imagem que corresponde à receita. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
-Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **Preview**. Um número selecionado de itens aparece na prévia e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
+Depois que o catálogo for enviado para a Braze, confirme se as informações foram importadas com precisão selecionando seu catálogo na página de Catálogos e abrindo a guia **prévia**. Um número selecionado de itens aparece na prévia e pode ser randomizado, mas isso não afeta o resultado do mecanismo de recomendação.
 
 Com o catálogo pronto, [crie uma Campaign de cartão de conteúdo]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). No criador, insira a lógica Liquid para determinar quais usuários devem receber a Campaign e qual receita e imagem devem ser exibidas. Nesse caso de uso, a Braze extrairá o `start_date` do usuário (ou data de inscrição) e o comparará com a data atual. A diferença em dias determinará qual cartão de conteúdo será enviado.
 
@@ -172,7 +172,7 @@ Por exemplo:
 
 ![Um exemplo de bloco de comportamento ao clicar no criador.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-Acesse a guia **Test** e selecione **Custom user** em **Preview message as user**. Insira uma data no campo **Custom attribute** para pré-visualizar o cartão de conteúdo que seria enviado a um usuário que se inscreveu nessa data. <br><br>
+Acesse a guia **Test** e selecione **Custom user** em **prévia message as user**. Insira uma data no campo **Custom attribute** para pré-visualizar o cartão de conteúdo que seria enviado a um usuário que se inscreveu nessa data. <br><br>
 
 ![Um exemplo de atributo personalizado chamado "start_date".]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
@@ -182,7 +182,7 @@ Para criar seu mecanismo de recomendação usando Conteúdo conectado, primeiro 
 
 | Opção | Descrição |
 |-------|-----------|
-| **Converter uma planilha** | Converta uma planilha em um endpoint de API JSON usando um serviço como o SheetDP e anote a URL da API que isso gera. |
+| **Converter uma planilha** | Converta uma planilha em um endpoint de API or interface de programação do aplicativo (API) JSON usando um serviço como o SheetDP e anote a URL da API or interface de programação do aplicativo (API) que isso gera. |
 | **Criar um endpoint personalizado** | Construa, hospede e mantenha um endpoint personalizado feito internamente. |
 | **Usar um mecanismo de terceiros** | Use um mecanismo de recomendação de terceiros, como um dos nossos [parceiros Alloy]({{site.baseurl}}/partners/message_personalization), incluindo [Amazon Personalise]({{site.baseurl}}/partners/amazon_personalize), [Certona]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/certona), [Dynamic Yield]({{site.baseurl}}/partners/dynamic_yield) e outros. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
@@ -206,9 +206,9 @@ Substitua o seguinte:
 
 | Atributo | Substituição |
 | --- | --- |
-| `YOUR_API_URL` | Substitua pela URL real da sua API. |
+| `YOUR_API_URL` | Substitua pela URL real da sua API or interface de programação do aplicativo (API). |
 | `RECOMMENDED_ITEM_IDS` | Substitua pelo nome real do seu atributo personalizado que contém os IDs dos itens recomendados. Espera-se que esse atributo seja uma string de IDs separados por ponto e vírgula. |
-| `ITEM_ID` | Substitua pelo nome real do atributo na resposta da sua API que corresponde ao ID do item. |
+| `ITEM_ID` | Substitua pelo nome real do atributo na resposta da sua API or interface de programação do aplicativo (API) que corresponde ao ID do item. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemplo" }
 
 {% alert note %}

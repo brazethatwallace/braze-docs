@@ -98,9 +98,9 @@ Sie können Datenbank, Schema und Tabelle beliebig benennen, die Spaltennamen so
 
 - `UPDATED_AT` – Der Zeitpunkt, zu dem diese Zeile in der Tabelle aktualisiert oder hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen an der exakten Grenz-Zeitstempel-Grenze können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel verwenden.
 - **Nutzer:innen-Bezeichner-Spalten** – Ihre Tabelle kann eine oder mehrere Nutzer:innen-Bezeichner-Spalten enthalten. Jede Zeile sollte nur einen Bezeichner enthalten (entweder `external_id`, die Kombination aus `alias_name` und `alias_label`, `braze_id`, `email` oder `phone`). Eine Quelltabelle kann Spalten für einen, zwei, drei, vier oder alle fünf Bezeichnertypen haben.
-    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
+    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
     - `ALIAS_NAME` und `ALIAS_LABEL` – Diese zwei Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`.
-    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
+    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK or Software-Development-Kit generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
     - `EMAIL` – Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. Wenn Sie sowohl E-Mail als auch Telefon angeben, wird die E-Mail als primärer Bezeichner verwendet.
     - `PHONE` – Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert.
 - `PAYLOAD` – Dies ist ein JSON-String der Felder, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
@@ -115,7 +115,7 @@ GRANT USAGE ON SCHEMA BRAZE_CLOUD_PRODUCTION.INGESTION TO ROLE BRAZE_INGESTION_R
 GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
-Aktualisieren Sie die Namen nach Bedarf, die Berechtigungen sollten jedoch dem obigen Beispiel entsprechen.
+Update or aktualisieren or aktualisieren Sie die Namen nach Bedarf, die Berechtigungen sollten jedoch dem obigen Beispiel entsprechen.
 
 #### Schritt 1.3: Warehouse einrichten und Zugriff für die Braze-Rolle gewähren {#step-13-set-up-the-warehouse-and-give-access-to-braze-role}
 
@@ -181,9 +181,9 @@ Sie können Datenbank, Schema und Tabelle beliebig benennen, die Spaltennamen so
 
 - `UPDATED_AT` – Der Zeitpunkt, zu dem diese Zeile in der Tabelle aktualisiert oder hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen an der exakten Grenz-Zeitstempel-Grenze können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel verwenden.
 - **Nutzer:innen-Bezeichner-Spalten** – Ihre Tabelle kann eine oder mehrere Nutzer:innen-Bezeichner-Spalten enthalten. Jede Zeile sollte nur einen Bezeichner enthalten (entweder `external_id`, die Kombination aus `alias_name` und `alias_label`, `braze_id`, `email` oder `phone`). Eine Quelltabelle kann Spalten für einen, zwei, drei, vier oder alle fünf Bezeichnertypen haben.
-    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
+    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
     - `ALIAS_NAME` und `ALIAS_LABEL` – Diese zwei Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`.
-    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
+    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK or Software-Development-Kit generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
     - `EMAIL` – Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. Wenn Sie sowohl E-Mail als auch Telefon angeben, wird die E-Mail als primärer Bezeichner verwendet.
     - `PHONE` – Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert.
 - `PAYLOAD` – Dies ist ein JSON-String der Felder, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
@@ -259,9 +259,9 @@ Sie können Projekt, Datensatz und Tabelle beliebig benennen, die Spaltennamen s
 
 - `UPDATED_AT` – Der Zeitpunkt, zu dem diese Zeile in der Tabelle aktualisiert oder hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen an der exakten Grenz-Zeitstempel-Grenze können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel verwenden.
 - **Nutzer:innen-Bezeichner-Spalten** – Ihre Tabelle kann eine oder mehrere Nutzer:innen-Bezeichner-Spalten enthalten. Jede Zeile sollte nur einen Bezeichner enthalten (entweder `external_id`, die Kombination aus `alias_name` und `alias_label`, `braze_id`, `email` oder `phone`). Eine Quelltabelle kann Spalten für einen, zwei, drei, vier oder alle fünf Bezeichnertypen haben.
-    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
+    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
     - `ALIAS_NAME` und `ALIAS_LABEL` – Diese zwei Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`.
-    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
+    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK or Software-Development-Kit generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
     - `EMAIL` – Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. Wenn Sie sowohl E-Mail als auch Telefon angeben, wird die E-Mail als primärer Bezeichner verwendet.
     - `PHONE` – Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert.
 - `PAYLOAD` – Dies ist ein JSON-String der Felder, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
@@ -344,9 +344,9 @@ Sie können Schema und Tabelle beliebig benennen, die Spaltennamen sollten jedoc
 
 - `UPDATED_AT` – Der Zeitpunkt, zu dem diese Zeile in der Tabelle aktualisiert oder hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen an der exakten Grenz-Zeitstempel-Grenze können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel verwenden.
 - **Nutzer:innen-Bezeichner-Spalten** – Ihre Tabelle kann eine oder mehrere Nutzer:innen-Bezeichner-Spalten enthalten. Jede Zeile sollte nur einen Bezeichner enthalten (entweder `external_id`, die Kombination aus `alias_name` und `alias_label`, `braze_id`, `email` oder `phone`). Eine Quelltabelle kann Spalten für einen, zwei, drei, vier oder alle fünf Bezeichnertypen haben.
-    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
+    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
     - `ALIAS_NAME` und `ALIAS_LABEL` – Diese zwei Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`.
-    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
+    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK or Software-Development-Kit generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
     - `EMAIL` – Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. Wenn Sie sowohl E-Mail als auch Telefon angeben, wird die E-Mail als primärer Bezeichner verwendet.
     - `PHONE` – Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert.
 - `PAYLOAD` – Dies ist ein String oder Struct der Felder, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
@@ -356,12 +356,12 @@ Sie können Schema und Tabelle beliebig benennen, die Spaltennamen sollten jedoc
 Damit Braze auf Databricks zugreifen kann, muss ein persönlicher Zugriffstoken erstellt werden.
 
 1. Wählen Sie in Ihrem Databricks-Workspace Ihren Databricks-Nutzernamen in der oberen Leiste aus und wählen Sie dann **User Settings** aus dem Dropdown-Menü.
-2. Wählen Sie auf dem Tab „Access tokens“ die Option **Generate new token**.
-3. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI“, und ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld „Lifetime (days)“ leer lassen.
+2. Wählen Sie auf dem Tab „Access tokens“ die Option **Generate new Token / Textbaustein**.
+3. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token / Textbaustein zu identifizieren, z. B. „Braze CDI“, und ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld „Lifetime (days)“ leer lassen.
 4. Wählen Sie **Generate**.
-5. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**.
+5. Kopieren Sie das angezeigte Token / Textbaustein und wählen Sie dann **Done**.
 
-Bewahren Sie das Token an einem sicheren Ort auf, bis Sie es beim Schritt zur Erstellung der Zugangsdaten im Braze-Dashboard eingeben müssen.
+Bewahren Sie das Token / Textbaustein an einem sicheren Ort auf, bis Sie es beim Schritt zur Erstellung der Zugangsdaten im Braze-Dashboard eingeben müssen.
 
 #### Schritt 1.3: Zugriff für Braze-IPs erlauben
 
@@ -431,9 +431,9 @@ Sie können Warehouse, Schema und Tabelle oder View beliebig benennen, die Spalt
 
 - `UPDATED_AT` – Der Zeitpunkt, zu dem diese Zeile in der Tabelle aktualisiert oder hinzugefügt wurde. Braze synchronisiert Zeilen, bei denen `UPDATED_AT` nach dem zuletzt synchronisierten Wert liegt. Zeilen an der exakten Grenz-Zeitstempel-Grenze können erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel verwenden.
 - **Nutzer:innen-Bezeichner-Spalten** – Ihre Tabelle kann eine oder mehrere Nutzer:innen-Bezeichner-Spalten enthalten. Jede Zeile sollte nur einen Bezeichner enthalten (entweder `external_id`, die Kombination aus `alias_name` und `alias_label`, `braze_id`, `email` oder `phone`). Eine Quelltabelle kann Spalten für einen, zwei, drei, vier oder alle fünf Bezeichnertypen haben.
-    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
+    - `EXTERNAL_ID` – Identifiziert die Nutzer:in, die Sie Update or aktualisieren or aktualisieren möchten. Dieser Wert sollte mit dem in Braze verwendeten `external_id`-Wert übereinstimmen.
     - `ALIAS_NAME` und `ALIAS_LABEL` – Diese zwei Spalten erstellen ein Nutzer-Alias-Objekt. `alias_name` sollte ein eindeutiger Bezeichner sein und `alias_label` gibt den Typ des Alias an. Nutzer:innen können mehrere Aliase mit unterschiedlichen Labels haben, aber nur einen `alias_name` pro `alias_label`.
-    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
+    - `BRAZE_ID` – Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK or Software-Development-Kit generiert, und neue Nutzer:innen können nicht über eine Braze-ID durch Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen zu erstellen, geben Sie eine externe Nutzer:innen-ID oder einen Nutzer-Alias an.
     - `EMAIL` – Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert. Wenn Sie sowohl E-Mail als auch Telefon angeben, wird die E-Mail als primärer Bezeichner verwendet.
     - `PHONE` – Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer existieren, wird das zuletzt aktualisierte Profil für Aktualisierungen priorisiert.
 - `PAYLOAD` – Dies ist ein JSON-String der Felder, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
@@ -519,7 +519,7 @@ Zur Fehlerbehebung:
 3. Versuchen Sie es erneut, nachdem aktive Snapshot-, Wiederherstellungs-, Größenänderungs- oder Replikationsaktivitäten abgeschlossen sind.
 4. Wenn das Problem weiterhin besteht, fragen Sie stattdessen eine materialisierte View anstelle einer sich häufig ändernden Basistabelle ab.
 
-Eine materialisierte View speichert vorberechnete Abfrageergebnisse, die Sie nach einem Zeitplan aktualisieren können, was Lesevorgänge für CDI-Synchronisierungen stabiler machen kann. Weitere Informationen finden Sie unter [Materialisierte Views in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html).
+Eine materialisierte View speichert vorberechnete Abfrageergebnisse, die Sie nach einem Zeitplan Update or aktualisieren or aktualisieren können, was Lesevorgänge für CDI-Synchronisierungen stabiler machen kann. Weitere Informationen finden Sie unter [Materialisierte Views in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html).
 
 Beispiel:
 

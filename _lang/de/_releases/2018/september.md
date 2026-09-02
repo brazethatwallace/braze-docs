@@ -37,6 +37,6 @@ Es wurde ein [Segment-Filter]({{site.baseurl}}/user_guide/engagement_tools/segme
 
 Der Bild-Uploader für In-App-Nachrichten wurde vom Design-Panel in das Verfassen-Panel verschoben.
 
-## Nur-Lese-Berechtigungen auf der Nutzerprofil-Seite {#read-only-permissions-on-user-profile-page}
+## Nur-Lese-Berechtigungen auf der Kundenprofil or Nutzerprofil-Seite {#read-only-permissions-on-user-profile-page}
 
-Vor dieser Version konnten Kund:innen den Abo-Status und die E-Mail-Adresse im Nutzerprofil mit [Nur-Lese-Berechtigungen]({{site.baseurl}}/user_guide/administrative/manage_your_braze_users/user_permissions/#available-limited-and-team-role-permissions) ändern. Wir haben die Berechtigung `import_user` in die Berechtigung `import_and_update_user` umbenannt und den Bearbeitungszugriff auf den Abo-Status und die E-Mail-Adresse eingeschränkt. Wenn Entwickler:innen nun mit Nur-Lese-Zugriff agieren oder ihnen diese Berechtigung fehlt, können sie den Abo-Status oder die E-Mail-Adresse nicht mehr ändern.
+Vor dieser Version konnten Kund:innen den Abo-Status und die E-Mail-Adresse im Kundenprofil or Nutzerprofil mit [Nur-Lese-Berechtigungen]({{site.baseurl}}/user_guide/administrative/manage_your_braze_users/user_permissions/#available-limited-and-team-role-permissions) ändern. Wir haben die Berechtigung `import_user` in die Berechtigung `import_and_update_user` umbenannt und den Bearbeitungszugriff auf den Abo-Status und die E-Mail-Adresse eingeschränkt. Wenn Entwickler:innen nun mit Nur-Lese-Zugriff agieren oder ihnen diese Berechtigung fehlt, können sie den Abo-Status oder die E-Mail-Adresse nicht mehr ändern.

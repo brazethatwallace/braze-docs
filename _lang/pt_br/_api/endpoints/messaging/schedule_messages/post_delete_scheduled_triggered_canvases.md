@@ -1,20 +1,20 @@
 ---
-nav_title: "POST: Excluir Canvas programados disparados pela API"
-article_title: "POST: Excluir Canvas programados disparados pela API"
+nav_title: "POST: Excluir Canvas programados disparados pela API or interface de programação do aplicativo (API)"
+article_title: "POST: Excluir Canvas programados disparados pela API or interface de programação do aplicativo (API)"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze para excluir Canvas programados disparados pela API."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para excluir Canvas programados disparados pela API or interface de programação do aplicativo (API)."
 
 ---
-{% api %}
-# Excluir Canvas programados disparados pela API {#delete-scheduled-api-triggered-canvases}
+{% API or interface de programação do aplicativo (API) %}
+# Excluir Canvas programados disparados pela API or interface de programação do aplicativo (API) {#delete-scheduled-api-triggered-canvases}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/trigger/schedule/delete
+/canvas/trigger/agendar/cronograma/delete
 {% endapimethod %}
 
-> O endpoint de exclusão de agendamento permite cancelar uma mensagem que você agendou anteriormente por meio de Canvas disparados pela API antes que ela seja enviada.
+> O endpoint de exclusão de agendamento permite cancelar uma mensagem que você agendou anteriormente por meio de Canvas disparados pela API or interface de programação do aplicativo (API) antes que ela seja enviada.
 
 As mensagens programadas ou os disparos que são excluídos perto ou durante o horário em que deveriam ser enviados são atualizados com base no melhor esforço, de modo que a Braze pode aplicar exclusões de último segundo a todos, alguns ou nenhum dos seus usuários direcionados.
 
@@ -22,7 +22,7 @@ As mensagens programadas ou os disparos que são excluídos perto ou durante o h
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.trigger.schedule.delete`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.trigger.schedule.delete`.
 
 ## Limite de frequência {#rate-limit}
 

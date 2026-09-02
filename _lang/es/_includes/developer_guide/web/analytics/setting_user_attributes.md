@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Con Google Tag Manager, los atributos estándar del usuario (como el nombre de un usuario) deben registrarse de la misma manera que los atributos personalizados del usuario. Asegúrate de que los valores que estás pasando para los atributos estándar coincidan con el formato esperado especificado en la documentación de la [clase User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+{% tab Google Tag Administrador %}
+Con Google Tag Administrador, los atributos estándar del usuario (como el nombre de un usuario) deben registrarse de la misma manera que los atributos personalizados del usuario. Asegúrate de que los valores que estás pasando para los atributos estándar coincidan con el formato esperado especificado en la documentación de la [clase User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 Por ejemplo, el atributo de género puede aceptar cualquiera de los siguientes valores: `"m" | "f" | "o" | "u" | "n" | "p"`. Por lo tanto, para establecer el género de un usuario como femenino, crea una etiqueta HTML personalizada con el siguiente contenido:
 
@@ -56,9 +56,9 @@ window.braze.getUser().setGender("f")
 
 ### Desactivar atributos predeterminados {#unsetting-default-attributes}
 
-Puedes eliminar o desactivar un atributo de usuario a través del código de tu aplicación, una solicitud a la REST API o un paso de Canvas [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Para atributos de tipo array y booleano, usa `null`. Para otros tipos de datos, usa una cadena vacía (`""`).
+Puedes eliminar o desactivar un atributo de usuario a través del código de tu aplicación, una solicitud a la REST or transferencia de estado representacional API o un paso de Canvas [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update). Para atributos de tipo array y booleano, usa `null`. Para otros tipos de datos, usa una cadena vacía (`""`).
 
-Para desactivar un atributo predeterminado del usuario con el SDK Web, pasa `null` al método correspondiente. Por ejemplo:
+Para desactivar un atributo predeterminado del usuario con el SDK or kit de desarrollo de software Web, pasa `null` al método correspondiente. Por ejemplo:
 
 {% tabs local %}
 {% tab First name %}
@@ -166,8 +166,8 @@ Las claves y los valores de atributos personalizados solo pueden tener un máxim
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Los atributos personalizados del usuario no están disponibles debido a una limitación en el lenguaje de scripting de Google Tag Manager. Para registrar atributos personalizados, crea una etiqueta HTML personalizada con el siguiente contenido:
+{% tab Google Tag Administrador %}
+Los atributos personalizados del usuario no están disponibles debido a una limitación en el lenguaje de scripting de Google Tag Administrador. Para registrar atributos personalizados, crea una etiqueta HTML personalizada con el siguiente contenido:
 
 ```html
 <script>
@@ -207,9 +207,9 @@ const favoriteBook = {
 braze.getUser().setCustomUserAttribute("favorite_book", favoriteBook);
 ```
 
-### Usar la REST API {#using-the-rest-api}
+### Usar la REST or transferencia de estado representacional API {#using-the-rest-api}
 
-También puedes utilizar nuestra REST API para establecer o desactivar atributos del usuario. Para obtener más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+También puedes utilizar nuestra REST or transferencia de estado representacional API para establecer o desactivar atributos del usuario. Para obtener más información, consulta [Endpoints de datos de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Configuración de suscripciones del usuario {#setting-user-subscriptions}
 

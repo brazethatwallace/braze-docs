@@ -175,9 +175,9 @@ Em seguida, envie o arquivo preenchido e as traduções serão aplicadas à sua 
 ![CSV com tags de tradução para um título, texto de oferta, valor de oferta e CTA.]({% image_buster /assets/img/multi-language_support/csv_template_example.png %}){: style="max-width:50%;"}
 
 {% endtab %}
-{% tab Usar a API de tradução %}
+{% tab Usar a API or interface de programação do aplicativo (API) de tradução %}
 
-Use a API de tradução de um parceiro para gerenciar e atualizar traduções em suas Campaigns, Canvas, Content Blocks, modelos de e-mail e modelos de webhook. Isso é útil se você usa um sistema externo para localização ou deseja se conectar diretamente com um parceiro de tradução.
+Use a API or interface de programação do aplicativo (API) de tradução de um parceiro para gerenciar e atualizar traduções em suas Campaigns, Canvas, Content Blocks, modelos de e-mail e modelos de webhook. Isso é útil se você usa um sistema externo para localização ou deseja se conectar diretamente com um parceiro de tradução.
 
 Para usar os endpoints de tradução com Canvas, inclua os seguintes parâmetros:
   - `workflow_id`
@@ -185,7 +185,7 @@ Para usar os endpoints de tradução com Canvas, inclua os seguintes parâmetros
   - `message_variation_id`
 
 {% alert note %}
-Ao usar a API de tradução com etapas do Canvas que foram criadas após o lançamento do Canvas, o `message_variation_id` que você passa para a API estará vazio ou em branco.
+Ao usar a API or interface de programação do aplicativo (API) de tradução com etapas do Canvas que foram criadas após o lançamento do Canvas, o `message_variation_id` que você passa para a API or interface de programação do aplicativo (API) estará vazio ou em branco.
 {% endalert %}
 
 {% endtab %}
@@ -205,7 +205,7 @@ Quando você duplica uma etapa do Canvas, uma Campaign ou uma variante, as tradu
 
 ### Salvar traduções em Content Blocks {#save-translations-in-content-blocks}
 
-Os Content Blocks oferecem suporte a vários idiomas da mesma forma que as mensagens. Ao criar ou editar Content Blocks, você pode marcar o conteúdo para tradução, adicionar locais e fazer upload de traduções usando um CSV ou a [API de traduções]({{site.baseurl}}/api/endpoints/translations).
+Os Content Blocks oferecem suporte a vários idiomas da mesma forma que as mensagens. Ao criar ou editar Content Blocks, você pode marcar o conteúdo para tradução, adicionar locais e fazer upload de traduções usando um CSV ou a [API or interface de programação do aplicativo (API) de traduções]({{site.baseurl}}/api/endpoints/translations).
 
 As traduções salvas permanecem associadas ao Content Block. Quando o bloco é adicionado a uma mensagem, suas traduções são incluídas automaticamente.
 
@@ -284,7 +284,7 @@ Sim. Primeiro, faça a edição no CSV e depois faça o upload do arquivo novame
 
 ### A Braze fornece traduções? {#does-braze-provide-translations}
 
-Não. Você deve [fornecer suas próprias traduções](#step-4-add-translations) fazendo o upload de um CSV ou usando a API de tradução.
+Não. Você deve [fornecer suas próprias traduções](#step-4-add-translations) fazendo o upload de um CSV ou usando a API or interface de programação do aplicativo (API) de tradução.
 
 ### Posso aninhar tags de tradução? {#can-i-nest-translation-tags}
 
@@ -298,7 +298,7 @@ Além disso, considere envolver partes menores de texto semanticamente relaciona
 
 #### Posso fazer uma alteração na cópia traduzida em uma das minhas localidades?
 
-Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois faça o upload novamente para alterar a cópia traduzida. Se estiver usando a [API de tradução]({{site.baseurl}}/api/endpoints/translations), use os endpoints de atualização para fazer alterações.
+Sim. Se estiver usando um CSV, primeiro faça a edição no arquivo e depois faça o upload novamente para alterar a cópia traduzida. Se estiver usando a [API or interface de programação do aplicativo (API) de tradução]({{site.baseurl}}/api/endpoints/translations), use os endpoints de atualização para fazer alterações.
 
 #### Quais validações ou verificações extras a Braze faz? {#what-validations-or-extra-checks-does-braze-do}
 

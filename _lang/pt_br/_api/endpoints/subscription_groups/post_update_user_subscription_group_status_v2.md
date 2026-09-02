@@ -10,7 +10,7 @@ channel:
   - Email
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar o status do grupo de inscrições do usuário (V2) {#update-users-subscription-group-status-v2}
 {% apimethod post %}
 /v2/subscription/status/set
@@ -34,25 +34,25 @@ Para ver exemplos ou testar este endpoint para **grupos de WhatsApp**:
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.status.set`.
+Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.status.set`.
 
 {% alert note %}
-Se você tiver interesse em usar este endpoint com [grupos de inscrições do LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), entre em contato com seu gerente de sucesso do cliente. <br><br>Para grupos de inscrições do LINE, recomendamos usar um atributo personalizado para rastrear o consentimento do site ou app separadamente e, em seguida, direcionar campanhas usando esse atributo personalizado em combinação com o estado de inscrição do LINE. Essa abordagem garante que o estado de inscrição reflita com precisão os usuários que realmente se inscreveram no app do LINE. Adicionar manualmente usuários a grupos de inscrições do LINE usando a API pode levar a estados dessincronizados e envios com falha, pois a Braze não pode reinscrever usuários no app do LINE nem enviar mensagens para usuários que bloquearam uma conta no LINE.
+Se você tiver interesse em usar este endpoint com [grupos de inscrições do LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), entre em contato com seu gerente de sucesso do cliente. <br><br>Para grupos de inscrições do LINE, recomendamos usar um atributo personalizado para rastrear o consentimento do site ou app separadamente e, em seguida, direcionar campanhas usando esse atributo personalizado em combinação com o estado de inscrição do LINE. Essa abordagem garante que o estado de inscrição reflita com precisão os usuários que realmente se inscreveram no app do LINE. Adicionar manualmente usuários a grupos de inscrições do LINE usando a API or interface de programação do aplicativo (API) pode levar a estados dessincronizados e envios com falha, pois a Braze não pode reinscrever usuários no app do LINE nem enviar mensagens para usuários que bloquearam uma conta no LINE.
 {% endalert %}
 
 ## Diferenças em relação ao V1 {#differences-from-v1}
 
 O endpoint V2 difere do [endpoint V1]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) das seguintes maneiras:
 
-- **Vários grupos de inscrições**: O V2 permite que você atualize vários grupos de inscrições em uma única solicitação de API, enquanto o V1 suporta apenas um grupo de inscrições por solicitação.
-- **Atualizar tanto e-mail quanto SMS em uma chamada**: Ao usar `external_ids`, você pode atualizar tanto os grupos de inscrições para e-mail quanto por SMS para os mesmos usuários em uma única chamada de API. Com o V1, você deve fazer chamadas de API separadas para grupos de inscrições para e-mail e SMS.
-- **Usando identificadores de e-mail ou telefone**: Se você usar `emails` ou `phones` em vez de `external_ids`, não poderá atualizar tanto os grupos de inscrições para e-mail quanto por SMS na mesma solicitação. Você deve fazer chamadas de API separadas — uma para grupos de inscrições para e-mail e uma para grupos de inscrições por SMS.
+- **Vários grupos de inscrições**: O V2 permite que você atualize vários grupos de inscrições em uma única solicitação de API or interface de programação do aplicativo (API), enquanto o V1 suporta apenas um grupo de inscrições por solicitação.
+- **Atualizar tanto e-mail quanto SMS em uma chamada**: Ao usar `external_ids`, você pode atualizar tanto os grupos de inscrições para e-mail quanto por SMS para os mesmos usuários em uma única chamada de API or interface de programação do aplicativo (API). Com o V1, você deve fazer chamadas de API or interface de programação do aplicativo (API) separadas para grupos de inscrições para e-mail e SMS.
+- **Usando identificadores de e-mail ou telefone**: Se você usar `emails` ou `phones` em vez de `external_ids`, não poderá atualizar tanto os grupos de inscrições para e-mail quanto por SMS na mesma solicitação. Você deve fazer chamadas de API or interface de programação do aplicativo (API) separadas — uma para grupos de inscrições para e-mail e uma para grupos de inscrições por SMS.
 
 {% alert important %}
 **Formato do número de telefone**: Os números de telefone devem estar no formato [E.164](https://en.wikipedia.org/wiki/E.164) (por exemplo, `+12223334444`). Números de telefone que não estão no formato E.164 são rejeitados.
 {% endalert %}
 
-{% multi_lang_include api/orphaned_subscription_states.md %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/orphaned_subscription_states.md %}
 
 ## Limite de frequência {#rate-limit}
 
@@ -81,7 +81,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 ```
 
 {% alert tip %}
-Ao criar novos usuários usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), é possível definir grupos de inscrições no objeto de atributos do usuário, o que permite criar um usuário e definir o estado do grupo de inscrições em uma única chamada de API.
+Ao criar novos usuários usando o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), é possível definir grupos de inscrições no objeto de atributos do usuário, o que permite criar um usuário e definir o estado do grupo de inscrições em uma única chamada de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ## Parâmetros de solicitação {#request-parameters}
@@ -98,14 +98,14 @@ Ao criar novos usuários usando o [endpoint `/users/track`]({{site.baseurl}}/api
 
 {% alert important %}
 **Seleção de identificador**:
-- Para atualizar tanto os grupos de inscrições para e-mail quanto os de SMS em uma única chamada de API, use `external_ids`. Você não pode incluir tanto `emails` quanto `phones` na mesma solicitação.
-- Se você usar `emails` ou `phones` em vez de `external_ids`, faça chamadas de API separadas — uma para grupos de inscrições para e-mail e outra para grupos de inscrições por SMS.
+- Para atualizar tanto os grupos de inscrições para e-mail quanto os de SMS em uma única chamada de API or interface de programação do aplicativo (API), use `external_ids`. Você não pode incluir tanto `emails` quanto `phones` na mesma solicitação.
+- Se você usar `emails` ou `phones` em vez de `external_ids`, faça chamadas de API or interface de programação do aplicativo (API) separadas — uma para grupos de inscrições para e-mail e outra para grupos de inscrições por SMS.
 - Você pode enviar `emails`, `phones` ou `external_ids` individualmente.
 {% endalert %}
 
 ### Exemplos de solicitações {#example-requests}
 
-O exemplo a seguir usa `external_ids` para atualizar tanto os grupos de inscrições para e-mail quanto os de SMS em uma única chamada de API. Isso só é possível ao usar `external_ids` — você não pode atualizar tanto os grupos de inscrições para e-mail quanto os de SMS em uma chamada ao usar `emails` ou `phones`.
+O exemplo a seguir usa `external_ids` para atualizar tanto os grupos de inscrições para e-mail quanto os de SMS em uma única chamada de API or interface de programação do aplicativo (API). Isso só é possível ao usar `external_ids` — você não pode atualizar tanto os grupos de inscrições para e-mail quanto os de SMS em uma chamada ao usar `emails` ou `phones`.
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/v2/subscription/status/set' \

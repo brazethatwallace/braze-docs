@@ -1,21 +1,21 @@
 ---
-nav_title: "PUT: Update der Übersetzungen für ein E-Mail-Template"
-article_title: "PUT: Übersetzungen für ein E-Mail-Template aktualisieren"
+nav_title: "PUT: Update or aktualisieren der Übersetzungen für ein E-Mail-Template"
+article_title: "PUT: Übersetzungen für ein E-Mail-Template Update or aktualisieren or aktualisieren"
 search_tag: Endpoint
 page_order: 4
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzungen für ein E-Mail-Template aktualisieren“."
+description: "Dieser Artikel beschreibt die Details des Endpunkts „Übersetzungen für ein E-Mail-Template Update or aktualisieren or aktualisieren“."
 ---
 
 {% api %}
-# Übersetzungen für ein E-Mail-Template aktualisieren {#update-translations-for-an-email-template}
+# Übersetzungen für ein E-Mail-Template Update or aktualisieren or aktualisieren {#update-translations-for-an-email-template}
 {% apimethod put %}
 /templates/email/translations/
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates) zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+> Verwenden Sie diesen Endpunkt, um Übersetzungen für ein [E-Mail-Template]({{site.baseurl}}/user_guide/messaging/templates/email_templates) zu Update or aktualisieren or aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
 ## Voraussetzungen {#prerequisites}
 

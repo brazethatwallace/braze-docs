@@ -1,10 +1,10 @@
 ## Requisitos previos {#prerequisites}
 
-Antes de comenzar este tutorial, comprueba que tu SDK de Braze cumple los requisitos mínimos de versión:
+Antes de comenzar este tutorial, comprueba que tu SDK or kit de desarrollo de software de Braze cumple los requisitos mínimos de versión:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Mostrar banners para el SDK de Swift {#displaying-banners-for-the-swift-sdk}
+## Mostrar banners para el SDK or kit de desarrollo de software de Swift {#displaying-banners-for-the-swift-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Swift" %}
 
@@ -129,7 +129,7 @@ lines-AppDelegate.swift=20
 
 ### 2. Actualizar tus ubicaciones {#2-refresh-your-placements} {#2-refresh-your-placements}
 
-Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` para actualizar el contenido de los banners al inicio de cada sesión.
+Después de inicializar el SDK or kit de desarrollo de software de Braze, llama a `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` para actualizar el contenido de los banners al inicio de cada sesión.
 
 !!step
 lines-BannerViewController.swift=19-37
@@ -260,7 +260,7 @@ lines-AppDelegate.swift=19
 
 ### 2. Actualizar tus ubicaciones {#2-refresh-your-placements}
 
-Después de inicializar el SDK de Braze, llama a `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` para actualizar el contenido de los banners al inicio de cada sesión.
+Después de inicializar el SDK or kit de desarrollo de software de Braze, llama a `requestBannersRefresh(placementIds: ["PLACEMENT_ID"])` para actualizar el contenido de los banners al inicio de cada sesión.
 
 !!step
 lines-BannerSwiftUIView.swift=1-46
@@ -274,14 +274,14 @@ lines-BannerSwiftUIView.swift=36-43
 
 ### 4. Mostrar solo los banners disponibles {#4-only-display-available-banners} {#4-only-display-available-banners}
 
-Solo intenta mostrar `BrazeBannerUI.BannerView` si el SDK está inicializado y existe contenido de banner para ese usuario. En `.onAppear`, llama a `getBanner(for:placementID)` para establecer el estado de `hasBannerForPlacement`.
+Solo intenta mostrar `BrazeBannerUI.BannerView` si el SDK or kit de desarrollo de software está inicializado y existe contenido de banner para ese usuario. En `.onAppear`, llama a `getBanner(for:placementID)` para establecer el estado de `hasBannerForPlacement`.
 
 !!step
 lines-BannerSwiftUIView.swift=17-32
 
 ### 5. Mostrar `BannerView` solo después de que se cargue {#5-only-show-bannerview-after-it-loads} {#5-only-show-bannerview-after-it-loads}
 
-Para evitar espacios en blanco en tu interfaz, solo muestra `BrazeBannerUI.BannerView` si hay un banner presente y el SDK está inicializado.
+Para evitar espacios en blanco en tu interfaz, solo muestra `BrazeBannerUI.BannerView` si hay un banner presente y el SDK or kit de desarrollo de software está inicializado.
 
 !!step
 lines-BannerSwiftUIView.swift=23-32

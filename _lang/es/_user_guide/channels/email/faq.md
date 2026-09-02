@@ -235,7 +235,7 @@ Para más detalles sobre cómo el escaneo del lado del servidor puede afectar la
 
 ### ¿Por qué ha cambiado inesperadamente mi tasa de apertura por máquina? {#why-has-my-machine-open-rate-changed-unexpectedly}
 
-Las [aperturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) son desencadenadas por funciones de seguridad de correo electrónico como la protección de privacidad de correo de Apple (MPP), que precarga el contenido del correo electrónico (incluyendo el píxel de seguimiento) sin que el usuario abra físicamente el correo. Las tasas de apertura por máquina pueden fluctuar según:
+Las [aperturas por máquina]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) son desencadenadas por funciones de seguridad de correo electrónico como la protección de privacidad de correo de Apple (MPP or protección de la privacidad en los correos electrónicos), que precarga el contenido del correo electrónico (incluyendo el píxel de seguimiento) sin que el usuario abra físicamente el correo. Las tasas de apertura por máquina pueden fluctuar según:
 
 - Cambios en la proporción de tu audiencia que usa Apple Mail u otros clientes de correo electrónico con privacidad habilitada.
 - Actualizaciones en las funciones de privacidad del proveedor de correo electrónico o los comportamientos de detección de bots.
@@ -277,7 +277,7 @@ Esta advertencia puede persistir para Campaigns duplicadas desde una Campaign qu
 La entrega puede parecer incorrecta incluso cuando Braze se comportó según lo configurado. Revisa lo siguiente:
 
 - **Perfiles duplicados** que comparten un buzón de entrada (consulta [¿Qué pasa cuando se envía un correo electrónico y varios perfiles tienen la misma dirección de correo electrónico?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
-- **Listas semilla, destinatarios de prueba o direcciones internas** incluidas en la audiencia o en un envío como CC/BCC.
+- **Listas semilla, destinatarios de prueba o direcciones internas** incluidas en la audiencia o en un envío como CC/tarjeta de contenido de banner.
 - **Temporización del Segment o Canvas:** el usuario coincidió con la audiencia o el paso en Canvas cuando Braze evaluó la elegibilidad, y luego los atributos o el estado de suscripción cambiaron antes de que leyeran el mensaje.
 - **Grupos de suscripción:** el usuario permaneció suscrito a un grupo al que se dirigió tu mensaje, incluso si su estado de suscripción global sugería lo contrario.
 - **Importaciones de API o archivos** que actualizaron al usuario después de la segmentación pero antes de que esperaras que el cambio se aplicara.

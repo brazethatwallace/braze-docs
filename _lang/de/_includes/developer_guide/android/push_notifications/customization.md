@@ -124,7 +124,7 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
 Sie können von Ihrer angepassten `createNotification()`-Methode `null` zurückgeben, um die Benachrichtigung vollständig zu unterdrücken, mit `BrazeNotificationFactory.getInstance().createNotification()` unser Standard-`notification`-Objekt für diese Daten abrufen und es vor der Anzeige modifizieren oder ein vollständig separates `notification`-Objekt für die Anzeige generieren.
 
 {% alert note %}
-Die Dokumentation zu den Push-Datenschlüsseln von Braze finden Sie im [Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
+Die Dokumentation zu den Push-Datenschlüsseln von Braze finden Sie im [Android SDK or Software-Development-Kit](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html).
 {% endalert %}
 
 ### Schritt 2: Angepasste Benachrichtigungs-Factory einstellen {#step-2-set-your-custom-notification-factory}
@@ -177,7 +177,7 @@ setCustomBrazeNotificationFactory(null)
 
 ## Mehrfarbigen Text rendern {#rendering-multicolor-text}
 
-In der Braze SDK-Version 3.1.1 kann HTML an ein Gerät gesendet werden, um mehrfarbigen Text in Push-Benachrichtigungen darzustellen.
+In der Braze SDK or Software-Development-Kit-Version 3.1.1 kann HTML an ein Gerät gesendet werden, um mehrfarbigen Text in Push-Benachrichtigungen darzustellen.
 
 ![Eine Android-Push-Nachricht mit dem Text „Multicolor Push test message“, in der die Buchstaben unterschiedliche Farben aufweisen, kursiv geschrieben sind und einen farbigen Hintergrund haben.]({% image_buster /assets/img/multicolor_android_push.png %}){: style="max-width:40%;"}
 
@@ -195,7 +195,7 @@ Bitte beachten Sie, dass Android die HTML-Elemente und -Tags einschränkt, die i
 Die Darstellung von mehrfarbigem Text ist gerätespezifisch und wird möglicherweise je nach Android-Gerät oder -Version nicht angezeigt.
 {% endalert %}
 
-Um mehrfarbigen Text in einer Push-Benachrichtigung darzustellen, können Sie Ihre `braze.xml` oder `BrazeConfig` aktualisieren:
+Um mehrfarbigen Text in einer Push-Benachrichtigung darzustellen, können Sie Ihre `braze.xml` oder `BrazeConfig` Update or aktualisieren or aktualisieren:
 
 {% tabs local %}
 {% tab braze.xml %}
@@ -338,7 +338,7 @@ Mit Inline-Bild-Push können Sie ein größeres Bild in Ihrer Android-Push-Benac
 
 ### Kompatibilität {#compatibility}
 
-Sie können Inline-Bilder an jedes Gerät senden. Geräte und SDKs, die nicht die Mindestversionen erfüllen, zeigen stattdessen ein Standardbild an. Damit Inline-Bilder korrekt angezeigt werden, sind sowohl das Android Braze SDK v10.0.0+ als auch ein Gerät mit Android M+ erforderlich. Das SDK muss ebenfalls aktiviert sein, damit das Bild gerendert werden kann.
+Sie können Inline-Bilder an jedes Gerät senden. Geräte und SDKs, die nicht die Mindestversionen erfüllen, zeigen stattdessen ein Standardbild an. Damit Inline-Bilder korrekt angezeigt werden, sind sowohl das Android Braze SDK or Software-Development-Kit v10.0.0+ als auch ein Gerät mit Android M+ erforderlich. Das SDK or Software-Development-Kit muss ebenfalls aktiviert sein, damit das Bild gerendert werden kann.
 
 {% alert note %}
 Geräte mit Android 12 werden aufgrund von Änderungen bei den angepassten Push-Benachrichtigungsstilen anders dargestellt.
@@ -383,7 +383,7 @@ Mit dem Feld [Firebase Messaging Delivery Priority](https://firebase.google.com/
 
 ### Lebensdauer (TTL) {#ttl}
 
-Im Feld **Time to Live** (TTL) können Sie eine angepasste Zeitspanne für die Speicherung von Nachrichten beim Push-Messaging-Dienst festlegen. Die Standardwerte für die Lebensdauer betragen vier Wochen für FCM und 31 Tage für ADM.
+Im Feld **TTL** (TTL) können Sie eine angepasste Zeitspanne für die Speicherung von Nachrichten beim Push-Messaging-Dienst festlegen. Die Standardwerte für die Lebensdauer betragen vier Wochen für FCM und 31 Tage für ADM.
 
 ### Zusammenfassungstext {#summary-text}
 

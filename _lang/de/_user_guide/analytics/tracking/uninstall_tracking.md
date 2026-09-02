@@ -37,7 +37,7 @@ Wenn Sie das Uninstall-Tracking für eine App aktivieren, sendet Braze jede Nach
 
 ### Konfiguration {#configuration}
 
-Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
+Um das Uninstall-Tracking für Ihre iOS-Anwendung zu konfigurieren, verwenden Sie eine [Utility-Methode]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift). Verwenden Sie für Ihre Android-Anwendung [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html). Wenn Braze eine Deinstallation feststellt – sei es durch Uninstall-Tracking oder durch die normale Zustellung von Push-Campaigns – erfassen wir den bestmöglich geschätzten Zeitpunkt der Deinstallation beim Nutzer oder bei der Nutzerin. Dieser Zeitpunkt wird im Kundenprofil or Nutzerprofil als Standardattribut gespeichert und kann zur Definition eines Segments von Nutzer:innen für Rückgewinnungskampagnen verwendet werden.
 
 ## Segmente nach Deinstallationen filtern {#filtering-segments-by-uninstalls}
 
@@ -75,22 +75,22 @@ Braze verfolgt Deinstallationen, indem es beobachtet, wann Push-Nachrichten, die
 
 FCM und APNs unterliegen Einschränkungen hinsichtlich des Uninstall-Trackings. Braze erhöht die Deinstallationszahl nur, wenn FCM oder APNs uns mitteilen, dass ein:e Nutzer:in die App deinstalliert hat. Diese Drittanbietersysteme können uns jedoch jederzeit über Deinstallationen informieren. Verwenden Sie das Uninstall-Tracking, um allgemeine Trends zu erkennen, anstatt präzise Statistiken zu erwarten.
 
-Braze behandelt die folgenden FCM-Antworten als Token-Entfernungs-Antworten (Deinstallation): `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` und `SENDER_ID_MISMATCH`.
+Braze behandelt die folgenden FCM-Antworten als Token / Textbaustein-Entfernungs-Antworten (Deinstallation): `DEVICE_UNREGISTERED`, `BAD_REGISTRATION` und `SENDER_ID_MISMATCH`.
 
 Weitere Informationen zur Verwendung des Uninstall-Trackings finden Sie in unserem Blogbeitrag [Uninstall Tracking: An Industry Look at its Strengths and Limitations](https://www.braze.com/blog/uninstall-tracking-an-industry-look-at-its-strengths-and-limitations/).
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Wann wird ein Nutzerprofil als deinstalliert markiert? Wann wird die Deinstallationsmarkierung entfernt? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
+### Wann wird ein Kundenprofil or Nutzerprofil als deinstalliert markiert? Wann wird die Deinstallationsmarkierung entfernt? {#when-is-a-users-profile-flagged-as-uninstalled-when-is-the-uninstall-tag-cleared}
 
 Braze markiert eine:n Nutzer:in als deinstalliert, wenn erkannt wird, dass die App nicht mehr auf dem Gerät vorhanden ist (siehe [Funktionsweise](#how-it-works) zur Erkennung über reguläre Push-Nachrichten und optionales Uninstall-Tracking). Nachdem jemand Ihre App erneut installiert hat, kann die Deinstallationsmarkierung im Profil bestehen bleiben, bis die Person **die App öffnet und eine neue Sitzung startet** – die bloße Neuinstallation entfernt die Markierung nicht. Bis zu dieser Sitzung behandeln Segmente und Filter, die den Deinstallationsstatus verwenden (z. B. **Has Not Uninstalled**), den oder die Nutzer:in weiterhin als deinstalliert.
 
 ### Warum sehe ich plötzlich einen Anstieg bei den Deinstallationen? {#why-am-i-suddenly-seeing-a-spike-in-uninstalls}
 
-Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNs) alte Token in unterschiedlicher Häufigkeit widerrufen.
+Wenn die Deinstallationen von Apps sprunghaft ansteigen, kann das daran liegen, dass Firebase Cloud Messaging (FCM) und der Apple Push Notification Service (APNs) alte Token / Textbaustein in unterschiedlicher Häufigkeit widerrufen.
 
 {% alert note %}
-Aus Datenschutzgründen können die Push-Anbieter von Braze Token in unregelmäßigen Abständen widerrufen, was dazu führen kann, dass die Anzahl der Deinstallationen in einem bestimmten Zeitraum gelegentlich stark ansteigt.<br><br>Um diese Änderungen zu validieren, überwachen Sie das Uninstall-Tracking zusammen mit einer Metrik für Nutzeraktionen, wie beispielsweise der direkten Push-Öffnungsrate. Wenn die Deinstallationen stark zunehmen, die direkten Push-Öffnungen jedoch stabil bleiben, spiegelt der Anstieg wahrscheinlich eher die Aufhebung alter Token durch einen Anbieter wider als das tatsächliche Nutzerverhalten.
+Aus Datenschutzgründen können die Push-Anbieter von Braze Token / Textbaustein in unregelmäßigen Abständen widerrufen, was dazu führen kann, dass die Anzahl der Deinstallationen in einem bestimmten Zeitraum gelegentlich stark ansteigt.<br><br>Um diese Änderungen zu validieren, überwachen Sie das Uninstall-Tracking zusammen mit einer Metrik für Nutzeraktionen, wie beispielsweise der direkten Push-Öffnungsrate. Wenn die Deinstallationen stark zunehmen, die direkten Push-Öffnungen jedoch stabil bleiben, spiegelt der Anstieg wahrscheinlich eher die Aufhebung alter Token / Textbaustein durch einen Anbieter wider als das tatsächliche Nutzerverhalten.
 {% endalert %}
 
 ### Wie kann ich feststellen, ob eine bestimmte Campaign Deinstallationen verursacht hat? {#how-do-i-determine-if-a-specific-campaign-caused-uninstalls}
@@ -105,13 +105,13 @@ Wenn Sie ein Segment haben, das passive Nutzer:innen mit aktiviertem [Analytics-
 
 ### Wie kann ich bestätigen, dass Deinstallationen echt sind? {#how-do-i-confirm-uninstalls-are-genuine}
 
-Überprüfen Sie bei APNs die Nutzerprofile auf den Push-Fehler `BadDeviceToken`. Wenn Sie diesen Fehler gehäuft im gleichen Zeitraum wie den Anstieg der Deinstallationen sehen, sind die Deinstallationen wahrscheinlich echt. `BadDeviceToken` zeigt an, dass das Push-Token des Geräts nicht mehr gültig ist, was typischerweise passiert, wenn die App deinstalliert wird.
+Überprüfen Sie bei APNs die Nutzerprofile auf den Push-Fehler `BadDeviceToken`. Wenn Sie diesen Fehler gehäuft im gleichen Zeitraum wie den Anstieg der Deinstallationen sehen, sind die Deinstallationen wahrscheinlich echt. `BadDeviceToken` zeigt an, dass das Push-Token / Textbaustein des Geräts nicht mehr gültig ist, was typischerweise passiert, wenn die App deinstalliert wird.
 
 ### Warum unterscheidet sich die Anzahl der App-Deinstallationen von den Angaben in den APNs? {#why-are-the-number-of-app-uninstalls-different-from-whats-in-apns}
 
 Der Unterschied ist zu erwarten.
 
-Apple verwendet einen zufälligen Zeitplan, um die Meldung zu verzögern, wenn ein Push-Token ungültig wird. Das bedeutet, dass APNs auch nach der Deinstallation einer App noch für eine gewisse Zeit erfolgreiche Antworten auf Push-Benachrichtigungen zurückgeben können. Diese Verzögerung ist beabsichtigt und dient dem Schutz der Privatsphäre der Nutzer:innen. Es wird kein Bounce oder Fehler gemeldet, bis APNs einen `410`-Status für ein ungültiges Token zurückgibt.
+Apple verwendet einen zufälligen Zeitplan, um die Meldung zu verzögern, wenn ein Push-Token / Textbaustein ungültig wird. Das bedeutet, dass APNs auch nach der Deinstallation einer App noch für eine gewisse Zeit erfolgreiche Antworten auf Push-Benachrichtigungen zurückgeben können. Diese Verzögerung ist beabsichtigt und dient dem Schutz der Privatsphäre der Nutzer:innen. Es wird kein Bounce oder Fehler gemeldet, bis APNs einen `410`-Status für ein ungültiges Token / Textbaustein zurückgibt.
 
 ### Wie hängt das Uninstall-Tracking mit stillen oder Hintergrund-Push-Nachrichten zusammen? {#how-does-uninstall-tracking-relate-to-silent-or-background-push}
 

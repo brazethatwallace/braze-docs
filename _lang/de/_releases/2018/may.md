@@ -7,7 +7,7 @@ description: "Dieser Artikel enthält Versionshinweise für Mai 2018."
 ---
 # Mai 2018
 
-## Okta Single Sign-on Update (SSO)
+## Okta Single Sign-on Update or aktualisieren (Single Sign-on)
 
 Wenn Ihr Unternehmen Okta verwendet, kann Ihr Okta-Administrator die Braze App über das Okta-Anwendungsnetzwerk installieren. Anschließend müssen Sie das Okta-Zertifikat auf der Seite Unternehmenseinstellungen der App Braze an der entsprechenden Stelle im Tab Sicherheitseinstellungen ablegen.
 

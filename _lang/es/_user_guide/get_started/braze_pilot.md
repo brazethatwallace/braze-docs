@@ -56,17 +56,17 @@ MovieCanon es un servicio de streaming perfectamente diseñado para ilustrar los
 
 ## Cómo se conecta Pilot con tu panel de Braze {#how-pilot-connects-with-your-braze-dashboard}
 
-El SDK de Braze es un paquete de código que recopila datos de tus usuarios una vez que se integra con tu aplicación o sitio web. Cuando conectas Pilot a tu panel de Braze, inicializas esta conexión entre la aplicación Pilot de tu teléfono y el SDK de Braze, y estableces una conexión única con tu instancia de Braze al proporcionar a Pilot el identificador de tu clave de API para tu panel de Braze.
+El SDK or kit de desarrollo de software de Braze es un paquete de código que recopila datos de tus usuarios una vez que se integra con tu aplicación o sitio web. Cuando conectas Pilot a tu panel de Braze, inicializas esta conexión entre la aplicación Pilot de tu teléfono y el SDK or kit de desarrollo de software de Braze, y estableces una conexión única con tu instancia de Braze al proporcionar a Pilot el identificador de tu clave de API para tu panel de Braze.
 
 ![El primer paso para la configuración de Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Una vez que Pilot se conecta a tu panel de Braze, el SDK de Braze funciona en la aplicación igual que lo hará una vez que integres el SDK en tu propia aplicación o sitio web. Esto significa que Braze:
+Una vez que Pilot se conecta a tu panel de Braze, el SDK or kit de desarrollo de software de Braze funciona en la aplicación igual que lo hará una vez que integres el SDK or kit de desarrollo de software en tu propia aplicación o sitio web. Esto significa que Braze:
 
 - Almacenará datos sobre tu actividad de usuario en Pilot, incluidos datos personalizados específicos de las marcas ficticias de la aplicación.
 - Recopilará automáticamente datos de sesión, información del dispositivo y tokens de notificaciones push.
-- Habilitará notificaciones push, mensajes dentro de la aplicación y canales de mensajería de Content Cards que requieren la integración del SDK para funcionar.
+- Habilitará notificaciones push, mensajes dentro de la aplicación y canales de mensajería de Content Cards que requieren la integración del SDK or kit de desarrollo de software para funcionar.
 
-Para obtener más información sobre el SDK de Braze, consulta [Integración]({{site.baseurl}}/user_guide/get_started/integrations).
+Para obtener más información sobre el SDK or kit de desarrollo de software de Braze, consulta [Integración]({{site.baseurl}}/user_guide/get_started/integrations).
 
 ![La pila de interacción con los clientes de Braze, que incluye integraciones, API, SDK para la ingesta de datos, clasificación, orquestación, personalización y acción con canales de mensajería para un bucle de retroalimentación interactivo con tus clientes.]({% image_buster /assets/img/braze_pilot/braze_sdk_diagram.png %}){:style="max-width:70%"}
 
@@ -99,7 +99,7 @@ Si estás registrando datos como usuario identificado, el área de estado muestr
 {% endtab %}
 {% tab Not connected %}
 
-**No conectado** indica que aún no has inicializado la conexión del SDK de Braze con Pilot. El área de estado indica que Pilot aún no está conectado a tu espacio de trabajo de Braze.
+**No conectado** indica que aún no has inicializado la conexión del SDK or kit de desarrollo de software de Braze con Pilot. El área de estado indica que Pilot aún no está conectado a tu espacio de trabajo de Braze.
 
 {% endtab %}
 {% endtabs %}

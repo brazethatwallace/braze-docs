@@ -20,18 +20,18 @@ Em seguida, aceite os termos e condições e insira seu e-mail de trabalho no fo
 
 ![Página de boas-vindas do Braze Pilot.]({% image_buster /assets/img/braze_pilot/pilot_welcome.png %}){:style="max-width:30%"} ![Opção para inserir seu endereço de e-mail de trabalho.]({% image_buster /assets/img/braze_pilot/pilot_signin.png %}){:style="max-width:30%"}
 
-## Etapa 3: Inicialize a conexão com o SDK da Braze {#step-3-initialize-the-connection-with-the-braze-sdk}
+## Etapa 3: Inicialize a conexão com o SDK or kit de desenvolvimento de software da Braze {#step-3-initialize-the-connection-with-the-braze-sdk}
 
-O Braze Pilot permite que você inicialize o SDK da Braze em qualquer dashboard da Braze. Depois que o SDK for inicializado, o Pilot começará a enviar dados de engajamento para a Braze e permitirá que você dispare qualquer envio de mensagens lançado a partir desse dashboard.
+O Braze Pilot permite que você inicialize o SDK or kit de desenvolvimento de software da Braze em qualquer dashboard da Braze. Depois que o SDK or kit de desenvolvimento de software for inicializado, o Pilot começará a enviar dados de engajamento para a Braze e permitirá que você dispare qualquer envio de mensagens lançado a partir desse dashboard.
 
-Existem dois métodos para configurar a conexão do SDK no Pilot: códigos QR de demonstração e o assistente de configuração.
+Existem dois métodos para configurar a conexão do SDK or kit de desenvolvimento de software no Pilot: códigos QR de demonstração e o assistente de configuração.
 
 {% tabs local %}
 {% tab Códigos QR de demonstração %}
 
 ### Método 1: Códigos QR de demonstração {#method-1-demo-qr-codes}
 
-Escaneie um código QR que inclui todos os detalhes necessários para inicializar o SDK, criar seu perfil de usuário e fazer deep link para uma simulação de app específica no Braze Pilot. Os códigos QR de demonstração são exibidos no painel complementar de campanhas de demonstração específicas no seu teste gratuito.
+Escaneie um código QR que inclui todos os detalhes necessários para inicializar o SDK or kit de desenvolvimento de software, criar seu perfil de usuário e fazer deep link para uma simulação de app específica no Braze Pilot. Os códigos QR de demonstração são exibidos no painel complementar de campanhas de demonstração específicas no seu teste gratuito.
 
 | Pilot para Android | Pilot para iOS |
 | --- | --- |
@@ -47,7 +47,7 @@ Siga um guia passo a passo para inicializar a conexão com o espaço de trabalho
 
 ![Etapa 1 do assistente de configuração do Braze Pilot.]({% image_buster /assets/img/braze_pilot/setup_wizard.png %}){:style="max-width:40%"}
 
-Essa conexão é específica do espaço de trabalho. Isso significa que, se você inicializar a conexão a partir do espaço de trabalho de demonstração e depois mudar para o espaço de trabalho ativo no dashboard do seu teste gratuito, será necessário reinicializar o SDK a partir desse espaço de trabalho para receber as campanhas lançadas nele.
+Essa conexão é específica do espaço de trabalho. Isso significa que, se você inicializar a conexão a partir do espaço de trabalho de demonstração e depois mudar para o espaço de trabalho ativo no dashboard do seu teste gratuito, será necessário reinicializar o SDK or kit de desenvolvimento de software a partir desse espaço de trabalho para receber as campanhas lançadas nele.
 
 ![O menu suspenso de espaços de trabalho no dashboard da Braze com "Demo - Braze" selecionado como o espaço de trabalho ativo.]({% image_buster /assets/img/braze_pilot/dashboard_workspace.png %}){:style="max-width:60%"}
 

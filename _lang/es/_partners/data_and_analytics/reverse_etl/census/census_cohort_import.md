@@ -17,7 +17,7 @@ search_tag: Partner
 
 Para integrar Census en la plataforma Census, ve a la pestaña **Connections** y selecciona **New Destination** para crear una nueva conexión de servicio Braze.
 
-En la ventana que aparece, asigna un nombre a esta conexión e indica la URL de tu endpoint de Braze, la clave de API REST de Braze y la clave de importación de datos. La clave de importación de datos es necesaria para sincronizar cohortes y se puede encontrar en Braze yendo a **Partner Integrations** > **Technology Partners** > **Census**.
+En la ventana que aparece, asigna un nombre a esta conexión e indica la URL de tu endpoint de Braze, la clave de API REST or transferencia de estado representacional de Braze y la clave de importación de datos. La clave de importación de datos es necesaria para sincronizar cohortes y se puede encontrar en Braze yendo a **Partner Integrations** > **Technology Partners** > **Census**.
 
 ![Diálogo de nuevo destino de Census configurado con las credenciales de importación de cohortes de Braze.]({% image_buster /assets/img/census/add_service.png %}){: style="max-width:60%;"}
 

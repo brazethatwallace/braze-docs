@@ -23,7 +23,7 @@ A parceria entre Braze e Transcend ajuda os usuários a automatizar solicitaçõ
 | Requisitos | Descrição |
 |---|---|
 | Conta Transcend | É necessário ter uma conta [Transcend](https://app.transcend.io/) com privilégios de administrador para aproveitar essa parceria. |
-| Chave de API da Braze | Uma chave da API REST da Braze com as permissões `users.delete, users.alias.new, users.export.ids, email.unsubscribe,` e `email.blacklist`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
+| Chave de API or interface de programação do aplicativo (API) da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.delete, users.alias.new, users.export.ids, email.unsubscribe,` e `email.blacklist`.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}

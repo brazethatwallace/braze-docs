@@ -10,7 +10,7 @@ hidden: true
 # Registrar compras {#log-purchases}
 {% multi_lang_include archive/windows_deprecation.md %}
 
-Registra las compras dentro de la aplicación para que puedas hacer un seguimiento de tus ingresos a lo largo del tiempo y de las distintas fuentes de ingresos, así como segmentar a tus usuarios por su valor de duración del ciclo de vida.
+Registra las compras dentro de la aplicación para que puedas hacer un seguimiento de tus ingresos a lo largo del tiempo y de las distintas fuentes de ingresos, así como segmentar a tus usuarios por su LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida.
 
 Braze admite compras en varias divisas. Las compras que notifiques en una divisa distinta del USD se mostrarán en el panel en USD según la tasa de cambio en la fecha en que se notificaron.
 
@@ -27,6 +27,6 @@ bool LogPurchase(string productId, string currencyCode, decimal price)
 ## Registrar compras a nivel de pedido {#log-purchases-at-the-order-level}
 Si deseas registrar las compras a nivel de pedido en lugar de a nivel de producto, puedes usar el nombre del pedido o la categoría del pedido como `product_id`. Consulta nuestra [especificación del objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para obtener más información.
 
-## REST API
+## REST or transferencia de estado representacional API
 
-También puedes utilizar nuestra REST API para registrar compras. Consulta la documentación de [la API de usuarios]({{site.baseurl}}/api/endpoints/user_data) para más detalles.
+También puedes utilizar nuestra REST or transferencia de estado representacional API para registrar compras. Consulta la documentación de [la API de usuarios]({{site.baseurl}}/api/endpoints/user_data) para más detalles.

@@ -106,7 +106,7 @@ Les données d'attribution pour les campagnes Facebook et X (anciennement Twitte
 
 ## URL de suivi des clics Adjust dans Braze (facultatif) {#adjust-click-tracking-urls-in-braze-optional}
 
-L'utilisation de liens de suivi des clics dans vos campagnes Braze vous permettra de voir facilement quelles campagnes génèrent des installations d'applications et un réengagement. Ainsi, vous serez en mesure de mesurer vos efforts marketing de manière plus efficace et de prendre des décisions fondées sur les données pour investir davantage de ressources afin d'obtenir un ROI maximal.
+L'utilisation de liens de suivi des clics dans vos campagnes Braze vous permettra de voir facilement quelles campagnes génèrent des installations d'applications et un réengagement. Ainsi, vous serez en mesure de mesurer vos efforts marketing de manière plus efficace et de prendre des décisions fondées sur les données pour investir davantage de ressources afin d'obtenir un ROI or retour sur investissement maximal.
 
 Pour commencer avec les liens de suivi des clics Adjust, consultez leur [documentation](https://help.adjust.com/tracking/attribution/tracker-urls). Vous pouvez insérer les liens de suivi des clics Adjust directement dans vos campagnes Braze. Adjust utilisera ensuite ses [méthodologies d'attribution probabiliste](https://www.adjust.com/blog/attribution-compatible-with-ios14/) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous recommandons d'ajouter un identifiant d'appareil à vos liens de suivi Adjust pour améliorer la précision des attributions de vos campagnes Braze. Cela attribuera de manière déterministe l'utilisateur qui a cliqué sur le lien.
 

@@ -8,7 +8,7 @@ layout: scrolly
 
 # Tutorial: Personalización del estilo de los mensajes mediante pares clave-valor {#tutorial-customizing-message-styling-using-key-value-pairs}
 
-> Sigue el código de ejemplo de este tutorial para personalizar el estilo de los mensajes dentro de la aplicación utilizando pares clave-valor en el SDK de Braze.
+> Sigue el código de ejemplo de este tutorial para personalizar el estilo de los mensajes dentro de la aplicación utilizando pares clave-valor en el SDK or kit de desarrollo de software de Braze.
 
 {% sdktabs %}
 {% sdktab web %}

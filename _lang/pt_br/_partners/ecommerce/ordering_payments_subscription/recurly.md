@@ -28,8 +28,8 @@ Consulte a [documentação da Recurly](https://docs.recurly.com/docs/braze-integ
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Recurly | Para aproveitar essa parceria, é necessário ter um plano de assinatura Elite da [Recurly](https://recurly.com/) com a Feature Flag da Braze ativada. A ativação de faturas de crédito na sua plataforma da Recurly também é necessária.|
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. Como a Recurly usa apenas o endpoint `users.track`, recomendamos o provisionamento de uma chave específica da Recurly somente com essa permissão. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. Como a Recurly usa apenas o endpoint `users.track`, recomendamos o provisionamento de uma chave específica da Recurly somente com essa permissão. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
@@ -42,8 +42,8 @@ Antes de começar, verifique se você tem contas ativas na Braze e na Recurly.
 
 2. Forneça as seguintes credenciais:
 
-- **Instance URL:** O endpoint REST da Braze da instância para a qual você está provisionado.
-- **API Key (Identifier):** A chave da API REST da Braze que a Recurly deve usar ao enviar solicitações à Braze.
+- **Instance URL:** O endpoint REST or transferir estado representacional da Braze da instância para a qual você está provisionado.
+- **API or interface de programação do aplicativo (API) Key (Identifier):** A chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze que a Recurly deve usar ao enviar solicitações à Braze.
 
 Lembre-se de copiar a URL da sua instância da Braze. Por exemplo, sua URL pode ter a seguinte aparência:
 
@@ -84,10 +84,10 @@ Para um engajamento eficaz do cliente, você deve [configurar eventos personaliz
 
 Como a Recurly usa o endpoint `/users/track` da Braze, a integração está sujeita aos limites de taxa padrão da Braze de 50.000 solicitações por minuto.
 
-A Recurly agrupa determinados eventos do ciclo de vida da assinatura em chamadas únicas à API da Braze para reduzir o número de solicitações.
+A Recurly agrupa determinados eventos do ciclo de vida da assinatura em chamadas únicas à API or interface de programação do aplicativo (API) da Braze para reduzir o número de solicitações.
 
 - A Recurly agrupa e envia várias assinaturas criadas ao mesmo tempo em uma única solicitação.
 - A Recurly agrupa várias renovações simultâneas de uma conta em uma única solicitação.
-- A Recurly envia eventos do ciclo de vida da assinatura do mesmo modelo em uma única solicitação. Por exemplo, uma fatura recém-criada com um pagamento resulta em uma solicitação de API contendo os eventos personalizados `Recurly Invoice Created` e `Recurly Successful Payment`.
+- A Recurly envia eventos do ciclo de vida da assinatura do mesmo modelo em uma única solicitação. Por exemplo, uma fatura recém-criada com um pagamento resulta em uma solicitação de API or interface de programação do aplicativo (API) contendo os eventos personalizados `Recurly Invoice Created` e `Recurly Successful Payment`.
 
-Os lotes são enviados à Braze em grupos de até 75 eventos por vez. Por exemplo, se 100 assinaturas fossem criadas de uma vez, a Recurly faria duas solicitações de API para a Braze. Consulte [como agrupar solicitações de rastreamento de usuários em lote]({{site.baseurl}}/api/api_limits/#batch-user-track) para obter detalhes.
+Os lotes são enviados à Braze em grupos de até 75 eventos por vez. Por exemplo, se 100 assinaturas fossem criadas de uma vez, a Recurly faria duas solicitações de API or interface de programação do aplicativo (API) para a Braze. Consulte [como agrupar solicitações de rastreamento de usuários em lote]({{site.baseurl}}/api/api_limits/#batch-user-track) para obter detalhes.

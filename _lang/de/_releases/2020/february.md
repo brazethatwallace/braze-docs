@@ -19,4 +19,4 @@ Ab dem 13\. Januar 2020 ist dieses Feature noch nicht für unsere Clients in der
 
 ## Neuer E-Mail Content-Block API-Endpunkt {#new-email-content-block-api-endpoint}
 
-Sie können Ihre E-Mail Content Blocks jetzt über API [aktualisieren]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)!
+Sie können Ihre E-Mail Content Blocks jetzt über API [Update or aktualisieren or aktualisieren]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block/)!

@@ -47,7 +47,7 @@ Sua métrica de sucesso é o resultado de negócio que o agente vai otimizar. El
 
 *Quem o agente de decisão vai engajar?*
 
-Defina o público que seu agente vai atender. Pode ser todos os clientes, um segmento específico (como membros de um programa de fidelidade) ou clientes em uma etapa específica do ciclo de vida (como compradores recentes ou assinantes em risco).
+Defina o público que seu agente vai atender. Pode ser todos os clientes, um Segment or segmento or segmento específico (como membros de um programa de fidelidade) ou clientes em uma etapa específica do ciclo de vida (como compradores recentes ou assinantes em risco).
 
 ### O "quê": configure seu banco de ações {#the-what-configure-your-action-bank}
 

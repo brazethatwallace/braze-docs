@@ -21,9 +21,9 @@ Die Integration von Braze und Optimizely ist eine bidirektionale Integration, di
 | Anforderung                     | Beschreibung |
 |----------------------------------|-------------|
 | Optimizely Data Platform-Konto | Ein Optimizely Data Platform (ODP)-Konto ist erforderlich, um diese Partnerschaft nutzen zu können. |
-| Braze-REST-API-Schlüssel               | Ein Braze-REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` und `canvas.trigger.send`. |
+| Braze-Representational State Transfer-API-Schlüssel               | Ein Braze-Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `users.export.segments`, `segments.list`, `campaigns.trigger.send` und `canvas.trigger.send`. |
 | Currents                         | Um Daten zurück nach Optimizely zu exportieren, müssen Braze-Currents für Ihr Konto eingerichtet sein. |
-| Optimizely-URL und -Token         | Diese können Sie abrufen, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token kopieren. |
+| Optimizely-URL und -Token / Textbaustein         | Diese können Sie abrufen, indem Sie zu Ihrem Optimizely-Dashboard navigieren und die Ingestion-URL und das Token / Textbaustein kopieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -32,12 +32,12 @@ Die Integration von Braze und Optimizely ist eine bidirektionale Integration, di
 
 1. Wählen Sie im **App Directory** der Optimizely Data Platform (ODP) die App **Braze** aus und wählen Sie dann **Install App**.
 2. Gehen Sie zum Tab **Settings**. Führen Sie im Abschnitt **Authorization** die folgenden Schritte aus:
-    1. Geben Sie den Braze-**REST-API-Schlüssel** ein.
+    1. Geben Sie den Braze-**Representational State Transfer-API-Schlüssel** ein.
     2. Wählen Sie Ihre Braze-**Instanz-URL** aus.
     2. Wählen Sie **Verify API Key**.
 3. Gehen Sie in Braze zu **[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)**.
 4. Wählen Sie **Create New Current** > **Custom Currents Export**.
-5. Konfigurieren Sie den Current mit dem Endpunkt und dem Token, die in ODP bereitgestellt werden. Dies ist erforderlich, um Braze-Ereignisse mit ODP zu synchronisieren.
+5. Konfigurieren Sie den Current mit dem Endpunkt und dem Token / Textbaustein, die in ODP bereitgestellt werden. Dies ist erforderlich, um Braze-Ereignisse mit ODP zu synchronisieren.
 
 ![Optimizely-Autorisierung.]({% image_buster /assets/img/optimizely/image1_authorization.png %})
 
@@ -84,7 +84,7 @@ Nachdem Sie die Integration konfiguriert haben, können Sie eine Aktivierung in 
 1. Gehen Sie zu **Activation** > **Engage** und wählen Sie **Create New Campaign**.
 2. Wählen Sie **Behavioral**, um eine automatisierte, wiederkehrende Synchronisierung einzurichten.
 3. Wählen Sie **Create From Scratch** und geben Sie dann einen Namen für Ihre Aktivierung ein, der die Daten repräsentiert, die Sie mit Braze synchronisieren (z. B. **Braze Data Sync**).
-4. Im Abschnitt **Enrollment** können Sie Daten für Kund:innen synchronisieren, die einem Segment entsprechen, oder Daten für Kund:innen synchronisieren, die ein Ereignis triggern (z. B. wenn ODP registriert, dass ein:e Kund:in eine E-Mail öffnet):
+4. Im Abschnitt **Enrollment** können Sie Daten für Kund:innen synchronisieren, die einem Segment entsprechen, oder Daten für Kund:innen synchronisieren, die ein Ereignis Trigger or triggern or triggern (z. B. wenn ODP registriert, dass ein:e Kund:in eine E-Mail öffnet):
    - **Kund:innen, die einem Segment entsprechen:** Wählen Sie das gewünschte Segment aus und wählen Sie dann **Next**.<br><br>![Optimizely – Segment auswählen]({% image_buster /assets/img/optimizely/image6_segment.png %})
    - **Kund:innen, die ein Ereignis triggern:** Erweitern Sie die Dropdown-Liste **Filter** und wählen Sie das ODP-Ereignis aus, das als Auslöser für diese Datensynchronisierung mit Braze dienen soll. Erweitern Sie dann die **Automation Rules** und passen Sie sie wie gewünscht an. <br><br>![Optimizely – Trigger-Ereignis]({% image_buster /assets/img/optimizely/image7_trigger.png %})
 5. Erweitern Sie **Touchpoints**, wählen Sie **Touchpoint 1** zur Bearbeitung aus und wählen Sie dann **Braze**.
@@ -92,7 +92,7 @@ Nachdem Sie die Integration konfiguriert haben, können Sie eine Aktivierung in 
 7. Wählen Sie eine der folgenden Optionen für **Add Users To** im Abschnitt **Configure** aus:
     - **Campaign:** Fügen Sie Kund:innen einer bestimmten Campaign in Braze hinzu. Nachdem Sie diese Option gewählt haben, müssen Sie die Braze-Campaign auswählen.
     - **Canvas:** Fügen Sie Kund:innen einem bestimmten Canvas in Braze hinzu. Nachdem Sie diese Option gewählt haben, müssen Sie das Braze-Canvas auswählen.
-    - **Profile Update Only:** Aktualisieren Sie nur das Braze-Kundenprofil.
+    - **Profile Update or aktualisieren Only:** Update or aktualisieren or aktualisieren Sie nur das Braze-Kundenprofil or Kundenprofil or Nutzerprofil.
 8. (Optional) Wählen Sie die **Number of Additional Fields** aus, die Sie mit Braze synchronisieren möchten (bis zu 20).
     Wählen Sie dann für die Dropdown-Liste und das Eingabefeld jedes zusätzlichen Feldes Folgendes aus:
     - Wählen Sie in jeder Dropdown-Liste **Field #** das Braze-Feld aus, das Sie befüllen möchten.

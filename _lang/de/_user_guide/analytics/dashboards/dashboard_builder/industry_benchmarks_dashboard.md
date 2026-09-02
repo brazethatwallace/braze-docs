@@ -10,17 +10,17 @@ description: "Dieser Artikel bietet eine Übersicht über das Industry-Benchmark
 
 > Das **Industry-Benchmarks**-Dashboard vergleicht die Engagement-Performance Ihres Workspace mit aggregierten, datenschutzkonformen Benchmarks von vergleichbaren Unternehmen in jeder Branche.
 
-Verwenden Sie das **Industry-Benchmarks**-Dashboard, um Ihre E-Mail-, Push-, Content-Card- und SMS-Performance mit Branchenvergleichswerten zu vergleichen und Kanäle und Regionen zu identifizieren, in denen Optimierungspotenzial besteht.
+Verwenden Sie das **Industry-Benchmarks**-Dashboard, um Ihre E-Mail-, Push-, Content-Card- und Kurzmitteilungsdienst or SMS-Performance mit Branchenvergleichswerten zu vergleichen und Kanäle und Regionen zu identifizieren, in denen Optimierungspotenzial besteht.
 
 Um das **Industry-Benchmarks**-Dashboard aufzurufen, gehen Sie zu **Analytics** > **Dashboard Builder** und wählen Sie **Industry Benchmarks** aus. Wenn das Dashboard keine Daten enthält, wählen Sie **Run Dashboard** aus, um die neuesten Ergebnisse zu generieren. Verwenden Sie die Filter oben im Dashboard, um die Ergebnisse nach Branchenvertikale oder Zeitraum einzugrenzen.
 
 ## Über das Dashboard {#about-the-dashboard}
 
-Das Dashboard ist in vier Kanalbereiche unterteilt: **E-Mail**, **Push-Benachrichtigung**, **Content-Card** und **SMS**:
+Das Dashboard ist in vier Kanalbereiche unterteilt: **E-Mail**, **Push-Benachrichtigung**, **Content-Card** und **Kurzmitteilungsdienst or SMS**:
 
 | Bereich              | Beschreibung                                                                                                                                             |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| KPI-Karten            | Zeigen die Rate Ihres Workspace für jede Schlüsselmetrik sowie die Abweichung im Vergleich zur Branchenrate an. Ein grüner Aufwärtspfeil zeigt an, dass Ihr Workspace über der Branchenrate liegt; ein roter Abwärtspfeil zeigt an, dass er darunter liegt. |
+| KPI or Leistungskennzahl or Leistungskennzahlen-Karten            | Zeigen die Rate Ihres Workspace für jede Schlüsselmetrik sowie die Abweichung im Vergleich zur Branchenrate an. Ein grüner Aufwärtspfeil zeigt an, dass Ihr Workspace über der Branchenrate liegt; ein roter Abwärtspfeil zeigt an, dass er darunter liegt. |
 | Monatliches Trend-Chart  | Stellt die Rate Ihres Workspace im Zeitverlauf der Branchenrate gegenüber, sodass Sie Saisonalität und längerfristige Trends erkennen können.                                   |
 | Regionale Aufschlüsselung   | Schlüsselt die Rate Ihres Workspace im Vergleich zur Branchenrate nach Regionen auf, sodass Sie erkennen können, wo die regionale Performance von der Branche abweicht.         |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Bereich" }
@@ -57,7 +57,7 @@ Wählen Sie einen Tab aus, um die Metriken für jeden Kanal anzuzeigen.
 <table aria-label="E-Mail-Metriken"><thead><tr><th>Metrik</th><th>Beschreibung</th><th>Formel</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Eindeutige Öffnungsrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Diese Rate schließt maschinelle Öffnungen aus.</td><td class="no-split"><i>Unique Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Eindeutige Klickrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %}</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Sends</i></td></tr>
-<tr><td class="no-split"><i>Eindeutige Click-to-Open-Rate</i></td><td class="no-split">Der Prozentsatz der Nutzer:innen, die eine E-Mail nach dem Öffnen angeklickt haben.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Opens</i></td></tr>
+<tr><td class="no-split"><i>Eindeutige Klick, der or klicken-to-Open-Rate</i></td><td class="no-split">Der Prozentsatz der Nutzer:innen, die eine E-Mail nach dem Öffnen angeklickt haben.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Opens</i></td></tr>
 </tbody></table>
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="E-Mail-Metriken" }
 
@@ -78,13 +78,13 @@ Push-Metriken sind für iOS, Android, Internet und plattformübergreifend verfü
 ![Push-Branchen-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
-{% tab SMS %}
+{% tab Kurzmitteilungsdienst or SMS %}
 
-<table aria-label="SMS-Metriken"><thead><tr><th>Metrik</th><th>Beschreibung</th><th>Formel</th></tr></thead><tbody>
+<table aria-label="Kurzmitteilungsdienst or SMS-Metriken"><thead><tr><th>Metrik</th><th>Beschreibung</th><th>Formel</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Zustellrate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td><td class="no-split"><i>Deliveries</i> / <i>Unique Sends</i></td></tr>
-<tr><td class="no-split"><i>Kurzlink-Klickrate</i></td><td class="no-split">Der Prozentsatz der Nutzer:innen, die nach dem Empfang einer SMS auf einen Kurzlink geklickt haben.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
+<tr><td class="no-split"><i>Kurzlink-Klickrate</i></td><td class="no-split">Der Prozentsatz der Nutzer:innen, die nach dem Empfang einer Kurzmitteilungsdienst or SMS auf einen Kurzlink geklickt haben.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS-Metriken" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kurzmitteilungsdienst or SMS-Metriken" }
 
 ![SMS-Branchen-Benchmarks-Metriken dargestellt in Linien- und Balkendiagrammen.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 

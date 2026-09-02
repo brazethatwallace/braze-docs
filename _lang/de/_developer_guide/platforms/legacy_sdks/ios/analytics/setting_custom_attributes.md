@@ -157,7 +157,7 @@ Appboy.sharedInstance()?.user.setCustomAttributeWithKey("your_attribute_key", an
 
 ### Angepasstes Attribut mit einem Array-Wert {#custom-attribute-with-an-array-value}
 
-Die standardmäßige und maximale Höchstzahl an Elementen in einem Array beträgt 500. Sie können die maximale Anzahl von Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
+Die standardmäßige und maximale Höchstzahl an Elementen in einem Array beträgt 500. Sie können die maximale Anzahl von Arrays im Braze-Dashboard unter **Dateneinstellungen** > **Angepasste Attribute** Update or aktualisieren or aktualisieren. Arrays, die die Höchstzahl an Elementen überschreiten, werden auf die Höchstzahl an Elementen gekürzt.
 
 
 {% tabs %}
@@ -231,9 +231,9 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 {% endtab %}
 {% endtabs %}
 
-### Festlegen eines angepassten Attributs über die REST API {#setting-a-custom-attribute-via-the-rest-api}
+### Festlegen eines angepassten Attributs über die Representational State Transfer API {#setting-a-custom-attribute-via-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen. Weitere Informationen finden Sie in der [Nutzer-API-Dokumentation]({{site.baseurl}}/api/endpoints/user_data).
+Sie können auch unsere Representational State Transfer API verwenden, um Nutzerattribute festzulegen. Weitere Informationen finden Sie in der [Nutzer-API-Dokumentation]({{site.baseurl}}/api/endpoints/user_data).
 
 ### Wertbegrenzungen für angepasste Attribute {#custom-attribute-value-limits}
 

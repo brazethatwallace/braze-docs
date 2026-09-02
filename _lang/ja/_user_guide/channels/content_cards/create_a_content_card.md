@@ -40,7 +40,7 @@ search_rank: 3.9
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスの設定後、キャンバスビルダーでメッセージステップを追加します。ステップにわかりやすく意味のある名前を付けます。
 3. メッセージングチャネルとして **Content Cards** を選択します。
-4. BrazeがContent Cardのオーディエンスの適格性とパーソナライゼーションを計算するタイミングを選択します。ステップエントリ時またはファーストインプレッション時（推奨）のいずれかを選択できます。Content Cardsを含むステップは、スケジュール配信またはアクションベースで設定できます。
+4. BrazeがContent カードのオーディエンスの適格性とパーソナライゼーションを計算するタイミングを選択します。ステップエントリ時またはファーストインプレッション時（推奨）のいずれかを選択できます。Content Cardsを含むステップは、スケジュール配信またはアクションベースで設定できます。
 5. ユーザーが購入を完了した場合やカスタムイベントを実行した場合にContent Cardsを削除するかどうかを選択します。
 6. Content Cardsの有効期限（フィード内の表示期間）を設定します。一定期間経過後、または特定の日時で設定できます。
 7. **配信設定** で、このステップのオーディエンス（受信者）を必要に応じてフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、オーディエンスをさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
@@ -57,12 +57,12 @@ search_rank: 3.9
 
 | メッセージタイプ | 例 | 説明 |
 |---|---|---|
-| [クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![ワークアウトクラスの予約を促す小さなアイコンとテキストが表示されたクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの先頭に配置されるオプション画像を備えたシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンの使用が最適です。 |
-| [キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストが表示されたキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。 |
-| [画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のテキスト以外のクリエイティブコンテンツ用のスペースで注目を集めます。 |
+| [クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![ワークアウトクラスの予約を促す小さなアイコンとテキストが表示されたクラシックContent カード。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの先頭に配置されるオプション画像を備えたシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンの使用が最適です。 |
+| [キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストが表示されたキャプション付きContent カード。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。 |
+| [画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![テキストのみの画像のみContent カード。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のテキスト以外のクリエイティブコンテンツ用のスペースで注目を集めます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2: メッセージタイプを指定する" }
 
-## ステップ3: Content Cardを作成する {#step-3-compose-a-content-card}
+## ステップ3: Content カードを作成する {#step-3-compose-a-content-card}
 
 メッセージエディターの「**作成**」タブで、メッセージの内容と動作のあらゆる側面を編集できます。
 
@@ -86,29 +86,29 @@ search_rank: 3.9
 
 #### 画像 {#image}
 
-Content Cardに画像を追加するには、**画像を追加**を選択するか、画像URLを入力します。**画像を追加**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択したり、新しい画像を追加したりできます。
+Content カードに画像を追加するには、**画像を追加**を選択するか、画像URLを入力します。**画像を追加**を選択すると**メディアライブラリ**が開き、以前にアップロードした画像を選択したり、新しい画像を追加したりできます。
 
-メッセージタイプとプラットフォームごとに推奨される比率と要件が異なる場合があるため、画像を依頼または作成する前に必ず確認してください。Content Cardのメッセージフィールドは合計サイズが2&nbsp;KBに制限されていることにご注意ください。
+メッセージタイプとプラットフォームごとに推奨される比率と要件が異なる場合があるため、画像を依頼または作成する前に必ず確認してください。Content カードのメッセージフィールドは合計サイズが2&nbsp;KBに制限されていることにご注意ください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 #### トップに固定 {#pin-to-top}
 
-Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeは時系列順に並べます。BrazeがContent Cardを配信する際、カードは固定または非固定のいずれかであり、そのステータスはカードの有効期間中変更されません。キャンペーンの固定設定を変更した場合、更新は変更後に送信されたカードにのみ適用されます。すでにユーザーのフィードにあるカードの固定ステータスは変更されません。
+Brazeは固定されたカードをユーザーのフィードの上部に表示し、ユーザーはそれを閉じることができません。ユーザーのフィードに複数の固定カードがある場合、Brazeは時系列順に並べます。BrazeがContent カードを配信する際、カードは固定または非固定のいずれかであり、そのステータスはカードの有効期間中変更されません。キャンペーンの固定設定を変更した場合、更新は変更後に送信されたカードにのみ適用されます。すでにユーザーのフィードにあるカードの固定ステータスは変更されません。
 
 ![「このカードをフィードのトップに固定する」オプションが選択された、モバイルとWebのBrazeにおけるContent Cardプレビューの並列表示。]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 #### クリック時の動作 {#on-click-behavior}
 
-顧客がカード内の表示されたリンクをクリックすると、そのリンクはアプリの深部に誘導するか、別のサイトに誘導することができます。Content Cardのクリック時の動作を選択する場合、それに応じて**リンクテキスト**を更新することを忘れないでください。
+顧客がカード内の表示されたリンクをクリックすると、そのリンクはアプリの深部に誘導するか、別のサイトに誘導することができます。Content カードのクリック時の動作を選択する場合、それに応じて**リンクテキスト**を更新することを忘れないでください。
 
-Content Cardのリンクには以下のアクションが利用できます。
+Content カードのリンクには以下のアクションが利用できます。
 
 | アクション | 説明 |
 |---|---|
 | Web URLにリダイレクト | ネイティブでないWebページを開きます。 |
 | [アプリへのディープリンク]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | アプリ内の既存の画面にディープリンクします。 |
-| カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を選択します。別のContent Cardの表示や追加のメッセージングのトリガーに使用できます。 |
+| カスタムイベントを記録 | トリガーする[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を選択します。別のContent カードの表示や追加のメッセージングのトリガーに使用できます。 |
 | カスタム属性を記録 | 現在のユーザーに設定する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を選択します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="クリック時の動作" }
 
@@ -191,7 +191,7 @@ Content Cardsは起動後に編集できません。新しいユーザーへの�
 
 #### Content Cardsのサイズ制限 {#size-limitations-for-content-cards}
 
-単一のContent Cardのデータペイロード全体は、Liquidパーソナライゼーションがレンダリングされた**後**に2 KBを超えることができません。これには以下が含まれます。
+単一のContent カードのデータペイロード全体は、Liquidパーソナライゼーションがレンダリングされた**後**に2 KBを超えることができません。これには以下が含まれます。
 
 * タイトル
 * メッセージ
@@ -250,7 +250,7 @@ Content Cardsのペイロードサイズを管理するためのベストプラ�
 
 ### ライブContent Cardsの管理 {#managing-live-content-cards}
 
-Content Cardsが送信された後、メールと同様に「受信トレイ」で配信を待ちます。コンテンツがContent Cardに取り込まれた後（表示時）、その有効期間中は変更できません。これは、Connected ContentでAPIを呼び出していて、エンドポイントからのデータが変更された場合でも適用されます。このデータは更新されません。新しいユーザーへの送信を停止し、ユーザーのフィードから削除することのみが可能です。キャンペーンを変更した場合、変更後に送信されたカードのみが更新を含みます。
+Content Cardsが送信された後、メールと同様に「受信トレイ」で配信を待ちます。コンテンツがContent カードに取り込まれた後（表示時）、その有効期間中は変更できません。これは、Connected ContentでAPIを呼び出していて、エンドポイントからのデータが変更された場合でも適用されます。このデータは更新されません。新しいユーザーへの送信を停止し、ユーザーのフィードから削除することのみが可能です。キャンペーンを変更した場合、変更後に送信されたカードのみが更新を含みます。
 
 #### 開始済みカードの更新 {#updating-launched-cards}
 
@@ -268,7 +268,7 @@ Content Cardsが送信された後、メールと同様に「受信トレイ」�
 2. キャンペーンを複製し、編集を行い、新しいバージョンを開始します。
 
 キャンペーンを複製する場合、新しいバージョンのオーディエンスを定義する必要があります。セグメンテーションフィルターを使用して、更新されたカードを受け取るユーザーをコントロールしてください。
-* ユーザーがContent Cardに再適格であるべきでない場合、フィルター `Received Message from キャンペーン` を条件 `Has Not` に設定して、以前のバージョンのContent Cardを受信していないユーザーでフィルタリングできます。
+* ユーザーがContent カードに再適格であるべきでない場合、フィルター `Received Message from キャンペーン` を条件 `Has Not` に設定して、以前のバージョンのContent カードを受信していないユーザーでフィルタリングできます。
 * 以前のカードを受信したユーザーがX日後に再適格であるべき場合、フィルター `Last Received Message from specific campaign` をX日以上前に設定するか、**または** `Received Message from キャンペーン` を条件 `Has Not` で設定できます。
 
 ###### 影響 {#impact}

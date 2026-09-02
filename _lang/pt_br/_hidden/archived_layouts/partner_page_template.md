@@ -55,8 +55,8 @@ Os requisitos a seguir são requisitos típicos que você pode precisar da Braze
 
 | Requisito | Origem | Acesso | Descrição |
 |---|---|---|---|
-| Chave da API REST do espaço de trabalho da Braze | Plataforma Braze | Página **Configurações** > **Chave de API** | Esta descrição deve indicar o que fazer com a chave da API REST do espaço de trabalho. |
-| Endpoint da API da Braze | Plataforma Braze | Confira nossos [endpoints listados]({{site.baseurl}}/api/basics#endpoints) ou abra um [ticket de suporte]({{site.baseurl}}/braze_support). | Descrição pendente. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do espaço de trabalho da Braze | Plataforma Braze | Página **Configurações** > **Chave de API or interface de programação do aplicativo (API)** | Esta descrição deve indicar o que fazer com a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional do espaço de trabalho. |
+| Endpoint da API or interface de programação do aplicativo (API) da Braze | Plataforma Braze | Confira nossos [endpoints listados]({{site.baseurl}}/api/basics#endpoints) ou abra um [ticket de suporte]({{site.baseurl}}/braze_support). | Descrição pendente. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Requisitos ou pré-requisitos" }
 
 ## Integração [tipo de integração] {#type-of-integration-integration}

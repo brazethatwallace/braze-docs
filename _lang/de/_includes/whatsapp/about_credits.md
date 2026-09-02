@@ -1,4 +1,4 @@
-Ab dem 1. Juli 2025 rechnet WhatsApp pro Nachricht ab. Die Nachrichtenpreise basieren sowohl auf der Landesvorwahl der Telefonnummer der Empfänger:innen als auch auf dem Typ der Nachricht, die Sie senden. Der Nachrichtentyp wird anhand des [Nachrichten-Templates](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) bestimmt, das Sie im WhatsApp Manager zur Genehmigung einreichen.
+Ab dem 1. Juli 2025 rechnet WhatsApp pro Nachricht ab. Die Nachrichtenpreise basieren sowohl auf der Landesvorwahl der Telefonnummer der Empfänger:innen als auch auf dem Typ der Nachricht, die Sie senden. Der Nachrichtentyp wird anhand des [Nachrichten-Templates](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines/) bestimmt, das Sie im WhatsApp Manager:in zur Genehmigung einreichen.
 
 {% alert note %}
 Alle vom Unternehmen initiierten Konversationen auf der Plattform müssen mit einer genehmigten Template-Nachricht beginnen.
@@ -6,7 +6,7 @@ Alle vom Unternehmen initiierten Konversationen auf der Plattform müssen mit ei
 
 {% if include.content == "h2" %}##{% else include.content == "h3" %}###{% endif %} Definitionen der Nachrichten-Templates
 
-Dies sind die Nachrichten-Templates, die Sie im WhatsApp Manager zur Genehmigung einreichen können:
+Dies sind die Nachrichten-Templates, die Sie im WhatsApp Manager:in zur Genehmigung einreichen können:
 
 | Template | Definition |
 |----------|------------|
@@ -23,6 +23,6 @@ Hier sind einige Szenarien, in denen Ihre WhatsApp-Nachricht kostenlos ist:
 |-----------|---------|
 | Alle Service-Konversationen | _Ab dem 1. November 2024_<br><br>Wenn Nutzer:innen Ihre Marke kontaktieren (und damit das 24-Stunden-Kundenservice-Fenster starten), werden nicht-templatebasierte Antwortnachrichten nicht berechnet. Hinweis: Wenn Ihre Marke den Nutzer:innen jedoch mit einem Template antwortet, werden Ihnen weiterhin Kosten basierend auf dem Template-Typ berechnet. |
 | Utility-Templates, die innerhalb eines 24-Stunden-Kundenservice-Fensters gesendet werden | _Ab dem 1. Juli 2025_<br><br>Ein 24-Stunden-Kundenservice-Fenster wird erstellt, wenn Endnutzer:innen Ihre Marke kontaktieren. Wenn Ihre Marke mit einem Utility-Template antwortet, ist dies kostenlos. Utility-Templates, die außerhalb eines 24-Stunden-Kundenservice-Fensters gesendet werden (z. B. Utility-Templates, die Ihre Marke proaktiv für Kontoerinnerungen und Auftragsstatus-Updates sendet), werden weiterhin berechnet. |
-| Kostenlose Einstiegspunkt-Konversationen | Eine kostenlose Einstiegspunkt-Konversation wird eröffnet, wenn 1) Nutzer:innen Ihre Marke über eine Click-to-WhatsApp-Anzeige oder einen Facebook-Seiten-Call-to-Action-Button kontaktieren und 2) Ihre Marke innerhalb von 24 Stunden antwortet. Die kostenlose Einstiegspunkt-Konversation wird eröffnet, sobald Ihre Marke antwortet, und dauert 72 Stunden. Innerhalb des 72-Stunden-Fensters kann Ihre Marke Nachrichten-Templates kostenlos an Nutzer:innen senden. Ihre Marke kann jedoch nur nicht-templatebasierte Nachrichten senden, wenn ein offenes 24-Stunden-Kundenservice-Fenster besteht. |
+| Kostenlose Einstiegspunkt-Konversationen | Eine kostenlose Einstiegspunkt-Konversation wird eröffnet, wenn 1) Nutzer:innen Ihre Marke über eine Klick, der or klicken-to-WhatsApp-Anzeige oder einen Facebook-Seiten-Call-to-Action-Button kontaktieren und 2) Ihre Marke innerhalb von 24 Stunden antwortet. Die kostenlose Einstiegspunkt-Konversation wird eröffnet, sobald Ihre Marke antwortet, und dauert 72 Stunden. Innerhalb des 72-Stunden-Fensters kann Ihre Marke Nachrichten-Templates kostenlos an Nutzer:innen senden. Ihre Marke kann jedoch nur nicht-templatebasierte Nachrichten senden, wenn ein offenes 24-Stunden-Kundenservice-Fenster besteht. |
 | Antwortnachrichten | Antwortnachrichten ermöglichen es Ihrer Marke, nicht-templatebasierte Nachrichten als Antwort auf Nutzer:innen-Nachrichten zu senden. Antwortnachrichten können gesendet werden, wenn ein offenes 24-Stunden-Kundenservice-Fenster besteht, z. B. wenn Nutzer:innen Ihre Marke auf WhatsApp kontaktieren.<br><br>Beachten Sie, dass die Template-Nachricht, die die Konversation startet, weiterhin berechnet wird, nachfolgende Antwortnachrichten jedoch kostenlos sind. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}

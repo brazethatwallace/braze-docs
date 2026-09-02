@@ -216,8 +216,8 @@ La dernière date à laquelle un événement personnalisé ou un événement d'a
 
 | Options de segmentation | Filtre déroulant | Options de saisie | Exemples |
 | ---------------------| --------------- | ------------- | -------- |
-| Vérifier si l'attribut de date/heure **est antérieur à** une **date sélectionnée** | **BEFORE** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur a une date antérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
-| Vérifier si l'attribut de date/heure **est postérieur à** une **date sélectionnée** | **AFTER** | **CALENDAR DATE SELECTOR** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur a une date postérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut de date/heure **est antérieur à** une **date sélectionnée** | **BEFORE** | **CALENDAR DATE sélecteur** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur a une date antérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
+| Vérifier si l'attribut de date/heure **est postérieur à** une **date sélectionnée** | **AFTER** | **CALENDAR DATE sélecteur** | Si ce filtre spécifie `2024-01-31` et qu'un profil utilisateur a une date postérieure à `2024-1-31`, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut de date/heure remonte à **plus de X jours** | **MORE THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date remontant à plus de sept jours, l'utilisateur correspondra à ce filtre. |
 | Vérifier si l'attribut de date/heure remonte à **moins de X jours** | **LESS THAN** | **NUMBER OF DAYS AGO** | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date remontant à moins de sept jours, l'utilisateur correspondra à ce filtre.|
 | Vérifier si l'attribut de date/heure est dans **plus de X jours** dans le futur | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** | Si ce filtre spécifie `7` et qu'un profil utilisateur a une date dans plus de sept jours dans le futur, l'utilisateur correspondra à ce filtre.|

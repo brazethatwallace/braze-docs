@@ -1,29 +1,29 @@
 ---
-nav_title: Google tag manager
-article_title: Google Tag Manager with the Braze SDK
+nav_title: Google tag gestionnaire
+article_title: Google Tag gestionnaire with the Braze SDK
 platform:
   - Android
   - FireOS
   - Swift
 page_order: 1.1
-description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag Manager."
+description: "Learn how to initialize the Braze SDK using methods like runtime initialization, delayed initialization, or Google Tag gestionnaire."
 
 ---
-## À propos de Google Tag Manager pour le Web {#google-tag-manager}
+## À propos de Google Tag gestionnaire pour le Web {#google-tag-manager}
 
-Google Tag Manager (GTM) vous permet d'ajouter, de supprimer et de modifier à distance des balises sur votre site web, sans nécessiter de mise en production ni de ressources techniques. Braze propose les modèles suivants pour le SDK Web :
+Google Tag gestionnaire (GTM) vous permet d'ajouter, de supprimer et de modifier à distance des balises sur votre site web, sans nécessiter de mise en production ni de ressources techniques. Braze propose les modèles suivants pour le SDK Web :
 
 | Type de balise | Cas d'utilisation |
 |--------|--------|
 | Balise d'initialisation | Cette balise vous permet d'[intégrer le SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web) sans avoir à modifier le code de votre site. |
 | Balise d'action | Cette balise vous permet de [créer des Content Cards]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), de [définir les attributs utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) et de [gérer la collecte des données]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de Google Tag Manager pour le Web" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="À propos de Google Tag gestionnaire pour le Web" }
 
 ## Séquençage des balises pour les balises d'action Braze {#tag-sequencing-for-braze-action-tags}
 
 La balise Braze Initialization doit se déclencher avant toute balise qui appelle des méthodes du SDK Braze (telles que `braze.getUser()`, `braze.logCustomEvent()` ou `braze.logPurchase()`). Si ces méthodes se déclenchent avant l'initialisation du SDK, vous pourriez rencontrer des erreurs comme `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`.
 
-Pour configurer le séquençage des balises dans Google Tag Manager :
+Pour configurer le séquençage des balises dans Google Tag gestionnaire :
 
 1. Ouvrez la balise qui appelle les méthodes du SDK Braze (comme une balise HTML personnalisée ou une balise d'action Braze).
 2. Accédez à **Advanced Settings** > **Tag Sequencing**.

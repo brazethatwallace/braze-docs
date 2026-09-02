@@ -36,7 +36,7 @@ Se você selecionar **Scheduled Delivery** e não optar por enviar no fuso local
 
 Você pode entregar a mensagem no fuso local dos usuários para que membros do seu público internacional não recebam uma notificação em horários inconvenientes. Campaigns com fuso local precisam ser agendadas com 24 horas de antecedência para garantir que usuários elegíveis de todos os fusos horários possam recebê-las. Consulte as [Perguntas frequentes sobre Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#how-do-i-schedule-a-local-time-zone-campaign) para entender como Campaigns com fuso local funcionam e as regras de entrega associadas.
 
-Segments direcionados com Campaigns de fuso local devem incluir, no mínimo, uma janela de 2 dias para abranger usuários de todos os fusos horários. Por exemplo, se sua campaign está agendada para enviar à noite, mas tem apenas uma janela de 1 dia, alguns usuários podem ter saído do Segment quando seu fuso horário for alcançado. Exemplos de filtros que criam uma janela de 2 dias são "usado pela última vez há mais de 1 dia" e "usado pela última vez há menos de 3 dias", ou "primeira compra há mais de 7 dias" e "primeira compra há menos de 9 dias".
+Segments direcionados com Campaigns de fuso local devem incluir, no mínimo, uma janela de 2 dias para abranger usuários de todos os fusos horários. Por exemplo, se sua campaign está agendada para enviar à noite, mas tem apenas uma janela de 1 dia, alguns usuários podem ter saído do Segment or segmento quando seu fuso horário for alcançado. Exemplos de filtros que criam uma janela de 2 dias são "usado pela última vez há mais de 1 dia" e "usado pela última vez há menos de 3 dias", ou "primeira compra há mais de 7 dias" e "primeira compra há menos de 9 dias".
 
 ### Casos de uso {#use-cases}
 
@@ -50,7 +50,7 @@ O [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/in
 
 ### Regras de entrega {#delivery-rules}
 
-Como o horário ideal de um usuário pode ser qualquer momento ao longo de 24 horas em todos os fusos horários globais, todas as campanhas com Intelligent Timing devem ser agendadas com 48 horas de antecedência. Agendar com 48 horas de antecedência garante a entrega a todos os usuários no mundo todo, já que um único dia abrange aproximadamente 48 horas em todos os fusos horários. Além disso, de forma semelhante às campanhas com horário designado, mensagens com uma janela de 1 dia perdem os usuários que saem do Segment antes que o horário ideal no fuso horário deles seja alcançado. Os Segments para campanhas com Intelligent Timing devem incorporar uma janela de pelo menos 3 dias para compensar isso.
+Como o horário ideal de um usuário pode ser qualquer momento ao longo de 24 horas em todos os fusos horários globais, todas as campanhas com Intelligent Timing devem ser agendadas com 48 horas de antecedência. Agendar com 48 horas de antecedência garante a entrega a todos os usuários no mundo todo, já que um único dia abrange aproximadamente 48 horas em todos os fusos horários. Além disso, de forma semelhante às campanhas com horário designado, mensagens com uma janela de 1 dia perdem os usuários que saem do Segment or segmento antes que o horário ideal no fuso horário deles seja alcançado. Os Segments para campanhas com Intelligent Timing devem incorporar uma janela de pelo menos 3 dias para compensar isso.
 
 Se o perfil de um usuário não tiver dados suficientes para calcular um horário ideal, você pode escolher um método de fallback para enviar no horário mais popular de uso do app entre todos os usuários ou em um horário de fallback personalizado definido.
 
@@ -62,17 +62,17 @@ As campanhas com Intelligent Timing funcionam melhor para mensagens únicas e re
 
 Para Campaigns que usam entrega agendada, os critérios de público são sempre avaliados no momento do envio agendado, não quando a Campaign é lançada. Isso se aplica a qualquer postergação entre o agendamento e o envio — por exemplo, limite de frequência, fuso local, Intelligent Timing ou um cronograma de disparo.
 
-### Momento das alterações de Segment {#timing-of-segment-changes}
+### Momento das alterações de Segment or segmento {#timing-of-segment-changes}
 
-Se você modificar um Segment usado como público de uma Campaign agendada, as alterações feitas próximas ao horário de envio agendado geralmente são incluídas quando o público é avaliado. O ponto de corte exato varia, mas as alterações são incluídas se terminarem de ser processadas antes da Braze montar o público para aquele envio.
+Se você modificar um Segment or segmento usado como público de uma Campaign agendada, as alterações feitas próximas ao horário de envio agendado geralmente são incluídas quando o público é avaliado. O ponto de corte exato varia, mas as alterações são incluídas se terminarem de ser processadas antes da Braze montar o público para aquele envio.
 
-Por exemplo, se você atualizar um Segment às 15h50 para uma Campaign agendada para envio às 16h, a Braze usa os critérios atualizados do Segment ao avaliar o público, desde que as alterações terminem de ser processadas antes do início da execução da Campaign.
+Por exemplo, se você atualizar um Segment or segmento às 15h50 para uma Campaign agendada para envio às 16h, a Braze usa os critérios atualizados do Segment or segmento ao avaliar o público, desde que as alterações terminem de ser processadas antes do início da execução da Campaign.
 
 #### Práticas recomendadas {#best-practices}
 
-Para dar tempo às alterações de Segment de serem processadas antes do envio das suas Campaigns agendadas:
+Para dar tempo às alterações de Segment or segmento de serem processadas antes do envio das suas Campaigns agendadas:
 
-- **Planeje com antecedência:** Faça alterações no Segment bem antes do horário de envio agendado para que elas tenham tempo de serem processadas.
+- **Planeje com antecedência:** Faça alterações no Segment or segmento bem antes do horário de envio agendado para que elas tenham tempo de serem processadas.
 - **Teste primeiro:** Quando possível, teste as alterações em uma Campaign menor antes de aplicá-las a Campaigns maiores e mais críticas.
 
 Para saber mais sobre opções de entrega agendada, consulte [Tipos de entrega e entrada]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options).

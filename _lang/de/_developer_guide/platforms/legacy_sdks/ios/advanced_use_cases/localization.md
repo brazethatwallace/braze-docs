@@ -12,7 +12,7 @@ noindex: true
 
 # Lokalisierung {#localization}
 
-Die Lokalisierung wird im Braze iOS SDK unterstützt. Außer Englisch unterstützt Braze noch weitere Sprachen für die integrierten SDK-Nachrichten. Diese beziehen sich auf die Standardmeldungen, die in den mit Braze integrierten Anwendungen angezeigt werden, wie z. B. die Stellen in der App, an denen es Probleme mit der Verbindung gibt (z. B. „Netzwerkverbindung kann nicht hergestellt werden. Bitte versuchen Sie es später noch einmal.“). Wenn die Sprache des Telefons auf eine der unterstützten Sprachen eingestellt ist, werden alle Braze-Standardzeichenfolgen, die innerhalb einer integrierten Anwendung ausgelöst werden, automatisch in dieser Sprache angezeigt.
+Die Lokalisierung wird im Braze iOS SDK or Software-Development-Kit unterstützt. Außer Englisch unterstützt Braze noch weitere Sprachen für die integrierten SDK or Software-Development-Kit-Nachrichten. Diese beziehen sich auf die Standardmeldungen, die in den mit Braze integrierten Anwendungen angezeigt werden, wie z. B. die Stellen in der App, an denen es Probleme mit der Verbindung gibt (z. B. „Netzwerkverbindung kann nicht hergestellt werden. Bitte versuchen Sie es später noch einmal.“). Wenn die Sprache des Telefons auf eine der unterstützten Sprachen eingestellt ist, werden alle Braze-Standardzeichenfolgen, die innerhalb einer integrierten Anwendung ausgelöst werden, automatisch in dieser Sprache angezeigt.
 
 Wenn Sie eine vollständige Liste der unterstützten Sprachen suchen, die Sie Ihren Nutzer:innen in deren Profilen zuweisen können, sehen Sie sich unsere [Liste der Nutzer:innensprachen]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes) an.
 

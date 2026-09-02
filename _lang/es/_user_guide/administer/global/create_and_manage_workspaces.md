@@ -74,7 +74,7 @@ Nos referimos a los diferentes sitios y aplicaciones que se recopilan dentro de 
 
 #### Claves de API de la aplicación {#app-api-keys}
 
-Después de añadir tu instancia de la aplicación, tendrás acceso a su clave de API. La clave de API se utiliza para realizar solicitudes entre tu instancia de la aplicación y la API de Braze. La clave de API también es importante para integrar el SDK de Braze con tu aplicación o sitio web.
+Después de añadir tu instancia de la aplicación, tendrás acceso a su clave de API. La clave de API se utiliza para realizar solicitudes entre tu instancia de la aplicación y la API de Braze. La clave de API también es importante para integrar el SDK or kit de desarrollo de software de Braze con tu aplicación o sitio web.
 
 ![Página de configuración de la aplicación Upon Voyage iOS con campos para la clave de API y el punto final de SDK.]({% image_buster /assets/img/workspaces/app_api_key.png %})
 
@@ -82,11 +82,11 @@ Después de añadir tu instancia de la aplicación, tendrás acceso a su clave d
 Debes crear instancias de la aplicación separadas para cada versión de tu aplicación en cada plataforma. Por ejemplo, si tienes versiones Free y Pro de tu aplicación tanto en iOS como en Android, crea cuatro instancias de la aplicación dentro de tu espacio de trabajo (aplicación Free iOS, aplicación Free Android, aplicación Pro iOS y aplicación Pro Android). Esto te dará cuatro claves de API para usar, una para cada instancia de la aplicación.
 {% endalert %}
 
-#### Versión del SDK en vivo {#live-sdk-version}
+#### Versión del SDK or kit de desarrollo de software en vivo {#live-sdk-version}
 
-La versión del SDK en vivo que se muestra en la página Configuración de la aplicación para una aplicación específica es la versión más alta de la aplicación con al menos el 5 % del total de tus sesiones diarias y que tiene al menos 500 sesiones en el último día.
+La versión del SDK or kit de desarrollo de software en vivo que se muestra en la página Configuración de la aplicación para una aplicación específica es la versión más alta de la aplicación con al menos el 5 % del total de tus sesiones diarias y que tiene al menos 500 sesiones en el último día.
 
-Este campo aparece después de que hayas integrado el SDK de Braze con tu aplicación o sitio web. Si hay una versión más reciente del SDK de Braze disponible para tu plataforma, se indicará aquí con la etiqueta "Newer Version Available".
+Este campo aparece después de que hayas integrado el SDK or kit de desarrollo de software de Braze con tu aplicación o sitio web. Si hay una versión más reciente del SDK or kit de desarrollo de software de Braze disponible para tu plataforma, se indicará aquí con la etiqueta "Newer Version Available".
 
 ![Sección "Versión del SDK en vivo" con un valor de campo de "5.4.0" y un icono que indica que hay una nueva versión disponible.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
 

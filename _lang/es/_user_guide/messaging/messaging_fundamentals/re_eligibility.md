@@ -39,7 +39,7 @@ El número de veces que un usuario recibe una campaña desencadenada por API pue
 Por ejemplo, supongamos que estás utilizando una campaña desencadenada por API para enviar al usuario una campaña sobre un artículo que vio recientemente. En este caso, puedes limitar la campaña a enviar como máximo un mensaje por día, independientemente de cuántos artículos haya visto, mientras activas el desencadenante de API para cada artículo. Por otro lado, si tu campaña desencadenada por API es transaccional, querrás asegurarte de que el usuario reciba la campaña cada vez que realice la transacción, estableciendo el retraso en cero minutos.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 
 Para activar la reelegibilidad de un Canvas, selecciona **Permitir que los usuarios vuelvan a entrar en este Canvas** en la sección **Controles de entrada**. Puedes elegir entre permitir que los usuarios vuelvan a entrar después de la duración máxima del Canvas o después de un período especificado.
 

@@ -65,7 +65,7 @@ El tipo de notificación es "Notificación push estándar" de forma predetermina
 
 ### Configuración específica del dispositivo {#device-specific-settings}
 
-Puedes editar la configuración específica de cada plataforma en el editor. Esto incluye ajustes como [botones de acción para notificación push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), canales y grupos de notificación, TTL, prioridad de visualización, sonidos y más.
+Puedes editar la configuración específica de cada plataforma en el editor. Esto incluye ajustes como [botones de acción para notificación push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons), canales y grupos de notificación, TTL or tiempo de vida, prioridad de visualización, sonidos y más.
 
 Para obtener más información sobre la configuración específica de cada dispositivo, consulta las siguientes colecciones de artículos:
 

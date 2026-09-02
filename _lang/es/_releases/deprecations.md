@@ -15,7 +15,7 @@ Puede que hayas llegado hasta aquí buscando un término para una integración o
 ## Artículos obsoletos {#deprecated-articles}
 
 - [Devolución de llamada push personalizada del receptor de difusión para Android]({{site.baseurl}}/releases/deprecations/custom_broadcast_receiver/)
-- [Configuración del SDK de Eclipse]({{site.baseurl}}/releases/deprecations/eclipse_setup_deprecated/)
+- [Configuración del SDK or kit de desarrollo de software de Eclipse]({{site.baseurl}}/releases/deprecations/eclipse_setup_deprecated/)
 - [Supresión de TLS 1.0 y 1.1]({{site.baseurl}}/releases/deprecations/tls_deprecation/)
 - [Integración de webhook Twilio]({{site.baseurl}}/releases/deprecations/twilio/)
 - [Asociación con Apptimize]({{site.baseurl}}/releases/deprecations/apptimize/)
@@ -42,9 +42,9 @@ El uso de un `BroadcastReceiver` personalizado para las notificaciones push ha q
 
 La compatibilidad con Grouparoo se interrumpió a partir de abril de 2022.
 
-### SDK para Windows de Braze {#braze-windows-sdk}
+### SDK or kit de desarrollo de software para Windows de Braze {#braze-windows-sdk}
 
-**24 de marzo de 2022**: El SDK de Windows de Braze está obsoleto, y no se pueden crear nuevas aplicaciones de Windows en el panel de Braze.<br>
+**24 de marzo de 2022**: El SDK or kit de desarrollo de software de Windows de Braze está obsoleto, y no se pueden crear nuevas aplicaciones de Windows en el panel de Braze.<br>
 **15 de septiembre de 2022**: No se pueden enviar mensajes nuevos a las aplicaciones de Windows. Los mensajes existentes y la recopilación de datos no se ven afectados.<br>
 **11 de enero de 2024**: Braze ya no servirá mensajes ni recopilará datos de las aplicaciones de Windows.
 
@@ -77,7 +77,7 @@ El soporte para Factual se ha interrumpido a partir de junio de 2020. Factual fu
 
 **Soporte retirado**: enero de 2020
 
-La compatibilidad con la [integración de webhook de Twilio]({{site.baseurl}}/partners/twilio/) se ha interrumpido a partir del 31 de enero de 2020. Si deseas seguir accediendo a los servicios SMS con Braze, consulta nuestra [documentación sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
+La compatibilidad con la [integración de webhook de Twilio]({{site.baseurl}}/partners/twilio/) se ha interrumpido a partir del 31 de enero de 2020. Si deseas seguir accediendo a los servicios servicio de mensajes cortos con Braze, consulta nuestra [documentación sobre servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/).
 
 ### Asociación con Apptimize {#apptimize-partnership}
 
@@ -92,7 +92,7 @@ Si actualmente utilizas [Apptimize con Braze]({{site.baseurl}}/releases/deprecat
 
 Braze ha mejorado el aspecto de los mensajes dentro de la aplicación para ajustarse a las buenas prácticas de UX y UI y ya no admite los mensajes dentro de la aplicación originales.
 
-Braze pasó a una nueva forma de mensajes dentro de la aplicación con las siguientes versiones del SDK:
+Braze pasó a una nueva forma de mensajes dentro de la aplicación con las siguientes versiones del SDK or kit de desarrollo de software:
 - iOS: `2.19.0`
 - Android: `1.13.0`
 - Web: `1.3.0`
@@ -103,14 +103,14 @@ Antes de estas versiones, Braze admitía "mensajes originales dentro de la aplic
 
 **Soporte retirado**: 1 de julio de 2019.
 
-El SDK de Braze proporcionaba un widget de comentarios que podía añadirse a tu aplicación para permitir a los usuarios dejar comentarios mediante el método `submitfeedback` y pasarlos a Desk.com o Zendesk, y que se gestionaba en el dashboard.
+El SDK or kit de desarrollo de software de Braze proporcionaba un widget de comentarios que podía añadirse a tu aplicación para permitir a los usuarios dejar comentarios mediante el método `submitfeedback` y pasarlos a Desk.com o Zendesk, y que se gestionaba en el dashboard.
 
 ### Google Cloud Messaging (GCM)
 
 **Soporte retirado**: retirada del soporte de Braze: julio de 2018, retirada del soporte por parte de Google: 29 de mayo de 2019<br>
 **Sustituido por**: [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase)
 
-Google ha [eliminado la compatibilidad con GCM](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) a partir del 29 de mayo de 2019. Braze ha dejado de ser compatible con GCM desde los SDK de Android en julio de 2018, lo que se ha anotado en nuestros [registros de cambios del SDK de Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md). Esto significa que los tokens de GCM existentes seguirán funcionando y podrás enviar mensajes a tus usuarios actuales. Sin embargo, no podrás enviar mensajes a nuevos usuarios.
+Google ha [eliminado la compatibilidad con GCM](https://developers.googleblog.com/2018/04/time-to-upgrade-from-gcm-to-fcm.html) a partir del 29 de mayo de 2019. Braze ha dejado de ser compatible con GCM desde los SDK or kit de desarrollo de software de Android en julio de 2018, lo que se ha anotado en nuestros [registros de cambios del SDK or kit de desarrollo de software de Android](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md). Esto significa que los tokens de GCM existentes seguirán funcionando y podrás enviar mensajes a tus usuarios actuales. Sin embargo, no podrás enviar mensajes a nuevos usuarios.
 
 Los clientes que aún no hayan migrado a [Firebase Cloud Messaging (FCM)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) pueden verse afectados por este cambio.
 

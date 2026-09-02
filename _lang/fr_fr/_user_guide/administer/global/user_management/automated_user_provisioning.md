@@ -33,7 +33,7 @@ La disponibilité du provisionnement SCIM dépend de votre édition de plateform
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utilisez l'option **Okta - Application Braze** si vous avez configuré l'application Braze pour l'authentification unique (SSO) SAML dans Okta. Si vous avez configuré une application personnalisée pour le SSO, suivez les instructions dans l'onglet [Okta - Intégration d'application personnalisée]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Utilisez l'option **Okta - Application Braze** si vous avez configuré l'application Braze pour l'authentification unique (authentification unique) SAML dans Okta. Si vous avez configuré une application personnalisée pour le authentification unique, suivez les instructions dans l'onglet [Okta - Intégration d'application personnalisée]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -53,7 +53,7 @@ Utilisez l'option **Okta - Application Braze** si vous avez configuré l'applica
 
 ### Étape 1.2 : Désactiver la visibilité de l'application {#step-12-disable-application-visibility}
 
-1. Dans le champ **Application visibility**, cochez la case **Do not display application icon to user**. Cela empêche les utilisateurs d'accéder au SSO via l'application, qui est uniquement destinée au SCIM.
+1. Dans le champ **Application visibility**, cochez la case **Do not display application icon to user**. Cela empêche les utilisateurs d'accéder au authentification unique via l'application, qui est uniquement destinée au SCIM.
 2. Sélectionnez **Save**.
 
 ### Étape 1.3 : Configurer l'intégration SCIM {#step-13-set-up-the-scim-integration}
@@ -86,7 +86,7 @@ Sélectionnez **Test API Credentials**. Un message de vérification apparaît si
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utilisez l'option **Okta - Intégration d'application personnalisée** si vous avez configuré une application personnalisée pour le SSO. Si vous avez configuré l'application Braze pour l'authentification unique (SSO) SAML dans Okta, suivez les instructions dans l'onglet [Okta - Application Braze]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Utilisez l'option **Okta - Intégration d'application personnalisée** si vous avez configuré une application personnalisée pour le authentification unique. Si vous avez configuré l'application Braze pour l'authentification unique (authentification unique) SAML dans Okta, suivez les instructions dans l'onglet [Okta - Application Braze]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 

@@ -40,7 +40,7 @@ En el caso de los mensajes dentro de la aplicación, el mensaje dentro de la apl
 
 ### Mensajes dentro de la aplicación {#in-app-messages}
 
-Con los mensajes dentro de la aplicación, la situación puede ser más matizada. Un mensaje dentro de la aplicación debe ser entregado y almacenado en caché en el SDK, generalmente al inicio de una sesión, antes de poder ser desencadenado. Si el evento desencadenante es parte del proceso de creación del usuario, o si la campaña de mensaje dentro de la aplicación se entrega antes de que el usuario cumpla (o después de que ya no cumpla) los criterios de audiencia durante su primera sesión, es posible que no vea el mensaje dentro de la aplicación.
+Con los mensajes dentro de la aplicación, la situación puede ser más matizada. Un mensaje dentro de la aplicación debe ser entregado y almacenado en caché en el SDK or kit de desarrollo de software, generalmente al inicio de una sesión, antes de poder ser desencadenado. Si el evento desencadenante es parte del proceso de creación del usuario, o si la campaña de mensaje dentro de la aplicación se entrega antes de que el usuario cumpla (o después de que ya no cumpla) los criterios de audiencia durante su primera sesión, es posible que no vea el mensaje dentro de la aplicación.
 
 ### Mejores prácticas {#best-practices}
 
@@ -50,7 +50,7 @@ Después de crear un nuevo usuario, puedes añadir un retraso antes de enviar cu
 
 Por ejemplo, después de que un usuario se registre en tu aplicación, puedes enviar una oferta promocional después de 24 horas. O, si estás creando un usuario o registrando un atributo personalizado, puedes añadir un retraso de un minuto antes de continuar con tu proceso para evitar esta condición de carrera.
 
-También puedes añadir este retraso en el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration) para el evento personalizado específico que desencadena que un nuevo usuario entre en un Canvas.
+También puedes añadir este retraso en el [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration) para el evento personalizado específico que desencadena que un nuevo usuario entre en un Canvas.
 
 ## Escenario 2: Usar múltiples endpoints de API {#scenario-2-using-multiple-api-endpoints}
 
@@ -66,7 +66,7 @@ Hay algunos escenarios en los que múltiples endpoints de API también pueden re
 Cuando la información del usuario se envía a Braze usando el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ocasionalmente puede tardar unos segundos en procesarse. Esto significa que cuando se hacen solicitudes simultáneamente a los endpoints `/users/track` y de mensajería como `/campaign/trigger/send`, no hay garantía de que la información del usuario se actualice antes de que se envíe un mensaje.
 
 {% alert note %}
-Si los atributos de usuario y los eventos se envían en la misma solicitud (ya sea desde `/users/track` o desde el SDK), Braze procesa los atributos antes que los eventos o antes de intentar enviar cualquier mensaje.
+Si los atributos de usuario y los eventos se envían en la misma solicitud (ya sea desde `/users/track` o desde el SDK or kit de desarrollo de software), Braze procesa los atributos antes que los eventos o antes de intentar enviar cualquier mensaje.
 {% endalert %}
 
 ### Mejores prácticas
@@ -132,7 +132,7 @@ Si hay una condición de carrera durante la evaluación de entrada del Canvas, l
 
 Si un usuario desencadena el evento de entrada del Canvas múltiples veces dentro del mismo segundo, Braze solo permite una entrada para ese segundo (incluso si la reentrada está habilitada). Esto previene entradas duplicadas, por lo que el número total de entradas al Canvas puede ser menor que el total de eventos desencadenantes.
 
-Recomendamos confirmar cómo se gestionan y actualizan los datos de usuario, específicamente cuándo y cómo se actualizan atributos específicos, como por SDK, API, API por lotes y otros métodos. Esto puede ayudar a identificar y aclarar por qué un usuario ha entrado en una campaña o Canvas en comparación con cuándo se actualizó el perfil del usuario.
+Recomendamos confirmar cómo se gestionan y actualizan los datos de usuario, específicamente cuándo y cómo se actualizan atributos específicos, como por SDK or kit de desarrollo de software, API, API por lotes y otros métodos. Esto puede ayudar a identificar y aclarar por qué un usuario ha entrado en una campaña o Canvas en comparación con cuándo se actualizó el perfil del usuario.
 
 ## Escenario 4: Usar el desencadenante "Interactuar con paso" {#scenario-4-using-the-interact-with-step-trigger}
 

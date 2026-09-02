@@ -1,8 +1,8 @@
 ---
 nav_title: Configuración de remitentes
-article_title: Remitentes de SMS, MMS y RCS
+article_title: Remitentes de servicio de mensajes cortos, MMS y RCS
 page_order: 2
-description: "Este artículo ofrece un resumen de los códigos y remitentes disponibles para enviar mensajes SMS, MMS y RCS."
+description: "Este artículo ofrece un resumen de los códigos y remitentes disponibles para enviar mensajes servicio de mensajes cortos, MMS y RCS."
 page_type: reference
 alias: /sending_phone_numbers/
 channel:
@@ -11,23 +11,23 @@ channel:
   - RCS
 ---
 
-{% multi_lang_include channels/sms/short_and_long_codes.md %}
+{% multi_lang_include channels/servicio de mensajes cortos/short_and_long_codes.md %}
 
 ## Requisitos específicos de MMS {#mms-specific-requirements}
 
 ### Requisitos del remitente de MMS {#mms-sender-requirements}
 
-> MMS y SMS están vinculados al canal SMS de Braze. Para acceder a MMS en tu cuenta, es necesario adquirir SMS para quienes aún no lo hayan comprado. Los clientes existentes de SMS pueden acceder a MMS después de adquirirlo.
+> MMS y servicio de mensajes cortos están vinculados al canal servicio de mensajes cortos de Braze. Para acceder a MMS en tu cuenta, es necesario adquirir servicio de mensajes cortos para quienes aún no lo hayan comprado. Los clientes existentes de servicio de mensajes cortos pueden acceder a MMS después de adquirirlo.
 
 MMS es compatible actualmente con códigos abreviados de EE. UU. (números de 5-6 dígitos), códigos largos de EE. UU. y CA (números de 10 dígitos) y números de clientes de EE. UU. y Canadá. MMS es compatible con números de llamada gratuita a través de ciertos proveedores de servicios.
 
-Es posible enviar MMS a números fuera de EE. UU. y Canadá, pero los mensajes MMS se convierten en un mensaje SMS con un enlace al activo multimedia.
+Es posible enviar MMS a números fuera de EE. UU. y Canadá, pero los mensajes MMS se convierten en un mensaje servicio de mensajes cortos con un enlace al activo multimedia.
 
 ### Códigos abreviados de MMS {#mms-short-codes}
 
 Algunos usuarios pueden no implementar o usar códigos abreviados de MMS, pero están disponibles si se necesitan en una fecha posterior.
 
-Para los usuarios que obtuvieron sus códigos abreviados antes de que Braze fuera compatible con MMS, todos los clientes existentes con códigos abreviados de EE. UU. son elegibles para habilitar MMS de forma instantánea. Ponte en contacto con tu administrador de éxito de cliente si esta situación aplica a tu caso y deseas habilitar MMS.
+Para los usuarios que obtuvieron sus códigos abreviados antes de que Braze fuera compatible con MMS, todos los clientes existentes con códigos abreviados de EE. UU. son elegibles para habilitar MMS de forma instantánea. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si esta situación aplica a tu caso y deseas habilitar MMS.
 
 {% alert important %}
 Al habilitar MMS para códigos abreviados que anteriormente no tenían MMS habilitado, es posible que los códigos abreviados necesiten ser aprobados nuevamente en un proceso de aprobación que podría tomar semanas. Es importante tener en cuenta este plazo al decidir habilitar MMS.
@@ -35,7 +35,7 @@ Al habilitar MMS para códigos abreviados que anteriormente no tenían MMS habil
 
 #### Mejores prácticas para códigos abreviados de MMS {#mms-short-code-best-practices}
 
-- En Braze, recomendamos encarecidamente mantener la mensajería transaccional y la promocional separadas, cada una con códigos abreviados diferentes. Dado que MMS está vinculado al canal SMS, y el canal SMS está altamente regulado, los clientes podrían verse obligados a pagar una penalización monetaria por el uso indebido del canal y que su código abreviado sea suspendido (lo cual es irreversible). Mantener la mensajería transaccional y la promocional vinculadas a códigos abreviados diferentes protege su mensajería transaccional.
+- En Braze, recomendamos encarecidamente mantener la mensajería transaccional y la promocional separadas, cada una con códigos abreviados diferentes. Dado que MMS está vinculado al canal servicio de mensajes cortos, y el canal servicio de mensajes cortos está altamente regulado, los clientes podrían verse obligados a pagar una penalización monetaria por el uso indebido del canal y que su código abreviado sea suspendido (lo cual es irreversible). Mantener la mensajería transaccional y la promocional vinculadas a códigos abreviados diferentes protege su mensajería transaccional.
 - Si los clientes ya tienen un código abreviado dedicado a la mensajería promocional y tiene MMS habilitado, no necesitan un código abreviado separado para MMS.
 
 ### Códigos largos de MMS {#mms-long-codes}
@@ -48,7 +48,7 @@ Los mensajes MMS no se pueden enviar con un ID de remitente alfanumérico.
 
 El rendimiento de MMS es de un segmento por segundo a través de un código largo.
 
-Los operadores imponen sus propios límites de tamaño de archivo, que determinan el éxito de los envíos de MMS. Estos límites pueden variar según la geografía y el operador, por lo que Braze recomienda no exceder los 600&nbsp;KB para tu activo multimedia e incluir también un cuerpo de mensaje. En el creador de SMS o MMS de Braze, las cargas superiores a 1&nbsp;MB se bloquean. El mensaje de error recomienda cargar un archivo de 600&nbsp;KB o menos. También recomendamos realizar pruebas para confirmar que tu contenido multimedia puede entregarse a través de los operadores de tus usuarios.
+Los operadores imponen sus propios límites de tamaño de archivo, que determinan el éxito de los envíos de MMS. Estos límites pueden variar según la geografía y el operador, por lo que Braze recomienda no exceder los 600&nbsp;KB para tu activo multimedia e incluir también un cuerpo de mensaje. En el creador de servicio de mensajes cortos o MMS de Braze, las cargas superiores a 1&nbsp;MB se bloquean. El mensaje de error recomienda cargar un archivo de 600&nbsp;KB o menos. También recomendamos realizar pruebas para confirmar que tu contenido multimedia puede entregarse a través de los operadores de tus usuarios.
 
 #### Límites de tamaño de archivo por operador {#carrier-file-size-limits}
 

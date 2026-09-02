@@ -11,7 +11,7 @@ page_order: 8
 
 # Sincronización de audiencia con TikTok {#audience-sync-to-tiktok}
 
-Con Braze Audience Sync to TikTok, las marcas pueden optar por añadir los datos de usuario de su propia integración de Braze a TikTok Audiences para ofrecer anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, SMS, webhook, etc.) en un Braze Canvas.
+Con Braze Audience Sync to TikTok, las marcas pueden optar por añadir los datos de usuario de su propia integración de Braze a TikTok Audiences para ofrecer anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos, webhook, etc.) en un BRAZE Canvas.
 
 **Entre los casos de uso más comunes para la sincronización de audiencias se incluyen**:
 
@@ -103,7 +103,7 @@ Braze también ofrece la posibilidad de añadir usuarios a audiencias de TikTok 
 ### Paso 4: Lanzar Canvas {#step-4-launch-canvas}
 Después de configurar tu componente de TikTok Audience, ¡lanza el Canvas! Se crea una nueva audiencia, y los usuarios que pasen por el componente de TikTok Audience se añadirán a esta audiencia en TikTok. Si tu Canvas contiene componentes posteriores, tus usuarios avanzarán al siguiente paso en su recorrido de usuario.
 
-Puedes ver la audiencia en TikTok accediendo a tu **Ads Manager Account** y seleccionando **Audiences** en el menú desplegable de **Assets**. Desde la página de **Audience**, puedes ver el tamaño de cada audiencia una vez que alcance &#126;1,000.
+Puedes ver la audiencia en TikTok accediendo a tu **Ads Administrador Account** y seleccionando **Audiences** en el menú desplegable de **Assets**. Desde la página de **Audience**, puedes ver el tamaño de cada audiencia una vez que alcance &#126;1,000.
 
 ![Página de TikTok que muestra las siguientes métricas para la audiencia indicada.]({% image_buster /assets/img/tiktok/tiktok5.png %})
 
@@ -148,7 +148,7 @@ TikTok no proporciona esta información debido a sus políticas de privacidad de
 
 ### ¿Cuánto tiempo tardará en llenarse mi audiencia en TikTok? {#how-long-will-it-take-for-my-audiences-to-populate-in-tiktok}
 
-El tamaño de la audiencia se actualizará en un plazo de 24 a 48 horas en la página de Audiences en el Ads Manager de TikTok.
+El tamaño de la audiencia se actualizará en un plazo de 24 a 48 horas en la página de Audiences en el Ads Administrador de TikTok.
 
 ### ¿Cuál es el número máximo de audiencias que puedo tener en mi cuenta publicitaria de TikTok? {#what-is-the-maximum-number-of-audiences-i-can-have-in-my-tiktok-ad-account}
 

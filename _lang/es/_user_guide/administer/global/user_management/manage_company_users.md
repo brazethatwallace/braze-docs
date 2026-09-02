@@ -29,7 +29,7 @@ Cada dirección de correo electrónico utilizada en una [instancia]({{site.baseu
 
 Si tu equipo usa Gmail y tienes problemas para agregar una dirección de correo electrónico, puedes crear un alias agregando un signo de más (+) como "+1" o "+test" a la dirección de correo electrónico. Por ejemplo, `contractor@braze.com` puede tener un alias de `contractor+1@braze.com`. Los correos electrónicos enviados a `contractor+1@braze.com` se siguen entregando a `contractor@braze.com`, pero el alias se reconoce como una dirección de correo electrónico única.
 
-Para usar una cuenta en varias empresas sin alias, consulta [Usar desarrolladores multiempresa]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Si usas SSO, revisa [Consideraciones para el inicio de sesión único (SSO)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso) antes de registrarte con varias direcciones de correo electrónico.
+Para usar una cuenta en varias empresas sin alias, consulta [Usar desarrolladores multiempresa]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#use-multi-company-developers). Si usas inicio de sesión único, revisa [Consideraciones para el inicio de sesión único (inicio de sesión único)]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account#considerations-for-single-sign-on-sso) antes de registrarte con varias direcciones de correo electrónico.
 
 ### ¿Puedo cambiar la dirección de correo electrónico de mi cuenta de Braze? {#can-i-change-my-braze-accounts-email-address}
 

@@ -13,8 +13,8 @@ search_tag: Partner
 
 Esta página fornece um guia passo a passo para:
 
-* Criar convites para avaliações usando a API de criação de convite do Trustpilot
-* Personalizar mensagens com avaliações de produtos por meio da API de avaliações de produtos do Trustpilot
+* Criar convites para avaliações usando a API or interface de programação do aplicativo (API) de criação de convite do Trustpilot
+* Personalizar mensagens com avaliações de produtos por meio da API or interface de programação do aplicativo (API) de avaliações de produtos do Trustpilot
 
 ## Pré-requisitos {#prerequisites}
 
@@ -22,18 +22,18 @@ Antes de começar, você precisará do seguinte:
 
 | Pré-requisito | Descrição |
 | --- | --- |
-| Uma conta do Trustpilot | Você precisa de uma conta do Trustpilot com acesso à API do Trustpilot. |
-| Uma chave de autenticação do Trustpilot | Você precisará configurar uma chave de API e solicitar um token de acesso. |
+| Uma conta do Trustpilot | Você precisa de uma conta do Trustpilot com acesso à API or interface de programação do aplicativo (API) do Trustpilot. |
+| Uma chave de autenticação do Trustpilot | Você precisará configurar uma chave de API or interface de programação do aplicativo (API) e solicitar um token de acesso. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
-### Etapa 1: Obtenha suas credenciais da API do Trustpilot {#step-1-get-your-trustpilot-api-credentials}
+### Etapa 1: Obtenha suas credenciais da API or interface de programação do aplicativo (API) do Trustpilot {#step-1-get-your-trustpilot-api-credentials}
 
 1. [Faça login no Trustpilot](https://app.contentful.com/login) com suas credenciais.
-2. Crie ou recupere a chave e o segredo da API no dashboard do Trustpilot acessando **Integrations** > **Developers** > **APIs**. Se você ainda não tiver uma chave de API, crie uma nova:
+2. Crie ou recupere a chave e o segredo da API or interface de programação do aplicativo (API) no dashboard do Trustpilot acessando **Integrations** > **Developers** > **APIs**. Se você ainda não tiver uma chave de API or interface de programação do aplicativo (API), crie uma nova:
    1. Acesse **Application Name** > **Create Application**
-   2. Copie sua chave e segredo da API, que serão usados para autenticar suas solicitações de Conteúdo conectado.
+   2. Copie sua chave e segredo da API or interface de programação do aplicativo (API), que serão usados para autenticar suas solicitações de Conteúdo conectado.
 
 ## Enviando convites para avaliações do Trustpilot {#sending-trustpilot-review-invitations}
 
@@ -47,7 +47,7 @@ Configure uma campanha de webhook na Braze baseada em ações para acionar as AP
 ### Etapa 2: Recupere o token de acesso {#step-2-retrieve-the-access-token}
 
 1. Use [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para fazer uma solicitação ao [endpoint de autenticação do Trustpilot](https://documentation-apidocumentation.trustpilot.com/authentication?_gl=1*1hxojlc*_ga*MjEzMDkzNjQ5NS4xNzMxNjgxOTQ0*_ga_3TEL80JZSG*MTczNjU0MzY0Ny45LjAuMTczNjU0MzY0Ny4wLjAuMA..) para recuperar o token de acesso.
-2. Use o tipo de concessão **client_credentials** e insira sua chave de API e segredo em uma tag de Conteúdo conectado para recuperar um token. A solicitação de Conteúdo conectado pode ser inserida no cabeçalho da solicitação. O Conteúdo conectado pode ficar assim:
+2. Use o tipo de concessão **client_credentials** e insira sua chave de API or interface de programação do aplicativo (API) e segredo em uma tag de Conteúdo conectado para recuperar um token. A solicitação de Conteúdo conectado pode ser inserida no cabeçalho da solicitação. O Conteúdo conectado pode ficar assim:
 
 {% raw %}
 

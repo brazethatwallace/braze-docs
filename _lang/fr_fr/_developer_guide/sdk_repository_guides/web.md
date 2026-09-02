@@ -832,9 +832,9 @@ Electron ne prend pas officiellement en charge les notifications push Web (voir 
 
 Tealium iQ propose une intégration clé en main basique avec Braze. Pour configurer l'intégration, recherchez Braze dans l'interface de gestion des balises de Tealium, et fournissez la clé API du SDK Web depuis votre tableau de bord. Pour plus de détails ou une assistance approfondie sur la configuration de Tealium, consultez notre [documentation d'intégration](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/tealium/#about-tealium) ou contactez votre gestionnaire de compte Tealium.
 
-#### Google Tag Manager
+#### Google Tag gestionnaire
 
-Le SDK Web peut être initialisé et appelé depuis une balise HTML personnalisée dans votre conteneur Google Tag Manager. Consultez notre [application d'exemple Google Tag Manager](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) pour un exemple d'envoi d'événements à Braze via GTM, ou consultez notre [documentation d'intégration](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) pour plus de détails.
+Le SDK Web peut être initialisé et appelé depuis une balise HTML personnalisée dans votre conteneur Google Tag gestionnaire. Consultez notre [application d'exemple Google Tag gestionnaire](https://github.com/braze-inc/braze-web-sdk/blob/master/sample-builds/google-tag-manager) pour un exemple d'envoi d'événements à Braze via GTM, ou consultez notre [documentation d'intégration](https://www.braze.com/docs/developer_guide/sdk_integration/google_tag_manager) pour plus de détails.
 
 #### Autres gestionnaires de balises {#other-tag-managers}
 

@@ -11,7 +11,7 @@ tool: Canvas
 
 > Verwenden Sie das Template „Wieder auf Lager“, um Nachrichten zu erstellen, die Nutzer:innen ansprechen, die zuvor einen Artikel angesehen oder Interesse daran bekundet haben, der nicht vorrätig war, aber jetzt wieder zum Kauf verfügbar ist. Dies hilft Nutzer:innen, die gewünschten Produkte zu erhalten, indem sie genau in dem entscheidenden Moment angesprochen werden, in dem ein Produkt wieder verfügbar wird.
 
-Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **Wieder auf Lager**, das für den Conversion-Schritt des Nutzer:innen-Lebenszyklus konzipiert ist. Wenn Sie fertig sind, haben Sie ein Canvas erstellt, das einen Push (Web oder Mobilgerät), eine SMS oder eine E-Mail an Nutzer:innen sendet, wenn ein Artikel wieder auf Lager ist, sowie bis zu zwei Erinnerungen.
+Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **Wieder auf Lager**, das für den Conversion-Schritt des Nutzer:innen-Lebenszyklus konzipiert ist. Wenn Sie fertig sind, haben Sie ein Canvas erstellt, das einen Push (Web oder Mobilgerät), eine Kurzmitteilungsdienst or SMS oder eine E-Mail an Nutzer:innen sendet, wenn ein Artikel wieder auf Lager ist, sowie bis zu zwei Erinnerungen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -37,8 +37,8 @@ Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 ![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/back_in_stock_old_name_description.png %}){: style="max-width:45%;"}
 
 {:start="2"}
-2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas für das Targeting von Nutzer:innen gedacht ist, wenn unser Produkt Classic Straight Leg wieder auf Lager ist.
-3. Aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas personalisierte Nachrichten enthält.
+2. Update or aktualisieren or aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas für das Targeting von Nutzer:innen gedacht ist, wenn unser Produkt Classic Straight Leg wieder auf Lager ist.
+3. Update or aktualisieren or aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas personalisierte Nachrichten enthält.
 4. Fügen Sie den Tag **Wieder auf Lager** hinzu, der unter dem Tag **Werbung** verschachtelt ist, damit wir auf der Canvas-Startseite danach filtern können.
 
 ![Der Schritt „Canvas-Details einrichten“ mit dem Canvas-Namen „Wieder auf Lager – Classic Straight Leg“ und einer kurzen Canvas-Beschreibung.]({% image_buster /assets/img/canvas_templates/back_in_stock_1.png %})
@@ -91,20 +91,20 @@ Wir behalten die Standard-Abo-Einstellungen bei, sodass wir nur an Nutzer:innen 
 
 ### Schritt 6: Ihr Canvas anpassen {#step-6-customize-your-canvas}
 
-Jetzt erstellen wir unser Canvas, indem wir die Kanäle und Inhalte anpassen, die an Nutzer:innen gesendet werden. Da wir alle vier Template-Kanäle (Mobilgerät- und Web-Push, SMS und E-Mail) verwenden und den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) nutzen, müssen wir keine hinzufügen oder entfernen.
+Jetzt erstellen wir unser Canvas, indem wir die Kanäle und Inhalte anpassen, die an Nutzer:innen gesendet werden. Da wir alle vier Template-Kanäle (Mobilgerät- und Web-Push, Kurzmitteilungsdienst or SMS und E-Mail) verwenden und den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) nutzen, müssen wir keine hinzufügen oder entfernen.
 
 {% alert tip %}
 Sie können [Canvas-Entry-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
 {% endalert %}
 
-Wir beginnen unsere Anpassung, indem wir jeden Nachrichten-Schritt durchgehen und den Inhalt aktualisieren.
+Wir beginnen unsere Anpassung, indem wir jeden Nachrichten-Schritt durchgehen und den Inhalt Update or aktualisieren or aktualisieren.
 
 1. Ersetzen Sie `!!YOURCATALOGHERE!!` durch unseren Katalognamen („Straight_Leg_Pants“).
 2. Ersetzen Sie `[0]` durch die Indexnummer der Classic Straight Leg Jeans, die „9“ ist, da die Jeans der zehnte Artikel im `items`-Array unseres Katalogs ist. (Arrays sind in Liquid nullindexiert, sodass der erste Artikel `0` und nicht `1` ist.)
 3. Wiederholen Sie die Schritte 1 und 2 für alle verbleibenden Nachrichten-Schritte, einschließlich:
     - Die Nachricht „In-Product Msg & Email“, die nach der eintägigen Verzögerung gesendet wird
     - Die „Push+Email Alert“-Nachrichten, die an Nutzer:innen gesendet werden, die keinen Kauf getätigt haben
-4. Aktualisieren Sie den Aktionspfade-Schritt, indem Sie die Aktionsgruppe **Kauf** auswählen. Wählen Sie dann **Einen bestimmten Kauf tätigen** und wählen Sie die Classic Straight Leg Jeans als Produkt.
+4. Update or aktualisieren or aktualisieren Sie den Aktionspfade-Schritt, indem Sie die Aktionsgruppe **Kauf** auswählen. Wählen Sie dann **Einen bestimmten Kauf tätigen** und wählen Sie die Classic Straight Leg Jeans als Produkt.
 
 ![Mobilgerät-Push-Canvas-Schritt mit einer Nachricht, die Nutzer:innen darüber informiert, dass ein Produkt wieder auf Lager ist.]({% image_buster /assets/img/canvas_templates/back_in_stock_9.png %})
 

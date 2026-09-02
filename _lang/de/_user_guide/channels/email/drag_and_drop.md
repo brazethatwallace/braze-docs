@@ -12,7 +12,7 @@ tool:
 
 # Eine E-Mail mit Drag-and-Drop erstellen {#create-an-email-with-drag-and-drop}
 
-> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten für Campaigns oder Canvases erstellen – ganz ohne HTML für den E-Mail-Body verwenden zu müssen.
+> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten für Campaigns oder Canvase erstellen – ganz ohne HTML für den E-Mail-Body verwenden zu müssen.
 
 ## Über den Editor {#about-the-editor}
 
@@ -82,7 +82,7 @@ Sie können im Drag-and-Drop-Editor kein Bild innerhalb eines Absatzes oder eine
 
 ## Den Drag-and-Drop-Editor verwenden {#using-the-drag-and-drop-editor}
 
-Sie sind sich nicht sicher, ob Ihre E-Mail-Nachricht über eine Campaign oder einen Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind.
+Sie sind sich nicht sicher, ob Ihre E-Mail-Nachricht über eine Campaign oder einen Canvas gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvase besser für mehrstufige User-Journeys geeignet sind.
 
 {% alert note %}
 Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas nicht direkt unter **Templates** > **E-Mail-Templates** als E-Mail-Template speichern. Erstellen Sie Ihre E-Mail zuerst unter **Templates**, oder lesen Sie [Kann ich meine Drag-and-Drop-E-Mail nach dem Erstellen in meiner Campaign oder meinem Canvas als Template speichern?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas), um ein Drag-and-Drop-Template neu zu erstellen oder HTML mit **Datei herunterladen** zu exportieren.
@@ -128,7 +128,7 @@ Unter [Weitere Anpassungen](#other-customizations) finden Sie zusätzliche Mögl
 Während Sie Ihre E-Mail erstellen, können Sie zwischen einer Desktop- und einer mobilen Ansicht wechseln, um eine Vorschau zu sehen, wie Ihre E-Mail-Nachricht für Ihre Nutzergruppen aussehen wird. So stellen Sie sicher, dass Ihr Content responsiv ist, und können unterwegs alle notwendigen Anpassungen vornehmen.
 
 {% alert tip %}
-Benötigen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI generiert menschenähnliche Marketingtexte für Ihr Messaging.
+Benötigen Sie Hilfe beim Erstellen großartiger Texte? Probieren Sie den [KI or künstliche Intelligenz-Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) aus. Geben Sie einen Produktnamen oder eine Beschreibung ein, und die KI or künstliche Intelligenz generiert menschenähnliche Marketingtexte für Ihr Messaging.
 
 ![Button für den Textassistenten, im Content-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}

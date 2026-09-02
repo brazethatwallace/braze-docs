@@ -1,7 +1,7 @@
 ---
 nav_title: Wunderkind
 article_title: Wunderkind (Signals)
-description: "このリファレンス記事では、Wunderkind SignalsとBrazeの統合について説明します。キャンバスジャーニーをトリガーする行動シグナル、Canvas Entry APIを使用したセットアップ、APIトリガー配信でのキャンバスコンテキストペイロード、レポートについて取り上げています。"
+description: "このリファレンス記事では、Wunderkind SignalsとBrazeの統合について説明します。キャンバスジャーニーをトリガーする行動シグナル、Canvas エントリ APIを使用したセットアップ、APIトリガー配信でのキャンバスコンテキストペイロード、レポートについて取り上げています。"
 alias: /partners/wunderkind/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ search_tag: Partner
 
 ## 統合について {#about-the-integration}
 
-Wunderkind Signals統合により、カート放棄、商品放棄、価格下落などの高インテントな行動シグナルを使用して、Brazeでリアルタイムのキャンバスジャーニーをトリガーできます。WunderkindはWebサイト上の匿名ユーザーを特定し、配信可能なメールアドレスにIDを解決した上で、キャンバス Entry APIを介してBrazeに構造化されたシグナルペイロードを配信し、事前設定されたメールフローを自動的に開始します。
+Wunderkind Signals統合により、カート放棄、商品放棄、価格下落などの高インテントな行動シグナルを使用して、Brazeでリアルタイムのキャンバスジャーニーをトリガーできます。WunderkindはWebサイト上の匿名ユーザーを特定し、配信可能なメールアドレスにIDを解決した上で、キャンバス エントリ APIを介してBrazeに構造化されたシグナルペイロードを配信し、事前設定されたメールフローを自動的に開始します。
 
 ## 前提条件 {#prerequisites}
 

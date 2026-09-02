@@ -24,15 +24,15 @@ Para las definiciones de los estados de suscripción de WhatsApp y cómo se rela
 
 ### Configurar los grupos de suscripción de WhatsApp de los usuarios {#setting-users-whatsapp-subscription-groups}
 
-- **REST API:** Los perfiles de usuario se pueden configurar programáticamente mediante el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) usando la REST API de Braze.
-- **SDK Web:** Los usuarios pueden añadirse a un grupo de suscripción de correo electrónico, SMS o WhatsApp usando el método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) o [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **Importación de usuarios**: Los usuarios pueden añadirse a grupos de suscripción de correo electrónico o SMS a través de **Importar usuarios**. Al actualizar el estado del grupo de suscripción, debes tener estas dos columnas en tu CSV: `subscription_group_id` y `subscription_state`. Consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para más información.
+- **REST or transferencia de estado representacional API:** Los perfiles de usuario se pueden configurar programáticamente mediante el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) usando la REST or transferencia de estado representacional API de Braze.
+- **SDK or kit de desarrollo de software Web:** Los usuarios pueden añadirse a un grupo de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp usando el método `addToSubscriptionGroup` para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) o [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
+- **Importación de usuarios**: Los usuarios pueden añadirse a grupos de suscripción de correo electrónico o servicio de mensajes cortos a través de **Importar usuarios**. Al actualizar el estado del grupo de suscripción, debes tener estas dos columnas en tu CSV: `subscription_group_id` y `subscription_state`. Consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) para más información.
 
 ### Comprobar el grupo de suscripción de WhatsApp de un usuario {#checking-a-users-whatsapp-subscription-group}
 
 - **Perfil de usuario:** Se puede acceder a los perfiles de usuario individuales a través del panel de Braze desde **Audiencia** > **Buscar usuarios**. Aquí puedes buscar perfiles de usuario por dirección de correo electrónico, número de teléfono o ID de usuario externo. Cuando estés dentro de un perfil de usuario, en la pestaña **Interacción**, puedes ver el grupo de suscripción de WhatsApp de un usuario y su estado.
 
-- **REST API:** El grupo de suscripción de perfiles de usuario individuales se puede consultar mediante el [endpoint Listar grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint Listar estado de los grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando la REST API de Braze.
+- **REST or transferencia de estado representacional API:** El grupo de suscripción de perfiles de usuario individuales se puede consultar mediante el [endpoint Listar grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) o el [endpoint Listar estado de los grupos de suscripción del usuario]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) usando la REST or transferencia de estado representacional API de Braze.
 
 ## Archivar grupos de suscripción {#archive-subscription-groups}
 
@@ -50,7 +50,7 @@ Para archivar un grupo de suscripción:
 
 Para obtener un resumen del estado de suscripción de WhatsApp, los requisitos de adhesión voluntaria y el comportamiento de cancelación de suscripción, consulta [Estado de suscripción]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_status#whatsapp).
 
-Actualmente, los usuarios pueden suscribirse y [adherirse o cancelar su suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) a la mensajería de WhatsApp de diversas maneras, incluyendo [SMS](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), a través de un sitio web, un hilo de WhatsApp, por teléfono o en persona. Ten en cuenta que las adhesiones voluntarias son obligatorias.
+Actualmente, los usuarios pueden suscribirse y [adherirse o cancelar su suscripción]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs) a la mensajería de WhatsApp de diversas maneras, incluyendo [servicio de mensajes cortos](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/4-sms-capture-modal), a través de un sitio web, un hilo de WhatsApp, por teléfono o en persona. Ten en cuenta que las adhesiones voluntarias son obligatorias.
 
 Actualmente no se admiten palabras clave de adhesión voluntaria para el canal de WhatsApp, por lo que eres responsable de mantener una lista de usuarios. WhatsApp tiene un enfoque retrospectivo en cuanto a las adhesiones voluntarias y los límites de velocidad: si los usuarios empiezan a reportarte o bloquearte, tu límite de velocidad se reduce.
 
@@ -58,7 +58,7 @@ Actualmente no se admiten palabras clave de adhesión voluntaria para el canal d
 
 Independientemente de los métodos de adhesión y cancelación de suscripción que utilices, puedes actualizar el estado de suscripción de los perfiles de usuario con uno de los siguientes métodos de actualización:
 
-- Crea un [webhook de Braze a Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations) que actualice el estado de suscripción a través de la REST API, como en el siguiente ejemplo:
+- Crea un [webhook de Braze a Braze]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations) que actualice el estado de suscripción a través de la REST or transferencia de estado representacional API, como en el siguiente ejemplo:
 
 ![Creador de webhook con un mensaje que utiliza el método POST.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 

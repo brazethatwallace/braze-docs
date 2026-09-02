@@ -17,7 +17,7 @@ search_rank: 5
 
 A disponibilidade dos Content Cards depende do seu pacote da Braze. Entre em contato com seu gerente de conta ou gerente de sucesso do cliente para começar.
 
-Antes de usar os Content Cards, você precisa integrar o [SDK da Braze]({{site.baseurl}}/developer_guide/content_cards) ao seu app ou site. Nenhuma configuração adicional é necessária. Para criar sua própria interface, consulte o [guia de personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
+Antes de usar os Content Cards, você precisa integrar o [SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/content_cards) ao seu app ou site. Nenhuma configuração adicional é necessária. Para criar sua própria interface, consulte o [guia de personalização de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards).
 
 ## Benefícios de usar Content Cards {#benefits-of-using-content-cards}
 

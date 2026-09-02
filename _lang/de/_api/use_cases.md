@@ -1,14 +1,14 @@
 ---
 nav_title: API-Anwendungsfälle
 article_title: API-Anwendungsfälle
-description: "Ganz gleich, ob Sie erfahrene Entwickler:innen oder Marketer mit minimalen Entwicklerressourcen sind – dieser Referenzartikel soll Ihnen zeigen, wie Sie die leistungsstarke REST API von Braze nutzen können, um verschiedene Aufgaben zu erfüllen und Ihre Customer-Engagement-Strategie zu verbessern."
+description: "Ganz gleich, ob Sie erfahrene Entwickler:innen oder Marketer mit minimalen Entwicklerressourcen sind – dieser Referenzartikel soll Ihnen zeigen, wie Sie die leistungsstarke Representational State Transfer API von Braze nutzen können, um verschiedene Aufgaben zu erfüllen und Ihre Customer-Engagement-Strategie zu verbessern."
 page_type: reference
 page_order: 4.8
 ---
 
 # API-Anwendungsfälle {#api-use-cases}
 
-> Die [REST API von Braze]({{site.baseurl}}/api/basics) bietet eine breite Palette von Endpunkten, die Sie bei der Verwaltung und Optimierung Ihrer Customer-Engagement-Strategie unterstützen. In diesem Artikel werden wir verschiedene Anwendungsfälle für jede Endpunkt-Sammlung untersuchen: Kataloge, E-Mail-Listen und -Adressen, Export, Nachrichten, Präferenzzentrum, SMS, Abo-Gruppen, Templates und Nutzerdaten.<br><br>In jedem Abschnitt wird ein Szenario mit einer Schritt-für-Schritt-Anleitung, einem Code-Beispiel und dem erwarteten Ergebnis vorgestellt. Am Ende dieses Artikels werden Sie besser verstehen, wie Sie die REST API von Braze nutzen können, um Ihr Customer-Engagement zu verbessern.
+> Die [Representational State Transfer API von Braze]({{site.baseurl}}/api/basics) bietet eine breite Palette von Endpunkten, die Sie bei der Verwaltung und Optimierung Ihrer Customer-Engagement-Strategie unterstützen. In diesem Artikel werden wir verschiedene Anwendungsfälle für jede Endpunkt-Sammlung untersuchen: Kataloge, E-Mail-Listen und -Adressen, Export, Nachrichten, Präferenzzentrum, Kurzmitteilungsdienst or SMS, Abo-Gruppen, Templates und Nutzerdaten.<br><br>In jedem Abschnitt wird ein Szenario mit einer Schritt-für-Schritt-Anleitung, einem Code-Beispiel und dem erwarteten Ergebnis vorgestellt. Am Ende dieses Artikels werden Sie besser verstehen, wie Sie die Representational State Transfer API von Braze nutzen können, um Ihr Customer-Engagement zu verbessern.
 
 ## Mehrere Artikel aus einem Katalog löschen {#deleting-multiple-items-in-a-catalog}
 
@@ -76,13 +76,13 @@ Nach dem erfolgreichen Versand dieser Nutzlast bestätigt die Antwort, dass Braz
 }
 ```
 
-## Prüfen aller Canvases {#auditing-all-canvases}
+## Prüfen aller Canvase {#auditing-all-canvases}
 
-Siege Valley Health ist ein Krankenhaussystem, das 10 Krankenhäuser und Forschungszentren mit Tausenden von Patient:innen umfasst. Das Marketingteam möchte die Canvases vergleichen, die in den letzten 3 Jahren der Braze-Nutzung an Patient:innen gesendet wurden, um sie an die Terminvereinbarung für Grippeimpfungen zu erinnern. Das Marketingteam von Siege Valley Health wünscht sich außerdem eine schnelle und effiziente Möglichkeit, sowohl die Liste der Canvases als auch die Analytics-Zusammenfassung einzusehen.
+Siege Valley Health ist ein Krankenhaussystem, das 10 Krankenhäuser und Forschungszentren mit Tausenden von Patient:innen umfasst. Das Marketingteam möchte die Canvase vergleichen, die in den letzten 3 Jahren der Braze-Nutzung an Patient:innen gesendet wurden, um sie an die Terminvereinbarung für Grippeimpfungen zu erinnern. Das Marketingteam von Siege Valley Health wünscht sich außerdem eine schnelle und effiziente Möglichkeit, sowohl die Liste der Canvase als auch die Analytics-Zusammenfassung einzusehen.
 
 Sehen wir uns an, wie Siege Valley Health diese beiden Aufgaben mit einer Kombination von Endpunkten erfüllen kann, anstatt über das Braze-Dashboard zu filtern.
 
-Für die erste Aufgabe der Prüfung von Canvases verwenden Sie den [Endpunkt `/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases), um eine Liste der Canvases zu exportieren, die den Namen und die Tags enthält. Hier ist eine Beispielanfrage:
+Für die erste Aufgabe der Prüfung von Canvase verwenden Sie den [Endpunkt `/canvas/list`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases), um eine Liste der Canvase zu exportieren, die den Namen und die Tags enthält. Hier ist eine Beispielanfrage:
 
 {% details Hier ist die Antwort, die das Marketingteam von Siege Valley Health erhalten würde. %}
 ```json
@@ -111,7 +111,7 @@ Für die erste Aufgabe der Prüfung von Canvases verwenden Sie den [Endpunkt `/c
 ```
 {% enddetails %}
 
-Fahren wir mit der nächsten Aufgabe fort: der Anzeige der Analytics-Zusammenfassung für den ersten Canvas aus der Liste der Canvases von Siege Valley Health. Dazu verwenden wir den [Endpunkt `/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) mit den folgenden Anfrageparametern:
+Fahren wir mit der nächsten Aufgabe fort: der Anzeige der Analytics-Zusammenfassung für den ersten Canvas aus der Liste der Canvase von Siege Valley Health. Dazu verwenden wir den [Endpunkt `/canvas/data_summary`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) mit den folgenden Anfrageparametern:
 
 * `canvas_id`: "canvas_identifier_2"
 * `ending_at`: 2023-07-10T23:59:59
@@ -124,9 +124,9 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Prüfen der anstehenden geplanten Campaigns und Canvases {#checking-upcoming-scheduled-campaigns-and-canvases}
+## Prüfen der anstehenden geplanten Campaigns und Canvase {#checking-upcoming-scheduled-campaigns-and-canvases}
 
-Die geschäftigste Zeit des Jahres rückt für Flash & Thread, eine Einzelhandelsmarke, die Kleidung und Beauty-Produkte online und in Shops verkauft, schnell näher. Das Marketingteam möchte die anstehenden Campaigns und Canvases im Braze-Dashboard vor dem 31. März 2024 um 12 Uhr überprüfen. Dies kann über den [Endpunkt `/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) erfolgen.
+Die geschäftigste Zeit des Jahres rückt für Flash & Thread, eine Einzelhandelsmarke, die Kleidung und Beauty-Produkte online und in Shops verkauft, schnell näher. Das Marketingteam möchte die anstehenden Campaigns und Canvase im Braze-Dashboard vor dem 31. März 2024 um 12 Uhr überprüfen. Dies kann über den [Endpunkt `/messages/scheduled_broadcasts`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/get_messages_scheduled) erfolgen.
 
 Hier ist die Beispielanfrage:
 
@@ -135,7 +135,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/messages/scheduled_
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-Dieser Endpunkt gibt die Liste der bevorstehenden Campaigns und Canvases zurück. Von hier aus kann das Marketingteam seine Nachrichtenliste bestätigen, indem es sich auf das Feld `name` für die Campaigns und Canvases in der Antwort bezieht.
+Dieser Endpunkt gibt die Liste der bevorstehenden Campaigns und Canvase zurück. Von hier aus kann das Marketingteam seine Nachrichtenliste bestätigen, indem es sich auf das Feld `name` für die Campaigns und Canvase in der Antwort bezieht.
 
 ## Anzeigen eines älteren Präferenzzentrums {#viewing-an-older-preference-center}
 
@@ -167,13 +167,13 @@ curl --location -g --request GET https://rest.iad-01.braze.com/preference_center
 }
 ```
 
-Anhand dieser Antwort kann das Marketingteam erkennen, dass das Präferenzzentrum 3 Jahre vor dem letzten Update erstellt wurde. Mit diesen Informationen im Hinterkopf könnte das Marketingteam ein neues Präferenzzentrum erstellen und starten.
+Anhand dieser Antwort kann das Marketingteam erkennen, dass das Präferenzzentrum 3 Jahre vor dem letzten Update or aktualisieren erstellt wurde. Mit diesen Informationen im Hinterkopf könnte das Marketingteam ein neues Präferenzzentrum erstellen und starten.
 
 {% enddetails %}
 
 ## Entfernen von ungültigen Telefonnummern {#removing-invalid-phone-numbers}
 
-Das Hauptziel von CashBlastr ist es, die Art und Weise zu optimieren, wie Menschen schnelle Zahlungen senden und empfangen können. Als Finanzdienstleister möchte CashBlastr die Liste der Telefonnummern seiner Kund:innen aktuell und korrekt halten. Das Entwickler:innen-Team wurde beauftragt, die folgende Liste der als „ungültig“ markierten Telefonnummern zu entfernen, damit die SMS-Nachrichten des Marketingteams die entsprechenden CashBlastr-Kund:innen erreichen können.
+Das Hauptziel von CashBlastr ist es, die Art und Weise zu optimieren, wie Menschen schnelle Zahlungen senden und empfangen können. Als Finanzdienstleister möchte CashBlastr die Liste der Telefonnummern seiner Kund:innen aktuell und korrekt halten. Das Entwickler:innen-Team wurde beauftragt, die folgende Liste der als „ungültig“ markierten Telefonnummern zu entfernen, damit die Kurzmitteilungsdienst or SMS-Nachrichten des Marketingteams die entsprechenden CashBlastr-Kund:innen erreichen können.
 
 - 12223135467
 - 12183095514
@@ -200,7 +200,7 @@ Nach dem Senden dieser Nutzlast bestätigt die Antwort, dass Braze die ungültig
 
 ## Anzeigen des Abo-Gruppenstatus einer Nutzerin oder eines Nutzers {#viewing-a-users-subscription-group-status}
 
-SandwichEmperor ist eine Schnellrestaurantkette in den Vereinigten Staaten, deren Marketingteam die Abo-Gruppenstatus für eine zufällige Liste seiner Nutzer:innen per SMS überprüfen möchte. Mit dem [Endpunkt `/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) kann SandwichEmperor diese Aufgabe für eine einzelne Nutzerin oder einen einzelnen Nutzer mit der folgenden Beispielanfrage erfüllen:
+SandwichEmperor ist eine Schnellrestaurantkette in den Vereinigten Staaten, deren Marketingteam die Abo-Gruppenstatus für eine zufällige Liste seiner Nutzer:innen per Kurzmitteilungsdienst or SMS überprüfen möchte. Mit dem [Endpunkt `/subscription/status/get`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) kann SandwichEmperor diese Aufgabe für eine einzelne Nutzerin oder einen einzelnen Nutzer mit der folgenden Beispielanfrage erfüllen:
 
 {% raw %}
 ```
@@ -235,4 +235,4 @@ In diesem Szenario hat WorkFriends in der Vergangenheit ein einzelnes HTML-Templ
 
 {% enddetails %}
 
-Nach Überprüfung dieser Template-Informationen kann WorkFriends auch den [Endpunkt `/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) verwenden, um das E-Mail-Template über die API zu aktualisieren. Das E-Mail-Template im Braze-Dashboard spiegelt diese Änderungen wider.
+Nach Überprüfung dieser Template-Informationen kann WorkFriends auch den [Endpunkt `/templates/email/update`]({{site.baseurl}}/api/endpoints/templates/email_templates/post_update_email_template) verwenden, um das E-Mail-Template über die API zu Update or aktualisieren or aktualisieren. Das E-Mail-Template im Braze-Dashboard spiegelt diese Änderungen wider.

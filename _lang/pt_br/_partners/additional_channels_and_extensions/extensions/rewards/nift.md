@@ -23,8 +23,8 @@ A integração entre a Braze e a Nift permite disparar automaticamente "agradeci
 | Requisito | Descrição |
 |---|---|
 | Conta Nift | É necessário ter uma conta Nift para aproveitar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões de dados de usuários. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
@@ -35,7 +35,7 @@ Visite seu [dashboard da Nift](https://www.gonift.com/users/sign_in), navegue at
 
 ### Etapa 2: Adicionar credenciais da Braze {#step-2-add-braze-credentials}
 
-Na página **Link your Braze Account**, forneça sua chave da API REST da Braze e selecione seu endpoint da Braze, que dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints).
+Na página **Link your Braze Account**, forneça sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e selecione seu endpoint da Braze, que dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints).
 
 Você pode alterar o nome do parâmetro de ID do cliente no link de indicação enviado aos seus clientes. A Nift usará isso para marcar seus clientes como processados na Braze quando eles tiverem selecionado um presente de uma de nossas marcas.
 

@@ -25,8 +25,8 @@ A integração da Braze com a Digioh permite que você use um construtor do tipo
 | Requisito | Descrição |
 |---|---|
 | Conta Digioh | É necessário ter uma [conta da Digioh](https://www.digioh.com/) para usar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint da API da Braze `/users/track/` | A URL do seu endpoint REST com os detalhes de `/users/track/` anexados a ela. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints).<br><br>Por exemplo, se seu endpoint da API REST for `https://rest.iad-01.braze.com`, seu endpoint `/users/track/` será `https://rest.iad-01.braze.com/users/track/`. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint da API or interface de programação do aplicativo (API) da Braze `/users/track/` | A URL do seu endpoint REST or transferir estado representacional com os detalhes de `/users/track/` anexados a ela. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints).<br><br>Por exemplo, se seu endpoint da API or interface de programação do aplicativo (API) REST or transferir estado representacional for `https://rest.iad-01.braze.com`, seu endpoint `/users/track/` será `https://rest.iad-01.braze.com/users/track/`. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
@@ -39,7 +39,7 @@ Na Digioh, clique na guia **Integrations** e, em seguida, no botão **New Integr
 
 !["Selecione a integração correta no menu suspenso"]({% image_buster /assets/img/digioh/2.png %}){: style="max-width:50%;"}
 
-Em seguida, insira a chave da API REST da Braze e seu endpoint da API da Braze `/users/track/`.
+Em seguida, insira a chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e seu endpoint da API or interface de programação do aplicativo (API) da Braze `/users/track/`.
 
 Por fim, use a seção de mapeamento de campos para mapear campos personalizados adicionais além do e-mail e do nome. O trecho de código a seguir mostra um exemplo de carga útil. Quando concluído, selecione **Create Integration**.
 

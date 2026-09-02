@@ -1,7 +1,7 @@
 ---
 nav_title: Lemnisk
 article_title: Integration von Lemnisk mit Braze
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Lemnisk, einer KI-gestützten, auf einer Customer Data Platform basierenden Plattform für Marketing-Automatisierung, die es Ihnen erlaubt, die bei Lemnisk aus verschiedenen Quellen gesammelten Nutzerdaten in Braze zu streamen, um sie mit den Tools von Braze über verschiedene Kanäle und Ziele hinweg zu aktivieren."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Lemnisk, einer KI or künstliche Intelligenz-gestützten, auf einer Customer Data Platform basierenden Plattform für Marketing-Automatisierung, die es Ihnen erlaubt, die bei Lemnisk aus verschiedenen Quellen gesammelten Nutzerdaten in Braze zu streamen, um sie mit den Tools von Braze über verschiedene Kanäle und Ziele hinweg zu aktivieren."
 alias: /partners/lemnisk/
 page_type: partner
 search_tag: Partner
@@ -10,22 +10,22 @@ search_tag: Partner
 
 # Lemnisk
 
-> [Lemnisk](https://www.lemnisk.co/) ist eine KI-gestützte Customer Data Platform (CDP) und Marketing-Automatisierungslösung, die die Erfassung, Vereinheitlichung und Aktivierung von Kundendaten aus verschiedenen, isolierten Quellen in Echtzeit ermöglicht. Sie stellt diese vereinheitlichten Daten nahtlos über verschiedene MarTech- und Geschäftsplattformen hinweg bereit und bietet gleichzeitig robuste Realtime-Analytics, um jede Phase des Kundendaten-Lebenszyklus zu verfolgen.
+> [Lemnisk](https://www.lemnisk.co/) ist eine KI or künstliche Intelligenz-gestützte Customer Data Platform (Customer Data Platform (CDP)) und Marketing-Automatisierungslösung, die die Erfassung, Vereinheitlichung und Aktivierung von Kundendaten aus verschiedenen, isolierten Quellen in Echtzeit ermöglicht. Sie stellt diese vereinheitlichten Daten nahtlos über verschiedene MarTech- und Geschäftsplattformen hinweg bereit und bietet gleichzeitig robuste Realtime-Analytics, um jede Phase des Kundendaten-Lebenszyklus zu verfolgen.
 
 _Diese Integration wird von Lemnisk gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Lemnisk und Braze erlaubt es Marken und Unternehmen, das volle Potenzial von Braze auszuschöpfen, indem sie als CDP-geführte Intelligenzschicht fungiert, die Nutzerdaten plattformübergreifend in Realtime zusammenführt und die gesammelten Informationen und Verhaltensdaten der Nutzer:innen in Echtzeit an Braze sendet. Lemnisk liefert angereicherte Kundenprofile direkt in Braze, indem es Verhaltenssignale und persönliche Attribute zusammenführt, mit denen Sie Ihr Messaging mit tieferem Kontext personalisieren können.
+Die Integration von Lemnisk und Braze erlaubt es Marken und Unternehmen, das volle Potenzial von Braze auszuschöpfen, indem sie als Customer Data Platform (CDP)-geführte Intelligenzschicht fungiert, die Nutzerdaten plattformübergreifend in Realtime zusammenführt und die gesammelten Informationen und Verhaltensdaten der Nutzer:innen in Echtzeit an Braze sendet. Lemnisk liefert angereicherte Kundenprofile direkt in Braze, indem es Verhaltenssignale und persönliche Attribute zusammenführt, mit denen Sie Ihr Messaging mit tieferem Kontext personalisieren können.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
 | Lemnisk-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein [Lemnisk-Konto](https://www.lemnisk.co/) erforderlich. |
-| Externe API in Lemnisk | Wenden Sie sich an Ihren Lemnisk CSM, um die **External API** für Ihr Konto aktivieren zu lassen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihr Konto]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) ab. |
+| Externe API in Lemnisk | Wenden Sie sich an Ihren Lemnisk CSM or Customer-Success-Manager, um die **External API** für Ihr Konto aktivieren zu lassen. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit der Berechtigung `users.track`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihr Konto]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration von Lemnisk {#integrating-lemnisk}
@@ -54,11 +54,11 @@ Wenn Ihre Zugangsdaten und API-Definitionen korrekt sind, gibt Braze eine Erfolg
 
 ![Testen einer External-API-Konfiguration mit einer Beispiel-Payload und einer Erfolgsantwort]({% image_buster /assets/img/lemnisk/test_ext_api.png %})
 
-Als Nächstes überprüfen Sie, ob Ihre Ereignisse erfolgreich an Braze gesendet werden. Gehen Sie im Braze-Dashboard zu **Zielgruppe** > **Nutzer:innen suchen** und geben Sie dann einen der Bezeichner aus Ihrer External-API-Konfiguration ein (z. B. eine E-Mail-Adresse). Wenn alles korrekt funktioniert, wird das Profil aufgelistet, das Ihren Test-API-Trigger erhalten hat.
+Als Nächstes überprüfen Sie, ob Ihre Ereignisse erfolgreich an Braze gesendet werden. Gehen Sie im Braze-Dashboard zu **Zielgruppe** > **Nutzer:innen suchen** und geben Sie dann einen der Bezeichner aus Ihrer External-API-Konfiguration ein (z. B. eine E-Mail-Adresse). Wenn alles korrekt funktioniert, wird das Profil aufgelistet, das Ihren Test-API-Trigger or triggern erhalten hat.
 
 ![Anzeigen des Profils und der Aktivitätsübersicht einer Nutzerin bzw. eines Nutzers in Braze]({% image_buster /assets/img/lemnisk/braze_cov.png %})
 
-### Schritt 3: Triggern von Nutzer:innen-Ereignissen in Braze {#step-3-trigger-user-events-in-braze}
+### Schritt 3: Trigger or triggern or triggern von Nutzer:innen-Ereignissen in Braze {#step-3-trigger-user-events-in-braze}
 
 1. Erstellen Sie in Lemnisk ein neues Segment. Sie könnten zum Beispiel ein Segment erstellen, das Informationen an Braze sendet, sobald Nutzer:innen ein Lead-Formular absenden.
 2. Gehen Sie in Ihrem neuen Segment zu **External API** > **Add Engagement**.

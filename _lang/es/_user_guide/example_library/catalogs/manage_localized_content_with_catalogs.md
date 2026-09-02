@@ -14,7 +14,7 @@ description: "Almacena textos de productos localizados, precios y URL de imágen
 
 PantsLabyrinth, un comercio minorista de ropa ficticio, vende sus productos en Norteamérica y Europa. Los nombres de productos, precios e imágenes principales varían según el idioma, pero el equipo de marketing quiere una sola plantilla de correo electrónico o push que personalice en el momento del envío.
 
-Este ejemplo cubre tres patrones de catálogo que leen el {% raw %}`${language}`{% endraw %} [atributo estándar]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) del usuario (recopilado por el SDK a partir del idioma del dispositivo):
+Este ejemplo cubre tres patrones de catálogo que leen el {% raw %}`${language}`{% endraw %} [atributo estándar]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) del usuario (recopilado por el SDK or kit de desarrollo de software a partir del idioma del dispositivo):
 
 - Campos de objeto JSON: todos los idiomas en una sola fila por artículo
 - Columnas planas por idioma: `header_en`, `header_fr`, etc.

@@ -46,7 +46,7 @@ Mensagens MMS não podem ser enviadas com um ID de remetente alfanumérico.
 
 ### Limites de mensagens MMS e throughput {#mms-message-limits-and-throughput}
 
-O throughput de MMS é de um segmento por segundo por meio de um long code.
+O throughput de MMS é de um Segment or segmento or segmento por segundo por meio de um long code.
 
 As operadoras impõem seus próprios limites de tamanho de arquivo, que determinam o sucesso dos envios de MMS. Esses limites podem variar por região e operadora, então a Braze recomenda não exceder 600&nbsp;KB para seu ativo multimídia e também incluir um corpo de mensagem. No criador de SMS ou MMS da Braze, uploads acima de 1&nbsp;MB são bloqueados. A mensagem de erro recomenda fazer upload de um arquivo de 600&nbsp;KB ou menos. Também recomendamos testar para confirmar que sua mídia pode ser entregue nas operadoras dos seus usuários.
 

@@ -31,7 +31,7 @@ Eine vollständige Liste der Events und Event-Eigenschaften, die von Braze nach 
 Um dieses Feature nutzen zu können, muss Ihre Amplitude-Nutzer:innen-ID mit der externen Braze-ID übereinstimmen.
 {% endalert %}
 
-Braze sendet nur Event-Daten für Nutzer:innen, deren `external_user_id` gesetzt ist, oder für anonyme Nutzer:innen, deren `device_id` gesetzt ist. Für anonyme Nutzer:innen müssen Sie Ihre Amplitude-Geräte-ID mit der Braze-Geräte-ID im SDK synchronisieren. Zum Beispiel:
+Braze sendet nur Event-Daten für Nutzer:innen, deren `external_user_id` gesetzt ist, oder für anonyme Nutzer:innen, deren `device_id` gesetzt ist. Für anonyme Nutzer:innen müssen Sie Ihre Amplitude-Geräte-ID mit der Braze-Geräte-ID im SDK or Software-Development-Kit synchronisieren. Zum Beispiel:
 
 ```java
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
@@ -40,12 +40,12 @@ amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 Sie können zwei Arten von Events nach Amplitude exportieren: [Message-Engagement-Events](#supported-currents-events), die aus den direkt mit dem Nachrichtenversand verbundenen Braze-Events bestehen, und [Kundenverhalten-Events](#supported-currents-events), einschließlich anderer App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und über die Plattform erfasste Käufe. Alle regulären Events erhalten das Präfix `[Appboy]`, und alle angepassten Events erhalten das Präfix `[Appboy] [Custom Event]`. Angepasste Event- und Kauf-Event-Eigenschaften erhalten die Präfixe `[Custom event property]` bzw. `[Purchase property]`.
 
 {% alert note %}
-Braze-Currents verwendet beim Export von Events nach Amplitude das Präfix `[Appboy]`. Dieses Label bezieht sich auf den früheren Produktnamen von Braze. Dies ist das erwartete Verhalten und deutet nicht auf ein SDK- oder Integrationsproblem hin.
+Braze-Currents verwendet beim Export von Events nach Amplitude das Präfix `[Appboy]`. Dieses Label bezieht sich auf den früheren Produktnamen von Braze. Dies ist das erwartete Verhalten und deutet nicht auf ein SDK or Software-Development-Kit- oder Integrationsproblem hin.
 {% endalert %}
 
 Alle in Braze benannten und importierten Kohorten erhalten das Präfix `[Amplitude]` und das Suffix ihrer `cohort_id`. Das bedeutet, dass eine Kohorte mit dem Namen „TEST_COHORT“ und der `cohort_id` „abcd1234“ in Braze-Filtern als `[Amplitude] TEST_COHORT: abcd1234` angezeigt wird.
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
+Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
 
 ### Schritt 1: Amplitude-Integration in Braze konfigurieren {#step-1-configure-amplitude-integration-in-braze}
 
@@ -77,7 +77,7 @@ Weitere Informationen finden Sie in Amplitudes [Appboy Amplitude Integration](ht
 
 Currents stellt eine Verbindung zur HTTP-API von Amplitude her, die ein [Rate-Limit](https://developers.amplitude.com/docs/http-api-v2#upload-limit) von 30 Events/Sekunde pro Gerät sowie ein undokumentiertes Limit von 500.000 Events/Tag pro Gerät hat. Werden diese Schwellenwerte überschritten, drosselt Amplitude die über Currents protokollierten Events. Wenn ein Gerät in Ihrer Integration dieses Rate-Limit überschreitet, kann es zu einer Verzögerung kommen, bis Events von allen Geräten in Amplitude angezeigt werden.
 
-Geräte sollten unter normalen Umständen nicht mehr als 30 Events/Sekunde oder 500.000 Events/Tag melden, und dieses Event-Muster sollte nur bei einer fehlerhaft konfigurierten Integration auftreten. Um diese Art von Verzögerung zu vermeiden, stellen Sie sicher, dass Ihre SDK-Integration Events mit einer normalen Rate meldet, wie in unseren Anweisungen zur SDK-Integration angegeben, und führen Sie keine automatisierten Tests durch, die viele Events für ein einzelnes Gerät erzeugen.
+Geräte sollten unter normalen Umständen nicht mehr als 30 Events/Sekunde oder 500.000 Events/Tag melden, und dieses Event-Muster sollte nur bei einer fehlerhaft konfigurierten Integration auftreten. Um diese Art von Verzögerung zu vermeiden, stellen Sie sicher, dass Ihre SDK or Software-Development-Kit-Integration Events mit einer normalen Rate meldet, wie in unseren Anweisungen zur SDK or Software-Development-Kit-Integration angegeben, und führen Sie keine automatisierten Tests durch, die viele Events für ein einzelnes Gerät erzeugen.
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 

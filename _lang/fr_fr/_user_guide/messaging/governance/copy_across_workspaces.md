@@ -207,9 +207,9 @@ Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre déc
 |---|---|
 | Corps de l'e-mail | Adresse d'expéditeur |
 | Extras de message | Répondre à |
-| Titre | CCI |
+| Titre | CCI or carte de contenu de type bannière |
 | Objet | Modèle de lien |
-|  | Aliasing de lien |
+|  | aliasage de lien or aliasing de lien |
 |  | Traductions |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Variation de message e-mail" }
 
@@ -220,9 +220,9 @@ Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre déc
 |---|---|
 | Corps de l'e-mail | Adresse d'expéditeur |
 | Extras de message | Répondre à |
-| Titre | CCI |
+| Titre | CCI or carte de contenu de type bannière |
 | Objet | Modèle de lien |
-|  | Aliasing de lien |
+|  | aliasage de lien or aliasing de lien |
 |  | Traductions |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Variation de message e-mail" }
 
@@ -236,7 +236,7 @@ Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre déc
 
 | Copié | Omis |
 |---|---|
-| Texte brut | Aliasing de lien |
+| Texte brut | aliasage de lien or aliasing de lien |
 | Contenu HTML et glisser-déposer | Traductions |
 | Accroche |  |
 | CSS en ligne |  |
@@ -248,7 +248,7 @@ Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre déc
 
 | Copié | Omis |
 |---|---|
-| Texte brut | Aliasing de lien |
+| Texte brut | aliasage de lien or aliasing de lien |
 | Contenu HTML et glisser-déposer | Traductions |
 | Accroche |  |
 | CSS en ligne |  |
@@ -294,7 +294,7 @@ Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre déc
 
 | Copié | Omis |
 |---|---|
-| Nom | Aliasing de lien |
+| Nom | aliasage de lien or aliasing de lien |
 | Description | Clés API |
 | Contenu | Territoires |
 | Contenu HTML et glisser-déposer | Tags |
@@ -305,7 +305,7 @@ Les critères de filtre des étapes Canvas (par exemple, les étapes [Arbre déc
 
 | Copié | Omis |
 |---|---|
-| Nom | Aliasing de lien |
+| Nom | aliasage de lien or aliasing de lien |
 | Description | Clés API |
 | Contenu | Territoires |
 | Contenu HTML et glisser-déposer | Tags |

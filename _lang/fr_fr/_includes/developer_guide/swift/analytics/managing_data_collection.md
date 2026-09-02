@@ -153,7 +153,7 @@ Le SDK Braze fournit des méthodes pour arrêter le ciblage d'un appareil lorsqu
 
 Lorsqu'un utilisateur se déconnecte d'une application, appelez la méthode `logout` du SDK pour supprimer l'inscription push de l'appareil de l'utilisateur actuel et effectuer automatiquement des actions de nettoyage dans le SDK. La méthode `logout` effectue les opérations suivantes :
 
-- Désinscrit le jeton push de l'appareil, ainsi que tous les jetons push-to-start des Live Activities, de l'utilisateur actuel sur le serveur Braze.
+- Désinscrit le jeton push de l'appareil, ainsi que tous les jetons push-to-start des en direct or en ligne/en production/instantané Activities, de l'utilisateur actuel sur le serveur Braze.
 - Si l'appel de désinscription réussit, le SDK efface les données SDK stockées localement et désactive le SDK.
 - En cas d'échec, une erreur et un indicateur `isRetriable` sont levés pour permettre à l'intégrateur d'agir.
 
@@ -204,7 +204,7 @@ Cet exemple Objective-C montre le traitement de `logout` basé sur la complétio
 {% endsubtabs local %}
 
 {% alert note %}
-`logout` ne met pas fin aux Live Activities en cours d'exécution. Dans le rappel de succès, terminez manuellement toute Live Activity en cours en utilisant la méthode [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) d'ActivityKit.
+`logout` ne met pas fin aux en direct or en ligne/en production/instantané Activities en cours d'exécution. Dans le rappel de succès, terminez manuellement toute en direct or en ligne/en production/instantané Activity en cours en utilisant la méthode [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) d'ActivityKit.
 {% endalert %}
 
 #### Réactiver le suivi et le push après `logout` {#re-enable-tracking-and-push-after-logout}
@@ -275,21 +275,21 @@ Après avoir appelé `unregisterPush`, réinscrivez-vous aux notifications aupr�
 
 Évitez d'appeler `logout` ou `unregisterPush` directement après l'inscription aux notifications push auprès de l'OS ou du fournisseur push. En raison du traitement asynchrone côté serveur, cela peut rarement réajouter le jeton push à l'utilisateur Braze.
 
-### Désinscrire les jetons push-to-start pour les Live Activities {#unregister-push-to-start}
+### Désinscrire les jetons push-to-start pour les en direct or en ligne/en production/instantané Activities {#unregister-push-to-start}
 
-Les Live Activities peuvent être démarrées à distance à l'aide de jetons push-to-start. Pour empêcher Braze de démarrer à distance des Live Activities sur un appareil, appelez la méthode `unregisterPushToStart` afin de désinscrire tous les types actuellement enregistrés (par défaut) ou une liste spécifiée de types d'Activity.
+Les en direct or en ligne/en production/instantané Activities peuvent être démarrées à distance à l'aide de jetons push-to-start. Pour empêcher Braze de démarrer à distance des en direct or en ligne/en production/instantané Activities sur un appareil, appelez la méthode `unregisterPushToStart` afin de désinscrire tous les types actuellement enregistrés (par défaut) ou une liste spécifiée de types d'Activity.
 
-Notez que les Live Activities en cours d'exécution continuent de recevoir des mises à jour et que cette méthode supprime uniquement la capacité de démarrer de nouvelles activités à distance. Pour plus d'informations sur les Live Activities, consultez [Live Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
+Notez que les en direct or en ligne/en production/instantané Activities en cours d'exécution continuent de recevoir des mises à jour et que cette méthode supprime uniquement la capacité de démarrer de nouvelles activités à distance. Pour plus d'informations sur les en direct or en ligne/en production/instantané Activities, consultez [en direct or en ligne/en production/instantané Activities]({{site.baseurl}}/developer_guide/live_notifications/live_activities).
 
-#### Terminer toute Live Activity en cours {#end-any-running-live-activities}
+#### Terminer toute en direct or en ligne/en production/instantané Activity en cours {#end-any-running-live-activities}
 
-`unregisterPushToStart` ne met pas fin aux Live Activities en cours d'exécution. Dans le rappel de succès, terminez manuellement toute Live Activity en cours en utilisant la méthode [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) d'ActivityKit.
+`unregisterPushToStart` ne met pas fin aux en direct or en ligne/en production/instantané Activities en cours d'exécution. Dans le rappel de succès, terminez manuellement toute en direct or en ligne/en production/instantané Activity en cours en utilisant la méthode [`end(_:dismissalPolicy:)`](https://developer.apple.com/documentation/activitykit/activity/end(_:dismissalpolicy:)) d'ActivityKit.
 
 {% alert note %}
-Évitez d'appeler `logout` ou `unregisterPushToStart` directement après avoir appelé `registerPushToStart` pour une Live Activity. En raison de la nature asynchrone du traitement côté serveur, cela peut, dans de rares cas, entraîner le réajout du jeton push-to-start à l'utilisateur Braze.
+Évitez d'appeler `logout` ou `unregisterPushToStart` directement après avoir appelé `registerPushToStart` pour une en direct or en ligne/en production/instantané Activity. En raison de la nature asynchrone du traitement côté serveur, cela peut, dans de rares cas, entraîner le réajout du jeton push-to-start à l'utilisateur Braze.
 {% endalert %}
 
-L'exemple suivant montre comment désinscrire tous les types d'activité push-to-start. Utilisez-le lorsqu'un utilisateur déconnecté ne doit plus recevoir de nouvelles Live Activities démarrées à distance.
+L'exemple suivant montre comment désinscrire tous les types d'activité push-to-start. Utilisez-le lorsqu'un utilisateur déconnecté ne doit plus recevoir de nouvelles en direct or en ligne/en production/instantané Activities démarrées à distance.
 
 ```swift
 // Unregister all currently-registered activity types
@@ -312,7 +312,7 @@ do {
 }
 ```
 
-L'exemple suivant montre comment désinscrire des types d'activité spécifiques. Utilisez-le lorsque seules certaines Live Activities doivent cesser d'être démarrées à distance.
+L'exemple suivant montre comment désinscrire des types d'activité spécifiques. Utilisez-le lorsque seules certaines en direct or en ligne/en production/instantané Activities doivent cesser d'être démarrées à distance.
 
 ```swift
 // Unregister specific activity types
@@ -327,7 +327,7 @@ AppDelegate.braze?.liveActivities.unregisterPushToStart(types: ["ActivityType1",
 ```
 
 {% alert note %}
-`unregisterPushToStart` ne dispose pas d'une API Objective-C, car les Live Activities reposent sur des types exclusivement Swift.
+`unregisterPushToStart` ne dispose pas d'une API Objective-C, car les en direct or en ligne/en production/instantané Activities reposent sur des types exclusivement Swift.
 {% endalert %}
 
 ## Collecte de l'IDFV {#idfv-collection}

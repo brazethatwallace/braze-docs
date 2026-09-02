@@ -14,7 +14,7 @@ tool:
 
 > Usando o Braze Audience Sync to Facebook, você pode optar por adicionar os dados de seus próprios usuários da integração da Braze aos públicos personalizados do Facebook para veicular anúncios com base em disparadores comportamentais, segmentação e muito mais.
 
-Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS ou webhook) em um Braze Canvas com base nos dados do seu usuário agora pode ser usado para disparar um anúncio para esse usuário no Facebook usando públicos personalizados. Por exemplo, ao configurar uma sincronização de público com o Facebook, é possível usar uma ampla variedade de campos primários, como e-mail, telefone, nome e sobrenome.
+Qualquer critério que você normalmente usaria para disparar uma mensagem (push, e-mail, SMS ou webhook) em um BRAZE CANVAS com base nos dados do seu usuário agora pode ser usado para disparar um anúncio para esse usuário no Facebook usando públicos personalizados. Por exemplo, ao configurar uma sincronização de público com o Facebook, é possível usar uma ampla variedade de campos primários, como e-mail, telefone, nome e sobrenome.
 
 **Os casos de uso comuns para a sincronização de públicos personalizados incluem**:
 
@@ -27,9 +27,9 @@ Esse recurso permite que as marcas controlem quais dados primários específicos
 
 ## Sincronização de usuários e considerações sobre limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API de Marketing do Facebook. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Facebook.
+À medida que os usuários chegam à etapa de Audience Sync, a Braze os sincroniza em tempo quase real, respeitando os limites de frequência da API or interface de programação do aplicativo (API) de Marketing do Facebook. A Braze agrupa e processa o maior número possível de usuários a cada 5 segundos antes de enviá-los ao Facebook.
 
-O limite de frequência da API de Marketing do Facebook permite no máximo &#126;190.000 solicitações de API por conta de anúncio em um período de uma hora. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até &#126;13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Users Errored.
+O limite de frequência da API or interface de programação do aplicativo (API) de Marketing do Facebook permite no máximo &#126;190.000 solicitações de API or interface de programação do aplicativo (API) por conta de anúncio em um período de uma hora. Se um cliente atingir esse limite, a Braze tentará novamente a sincronização por até &#126;13 horas. Se a sincronização ainda não for possível, a Braze listará esses usuários na métrica Users Errored.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -144,11 +144,11 @@ A tabela a seguir inclui métricas e descrições para ajudar você a entender m
 | Métrica | Descrição |
 | --- | --- |
 | Entered | Número de usuários que entraram neste componente para serem sincronizados com o Facebook. |
-| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente se esta for a última etapa na ramificação do Canvas. |
+| Proceeded to Next Step | Quantos usuários avançaram para o próximo componente, se houver um. Todos os usuários avançarão automaticamente se esta for a última etapa na Branch or ramificação or ramificação do Canvas. |
 | Users Synced | Número de usuários que foram sincronizados com sucesso com o Facebook. |
 | Users Not Synced | Número de usuários que não foram sincronizados devido à falta de campos para correspondência. Os campos são correspondidos usando um operador "OR", o que significa que, desde que um usuário tenha um dos campos no Facebook, o Facebook fará a correspondência do usuário mesmo que não haja correspondência em todos os outros campos. |
 | Users Pending | Número de usuários que estão sendo processados pela Braze para sincronização com o Facebook. |
-| Users Errored | Número de usuários que não foram sincronizados com o Facebook devido a um erro de API após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do Facebook ou se o público personalizado foi excluído no Facebook. |
+| Users Errored | Número de usuários que não foram sincronizados com o Facebook devido a um erro de API or interface de programação do aplicativo (API) após cerca de 13 horas de tentativas. Possíveis causas de erros podem incluir um token inválido do Facebook ou se o público personalizado foi excluído no Facebook. |
 | Exited Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa em um Canvas é uma etapa do Facebook. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Entendendo a análise de dados" }
 
@@ -224,7 +224,7 @@ Os filtros de segmentação da Braze **Number of Facebook Friends Using App** e 
 
 Substitua os filtros descontinuados por atributos personalizados, eventos personalizados ou Segments baseados em engajamento — por exemplo, login do Facebook ou vinculação social em vez de **Connected Facebook**, ou indicações, convites e compartilhamentos em vez de **Number of Facebook Friends Using App**.
 
-Para redirecionamento com Canvas, faça a correspondência de usuários com e-mail, telefone, nome e sobrenome, conforme demonstrado na [Etapa 4: Configuração da sincronização](#step-4-sync-setup). Para ampliar o alcance, sincronize um Segment de alto valor com o Facebook e crie um público semelhante no Meta Ads Manager.
+Para redirecionamento com Canvas, faça a correspondência de usuários com e-mail, telefone, nome e sobrenome, conforme demonstrado na [Etapa 4: Configuração da sincronização](#step-4-sync-setup). Para ampliar o alcance, sincronize um Segment or segmento de alto valor com o Facebook e crie um público semelhante no Meta Ads Manager.
 
 ## Solução de problemas {#troubleshooting}
 
@@ -255,7 +255,7 @@ table td {
     <tr>
       <td><b>Token inválido</b></td>
       <td>As causas típicas incluem o usuário que conectou a integração ter alterado a senha, as credenciais terem expirado, entre outras.</td>
-      <td>Acesse <b>Partner Integrations</b> > <b>Facebook</b> e desconecte e reconecte sua conta. Consulte <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>esta seção de solução de problemas</a> para etapas adicionais de auditoria da sua conta do Facebook.</td>
+      <td>Acesse <b>Partner Integrations</b> > <b>Facebook</b> e desconecte e reconecte sua conta. Consulte <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-Facebook-account'>esta seção de solução de problemas</a> para etapas adicionais de auditoria da sua conta do Facebook.</td>
     </tr>
     <tr>
       <td><b>Tamanho do público muito baixo</b></td>
@@ -280,24 +280,24 @@ table td {
     <tr>
       <td><b>Todos os usuários estão apresentando erro</b></td>
       <td>Se todos os usuários estão apresentando erro em uma etapa, apesar de confirmar que esses usuários possuem valores para os campos selecionados na etapa, isso pode indicar um problema com sua conta do Facebook.</td>
-      <td>Siga as etapas em <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>esta seção de solução de problemas</a> para verificar se há problemas na sua conta.
+      <td>Siga as etapas em <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-Facebook-account'>esta seção de solução de problemas</a> para verificar se há problemas na sua conta.
       </td>
     </tr>
     <tr>
       <td><b>Falha ao criar público</b></td>
       <td>Na página da parceira de tecnologia do Facebook, você vê "Connected", mas há um erro na etapa de Facebook Audience Sync ao sincronizar um público: "Failed to create audience 'audience name'". A autorização da sua conta do Facebook falhou. Acesse a página de parceiros de tecnologia para reconectar sua conta.</td>
-      <td>Siga as etapas em <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>esta seção de solução de problemas</a> para verificar se há problemas na sua conta.
+      <td>Siga as etapas em <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-Facebook-account'>esta seção de solução de problemas</a> para verificar se há problemas na sua conta.
       </td>
     </tr>
     <tr>
       <td><b>Conta de anúncios ausente no menu suspenso</b></td>
       <td>Ao configurar a etapa de Facebook Audience, uma conta de anúncios esperada não está listada no seletor de contas de anúncios.</td>
-      <td>Confirme se seu app do Facebook concluiu a <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">Revisão do App</a> para <code>ads_management</code> com o nível de acesso que o Facebook exige para uso da Marketing API. No <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirme se o token do usuário do sistema tem as permissões corretas, está associado às contas de anúncios que você usa na Braze e se os termos da conta de anúncios foram aceitos. <br><br>Se o menu suspenso funciona em um novo Canvas, mas não em um Canvas que você já editou, tente atualizar a página do navegador (ou limpar o cache) e confirme se você está conectado como um usuário que ainda tem acesso a essas contas de anúncios.</td>
+      <td>Confirme se seu app do Facebook concluiu a <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">Revisão do App</a> para <code>ads_management</code> com o nível de acesso que o Facebook exige para uso da Marketing API or interface de programação do aplicativo (API). No <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirme se o token do usuário do sistema tem as permissões corretas, está associado às contas de anúncios que você usa na Braze e se os termos da conta de anúncios foram aceitos. <br><br>Se o menu suspenso funciona em um novo Canvas, mas não em um Canvas que você já editou, tente atualizar a página do navegador (ou limpar o cache) e confirme se você está conectado como um usuário que ainda tem acesso a essas contas de anúncios.</td>
     </tr>
     <tr>
       <td><b>Erro ao validar token de acesso</b></td>
       <td>Você vê um erro sobre a validação do token de acesso do Facebook ao conectar a Braze ao Facebook ou ao sincronizar públicos.</td>
-      <td>Saia do Facebook no seu navegador. Na Braze, acesse <b>Partner Integrations</b> &gt; <b>Facebook</b>, remova as credenciais salvas do Facebook e conecte o Facebook novamente. Na página de parceiros de tecnologia do Facebook para a Braze, desconecte e reconecte a integração, se a opção estiver disponível. <br><br>Se os problemas continuarem, siga <a href="#audit-your-facebook-account">Auditar sua conta do Facebook</a>.</td>
+      <td>Saia do Facebook no seu navegador. Na Braze, acesse <b>Partner Integrations</b> &gt; <b>Facebook</b>, remova as credenciais salvas do Facebook e conecte o Facebook novamente. Na página de parceiros de tecnologia do Facebook para a Braze, desconecte e reconecte a integração, se a opção estiver disponível. <br><br>Se os problemas continuarem, siga <a href="#audit-your-Facebook-account">Auditar sua conta do Facebook</a>.</td>
     </tr>
     <tr>
       <td><b>Erros de permissão de exportação ou sincronização de público</b></td>

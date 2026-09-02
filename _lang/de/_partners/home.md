@@ -273,7 +273,7 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 
 - [PassKit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit)
 - [Peak]({{site.baseurl}}/partners/ecommerce/analytics_workflow/peak)
-- [Personalize.AI]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/personalize)
+- [Personalize.KI or künstliche Intelligenz]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalized_recommendations/personalize)
 - [Phrase]({{site.baseurl}}/partners/message_personalization/localization/phrase)
 - [Pinterest Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync)
 - [Playable]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/playable)
@@ -319,7 +319,7 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 - [Sheetlabs]({{site.baseurl}}/partners/message_personalization/dynamic_content/personalization_engines/sheetlabs)
 - [Shopgate]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/shopgate)
 - [Shopify]({{site.baseurl}}/partners/ecommerce/shopify)
-- [Simon AI]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/simonai)
+- [Simon KI or künstliche Intelligenz]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/simonai)
 - [Singular]({{site.baseurl}}/partners/message_orchestration/attribution/singular)
 - [SmarterSends]({{site.baseurl}}/partners/message_orchestration/templates/smartersends)
 - [Smartling]({{site.baseurl}}/partners/message_personalization/localization/smartling)
@@ -347,7 +347,7 @@ Braze Alloys ist das Technologie-Partnerprogramm von Braze. Partner erweitern di
 - [Talon.One]({{site.baseurl}}/partners/data_and_analytics/loyalty/talonone)
 - [Tangerine]({{site.baseurl}}/partners/ecommerce/analytics_workflow/tangerine)
 - [Tapcart]({{site.baseurl}}/partners/ecommerce/tapcart)
-- [Taxi for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
+- [Taxi for Email for Email]({{site.baseurl}}/partners/message_orchestration/templates/taxi_for_email)
 - [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium)
 - [Tellius]({{site.baseurl}}/partners/data_and_analytics/business_intelligence/tellius)
 - [The Trade Desk Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync)
@@ -416,6 +416,6 @@ Wenn die Integration eine Einrichtung auf der Braze-Seite erfordert, melden Sie 
 Vollständig partnereigene Integrationen sind hier möglicherweise nicht aufgeführt. Lesen Sie die partnerspezifische Dokumentation, um die Zuständigkeit für die Integration und die Konfigurationsschritte zu überprüfen.
 {% endalert %}
 
-Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token und Berechtigungen auf der Partnerseite.
+Wenn Sie für einen Partner in Braze **Ungültige Zugangsdaten** sehen, die Integration im Dashboard des Partners aber korrekt aussieht, trennen Sie die Integration auf der Technologie-Partnerseite und verbinden Sie sie erneut. Bestätigen Sie API-Schlüssel, OAuth-Token / Textbaustein und Berechtigungen auf der Partnerseite.
 
 Einige externe Dashboards (z. B. Tools zur Zustellbarkeits- oder Posteingangsüberwachung) können einen anderen Verbindungs- oder Verifizierungsstatus anzeigen als die Braze-Technologie-Partnerseite. Verwenden Sie die Partner-Kachel in Braze für den Verbindungsstatus, auf den sich Braze für Synchronisierung und Versand stützt.

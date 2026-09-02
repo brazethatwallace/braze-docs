@@ -106,7 +106,7 @@ Usa variables de Liquid de forma estratégica para personalizar contenido como p
 1. Usa la sección **Vista previa** para ver cómo aparecerá tu carrusel ante los usuarios.
 2. Selecciona **Enviar a Meta para revisión** para que Braze envíe la plantilla a Meta para su aprobación.
 3. La aprobación generalmente toma unos minutos, pero puede tardar hasta 24 horas.
-4. Verifica el estado de la plantilla en tu lista de **Plantillas** en la página de plantillas de WhatsApp o en el selector de Canvas y Campaign.
+4. Verifica el estado de la plantilla en tu lista de **Plantillas** en la página de plantillas de WhatsApp o en el SELECTOR de Canvas y Campaign.
 
 {% alert note %}
 El envío de prueba no está disponible hasta que Meta apruebe la plantilla. El estado de la plantilla se muestra como **Borrador** durante la creación y cambia a **Aprobada** después de que Meta completa la revisión.

@@ -35,7 +35,7 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 埋め込みサインアップフローを完了した後、business.facebook.comで[WhatsAppセクション](https://business.facebook.com/wa/manage/home)に移動してアカウントにアクセスできます。
 
 #### 複数のWABAをBrazeに接続できますか？ {#can-i-connect-multiple-wabas-to-braze}
-はい、ワークスペースあたり最大10個のWhatsApp Businessアカウントを追加でき、各Businessアカウントは異なるMeta Business Managerの下にネストできます。
+はい、ワークスペースあたり最大10個のWhatsApp Businessアカウントを追加でき、各Businessアカウントは異なるMeta Business マネージャーの下にネストできます。
 
 ![BrazeとWhatsAppのエコシステムの図。ワークスペースとWhatsApp Businessアカウントの接続関係を示しています。1つの購読グループを1つの電話番号に、複数のWhatsApp Businessアカウントを1つのワークスペースに、1つのワークスペースを複数のMeta Businessポートフォリオに接続できます。]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
@@ -43,7 +43,7 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 いいえ。MetaがWhatsApp Businessアカウントの通貨を管理しており、Brazeでは変更や換算ができません。別の通貨を使用するには、その通貨で[別のWhatsApp Businessアカウントを作成する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)か、Metaサポートに連絡して既存のアカウントの通貨を更新できるかどうかお問い合わせください。
 
 #### ビジネス認証とは何ですか？ {#what-is-business-verification}
-ビジネス認証とは、ブランドが正当なビジネスであることを確認するためにWhatsAppが使用する概念です。WhatsApp Managerで完了できます。メッセージングを拡大するためにもビジネス認証が必要です。ビジネス認証がない場合、顧客はローリング24時間で最大250人の一意のエンドユーザーにしか送信できません。
+ビジネス認証とは、ブランドが正当なビジネスであることを確認するためにWhatsAppが使用する概念です。WhatsApp マネージャーで完了できます。メッセージングを拡大するためにもビジネス認証が必要です。ビジネス認証がない場合、顧客はローリング24時間で最大250人の一意のエンドユーザーにしか送信できません。
 
 #### 公式ビジネスアカウントとは何ですか？ {#what-is-an-official-business-account}
 OBAは、表示名の横に緑色のチェックマークが表示されるもので、任意です。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
@@ -124,13 +124,13 @@ WhatsAppチャネルの購読管理は、他のBrazeチャネルと同様に機�
 前述のすべての条件を満たした場合、メッセージング制限を1kから無制限に4日間で引き上げることができます。
 
 #### 現在のメッセージング制限はどこで確認できますか？ {#where-can-i-see-my-current-messaging-limit}
-現在のメッセージング制限は、**WhatsApp Manager > Overview Dashboard > Insights**タブで確認できます。
+現在のメッセージング制限は、**WhatsApp マネージャー > Overview Dashboard > Insights**タブで確認できます。
 
 #### メッセージング制限に達している状態でメッセージを送信しようとするとどうなりますか？ {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
 現在の制限を超える一意のユーザーにキャンペーンやキャンバスを送信しようとすると、メッセージは送信に失敗します。Brazeは、メッセージング制限が引き上げられた場合、最大1日間メッセージの再送信を試行し続けます。
 
 #### メッセージング制限は下がることがありますか？ {#can-my-messaging-limit-decrease}
-はい、電話番号の品質評価が低下しすぎると、WhatsAppがメッセージング制限を引き下げるリスクがあります。Brazeでは、WhatsApp Managerダッシュボードで直接通知を購読し、電話番号のステータスやメッセージング制限レベルの更新など、品質に関する更新の通知を受け取ることをお勧めします。
+はい、電話番号の品質評価が低下しすぎると、WhatsAppがメッセージング制限を引き下げるリスクがあります。Brazeでは、WhatsApp マネージャーダッシュボードで直接通知を購読し、電話番号のステータスやメッセージング制限レベルの更新など、品質に関する更新の通知を受け取ることをお勧めします。
 
 #### 電話番号の品質評価に影響する要因は何ですか？品質評価が低下しすぎるとどうなりますか？ {#what-factors-affect-phone-number-quality-rating-and-what-happens-when-my-quality-rating-drops-too-low}
 電話番号の品質評価に影響する要因には、エンドユーザーがビジネスをブロックすること（およびブロック時に提供する理由）、エンドユーザーがビジネスを報告することが含まれます。
@@ -146,19 +146,19 @@ MetaにはWABAのメッセージング制限とは別のスループット制限
 WhatsAppでは、すべてのビジネス発信メッセージが承認済みテンプレートを使用して開始される必要があります。テンプレートにはメッセージのコピーと、画像、コールトゥアクション、クイック返信ボタンなどのオプションのリッチメディアが含まれます。WhatsAppがテンプレートを承認した後、BrazeでWhatsAppメッセージの作成に使用できます。
 
 #### WhatsAppテンプレートはどこで作成、編集、管理しますか？ {#where-do-i-create-edit-and-manage-my-whatsapp-templates}
-Brazeの[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)またはMetaのWhatsApp Managerでテンプレートを作成して送信できます。いずれの場所で作成されたテンプレートも、ステータスインジケーター付きでBrazeダッシュボードに表示されます。送信後、ロックされたフィールドにはMetaの再承認が必要です。詳細については、[テンプレートビルダーFAQの編集制限]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved)を参照してください。
+Brazeの[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)またはMetaのWhatsApp マネージャーでテンプレートを作成して送信できます。いずれの場所で作成されたテンプレートも、ステータスインジケーター付きでBrazeダッシュボードに表示されます。送信後、ロックされたフィールドにはMetaの再承認が必要です。詳細については、[テンプレートビルダーFAQの編集制限]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder#can-i-edit-a-template-after-its-been-approved)を参照してください。
 
 #### WhatsAppがテンプレート送信をレビューするのにどのくらいかかりますか？ {#how-long-does-it-take-whatsapp-to-review-a-template-submission}
 承認プロセスには最大24時間かかりますが、多くの場合テンプレートは数時間または数分で処理されます。
 
 #### ある時点でいくつのテンプレートを持てますか？ {#how-many-templates-can-i-have-at-a-given-time}
-メッセージテンプレートの制限はビジネス認証ステータスによって異なります。制限は**WhatsApp Manager > Message Templates**ページで確認できます。
+メッセージテンプレートの制限はビジネス認証ステータスによって異なります。制限は**WhatsApp マネージャー > Message Templates**ページで確認できます。
 
 #### Brazeでテンプレートのコピーとリッチメディアをパーソナライズするにはどうすればよいですか？ {#how-do-i-personalize-template-copy-and-rich-media-in-braze}
 WhatsAppでは、メッセージテンプレートに変数パラメーターを挿入できます。メッセージの先頭や末尾に変数パラメーターを配置することはできません。変数パラメーターはBrazeプラットフォームでLiquidロジックを使用して入力できます。変数パラメーターの詳細については、[BrazeでのWhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message)を参照してください。
 
 #### テンプレートが拒否されました。Brazeは承認を手助けしてくれますか？ {#my-template-got-rejected-can-braze-help-me-get-it-approved}
-Brazeチームにはテンプレートの拒否理由を確認する権限がありません。WhatsApp Business Managerと直接連携してテンプレートを編集し、再送信してください。必要に応じてサンプルテンプレートを提供してください。テンプレートがMetaの[ビジネス](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw)または[コマース](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ)ポリシーに準拠していることを再確認してください。
+Brazeチームにはテンプレートの拒否理由を確認する権限がありません。WhatsApp Business マネージャーと直接連携してテンプレートを編集し、再送信してください。必要に応じてサンプルテンプレートを提供してください。テンプレートがMetaの[ビジネス](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR2qWg6yFKdyjDMxJkbNSM38FLGsxXxffC1qStY2gaHOyp-gl_8g72rZNIw)または[コマース](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR3bzN3LTZ-7kO-wnO7X3smtPKGy0asxaFod-U1Ub8B9JUpnrfy1_y7LpAQ)ポリシーに準拠していることを再確認してください。
 
 #### Brazeでリッチメディアをターゲティングまたはパーソナライズできますか？ {#can-rich-media-be-targeted-or-personalized-in-braze}
 はい。メディアライブラリから静的画像をアップロードするか、URLで画像を追加し、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)や[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)でパーソナライズできます。画像URLはURL内の任意の場所で完全なLiquidロジックをサポートしています。これはテンプレートメッセージとレスポンスメッセージ（メディアメッセージとクイック返信レイアウト）に適用されます。詳細については、[ダイナミック画像]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#dynamic-images)を参照してください。
@@ -172,13 +172,13 @@ Metaがテンプレートを誤ってフラグしたと思われる場合は、W
 #### インポートしたWhatsAppテンプレートがコンポーザーで「Message Incomplete」と表示されるのはなぜですか？ {#why-does-my-imported-whatsapp-template-show-message-incomplete-in-the-composer}
 「Message Incomplete」の警告は、必要なテンプレート変数スロットがコンポーザーで有効な値で入力されていない場合に表示されます。
 
-[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)を使用してテンプレートを作成すると、Brazeは変数を連番のプレースホルダー（{% raw %}`{{1}}`、`{{2}}`、`{{3}}`{% endraw %}など）に再採番します。MetaのWhatsApp Managerで外部的に作成されたテンプレートには、変数マッピングでエラーが発生しやすいパターンが含まれている場合があります。例えば：
+[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)を使用してテンプレートを作成すると、Brazeは変数を連番のプレースホルダー（{% raw %}`{{1}}`、`{{2}}`、`{{3}}`{% endraw %}など）に再採番します。MetaのWhatsApp マネージャーで外部的に作成されたテンプレートには、変数マッピングでエラーが発生しやすいパターンが含まれている場合があります。例えば：
 
 - 非連番の番号付け（例：{% raw %}`{{1}}`、`{{3}}`、`{{5}}`{% endraw %}）
 - シーケンス内の欠落した変数（例：{% raw %}`{{2}}`{% endraw %}のスキップ）
 - 1以外の番号から始まる変数
 
-これを解決するには、MetaのWhatsApp Managerでテンプレートを編集して連番のプレースホルダー形式を使用し、Brazeに再インポートしてください。Brazeで、各必須変数フィールドが有効なLiquid値で入力されていることを確認してください。
+これを解決するには、MetaのWhatsApp マネージャーでテンプレートを編集して連番のプレースホルダー形式を使用し、Brazeに再インポートしてください。Brazeで、各必須変数フィールドが有効なLiquid値で入力されていることを確認してください。
 
 #### テンプレートがプレビューできるにもかかわらず、WhatsAppキャンペーンが送信されないのはなぜですか？ {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
 テンプレートは正しくプレビューされるが、処理レジャーに**Abort**と「Param text cannot have new-line/tab characters or more than 4 consecutive spaces」という詳細が表示される場合は、メッセージ内のLiquidテンプレートパラメーター値を確認してください。WhatsAppでは、パラメーターテキストの値に以下が含まれないことが要求されます：

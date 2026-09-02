@@ -36,8 +36,8 @@ A Crowdin oferece dois apps para a Braze: [Braze Campaigns & Canvas](https://sto
 | --- | --- |
 | **Conta no Crowdin** | É necessária uma [conta no Crowdin.com](https://accounts.crowdin.com/register) ou uma [conta no Crowdin Enterprise](https://accounts.crowdin.com/workspace/create). |
 | **Projeto no Crowdin** | Antes de conectar a Braze, [crie um projeto de tradução](https://support.crowdin.com/creating-project/) no Crowdin ou no Crowdin Enterprise. |
-| **Chave da API REST da Braze** | Uma chave da API REST da Braze com permissões para Campaigns, Canvas, Content Blocks, atributos personalizados, e-mail e modelos. |
-| **Endpoint REST da Braze** | A URL específica do seu endpoint REST da Braze (por exemplo, `https://rest.iad-03.braze.com`). |
+| **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze** | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões para Campaigns, Canvas, Content Blocks, atributos personalizados, e-mail e modelos. |
+| **Endpoint REST or transferir estado representacional da Braze** | A URL específica do seu endpoint REST or transferir estado representacional da Braze (por exemplo, `https://rest.iad-03.braze.com`). |
 | **Configurações multilíngue da Braze** | Os locais devem ser configurados no seu dashboard da Braze em **Configurações** > **Configurações de localização**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -72,12 +72,12 @@ Antes de conectar o Crowdin, adicione seus idiomas de destino na Braze.
 
 #### Conectando a Braze ao Crowdin {#connecting-braze-to-crowdin}
 
-Autorize a conexão com suas credenciais de API da Braze:
+Autorize a conexão com suas credenciais de API or interface de programação do aplicativo (API) da Braze:
 
 ![Formulário de conexão Braze Campaigns & Canvas no Crowdin com chave da REST API, endpoint REST e Log in with Braze Campaigns & Canvas.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_login.png %})
 
-- **Chave da REST API da Braze:** Crie-a na Braze em **Settings** > **APIs and Identifiers** > **API Keys**. Conceda as permissões necessárias para essa integração (Campaigns, Canvas, Content Blocks e atributos personalizados).
-- **Endpoint REST da Braze:** Insira a URL da sua instância da Braze (por exemplo, `https://rest.iad-03.braze.com`). Para saber mais, consulte [Endpoints da REST API]({{site.baseurl}}/api/basics#endpoints).
+- **Chave da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze:** Crie-a na Braze em **Settings** > **APIs and Identifiers** > **API or interface de programação do aplicativo (API) Keys**. Conceda as permissões necessárias para essa integração (Campaigns, Canvas, Content Blocks e atributos personalizados).
+- **Endpoint REST or transferir estado representacional da Braze:** Insira a URL da sua instância da Braze (por exemplo, `https://rest.iad-03.braze.com`). Para saber mais, consulte [Endpoints da REST or transferir estado representacional API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints).
 
 ![Página de chaves da REST API na Braze com Create API Key e o controle de cópia do REST Endpoint.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
@@ -141,7 +141,7 @@ Para confirmar a integração:
 
 1. Abra sua Campaign no **Braze Message Composer**.
 2. Acesse a guia **Test**.
-3. Selecione **Preview Message as User**.
+3. Selecione **prévia Message as User**.
 4. Pesquise um perfil de usuário que tenha um atributo `language` correspondente a um dos seus locales traduzidos.
 5. Confirme que o conteúdo muda do idioma de origem para a versão traduzida.
 
@@ -164,16 +164,16 @@ Para um tutorial em vídeo, consulte [Integração de modelos de e-mail da Braze
 
 ### Etapa 2: Conectar à Braze {#step-2-connect-to-braze}
 
-Autorize a conexão com suas credenciais de API da Braze:
+Autorize a conexão com suas credenciais de API or interface de programação do aplicativo (API) da Braze:
 
 ![Formulário de conexão do Crowdin Braze Email Templates com chave da API REST, endpoint REST e Log in with Braze Email Templates.]({% image_buster /assets/img/crowdin/crowdin_email_templates_login.png %}){: style="max-width:85%;"}
 
-1. **Chave da API REST da Braze:** Conceda permissões de `templates.email` e `content_blocks` (leitura e gravação). Crie a chave na Braze em **Settings** > **APIs and Identifiers** > **API Keys**.
+1. **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze:** Conceda permissões de `templates.email` e `content_blocks` (leitura e gravação). Crie a chave na Braze em **Settings** > **APIs and Identifiers** > **API or interface de programação do aplicativo (API) Keys**.
 
 ![Página de chaves da API REST da Braze com Create API Key e o controle de cópia do endpoint REST.]({% image_buster /assets/img/crowdin/braze_rest_api_keys.png %})
 
 {: start="2"}
-2. Em **Braze REST endpoint**, use a URL específica da sua instância (por exemplo, `https://rest.iad-03.braze.com`).
+2. Em **Braze REST or transferir estado representacional endpoint**, use a URL específica da sua instância (por exemplo, `https://rest.iad-03.braze.com`).
 3. Selecione **Log in with Braze Email Templates**.
 
 ### Etapa 3: Sincronizar conteúdo para tradução {#step-3-sync-content-for-translation}

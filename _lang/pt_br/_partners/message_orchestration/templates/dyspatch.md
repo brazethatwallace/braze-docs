@@ -23,7 +23,7 @@ A integração entre a Dyspatch e a Braze permite simplificar o ciclo de vida da
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Dyspatch | Uma [conta Dyspatch](https://www.dyspatch.io/login/) com uma [função de proprietário ou administrador](https://docs.dyspatch.io/administration/dyspatch_roles/) é necessária para aproveitar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -32,7 +32,7 @@ A integração entre a Braze e a Dyspatch permite que você exporte modelos de e
 
 ### Etapa 1: Crie a integração com a Braze {#step-1-create-the-braze-integration}
 
-No portal de administração da Dyspatch, abra o menu suspenso do seu nome de usuário e selecione **Integrations**. Crie uma nova integração, selecione **Braze** e insira sua chave de API da Braze.
+No portal de administração da Dyspatch, abra o menu suspenso do seu nome de usuário e selecione **Integrations**. Crie uma nova integração, selecione **Braze** e insira sua chave de API or interface de programação do aplicativo (API) da Braze.
 
 No campo **Localize Exports By**, você pode escolher como gostaria de gerenciar a localização. Este campo permite que você [localize seus modelos de e-mail](https://docs.dyspatch.io/localization/localizing_a_template/) e os exporte para a Braze para enviar e-mails personalizados por idioma ou localidade com facilidade.
 

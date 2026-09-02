@@ -350,7 +350,7 @@ AppboyBinding.UnsetCustomUserAttribute("most_played_song");
 
 중첩 커스텀 속성을 생성하고 Braze에 데이터를 전송한 후 스키마를 생성할 수 있습니다:
 
-1. **Data Settings** > **Custom Attributes**로 이동합니다.
+1. **Data Settings** > **커스텀 속성**로 이동합니다.
 2. 중첩 커스텀 속성을 검색합니다.
 3. 속성의 **Attribute Name** 열에서 <i class="fas fa-arrows-rotate"></i> **Generate Schema**를 선택합니다.
 
@@ -360,7 +360,7 @@ AppboyBinding.UnsetCustomUserAttribute("most_played_song");
 
 중첩 커스텀 속성의 스키마를 재생성하려면:
 
-1. **Data Settings** > **Custom Attributes**로 이동합니다.
+1. **Data Settings** > **커스텀 속성**로 이동합니다.
 2. 중첩 커스텀 속성을 검색합니다.
 3. 속성의 **Attribute Name** 열에서 <i class="fas fa-plus"></i> **Manage schema**를 선택하여 스키마를 관리합니다.
 4. Modal이 나타납니다. **Regenerate Schema**를 선택합니다.

@@ -2,7 +2,7 @@
 
 ## Personalización de push en React Native {#push-customization-in-react-native}
 
-El SDK de Braze para React Native no permite personalizar las notificaciones push (botones de acción, categorías, fábricas de notificaciones personalizadas) a través de su API JavaScript. Estas características requieren una configuración nativa en tus proyectos iOS y Android.
+El SDK or kit de desarrollo de software de Braze para React Native no permite personalizar las notificaciones push (botones de acción, categorías, fábricas de notificaciones personalizadas) a través de su API JavaScript. Estas características requieren una configuración nativa en tus proyectos iOS y Android.
 
 La siguiente tabla muestra cuáles son las características que requieren una configuración nativa:
 

@@ -13,7 +13,7 @@ tool:
 
 > Le suivi de l'attribution d'installation est un excellent moyen d'améliorer votre relation initiale avec vos utilisateurs. Savoir comment, où, et surtout pourquoi un utilisateur installe votre application vous permet de mieux comprendre qui il est et comment lui présenter votre application de la meilleure façon.
 
-Braze ne fournit pas directement le suivi de l'attribution d'installation, mais peut s'intégrer à des [services]({{site.baseurl}}/partners/message_orchestration) tels que Branch et AppsFlyer pour vous fournir de façon fluide des données d'installation.
+Braze ne fournit pas directement le suivi de l'attribution d'installation, mais peut s'intégrer à des [services]({{site.baseurl}}/partners/message_orchestration) tels que Branch or branche et AppsFlyer pour vous fournir de façon fluide des données d'installation.
 
 ## Segmentez vos utilisateurs {#segment-your-users}
 

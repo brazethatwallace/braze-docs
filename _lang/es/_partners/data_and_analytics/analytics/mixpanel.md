@@ -74,7 +74,7 @@ Para reducir la ambigüedad, establece `braze_external_id` directamente en Mixpa
 
 ### Configuración automática de la propiedad (SDKs) {#automatic-property-setting-sdks}
 
-El SDK de Mixpanel puede establecer `braze_external_id` automáticamente cuando el SDK de Braze está integrado en la misma aplicación. Si implementas Mixpanel y Braze juntos, normalmente no necesitas configuración adicional más allá de instalar ambos SDKs.
+El SDK or kit de desarrollo de software de Mixpanel puede establecer `braze_external_id` automáticamente cuando el SDK or kit de desarrollo de software de Braze está integrado en la misma aplicación. Si implementas Mixpanel y Braze juntos, normalmente no necesitas configuración adicional más allá de instalar ambos SDKs.
 
 {% alert note %}
 `braze_external_id` no se establece cuando se llama a `changeUser()` en Braze; se establece cuando Mixpanel se inicializa o inicia una sesión (durante el "init" o "start session").

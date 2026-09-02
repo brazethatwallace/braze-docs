@@ -76,7 +76,7 @@ Quando um perfil de usuário é sincronizado, os seguintes campos são mesclados
 
 ### Coleta de assinantes (opcional) {#collecting-subscribers-optional}
 
-Você pode optar por coletar assinantes diretamente pela Braze (nas configurações do seu conector Shopify) ou por meio de alternativas de API e SDK que sincronizam dados do Shopify.
+Você pode optar por coletar assinantes diretamente pela Braze (nas configurações do seu conector Shopify) ou por meio de alternativas de API or interface de programação do aplicativo (API) e SDK or kit de desenvolvimento de software que sincronizam dados do Shopify.
 
 {% tabs local %}
 {% tab Conector Shopify %}
@@ -86,12 +86,12 @@ Na etapa **Gerenciar usuários** das configurações do seu conector Shopify, é
 2. Ative a coleta de assinantes de e-mail e SMS.
 {% endtab %}
 
-{% tab API ou SDKs da Braze %}
-Como alternativa, você pode sincronizar as informações de opt-in de marketing por e-mail e SMS diretamente do Shopify usando a API ou os SDKs da Braze.
+{% tab API or interface de programação do aplicativo (API) ou SDKs da Braze %}
+Como alternativa, você pode sincronizar as informações de opt-in de marketing por e-mail e SMS diretamente do Shopify usando a API or interface de programação do aplicativo (API) ou os SDKs da Braze.
 
 | Opção | Recursos |
 |------|---------|
-| API | - [Endpoints de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para substituir diretamente o que é suportado pela integração<br>- [Endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups) para definir os dados do grupo de inscrições ou o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)<br>- [Central de Preferências da Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions) para opções de coleta de opt-in de marketing mais personalizadas |
+| API or interface de programação do aplicativo (API) | - [Endpoints de grupos de inscrições]({{site.baseurl}}/api/endpoints/subscription_groups) para substituir diretamente o que é suportado pela integração<br>- [Endpoint `Users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#set-subscription-groups) para definir os dados do grupo de inscrições ou o [estado de inscrição global de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#subscription-states)<br>- [Central de Preferências da Braze]({{site.baseurl}}/user_guide/channels/email/subscriptions) para opções de coleta de opt-in de marketing mais personalizadas |
 | SDKs | - [`NotificationSubscriptionTypes`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#notificationsubscriptiontypes)<br>- [`addToSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)<br>- [`removeFromSubscriptionGroup`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#removefromsubscriptiongroup)<br>- [`setEmailNotificationSubscriptionType`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Coleta de assinantes (opcional)" }
 {% endtab %}

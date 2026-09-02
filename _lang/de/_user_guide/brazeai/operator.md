@@ -4,18 +4,18 @@ article_title: BrazeAI Operator
 page_order: 7
 alias: /operator/
 toc_headers: h2
-description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen und diesen nutzen können, einen in das Braze-Dashboard integrierten KI-gestützten Assistenten, einschließlich seiner Features und Best Practices."
+description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen und diesen nutzen können, einen in das Braze-Dashboard integrierten KI or künstliche Intelligenz-gestützten Assistenten, einschließlich seiner Features und Best Practices."
 ---
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> ist ein KI-gestützter Assistent, der in das Dashboard integriert ist. Operator unterstützt Sie beim Erstellen – beim Entwerfen von Campaigns, Canvases, Segmenten und Inhalten – und hilft Ihnen, wenn Sie nicht weiterkommen, indem er Fragen beantwortet, bei der Fehlerbehebung unterstützt und gemeinsam mit Ihnen Ideen entwickelt.
+> BrazeAI Operator<sup>TM</sup> ist ein KI or künstliche Intelligenz-gestützter Assistent, der in das Dashboard integriert ist. Operator unterstützt Sie beim Erstellen – beim Entwerfen von Campaigns, Canvase, Segmenten und Inhalten – und hilft Ihnen, wenn Sie nicht weiterkommen, indem er Fragen beantwortet, bei der Fehlerbehebung unterstützt und gemeinsam mit Ihnen Ideen entwickelt.
 
 ## Zugriff auf Operator {#access-operator}
 
 Öffnen Sie Operator von jeder Seite im Braze-Dashboard.
 
-1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Nutzerprofil aus.
+1. Wählen Sie **BrazeAI Operator<sup>TM</sup>** neben Ihrem Kundenprofil or Nutzerprofil aus.
 2. Das Operator-Chat-Panel öffnet sich in einem Seitenpanel.
 
 ![Das Operator-Chat-Panel.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
@@ -31,7 +31,7 @@ Beschreiben Sie in natürlicher Sprache, was Sie erreichen möchten. Klare und s
 - **Eine Frage stellen:** Warum wird mein Liquid nicht gerendert?
 - **Etwas erstellen:** Erstelle ein Segment von Nutzer:innen, die in den letzten 7 Tagen ihren Warenkorb abgebrochen haben.
 
-Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation, Erklärungen in einfacher Sprache sowie Entwürfe von Campaigns, Canvases, Segmenten und Inhalten bereitstellen, die Sie überprüfen und direkt in Ihre Arbeit einfügen können. Wie Operator Änderungen vorschlägt und anwendet, erfahren Sie unter [Mit Operator Aktionen ausführen](#take-action-with-operator).
+Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation, Erklärungen in einfacher Sprache sowie Entwürfe von Campaigns, Canvase, Segmenten und Inhalten bereitstellen, die Sie überprüfen und direkt in Ihre Arbeit einfügen können. Wie Operator Änderungen vorschlägt und anwendet, erfahren Sie unter [Mit Operator Aktionen ausführen](#take-action-with-operator).
 
 Operator nutzt [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), das für komplexe, mehrstufige Aufgaben geeignet ist. Den vollständigen Umfang dessen, was Operator Ihnen beim Erstellen helfen kann, finden Sie unter [Was Sie mit Operator tun können]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). Für einsatzbereite Beispiele besuchen Sie die [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
@@ -86,7 +86,7 @@ Operator zeigt seine Denkschritte in zusammenklappbaren Abschnitten mit der Beze
 
 ### Mit Operator Aktionen ausführen {#take-action-with-operator}
 
-Operator kann Änderungen direkt im Braze-Dashboard vorschlagen und ausführen, z. B. Formularfelder ausfüllen, Einstellungen aktualisieren, Inhalte generieren oder Sie zu einer anderen Seite navigieren, um Ihre Anfrage abzuschließen. Jede vorgeschlagene Änderung wird als Aktionskarte präsentiert, die Sie überprüfen und genehmigen können, bevor sie wirksam wird. Weitere Informationen zur Funktionsweise finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
+Operator kann Änderungen direkt im Braze-Dashboard vorschlagen und ausführen, z. B. Formularfelder ausfüllen, Einstellungen Update or aktualisieren or aktualisieren, Inhalte generieren oder Sie zu einer anderen Seite navigieren, um Ihre Anfrage abzuschließen. Jede vorgeschlagene Änderung wird als Aktionskarte präsentiert, die Sie überprüfen und genehmigen können, bevor sie wirksam wird. Weitere Informationen zur Funktionsweise finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Antworten in andere Tools kopieren {#copy-responses-to-other-tools}
 
@@ -95,7 +95,7 @@ Operator-Antworten sind in Markdown formatiert. Wenn Sie eine Antwort erhalten h
 {% tabs %}
 {% tab Google Docs %}
 
-Gehen Sie zuerst zu **Tools** > **Einstellungen** und wählen Sie **Markdown automatisch erkennen**. Um Markdown einzufügen, gehen Sie zu **Bearbeiten** > **Aus Markdown einfügen**. Sie können auch per Rechtsklick **Aus Markdown einfügen** auswählen.
+Gehen Sie zuerst zu **Tools** > **Einstellungen** und wählen Sie **Markdown automatisch erkennen**. Um Markdown einzufügen, gehen Sie zu **Bearbeiten** > **Aus Markdown einfügen**. Sie können auch per Rechtsklick or rechtsklicken **Aus Markdown einfügen** auswählen.
 
 {% endtab %}
 {% tab Microsoft Word und Outlook %}
@@ -139,7 +139,7 @@ Am Ende jeder Antwort können Sie über die Daumen-hoch- oder Daumen-runter-Butt
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, das als Unterauftragsverarbeiter von Braze dem Datenverarbeitungsnachtrag (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Behandlung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
+BrazeAI Operator<sup>TM</sup> ist mit OpenAI integriert, das als Unterauftragsverarbeiter von Braze dem Datenverarbeitungsnachtrag (Datenschutzbeauftragte:r) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Behandlung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Nächste Schritte {#next-steps}
 

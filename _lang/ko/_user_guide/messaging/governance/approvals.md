@@ -33,7 +33,7 @@ Campaign을 시작하려면 다음 구성요소를 승인해야 합니다:
 Canvas를 시작하려면 다음 주요 구성요소를 승인해야 합니다:
 
 - **Conversion Events:** 인게이지먼트 및 보고 목적으로 추적하는 측정기준입니다.
-- **Entry Schedule:** 진입 스케줄 유형과 사용자가 Canvas에 진입하는 시기를 포함합니다.
+- **항목 Schedule:** 진입 스케줄 유형과 사용자가 Canvas에 진입하는 시기를 포함합니다.
 - **Target Audience:** Canvas에 진입할 대상을 결정합니다.
 - **Send Settings:** Canvas의 모든 단계에 대한 발송 옵션입니다.
 - **Build Canvas:** Canvas 사용자 여정입니다.

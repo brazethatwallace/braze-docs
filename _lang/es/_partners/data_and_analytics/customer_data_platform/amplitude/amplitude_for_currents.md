@@ -31,7 +31,7 @@ Puedes encontrar una lista completa de los eventos y las propiedades del evento 
 Para utilizar esta característica, tu ID de Usuario de Amplitude debe coincidir con el ID externo de Braze.
 {% endalert %}
 
-Braze solo enviará datos de eventos para usuarios que tengan su `external_user_id` configurado o para usuarios anónimos que tengan su `device_id` configurado. Para los usuarios anónimos, necesitarás sincronizar tu ID de dispositivo de Amplitude con el ID de dispositivo de Braze en el SDK. Por ejemplo:
+Braze solo enviará datos de eventos para usuarios que tengan su `external_user_id` configurado o para usuarios anónimos que tengan su `device_id` configurado. Para los usuarios anónimos, necesitarás sincronizar tu ID de dispositivo de Amplitude con el ID de dispositivo de Braze en el SDK or kit de desarrollo de software. Por ejemplo:
 
 ```java
 amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
@@ -40,7 +40,7 @@ amplitude.setDeviceId(Appboy.getInstance(context).getDeviceId();)
 Puedes exportar dos tipos de eventos a Amplitude: [eventos de participación en mensajes](#supported-currents-events), que consisten en los eventos de Braze directamente relacionados con el envío de mensajes, y [eventos de comportamiento del cliente](#supported-currents-events), que incluyen otra actividad de la aplicación o el sitio web, como sesiones, eventos personalizados y compras rastreadas a través de la plataforma. Todos los eventos regulares llevan el prefijo `[Appboy]`, y todos los eventos personalizados llevan el prefijo `[Appboy] [Custom Event]`. Las propiedades de eventos personalizados y de eventos de compra llevan el prefijo `[Custom event property]` y `[Purchase property]`, respectivamente.
 
 {% alert note %}
-Braze Currents aplica el prefijo `[Appboy]` al exportar eventos a Amplitude. La etiqueta hace referencia al nombre de producto heredado de Braze. Este es el comportamiento esperado y no indica un problema con el SDK o la integración.
+Braze Currents aplica el prefijo `[Appboy]` al exportar eventos a Amplitude. La etiqueta hace referencia al nombre de producto heredado de Braze. Este es el comportamiento esperado y no indica un problema con el SDK or kit de desarrollo de software o la integración.
 {% endalert %}
 
 Todas las cohortes nombradas e importadas en Braze llevarán el prefijo `[Amplitude]` y el sufijo de su `cohort_id`. Esto significa que una cohorte llamada "TEST_COHORT" con el `cohort_id` "abcd1234" se mostrará como `[Amplitude] TEST_COHORT: abcd1234` en los filtros de Braze.
@@ -77,7 +77,7 @@ Para más información, consulta la [integración de Appboy con Amplitude](https
 
 Currents se conecta a la API HTTP de Amplitude, que tiene un [límite de velocidad](https://developers.amplitude.com/docs/http-api-v2#upload-limit) de 30 eventos/segundo por dispositivo y un límite no documentado de 500K eventos/día por dispositivo. Si se superan estos umbrales, Amplitude limitará los eventos registrados a través de Currents. Si un dispositivo en tu integración supera este límite de velocidad, puede que experimentes un retraso en la aparición de los eventos de todos los dispositivos en Amplitude.
 
-Los dispositivos no deberían reportar más de 30 eventos/segundo o 500K eventos/día en circunstancias normales, y este patrón de eventos solo debería ocurrir debido a una integración mal configurada. Para evitar este tipo de retraso, asegúrate de que tu integración de SDK reporte eventos a una tasa normal como se especifica en nuestras instrucciones de integración de SDK y evita ejecutar pruebas automatizadas que generen muchos eventos para un solo dispositivo.
+Los dispositivos no deberían reportar más de 30 eventos/segundo o 500K eventos/día en circunstancias normales, y este patrón de eventos solo debería ocurrir debido a una integración mal configurada. Para evitar este tipo de retraso, asegúrate de que tu integración de SDK or kit de desarrollo de software reporte eventos a una tasa normal como se especifica en nuestras instrucciones de integración de SDK or kit de desarrollo de software y evita ejecutar pruebas automatizadas que generen muchos eventos para un solo dispositivo.
 
 ## Eventos de Currents compatibles {#supported-currents-events}
 

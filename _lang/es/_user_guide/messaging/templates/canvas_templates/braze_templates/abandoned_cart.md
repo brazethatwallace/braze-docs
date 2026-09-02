@@ -3,13 +3,13 @@ nav_title: Intención abandonada
 article_title: Intención abandonada
 page_order: 1
 page_type: reference
-description: "Este artículo describe cómo utilizar una plantilla de Braze Canvas para interactuar con los usuarios en tiempo real y animarlos a completar sus compras."
+description: "Este artículo describe cómo utilizar una plantilla de BRAZE Canvas para interactuar con los usuarios en tiempo real y animarlos a completar sus compras."
 tool: Canvas
 ---
 
 # Intención abandonada {#abandoned-intent}
 
-> Interactúa con los usuarios en tiempo real para animarlos a completar sus compras mientras los productos aún están frescos en su mente. Esta plantilla activada por API registra a los usuarios de inmediato cuando abandonan un carrito, envía recordatorios oportunos en el canal óptimo (correo electrónico, SMS o mensaje dentro de la aplicación), verifica la finalización de la compra en dos puntos del recorrido y sincroniza a los usuarios que no convierten con audiencias publicitarias para reorientación.
+> Interactúa con los usuarios en tiempo real para animarlos a completar sus compras mientras los productos aún están frescos en su mente. Esta plantilla activada por API registra a los usuarios de inmediato cuando abandonan un carrito, envía recordatorios oportunos en el canal óptimo (correo electrónico, servicio de mensajes cortos o mensaje dentro de la aplicación), verifica la finalización de la compra en dos puntos del recorrido y sincroniza a los usuarios que no convierten con audiencias publicitarias para reorientación.
 
 En este artículo, te guiaremos a través de un caso de uso de la plantilla **Abandoned Intent**, que está pensada para la etapa de consideración del ciclo de vida del usuario. Después de este artículo, habrás personalizado un recorrido de usuario que fomenta las compras de usuarios que no han realizado compras después de añadir artículos a sus carritos.
 
@@ -37,8 +37,8 @@ La plantilla **Abandoned Intent** sigue este flujo: verificar la compra, enviar 
 | Rutas de acción | Made purchase? | Primera verificación de finalización; los usuarios que ya compraron salen del Canvas. |
 | Mensaje | Itemized Reminder | Recordatorio inmediato del carrito enviado justo después de la entrada. |
 | Retraso | Delay | Espera de 30 minutos para que el seguimiento llegue mientras el producto aún está fresco en la mente. |
-| Rutas de audiencia | Intelligent Channel split | Dirige a los usuarios a correo electrónico o SMS según la clasificación de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). |
-| Mensaje | Abandoned Cart Email, Abandoned Cart SMS y Abandoned Cart In-App Message | Seguimientos específicos por canal. El canal inteligente selecciona entre correo electrónico y SMS; el mensaje dentro de la aplicación se envía en una ruta separada en la plantilla. |
+| Rutas de audiencia | Intelligent Channel split | Dirige a los usuarios a correo electrónico o servicio de mensajes cortos según la clasificación de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). |
+| Mensaje | Abandoned Cart Email, Abandoned Cart servicio de mensajes cortos y Abandoned Cart In-App Message | Seguimientos específicos por canal. El canal inteligente selecciona entre correo electrónico y servicio de mensajes cortos; el mensaje dentro de la aplicación se envía en una ruta separada en la plantilla. |
 | Rutas de acción | Made purchase? (2) | Segunda verificación de finalización antes de la reorientación. |
 | Sincronización de audiencias | Ad Retargeting | Sincroniza a los que no convierten con audiencias publicitarias (como Facebook) para reorientación fuera del canal. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pasos de la plantilla Abandoned Intent" }
@@ -112,8 +112,8 @@ Puedes usar las [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/
 
 #### Dirigir al canal óptimo {#route-to-the-optimal-channel}
 
-1. Revisa el paso de Rutas de audiencia **Intelligent Channel split**. Este dirige a los usuarios a **Abandoned Cart Email** o **Abandoned Cart SMS** según la clasificación de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). Ajusta las rutas si es necesario.
-2. Personaliza los pasos **Abandoned Cart Email**, **Abandoned Cart SMS** y **Abandoned Cart In-App Message**. Selecciona **Edit message** en cada paso para actualizar el texto y el mensaje de ese canal. El mensaje dentro de la aplicación se ejecuta en una ruta separada de la división de canal inteligente y no es seleccionado por la clasificación de canal inteligente.
+1. Revisa el paso de Rutas de audiencia **Intelligent Channel split**. Este dirige a los usuarios a **Abandoned Cart Email** o **Abandoned Cart servicio de mensajes cortos** según la clasificación de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). Ajusta las rutas si es necesario.
+2. Personaliza los pasos **Abandoned Cart Email**, **Abandoned Cart servicio de mensajes cortos** y **Abandoned Cart In-App Message**. Selecciona **Edit message** en cada paso para actualizar el texto y el mensaje de ese canal. El mensaje dentro de la aplicación se ejecuta en una ruta separada de la división de canal inteligente y no es seleccionado por la clasificación de canal inteligente.
 
 #### Reorientar a los que no convierten {#retarget-non-converters}
 

@@ -29,9 +29,9 @@ A Braze cria Campaigns à meia-noite nesse fuso horário para o dia atual e o di
 
 ## Quantos modelos são necessários? {#how-many-templates-are-required}
 
-A Braze calcula o mínimo a partir dos volumes de envio planejados e dos usuários com e-mail habilitado nos Segments selecionados (não o tamanho total do Segment). Forneça mais modelos do que o mínimo para que o sistema possa se ajustar a problemas de entregabilidade sem interromper o processo. Para mais detalhes, consulte [Etapa 3: Selecionar as mensagens para envio]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#step-3-select-the-messages-to-send).
+A Braze calcula o mínimo a partir dos volumes de envio planejados e dos usuários com e-mail habilitado nos Segments selecionados (não o tamanho total do Segment or segmento). Forneça mais modelos do que o mínimo para que o sistema possa se ajustar a problemas de entregabilidade sem interromper o processo. Para mais detalhes, consulte [Etapa 3: Selecionar as mensagens para envio]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#step-3-select-the-messages-to-send).
 
-## Posso usar o mesmo Segment para várias tentativas de aquecimento? {#can-i-use-the-same-segment-for-multiple-warmup-attempts}
+## Posso usar o mesmo Segment or segmento para várias tentativas de aquecimento? {#can-i-use-the-same-segment-for-multiple-warmup-attempts}
 
 Dentro de um único plano ativo, a Braze exclui automaticamente os usuários que já receberam envios anteriores de aquecimento de IP para o mesmo modelo. Se você parar um plano e iniciar um novo que reutilize os mesmos Segments, adicione um filtro para excluir os usuários que receberam Campaigns do plano anterior.
 
@@ -67,7 +67,7 @@ A manutenção de volume é o ajuste automático que a Braze aplica quando esses
 
 ## Por que as edições de Campaign não aparecem no rastreador de aquecimento de IP? {#why-dont-campaign-edits-appear-on-the-ip-warming-tracker}
 
-As alterações feitas em Campaigns criadas pelo aquecimento de IP automatizado (como cronograma, Segment ou volume) não são sincronizadas de volta com o rastreador de aquecimento de IP. Para notas de configuração relacionadas, consulte [Etapa 3: Selecionar as mensagens para envio]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#step-3-select-the-messages-to-send).
+As alterações feitas em Campaigns criadas pelo aquecimento de IP automatizado (como cronograma, Segment or segmento ou volume) não são sincronizadas de volta com o rastreador de aquecimento de IP. Para notas de configuração relacionadas, consulte [Etapa 3: Selecionar as mensagens para envio]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/automated_ip_warming#step-3-select-the-messages-to-send).
 
 ## Posso interromper um plano de aquecimento de IP? {#can-i-stop-an-ip-warming-plan}
 

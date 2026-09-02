@@ -27,7 +27,7 @@ Shopify의 결제 확장성 강화 계획의 일환으로, Braze와의 통합에
 - **통합의 전반적인 개선 사항:**
     - **권장 이벤트 도입:** 통합에 권장 이커머스 이벤트를 추가하여, Braze의 사전 구축된 템플릿을 통해 일반적인 이커머스 사용 사례를 간소화합니다.
     - **간소화된 ID 관리:** 사용자 ID 관리 방식을 개선하여 익명 사용자 데이터의 추적 및 기여도 분석을 향상시킵니다. ID 관리 처리 방식에 대한 자세한 내용은 [사용자 및 데이터 동기화]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#user-and-data-syncing)를 참조하세요.
-    - **이메일 및 SMS 가입자 목록:** 현재 이메일 및 SMS 가입자를 수집하고 있는 경우, 업그레이드 과정에서 각 채널에 대한 기본 구독 그룹이 자동으로 생성됩니다. Braze가 이메일 및 SMS 옵트인을 동기화할 때, Braze는 더 이상 고객 프로필의 글로벌 구독 상태를 덮어쓰지 않고 구독 그룹 옵트인만 업데이트합니다.
+    - **이메일 및 단문 메시지 서비스 가입자 목록:** 현재 이메일 및 단문 메시지 서비스 가입자를 수집하고 있는 경우, 업그레이드 과정에서 각 채널에 대한 기본 구독 그룹이 자동으로 생성됩니다. Braze가 이메일 및 단문 메시지 서비스 옵트인을 동기화할 때, Braze는 더 이상 고객 프로필의 글로벌 구독 상태를 덮어쓰지 않고 구독 그룹 옵트인만 업데이트합니다.
     - 현재 버전에서 새 버전으로의 모든 변경 사항에 대한 자세한 내용은 [체인지로그](#full-changelog)를 참조하세요.
 
 {% alert important %}
@@ -41,7 +41,7 @@ Shopify 통합 페이지에서 업그레이드 프로세스를 시작하기 전�
 - **SDK 커스터마이징 확인:** Braze와 Shopify 통합을 커스터마이징한 경우(예: 커스텀 이벤트 또는 속성 로깅), 업그레이드 후에도 이러한 커스터마이징이 올바르게 작동하는지 확인하세요. "상품 조회" 또는 "장바구니 업데이트"와 같은 동작에 대해 자체 브라우저 이벤트를 생성한 경우, 새 커넥터에서 제공하는 기능과 중복되므로 업그레이드 전에 개발자와 협력하여 해당 이벤트를 제거하세요.
 
 {% alert important %}
-Shopify 온라인 스토어를 사용 중이며 개발자가 Braze SDK를 Shopify 사이트에 직접 구현했거나, Google Tag Manager 또는 고객 데이터 플랫폼을 통해 구현한 경우, 새 Shopify 커넥터로 업그레이드하면서 기존 방식의 사용을 중단할 계획을 세워야 합니다.
+Shopify 온라인 스토어를 사용 중이며 개발자가 Braze SDK를 Shopify 사이트에 직접 구현했거나, Google Tag 매니저 또는 고객 데이터 플랫폼을 통해 구현한 경우, 새 Shopify 커넥터로 업그레이드하면서 기존 방식의 사용을 중단할 계획을 세워야 합니다.
 {% endalert %}
 
 - **ID 관리 검토:** Braze 외부 ID를 사용하고 있는 경우, 개발팀과 협력하여 새 통합과의 호환성을 확인하세요. Shopify 스토어 경험 내에서 외부 ID를 설정한 경우, [새로운 ID 관리 프로세스]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_overview#user-and-data-syncing)와의 충돌을 방지하도록 개발자에게 조정을 요청하세요.
@@ -125,11 +125,11 @@ Braze는 이커머스 비즈니스의 다양한 요구를 충족하도록 설계
 | 수집 유형 | 이전 버전 | 최신 버전 |
 | --- | --- | --- |
 | 이메일 가입자 수집 |  {::nomarkdown}<ul><li>Override for global email subscription state</li><li>Ability to assign one or more subscription groups</li><li>No default subscription group for the integration for the connected Shopify store</li></ul>{:/} | {::nomarkdown}<ul><li>Deprecated override functionality</li><li>A default subscription group will be created as part of the upgrade</li><li>Ability to assign additional subscription groups</li></ul>{:/} |
-| SMS 가입자 수집 |  {::nomarkdown}<ul><li>Required to assign one or more subscription groups</li><li>No default subscription group for the integration for the connected Shopify store</li></ul>{:/} | {::nomarkdown}<ul><li>A default subscription group will be created as part of the upgrade</li><li>Ability to assign additional subscription groups</li></ul>{:/} |
+| 단문 메시지 서비스 가입자 수집 |  {::nomarkdown}<ul><li>Required to assign one or more subscription groups</li><li>No default subscription group for the integration for the connected Shopify store</li></ul>{:/} | {::nomarkdown}<ul><li>A default subscription group will be created as part of the upgrade</li><li>Ability to assign additional subscription groups</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="가입자 수집" }
 
 {% alert note %}
-현재 이메일 또는 SMS 가입자를 수집하고 있는 경우, 업그레이드가 완료된 후 새로운 기본 구독 그룹이 생성됩니다. 기본 구독 그룹은 Shopify 스토어프론트의 이름으로 지정됩니다. 이 프로세스는 최대 5시간이 소요될 수 있습니다. <br><br>구독 그룹이 사용 가능해지면, 가입한 쇼핑객에게 효과적으로 도달할 수 있도록 활성 Campaigns, Segments 또는 Canvases에 해당 구독 그룹을 포함하세요.
+현재 이메일 또는 단문 메시지 서비스 가입자를 수집하고 있는 경우, 업그레이드가 완료된 후 새로운 기본 구독 그룹이 생성됩니다. 기본 구독 그룹은 Shopify 스토어프론트의 이름으로 지정됩니다. 이 프로세스는 최대 5시간이 소요될 수 있습니다. <br><br>구독 그룹이 사용 가능해지면, 가입한 쇼핑객에게 효과적으로 도달할 수 있도록 활성 Campaigns, Segments 또는 Canvases에 해당 구독 그룹을 포함하세요.
 {% endalert %}
 
 ### 상품 동기화 {#product-sync}

@@ -1,14 +1,14 @@
 ---
-nav_title: "PATCH: Objektbeziehung aktualisieren"
-article_title: "PATCH: Objektbeziehung aktualisieren"
+nav_title: "PATCH: Objektbeziehung Update or aktualisieren or aktualisieren"
+article_title: "PATCH: Objektbeziehung Update or aktualisieren or aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Endpunkt zum Aktualisieren von Objektbeziehungen."
+description: "Dieser Artikel beschreibt den Endpunkt zum Update or aktualisieren or aktualisieren von Objektbeziehungen."
 ---
 {% api %}
-# Objektbeziehung aktualisieren {#update-object-relationship}
+# Objektbeziehung Update or aktualisieren or aktualisieren {#update-object-relationship}
 {% apimethod patch %}
 /data_objects/objects/{type_name}/{external_id}/object_relationships
 {% endapimethod %}
@@ -35,7 +35,7 @@ Die folgende Tabelle listet und beschreibt die Pfadparameter für den Endpunkt `
 |---|---|---|---|
 | `type_name` | Erforderlich | String | URL-Objekttyp |
 | `external_id` | Erforderlich | String | URL-Objektbezeichner |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für Objektbeziehung aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für Objektbeziehung Update or aktualisieren or aktualisieren" }
 
 ## Anfrageparameter {#request-parameters}
 
@@ -48,7 +48,7 @@ Die folgende Tabelle listet und beschreibt die JSON-Anfrageparameter für den En
 | `related_external_id` | Erforderlich | String | Verknüpfter Objektbezeichner |
 | `anchor` | Optional | String | `source` (Standard) oder `target` |
 | `attributes` | Optional | Objekt | Beziehungsattribute zum Zusammenführen |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für Objektbeziehung aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für Objektbeziehung Update or aktualisieren or aktualisieren" }
 
 ## Beispielanfrage {#example-request}
 
@@ -116,7 +116,7 @@ Die folgende Tabelle listet und beschreibt die Felder einer erfolgreichen Antwor
 | `object_relationship.to_data_object` | Bedingt | Objekt | Verknüpftes Objekt, wenn `anchor=source` |
 | `object_relationship.from_data_object` | Bedingt | Objekt | Verknüpftes Objekt, wenn `anchor=target` |
 | `object_relationship.attributes` | Erforderlich | Objekt | Beziehungsattribute nach der Zusammenführung |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für Objektbeziehung aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für Objektbeziehung Update or aktualisieren or aktualisieren" }
 
 ## Fehler {#errors}
 
@@ -126,8 +126,8 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 |---|---|---|
 | `400` | Validierungsfehler | Überprüfen Sie, ob `rel_kind`, `anchor` und `attributes` für den Beziehungstyp gültig sind. |
 | `404` | Beziehung nicht gefunden (`data-object-relationship-not-found`) | Überprüfen Sie, ob das Quellobjekt, das verknüpfte Objekt und die Beziehungsschlüsselwerte alle existieren. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Allowlist blockiert | Überprüfen Sie, ob der Schlüssel die Berechtigung `data_objects.object_relationships.update` hat und ob Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie die Anfrage nach `X-RateLimit-Reset` und reduzieren Sie die Anfragefrequenz. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler bei Objektbeziehung aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler bei Objektbeziehung Update or aktualisieren or aktualisieren" }
 {% endapi %}

@@ -8,7 +8,7 @@
 {% tab Android %}
 #### Etapa 1.1: Registre-se para push {#step-11-register-for-push}
 
-Registre-se para push usando a API Firebase Cloud Messaging (FCM) do Google. Para um passo a passo completo, consulte as etapas a seguir do [guia de integração de push nativo para Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
+Registre-se para push usando a API or interface de programação do aplicativo (API) Firebase Cloud Messaging (FCM) do Google. Para um passo a passo completo, consulte as etapas a seguir do [guia de integração de push nativo para Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android/):
 
 1. [Adicione o Firebase ao seu projeto]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-1-add-firebase-to-your-project).
 2. [Adicione o Cloud Messaging às suas dependências]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/integration/standard_integration#step-2-add-cloud-messaging-to-your-dependencies).
@@ -22,7 +22,7 @@ Primeiro, acesse o Firebase Console, abra seu projeto e selecione <i class="fa-s
 
 ![O projeto Firebase com o menu "Settings" aberto.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/select-project-settings.png %})
 
-Selecione **Cloud Messaging** e, em **Firebase Cloud Messaging API (V1)**, copie o **Sender ID** para a área de transferência.
+Selecione **Cloud Messaging** e, em **Firebase Cloud Messaging API or interface de programação do aplicativo (API) (V1)**, copie o **Sender ID** para a área de transferência.
 
 ![A página "Cloud Messaging" do projeto Firebase com o "Sender ID" destacado.]({% image_buster /assets/img/android/push_integration/set_up_automatic_token_registration/copy-sender-id.png %})
 
@@ -73,14 +73,14 @@ pushEventsStreamSubscription.cancel();
 #### Campos de eventos de notificação por push {#push-notification-event-fields}
 
 {% alert note %}
-Devido a limitações de plataforma no iOS, o SDK da Braze só pode processar cargas úteis de push enquanto o app estiver em primeiro plano. Os listeners só serão disparados para o tipo de evento `push_opened` no iOS após o usuário ter interagido com uma notificação por push.
+Devido a limitações de plataforma no iOS, o SDK or kit de desenvolvimento de software da Braze só pode processar cargas úteis de push enquanto o app estiver em primeiro plano. Os listeners só serão disparados para o tipo de evento `push_opened` no iOS após o usuário ter interagido com uma notificação por push.
 {% endalert %}
 
 Para uma lista completa dos campos de notificação por push, consulte a tabela a seguir:
 
 | Nome do campo | Tipo | Descrição |
 | ------------------ | --------- | ----------- |
-| `payloadType` | String | Especifica o tipo de carga útil da notificação. Os dois valores enviados pelo SDK Flutter da Braze são `push_opened` e `push_received`. Apenas eventos `push_opened` são suportados no iOS. |
+| `payloadType` | String | Especifica o tipo de carga útil da notificação. Os dois valores enviados pelo SDK or kit de desenvolvimento de software Flutter da Braze são `push_opened` e `push_received`. Apenas eventos `push_opened` são suportados no iOS. |
 | `url` | String | Especifica a URL que foi aberta pela notificação. |
 | `useWebview` | Boolean | Se `true`, a URL abre no app em um webview modal. Se `false`, a URL abre no navegador do dispositivo. |
 | `title` | String | Representa o título da notificação. |
@@ -89,7 +89,7 @@ Para uma lista completa dos campos de notificação por push, consulte a tabela 
 | `badgeCount` | Number | Representa a contagem de badges da notificação. |
 | `timestamp` | Number | Representa o momento em que a carga útil foi recebida pelo aplicativo. |
 | `isSilent` | Boolean | Se `true`, a carga útil é recebida silenciosamente. Para saber mais sobre o envio de notificações por push silenciosas no Android, consulte [Notificações por push silenciosas no Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Para saber mais sobre o envio de notificações por push silenciosas no iOS, consulte [Notificações por push silenciosas no iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `isBrazeInternal` | Boolean | Será `true` se a carga útil da notificação foi enviada para um recurso interno do SDK, como sincronização de Feature Flag ou Uninstall Tracking. A carga útil é recebida silenciosamente para o usuário. |
+| `isBrazeInternal` | Boolean | Será `true` se a carga útil da notificação foi enviada para um recurso interno do SDK or kit de desenvolvimento de software, como sincronização de Feature Flag ou Uninstall Tracking. A carga útil é recebida silenciosamente para o usuário. |
 | `imageUrl` | String | Especifica a URL associada à imagem da notificação. |
 | `brazeProperties` | Object | Representa as propriedades da Braze associadas à Campaign (pares chave-valor). |
 | `ios` | Object | Representa campos específicos do iOS. |
@@ -112,7 +112,7 @@ A partir do Xcode 14, você pode testar notificações por push remotas em um si
 ### Etapa 4: Adicione deep links (Android) {#step-4-add-deep-links-android}
 
 {% alert warning %}
-No Android, `com_braze_handle_push_deep_links_automatically` tem o valor padrão `false`. Com o padrão, tocar em uma notificação por push ainda envia um evento `push_opened` para o seu listener Dart, mas o SDK nativo não traz o app para o primeiro plano nem abre o destino do deep link automaticamente. Se o seu app não abrir quando uma notificação for tocada, essa flag é a causa mais provável.
+No Android, `com_braze_handle_push_deep_links_automatically` tem o valor padrão `false`. Com o padrão, tocar em uma notificação por push ainda envia um evento `push_opened` para o seu listener Dart, mas o SDK or kit de desenvolvimento de software nativo não traz o app para o primeiro plano nem abre o destino do deep link automaticamente. Se o seu app não abrir quando uma notificação for tocada, essa flag é a causa mais provável.
 {% endalert %}
 
 Para permitir que a Braze abra automaticamente seu app e quaisquer deep links quando uma notificação por push for tocada, defina `com_braze_handle_push_deep_links_automatically` como `true` no seu `braze.xml`:

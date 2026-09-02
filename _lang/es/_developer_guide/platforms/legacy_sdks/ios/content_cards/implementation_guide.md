@@ -228,7 +228,7 @@ typedef NS_ENUM(NSInteger, ContentCardClassType) {
 {% subtabs global %}
 {% subtab Swift %}
 **Solicitar Content Cards**<br>
-Mientras el observador permanezca en memoria, se puede esperar la devolución de llamada de notificación del SDK de Braze.
+Mientras el observador permanezca en memoria, se puede esperar la devolución de llamada de notificación del SDK or kit de desarrollo de software de Braze.
 
 ```swift
 func loadContentCards() {
@@ -237,7 +237,7 @@ func loadContentCards() {
 }
 ```
 
-**Gestión de la devolución de llamada del SDK de Content Cards**<br>
+**Gestión de la devolución de llamada del SDK or kit de desarrollo de software de Content Cards**<br>
 Reenvía la devolución de llamada de notificación al archivo auxiliar para analizar los datos de la carga útil de tus objetos personalizados.
 ```swift
 @objc func contentCardsUpdated(_ notification: Notification) {
@@ -260,7 +260,7 @@ func handleContentCardsUpdated(_ notification: Notification, for classTypes: [Co
 {% endsubtab %}
 {% subtab Objective-C %}
 **Solicitar Content Cards**<br>
-Mientras el observador permanezca en memoria, se puede esperar la devolución de llamada de notificación del SDK de Braze.
+Mientras el observador permanezca en memoria, se puede esperar la devolución de llamada de notificación del SDK or kit de desarrollo de software de Braze.
 
 ```objc
 - (void)loadContentCards {
@@ -269,7 +269,7 @@ Mientras el observador permanezca en memoria, se puede esperar la devolución de
 }
 ```
 
-**Gestión de la devolución de llamada del SDK de Content Cards**<br>
+**Gestión de la devolución de llamada del SDK or kit de desarrollo de software de Content Cards**<br>
 Reenvía la devolución de llamada de notificación al archivo auxiliar para analizar los datos de la carga útil de tus objetos personalizados.
 ```objc
 - (void)contentCardsUpdated:(NSNotification *)notification {
@@ -554,7 +554,7 @@ Este comportamiento puede anularse como se detalla en nuestra [guía de estilo p
 
 ## Registro de impresiones, clics y descartados {#logging-impressions-clicks-and-dismissals}
 
-Después de ampliar tus objetos personalizados para que funcionen como Content Cards, registrar métricas valiosas como impresiones, clics y descartados es rápido. Esto se puede hacer usando un protocolo `ContentCardable` que hace referencia y proporciona datos a un archivo auxiliar para que sean registrados por el SDK de Braze.
+Después de ampliar tus objetos personalizados para que funcionen como Content Cards, registrar métricas valiosas como impresiones, clics y descartados es rápido. Esto se puede hacer usando un protocolo `ContentCardable` que hace referencia y proporciona datos a un archivo auxiliar para que sean registrados por el SDK or kit de desarrollo de software de Braze.
 
 ### Componentes de implementación<br><br> {#implementation-components}
 

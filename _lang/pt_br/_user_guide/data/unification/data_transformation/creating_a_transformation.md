@@ -20,7 +20,7 @@ description: "Este artigo de referência fornece etapas para criar uma transform
 
 ## Etapa 1: Identificar uma plataforma de origem {#step-1-identify-a-source-platform}
 
-Identifique uma plataforma externa que você deseja conectar à Braze e verifique se a plataforma aceita webhooks. Essas configurações às vezes são chamadas de "notificações de API" ou "solicitações de serviço da web".
+Identifique uma plataforma externa que você deseja conectar à Braze e verifique se a plataforma aceita webhooks. Essas configurações às vezes são chamadas de "notificações de API or interface de programação do aplicativo (API)" ou "solicitações de serviço da web".
 
 O seguinte é um exemplo de [webhook do Typeform](https://www.typeform.com/help/a/webhooks-360029573471/), que é configurável ao fazer login na plataforma deles:
 

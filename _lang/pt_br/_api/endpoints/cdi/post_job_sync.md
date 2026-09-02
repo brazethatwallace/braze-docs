@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Disparar sincronização\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Disparar uma sincronização {#trigger-a-sync}
 {% apimethod post %}
 /cdi/integrations/{integration_id}/sync
@@ -18,7 +18,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Disparar
 > Use este endpoint para disparar uma sincronização para uma determinada integração.
 
 {% alert note %}
-Para usar este endpoint, você deve gerar uma chave de API com a permissão `cdi.integration_sync`.
+Para usar este endpoint, você deve gerar uma chave de API or interface de programação do aplicativo (API) com a permissão `cdi.integration_sync`.
 {% endalert %}
 
 ## Limite de taxa {#rate-limit}

@@ -4,7 +4,7 @@ article_title: Guia de atualização do iOS 17
 page_order: 7
 platform:
   - iOS
-description: "Este artigo aborda insights sobre a versão do iOS 17 para ajudar você a fazer upgrade do seu SDK sem problemas."
+description: "Este artigo aborda insights sobre a versão do iOS 17 para ajudar você a fazer upgrade do seu SDK or kit de desenvolvimento de software sem problemas."
 hidden: true
 noindex: true
 ---
@@ -15,7 +15,7 @@ noindex: true
 
 ## Compatibilidade com iOS 17 e Xcode 15 {#ios-17-and-xcode-15-compatibility}
 
-O Braze Swift SDK e o Objective-C SDK são compatíveis com versões anteriores do Xcode 14 e do Xcode 15 e com dispositivos iOS 17.
+O Braze Swift SDK or kit de desenvolvimento de software e o Objective-C SDK or kit de desenvolvimento de software são compatíveis com versões anteriores do Xcode 14 e do Xcode 15 e com dispositivos iOS 17.
 
 ## Alterações no iOS 17 {#changes-in-ios-17}
 
@@ -37,12 +37,12 @@ A Braze lançou seu próprio manifesto de privacidade, juntamente com novas APIs
 
 #### Assinatura de código {#code-signing}
 
-A assinatura de código permite que os desenvolvedores que usam um SDK de terceiros em seu aplicativo validem que o mesmo desenvolvedor o assinou em versões anteriores no Xcode.
+A assinatura de código permite que os desenvolvedores que usam um SDK or kit de desenvolvimento de software de terceiros em seu aplicativo validem que o mesmo desenvolvedor o assinou em versões anteriores no Xcode.
 
-### SDK da Braze e privacidade {#braze-sdk-and-privacy}
+### SDK or kit de desenvolvimento de software da Braze e privacidade {#braze-sdk-and-privacy}
 
 A Apple também anunciou que divulgará uma lista de SDKs de terceiros considerados "impactantes para a privacidade" no final de 2023. A expectativa é que esses SDKs tenham um impacto especialmente alto na privacidade do usuário, segundo a Apple.
 
-Ao contrário dos SDKs de rastreamento tradicionais, projetados para monitorar usuários em vários sites e aplicativos, o SDK da Braze se concentra no envio de mensagens com dados primários e nas experiências dos usuários.
+Ao contrário dos SDKs de rastreamento tradicionais, projetados para monitorar usuários em vários sites e aplicativos, o SDK or kit de desenvolvimento de software da Braze se concentra no envio de mensagens com dados primários e nas experiências dos usuários.
 
-Embora não esperemos que o SDK da Braze seja incluído nessa lista, pretendemos monitorar essa situação de perto e lançar as atualizações necessárias.
+Embora não esperemos que o SDK or kit de desenvolvimento de software da Braze seja incluído nessa lista, pretendemos monitorar essa situação de perto e lançar as atualizações necessárias.

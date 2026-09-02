@@ -65,7 +65,7 @@ Customer Insights에서 **Admin > Connections**로 이동합니다. 그런 다�
 
 세그먼트가 Braze로 성공적으로 내보내지면 고객 프로필에서 커스텀 속성으로 확인할 수 있습니다. 커스텀 속성은 내보내기 연결을 구성할 때 입력한 Braze 세그먼트 API 식별자로 이름이 지정됩니다. 예: `"Segment_API_Identifier": "0000-0000-0000"`
 
-Braze에서 이러한 사용자의 세그먼트를 생성하려면 **Segments**로 이동하여 새 세그먼트를 생성하고 필터로 **Custom Attributes**를 선택합니다. 여기에서 Dynamics 365와 동기화된 커스텀 속성을 선택할 수 있습니다. 세그먼트가 생성되면 Campaign 또는 Canvas를 생성할 때 오디언스 필터로 선택할 수 있습니다.
+Braze에서 이러한 사용자의 세그먼트를 생성하려면 **Segments**로 이동하여 새 세그먼트를 생성하고 필터로 **커스텀 속성**를 선택합니다. 여기에서 Dynamics 365와 동기화된 커스텀 속성을 선택할 수 있습니다. 세그먼트가 생성되면 Campaign 또는 Canvas를 생성할 때 오디언스 필터로 선택할 수 있습니다.
 
 {% alert note %}
 이 통합에 대한 자세한 내용은 Microsoft의 Braze [통합 문서](https://docs.microsoft.com/en-us/dynamics365/customer-insights/export-braze)를 참조하세요.

@@ -3,7 +3,7 @@ nav_title: Tealium für Currents
 article_title: Tealium für Currents
 page_order: 3
 alias: /partners/tealium_for_currents/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Tealium, einer Customer Data Platform (CDP), die Informationen zwischen Quellen in Ihrem Marketing Stack sammelt und weiterleitet."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze-Currents und Tealium, einer Customer Data Platform (Customer Data Platform (CDP)), die Informationen zwischen Quellen in Ihrem Marketing Stack sammelt und weiterleitet."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 # Tealium für Currents {#tealium-for-currents}
 
-> [Tealium](https://www.tealium.com) ist eine Customer Data Platform (CDP), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Orte in Ihrem Marketing Stack weiterleitet.
+> [Tealium](https://www.tealium.com) ist eine Customer Data Platform (Customer Data Platform (CDP)), die Informationen aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Orte in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und Tealium erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit Currents können Sie auch Daten mit Tealium verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
 

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Facebook Messenger
 
-> [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) es una de las plataformas de mensajería instantánea más populares del mundo, utilizada por casi mil millones de usuarios activos al mes. A través de esta plataforma, las marcas pueden crear chatbots atractivos para interactuar de forma inteligente y automática con sus clientes.
+> [Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/) es una de las plataformas de mensajería instantánea más populares del mundo, utilizada por casi mil millones de MAU or usuarios activos al mes or usuarios activos al mes. A través de esta plataforma, las marcas pueden crear chatbots atractivos para interactuar de forma inteligente y automática con sus clientes.
 
 La integración de Braze y Facebook aprovecha las funciones de webhooks, segmentación, personalización y activación de Braze para enviar mensajes a tus usuarios en Facebook Messenger a través de la API de la plataforma Messenger. Nuestra plataforma incluye una plantilla de webhook personalizada para Facebook Messenger en **Contenido** > **Webhook**.
 

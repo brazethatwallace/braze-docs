@@ -45,7 +45,7 @@ Da neue Spalten als abwärtskompatibel gelten, empfiehlt Braze dringend, die gew
 
 ## Wann die Tabellen SNAPSHOTS und CHANGELOGS aktualisiert werden {#when-snapshots-and-changelogs-tables-are-updated}
 
-Die Tabellen SNAPSHOTS und CHANGELOGS verfolgen Änderungen an Campaigns und Canvases. Zu wissen, wann diese Tabellen aktualisiert werden, ist wichtig für die Abfrage der neuesten Nachrichtenvarianten und Canvas-Konfigurationen.
+Die Tabellen SNAPSHOTS und CHANGELOGS verfolgen Änderungen an Campaigns und Canvase. Zu wissen, wann diese Tabellen aktualisiert werden, ist wichtig für die Abfrage der neuesten Nachrichtenvarianten und Canvas-Konfigurationen.
 
 ### CHANGELOGS_CAMPAIGN_SHARED
 
@@ -57,7 +57,7 @@ Eine Zeile wird zu `CHANGELOGS_CAMPAIGN_SHARED` hinzugefügt, wenn:
   - Conversion-Verhalten
 
 {% alert important %}
-Das Speichern oder Aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie die Campaign starten oder die Änderungen des Entwurfs nach dem Start auf die aktive Campaign anwenden.
+Das Speichern oder Update or aktualisieren or aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update or aktualisieren aus. Das Update or aktualisieren wird nur dann getriggert, wenn Sie die Campaign starten oder die Änderungen des Entwurfs nach dem Start auf die aktive Campaign anwenden.
 {% endalert %}
 
 ### SNAPSHOTS_CAMPAIGN_MESSAGE_VARIATION_SHARED
@@ -74,7 +74,7 @@ Eine Zeile wird zu `CHANGELOGS_CANVAS_SHARED` hinzugefügt, wenn:
   - Varianten (Prozentsatz, Zuordnungen des ersten Schritts, Variantennamen)
 
 {% alert important %}
-Das Speichern oder Aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
+Das Speichern oder Update or aktualisieren or aktualisieren des Entwurfs nach dem Start löst nicht automatisch ein Update or aktualisieren aus. Das Update or aktualisieren wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
 {% endalert %}
 
 ### SNAPSHOTS_CANVAS_VARIATION_SHARED
@@ -91,7 +91,7 @@ Eine Zeile wird zu `SNAPSHOTS_CANVAS_STEP_SHARED` hinzugefügt, wenn:
   - Aktionen (einschließlich Änderungen des Nachrichteninhalts innerhalb von Nachrichtenvarianten)
 
 {% alert important %}
-Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
+Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update or aktualisieren aus. Das Update or aktualisieren wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
 {% endalert %}
 
 ### SNAPSHOTS_CANVAS_FLOW_STEP_SHARED
@@ -103,7 +103,7 @@ Eine Zeile wird zu `SNAPSHOTS_CANVAS_FLOW_STEP_SHARED` hinzugefügt, wenn:
   - Name
 
 {% alert important %}
-Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update aus. Das Update wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
+Das Speichern des Entwurfs nach dem Start löst nicht automatisch ein Update or aktualisieren aus. Das Update or aktualisieren wird nur dann getriggert, wenn Sie das Canvas starten oder die nach dem Start vorgenommenen Änderungen am Entwurf auf das aktive Canvas anwenden.
 {% endalert %}
 
 ## Einhaltung der Datenschutz-Grundverordnung (DSGVO) {#general-data-protection-regulation-gdpr-compliance}

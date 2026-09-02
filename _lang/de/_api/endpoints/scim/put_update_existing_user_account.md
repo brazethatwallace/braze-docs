@@ -1,23 +1,23 @@
 ---
-nav_title: "PUT: Dashboard-Nutzerkonto aktualisieren"
-article_title: "PUT: Dashboard-Nutzerkonto aktualisieren"
+nav_title: "PUT: Dashboard-Nutzerkonto Update or aktualisieren or aktualisieren"
+article_title: "PUT: Dashboard-Nutzerkonto Update or aktualisieren or aktualisieren"
 alias: /post_update_existing_user_account/
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Bestehendes Dashboard-Nutzerkonto aktualisieren“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Bestehendes Dashboard-Nutzerkonto Update or aktualisieren or aktualisieren“."
 ---
 
 {% api %}
-# Dashboard-Nutzerkonto aktualisieren {#update-dashboard-user-account}
+# Dashboard-Nutzerkonto Update or aktualisieren or aktualisieren {#update-dashboard-user-account}
 {% apimethod put %}
 /scim/v2/Users/{id}
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein bestehendes Dashboard-Nutzerkonto zu aktualisieren, indem Sie die Ressource `id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) zurückgegeben wird.
+> Verwenden Sie diesen Endpunkt, um ein bestehendes Dashboard-Nutzerkonto zu Update or aktualisieren or aktualisieren, indem Sie die Ressource `id` angeben, die von der SCIM-Methode [`POST`]({{site.baseurl}}/api/endpoints/scim/post_create_user_account) zurückgegeben wird.
 
-Damit können Sie Vor- und Nachnamen, Berechtigungen (zum Festlegen von Berechtigungen auf Unternehmens-, Workspace- und Teamebene) sowie die Abteilung aktualisieren.
+Damit können Sie Vor- und Nachnamen, Berechtigungen (zum Festlegen von Berechtigungen auf Unternehmens-, Workspace- und Teamebene) sowie die Abteilung Update or aktualisieren or aktualisieren.
 
 Aus Sicherheitsgründen kann `userName` (E-Mail-Adresse) nicht über diesen Endpunkt aktualisiert werden. Wenn Sie den `userName` (E-Mail-Adresse) für eine:n Nutzer:in ändern möchten, wenden Sie sich an den [Support]({{site.baseurl}}/support_contact).
 
@@ -27,11 +27,11 @@ Aus Sicherheitsgründen kann `userName` (E-Mail-Adresse) nicht über diesen Endp
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token. Verwenden Sie Ihre Dienstherkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
+Um diesen Endpunkt zu verwenden, benötigen Sie ein SCIM-Token / Textbaustein. Verwenden Sie Ihre Dienstherkunft als `X-Request-Origin`-Header. Weitere Informationen finden Sie unter [Automatisierte Nutzer:innenbereitstellung]({{site.baseurl}}/scim/automated_user_provisioning).
 
 ## Rate-Limit
 
-{% multi_lang_include rate_limits.md endpoint='update dashboard user' %}
+{% multi_lang_include rate_limits.md endpoint='Update or aktualisieren dashboard user' %}
 
 ## Pfadparameter {#path-parameters}
 

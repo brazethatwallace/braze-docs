@@ -41,18 +41,18 @@ noindex: true
 
 excerpt_separator: ""
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## 1 Criar modelo de e-mail {#1-create-email-template}
 {% apimethod post %}
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Post,Email,Create,Template,REST,API
+Post,Email,Create,Template,REST or transferir estado representacional,API or interface de programação do aplicativo (API)
 {% endapitags %}
 
-Use as REST APIs de modelo de e-mail para gerenciar programaticamente os modelos de e-mail que você armazenou nos dashboards da Braze, na página Modelos e mídia. A Braze oferece dois endpoints para criar e atualizar seus modelos de e-mail.
+Use as REST or transferir estado representacional APIs de modelo de e-mail para gerenciar programaticamente os modelos de e-mail que você armazenou nos dashboards da Braze, na página Modelos e mídia. A Braze oferece dois endpoints para criar e atualizar seus modelos de e-mail.
 
-A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser usado para atualizar o modelo em chamadas subsequentes à API.
+A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser usado para atualizar o modelo em chamadas subsequentes à API or interface de programação do aplicativo (API).
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -92,13 +92,13 @@ A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser
 
 
 {% endapi %}
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## 2 Listar modelos de e-mail disponíveis {#2-list-available-email-template}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Get,Email,Template,List,REST
+Get,Email,Template,List,REST or transferir estado representacional
 {% endapitags %}
 
 Use os seguintes endpoints para obter uma lista de modelos disponíveis.
@@ -139,18 +139,18 @@ GET https://YOUR_REST_API_URL/templates/email/list
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `email_template_id`  | Sim | String | O identificador de API do seu modelo de e-mail. |
+| `email_template_id`  | Sim | String | O identificador de API or interface de programação do aplicativo (API) do seu modelo de e-mail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Detalhes dos parâmetros" }
 
 {% endapi %}
 
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## 3 Envio disparado de Campaigns {#3-campaigns-trigger-send}
 {% apimethod post %}campaigns/trigger/send{% endapimethod %}
 {% apitags %}Post, Campaigns, Trigger,Send{% endapitags %}
 
-O envio disparado por API permite que você armazene o conteúdo da mensagem dentro do dashboard da Braze e, ao mesmo tempo, determine quando a mensagem será enviada e para quem por meio da sua API.
+O envio disparado por API or interface de programação do aplicativo (API) permite que você armazene o conteúdo da mensagem dentro do dashboard da Braze e, ao mesmo tempo, determine quando a mensagem será enviada e para quem por meio da sua API or interface de programação do aplicativo (API).
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -207,18 +207,18 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `email_template_id`  | Sim | String | O identificador de API do seu modelo de e-mail. |
+| `email_template_id`  | Sim | String | O identificador de API or interface de programação do aplicativo (API) do seu modelo de e-mail. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Detalhes dos parâmetros" }
 
 {% endapi %}
 
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 ## 4 Envio disparado de Campaigns {#4-campaigns-trigger-send}
 {% apimethod put %}users/track{% endapimethod %}
 {% apitags %}PUT, Campaigns, Trigger, Send{% endapitags %}
 
-Esse endpoint pode ser usado para registrar eventos personalizados, atributos de usuário e compras para usuários. Você pode incluir até 75 objetos de Atributos, Eventos e Compras por solicitação. Ou seja, só é possível postar atributos para até 75 usuários por vez, mas na mesma chamada de API também é possível fornecer até 75 eventos e até 75 compras.
+Esse endpoint pode ser usado para registrar eventos personalizados, atributos de usuário e compras para usuários. Você pode incluir até 75 objetos de Atributos, Eventos e Compras por solicitação. Ou seja, só é possível postar atributos para até 75 usuários por vez, mas na mesma chamada de API or interface de programação do aplicativo (API) também é possível fornecer até 75 eventos e até 75 compras.
 
 {% apiref postman %}https://www.getpostman.com/ {% endapiref %}
 
@@ -273,7 +273,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | email | (string) |
 | email_subscribe | (string) Os valores disponíveis são "opted_in" (registrado explicitamente para receber mensagens de e-mail), "unsubscribed" (cancelou explicitamente a inscrição para receber mensagens de e-mail) e "subscribed" (nem optou por receber nem por não receber).  |
 | external_id | (string) Do identificador exclusivo do usuário. |
-| facebook | hash contendo qualquer um dos seguintes itens: `id` (string), `likes` (vetor de strings), `num_friends` (inteiro). |
+| Facebook | hash contendo qualquer um dos seguintes itens: `id` (string), `likes` (vetor de strings), `num_friends` (inteiro). |
 | first_name | (string) |
 | gender | (string) "M", "F", "O" (outro), "N" (não aplicável), "P" (prefere não dizer) ou nil (desconhecido). |
 | home_city | (string) |

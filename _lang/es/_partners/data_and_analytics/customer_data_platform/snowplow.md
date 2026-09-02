@@ -22,7 +22,7 @@ La integración de Braze y Snowplow te permite reenviar eventos de Snowplow a Br
 - Conservar todos los datos en tu nube privada hasta que decidas reenviarlos.
 - Desplegar tú mismo la solución en tu cuenta existente de Snowplow en la nube.
 
-El [reenvío de eventos](https://docs.snowplow.io/docs/destinations/forwarding-events/) de Snowplow es una característica adicional de pago disponible para los clientes de Snowplow. Para reenviar eventos a Braze sin este complemento, utiliza la integración de [Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) de Snowplow.
+El [reenvío de eventos](https://docs.snowplow.io/docs/destinations/forwarding-events/) de Snowplow es una característica adicional de pago disponible para los clientes de Snowplow. Para reenviar eventos a Braze sin este complemento, utiliza la integración de [Google Tag Administrador Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) de Snowplow.
 
 Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes interacciones centradas en el cliente en Braze y entregar mensajes personalizados en tiempo real.
 
@@ -32,8 +32,8 @@ Aprovecha los ricos datos de comportamiento de Snowplow para impulsar potentes i
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pipeline de Snowplow | Necesitas un pipeline de Snowplow en funcionamiento. |
 | Acceso a la consola de Snowplow | Debes tener acceso a la consola de Snowplow para configurar los reenviadores de eventos. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` y `users.alias.update`. <br><br> Puedes crearla en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
@@ -52,7 +52,7 @@ Para crear el reenviador de eventos:
 
 1. En la consola de Snowplow, navega hasta **Destinations** y selecciona **Create new destination**.
 2. Al configurar la conexión, selecciona **Braze** como tipo de conexión.
-3. Introduce tu clave de API de Braze y el endpoint de la REST API.
+3. Introduce tu clave de API de Braze y el endpoint de la REST or transferencia de estado representacional API.
 4. Guarda la conexión.
 
 ### Paso 2: Configura el reenviador de eventos {#step-2-configure-the-event-forwarder}

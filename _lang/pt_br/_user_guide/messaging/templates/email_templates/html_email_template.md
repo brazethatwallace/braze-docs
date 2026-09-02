@@ -45,11 +45,11 @@ Não se esqueça de salvar seu modelo selecionando **Save template**. Agora voc�
 Se você fizer edições em um modelo existente, essas alterações não serão refletidas em Campaigns que foram criadas usando versões anteriores desse modelo.
 {% endalert %}
 
-## Usando seus modelos em Campaigns da API {#api_for_upload_email_templates}
+## Usando seus modelos em Campaigns da API or interface de programação do aplicativo (API) {#api_for_upload_email_templates}
 
-Para usar seu e-mail em uma Campaign da API, você precisa do `email_template_id`, que pode ser encontrado na parte inferior de qualquer modelo de e-mail criado na Braze.
+Para usar seu e-mail em uma Campaign da API or interface de programação do aplicativo (API), você precisa do `email_template_id`, que pode ser encontrado na parte inferior de qualquer modelo de e-mail criado na Braze.
 
-![Seção do identificador de API de um modelo de e-mail HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:50%;"}
+![Seção do identificador de API or interface de programação do aplicativo (API) de um modelo de e-mail HTML.]({% image_buster /assets/img_archive/email_template_id.png %}){: style="max-width:50%;"}
 
 ## Gerenciando modelos de e-mail {#managing-email-templates}
 

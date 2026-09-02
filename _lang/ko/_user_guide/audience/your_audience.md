@@ -56,7 +56,7 @@ Braze의 사용자는 일반적으로 두 가지 상태 중 하나에 해당합�
 
 - [푸시(웹 또는 모바일)]({{site.baseurl}}/user_guide/channels/push)
 - [이메일]({{site.baseurl}}/user_guide/channels/email)
-- [SMS, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+- [단문 메시지 서비스, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
 - [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp)
 - [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)
 - [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
@@ -84,7 +84,7 @@ Braze의 사용자는 일반적으로 두 가지 상태 중 하나에 해당합�
 - 웹 푸시 구독은 브라우저를 메시징 채널로 등록합니다.
 {% endtab %}
 
-{% tab 이메일 및 SMS %}
+{% tab 이메일 및 단문 메시지 서비스 %}
 - 데이터를 업로드하거나, API를 호출하거나, 옵트인을 수집할 때 사용자가 생성될 수 있습니다.
 - 이메일 주소와 전화번호는 채널 식별자로 저장됩니다.
 - 옵트인 상태는 채널별 및 지역별로 추적됩니다.
@@ -92,7 +92,7 @@ Braze의 사용자는 일반적으로 두 가지 상태 중 하나에 해당합�
 
 {% tab API 및 통합 %}
 - [REST API]({{site.baseurl}}/api/endpoints/user_data) 또는 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)를 통해 사용자를 직접 생성하거나 업데이트할 수 있습니다.
-- 외부 도구(CDP, CRM, 데이터 웨어하우스 등)를 통해 사용자를 Braze에 자동으로 동기화할 수 있습니다.
+- 외부 도구(고객 데이터 플랫폼, CRM, 데이터 웨어하우스 등)를 통해 사용자를 Braze에 자동으로 동기화할 수 있습니다.
 {% endtab %}
 {% endtabs %}
 

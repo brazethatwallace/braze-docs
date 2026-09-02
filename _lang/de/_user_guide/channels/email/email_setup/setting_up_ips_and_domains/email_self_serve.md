@@ -24,7 +24,7 @@ Um die Self-Service-E-Mail-Einrichtung zu nutzen, müssen Sie die folgenden Vora
 
 - Planen Sie eine Versand-Subdomain mit mindestens drei Ebenen. Da Braze eine Subdomain unter Ihrer delegierten Domain erstellt (z. B. „marketing.example.com“), muss Ihre Versand-Domain mindestens drei Ebenen tief sein (z. B. „e.marketing.example.com“).
 - Die Versand-Domain muss einer Domain untergeordnet sein, die Ihnen gehört. Wenn Sie beispielsweise „example.com“ besitzen, könnte eine Subdomain „mail.example.com“ sein, sodass Sie die Absenderadresse „@mail.example.com“ verwenden können.
-- Es gelten Domain-Limits. Die Gesamtzahl der Tracking-Domains ist auf das 2-Fache der Anzahl verifizierter Domains in Ihrem Vertrag begrenzt. Wenn Sie mehr benötigen, wenden Sie sich an Ihren Account Manager.
+- Es gelten Domain-Limits. Die Gesamtzahl der Tracking-Domains ist auf das 2-Fache der Anzahl verifizierter Domains in Ihrem Vertrag begrenzt. Wenn Sie mehr benötigen, wenden Sie sich an Ihren Account Manager:in.
 
 ## Einrichtung {#setup}
 

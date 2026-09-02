@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Criar relacionamento de usuário."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Criar relacionamento de usuário {#create-user-relationship}
 {% apimethod post %}
 /data_objects/objects/{type_name}/{external_id}/users
@@ -16,12 +16,12 @@ description: "Este artigo descreve detalhes sobre o endpoint Criar relacionament
 > Use este endpoint para vincular um usuário da Braze a um objeto de dados.
 
 {% alert important %}
-Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa ser ativado antes que as permissões de chave de API de Data Objects apareçam em **Configurações** > **Chaves de API**.
+Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa ser ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de Data Objects apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.create`.
+Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.create`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -126,8 +126,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 | `404` | Tipo ou objeto não encontrado | Confirme se `type_name` e `external_id` existem no espaço de trabalho. |
 | `409` | Relacionamento duplicado (`duplicate-user-relationship`) | Use `PUT` para substituir o relacionamento existente ou exclua-o antes de criar novamente. |
 | `422` | Limite de objetos por usuário atingido (`data-objects-per-user-limit-exceeded`) ou limite de usuários por objeto atingido (`users-per-data-object-limit-exceeded`) | Reduza a contagem de relacionamentos para o usuário ou o objeto, ou entre em contato com o suporte da Braze sobre os limites do seu espaço de trabalho. |
-| `401` | Chave da API REST ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave tem a permissão `data_objects.user_relationships.create` e se o IP de origem está na lista de permissões da chave, se configurada. |
+| `401` | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave tem a permissão `data_objects.user_relationships.create` e se o IP de origem está na lista de permissões da chave, se configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência de solicitações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros para criar relacionamento de usuário" }
 {% endapi %}

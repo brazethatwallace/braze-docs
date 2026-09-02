@@ -149,15 +149,15 @@ Um [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/li
 
 Nehmen Sie als Nächstes Ihr generiertes Liquid-Snippet und fügen Sie es in Ihre Nachricht ein. Nachdem Sie Ihre In-App-Nachricht entworfen und erstellt haben, gehen Sie zu **Preview & Test**, um eine Vorschau Ihrer Nachricht anzuzeigen.
 
-### Den KI-Texter verwenden {#use-the-ai-copywriter}
+### Den KI or künstliche Intelligenz-Texter verwenden {#use-the-ai-copywriter}
 
-Wenn ein Textblock in Ihrer In-App-Nachricht ausgewählt ist, wählen Sie <i class="fa-solid fa-wand-magic-sparkles" title="KI-Texter"></i> **KI-Texter** in der Block-Symbolleiste, um den [KI-gestützten Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) zu starten. Der KI-Textassistent übergibt einen kurzen Produktnamen oder eine Beschreibung an das GPT3-Textgenerierungstool von OpenAI, um menschenähnliche Marketingtexte für Ihre Nachrichten zu generieren.
+Wenn ein Textblock in Ihrer In-App-Nachricht ausgewählt ist, wählen Sie <i class="fa-solid fa-wand-magic-sparkles" title="KI or künstliche Intelligenz-Texter"></i> **KI or künstliche Intelligenz-Texter** in der Block-Symbolleiste, um den [KI or künstliche Intelligenz-gestützten Textassistenten]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy) zu starten. Der KI or künstliche Intelligenz-Textassistent übergibt einen kurzen Produktnamen oder eine Beschreibung an das GPT3-Textgenerierungstool von OpenAI, um menschenähnliche Marketingtexte für Ihre Nachrichten zu generieren.
 
 {% alert tip %}
 Sie können sich einige Klicks sparen, indem Sie Text innerhalb des Blocks markieren, bevor Sie auf das Symbol klicken. Der markierte Text wird dem Tool hinzugefügt, und der Text wird sofort generiert.
 {% endalert %}
 
-![GIF des KI-Texters.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
+![GIF des KI or künstliche Intelligenz-Texters.]({% image_buster /assets/img_archive/dnd_iam_ai_copywriter.gif %})
 
 ### Stile auf Standard zurücksetzen {#reset-styles-to-default}
 

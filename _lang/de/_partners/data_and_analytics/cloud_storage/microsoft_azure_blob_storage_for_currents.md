@@ -14,10 +14,10 @@ search_tag: Partner
 > [Microsoft Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) ist ein massiv skalierbarer Objektspeicher für unstrukturierte Daten, der von Microsoft als Teil der Azure-Produkt-Suite angeboten wird.
 
 {% alert important %}
-Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren Customer-Success-Manager von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
+Wenn Sie zwischen Cloud-Speicheranbietern wechseln, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in von Braze, um weitere Unterstützung bei der Einrichtung und Validierung Ihrer neuen Integration zu erhalten.
 {% endalert %}
 
-Die Integration von Braze und Microsoft Azure Blob Storage erlaubt es Ihnen, Daten zurück nach Azure zu exportieren und Currents-Daten zu streamen. Später können Sie einen ETL-Prozess (Extract, Transform, Load) verwenden, um Ihre Daten an andere Standorte zu übertragen.
+Die Integration von Braze und Microsoft Azure Blob Storage erlaubt es Ihnen, Daten zurück nach Azure zu exportieren und Currents-Daten zu streamen. Später können Sie einen ETL or Extract, Transform, Load-Prozess (ETL or Extract, Transform, Load or Extract, Transform, Load) verwenden, um Ihre Daten an andere Standorte zu übertragen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -103,9 +103,9 @@ Sie laden nur das öffentliche Zertifikat zu Microsoft Entra ID hoch – Ihr Pri
 
 Bevor Sie beginnen, [erstellen Sie ein Speicherkonto](#step-1-create-a-storage-account) und einen [Blob-Dienstcontainer](#step-3-create-a-blob-service-container) wie in der [Verbindungszeichenfolgen-Methode](#connection-string-auth-method) beschrieben.
 
-### Schritt 1: Anwendung registrieren {#cert-sp-1}
+### Schritt 1: Anwendung Registrierung or registrieren {#cert-sp-1}
 
-Navigieren Sie in Microsoft Azure zu **Microsoft Entra ID** > **App-Registrierungen** > **+ Neue Registrierung**. Geben Sie einen Namen ein (zum Beispiel `braze-currents`) und wählen Sie **Registrieren**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
+Navigieren Sie in Microsoft Azure zu **Microsoft Entra ID** > **App-Registrierungen** > **+ Neue Registrierung**. Geben Sie einen Namen ein (zum Beispiel `braze-currents`) und wählen Sie **Registrierung or registrieren**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
 
 Notieren Sie sich auf der **Übersicht**-Seite Ihrer neuen App-Registrierung die folgenden Werte. Sie geben beide in [Schritt 6](#cert-sp-6) in Braze an.
 
@@ -151,7 +151,7 @@ Geben Sie Ihr `.pfx`-Passwort ein, wenn Sie dazu aufgefordert werden. Das Flag `
 
 Navigieren Sie in Ihrer App-Registrierung zu **Zertifikate & Geheimnisse** > **Zertifikate** > **Zertifikat hochladen** und laden Sie die im vorherigen Schritt erstellte Datei `cert.pem` hoch. Fügen Sie eine Beschreibung hinzu und wählen Sie **Hinzufügen**. Ausführliche Schritte finden Sie in Microsofts Dokumentation [Add and manage app credentials in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
 
-Notieren Sie sich das Ablaufdatum Ihres Zertifikats. Siehe [Azure-Zugangsdaten für Currents aktualisieren](#updating-currents-credentials).
+Notieren Sie sich das Ablaufdatum Ihres Zertifikats. Siehe [Azure-Zugangsdaten für Currents Update or aktualisieren or aktualisieren](#updating-currents-credentials).
 
 ### Schritt 4: Zugriff auf Ihr Speicherkonto gewähren {#cert-sp-4}
 
@@ -217,11 +217,11 @@ Beim Speichern validiert Braze die von Ihnen eingegebenen Zugangsdaten.
 
 Scrollen Sie abschließend zum Ende der Seite und wählen Sie aus, welche Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
 
-## Aktualisieren der Azure-Zugangsdaten für Currents {#updating-currents-credentials}
+## Update or aktualisieren or aktualisieren der Azure-Zugangsdaten für Currents {#updating-currents-credentials}
 
-Sie können die Azure-Zugangsdaten eines bestehenden Braze-Currents-Konnektors aktualisieren, ohne die Integration zu stoppen oder bereits in Ihren Container exportierte Daten zu verlieren.
+Sie können die Azure-Zugangsdaten eines bestehenden Braze-Currents-Konnektors Update or aktualisieren or aktualisieren, ohne die Integration zu stoppen oder bereits in Ihren Container exportierte Daten zu verlieren.
 
-Um Zugangsdaten zu erneuern – oder zwischen den Methoden **Connection String** und **Certificate Service Principal** zu wechseln – führen Sie zunächst die Azure-seitigen Schritte für Ihre gewählte Methode weiter oben in diesem Artikel aus. Gehen Sie dann in Braze zu **Currents**, suchen Sie Ihren Azure-Blob-Konnektor in der Liste, wählen Sie **Edit Current** aus, aktualisieren Sie die **Credentials** und wählen Sie **Update Current** aus. Braze validiert die eingegebenen Zugangsdaten; Ihr Konnektor läuft weiter und die bereits in Ihrem Container vorhandenen Daten bleiben verfügbar. Weitere Informationen finden Sie unter [Currents aktualisieren unter „Currents einrichten“]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#updating-currents).
+Um Zugangsdaten zu erneuern – oder zwischen den Methoden **Connection String** und **Certificate Service Principal** zu wechseln – führen Sie zunächst die Azure-seitigen Schritte für Ihre gewählte Methode weiter oben in diesem Artikel aus. Gehen Sie dann in Braze zu **Currents**, suchen Sie Ihren Azure-Blob-Konnektor in der Liste, wählen Sie **Edit Current** aus, Update or aktualisieren or aktualisieren Sie die **Credentials** und wählen Sie **Update or aktualisieren Current** aus. Braze validiert die eingegebenen Zugangsdaten; Ihr Konnektor läuft weiter und die bereits in Ihrem Container vorhandenen Daten bleiben verfügbar. Weitere Informationen finden Sie unter [Currents Update or aktualisieren or aktualisieren unter „Currents einrichten“]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents#updating-currents).
 
 {% alert important %}
 Es ist wichtig, Ihr Zertifikat stets aktuell zu halten. Wenn Ihr Zertifikat abläuft, stellt der Konnektor den Versand von Events ein, bis Sie ein gültiges Zertifikat bereitstellen. Eine längere Unterbrechung kann zu Datenverlust führen.

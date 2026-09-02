@@ -2,12 +2,12 @@
 page_order: 1.5
 nav_title: Ausführliche Protokolle lesen
 article_title: Ausführliche Protokolle lesen
-description: "Erfahren Sie, wie Sie die ausführliche Protokollausgabe des Braze SDK lesen und interpretieren, einschließlich der wichtigsten Einträge für Push-Benachrichtigungen, In-App-Nachrichten, Content Cards und Deeplinks."
+description: "Erfahren Sie, wie Sie die ausführliche Protokollausgabe des Braze SDK or Software-Development-Kit lesen und interpretieren, einschließlich der wichtigsten Einträge für Push-Benachrichtigungen, In-App-Nachrichten, Content Cards und Deeplinks."
 ---
 
 # Ausführliche Protokolle lesen {#reading-verbose-logs}
 
-> Auf dieser Seite wird erläutert, wie die ausführliche Protokollausgabe des Braze SDK interpretiert werden kann. Für jeden Messaging-Kanal finden Sie die wichtigsten Protokolleinträge, deren Bedeutung und häufige Probleme, auf die Sie achten sollten.
+> Auf dieser Seite wird erläutert, wie die ausführliche Protokollausgabe des Braze SDK or Software-Development-Kit interpretiert werden kann. Für jeden Messaging-Kanal finden Sie die wichtigsten Protokolleinträge, deren Bedeutung und häufige Probleme, auf die Sie achten sollten.
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie [die ausführliche Protokollierung aktiviert]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) haben und wissen, wie Sie Protokolle auf Ihrer Plattform erfassen können.
 
@@ -50,7 +50,7 @@ Completed the openSession call
 Opened session with activity: <ACTIVITY_NAME>
 ```
 
-Filtern Sie Netzwerkanfragen nach Ihrem konfigurierten Braze-Endpunkt (zum Beispiel sdk.iad-01.braze.com), um das Sitzungsstart-Ereignis (`ss`) zu sehen.
+Filtern Sie Netzwerkanfragen nach Ihrem konfigurierten Braze-Endpunkt (zum Beispiel SDK or Software-Development-Kit.iad-01.braze.com), um das Sitzungsstart-Ereignis (`ss`) zu sehen.
 
 **Sitzungsende:**
 
@@ -66,16 +66,16 @@ Requesting data flush on internal session close flush timer.
 ### Was Sie überprüfen sollten {#what-to-check}
 
 - Überprüfen Sie, dass ein Sitzungsstart-Protokolleintrag erscheint, wenn die App gestartet wird.
-- Wenn Sie keinen Sitzungsstart sehen, prüfen Sie, ob das SDK korrekt initialisiert ist und ob `openSession` (Android) aufgerufen wird.
+- Wenn Sie keinen Sitzungsstart sehen, prüfen Sie, ob das SDK or Software-Development-Kit korrekt initialisiert ist und ob `openSession` (Android) aufgerufen wird.
 - Bestätigen Sie unter Android, dass eine Netzwerkanfrage an den Braze-Endpunkt gesendet wird. Wenn Sie diese nicht sehen, überprüfen Sie Ihren API-Schlüssel und die Endpunkt-Konfiguration.
 
 ## Push-Benachrichtigungen {#push-notifications}
 
-Push-Benachrichtigungsprotokolle helfen Ihnen zu überprüfen, ob Geräte-Token registriert, Benachrichtigungen zugestellt und Klick-Events getrackt werden.
+Push-Benachrichtigungsprotokolle helfen Ihnen zu überprüfen, ob Geräte-Token / Textbaustein registriert, Benachrichtigungen zugestellt und Klick-Events getrackt werden.
 
-### Token-Registrierung {#token-registration}
+### Token / Textbaustein-Registrierung {#token-registration}
 
-Wenn eine Sitzung beginnt, registriert das SDK das Push-Token des Geräts bei Braze.
+Wenn eine Sitzung beginnt, registriert das SDK or Software-Development-Kit das Push-Token / Textbaustein des Geräts bei Braze.
 
 {% tabs %}
 {% tab Swift %}
@@ -87,7 +87,7 @@ Updated push notification authorization:
 Received remote notifications device token: <PUSH_TOKEN>
 ```
 
-Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (z. B. sdk.iad-01.braze.com) und suchen Sie nach `push_token` in den Attributen des Request-Body:
+Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (z. B. SDK or Software-Development-Kit.iad-01.braze.com) und suchen Sie nach `push_token` in den Attributen des Request-Body:
 
 ```
 "attributes": [
@@ -128,13 +128,13 @@ Ein häufiger Fehler ist `SENDER_ID_MISMATCH`, was bedeutet, dass die konfigurie
 
 ### Worauf Sie achten sollten
 
-- Wenn `push_token` im Request-Body fehlt, wurde das Token nicht erfasst. Überprüfen Sie die Push-Einrichtung in Ihrer App-Konfiguration.
+- Wenn `push_token` im Request-Body fehlt, wurde das Token / Textbaustein nicht erfasst. Überprüfen Sie die Push-Einrichtung in Ihrer App-Konfiguration.
 - Wenn `ios_push_auth` den Wert `denied` oder `provisional` anzeigt, hat die/der Nutzer:in keine vollständige Push-Berechtigung erteilt.
-- Wenn auf Android `SENDER_ID_MISMATCH` angezeigt wird, aktualisieren Sie Ihre FCM-Sender-ID, damit sie mit Ihrem Firebase-Projekt übereinstimmt.
+- Wenn auf Android `SENDER_ID_MISMATCH` angezeigt wird, Update or aktualisieren or aktualisieren Sie Ihre FCM-Sender-ID, damit sie mit Ihrem Firebase-Projekt übereinstimmt.
 
 ### Push-Zustellung und Klick {#push-delivery-and-click}
 
-Wenn eine Push-Benachrichtigung angetippt wird, protokolliert das SDK die Verarbeitung und die Klick-Events.
+Wenn eine Push-Benachrichtigung angetippt wird, protokolliert das SDK or Software-Development-Kit die Verarbeitung und die Klick-Events.
 
 {% tabs %}
 {% tab Swift %}
@@ -189,20 +189,20 @@ Gefolgt vom Push-Payload und den Anzeige-Protokollen. Für Deeplinks suchen Sie 
 
 - Überprüfen Sie, ob der Push-Payload den erwarteten `title`, `body` sowie etwaige Deeplinks (`ab_uri`) enthält.
 - Bestätigen Sie, dass nach dem Antippen ein `pushClick`-Event protokolliert wird.
-- Wenn das Klick-Event fehlt, überprüfen Sie, ob Ihr App-Delegate oder Benachrichtigungs-Handler Push-Events korrekt an das Braze SDK weiterleitet.
+- Wenn das Klick-Event fehlt, überprüfen Sie, ob Ihr App-Delegate oder Benachrichtigungs-Handler Push-Events korrekt an das Braze SDK or Software-Development-Kit weiterleitet.
 
 ## In-App-Nachrichten {#in-app-messages}
 
-In-App-Nachrichten-Logs zeigen Ihnen den vollständigen Lebenszyklus: Zustellung vom Server, Triggern basierend auf Ereignissen, Anzeige, Impression-Protokollierung und Klick-Tracking.
+In-App-Nachrichten-Logs zeigen Ihnen den vollständigen Lebenszyklus: Zustellung vom Server, Trigger or triggern or triggern basierend auf Ereignissen, Anzeige, Impression-Protokollierung und Klick-Tracking.
 
 ### Nachrichtenzustellung {#message-delivery}
 
-Wenn eine:r Nutzer:in eine Sitzung startet und für eine In-App-Nachricht qualifiziert ist, empfängt das SDK den Nachrichten-Payload vom Server.
+Wenn eine:r Nutzer:in eine Sitzung startet und für eine In-App-Nachricht qualifiziert ist, empfängt das SDK or Software-Development-Kit den Nachrichten-Payload vom Server.
 
 {% tabs %}
 {% tab Swift %}
 
-Filtern Sie nach Antworten von Ihrem konfigurierten Braze-Endpunkt (zum Beispiel sdk.iad-01.braze.com), die die In-App-Nachrichtendaten enthalten.
+Filtern Sie nach Antworten von Ihrem konfigurierten Braze-Endpunkt (zum Beispiel SDK or Software-Development-Kit.iad-01.braze.com), die die In-App-Nachrichtendaten enthalten.
 
 Der Antworttext enthält den Nachrichten-Payload, einschließlich:
 
@@ -221,13 +221,13 @@ Der Antworttext enthält den Nachrichten-Payload, einschließlich:
 {% endtab %}
 {% tab Android %}
 
-Suchen Sie nach dem passenden Trigger-Ereignis-Log:
+Suchen Sie nach dem passenden Trigger or triggern-Ereignis-Log:
 
 ```
 Triggering action: <CAMPAIGN_BSON_ID>
 ```
 
-Dies bestätigt, dass die In-App-Nachricht einem Trigger-Ereignis zugeordnet wurde.
+Dies bestätigt, dass die In-App-Nachricht einem Trigger or triggern-Ereignis zugeordnet wurde.
 
 {% endtab %}
 {% endtabs %}
@@ -287,7 +287,7 @@ Dies ist das erwartete Verhalten, wenn keine zusätzlichen In-App-Nachrichten f�
 {% endtab %}
 {% tab Android %}
 
-Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel sdk.iad-01.braze.com) und suchen Sie nach Ereignissen mit dem Namen `sbc` (Button-Klick) oder `si` (Impression) im Anfragetext.
+Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel SDK or Software-Development-Kit.iad-01.braze.com) und suchen Sie nach Ereignissen mit dem Namen `sbc` (Button-Klick) oder `si` (Impression) im Anfragetext.
 
 {% endtab %}
 {% endtabs %}
@@ -297,7 +297,7 @@ Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel s
 - Wenn die In-App-Nachricht nicht angezeigt wird, überprüfen Sie, ob zuerst ein Sitzungsstart protokolliert wurde.
 - Filtern Sie nach Antworten von Ihrem konfigurierten Braze-Endpunkt, um zu bestätigen, dass der Nachrichten-Payload zugestellt wurde.
 - Wenn Impressionen nicht protokolliert werden, überprüfen Sie, ob Sie nicht einen benutzerdefinierten `inAppMessageDisplay`-Delegate implementiert haben, der die Protokollierung unterdrückt.
-- Wenn „No matching trigger for event“ erscheint, ist dies normal und bedeutet, dass keine zusätzlichen In-App-Nachrichten für dieses Ereignis konfiguriert sind.
+- Wenn „No matching Trigger or triggern for event“ erscheint, ist dies normal und bedeutet, dass keine zusätzlichen In-App-Nachrichten für dieses Ereignis konfiguriert sind.
 
 ## Content Cards
 
@@ -310,7 +310,7 @@ Content Cards werden zu Beginn der Sitzung und bei einer manuellen Aktualisierun
 {% tabs %}
 {% tab Swift %}
 
-Filtern Sie die Antworten von Ihrem konfigurierten Braze-Endpunkt (z. B. sdk.iad-01.braze.com), die die Kartendaten enthalten.
+Filtern Sie die Antworten von Ihrem konfigurierten Braze-Endpunkt (z. B. SDK or Software-Development-Kit.iad-01.braze.com), die die Kartendaten enthalten.
 
 Der Antworttext enthält die Kartendaten, darunter:
 
@@ -341,7 +341,7 @@ Schlüsselfelder:
 Requesting content cards sync.
 ```
 
-Gefolgt von einer POST-Anfrage an Ihren konfigurierten Braze-Endpunkt (z. B. sdk.iad-01.braze.com), die Nutzer:innen- und Geräteinformationen enthält.
+Gefolgt von einer POST-Anfrage an Ihren konfigurierten Braze-Endpunkt (z. B. SDK or Software-Development-Kit.iad-01.braze.com), die Nutzer:innen- und Geräteinformationen enthält.
 
 {% endtab %}
 {% endtabs %}
@@ -389,7 +389,7 @@ Logged event:
 {% endtab %}
 {% tab Android %}
 
-Filtern Sie Anfragen an Ihren konfigurierten Braze-Endpunkt (z. B. sdk.iad-01.braze.com) und suchen Sie nach Ereignisnamen im Anfragetext:
+Filtern Sie Anfragen an Ihren konfigurierten Braze-Endpunkt (z. B. SDK or Software-Development-Kit.iad-01.braze.com) und suchen Sie nach Ereignisnamen im Anfragetext:
 - `cci` — Content-Card-Impression
 - `ccc` — Content-Card-Klick
 - `ccd` — Content Card abgelehnt
@@ -411,7 +411,7 @@ Deeplink-Protokolle erscheinen bei Push-Benachrichtigungen, In-App-Nachrichten u
 {% tabs %}
 {% tab Swift %}
 
-Wenn das SDK einen Deeplink verarbeitet:
+Wenn das SDK or Software-Development-Kit einen Deeplink verarbeitet:
 
 ```
 Opening '<DEEP_LINK_URL>':
@@ -432,7 +432,7 @@ Für Deeplinks suchen Sie nach den Einträgen **Deep Link Delegate** oder **UriA
 adb shell am start -W -a android.intent.action.VIEW -d "<YOUR_DEEP_LINK>" "<YOUR_PACKAGE_NAME>"
 ```
 
-Damit wird bestätigt, ob der Deeplink außerhalb des Braze SDK korrekt aufgelöst wird.
+Damit wird bestätigt, ob der Deeplink außerhalb des Braze SDK or Software-Development-Kit korrekt aufgelöst wird.
 
 {% endtab %}
 {% endtabs %}
@@ -446,7 +446,7 @@ Damit wird bestätigt, ob der Deeplink außerhalb des Braze SDK korrekt aufgelö
 
 ## Nutzeridentifikation {#user-identification}
 
-Wenn ein:e Nutzer:in mit einer `external_id` identifiziert wird, protokolliert das SDK ein Change-User-Ereignis.
+Wenn ein:e Nutzer:in mit einer `external_id` identifiziert wird, protokolliert das SDK or Software-Development-Kit ein Change-User-Ereignis.
 
 {% tabs %}
 {% tab Android %}
@@ -463,7 +463,7 @@ Wichtige Hinweise:
 {% endtab %}
 {% tab Swift %}
 
-Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel sdk.iad-01.braze.com) und suchen Sie im Anfrage-Body nach der Nutzeridentifikation:
+Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel SDK or Software-Development-Kit.iad-01.braze.com) und suchen Sie im Anfrage-Body nach der Nutzeridentifikation:
 
 ```
 "user_id": "<EXTERNAL_ID>"
@@ -474,11 +474,11 @@ Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel s
 
 ## Netzwerkanfragen {#network-requests}
 
-Ausführliche Protokolle enthalten vollständige HTTP-Anfrage- und Antwortdetails für die SDK-Kommunikation mit Braze-Servern. Diese sind nützlich für die Diagnose von Verbindungsproblemen.
+Ausführliche Protokolle enthalten vollständige HTTP-Anfrage- und Antwortdetails für die SDK or Software-Development-Kit-Kommunikation mit Braze-Servern. Diese sind nützlich für die Diagnose von Verbindungsproblemen.
 
 ### Anfragestruktur {#request-structure}
 
-Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel sdk.iad-01.braze.com). Die Anfragestruktur umfasst:
+Filtern Sie nach Anfragen an Ihren konfigurierten Braze-Endpunkt (zum Beispiel SDK or Software-Development-Kit.iad-01.braze.com). Die Anfragestruktur umfasst:
 
 {% tabs %}
 {% tab Swift %}
@@ -506,9 +506,9 @@ Making request(id = <REQUEST_ID>) to <YOUR_BRAZE_ENDPOINT>
 ### Worauf Sie achten sollten
 
 - **API-Schlüssel**: Überprüfen Sie, ob `XBraze-ApiKey` mit dem API-Schlüssel Ihres Workspace übereinstimmt.
-- **Endpunkt**: Bestätigen Sie, dass die Anfrage-URL mit Ihrem konfigurierten SDK-Endpunkt übereinstimmt.
-- **Wiederholungsversuche**: Ein `XBraze-Req-Attempt`-Wert größer als 1 zeigt an, dass das SDK eine fehlgeschlagene Anfrage erneut versucht, was auf Verbindungsprobleme hindeuten kann.
-- **Rate-Limiting**: `XBraze-Req-Tokens-Remaining` zeigt die verbleibenden Anfrage-Token an. Ein niedriger Wert kann darauf hinweisen, dass das SDK sich den Rate-Limits nähert.
+- **Endpunkt**: Bestätigen Sie, dass die Anfrage-URL mit Ihrem konfigurierten SDK or Software-Development-Kit-Endpunkt übereinstimmt.
+- **Wiederholungsversuche**: Ein `XBraze-Req-Attempt`-Wert größer als 1 zeigt an, dass das SDK or Software-Development-Kit eine fehlgeschlagene Anfrage erneut versucht, was auf Verbindungsprobleme hindeuten kann.
+- **Rate-Limiting**: `XBraze-Req-Tokens-Remaining` zeigt die verbleibenden Anfrage-Token / Textbaustein an. Ein niedriger Wert kann darauf hinweisen, dass das SDK or Software-Development-Kit sich den Rate-Limits nähert.
 - **Fehlende Anfragen**: Wenn Sie unter Android nach dem Sitzungsstart keine Anfrage an den Braze-Endpunkt sehen, überprüfen Sie Ihre API-Schlüssel- und Endpunkt-Konfiguration.
 
 ## Häufige Ereignisabkürzungen {#common-event-abbreviations}
@@ -529,17 +529,17 @@ In ausführlichen Protokoll-Payloads verwendet Braze abgekürzte Ereignisnamen. 
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Geofences werden auf Android SDK 13.1.0–15.x nicht ausgelöst {#geofences-not-triggering-on-android-sdk-131015x}
+### Geofences werden auf Android SDK or Software-Development-Kit 13.1.0–15.x nicht ausgelöst {#geofences-not-triggering-on-android-sdk-131015x}
 
-Braze Android SDK 13.1.0 bis 15.x hatte eine Regression, die dazu führen konnte, dass Geofence-Update-Ereignisse nicht aufgezeichnet wurden. Auf Geräten mit Android 10 oder älter konnten auch Standortaktualisierungen beim Sitzungsstart fehlschlagen. Führen Sie ein Upgrade auf Android SDK 16.0.0 oder höher durch. Informationen zur SDK-Einrichtung finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences).
+Braze Android SDK or Software-Development-Kit 13.1.0 bis 15.x hatte eine Regression, die dazu führen konnte, dass Geofence-Update or aktualisieren-Ereignisse nicht aufgezeichnet wurden. Auf Geräten mit Android 10 oder älter konnten auch Standortaktualisierungen beim Sitzungsstart fehlschlagen. Führen Sie ein Upgrade or upgraden auf Android SDK or Software-Development-Kit 16.0.0 oder höher durch. Informationen zur SDK or Software-Development-Kit-Einrichtung finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences).
 
-### Wann kann ein Nutzerprofil 0 aufgezeichnete Sitzungen aufweisen? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
+### Wann kann ein Kundenprofil or Nutzerprofil 0 aufgezeichnete Sitzungen aufweisen? {#when-might-a-user-have-0-sessions-recorded-against-their-profile}
 
-Ein Nutzerprofil kann 0 Sitzungen anzeigen, wenn Sie die:den Nutzer:in über die REST API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) oder einen CSV-Import ohne die Felder **First session** oder **Last session** importieren. Sitzungen werden aufgezeichnet, wenn Nutzer:innen über das SDK mit Ihrer App interagieren. Weitere Informationen finden Sie unter [Nutzerprofil hat 0 Sitzungen]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
+Ein Kundenprofil or Nutzerprofil kann 0 Sitzungen anzeigen, wenn Sie die:den Nutzer:in über die Representational State Transfer API ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) oder einen CSV-Import ohne die Felder **First session** oder **Last session** importieren. Sitzungen werden aufgezeichnet, wenn Nutzer:innen über das SDK or Software-Development-Kit mit Ihrer App interagieren. Weitere Informationen finden Sie unter [Kundenprofil or Nutzerprofil hat 0 Sitzungen]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#user-profile-has-0-sessions).
 
-### Diskrepanzen bei Nutzerdaten bei gleichzeitiger Verwendung von SDK und REST API {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
+### Diskrepanzen bei Nutzerdaten bei gleichzeitiger Verwendung von SDK or Software-Development-Kit und Representational State Transfer API {#user-data-discrepancies-when-using-the-sdk-and-rest-api-together}
 
-Wenn Sie das SDK und die REST API gleichzeitig verwenden, können Race-Conditions zu Datendiskrepanzen führen. Nachdem Sie `changeUser()` aufgerufen haben, lassen Sie das SDK ausstehende Daten senden, bevor Sie kritische REST-API-Aufrufe durchführen, vermeiden Sie die Bündelung zeitkritischer Updates und erwägen Sie, eine kurze Verzögerung zwischen SDK- und API-Anfragen einzufügen. Informationen zum Verhalten von `changeUser()` finden Sie unter [Wie changeUser() funktioniert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
+Wenn Sie das SDK or Software-Development-Kit und die Representational State Transfer API gleichzeitig verwenden, können Race-Conditions zu Datendiskrepanzen führen. Nachdem Sie `changeUser()` aufgerufen haben, lassen Sie das SDK or Software-Development-Kit ausstehende Daten senden, bevor Sie kritische Representational State Transfer-API-Aufrufe durchführen, vermeiden Sie die Bündelung zeitkritischer Updates und erwägen Sie, eine kurze Verzögerung zwischen SDK or Software-Development-Kit- und API-Anfragen einzufügen. Informationen zum Verhalten von `changeUser()` finden Sie unter [Wie changeUser() funktioniert]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#how-changeuser-works).
 
 ### Daten erreichen Braze nicht {#data-not-reaching-braze}
 

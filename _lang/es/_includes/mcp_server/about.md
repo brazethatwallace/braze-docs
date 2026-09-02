@@ -14,7 +14,7 @@ Model Context Protocol, o MCP, es un estándar que permite a los agentes de IA c
 Después de [configurar el servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, puedes conectar herramientas de IA como agentes, asistentes y chatbots directamente a Braze, permitiéndoles leer datos agregados como análisis de Canvas y Campaign, atributos personalizados, Segments y más. El servidor MCP de Braze es ideal para:
 
 - Crear herramientas basadas en IA que necesiten contexto de Braze.
-- Ingenieros de CRM que crean flujos de trabajo de agentes con múltiples pasos.
+- Ingenieros de CRM or administración de las relaciones con el cliente que crean flujos de trabajo de agentes con múltiples pasos.
 - Especialistas en marketing técnicos que experimentan con consultas en lenguaje natural.
 
 El servidor MCP de Braze incluye herramientas tanto de lectura como de escritura. Estas herramientas no devuelven datos de los perfiles de usuario de Braze. Tus agentes heredan los permisos de usuario del panel de Braze. Para ver la lista completa de herramientas disponibles, consulta [Funciones de API disponibles]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
@@ -65,7 +65,7 @@ Sí, si tu usuario del panel tiene esos permisos.
 
 ### ¿Sigo necesitando una clave de API de Braze? {#do-i-still-need-a-braze-api-key}
 
-No para MCP. Las claves de API siguen funcionando para la REST API y no se van a descontinuar.
+No para MCP. Las claves de API siguen funcionando para la REST or transferencia de estado representacional API y no se van a descontinuar.
 
 ### ¿Qué regiones son compatibles? {#which-regions-are-supported}
 

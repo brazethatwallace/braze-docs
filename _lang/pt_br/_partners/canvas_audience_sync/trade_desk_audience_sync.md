@@ -24,8 +24,8 @@ Certifique-se de que os itens a seguir foram criados, concluídos ou aceitos ant
 
 | Requisito | Origin | Descrição |
 | --- | --- | --- |
-| Token de API | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Um token de API padrão criado na plataforma do The Trade Desk. Recomendamos definir a validade do token de API para até um ano para evitar interrupções nos seus Canvas com o Audience Sync do The Trade Desk. |
-| Termos e Políticas do The Trade Desk | The Trade Desk | Você deve concordar com uma política de participação UID2/CRM antes de ser habilitado para enviar dados ao The Trade Desk. Fale com seu representante no The Trade Desk para confirmar que você tem a assinatura apropriada para ativar a entrega de dados ao The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirme que o Acesso ao Gerenciamento de Dados de CRM está ativado na sua conta&#8212;seu representante no The Trade Desk pode ajudar com isso. Você deve ter seu ID de anunciante.</li><li>Tenha seu token de API padrão pronto. Você pode seguir as instruções nesta página para gerar um.</li></ul>{:/} |
+| Token de API or interface de programação do aplicativo (API) | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Um token de API or interface de programação do aplicativo (API) padrão criado na plataforma do The Trade Desk. Recomendamos definir a validade do token de API or interface de programação do aplicativo (API) para até um ano para evitar interrupções nos seus Canvas com o Audience Sync do The Trade Desk. |
+| Termos e Políticas do The Trade Desk | The Trade Desk | Você deve concordar com uma política de participação UID2/CRM antes de ser habilitado para enviar dados ao The Trade Desk. Fale com seu representante no The Trade Desk para confirmar que você tem a assinatura apropriada para ativar a entrega de dados ao The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirme que o Acesso ao Gerenciamento de Dados de CRM está ativado na sua conta&#8212;seu representante no The Trade Desk pode ajudar com isso. Você deve ter seu ID de anunciante.</li><li>Tenha seu token de API or interface de programação do aplicativo (API) padrão pronto. Você pode seguir as instruções nesta página para gerar um.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -34,7 +34,7 @@ Certifique-se de que os itens a seguir foram criados, concluídos ou aceitos ant
 
 Para começar, acesse **Integrações de parceiros** > **Parceiros de tecnologia** > **The Trade Desk**. Forneça os seguintes dados da sua conta do Trade Desk:
 
-- **Token de API**
+- **Token de API or interface de programação do aplicativo (API)**
 - **Nome do ID do anunciante** (este nome opcional identifica a conta do anunciante para referência na etapa de Audience Sync do Canvas)
 - **ID do anunciante**
 
@@ -89,7 +89,7 @@ Não há tamanho mínimo de público para públicos de CRM no The Trade Desk.
 
 ### Como sei se os usuários foram correspondidos após enviar usuários ao The Trade Desk? {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 
-No The Trade Desk, os IDs recebidos aparecem ao lado do segmento.
+No The Trade Desk, os IDs recebidos aparecem ao lado do Segment or segmento or segmento.
 
 - IDs recebidos são o número de IDs que recebemos nos últimos 30 dias.
 - IDs ativos são o número de IDs que vimos em lances nos últimos sete dias.

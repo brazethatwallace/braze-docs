@@ -161,7 +161,7 @@ Oui. Lorsque le suivi des clics est activé, vous pouvez recibler les utilisateu
 
 ### Le suivi des clics fonctionne-t-il avec les deep links ou les liens universels ? {#does-click-tracking-work-with-deep-links-or-universal-links}
 
-Le suivi des clics ne fonctionne pas avec les deep links. Vous pouvez raccourcir les liens universels de fournisseurs tels que Branch ou Appsflyer, mais Braze n'est pas en mesure de résoudre les problèmes qui pourraient survenir en faisant cela (tels que la rupture de l'attribution ou l'échec de la redirection).
+Le suivi des clics ne fonctionne pas avec les deep links. Vous pouvez raccourcir les liens universels de fournisseurs tels que Branch or branche ou Appsflyer, mais Braze n'est pas en mesure de résoudre les problèmes qui pourraient survenir en faisant cela (tels que la rupture de l'attribution ou l'échec de la redirection).
 
 ### Les aperçus dans l'application LINE comptent-ils comme des clics ? {#do-previews-on-the-line-app-count-as-clicks}
 

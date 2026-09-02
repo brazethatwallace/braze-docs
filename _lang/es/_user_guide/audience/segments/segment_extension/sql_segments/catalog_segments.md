@@ -100,13 +100,13 @@ Configurarías un segmento de catálogo utilizando las siguientes variables:
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Aplicación de salud" }
 
 {% endtab %}
-{% tab SaaS %}
+{% tab software como servicio (SaaS) %}
 
-### Plataforma SaaS {#saas-platform}
+### Plataforma software como servicio (SaaS) {#saas-platform}
 
-Supongamos que tienes una plataforma SaaS B2B y quieres segmentar a los usuarios que son empleados de un cliente existente. También tienes lo siguiente:
+Supongamos que tienes una plataforma software como servicio (SaaS) B2B y quieres segmentar a los usuarios que son empleados de un cliente existente. También tienes lo siguiente:
 
-- Un catálogo `Accounts` que contiene las diferentes cuentas que actualmente utilizan tu plataforma SaaS, cada una asignada con un `account ID`
+- Un catálogo `Accounts` que contiene las diferentes cuentas que actualmente utilizan tu plataforma software como servicio (SaaS), cada una asignada con un `account ID`
 - Un evento personalizado `Event Attendance` con una propiedad "account ID" que comparte los mismos valores que el campo "account ID" en tu catálogo
 - Un campo `Classification` dentro de tu catálogo que contiene el valor `enterprise`
 
@@ -120,7 +120,7 @@ Configurarías un segmento de catálogo utilizando las siguientes variables:
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plataforma SaaS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Plataforma software como servicio (SaaS)" }
 
 {% endtab %}
 {% endtabs %}

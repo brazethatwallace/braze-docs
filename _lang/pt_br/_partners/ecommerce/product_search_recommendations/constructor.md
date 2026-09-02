@@ -32,9 +32,9 @@ Com a integração da Braze e do Constructor, você pode usar a Descoberta de Pr
 
 Trabalhe com sua equipe de integração do Constructor para concluir o processo de integração. Certifique-se de que os dados comportamentais do seu website ou de outras fontes de dados relevantes estejam disponíveis para ativar recomendações de produtos personalizadas. Sua equipe de integração do Constructor também ajudará a configurar os snippets de HTML necessários para uso nas mensagens da Braze.
 
-## URL da API de Descoberta Offsite do Constructor {#constructors-offsite-discovery-api-url}
+## URL da API or interface de programação do aplicativo (API) de Descoberta Offsite do Constructor {#constructors-offsite-discovery-api-url}
 
-Você pode usar a URL da API de Descoberta Offsite do Constructor para renderizar imagens de produtos e direcionar os usuários para a página de detalhes do produto apropriada. A seguir está um detalhamento da estrutura do endpoint e um exemplo de como usá-lo:
+Você pode usar a URL da API or interface de programação do aplicativo (API) de Descoberta Offsite do Constructor para renderizar imagens de produtos e direcionar os usuários para a página de detalhes do produto apropriada. A seguir está um detalhamento da estrutura do endpoint e um exemplo de como usá-lo:
 
 ### Exemplo {#example}
 

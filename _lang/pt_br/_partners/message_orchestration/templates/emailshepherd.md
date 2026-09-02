@@ -24,8 +24,8 @@ Os itens a seguir são necessários para usar esta integração:
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta no EmailShepherd | Uma conta no EmailShepherd é necessária para usar esta integração. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de "Templates". <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Instância da Braze | A [instância do cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze está alinhada ao seu dashboard e endpoint REST da Braze. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de "Templates". <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Instância da Braze | A [instância do cluster]({{site.baseurl}}/api/basics/#endpoints) da Braze está alinhada ao seu dashboard e endpoint REST or transferir estado representacional da Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -46,10 +46,10 @@ Esta é uma configuração única. Depois de criar o conector, o EmailShepherd u
 
 1. No EmailShepherd, acesse **Connectors** > **Add connector**.
 2. Selecione **Braze** e insira um nome para o conector.
-3. Insira sua chave de API e selecione sua instância da Braze.
+3. Insira sua chave de API or interface de programação do aplicativo (API) e selecione sua instância da Braze.
 4. Selecione **Create Connector** para salvar a conexão.
 
-![Formulário de conector do EmailShepherd com campos de instância da Braze e chave de API]({% image_buster /assets/img_archive/emailshepherd_step1.png %}){: style="max-width:60%;"}
+![Formulário de conector do EmailShepherd com campos de instância da Braze e chave de API or interface de programação do aplicativo (API)]({% image_buster /assets/img_archive/emailshepherd_step1.png %}){: style="max-width:60%;"}
 
 ### Etapa 2: Exportar um e-mail do EmailShepherd {#step-2-export-an-email-from-emailshepherd}
 

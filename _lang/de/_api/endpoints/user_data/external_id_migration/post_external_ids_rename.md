@@ -17,21 +17,21 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Externe IDs umbe
 
 Sie können bis zu 50 Umbenennungsobjekte pro Anfrage senden.
 
-Dieser Endpunkt legt eine neue (primäre) `external_id` für die Nutzer:innen fest und markiert die bestehende `external_id` als veraltet. Das bedeutet, dass Nutzer:innen über beide `external_id` identifiziert werden können, bis die veraltete ID entfernt wird. Mehrere externe IDs ermöglichen einen Migrationszeitraum, sodass ältere Versionen Ihrer Apps, die das frühere Namensschema für externe IDs verwenden, nicht beeinträchtigt werden. Das Profil bleibt unter beiden Bezeichnern während des Migrationszeitraums voll funktionsfähig – das Braze SDK, die REST API und die Messaging-Pipelines können die Nutzer:innen weiterhin über beide IDs referenzieren, bis die veraltete ID explizit entfernt wird.
+Dieser Endpunkt legt eine neue (primäre) `external_id` für die Nutzer:innen fest und markiert die bestehende `external_id` als veraltet. Das bedeutet, dass Nutzer:innen über beide `external_id` identifiziert werden können, bis die veraltete ID entfernt wird. Mehrere externe IDs ermöglichen einen Migrationszeitraum, sodass ältere Versionen Ihrer Apps, die das frühere Namensschema für externe IDs verwenden, nicht beeinträchtigt werden. Das Profil bleibt unter beiden Bezeichnern während des Migrationszeitraums voll funktionsfähig – das Braze SDK or Software-Development-Kit, die Representational State Transfer API und die Messaging-Pipelines können die Nutzer:innen weiterhin über beide IDs referenzieren, bis die veraltete ID explizit entfernt wird.
 
 Nachdem Ihr altes Namensschema nicht mehr verwendet wird, empfehlen wir dringend, veraltete externe IDs über den [Endpunkt `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) zu entfernen.
 
 {% alert warning %}
-Stellen Sie sicher, dass Sie veraltete externe IDs mit dem Endpunkt `/users/external_ids/remove` anstelle von `/users/delete` entfernen. Wenn Sie eine Anfrage an `/users/delete` mit der veralteten externen ID senden, wird das Nutzerprofil vollständig gelöscht und kann nicht rückgängig gemacht werden.
+Stellen Sie sicher, dass Sie veraltete externe IDs mit dem Endpunkt `/users/external_ids/remove` anstelle von `/users/delete` entfernen. Wenn Sie eine Anfrage an `/users/delete` mit der veralteten externen ID senden, wird das Kundenprofil or Nutzerprofil vollständig gelöscht und kann nicht rückgängig gemacht werden.
 {% endalert %}
 
 ## Funktionsweise der Umbenennung {#how-renaming-works}
 
-Wenn Sie diesen Endpunkt aufrufen, weist er einem Nutzerprofil eine neue primäre `external_id` zu und konvertiert gleichzeitig die bisherige primäre `external_id` in eine veraltete externe ID. Nach einer erfolgreichen Umbenennung enthält das Nutzerprofil genau eine primäre `external_id` (den neuen Wert) und eine veraltete externe ID (den alten Wert).
+Wenn Sie diesen Endpunkt aufrufen, weist er einem Kundenprofil or Nutzerprofil eine neue primäre `external_id` zu und konvertiert gleichzeitig die bisherige primäre `external_id` in eine veraltete externe ID. Nach einer erfolgreichen Umbenennung enthält das Kundenprofil or Nutzerprofil genau eine primäre `external_id` (den neuen Wert) und eine veraltete externe ID (den alten Wert).
 
 Nachfolgende Umbenennungsaufrufe für dasselbe Profil sind zulässig: Jede Umbenennung erzeugt eine zusätzliche veraltete externe ID, sodass ein Profil im Laufe der Zeit eine primäre `external_id` und mehrere veraltete externe IDs ansammeln kann. Der Wert von `new_external_id` darf jedoch nicht bereits in einem Braze-Profil vorhanden sein – weder als primäre noch als veraltete externe ID.
 
-Der Endpunkt protokolliert keine Datenpunkte und hat keinen Einfluss auf MAU-Zählungen. Alle historischen Nutzerdaten – Ereignisse, Käufe, Attribute, Campaign-Engagement – bleiben mit demselben Profil verknüpft.
+Der Endpunkt protokolliert keine Datenpunkte und hat keinen Einfluss auf MAU or monatlich aktive:r Nutzer:in-Zählungen. Alle historischen Nutzerdaten – Ereignisse, Käufe, Attribute, Campaign-Engagement – bleiben mit demselben Profil verknüpft.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#17682d2b-1546-4a3c-9703-aa5a12861d7c {% endapiref %}
 
@@ -134,11 +134,11 @@ Für die meisten Migrationsszenarien ist die empfohlene Reihenfolge:
 4. **Deprecation-Zeitraum beibehalten** – Halten Sie veraltete externe IDs so lange aktiv, wie ein System (einschließlich älterer App-Versionen im Feld) möglicherweise noch die alten IDs referenziert. Überstürzen Sie diesen Schritt nicht.
 5. **Veraltete IDs entfernen** – Sobald bestätigt ist, dass alle Systeme die neuen IDs verwenden, nutzen Sie [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) in Gruppen von bis zu 50 zur Bereinigung.
 
-Wenn Sie auch Ihre SDK-Integration migrieren (zum Beispiel den an `changeUser` übergebenen Wert ändern), koordinieren Sie die API-seitige Umbenennung mit dem App-Release-Zeitplan, sodass die neue externe ID sowohl auf dem Server als auch auf dem Client verwendet wird, bevor veraltete IDs entfernt werden.
+Wenn Sie auch Ihre SDK or Software-Development-Kit-Integration migrieren (zum Beispiel den an `changeUser` übergebenen Wert ändern), koordinieren Sie die API-seitige Umbenennung mit dem App-Release-Zeitplan, sodass die neue externe ID sowohl auf dem Server als auch auf dem Client verwendet wird, bevor veraltete IDs entfernt werden.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Hat dies Auswirkungen auf MAU? {#does-this-impact-mau}
+### Hat dies Auswirkungen auf MAU or monatlich aktive:r Nutzer:in? {#does-this-impact-mau}
 Nein, da die Anzahl der Nutzer:innen gleich bleibt – sie haben lediglich eine neue `external_id`.
 
 ### Ändert sich das historische Verhalten der Nutzer:innen? {#does-user-behavior-change-historically}
@@ -154,6 +154,6 @@ Dieses Feature protokolliert keine Datenpunkte.
 Es gibt keine feste Grenze, wie lange Sie veraltete externe IDs beibehalten können. Wir empfehlen jedoch dringend, sie zu entfernen, sobald es nicht mehr notwendig ist, Nutzer:innen über die veraltete ID zu referenzieren.
 
 ### Wie viele veraltete externe IDs kann ein Profil haben? {#how-many-deprecated-external-ids-can-a-profile-have}
-Ein Nutzerprofil kann eine primäre `external_id` und eine beliebige Anzahl veralteter externer IDs enthalten, die durch aufeinanderfolgende Umbenennungsvorgänge angesammelt wurden. Es gibt keine dokumentierte Obergrenze für die Anzahl veralteter IDs, die ein einzelnes Profil haben kann, aber Braze empfiehlt, sie zu entfernen, sobald sie nicht mehr benötigt werden.
+Ein Kundenprofil or Nutzerprofil kann eine primäre `external_id` und eine beliebige Anzahl veralteter externer IDs enthalten, die durch aufeinanderfolgende Umbenennungsvorgänge angesammelt wurden. Es gibt keine dokumentierte Obergrenze für die Anzahl veralteter IDs, die ein einzelnes Profil haben kann, aber Braze empfiehlt, sie zu entfernen, sobald sie nicht mehr benötigt werden.
 
 {% endapi %}

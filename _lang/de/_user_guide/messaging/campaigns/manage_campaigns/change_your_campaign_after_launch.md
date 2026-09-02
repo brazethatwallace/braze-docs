@@ -24,7 +24,7 @@ Wenn eine Kampagne gestartet wird, werden alle berechtigten Nutzer:innen in die 
 - Die ursprüngliche Version der Kampagne wird weiterhin an Nutzer:innen in der ersten Warteschlange zugestellt.
 - Unerwartete Zielgruppenzahlen in den Kampagnen-Analytics.
 
-Dies tritt am ehesten bei Kampagnen auf, die eine große Zielgruppe ansprechen und für den sofortigen Versand geplant sind, da eine große Warteschlange von Nutzer:innen gleichzeitig verarbeitet wird. Bei aktionsbasierten Kampagnen mit schrittweisen Triggern (z. B. Registrierungsereignissen) ist das Risiko geringer, da in der Regel nur eine kleine Anzahl von Nutzer:innen zu einem bestimmten Zeitpunkt in der Warteschlange steht.
+Dies tritt am ehesten bei Kampagnen auf, die eine große Zielgruppe ansprechen und für den sofortigen Versand geplant sind, da eine große Warteschlange von Nutzer:innen gleichzeitig verarbeitet wird. Bei aktionsbasierten Kampagnen mit schrittweisen Trigger or triggern or triggern (z. B. Registrierungsereignissen) ist das Risiko geringer, da in der Regel nur eine kleine Anzahl von Nutzer:innen zu einem bestimmten Zeitpunkt in der Warteschlange steht.
 
 Um Änderungen sicher vorzunehmen, halten Sie die Kampagne zuerst an und bearbeiten Sie dann entweder die angehaltene Kampagne oder [duplizieren Sie sie](#making-immediate-changes) mit Ihren Änderungen.
 
@@ -46,22 +46,22 @@ Wenn Sie beispielsweise eine E-Mail-Kampagne mit Rate-Limits starten, sie für e
 
 ## In-App-Nachrichten-Kampagnen {#in-app-message-campaigns}
 
-Im Gegensatz zu Push oder E-Mail werden In-App-Nachrichten bei Sitzungsbeginn an Geräte übermittelt und lokal zwischengespeichert, bis der Trigger ausgelöst wird. Wenn Sie eine laufende In-App-Nachrichten-Kampagne bearbeiten – z. B. anhalten, ein [Enddatum]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) festlegen, **Kampagnenberechtigung vor der Anzeige erneut prüfen** aktivieren, Inhalte aktualisieren, den Nachrichten-Trigger ändern oder die Zielgruppe anpassen – wird die aktualisierte Konfiguration übernommen, wenn Geräte bei ihrem nächsten Sitzungsbeginn die Trigger abrufen.
+Im Gegensatz zu Push oder E-Mail werden In-App-Nachrichten bei Sitzungsbeginn an Geräte übermittelt und lokal zwischengespeichert, bis der Trigger or triggern ausgelöst wird. Wenn Sie eine laufende In-App-Nachrichten-Kampagne bearbeiten – z. B. anhalten, ein [Enddatum]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger) festlegen, **Kampagnenberechtigung vor der Anzeige erneut prüfen** aktivieren, Inhalte Update or aktualisieren or aktualisieren, den Nachrichten-Trigger or triggern ändern oder die Zielgruppe anpassen – wird die aktualisierte Konfiguration übernommen, wenn Geräte bei ihrem nächsten Sitzungsbeginn die Trigger or triggern abrufen.
 
 Erwarten Sie Folgendes:
 
-- Geräte, die seit Ihrer Änderung keine neue Sitzung gestartet haben, verwenden möglicherweise weiterhin die vorherige Konfiguration, bis sie die Trigger erneut synchronisieren.
+- Geräte, die seit Ihrer Änderung keine neue Sitzung gestartet haben, verwenden möglicherweise weiterhin die vorherige Konfiguration, bis sie die Trigger or triggern erneut synchronisieren.
 - Geräte, die nach Ihrer Änderung eine Sitzung starten, erhalten die neueste Konfiguration.
 
 ### Einen fehlerhaften Start rückgängig machen {#stop-a-mistaken-launch}
 
-Wenn Sie die falsche In-App-Nachrichten-Kampagne gestartet haben, wählen Sie **Stop Campaign** auf der Seite **Campaign Details**. Dies ist der schnellste Weg, um zu verhindern, dass neue Sitzungen die Nachricht herunterladen. Nutzer:innen, die den Payload bereits zwischengespeichert haben, bevor Sie die Kampagne angehalten haben, können die Nachricht weiterhin sehen, wenn sie die Trigger-Bedingungen erfüllen, bis ihr Gerät bei einer späteren Sitzung aktualisierte Trigger synchronisiert.
+Wenn Sie die falsche In-App-Nachrichten-Kampagne gestartet haben, wählen Sie **Stop Campaign** auf der Seite **Campaign Details**. Dies ist der schnellste Weg, um zu verhindern, dass neue Sitzungen die Nachricht herunterladen. Nutzer:innen, die den Payload bereits zwischengespeichert haben, bevor Sie die Kampagne angehalten haben, können die Nachricht weiterhin sehen, wenn sie die Trigger or triggern-Bedingungen erfüllen, bis ihr Gerät bei einer späteren Sitzung aktualisierte Trigger or triggern synchronisiert.
 
 [Archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving) und Enddaten folgen denselben Weitergaberegeln: Sie stoppen die Zustellung für zukünftige Synchronisierungen, entfernen aber keine Nachrichten, die bereits auf Geräten zwischengespeichert sind. Wenn Sie die Kampagne möglicherweise überprüfen, duplizieren oder bearbeiten müssen, halten Sie sie zuerst an und archivieren Sie sie später, wenn Sie fertig sind.
 
 ### Veraltete Zustellungen begrenzen {#limit-stale-deliveries}
 
-Wählen Sie **Kampagnenberechtigung vor der Anzeige erneut prüfen** in den Zustellungseinstellungen Ihrer Kampagne, damit Braze die Zielgruppenzugehörigkeit und den Kampagnenstatus direkt vor jeder Anzeige bestätigt. Dies hilft, Impressionen zu verhindern, nachdem eine Kampagne angehalten, archiviert oder ihr Enddatum überschritten wurde. Sie können diese Einstellung nach dem Start ein- oder ausschalten, aber sie folgt denselben Weitergaberegeln wie andere Änderungen: Geräte erhalten die aktualisierte Konfiguration erst bei ihrer nächsten Trigger-Synchronisierung.
+Wählen Sie **Kampagnenberechtigung vor der Anzeige erneut prüfen** in den Zustellungseinstellungen Ihrer Kampagne, damit Braze die Zielgruppenzugehörigkeit und den Kampagnenstatus direkt vor jeder Anzeige bestätigt. Dies hilft, Impressionen zu verhindern, nachdem eine Kampagne angehalten, archiviert oder ihr Enddatum überschritten wurde. Sie können diese Einstellung nach dem Start ein- oder ausschalten, aber sie folgt denselben Weitergaberegeln wie andere Änderungen: Geräte erhalten die aktualisierte Konfiguration erst bei ihrer nächsten Trigger or triggern-Synchronisierung.
 
 Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) und [Warum liefert meine archivierte In-App-Nachrichten-Kampagne weiterhin In-App-Nachrichten-Impressionen?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
@@ -134,4 +134,4 @@ Um zu einer aktiven Kampagne zurückzukehren, wählen Sie **Edit Draft** in der 
 
 ### Priorisierung von In-App-Nachrichten {#in-app-message-prioritization}
 
-Die Priorität von In-App-Nachrichten wird sofort aktualisiert (bevor der Entwurf gestartet wird), wenn Sie **Set Exact Priority** auswählen und die Priorität im Verhältnis zu anderen Campaigns oder Canvases festlegen.
+Die Priorität von In-App-Nachrichten wird sofort aktualisiert (bevor der Entwurf gestartet wird), wenn Sie **Set Exact Priority** auswählen und die Priorität im Verhältnis zu anderen Campaigns oder Canvase festlegen.

@@ -8,9 +8,9 @@ Aunque el oyente `BrazeInAppMessageManager` puede gestionar automáticamente la 
 {% endtab %}
 
 {% tab html listener %}
-El SDK de Braze tiene una clase predeterminada `DefaultHtmlInAppMessageActionListener` que se utiliza si no se define un oyente personalizado y realiza la acción apropiada automáticamente. Si necesitas más control sobre cómo interactúa un usuario con los distintos botones dentro de un mensaje HTML personalizado dentro de la aplicación, implementa una clase personalizada `IHtmlInAppMessageActionListener`.
+El SDK or kit de desarrollo de software de Braze tiene una clase predeterminada `DefaultHtmlInAppMessageActionListener` que se utiliza si no se define un oyente personalizado y realiza la acción apropiada automáticamente. Si necesitas más control sobre cómo interactúa un usuario con los distintos botones dentro de un mensaje HTML personalizado dentro de la aplicación, implementa una clase personalizada `IHtmlInAppMessageActionListener`.
 
-Este oyente se aplica __tanto__ a mensajes creados con HTML personalizado como a mensajes creados con el editor de arrastrar y soltar (DnD). No se aplica a los IAM tradicionales. Los IAM tradicionales son los tipos de mensajes integrados de Braze, renderizados por el SDK (por ejemplo, deslizamiento hacia arriba, modal y completo), creados en el creador de mensajes dentro de la aplicación original utilizando diseños predefinidos. A diferencia de los IAM HTML personalizados y DnD, no pasan por el flujo del oyente de acciones HTML.
+Este oyente se aplica __tanto__ a mensajes creados con HTML personalizado como a mensajes creados con el editor de arrastrar y soltar (DnD). No se aplica a los IAM tradicionales. Los IAM tradicionales son los tipos de mensajes integrados de Braze, renderizados por el SDK or kit de desarrollo de software (por ejemplo, deslizamiento hacia arriba, modal y completo), creados en el creador de mensajes dentro de la aplicación original utilizando diseños predefinidos. A diferencia de los IAM HTML personalizados y DnD, no pasan por el flujo del oyente de acciones HTML.
 
 Si configuras un `IHtmlInAppMessageActionListener` personalizado, su lógica anulará el comportamiento de clic predeterminado para _todos_ los mensajes DnD. Asegúrate de que tu equipo de marketing esté al tanto de esto, ya que puede afectar sus campañas de formas inesperadas.
 {% endtab %}
@@ -186,7 +186,7 @@ BrazeInAppMessageManager.getInstance().setCustomHtmlInAppMessageActionListener(C
 
 ## Configuración de fábricas personalizadas {#setting-custom-factories}
 
-Puedes anular una serie de valores predeterminados mediante objetos de fábrica personalizados. Se pueden registrar con el SDK de Braze según sea necesario para conseguir los resultados deseados. Sin embargo, si decides anular una fábrica, es probable que tengas que delegar explícitamente en el valor predeterminado o volver a implementar la funcionalidad proporcionada por el valor predeterminado de Braze. El siguiente fragmento de código ilustra cómo proporcionar implementaciones personalizadas de las interfaces `IInAppMessageViewFactory` e `IInAppMessageViewWrapperFactory`.
+Puedes anular una serie de valores predeterminados mediante objetos de fábrica personalizados. Se pueden registrar con el SDK or kit de desarrollo de software de Braze según sea necesario para conseguir los resultados deseados. Sin embargo, si decides anular una fábrica, es probable que tengas que delegar explícitamente en el valor predeterminado o volver a implementar la funcionalidad proporcionada por el valor predeterminado de Braze. El siguiente fragmento de código ilustra cómo proporcionar implementaciones personalizadas de las interfaces `IInAppMessageViewFactory` e `IInAppMessageViewWrapperFactory`.
 
 {% tabs local %}
 {% tab Kotlin %}
@@ -454,7 +454,7 @@ Los elementos de la interfaz de usuario de Braze vienen con un aspecto predeterm
 
 ### Establecer un estilo predeterminado {#setting-a-default-style}
 
-Puedes ver los estilos predeterminados en el archivo [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) del SDK de Braze:
+Puedes ver los estilos predeterminados en el archivo [`styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) del SDK or kit de desarrollo de software de Braze:
 
 ```xml
   <style name="Braze"/>

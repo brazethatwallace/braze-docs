@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Yotpo
 
-> [Yotpo](https://www.yotpo.com/), die führende E-Commerce-Marketing-Plattform, hilft Tausenden von zukunftsorientierten Marken, das Wachstum im Direktvertrieb an Verbraucher:innen zu beschleunigen. Yotpos Einzelplattform-Ansatz integriert datengestützte Lösungen für Bewertungen, Loyalität, SMS-Marketing und vieles mehr und versetzt Marken in die Lage, intelligentere Kundenerlebnisse mit höherer Conversion-Rate zu schaffen.
+> [Yotpo](https://www.yotpo.com/), die führende E-Commerce-Marketing-Plattform, hilft Tausenden von zukunftsorientierten Marken, das Wachstum im Direktvertrieb an Verbraucher:innen zu beschleunigen. Yotpos Einzelplattform-Ansatz integriert datengestützte Lösungen für Bewertungen, Loyalität, Kurzmitteilungsdienst or SMS-Marketing und vieles mehr und versetzt Marken in die Lage, intelligentere Kundenerlebnisse mit höherer Conversion-Rate zu schaffen.
 
 _Diese Integration wird von Yotpo gepflegt._
 

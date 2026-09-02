@@ -23,8 +23,8 @@ A SalesWings permite que as equipes de marketing e os gerentes de operações de
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta SalesWings | É necessária uma conta [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) para aproveitar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.export.ids` (e `users.track` se estiver usando o recurso de push de insights da SalesWings). <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.export.ids` (e `users.track` se estiver usando o recurso de push de insights da SalesWings). <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
 | Conta Segment.com (opcional) | Se você é um usuário do Segment.com, é possível enviar todos os dados de engajamento e perfis de leads e identificar eventos via Segment.com para a criação de perfis de leads. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -87,8 +87,8 @@ _Exemplo de dashboard vinculado ao engajamento de e-mail e marketing da Braze no
 Há várias maneiras de coletar dados comportamentais na SalesWings para pontuação de leads e contas, identificação da intenção do comprador e insights de vendas:
 * [Implante o JavaScript de rastreamento da SalesWings](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script) nos sites e apps onde você deseja rastrear e identificar leads
 * Ingira eventos da Braze juntamente com as propriedades do evento na SalesWings via Braze Currents
-* Envie dados comportamentais de atividade de leads (e dados de perfil de leads) por meio da [integração da SalesWings com o Segment](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)
-* Envie dados diretamente para a [API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings) da SalesWings a partir de uma solução de terceiros
+* Envie dados comportamentais de atividade de leads (e dados de perfil de leads) por meio da [integração da SalesWings com o Segment or segmento](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)
+* Envie dados diretamente para a [API or interface de programação do aplicativo (API)](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings) da SalesWings a partir de uma solução de terceiros
 
 ### Etapa 3: Conectando a SalesWings à Braze {#step-3-connecting-saleswings-to-braze}
 
@@ -96,9 +96,9 @@ Acesse a [página **SalesWings Integrations**](https://helium.saleswings.pro/int
 
 ![A seção Braze Integration na página de configurações da SalesWings.]({% image_buster /assets/img/saleswings/saleswings_braze_lead_scoring_integration_settings.png %})
 
-Copie o valor da coluna **Identifier** para a nova chave criada e cole-o no campo **Braze API key** da seção **Braze Integration** da SalesWings.
+Copie o valor da coluna **Identifier** para a nova chave criada e cole-o no campo **Braze API or interface de programação do aplicativo (API) key** da seção **Braze Integration** da SalesWings.
 
-Adicione seu endpoint da API da Braze conforme descrito no [artigo de endpoints da API e do SDK]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) e insira-o no campo **Braze API endpoint**. Copie o valor da coluna **REST Endpoint** e insira-o no campo **Braze API endpoint** na seção **Braze Integration** da SalesWings.
+Adicione seu endpoint da API or interface de programação do aplicativo (API) da Braze conforme descrito no [artigo de endpoints da API or interface de programação do aplicativo (API) e do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) e insira-o no campo **Braze API or interface de programação do aplicativo (API) endpoint**. Copie o valor da coluna **REST or transferir estado representacional Endpoint** e insira-o no campo **Braze API or interface de programação do aplicativo (API) endpoint** na seção **Braze Integration** da SalesWings.
 
 Em seguida, selecione **Save**.
 
@@ -112,11 +112,11 @@ Clique em **Start data push** em **SalesWings-to-Braze insights data push**.
 
 Se quiser usar eventos de [comportamento do usuário]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) e de [engajamento com mensagens]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) para inteligência comportamental, pontuação de leads e contas, produzir insights de vendas ou gerar relatórios em seu CRM, acesse a [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) e expanda a seção **Braze Integration**.
 
-Selecione **Generate** em **Generate an API token to setup a Custom Currents Export**.
+Selecione **Generate** em **Generate an API or interface de programação do aplicativo (API) token to setup a Custom Currents Export**.
 
 Em seguida, [crie um novo Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) e selecione **Custom Currents Export** como o tipo de Current.
 
-Na seção **Credentials** do formulário de criação do Current, insira o token da API gerado na [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) para **Bearer Token** e `https://helium.saleswings.pro/api/braze/currents/events` para **Endpoint**.
+Na seção **Credentials** do formulário de criação do Current, insira o token da API or interface de programação do aplicativo (API) gerado na [página **SalesWings Integrations**](https://helium.saleswings.pro/integrations) para **Bearer Token** e `https://helium.saleswings.pro/api/braze/currents/events` para **Endpoint**.
 
 ### Etapa 6: Configuração da pontuação de leads e contas da SalesWings para a Braze, integração com CRM e muito mais {#step-6-configuring-saleswings-lead-and-account-scoring-for-braze-crm-integration-and-more}
 
@@ -142,7 +142,7 @@ Você pode identificar os usuários automaticamente quando eles clicam em uma UR
 2. Anexando `?br_user_id=` seguido por {% raw %}`{{${user_id}}}`{% endraw %}
   - **Exemplo de link:** {% raw %}`https://www.client-website.com?br_user_id={{${user_id}}}`{% endraw %}
 
-A variável `braze_id` é definida como um identificador do usuário gerado pela Braze e está sempre disponível. A variável `br_user_id` é definida como o identificador do usuário no seu sistema e pode estar ausente em certos cenários (por exemplo, para usuários anônimos criados pelo SDK da Braze). Se ambos `braze_id` e `br_user_id` forem usados em um link, a SalesWings considerará apenas o parâmetro `braze_id`.
+A variável `braze_id` é definida como um identificador do usuário gerado pela Braze e está sempre disponível. A variável `br_user_id` é definida como o identificador do usuário no seu sistema e pode estar ausente em certos cenários (por exemplo, para usuários anônimos criados pelo SDK or kit de desenvolvimento de software da Braze). Se ambos `braze_id` e `br_user_id` forem usados em um link, a SalesWings considerará apenas o parâmetro `braze_id`.
 
 ### Enviando insights da SalesWings para a Braze {#pushing-saleswings-insights-to-braze}
 
@@ -170,7 +170,7 @@ A SalesWings atualiza todos os usuários da Braze com um e-mail que corresponde 
 
 ### Usando eventos Braze Currents em seu CRM {#using-braze-currents-events-in-your-crm}
 
-Se você conectar um Braze Current à SalesWings, a SalesWings criará perfis de leads identificados para cada usuário da Braze com um e-mail e registrará os eventos suportados pela Braze como atividade de lead. Em seu CRM, todos os dados podem ser automaticamente agregados no nível da conta do lead. A atividade e os dados registrados podem ser combinados ainda mais com os dados comportamentais coletados com o script de rastreamento da SalesWings ou Segment.com, ou enviando outros dados para a API da SalesWings, e depois usados para identificar as necessidades e a prontidão de vendas de seus clientes potenciais para seus processos de gerenciamento de leads e contas.
+Se você conectar um Braze Current à SalesWings, a SalesWings criará perfis de leads identificados para cada usuário da Braze com um e-mail e registrará os eventos suportados pela Braze como atividade de lead. Em seu CRM, todos os dados podem ser automaticamente agregados no nível da conta do lead. A atividade e os dados registrados podem ser combinados ainda mais com os dados comportamentais coletados com o script de rastreamento da SalesWings ou Segment.com, ou enviando outros dados para a API or interface de programação do aplicativo (API) da SalesWings, e depois usados para identificar as necessidades e a prontidão de vendas de seus clientes potenciais para seus processos de gerenciamento de leads e contas.
 
 A tabela a seguir mostra os tipos de eventos da Braze suportados pela SalesWings e sua representação no histórico de atividades de leads e no mecanismo de regras da SalesWings:
 

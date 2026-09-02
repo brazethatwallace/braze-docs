@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar análise de séries de dados do Canvas\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Exportar análise de séries de dados do Canvas {#export-canvas-data-series-analytics}
 {% apimethod get %}
 /canvas/data_series
@@ -16,13 +16,13 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Exporta
 
 > Use este endpoint para exportar dados de séries temporais de um Canvas.
 
-{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/export_data_series_analytics_dashboard_note.md type='canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_series`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_series`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -32,7 +32,7 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obrigatório | String | Consulte [Identificador de API do Canvas]({{site.baseurl}}/api/identifier_types). |
+| `canvas_id` | Obrigatório | String | Consulte [Identificador de API or interface de programação do aplicativo (API) do Canvas]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Obrigatório | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a exportação de dados deve terminar. O padrão é o momento da solicitação. |
 | `starting_at` | Opcional* | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a exportação de dados deve começar. <br><br>* É necessário informar `length` ou `starting_at`. |
 | `length` | Opcional* | String | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 14 (inclusive). <br><br>* É necessário informar `length` ou `starting_at`. |
@@ -117,7 +117,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

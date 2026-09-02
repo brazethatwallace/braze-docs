@@ -49,7 +49,7 @@ En estos casos, campos como `canvas_name`, `experiment_step_id`, `canvas_variati
 {% endtab %}
 
 {% tab experimentos en Campaigns %}
-Para los experimentos en Campaigns, utiliza eventos de envío (como push, correo electrónico o SMS) para determinar cuándo un usuario entró en el experimento. Los campos `campaign_name`, `message_variation_name` y `time` se utilizan para poblar la tabla de asignaciones.
+Para los experimentos en Campaigns, utiliza eventos de envío (como push, correo electrónico o servicio de mensajes cortos) para determinar cuándo un usuario entró en el experimento. Los campos `campaign_name`, `message_variation_name` y `time` se utilizan para poblar la tabla de asignaciones.
 
 {% endtab %}
 {% endtabs %}
@@ -60,6 +60,6 @@ Eppo utiliza estas asignaciones y tablas de hechos para analizar resultados, y s
 
 ## Soporte {#support}
 
-Si tienes preguntas sobre la configuración de Braze Currents, el uso compartido de datos de Snowflake o la configuración de Campaigns multivariantes, contacta a tu administrador de éxito de cliente de Braze.
+Si tienes preguntas sobre la configuración de Braze Currents, el uso compartido de datos de Snowflake o la configuración de Campaigns multivariantes, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
 
 Para obtener asistencia con la configuración de Eppo para medir experimentos de Braze, contacta al equipo de soporte de Eppo.

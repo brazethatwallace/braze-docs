@@ -23,7 +23,7 @@ La integración de Braze y WSC Sports te permite incluir medios deportivos ricos
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta WSC | Se necesita una cuenta WSC para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de **Messages**, **Segments**, **Campaigns** y **Canvas**. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de **Messages**, **Segments**, **Campaigns** y **Canvas**. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}

@@ -20,13 +20,13 @@ Stellen Sie sicher, dass Sie über Folgendes verfügen:
 - Ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) für Ihre Eintritts-Zielgruppe, das nicht aktiv in einem anderen Canvas oder einer anderen Campaign verwendet wird
 - Mindestens ein E-Mail-Template
 - Den Varianteninhalt, den Sie testen möchten, z. B. alternative Betreffzeilen, CTAs und Hero-Bilder. Sie können Varianten während der Einrichtung erstellen, aber wenn Sie sie vorab vorbereiten, beschleunigt das die Konfiguration
-- Workspace-Zugriff mit Berechtigungen zur Konfiguration von KI-Decisioning-Agenten
+- Workspace-Zugriff mit Berechtigungen zur Konfiguration von KI or künstliche Intelligenz-Decisioning-Agenten
 
-Wenn Ihr Workspace nicht für Decisioning Studio Go bereitgestellt wurde, sehen Sie die Agentenkonfigurationsoption im Tab **AI Decisioning** nicht. Wenden Sie sich an Ihren Customer-Success-Manager, um Zugang zu erhalten.
+Wenn Ihr Workspace nicht für Decisioning Studio Go bereitgestellt wurde, sehen Sie die Agentenkonfigurationsoption im Tab **KI or künstliche Intelligenz Decisioning** nicht. Wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, um Zugang zu erhalten.
 
 ## Schritt 1: Richten Sie Ihren Agenten ein {#step-1-set-up-your-agent}
 
-1. Gehen Sie im Braze-Dashboard zum Tab **AI Decisioning**.
+1. Gehen Sie im Braze-Dashboard zum Tab **KI or künstliche Intelligenz Decisioning**.
 2. Wählen Sie **Create Agent** aus.
 3. Geben Sie Ihrem Agenten einen Namen, der ihn von anderen in Ihrem Workspace unterscheidet. Ein Beispiel wäre „Loyalty Members—Weekly Engagement“ statt „Email Agent“.
 4. (Optional) Fügen Sie eine Beschreibung hinzu, um Kontext bereitzustellen, den Sie oder ein Teammitglied später benötigen könnten. Dazu kann gehören, wofür der Agent gedacht ist, welches Segment er anspricht und wie Erfolg aussieht.
@@ -38,14 +38,14 @@ Der Agent optimiert Ihre E-Mail-Kreativinhalte, um echtes Engagement zu maximier
 
 Wählen Sie das Braze-Segment aus, an das Ihr Agent sendet. Nutzer:innen in diesem Segment werden automatisch in zwei Gruppen aufgeteilt:
 
-- **Decisioning-Studio-Gruppe:** Erhält KI-optimierte E-Mail-Inhalte. Der Agent wählt die beste Variantenkombination für jede:n Nutzer:in aus.
+- **Decisioning-Studio-Gruppe:** Erhält KI or künstliche Intelligenz-optimierte E-Mail-Inhalte. Der Agent wählt die beste Variantenkombination für jede:n Nutzer:in aus.
 - **Zufällige Kontrollgruppe:** Mindestens 5 % des Segments. Erhält zufällig ausgewählte Kombinationen derselben Optionen an zufällig ausgewählten Tagen. Diese Gruppe ist erforderlich.
 
 ![Ein ausgewähltes Segment mit 1.100 geschätzten Nutzer:innen.]({% image_buster /assets/img/decisioning_studio_go/audience_details.png %})
 
 ### Warum ein dediziertes Segment wichtig ist {#why-a-dedicated-segment-matters}
 
-Wenn Nutzer:innen in Ihrem ausgewählten Segment auch Nachrichten von anderen Canvases oder Campaigns erhalten, wird das vom Agenten beobachtete Engagement durch diese anderen Nachrichten beeinflusst. Der Agent kann nicht unterscheiden, ob ein:e Nutzer:in aufgrund seiner Entscheidungen oder aufgrund anderer Einflüsse geklickt hat. Eine Warnung wird angezeigt, wenn Ihr ausgewähltes Segment an anderer Stelle verwendet wird. Sie können fortfahren, sollten jedoch mit ungenaueren Ergebnissen rechnen.
+Wenn Nutzer:innen in Ihrem ausgewählten Segment auch Nachrichten von anderen Canvase oder Campaigns erhalten, wird das vom Agenten beobachtete Engagement durch diese anderen Nachrichten beeinflusst. Der Agent kann nicht unterscheiden, ob ein:e Nutzer:in aufgrund seiner Entscheidungen oder aufgrund anderer Einflüsse geklickt hat. Eine Warnung wird angezeigt, wenn Ihr ausgewähltes Segment an anderer Stelle verwendet wird. Sie können fortfahren, sollten jedoch mit ungenaueren Ergebnissen rechnen.
 
 ### Nutzer:innen-Suche {#user-lookup}
 
@@ -55,12 +55,12 @@ Verwenden Sie die **Nutzer:innen-Suche**, um zu überprüfen, ob bestimmte Nutze
 
 Zielgruppenfilter werden in dieser Version nicht unterstützt. Wenn Sie zusätzliche Targeting-Kriterien benötigen, [erstellen Sie ein Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mit den entsprechenden Filtern und wählen Sie dieses Segment dann als Ihre Eintrittszielgruppe aus.
 
-### Integration mit bestehenden Canvases {#integrate-with-existing-canvases}
+### Integration mit bestehenden Canvase {#integrate-with-existing-canvases}
 
 So verwenden Sie Decisioning Studio Go innerhalb einer umfassenderen Journey:
 
 1. Erstellen Sie ein dediziertes Segment für Nutzer:innen, die dem Agenten zugeordnet werden sollen.
-2. Verwenden Sie in Ihrem [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) einen User-Update-Schritt, um die:den Nutzer:in an der richtigen Stelle in der Journey zu diesem Segment hinzuzufügen.
+2. Verwenden Sie in Ihrem [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) einen User-Update or aktualisieren-Schritt, um die:den Nutzer:in an der richtigen Stelle in der Journey zu diesem Segment hinzuzufügen.
 3. Stellen Sie sicher, dass Nutzer:innen das Canvas verlassen, damit der Agent (nicht das Canvas) ab diesem Zeitpunkt den E-Mail-Versand für alle Nutzer:innen im Segment übernimmt.
 
 ## Schritt 3: Zeitplan konfigurieren {#step-3-configure-the-schedule}
@@ -87,7 +87,7 @@ Ihre Frequency-Capping-Regeln können auf Agent-Ebene angewendet werden:
 - **Auf das Cap anrechnen:** Wählen Sie, ob Sendungen dieses Agenten auf das Gesamt-Cap der Nutzer:innen angerechnet werden.
 
 {% alert tip %}
-Wenn Ihr Frequency-Cap die Nutzererfahrung schützt, sind die Sendungen des Agenten bereits gezielt und Sie müssen sie möglicherweise nicht auf das Cap anrechnen. Wenn Ihr Cap das gesamte Sendevolumen oder die Ausgaben kontrolliert, sollten sie wahrscheinlich angerechnet werden. Ihr Customer-Success-Manager oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihren Workspace zu bestätigen.
+Wenn Ihr Frequency-Cap die Nutzererfahrung schützt, sind die Sendungen des Agenten bereits gezielt und Sie müssen sie möglicherweise nicht auf das Cap anrechnen. Wenn Ihr Cap das gesamte Sendevolumen oder die Ausgaben kontrolliert, sollten sie wahrscheinlich angerechnet werden. Ihr CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Solutions Consultant kann Ihnen helfen, den richtigen Ansatz für Ihren Workspace zu bestätigen.
 {% endalert %}
 
 ## Schritt 4: Inhalte und Templates hinzufügen {#step-4-add-content-and-templates}
@@ -204,6 +204,6 @@ Die folgende Tabelle fasst die Bereiche von Decisioning Studio Go und die zugeh�
 
 ## Fehlerbehebung {#troubleshooting}
 
-Wenden Sie sich bei Fragen zur Agentenkonfiguration, Performance-Überprüfung oder Programmgestaltung an Ihren Customer-Success-Manager oder Solutions Consultant.
+Wenden Sie sich bei Fragen zur Agentenkonfiguration, Performance-Überprüfung oder Programmgestaltung an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in oder Solutions Consultant.
 
 Häufig gestellte Fragen finden Sie in den [Decisioning Studio Go FAQ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/faq).

@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint Renomear IDs externos."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Renomear ID externo {#rename-external-id}
 {% apimethod post %}
 /users/external_ids/rename
@@ -17,7 +17,7 @@ description: "Este artigo descreve detalhes sobre o endpoint Renomear IDs extern
 
 Você pode enviar até 50 objetos de renomeação por solicitação.
 
-Esse endpoint define um novo `external_id` (primário) para o usuário e torna obsoleto o `external_id` existente. Isso significa que o usuário pode ser identificado por qualquer um dos `external_id` até que o obsoleto seja removido. Ter vários IDs externos permite um período de migração para que as versões legadas dos seus apps que usam o esquema de nomenclatura de ID externo anterior não sejam interrompidas. O perfil permanece totalmente funcional com ambos os identificadores durante a janela de migração — o SDK da Braze, a REST API e os pipelines de envio de mensagens podem continuar referenciando o usuário por qualquer um dos IDs até que o obsoleto seja explicitamente removido.
+Esse endpoint define um novo `external_id` (primário) para o usuário e torna obsoleto o `external_id` existente. Isso significa que o usuário pode ser identificado por qualquer um dos `external_id` até que o obsoleto seja removido. Ter vários IDs externos permite um período de migração para que as versões legadas dos seus apps que usam o esquema de nomenclatura de ID externo anterior não sejam interrompidas. O perfil permanece totalmente funcional com ambos os identificadores durante a janela de migração — o SDK or kit de desenvolvimento de software da Braze, a REST or transferir estado representacional API or interface de programação do aplicativo (API) e os pipelines de envio de mensagens podem continuar referenciando o usuário por qualquer um dos IDs até que o obsoleto seja explicitamente removido.
 
 Depois que o esquema de nomenclatura antigo não estiver mais em uso, é altamente recomendável remover IDs externos obsoletos usando o [endpoint `/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove).
 
@@ -37,7 +37,7 @@ O endpoint não registra pontos de dados e não afeta as contagens de MAU. Todos
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics) com a permissão `users.external_ids.rename`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) com a permissão `users.external_ids.rename`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -98,14 +98,14 @@ A resposta confirmará todas as renomeações bem-sucedidas, bem como as malsuce
 
 O campo `message` retornará `success` para qualquer solicitação válida. Erros mais específicos são capturados no array `rename_errors`. O campo `message` retorna um erro nos seguintes casos:
 
-- Chave de API inválida
+- Chave de API or interface de programação do aplicativo (API) inválida
 - Array `external_id_renames` vazio
 - Array `external_id_renames` com mais de 50 objetos
 - Limite de frequência atingido (mais de 1.000 solicitações por minuto)
 
 ## Migrações em massa {#bulk-migrations}
 
-Para migrações que envolvem grandes populações de usuários, agrupe os usuários em lotes de até 50 e envie cada lote como uma chamada de API separada. O endpoint está sujeito a um limite de frequência de 1.000 solicitações por minuto. Com o tamanho máximo de lote (50 objetos por solicitação), isso permite até 50.000 renomeações de usuários por minuto.
+Para migrações que envolvem grandes populações de usuários, agrupe os usuários em lotes de até 50 e envie cada lote como uma chamada de API or interface de programação do aplicativo (API) separada. O endpoint está sujeito a um limite de frequência de 1.000 solicitações por minuto. Com o tamanho máximo de lote (50 objetos por solicitação), isso permite até 50.000 renomeações de usuários por minuto.
 
 Cada objeto de renomeação no lote é processado de forma independente. Uma falha em um objeto não bloqueia os demais na mesma solicitação. O corpo da resposta distingue renomeações bem-sucedidas (listadas no array `external_ids`) das que falharam (listadas no array `rename_errors` com uma referência de índice à posição do objeto com falha no array da solicitação).
 
@@ -134,7 +134,7 @@ Para a maioria dos casos de uso de migração, a sequência recomendada é:
 4. **Mantenha a janela de descontinuação** — Mantenha os IDs externos obsoletos ativos pelo tempo necessário enquanto qualquer sistema (incluindo versões legadas do app em campo) ainda puder referenciar os IDs antigos. Não apresse essa etapa.
 5. **Remova os IDs obsoletos** — Quando todos os sistemas estiverem confirmados como usando os novos IDs, use o endpoint [`/users/external_ids/remove`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_remove) em lotes de até 50 para fazer a limpeza.
 
-Se você também estiver migrando sua integração SDK (por exemplo, alterando o valor passado para `changeUser`), coordene a renomeação via API com o cronograma de lançamento do app para que o novo ID externo esteja em uso tanto no servidor quanto no cliente antes que os IDs obsoletos sejam removidos.
+Se você também estiver migrando sua integração SDK or kit de desenvolvimento de software (por exemplo, alterando o valor passado para `changeUser`), coordene a renomeação via API or interface de programação do aplicativo (API) com o cronograma de lançamento do app para que o novo ID externo esteja em uso tanto no servidor quanto no cliente antes que os IDs obsoletos sejam removidos.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

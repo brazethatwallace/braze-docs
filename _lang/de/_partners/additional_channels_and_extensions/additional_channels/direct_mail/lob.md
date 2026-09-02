@@ -42,7 +42,7 @@ Je nachdem, was Sie in Lob tun möchten, müssen Sie den entsprechenden Endpunkt
 
 ### 2. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-2-create-your-braze-webhook-template}
 
-Um ein Lob-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie im Braze-Dashboard zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template**.
+Um ein Lob-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvase verwenden können, navigieren Sie im Braze-Dashboard zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template**.
 
 Wenn Sie eine einmalige Lob-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 

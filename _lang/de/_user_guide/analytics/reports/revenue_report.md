@@ -28,7 +28,7 @@ Wählen Sie den Datumsbereich für Ihren Umsatzbericht und optional eine bestimm
 Das Diagramm **Performance Over Time** zeigt die Daten für verschiedene Parameter an, die im Dropdown **Statistics for** ausgewählt werden können. Optional können Sie die Daten bestimmter Parameter im Dropdown **Breakdown** aufschlüsseln.
 
 Sie können die folgenden Daten im Diagramm **Performance Over Time** anzeigen:
-- KPI-Formeln
+- KPI or Leistungskennzahl or Leistungskennzahlen-Formeln
 - Käufe
     - (Optional) Käufe nach Produkt
 - Umsatz
@@ -64,8 +64,8 @@ Wenn Sie Umsatz für eine Währung ohne Wechselkurs erfassen, zeichnet Braze die
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime-Value pro Nutzer:in</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#LTV or Lifetime-Value or Lifetime-Value-per-user">LTV or Lifetime-Value or Lifetime-Value pro Nutzer:in</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or Lifetime-Value or Lifetime-Value Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Durchschnittlicher Tagesumsatz</a></td>
@@ -93,7 +93,7 @@ In der Tabelle **Product Breakdown** finden Sie eine Liste der Produkte, die im 
 Um Ihre Umsatzdaten zu exportieren, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** im Diagramm **Performance Over Time** und wählen Sie Ihre Exportoption aus.
 
 {% alert tip %}
-Suchen Sie nach weiteren Möglichkeiten, Umsatzdaten zu erhalten? Versuchen Sie, Kaufverhalten (sowie den Kauf eines Produkts) zu Campaigns oder Canvases als [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) hinzuzufügen.
+Suchen Sie nach weiteren Möglichkeiten, Umsatzdaten zu erhalten? Versuchen Sie, Kaufverhalten (sowie den Kauf eines Produkts) zu Campaigns oder Canvase als [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) hinzuzufügen.
 {% endalert %}
 
 Sie können Umsatzstatistiken auch fallweise auf den Seiten [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) oder [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) einsehen.

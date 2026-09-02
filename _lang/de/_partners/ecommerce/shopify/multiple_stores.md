@@ -61,7 +61,7 @@ Für Ihre externe Braze-ID können Sie aus den folgenden Optionen wählen:
 
 ### Zusammengeführte Felder {#merged-fields}
 
-Wenn ein Nutzerprofil synchronisiert wird, werden die folgenden Felder zusammengeführt. Ausführliche Informationen zum Zusammenführungsverhalten finden Sie unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
+Wenn ein Kundenprofil or Nutzerprofil synchronisiert wird, werden die folgenden Felder zusammengeführt. Ausführliche Informationen zum Zusammenführungsverhalten finden Sie unter [Zusammenführungsverhalten]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior).
 
 - Geräteinformationen
 - Gesamtzahl der Sitzungen (kombiniert aus beiden Profilen)
@@ -76,18 +76,18 @@ Wenn ein Nutzerprofil synchronisiert wird, werden die folgenden Felder zusammeng
 
 ### Sammeln von Abonnent:innen (optional) {#collecting-subscribers-optional}
 
-Sie können wählen, ob Sie Abonnent:innen direkt über Braze (in Ihren Shopify-Konnektor-Einstellungen) oder über API- und SDK-Alternativen, die Daten von Shopify synchronisieren, sammeln möchten.
+Sie können wählen, ob Sie Abonnent:innen direkt über Braze (in Ihren Shopify-Konnektor-Einstellungen) oder über API- und SDK or Software-Development-Kit-Alternativen, die Daten von Shopify synchronisieren, sammeln möchten.
 
 {% tabs local %}
 {% tab Shopify-Konnektor %}
-Im Schritt **Manage users** Ihrer Shopify-Konnektor-Einstellungen können Sie Braze verwenden, um Opt-ins von E-Mail- und SMS-Abonnent:innen zu sammeln und sie in einer speziellen Abo-Gruppe zu organisieren:
+Im Schritt **Manage users** Ihrer Shopify-Konnektor-Einstellungen können Sie Braze verwenden, um Opt-ins von E-Mail- und Kurzmitteilungsdienst or SMS-Abonnent:innen zu sammeln und sie in einer speziellen Abo-Gruppe zu organisieren:
 
 1. Erstellen Sie für jeden Shop, den Sie verbinden, eine eindeutige Abo-Gruppe. So erhalten Sie genaue Daten darüber, woher die Abonnent:innen kommen.
-2. Aktivieren Sie die Erfassung von E-Mail- und SMS-Abonnent:innen.
+2. Aktivieren Sie die Erfassung von E-Mail- und Kurzmitteilungsdienst or SMS-Abonnent:innen.
 {% endtab %}
 
 {% tab Braze API oder SDKs %}
-Alternativ können Sie die Opt-in-Informationen für E-Mail- und SMS-Marketing direkt von Shopify über die Braze API oder SDKs synchronisieren.
+Alternativ können Sie die Opt-in-Informationen für E-Mail- und Kurzmitteilungsdienst or SMS-Marketing direkt von Shopify über die Braze API oder SDKs synchronisieren.
 
 | Option | Ressourcen |
 |------|---------|
@@ -120,7 +120,7 @@ Wenn Sie mehr als einen Shop verbinden, werden die folgenden Attribute mit dem n
 
 #### Empfohlene E-Commerce-Events {#ecommerce-recommended-events}
 
-Wenn Sie mehrere Shops verbinden, enthalten eingehende empfohlene E-Commerce-Events eine Quell-Event-Eigenschaft. Diese Eigenschaft gibt an, von welcher Storefront-URL das Event stammt, sodass Sie diese Information zur Segmentierung oder zum Triggern bestimmter Anwendungsfälle verwenden können.
+Wenn Sie mehrere Shops verbinden, enthalten eingehende empfohlene E-Commerce-Events eine Quell-Event-Eigenschaft. Diese Eigenschaft gibt an, von welcher Storefront-URL das Event stammt, sodass Sie diese Information zur Segmentierung oder zum Trigger or triggern or triggern bestimmter Anwendungsfälle verwenden können.
 
 ![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „ecommerce.order_placed“ ausführen.]({% image_buster /assets/img/shopify/ecommerce_order_placed.png %}){: style="max-width:80%;"}
 
@@ -135,7 +135,7 @@ Die unterstützten empfohlenen E-Commerce-Events innerhalb der Shopify-Integrati
 
 #### Angepasste Shopify-Events {#shopify-custom-events}
 
-Eingehende angepasste Shopify-Events enthalten eine Event-Eigenschaft namens `shopify_storefront`. Diese Eigenschaft zeigt an, von welcher Storefront-URL das Event stammt, sodass Sie sie für die Segmentierung oder das Triggern von Anwendungsfällen nutzen können.
+Eingehende angepasste Shopify-Events enthalten eine Event-Eigenschaft namens `shopify_storefront`. Diese Eigenschaft zeigt an, von welcher Storefront-URL das Event stammt, sodass Sie sie für die Segmentierung oder das Trigger or triggern or triggern von Anwendungsfällen nutzen können.
 
 ![Ein aktionsbasiertes Canvas mit einem Trigger zur Erfassung von Nutzer:innen, die das angepasste Event „shopify_paid_order“ ausführen.]({% image_buster /assets/img/shopify/shopify_paid_order.png %}){: style="max-width:80%;"}
 

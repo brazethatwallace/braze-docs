@@ -25,7 +25,7 @@ Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
 Nehmen wir an, Sie arbeiten für Steppington, eine Gesundheits-App, die für Features wie Kalorienverfolgung, digitale Fitnesskurse und Flashmob-Marathons bekannt ist. Bevor Sie das Canvas erstellen, [richten Sie mehrseitige In-App- und In-Browser-Nachrichten ein]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), die eine Reihe ansprechender Fragen enthalten, um die Erfahrung und den Eindruck der ersten Nutzung der App zu ermitteln.
 
-Um auf das Template zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Email sign-up with double opt-in** die Option **Apply Template**. Nun können wir das Template an unsere Bedürfnisse anpassen.
+Um auf das Template zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Email Registrierung or registrieren with double opt-in** die Option **Apply Template**. Nun können wir das Template an unsere Bedürfnisse anpassen.
 
 ### 1. Schritt: Details einrichten {#step-1-set-up-the-details}
 
@@ -36,8 +36,8 @@ Passen Sie die Canvas-Details an Ihr Ziel an.
 ![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/email_signup1.png %}){: style="max-width:50%;"}
 
 {:start="2"}
-2. Aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas für das Targeting neuer Nutzer:innen bei der ersten Nutzung der App bestimmt ist.
-3. Aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas personalisiertes Messaging für Nutzer:innen enthält, die das Double-Opt-in durchführen sollen.
+2. Update or aktualisieren or aktualisieren Sie den Canvas-Namen, um anzugeben, dass das Canvas für das Targeting neuer Nutzer:innen bei der ersten Nutzung der App bestimmt ist.
+3. Update or aktualisieren or aktualisieren Sie die Beschreibung, um zu erklären, dass dieses Canvas personalisiertes Messaging für Nutzer:innen enthält, die das Double-Opt-in durchführen sollen.
 4. Fügen Sie den Tag **Email** hinzu, damit wir auf der Canvas-Startseite danach filtern können.
 
 ![Der neue Name, die Beschreibung und der Tag für das Canvas.]({% image_buster /assets/img/canvas_templates/email_signup2.png %}){: style="max-width:90%;"}
@@ -58,13 +58,13 @@ Erwägen Sie außerdem, die **Action Based Options** beizubehalten, damit Nutzer
 
 ![Ein aktionsbasierter Entry-Zeitplan, um Nutzer:innen, die eine Sitzung starten, in das Canvas aufzunehmen.]({% image_buster /assets/img/canvas_templates/email_signup4.png %}){: style="max-width:90%;"}
 
-Aktualisieren Sie für das **Entry Window** die **Started Time (Required)** auf das gewünschte Datum und die gewünschte Uhrzeit.
+Update or aktualisieren or aktualisieren Sie für das **Entry Window** die **Started Time (Required)** auf das gewünschte Datum und die gewünschte Uhrzeit.
 
 ![Ein Einstiegsfenster mit der Startzeit 16. Januar 2025 um 12:30 Uhr. Nutzer:innen betreten diese Nachricht in ihrer Ortszeit.]({% image_buster /assets/img/canvas_templates/email_signup5.png %}){: style="max-width:90%;"}
 
 ### 4. Schritt: Zielgruppe auswählen {#step-4-select-the-target-audience}
 
-Definieren Sie Ihre Zielgruppe als Steppington-Nutzer:innen, die keine E-Mail-Adresse in ihrem Nutzerprofil haben, indem Sie den Standard-[Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) des Templates `Email Available is false` beibehalten.
+Definieren Sie Ihre Zielgruppe als Steppington-Nutzer:innen, die keine E-Mail-Adresse in ihrem Kundenprofil or Nutzerprofil haben, indem Sie den Standard-[Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) des Templates `Email Available is false` beibehalten.
 
 ![Entry-Zielgruppe mit dem Filter „Email Available is false“.]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
@@ -78,7 +78,7 @@ Behalten Sie die Standard-Abo-Einstellungen bei, sodass Sie nur an Nutzer:innen 
 
 Erstellen Sie als Nächstes das Canvas, indem Sie die Kanäle und Inhalte anpassen, die Sie an Nutzer:innen senden möchten. Da Sie sich auf die Verifizierung von E-Mail-Registrierungen konzentrieren, müssen Sie keine Canvas-Schritte und Kanäle des Templates hinzufügen oder entfernen.
 
-1. Wählen Sie den ersten Nachrichtenschritt mit dem Namen **Email Sign-up**. Hier aktualisieren Sie das Template, um unsere mehrseitige In-App- (und In-Browser-) Nachricht zu verwenden.
+1. Wählen Sie den ersten Nachrichtenschritt mit dem Namen **Email Registrierung or registrieren**. Hier Update or aktualisieren or aktualisieren Sie das Template, um unsere mehrseitige In-App- (und In-Browser-) Nachricht zu verwenden.
 
 - Seite 1 erfasst die E-Mail-Adressen.
 - Seite 2 zeigt eine Bestätigungsnachricht an.
@@ -94,10 +94,10 @@ Erstellen Sie als Nächstes das Canvas, indem Sie die Kanäle und Inhalte anpass
 {:start="3"}
 3. Ersetzen Sie als Nächstes den E-Mail-Text durch unsere gebrandete Bestätigungs-E-Mail für den Nachrichtenschritt **Verify Email**. Dieser sendet eine E-Mail an unsere abonnierten Nutzer:innen und fordert sie auf, ihre E-Mail-Adresse zu bestätigen und sich für unser Messaging anzumelden.
 4. Behalten Sie den Aktions-Pfad-Schritt **Confirm Subscription** bei. Dieser Schritt teilt unsere Nutzer:innen weiter in diejenigen auf, die ihre E-Mail bestätigt haben, und diejenigen, die dies nicht getan haben, mit einem Zeitfenster von einer Woche.
-5. Aktualisieren Sie abschließend den Nachrichtenschritt **Welcome + Discount** mit unserer Bestätigungs-E-Mail, die einen exklusiven Aktionscode enthält.
+5. Update or aktualisieren or aktualisieren Sie abschließend den Nachrichtenschritt **Welcome + Discount** mit unserer Bestätigungs-E-Mail, die einen exklusiven Aktionscode enthält.
 
 {% alert note %}
-Der Nachrichtenschritt **Verify Email** wird bei der zweiten Sitzung der Nutzer:innen ausgelöst. Dies liegt daran, dass das erste Sitzungsstart-Event das Canvas auslöst, aber ein zweiter Sitzungsstart erforderlich ist, nachdem die Nutzer:innen den ersten Nachrichtenschritt **Email Sign-up** erreicht haben, damit sie berechtigt sind, die zweite In-App-Nachricht auszulösen.
+Der Nachrichtenschritt **Verify Email** wird bei der zweiten Sitzung der Nutzer:innen ausgelöst. Dies liegt daran, dass das erste Sitzungsstart-Event das Canvas auslöst, aber ein zweiter Sitzungsstart erforderlich ist, nachdem die Nutzer:innen den ersten Nachrichtenschritt **Email Registrierung or registrieren** erreicht haben, damit sie berechtigt sind, die zweite In-App-Nachricht auszulösen.
 {% endalert %}
 
 ### 7. Schritt: Canvas testen und starten {#step-7-test-and-launch-your-canvas}

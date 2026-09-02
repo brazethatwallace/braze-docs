@@ -23,9 +23,9 @@ A integração entre a Braze e a Clarisights permite que você importe dados de 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Clarisights | É necessário ter um espaço de trabalho da Clarisights para usar a parceria |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões:  <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Nome do espaço de trabalho da Braze | O nome do espaço de trabalho associado à chave de API da Braze. Esse nome será usado para identificar a integração do espaço de trabalho na Clarisights. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões:  <br> - `campaigns.list` <br>  - `campaigns.details`<br> - `campaigns.data_series` <br> - `canvas.details`<br> - `canvas.list` <br>  - `canvas.data_series` <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Nome do espaço de trabalho da Braze | O nome do espaço de trabalho associado à chave de API or interface de programação do aplicativo (API) da Braze. Esse nome será usado para identificar a integração do espaço de trabalho na Clarisights. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}

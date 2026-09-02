@@ -12,14 +12,14 @@ description: "In diesem Artikel erfahren Sie, wie Sie im Braze-Dashboard eine Ev
 
 Gehen Sie in Braze zu **Analytics** > **Predictive Events**.
 
-Auf dieser Seite sehen Sie eine Liste aktueller aktiver Event-Prognosen und einige grundlegende Informationen dazu. Hier können Sie Prognosen umbenennen, archivieren und neue erstellen. Archivierte Prognosen sind inaktiv und aktualisieren die Bewertungen der Nutzer:innen nicht.
+Auf dieser Seite sehen Sie eine Liste aktueller aktiver Event-Prognosen und einige grundlegende Informationen dazu. Hier können Sie Prognosen umbenennen, archivieren und neue erstellen. Archivierte Prognosen sind inaktiv und Update or aktualisieren or aktualisieren die Bewertungen der Nutzer:innen nicht.
 
 ## 1. Schritt: Neue Prognose erstellen {#step-1-create-a-new-prediction}
 
 1. Wählen Sie **Create Prediction** und dann eine neue **Event Prediction**.
 
 {% alert note %}
-Es gibt ein Limit von fünf gleichzeitig aktiven Prognosen. Vor dem Kauf von Predictive Events ist das Limit eine aktive Vorschauprognose. Eine Vorschauprognose aktualisiert nicht regelmäßig die Bewertungen und spricht keine Nutzer:innen auf Grundlage der Prognoseergebnisse an. Kontaktieren Sie Ihren Account Manager für weitere Informationen.
+Es gibt ein Limit von fünf gleichzeitig aktiven Prognosen. Vor dem Kauf von Predictive Events ist das Limit eine aktive Vorschauprognose. Eine Vorschauprognose aktualisiert nicht regelmäßig die Bewertungen und spricht keine Nutzer:innen auf Grundlage der Prognoseergebnisse an. Kontaktieren Sie Ihren Account Manager:in für weitere Informationen.
 {% endalert %}
 
 {: start="2"}
@@ -34,7 +34,7 @@ Es gibt ein Limit von fünf gleichzeitig aktiven Prognosen. Vor dem Kauf von Pre
 
 Geben Sie an, ob die Events Ihrer Nutzer:innen in Braze als [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder als [Bestellungs-Event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed) gespeichert werden.
 
-Hier sehen Sie, ob die ausgewählte Methode genügend Daten für Braze liefert, um ein Modell des maschinellen Lernens zu erstellen. Wenn die Anforderung nicht erfüllt ist, versuchen Sie, die andere Protokollierungsmethode auszuwählen, sofern diese ebenfalls von Ihrer Anwendung verwendet wird. Leider ist Braze nicht in der Lage, mit der Menge der verfügbaren Daten eine Prognose zu erstellen, wenn dies nicht der Fall ist. Wenn Sie glauben, dass Sie diesen Fehler fälschlicherweise sehen, wenden Sie sich an Ihren Customer-Success-Manager.
+Hier sehen Sie, ob die ausgewählte Methode genügend Daten für Braze liefert, um ein Modell des maschinellen Lernens zu erstellen. Wenn die Anforderung nicht erfüllt ist, versuchen Sie, die andere Protokollierungsmethode auszuwählen, sofern diese ebenfalls von Ihrer Anwendung verwendet wird. Leider ist Braze nicht in der Lage, mit der Menge der verfügbaren Daten eine Prognose zu erstellen, wenn dies nicht der Fall ist. Wenn Sie glauben, dass Sie diesen Fehler fälschlicherweise sehen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 
 ### Event-Fenster {#event-window}
 
@@ -50,7 +50,7 @@ Je nach Anwendungsfall können Sie Filter verwenden, um die Nutzer:innen anzugeb
 Konzentrieren Sie Ihre Filter auf für Ihren Anwendungsfall relevante Nutzermerkmale, wie aktive Nutzer:innen, neue Nutzer:innen, hochwertige Nutzer:innen oder Nutzer:innen in einem bestimmten Land. Filtern Sie Ihre Prognosezielgruppe nicht danach, ob die Nutzer:innen das von Ihnen vorhergesagte Event bereits durchgeführt haben. Die Prognosezielgruppe bestimmt, von wem das Modell lernen soll, nicht das Event-Ergebnis selbst. Das Modell muss sowohl Nutzer:innen, die das Event abgeschlossen haben, als auch Nutzer:innen, die dies nicht getan haben, beobachten, um die Wahrscheinlichkeit des zukünftigen Event-Abschlusses genau zu erlernen und Prognosen darüber zu erstellen.
 {% endalert %}
 
-Die Prognosezielgruppe definiert die Gruppe der Nutzer:innen, die das Modell des maschinellen Lernens betrachtet, um aus der Vergangenheit zu lernen. Braze zeigt Ihnen die geschätzte Größe Ihrer Prognosezielgruppe an. Wenn Sie Ihre gewünschte Zielgruppe angeben und die Mindestanforderungen für die Ausführung des Modells nicht erfüllen, versuchen Sie, einen breiteren Filter anzugeben, oder verwenden Sie die Option **Alle Nutzer:innen**. Beachten Sie, dass es in vielen Anwendungsfällen nicht erforderlich ist, eine bestimmte Prognosezielgruppe auszuwählen. Wenn Ihr Anwendungsfall beispielsweise darin besteht, Nutzer:innen in der EU-Region anzusprechen, bei denen die Churn-Wahrscheinlichkeit am höchsten ist, können Sie Ihr Modell auf alle Nutzer:innen anwenden und dann einen Filter für die EU-Region in das Segment der Campaign einfügen.
+Die Prognosezielgruppe definiert die Gruppe der Nutzer:innen, die das Modell des maschinellen Lernens betrachtet, um aus der Vergangenheit zu lernen. Braze zeigt Ihnen die geschätzte Größe Ihrer Prognosezielgruppe an. Wenn Sie Ihre gewünschte Zielgruppe angeben und die Mindestanforderungen für die Ausführung des Modells nicht erfüllen, versuchen Sie, einen breiteren Filter anzugeben, oder verwenden Sie die Option **Alle Nutzer:innen**. Beachten Sie, dass es in vielen Anwendungsfällen nicht erforderlich ist, eine bestimmte Prognosezielgruppe auszuwählen. Wenn Ihr Anwendungsfall beispielsweise darin besteht, Nutzer:innen in der EU-Region anzusprechen, bei denen die Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Wahrscheinlichkeit am höchsten ist, können Sie Ihr Modell auf alle Nutzer:innen anwenden und dann einen Filter für die EU-Region in das Segment der Campaign einfügen.
 
 {% alert note %}
 Die Prognosezielgruppe darf 100 Millionen Nutzer:innen nicht überschreiten.
@@ -71,7 +71,7 @@ Das Modell des maschinellen Lernens generiert Event-Wahrscheinlichkeitswerte fü
 Wählen Sie die **maximale Häufigkeit der Aktualisierungen**, die Sie für sinnvoll halten. Wenn Sie beispielsweise Bestellungen prognostizieren und eine wöchentliche Aktion planen, stellen Sie die Häufigkeit der Updates auf **Weekly** an einem Tag und zu einer Uhrzeit Ihrer Wahl ein.
 
 {% alert note %}
-Vorschau- und Demo-Prognosen aktualisieren die Wahrscheinlichkeitswerte der Nutzer:innen nicht.
+Vorschau- und Demo-Prognosen Update or aktualisieren or aktualisieren die Wahrscheinlichkeitswerte der Nutzer:innen nicht.
 {% endalert %}
 
 ### 5. Schritt: Prognose erstellen {#step-5-build-prediction}
@@ -86,4 +86,4 @@ Die Prognose wird alle **zwei Wochen** automatisch neu erstellt („trainiert“
 
 ## Archivierte Prognosen {#archived-predictions}
 
-Bei archivierten Prognosen werden die Bewertungen der Nutzer:innen nicht mehr aktualisiert. Alle archivierten Prognosen, die wieder aktiviert werden, aktualisieren die Bewertungen der Nutzer:innen weiterhin nach ihrem festgelegten Zeitplan. Archivierte Prognosen werden nie gelöscht und bleiben in der Liste.
+Bei archivierten Prognosen werden die Bewertungen der Nutzer:innen nicht mehr aktualisiert. Alle archivierten Prognosen, die wieder aktiviert werden, Update or aktualisieren or aktualisieren die Bewertungen der Nutzer:innen weiterhin nach ihrem festgelegten Zeitplan. Archivierte Prognosen werden nie gelöscht und bleiben in der Liste.

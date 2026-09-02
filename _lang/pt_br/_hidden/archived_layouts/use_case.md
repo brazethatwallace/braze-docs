@@ -70,7 +70,7 @@ Quando você fala sobre público, não precisa instruir sobre como usar Segments
 
 ### Etapa 2: Envie sua mensagem no momento certo {#step-2-send-your-message-at-the-right-time}
 
-Fale sobre quando enviar sua mensagem, se isso for importante. Pode não ser! Pelo menos, informe que é possível enviar no horário local. Ou explique como disparar essa situação específica via API, ou mesmo se estiver usando um Canvas e for melhor disparar a etapa com base em uma ação (como abrir um e-mail e não clicar por pelo menos um dia depois).
+Fale sobre quando enviar sua mensagem, se isso for importante. Pode não ser! Pelo menos, informe que é possível enviar no horário local. Ou explique como disparar essa situação específica via API or interface de programação do aplicativo (API), ou mesmo se estiver usando um Canvas e for melhor disparar a etapa com base em uma ação (como abrir um e-mail e não clicar por pelo menos um dia depois).
 
 ### Etapa 3: Construção da sua mensagem {#step-3-building-your-message}
 

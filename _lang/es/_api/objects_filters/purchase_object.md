@@ -72,7 +72,7 @@ Esto facilita la identificación de productos para la segmentación y la activac
 
 Si quieres registrar compras a nivel de pedido en lugar de a nivel de producto, puedes usar el nombre del pedido o la categoría del pedido como `product_id` (como `Online Order` o `Completed Order`).
 
-Por ejemplo, para registrar compras a nivel de pedido en el SDK Web:
+Por ejemplo, para registrar compras a nivel de pedido en el SDK or kit de desarrollo de software Web:
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -116,7 +116,7 @@ Es importante tener en cuenta que esta característica se activa **por producto*
 En este caso, recomendamos utilizar nombres de productos a «nivel de grupo» en lugar de identificadores a nivel de transacción al configurar las estructuras de datos. Por ejemplo, una empresa de billetes de tren debería tener productos para "viaje de ida", "viaje de vuelta", "multiciudad", y no transacciones específicas como "transacción 123" o "transacción 046". Como otro ejemplo, con el evento de compra «comida», lo mejor sería establecer las propiedades como «pastel» y «sándwich».
 
 {% alert important %}
-Ten en cuenta que los productos se pueden añadir a través de la REST API de Braze. Por ejemplo, si envías una llamada al endpoint `/users/track` e incluyes un nuevo ID de compra, Braze crea automáticamente un producto en la sección **Configuración de datos** > **Productos** del panel.
+Ten en cuenta que los productos se pueden añadir a través de la REST or transferencia de estado representacional API de Braze. Por ejemplo, si envías una llamada al endpoint `/users/track` e incluyes un nuevo ID de compra, Braze crea automáticamente un producto en la sección **Configuración de datos** > **Productos** del panel.
 {% endalert %}
 
 ### Ejemplo de objeto de compra {#example-purchase-object}

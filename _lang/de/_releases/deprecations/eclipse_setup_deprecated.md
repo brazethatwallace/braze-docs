@@ -1,19 +1,19 @@
 ---
-nav_title: SDK-Ersteinrichtung mit Eclipse
+nav_title: SDK or Software-Development-Kit-Ersteinrichtung mit Eclipse
 page_order: 1
 page_type: update
 noindex: true
-description: "Dieser archivierte Artikel beschreibt, wie Sie eine SDK-Ersteinrichtung mit Eclipse durchführen. Braze hat die Unterstützung für die Eclipse IDE eingestellt."
+description: "Dieser archivierte Artikel beschreibt, wie Sie eine SDK or Software-Development-Kit-Ersteinrichtung mit Eclipse durchführen. Braze hat die Unterstützung für die Eclipse IDE eingestellt."
 ---
 
-# SDK-Ersteinrichtung mit Eclipse {#initial-sdk-setup-with-eclipse}
+# SDK or Software-Development-Kit-Ersteinrichtung mit Eclipse {#initial-sdk-setup-with-eclipse}
 
-{% alert update %}
+{% alert Update or aktualisieren %}
 Braze hat die Unterstützung für die Eclipse IDE entfernt, da [Google die Unterstützung für das Eclipse Android Developer Tools Plugin eingestellt hat](http://android-developers.blogspot.com/2015/06/an-update-on-eclipse-android-developer.html). Wenn Sie vor der Migration Hilfe bei Ihrer Eclipse-Integration benötigen, [senden Sie eine E-Mail an den Support]({{site.baseurl}}/support_contact/).
 {% endalert %}
 
 ## 1. Schritt {#step-1}
-Klonen Sie in Ihrer Befehlszeile das [Braze Android GitHub Repository](https://github.com/braze-inc/braze-android-sdk).
+Klon or klonen Sie in Ihrer Befehlszeile das [Braze Android GitHub Repository](https://github.com/braze-inc/braze-android-sdk).
 
 ```bash
 $ git clone git@github.com:braze-inc/braze-android-sdk.git
@@ -44,7 +44,7 @@ In Eclipse:
   - Klicken Sie mit der rechten Maustaste auf Ihr Projekt und wählen Sie „Eigenschaften“.
 
     ![Auf „Eigenschaften“ klicken]({{site.baseurl}}/assets/img_archive/click_properties.png)
-  - Klicken Sie unter „Android“ im Abschnitt „Bibliothek“ auf „Hinzufügen…“ und fügen Sie android-sdk-ui als Bibliothek zu Ihrer App hinzu.
+  - Klicken Sie unter „Android“ im Abschnitt „Bibliothek“ auf „Hinzufügen…“ und fügen Sie android-SDK or Software-Development-Kit-ui als Bibliothek zu Ihrer App hinzu.
 
     ![Braze hinzufügen]({{site.baseurl}}/assets/img_archive/add_appboy_ui.png)
 
@@ -64,7 +64,7 @@ Zu diesem Zeitpunkt können Fehler im Braze-Code auftreten, da die Abhängigkeit
 
 Fügen Sie die letzten Teile hinzu.
 
-  - Für SDK-Version 1.10.0 oder höher müssen Sie Folgendes zu Ihrer AndroidManifest.xml hinzufügen, da Eclipse das Zusammenführen von Manifesten nicht unterstützt:
+  - Für SDK or Software-Development-Kit-Version 1.10.0 oder höher müssen Sie Folgendes zu Ihrer AndroidManifest.xml hinzufügen, da Eclipse das Zusammenführen von Manifesten nicht unterstützt:
   `<service android:name="com.appboy.services.AppboyDataSyncService" />`
 
-  - Für SDK-Version 1.7.0 oder höher müssen Sie „assets/fontawesome-webfont.ttf“ aus unserem Bibliotheksprojekt in Ihre Anwendung kopieren. Eclipse fügt den Assets-Ordner von Bibliotheken nicht automatisch ein.
+  - Für SDK or Software-Development-Kit-Version 1.7.0 oder höher müssen Sie „assets/fontawesome-webfont.ttf“ aus unserem Bibliotheksprojekt in Ihre Anwendung kopieren. Eclipse fügt den Assets-Ordner von Bibliotheken nicht automatisch ein.

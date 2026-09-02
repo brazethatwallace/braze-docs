@@ -14,7 +14,7 @@ noindex: true
 
 # Push Story einrichten {#push-story-setup}
 
-Die Push Story-Funktion erfordert das `UNNotification`-Framework und iOS 10. Das Feature ist erst ab iOS SDK Version 3.2.1 verfügbar.
+Die Push Story-Funktion erfordert das `UNNotification`-Framework und iOS 10. Das Feature ist erst ab iOS SDK or Software-Development-Kit Version 3.2.1 verfügbar.
 
 ## 1. Schritt: Push in Ihrer App aktivieren {#step-1-enable-push-in-your-app}
 
@@ -102,7 +102,7 @@ Fügen Sie unter **Build Settings > Other Linker Flags** das Flag `-ObjC` zur `N
 {% endtab %}
 {% endtabs %}
 
-## 5. Schritt: View-Controller für Benachrichtigungen aktualisieren {#step-5-updating-your-notification-view-controller}
+## 5. Schritt: View-Controller für Benachrichtigungen Update or aktualisieren or aktualisieren {#step-5-updating-your-notification-view-controller}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -203,7 +203,7 @@ Verknüpfen Sie als Nächstes das IBOutlet `storiesView` des View-Controllers f�
 
 ![Screenshot zu Schritt 7: Plist-Datei der Notification Content Extension anpassen.]({% image_buster /assets/img/ios/push_story/notificationcontentextension_plist.png %})
 
-## 8. Schritt: Braze-Integration in Ihrer Hauptanwendung aktualisieren {#step-8-updating-the-braze-integration-in-your-main-app}
+## 8. Schritt: Braze-Integration in Ihrer Hauptanwendung Update or aktualisieren or aktualisieren {#step-8-updating-the-braze-integration-in-your-main-app}
 
 ### Option 1: Laufzeit {#option-1-runtime}
 
@@ -236,7 +236,7 @@ Appboy.start(withApiKey: "YOUR-API-KEY", in:application, withLaunchOptions:launc
 
 #### Option 2: Info.plist {#option-2-infoplist}
 
-Um den Push Story-Workspace über Ihre Datei `Info.plist` zu konfigurieren, können Sie alternativ ein Wörterbuch mit dem Namen `Braze` zu Ihrer Datei `Info.plist` hinzufügen. Fügen Sie im Wörterbuch `Braze` den String-Untereintrag `PushStoryAppGroup` hinzu und legen Sie den Wert auf den Bezeichner Ihres Workspace fest. Beachten Sie, dass vor Braze iOS SDK v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
+Um den Push Story-Workspace über Ihre Datei `Info.plist` zu konfigurieren, können Sie alternativ ein Wörterbuch mit dem Namen `Braze` zu Ihrer Datei `Info.plist` hinzufügen. Fügen Sie im Wörterbuch `Braze` den String-Untereintrag `PushStoryAppGroup` hinzu und legen Sie den Wert auf den Bezeichner Ihres Workspace fest. Beachten Sie, dass vor Braze iOS SDK or Software-Development-Kit v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
 
 ## Nächste Schritte {#next-steps}
 

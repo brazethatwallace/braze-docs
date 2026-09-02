@@ -15,9 +15,9 @@ description: "이 문서에는 2021년 1월의 릴리스 노트가 포함되어 
 
 이 상세 가이드에서는 서브클래싱을 활용하여 커스텀 슬라이드업 인앱 메시지, 커스텀 Modal 인앱 메시지, 커스텀 전체 인앱 메시지를 만들어 Braze Campaigns와 Canvases에 추가하는 방법에 대해 설명합니다. 여기에는 필요한 코드 고려사항, Braze 팀이 구축한 자세한 사용 사례, 함께 제공되는 코드 스니펫이 포함되어 있습니다. 자세한 내용은 [iOS 인앱 메시지 구현 가이드]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide)를 참조하세요.
 
-## SMS 커스텀 키워드 카테고리 및 리타겟팅 옵션 {#sms-custom-keyword-categories-and-retargeting-options}
+## 단문 메시지 서비스 커스텀 키워드 카테고리 및 리타겟팅 옵션 {#sms-custom-keyword-categories-and-retargeting-options}
 
-Braze는 양방향 메시징을 위한 커스텀 키워드 추가 기능, 커스텀 키워드 카테고리, 다중 언어 지원, 키워드 리타겟팅 및 필터링 옵션 등 기본 SMS 기능을 확장했습니다. SMS 키워드 처리에 대한 자세한 내용은 [SMS 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)를 참조하세요.
+Braze는 양방향 메시징을 위한 커스텀 키워드 추가 기능, 커스텀 키워드 카테고리, 다중 언어 지원, 키워드 리타겟팅 및 필터링 옵션 등 기본 단문 메시지 서비스 기능을 확장했습니다. 단문 메시지 서비스 키워드 처리에 대한 자세한 내용은 [단문 메시지 서비스 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)를 참조하세요.
 
 ## Playable 파트너십 출시 {#playable-partnership-is-live}
 

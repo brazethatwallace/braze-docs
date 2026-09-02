@@ -28,7 +28,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 ### 1. Schritt: Contentful-API-Zugangsdaten abrufen {#step-1-get-your-contentful-api-credentials}
 
 1. [Melden Sie sich bei Contentful an](https://app.contentful.com/login), indem Sie Ihre Zugangsdaten eingeben.
-2. Erstellen oder rufen Sie API-Zugangs-Token im Contentful-Dashboard unter **Settings** > **API keys** ab. Wenn Sie noch keinen API-Schlüssel haben, erstellen Sie einen neuen:<br>2.1 Wählen Sie **Add API key** aus.<br>2.2 Geben Sie die erforderlichen Details ein und wählen Sie die entsprechende Umgebung aus.<br>2.3 Wählen Sie **Save** und notieren Sie sich die **Space ID** und das **Content Delivery API - access token**.
+2. Erstellen oder rufen Sie API-Zugangs-Token / Textbaustein im Contentful-Dashboard unter **Settings** > **API keys** ab. Wenn Sie noch keinen API-Schlüssel haben, erstellen Sie einen neuen:<br>2.1 Wählen Sie **Add API key** aus.<br>2.2 Geben Sie die erforderlichen Details ein und wählen Sie die entsprechende Umgebung aus.<br>2.3 Wählen Sie **Save** und notieren Sie sich die **Space ID** und das **Content Delivery API - access Token / Textbaustein**.
 3. Identifizieren Sie das Inhaltsmodell, auf das Sie über die Contentful-API zugreifen möchten.
 
 ### 2. Schritt: Braze Connected-Content konfigurieren {#step-2-configure-braze-connected-content}
@@ -62,7 +62,7 @@ Verschiedene Endpunkte können neue Variablen erfordern. Zum Beispiel erfordert 
 5. Wählen Sie **Done**, um Ihren Content-Block zu speichern.
 6. Geben Sie Ihrem Content-Block einen beschreibenden Namen, z. B. „Contentful API“, und wählen Sie dann **Launch Content Block**.
 
-### 3. Schritt: Connected-Content in Kampagnen und Canvases verwenden {#step-3-use-connected-content-in-campaigns-and-canvasses}
+### 3. Schritt: Connected-Content in Kampagnen und Canvase verwenden {#step-3-use-connected-content-in-campaigns-and-canvasses}
 
 1. Erstellen Sie in Braze eine neue Kampagne oder bearbeiten Sie eine bestehende.
 2. Verwenden Sie den Connected-Content-Block, um von Contentful abgerufene Daten einzufügen. Nutzen Sie die Datenpfade, die Sie bei der Konfiguration festgelegt haben, um den Inhalt der Kampagne dynamisch zu füllen.<br><br>

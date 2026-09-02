@@ -4,15 +4,15 @@ article_title: Integração de extensões de navegador para a Web
 platform: Web
 page_order: 20
 page_type: reference
-description: "Este artigo descreve como usar o Braze Web SDK em suas extensões de navegador (Google Chrome, Firefox)."
+description: "Este artigo descreve como usar o Braze Web SDK or kit de desenvolvimento de software em suas extensões de navegador (Google Chrome, Firefox)."
 
 ---
 
 # Extensão do navegador {#browser-extension}
 
-> Este artigo descreve como usar o Braze Web SDK em suas extensões de navegador (Google Chrome, Firefox).
+> Este artigo descreve como usar o Braze Web SDK or kit de desenvolvimento de software em suas extensões de navegador (Google Chrome, Firefox).
 
-Integre o Braze Web SDK em sua extensão de navegador para coletar dados analíticos e exibir mensagens personalizadas para os usuários. Isso inclui tanto **extensões do Google Chrome** quanto **complementos do Firefox**.
+Integre o Braze Web SDK or kit de desenvolvimento de software em sua extensão de navegador para coletar dados analíticos e exibir mensagens personalizadas para os usuários. Isso inclui tanto **extensões do Google Chrome** quanto **complementos do Firefox**.
 
 ## O que é suportado {#whats-supported}
 
@@ -25,7 +25,7 @@ Em geral, como as extensões são HTML e JavaScript, você pode usar a Braze par
 
 ## O que não é suportado {#whats-not-supported}
 
-* O uso do Braze SDK a partir de um service worker não é suportado. Você ainda pode usar o Braze SDK na página de popup ou na página de configurações da sua extensão. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
+* O uso do Braze SDK or kit de desenvolvimento de software a partir de um service worker não é suportado. Você ainda pode usar o Braze SDK or kit de desenvolvimento de software na página de popup ou na página de configurações da sua extensão. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK or kit de desenvolvimento de software" %}
 
 ## Tipos de extensão {#extension-types}
 
@@ -40,19 +40,19 @@ A Braze pode ser incluída nas seguintes áreas de sua extensão:
 
 ## Permissões {#permissions}
 
-Não são necessárias permissões adicionais no seu `manifest.json` ao integrar o SDK da Braze (`braze.min.js`) como um arquivo local empacotado com sua extensão.
+Não são necessárias permissões adicionais no seu `manifest.json` ao integrar o SDK or kit de desenvolvimento de software da Braze (`braze.min.js`) como um arquivo local empacotado com sua extensão.
 
-No entanto, se você usar o [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/), ou fizer referência ao SDK da Braze a partir de uma URL externa, ou tiver definido uma política de segurança de conteúdo rigorosa para sua extensão, será necessário ajustar a configuração [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) no `manifest.json` para permitir fontes de script remotas.
+No entanto, se você usar o [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/), ou fizer referência ao SDK or kit de desenvolvimento de software da Braze a partir de uma URL externa, ou tiver definido uma política de segurança de conteúdo rigorosa para sua extensão, será necessário ajustar a configuração [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) no `manifest.json` para permitir fontes de script remotas.
 
 ## Primeiros passos {#getting-started}
 
 {% alert tip %}
-Antes de começar, leia o [guia de configuração inicial do Web SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) para saber mais sobre a integração de JavaScript em geral.  <br><br>Pode ser interessante marcar a [referência do JavaScript SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) para obter detalhes completos sobre todos os diferentes métodos e opções de configuração do SDK.
+Antes de começar, leia o [guia de configuração inicial do Web SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) para saber mais sobre a integração de JavaScript em geral.  <br><br>Pode ser interessante marcar a [referência do JavaScript SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) para obter detalhes completos sobre todos os diferentes métodos e opções de configuração do SDK or kit de desenvolvimento de software.
 {% endalert %}
 
-Para integrar o Braze Web SDK, você primeiro precisará baixar uma cópia da biblioteca JavaScript mais recente. Isso pode ser feito usando NPM ou baixando diretamente do [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
+Para integrar o Braze Web SDK or kit de desenvolvimento de software, você primeiro precisará baixar uma cópia da biblioteca JavaScript mais recente. Isso pode ser feito usando NPM ou baixando diretamente do [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js).
 
-Como alternativa, se você preferir usar o [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) ou usar uma cópia hospedada externamente do Braze SDK, lembre-se de que o carregamento de recursos externos exigirá que você ajuste a configuração [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) no seu `manifest.json`.
+Como alternativa, se você preferir usar o [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) ou usar uma cópia hospedada externamente do Braze SDK or kit de desenvolvimento de software, lembre-se de que o carregamento de recursos externos exigirá que você ajuste a configuração [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) no seu `manifest.json`.
 
 Depois de baixar, copie o arquivo `braze.min.js` em algum lugar do diretório da sua extensão.
 
@@ -94,7 +94,7 @@ Se você usar uma página de opções (por meio das propriedades do manifesto `o
 
 ## Inicialização {#initialization}
 
-Depois que o SDK for incluído, você poderá inicializar a biblioteca como de costume.
+Depois que o SDK or kit de desenvolvimento de software for incluído, você poderá inicializar a biblioteca como de costume.
 
 Como não há suporte para cookies em extensões de navegador, você pode desativar os cookies inicializando com `noCookies: true`.
 
@@ -106,7 +106,7 @@ braze.initialize("YOUR-API-KEY-HERE", {
 });
 ```
 
-Para saber mais sobre as opções de inicialização suportadas, visite a [referência do Web SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
+Para saber mais sobre as opções de inicialização suportadas, visite a [referência do Web SDK or kit de desenvolvimento de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
 
 ## Push {#push}
 

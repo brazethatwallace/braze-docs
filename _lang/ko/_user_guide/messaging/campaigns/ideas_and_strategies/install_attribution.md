@@ -13,7 +13,7 @@ tool:
 
 > 설치 경로 추적은 사용자와의 초기 관계를 개선하는 훌륭한 방법입니다. 사용자가 앱을 어떻게, 어디서, 그리고 더 중요하게는 왜 설치했는지 알면 사용자가 누구인지, 그리고 앱을 어떻게 소개해야 하는지 더 잘 이해할 수 있습니다.
 
-Braze는 설치 경로 추적을 직접 제공하지는 않지만, Branch 및 AppsFlyer와 같은 [서비스]({{site.baseurl}}/partners/message_orchestration)와 통합하여 설치 데이터를 원활하게 제공할 수 있습니다.
+Braze는 설치 경로 추적을 직접 제공하지는 않지만, Branch or 브랜치 및 AppsFlyer와 같은 [서비스]({{site.baseurl}}/partners/message_orchestration)와 통합하여 설치 데이터를 원활하게 제공할 수 있습니다.
 
 ## 사용자 세분화 {#segment-your-users}
 

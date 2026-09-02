@@ -13,8 +13,8 @@ search_tag: Partner
 
 Durch die Integration von Braze und Typeform können Sie:
 
-- Nutzerprofile in Braze mit Daten aus deren Typeform-Antworten aktualisieren
-- Messaging in Braze basierend auf dem Engagement von Nutzer:innen mit einem Typeform-Formular triggern
+- Nutzerprofile in Braze mit Daten aus deren Typeform-Antworten Update or aktualisieren or aktualisieren
+- Messaging in Braze basierend auf dem Engagement von Nutzer:innen mit einem Typeform-Formular Trigger or triggern or triggern
 - Braze Messaging basierend auf den Typeform-Antworten von Nutzer:innen personalisieren
 
 ## Voraussetzungen {#prerequisites}
@@ -47,8 +47,8 @@ Senden Sie ein Test-Ereignis an Ihre Datentransformation, indem Sie auf **View d
 
 In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von Typeform gesendet wird, in einen JavaScript-Objekt-Rückgabewert.
 
-1. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Typeform-Testnutzlast in den **Webhook Details** sehen können.
-2. Aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Typeform-Ereignisse zu unterstützen.
+1. Update or aktualisieren or aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Typeform-Testnutzlast in den **Webhook Details** sehen können.
+2. Update or aktualisieren or aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Typeform-Ereignisse zu unterstützen.
 3. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 4. Speichern und aktivieren Sie Ihre Datentransformation.
 

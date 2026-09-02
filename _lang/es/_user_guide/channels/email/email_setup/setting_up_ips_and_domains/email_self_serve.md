@@ -109,7 +109,7 @@ Después de que tu verificación de remitente esté completa, Braze recomienda e
 
 ### La propagación de DNS está tardando más de lo esperado {#dns-propagation-is-taking-longer-than-expected}
 
-Los registros de dominio de envío generalmente se propagan en 5 a 10 minutos. Los registros de dominio de seguimiento pueden tardar hasta 24 horas dependiendo de la configuración de TTL de tu proveedor de DNS. Si la propagación tarda más, confirma primero que los registros NS se agregaron correctamente y luego contacta al soporte de Braze.
+Los registros de dominio de envío generalmente se propagan en 5 a 10 minutos. Los registros de dominio de seguimiento pueden tardar hasta 24 horas dependiendo de la configuración de TTL or tiempo de vida de tu proveedor de DNS. Si la propagación tarda más, confirma primero que los registros NS se agregaron correctamente y luego contacta al soporte de Braze.
 
 ### No puedo eliminar un dominio verificado {#im-not-able-to-remove-a-verified-domain}
 

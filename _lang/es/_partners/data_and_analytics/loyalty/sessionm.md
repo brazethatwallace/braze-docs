@@ -15,16 +15,16 @@ search_tag: Partner
 
 | Fuente | Requisito | Descripción |
 | --- | --- | --- |
-| Braze | Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `trigger_send`. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Braze | Un endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Braze | Una clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `trigger_send`. Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Braze | Un endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la URL de Braze para [tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 | Braze y SessionM | Identificador coincidente | Para utilizar la integración, asegúrate de que tanto SessionM como Braze tienen un registro de los identificadores utilizados por cada plataforma. Las referencias a `user_id` corresponden al identificador de usuario de SessionM generado en el momento de la creación del perfil en SessionM. |
 | SessionM | Una cuenta de SessionM | Se necesita una cuenta de SessionM para beneficiarse de esta asociación. |
-| SessionM | Un endpoint REST de SessionM Core | Tu endpoint dependerá de la URL de SessionM de tu instancia. Se puede crear en el panel de SessionM desde **Digital Properties**. |
-| SessionM | Una clave de API REST de SessionM Core | La clave de API de SessionM asociada a tu instancia y a la integración con Braze. Esta clave puede utilizarse para todas las llamadas basadas en el núcleo, incluidas las etiquetas. Se puede crear en el panel de SessionM desde **Digital Properties**. |
-| SessionM | Un secreto de API REST de SessionM Core | El secreto de API de SessionM asociado a tu instancia y a la integración con Braze. Esta clave puede utilizarse para todas las llamadas basadas en el núcleo, incluidas las etiquetas. Se puede crear en el panel de SessionM desde **Digital Properties**. |
-| SessionM | Un endpoint REST de SessionM Connect | Tu endpoint dependerá de la URL de SessionM de tu instancia. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te lo proporcionen. |
-| SessionM | Una cadena de autorización REST de SessionM Connect | La cadena de autorización básica de SessionM Connect asociada a tu instancia. Esta cadena de autenticación se puede utilizar para todas las llamadas basadas en conexión, incluido get_user_offers. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te la proporcionen. |
-| SessionM | Un ID de minorista REST de SessionM Connect | Un GUID de identificación único para el cliente específico asociado a tu instancia. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te lo proporcionen. |
+| SessionM | Un endpoint REST or transferencia de estado representacional de SessionM Core | Tu endpoint dependerá de la URL de SessionM de tu instancia. Se puede crear en el panel de SessionM desde **Digital Properties**. |
+| SessionM | Una clave de API REST or transferencia de estado representacional de SessionM Core | La clave de API de SessionM asociada a tu instancia y a la integración con Braze. Esta clave puede utilizarse para todas las llamadas basadas en el núcleo, incluidas las etiquetas. Se puede crear en el panel de SessionM desde **Digital Properties**. |
+| SessionM | Un secreto de API REST or transferencia de estado representacional de SessionM Core | El secreto de API de SessionM asociado a tu instancia y a la integración con Braze. Esta clave puede utilizarse para todas las llamadas basadas en el núcleo, incluidas las etiquetas. Se puede crear en el panel de SessionM desde **Digital Properties**. |
+| SessionM | Un endpoint REST or transferencia de estado representacional de SessionM Connect | Tu endpoint dependerá de la URL de SessionM de tu instancia. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te lo proporcionen. |
+| SessionM | Una cadena de autorización REST or transferencia de estado representacional de SessionM Connect | La cadena de autorización básica de SessionM Connect asociada a tu instancia. Esta cadena de autenticación se puede utilizar para todas las llamadas basadas en conexión, incluido get_user_offers. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te la proporcionen. |
+| SessionM | Un ID de minorista REST or transferencia de estado representacional de SessionM Connect | Un GUID de identificación único para el cliente específico asociado a tu instancia. Ponte en contacto con tu director de cuentas técnicas de SessionM o con el equipo de entrega para que te lo proporcionen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -51,7 +51,7 @@ En Braze, crea un Segment de usuarios al que dirigirte con promociones y ofertas
 
 Primero, crea una Campaign webhook en Braze y configura la URL del webhook como {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}. Utiliza Liquid para definir el `user_id` dentro de la URL.
 
-Utilizando un **cuerpo de solicitud** de texto sin formato, compón el cuerpo del webhook para incluir las etiquetas deseadas que se añadirán al perfil de usuario en SessionM y el tiempo de vida deseado. Un ejemplo:
+Utilizando un **cuerpo de solicitud** de texto sin formato, compón el cuerpo del webhook para incluir las etiquetas deseadas que se añadirán al perfil de usuario en SessionM y el TTL or tiempo de vida or tiempo de vida deseado. Un ejemplo:
 
  ```
  {
@@ -73,7 +73,7 @@ En la pestaña **Configuración**, añade los pares clave-valor para cada campo 
 Programa tu entrega, configura tu **Públicos objetivo** para que se dirija al Segment [que creaste anteriormente](#step-1-create-a-segment-in-braze) y, a continuación, lanza tu Campaign.
 
 {% alert important %}
-Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [endpoint de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un tiempo de vida para cada usuario en la llamada (un único usuario por llamada).
+Este proceso también puede realizarse a través de un cliente API, como Postman, haciendo una solicitud directamente al [endpoint de etiquetas de SessionM](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) especificando el cliente, el nombre de la etiqueta y un TTL or tiempo de vida or tiempo de vida para cada usuario en la llamada (un único usuario por llamada).
 <br><br>
 El siguiente ejemplo de solicitud utiliza cURL.
 
@@ -95,7 +95,7 @@ curl --location -g --request POST '{{endpoint_core}}/priv/v1/apps/{{apikey_core}
 
 #### Opción 2: Importación CSV {#option-2-csv-import}
 
-Exporta tu Segment de Braze utilizando el segmentador de Braze y proporciona un archivo CSV a SessionM que contenga los clientes a etiquetar, el nombre de la etiqueta y un tiempo de vida para cada usuario del archivo.
+Exporta tu Segment de Braze utilizando el segmentador de Braze y proporciona un archivo CSV a SessionM que contenga los clientes a etiquetar, el nombre de la etiqueta y un TTL or tiempo de vida or tiempo de vida para cada usuario del archivo.
 
 ## Recuperar la cartera de ofertas en tiempo real con Braze {#retrieving-real-time-offer-wallet-with-braze}
 

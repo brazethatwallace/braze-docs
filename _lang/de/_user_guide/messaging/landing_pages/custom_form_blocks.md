@@ -20,13 +20,13 @@ Umfragen und In-App Messages haben eigene Formularblöcke, aber `registerFormInp
 
 ## Funktionsweise {#how-it-works}
 
-Eine angepasste Formulareingabe ist jedes Element auf Ihrer Landing-Page, dessen Wert Sie erfassen und mit dem Formular übermitteln möchten. Sie verbinden dieses Element mit dem Braze-Formularsystem, indem Sie es registrieren. Die Registrierung teilt Braze mit, welches Element überwacht werden soll, wie der aktuelle Wert gelesen wird und was mit diesem Wert bei der Formularübermittlung geschehen soll.
+Eine angepasste Formulareingabe ist jedes Element auf Ihrer Landing-Page, dessen Wert Sie erfassen und mit dem Formular übermitteln möchten. Sie verbinden dieses Element mit dem Braze-Formularsystem, indem Sie es Registrierung or registrieren. Die Registrierung teilt Braze mit, welches Element überwacht werden soll, wie der aktuelle Wert gelesen wird und was mit diesem Wert bei der Formularübermittlung geschehen soll.
 
 1. Erstellen Sie Ihre angepasste UI in einem **Custom Code**-Block auf der Landing-Page und geben Sie ihr einen stabilen CSS-Selektor, z. B. eine `id`.
-2. Registrieren Sie das Element, indem Sie `window.brazeHelpers.forms.registerFormInput` mit einem Konfigurationsobjekt aufrufen.
+2. Registrierung or registrieren Sie das Element, indem Sie `window.brazeHelpers.forms.registerFormInput` mit einem Konfigurationsobjekt aufrufen.
 3. Braze ruft Ihre `getValue`-Funktion auf, um den aktuellen Wert bei Bedarf zu lesen.
 4. Wenn das Feld erforderlich ist oder Sie eine `onValidate`-Funktion bereitstellen, blockiert Braze die Übermittlung, bis der Wert gültig ist, und kennzeichnet ein ungültiges Element mit einer CSS-Klasse, die Sie stylen können. Siehe [Validierung und Pflichtfelder](#validation-and-required-fields).
-5. Wenn das Formular übermittelt wird und die Validierung bestanden ist, ruft Braze Ihre `onSubmit`-Funktion auf, in der Sie das Braze SDK aufrufen können, um Informationen wie ein angepasstes Attribut zu protokollieren.
+5. Wenn das Formular übermittelt wird und die Validierung bestanden ist, ruft Braze Ihre `onSubmit`-Funktion auf, in der Sie das Braze SDK or Software-Development-Kit aufrufen können, um Informationen wie ein angepasstes Attribut zu protokollieren.
 
 Da Sie die Funktionen bereitstellen, die den Wert lesen, validieren und übermitteln, funktioniert dieser Ansatz mit nahezu jedem angepassten Formularelement – Sie sind also nicht auf die Standard-Feldtypen im Editor beschränkt.
 
@@ -81,13 +81,13 @@ Sie müssen mindestens eine Möglichkeit zur Identifizierung des Elements (`sele
 
 `onSubmit` ist ein einfacher JavaScript-Callback, sodass Sie den erfassten Wert so verarbeiten können, wie es Ihre Integration erfordert. Da `onSubmit` als Teil der Formularübermittlung ausgeführt wird, funktionieren `brazeBridge`-Aufrufe darin wie erwartet, auch für Besucher:innen, die die Landing-Page anonym geöffnet haben. Siehe [Bridge-Verfügbarkeit]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge#bridge-availability) für die andere Situation, in der Bridge-Aufrufe funktionieren.
 
-Das häufigste Muster ist das Schreiben des erfassten Werts in das Nutzerprofil mit der [Braze JavaScript Bridge]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge), die auf Landing-Pages verfügbar ist:
+Das häufigste Muster ist das Schreiben des erfassten Werts in das Kundenprofil or Nutzerprofil mit der [Braze JavaScript Bridge]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge), die auf Landing-Pages verfügbar ist:
 
 ```js
 window.brazeBridge.getUser().setCustomUserAttribute("attribute_name", value);
 ```
 
-Verwenden Sie einen Namen für ein angepasstes Attribut, der bereits in Ihrem Workspace existiert oder den Sie erstellen möchten. Der übergebene Wert wird im Profil der Nutzer:innen gespeichert und kann dann für Segmentierung, Personalisierung und das Triggern von Folgenachrichten verwendet werden.
+Verwenden Sie einen Namen für ein angepasstes Attribut, der bereits in Ihrem Workspace existiert oder den Sie erstellen möchten. Der übergebene Wert wird im Profil der Nutzer:innen gespeichert und kann dann für Segmentierung, Personalisierung und das Trigger or triggern or triggern von Folgenachrichten verwendet werden.
 
 Sie sind nicht auf angepasste Attribute beschränkt. Aus demselben Callback können Sie jede [`brazeBridge.getUser()`-Methode]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge#supported-methods) aufrufen. Zum Beispiel, um Nutzer:innen zu einer Abo-Gruppe hinzuzufügen, ein Standardattribut zu setzen, ein angepasstes Event zu protokollieren oder den Wert an Ihren eigenen API-Endpunkt zu senden.
 
@@ -280,7 +280,7 @@ Dieses Beispiel zeichnet eine Rubbelkarte auf einem HTML Canvas. Ein Gewinn wird
 
 **Ziel:** Die Campaign erfassen, die die Besucher:innen auf die Landing-Page geführt hat, und sie als angepasste Event-Eigenschaft für nachgelagerte Berichterstattung und Attribution protokollieren.
 
-Dieses Beispiel zeigt, wie Sie eine Landing-Page-Formularübermittlung einer bestimmten Campaign zuordnen. Indem Sie eine Liquid-Variable wie {% raw %}`{{campaign.${api_id}}}`{% endraw %} zur URL Ihrer Landing-Page in E-Mail-, SMS- oder WhatsApp-Nachrichten hinzufügen, können Sie den Campaign-Bezeichner an die Landing-Page übergeben. Der angepasste Formularblock liest dann diesen Parameter aus der URL und protokolliert ihn als angepasstes Event mit der Campaign-API-ID als Event-Eigenschaft, was es einfacher macht, nachzuverfolgen, welche Campaigns Formularübermittlungen auslösen.
+Dieses Beispiel zeigt, wie Sie eine Landing-Page-Formularübermittlung einer bestimmten Campaign zuordnen. Indem Sie eine Liquid-Variable wie {% raw %}`{{campaign.${api_id}}}`{% endraw %} zur URL Ihrer Landing-Page in E-Mail-, Kurzmitteilungsdienst or SMS- oder WhatsApp-Nachrichten hinzufügen, können Sie den Campaign-Bezeichner an die Landing-Page übergeben. Der angepasste Formularblock liest dann diesen Parameter aus der URL und protokolliert ihn als angepasstes Event mit der Campaign-API-ID als Event-Eigenschaft, was es einfacher macht, nachzuverfolgen, welche Campaigns Formularübermittlungen auslösen.
 
 Fügen Sie Folgendes in einen einzelnen **Custom Code** (HTML)-Block ein:
 
@@ -314,7 +314,7 @@ Fügen Sie Folgendes in einen einzelnen **Custom Code** (HTML)-Block ein:
 </script>
 ```
 
-**Funktionsweise:** Wenn Sie eine E-Mail-, SMS- oder WhatsApp-Nachricht erstellen, die auf Ihre Landing-Page verlinkt, hängen Sie den Campaign-Bezeichner mithilfe von Liquid-Templating an die URL an: {% raw %}`https://your-landing-page.com?campaign_api_id={{campaign.${api_id}}}`{% endraw %}. Wenn Besucher:innen über diese Nachricht auf der Landing-Page ankommen, liest das Skript den Parameter `campaign_api_id` aus der URL und speichert ihn in einem versteckten Eingabefeld. Bei der Formularübermittlung protokolliert der `onSubmit`-Callback, sofern eine Campaign-ID vorhanden ist, ein angepasstes Event namens `landing_page_form_submitted` mit der Campaign-API-ID als Event-Eigenschaft. Dieses Event erscheint in Currents und kann für Berichterstattung, Segmentierung und Attributionsanalyse verwendet werden.
+**Funktionsweise:** Wenn Sie eine E-Mail-, Kurzmitteilungsdienst or SMS- oder WhatsApp-Nachricht erstellen, die auf Ihre Landing-Page verlinkt, hängen Sie den Campaign-Bezeichner mithilfe von Liquid-Templating an die URL an: {% raw %}`https://your-landing-page.com?campaign_api_id={{campaign.${api_id}}}`{% endraw %}. Wenn Besucher:innen über diese Nachricht auf der Landing-Page ankommen, liest das Skript den Parameter `campaign_api_id` aus der URL und speichert ihn in einem versteckten Eingabefeld. Bei der Formularübermittlung protokolliert der `onSubmit`-Callback, sofern eine Campaign-ID vorhanden ist, ein angepasstes Event namens `landing_page_form_submitted` mit der Campaign-API-ID als Event-Eigenschaft. Dieses Event erscheint in Currents und kann für Berichterstattung, Segmentierung und Attributionsanalyse verwendet werden.
 
 {% alert tip %}
 Sie können dieses Muster erweitern, um zusätzliche URL-Parameter wie Nachrichtenvariante, Canvas-Schritt oder jede andere Liquid-Variable zu erfassen, die Sie für Attributionszwecke an die Landing-Page übergeben möchten.
@@ -353,7 +353,7 @@ Das Styling des Fehlerzustands ist optional, wird aber empfohlen, damit Besucher
 - Halten Sie `getValue` schlank und synchron. Braze kann es mehrfach aufrufen, daher sollte es den aktuellen Wert lesen und zurückgeben, anstatt aufwendige Operationen durchzuführen.
 - Stylen Sie den `bz-validation-error`-Zustand, damit Besucher:innen sehen können, welche angepasste Eingabe die Übermittlung blockiert.
 - Definieren Sie Ihre Namen für angepasste Attribute im Voraus und halten Sie sie konsistent, damit Sie die Daten später zuverlässig für die Segmentierung nutzen können.
-- Testen Sie die vollständige Übermittlung. Bestätigen Sie, dass das Attribut nach der Übermittlung im Nutzerprofil erscheint und dass Pflichtfeld- und Validierungsregeln die Übermittlung wie erwartet blockieren.
+- Testen Sie die vollständige Übermittlung. Bestätigen Sie, dass das Attribut nach der Übermittlung im Kundenprofil or Nutzerprofil erscheint und dass Pflichtfeld- und Validierungsregeln die Übermittlung wie erwartet blockieren.
 
 ## Fehlerbehebung {#troubleshooting}
 

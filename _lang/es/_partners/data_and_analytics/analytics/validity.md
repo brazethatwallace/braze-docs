@@ -30,8 +30,8 @@ Antes de comenzar, necesitas lo siguiente:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Una cuenta de Validity | Se requiere una cuenta de Validity para aprovechar esta asociación. |
-| Una clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `users.delete`, `email.bounce.remove`, `email.spam.remove`, `campaigns.list`, `campaigns.details`, `campaigns.data_series`, `canvas.list`, `canvas.details`, `canvas.data_series`, `content_blocks.list`, `content_blocks.info` y `messages.send`. <br><br> Crea esta clave en el panel de Braze desde **Configuración** > **API e identificadores**. |
-| Un endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. Por ejemplo, `rest.iad-01.braze.com`. |
+| Una clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos: `users.track`, `users.delete`, `email.bounce.remove`, `email.spam.remove`, `campaigns.list`, `campaigns.details`, `campaigns.data_series`, `canvas.list`, `canvas.details`, `canvas.data_series`, `content_blocks.list`, `content_blocks.info` y `messages.send`. <br><br> Crea esta clave en el panel de Braze desde **Configuración** > **API e identificadores**. |
+| Un endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. Por ejemplo, `rest.iad-01.braze.com`. |
 | Un identificador de aplicación de Braze | El identificador de aplicación de Braze al que deben atribuirse los envíos de semillas. Encuéntralo en **Configuración** > **API e identificadores** > **Identificadores de aplicación**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -41,8 +41,8 @@ Antes de comenzar, necesitas lo siguiente:
 
 Validity requiere tres credenciales de **Configuración** > **API e identificadores** en tu panel de Braze:
 
-- Tu clave de API REST (con los permisos listados en [Requisitos previos](#prerequisites))
-- Tu endpoint REST
+- Tu clave de API REST or transferencia de estado representacional (con los permisos listados en [Requisitos previos](#prerequisites))
+- Tu endpoint REST or transferencia de estado representacional
 - Tu identificador de aplicación
 
 Comparte estas credenciales con tu representante de Validity, quien completará la configuración de la integración por ti. Validity valida las credenciales con una llamada de prueba en vivo a Braze antes de habilitar la integración. Si no estás seguro de quién es tu contacto en Validity, envía un correo electrónico a [support@validity.com](mailto:support@validity.com).

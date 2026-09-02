@@ -33,7 +33,7 @@ Lorsqu'une étiquette `:retry` est incluse dans l'appel de contenu connecté, Br
 
 ### Comportement en prévisualisation {#preview-behavior}
 
-La logique de nouvelle tentative s'applique uniquement aux envois en direct (y compris les envois de test), et non aux prévisualisations. Si un appel de contenu connecté avec `:retry` échoue lors de la prévisualisation, celle-ci peut afficher le message « This message would not have been shown because retry functionality was triggered » au lieu de rendre le contenu. Il s'agit d'un comportement attendu qui n'indique pas un problème au sein de Braze.
+La logique de nouvelle tentative s'applique uniquement aux envois en direct or en ligne/en production/instantané (y compris les envois de test), et non aux prévisualisations. Si un appel de contenu connecté avec `:retry` échoue lors de la prévisualisation, celle-ci peut afficher le message « This message would not have been shown because retry functionality was triggered » au lieu de rendre le contenu. Il s'agit d'un comportement attendu qui n'indique pas un problème au sein de Braze.
 
 ### Résultats des nouvelles tentatives {#retry-outcomes}
 

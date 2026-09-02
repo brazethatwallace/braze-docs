@@ -26,7 +26,7 @@ A integração da Braze com a Remerge ajuda você a desenvolver campanhas robust
 | Chave de webhook da Remerge | Esta chave será fornecida pela Remerge. |
 | ID do app para Android | Seu identificador exclusivo do aplicativo Braze para Android (como "com.example"). |
 | ID do app para iOS | Seu identificador exclusivo do aplicativo Braze para iOS (como "012345678"). |
-| Ativar a coleta de IDFA no SDK da Braze | A coleta de IDFA é opcional no SDK da Braze e fica desativada por padrão. |
+| Ativar a coleta de IDFA no SDK or kit de desenvolvimento de software da Braze | A coleta de IDFA é opcional no SDK or kit de desenvolvimento de software da Braze e fica desativada por padrão. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -58,7 +58,7 @@ https://remerge.events/event?partner=braze&app_id=\{% if most_recently_used_devi
 {% endraw %}
 
 Na URL do webhook, você precisa:
-- Usar a API `https://remerge.events/event` para enviar seus eventos de webhook.
+- Usar a API or interface de programação do aplicativo (API) `https://remerge.events/event` para enviar seus eventos de webhook.
 - Definir o nome do evento. Esse nome aparecerá no seu dashboard da [remerge.io](https://www.remerge.io/).
 - Passar o identificador exclusivo do aplicativo do seu app para Android (como "com.example") e iOS (como "012345678") para a Remerge.
 - Definir uma chave; a Remerge a fornecerá.
@@ -85,7 +85,7 @@ Você não precisa definir um corpo de solicitação para este webhook.
 
 ## Etapa 2: Visualize sua solicitação {#step-2-preview-your-request}
 
-Visualize a mensagem para garantir que a solicitação esteja sendo renderizada corretamente para diferentes usuários. Recomendamos visualizar e enviar solicitações de teste para usuários de Android e iOS. Se a solicitação for bem-sucedida, a API responderá com `HTTP 204`.
+Visualize a mensagem para garantir que a solicitação esteja sendo renderizada corretamente para diferentes usuários. Recomendamos visualizar e enviar solicitações de teste para usuários de Android e iOS. Se a solicitação for bem-sucedida, a API or interface de programação do aplicativo (API) responderá com `HTTP 204`.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

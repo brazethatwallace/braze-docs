@@ -23,13 +23,13 @@ La integración de Braze y Stensul te permite exportar tus correos electrónicos
 | Requisito | Descripción |
 | ------------| ----------- |
 | Cuenta Stensul | Se necesita una cuenta Stensul para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se corresponde con tu panel de Braze y tu punto de conexión REST. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Templates**. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Instancia de clúster | Tu [instancia de clúster]({{site.baseurl}}/api/basics/#endpoints) de Braze se corresponde con tu panel de Braze y tu punto de conexión REST or transferencia de estado representacional. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
-Proporciona tu clave de API REST de Braze y tu instancia de clúster a tu equipo de éxito del cliente de Stensul. El equipo se encargará de la integración inicial.
+Proporciona tu clave de API REST or transferencia de estado representacional de Braze y tu instancia de clúster a tu equipo de éxito del cliente de Stensul. El equipo se encargará de la integración inicial.
 
 {% alert important %}
 Esta es una configuración única y cualquier exportación en el futuro utilizará automáticamente esta clave de API.

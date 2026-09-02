@@ -63,7 +63,7 @@ Fügt benutzerdefiniertes HTML für erweiterte Layouts oder eingebettete Inhalte
 
 ### Telefonnummernerfassung {#phone-capture}
 
-Erfasst eine Telefonnummer. Beim Absenden werden die Nutzer:innen in Ihre ausgewählte [SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)- oder [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)-Abo-Gruppe eingetragen. Nur eine pro Banner.
+Erfasst eine Telefonnummer. Beim Absenden werden die Nutzer:innen in Ihre ausgewählte [Kurzmitteilungsdienst or SMS]({{site.baseurl}}/sms_rcs_subscription_groups/)- oder [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups/)-Abo-Gruppe eingetragen. Nur eine pro Banner.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -75,14 +75,14 @@ Erfasst eine E-Mail-Adresse und fügt sie beim Absenden dem Braze-Profil der Nut
 
 ### Langer Text {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Braze Customer-Success-Manager.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Gespeicherte Zeile {#saved-row}
 
-Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-drop-Content-Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Braze Customer-Success-Manager.
+Fügt eine wiederverwendbare Zeile ein, die Sie zuvor als Drag-and-drop-Content-Block gespeichert haben. Gespeicherte Zeilen sind **nicht verknüpft** mit dem ursprünglichen Content Block – wenn das Original aktualisiert wird, müssen Sie es erneut in den Editor ziehen, um die neueste Version zu erhalten. Weitere Informationen finden Sie unter [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Wenn Sie **Gespeicherte Zeile** unter **Zeilen** nicht sehen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) oder Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 -->
 
 ## Wissenswertes {#things-to-know}

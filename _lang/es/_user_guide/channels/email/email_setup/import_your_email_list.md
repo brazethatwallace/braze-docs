@@ -24,7 +24,7 @@ Los servicios de limpieza de listas de correo electrónico pueden hacer esto por
 
 ### Comprueba si una dirección de correo electrónico ya está asociada a un usuario {#check-if-an-email-address-is-already-associated-with-a-user}
 
-Antes de crear un usuario a través de la API o el SDK, llama al punto de conexión [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) y especifica la `email_address` del usuario. Si devuelve un perfil de usuario, ese usuario de Braze ya está asociado a esa dirección de correo electrónico.
+Antes de crear un usuario a través de la API o el SDK or kit de desarrollo de software, llama al punto de conexión [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) y especifica la `email_address` del usuario. Si devuelve un perfil de usuario, ese usuario de Braze ya está asociado a esa dirección de correo electrónico.
 
 Recomendamos encarecidamente que busques direcciones de correo electrónico únicas cuando se crean nuevos usuarios, y evites pasar o importar usuarios con la misma dirección de correo electrónico. De lo contrario, podrías tener consecuencias no deseadas que afecten al envío de mensajes, la segmentación, los informes y otras características.
 
@@ -42,4 +42,4 @@ Si estás migrando desde un proveedor de correo electrónico existente, asegúra
 
 ## Métodos para importar {#methods-for-importing}
 
-Una vez que tengas tu lista de correo electrónico preparada, hay varias formas de importar usuarios a Braze, como a través de la REST API de Braze o archivos CSV. Lee más en nuestro artículo dedicado de [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).
+Una vez que tengas tu lista de correo electrónico preparada, hay varias formas de importar usuarios a Braze, como a través de la REST or transferencia de estado representacional API de Braze o archivos CSV. Lee más en nuestro artículo dedicado de [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users).

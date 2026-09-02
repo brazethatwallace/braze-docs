@@ -172,7 +172,7 @@ Pour plus d'idées sur l'amélioration de la livrabilité, consultez [Pièges de
 
 Si Microsoft est votre principal fournisseur de boîtes de réception, vous pouvez consulter les données Microsoft SNDS dans le centre de livrabilité. Cela inclut les adresses IP d'envoi dédiées pour les espaces de travail qui utilisent Amazon SES, SendGrid ou SparkPost. Utilisez ces données pour surveiller la santé de vos IP et comprendre comment les fournisseurs de boîtes de réception Microsoft évaluent vos envois.
 
-Microsoft SNDS fournit des données au niveau IP sur les plaintes pour spam et le volume d'envoi tels que rapportés par les fournisseurs de boîtes de réception Microsoft comme Outlook, Hotmail et Live.
+Microsoft SNDS fournit des données au niveau IP sur les plaintes pour spam et le volume d'envoi tels que rapportés par les fournisseurs de boîtes de réception Microsoft comme Outlook, Hotmail et en direct or en ligne/en production/instantané.
 
 {% alert important %}
 Si vous ne voyez pas vos données dans le centre de livrabilité, contactez le [support]({{site.baseurl}}/user_guide/administer/personal/braze_support) avec la liste de vos adresses IP.
@@ -209,7 +209,7 @@ Consultez ce tableau pour comprendre les résultats de filtre.
 
 #### Taux de plainte {#complaint-rate}
 
-Il s'agit de la proportion de fois où un message reçu depuis l'IP fait l'objet d'une plainte de la part d'un utilisateur Hotmail ou Windows Live pendant la période d'activité. Les utilisateurs ont la possibilité de signaler la quasi-totalité des messages comme indésirables via l'interface web.
+Il s'agit de la proportion de fois où un message reçu depuis l'IP fait l'objet d'une plainte de la part d'un utilisateur Hotmail ou Windows en direct or en ligne/en production/instantané pendant la période d'activité. Les utilisateurs ont la possibilité de signaler la quasi-totalité des messages comme indésirables via l'interface web.
 
 Pour calculer le taux de plainte, divisez le nombre de plaintes par le nombre de destinataires des messages.
 

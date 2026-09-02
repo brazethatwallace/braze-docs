@@ -2,7 +2,7 @@
 nav_title: Construye con un LLM
 article_title: Construcción con un LLM
 page_order: 4
-description: "Aprende a utilizar los asistentes de codificación con IA con la documentación de Braze para acelerar tu flujo de trabajo de integración de SDK."
+description: "Aprende a utilizar los asistentes de codificación con IA con la documentación de Braze para acelerar tu flujo de trabajo de integración de SDK or kit de desarrollo de software."
 platform:
   - Web
   - React Native
@@ -10,13 +10,13 @@ platform:
 
 # Construcción con un LLM {#building-with-an-llm}
 
-> Utiliza asistentes de codificación con IA para acelerar tu flujo de trabajo de integración con Braze. Conecta tu IDE al servidor MCP de Braze Docs a través de Context7 y obtén orientación precisa y actualizada sobre el SDK directamente en tu entorno de desarrollo.
+> Utiliza asistentes de codificación con IA para acelerar tu flujo de trabajo de integración con Braze. Conecta tu IDE al servidor MCP de Braze Docs a través de Context7 y obtén orientación precisa y actualizada sobre el SDK or kit de desarrollo de software directamente en tu entorno de desarrollo.
 
-Los asistentes de codificación con IA pueden ayudarte a escribir código de integración, solucionar problemas y explorar las características del SDK de Braze&#8212;pero solo si disponen del contexto adecuado. El servidor Braze Docs MCP proporciona a tu asistente de IA acceso directo a la documentación de Braze, para que pueda generar fragmentos de código precisos y responder a preguntas técnicas basándose en las últimas referencias del SDK.
+Los asistentes de codificación con IA pueden ayudarte a escribir código de integración, solucionar problemas y explorar las características del SDK or kit de desarrollo de software de Braze&#8212;pero solo si disponen del contexto adecuado. El servidor Braze Docs MCP proporciona a tu asistente de IA acceso directo a la documentación de Braze, para que pueda generar fragmentos de código precisos y responder a preguntas técnicas basándose en las últimas referencias del SDK or kit de desarrollo de software.
 
 ## Conexión a Braze Docs MCP {#connecting-to-the-braze-docs-mcp}
 
-[Context7](https://context7.com/braze-inc/braze-docs) sirve de puente entre tu asistente de IA y la biblioteca de documentación de Braze. Al añadir Context7 a la configuración MCP de tu IDE, tu asistente de IA puede realizar consultas sobre toda la documentación de Braze y recuperar referencias relevantes del SDK, ejemplos de código y guías de integración bajo demanda.
+[Context7](https://context7.com/braze-inc/braze-docs) sirve de puente entre tu asistente de IA y la biblioteca de documentación de Braze. Al añadir Context7 a la configuración MCP de tu IDE, tu asistente de IA puede realizar consultas sobre toda la documentación de Braze y recuperar referencias relevantes del SDK or kit de desarrollo de software, ejemplos de código y guías de integración bajo demanda.
 
 ### Configuración de Context7 {#setting-up-context7}
 
@@ -79,15 +79,15 @@ Guarda la configuración y reinicia VS Code.
 Context7 es diferente del [servidor MCP de Braze]({{site.baseurl}}/developer_guide/mcp_server). Context7 proporciona a tu asistente de IA acceso a **la documentación de Braze**, mientras que el servidor MCP de Braze proporciona acceso de solo lectura a **los datos de tu espacio de trabajo de Braze** (como campañas, segmentos y análisis). Puedes utilizar ambos juntos para disfrutar de una experiencia de desarrollo asistida por IA más completa.
 {% endalert %}
 
-## Redacción de prompts para el desarrollo del SDK de Braze {#writing-prompts-for-braze-sdk-development}
+## Redacción de prompts para el desarrollo del SDK or kit de desarrollo de software de Braze {#writing-prompts-for-braze-sdk-development}
 
-Después de configurar Context7, incluye `use context7` en tus prompts para indicar a tu asistente de IA que utilice la documentación de Braze como contexto. Los siguientes ejemplos muestran cómo escribir prompts eficaces para tareas comunes del SDK.
+Después de configurar Context7, incluye `use context7` en tus prompts para indicar a tu asistente de IA que utilice la documentación de Braze como contexto. Los siguientes ejemplos muestran cómo escribir prompts eficaces para tareas comunes del SDK or kit de desarrollo de software.
 
-### SDK de React Native {#react-native-sdk}
+### SDK or kit de desarrollo de software de React Native {#react-native-sdk}
 
-Estos prompts muestran tareas de integración comunes para el [SDK de Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
+Estos prompts muestran tareas de integración comunes para el [SDK or kit de desarrollo de software de Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
-#### Inicialización del SDK {#initializing-the-sdk}
+#### Inicialización del SDK or kit de desarrollo de software {#initializing-the-sdk}
 
 ```text
 Using the Braze React Native SDK, show me how to initialize the SDK
@@ -120,11 +120,11 @@ Native SDK, including how to log impressions and button clicks
 programmatically. Use context7.
 ```
 
-### SDK Web {#web-sdk}
+### SDK or kit de desarrollo de software Web {#web-sdk}
 
-Estos prompts muestran tareas de integración comunes para el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
+Estos prompts muestran tareas de integración comunes para el [SDK or kit de desarrollo de software Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
-#### Inicialización del SDK
+#### Inicialización del SDK or kit de desarrollo de software
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with

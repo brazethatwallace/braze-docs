@@ -10,7 +10,7 @@ description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-A
 
 > Nutzen Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um die Bekanntheit neuer Produkteinführungen zu steigern.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or Software-Development-Kit requirements' %}
 
 ## Eine Produktankündigung erstellen {#creating-a-product-announcement}
 

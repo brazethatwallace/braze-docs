@@ -112,7 +112,7 @@ Las siguientes acciones están disponibles para los enlaces de Content Cards:
 | Registrar atributo personalizado | Elige un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) para establecer para el usuario actual. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Comportamiento al hacer clic" }
 
-Las opciones **Registrar evento personalizado** y **Registrar atributo personalizado** requieren la siguiente compatibilidad de versiones del SDK:
+Las opciones **Registrar evento personalizado** y **Registrar atributo personalizado** requieren la siguiente compatibilidad de versiones del SDK or kit de desarrollo de software:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
@@ -344,7 +344,7 @@ Si quieres que una tarjeta parezca estar siempre disponible, puedes crear una Ca
 
 ### Sincronización y actualización de Content Cards {#content-card-sync-and-refresh}
 
-Las Content Cards se sincronizan según un calendario y cuando tu aplicación actualiza la fuente. El comportamiento de sincronización difiere entre sincronizaciones completas y parciales, y tu integración de SDK afecta cuándo se actualizan las tarjetas al inicio de sesión. Para detalles de implementación, consulta [Personalizar la fuente de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) y [Crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
+Las Content Cards se sincronizan según un calendario y cuando tu aplicación actualiza la fuente. El comportamiento de sincronización difiere entre sincronizaciones completas y parciales, y tu integración de SDK or kit de desarrollo de software afecta cuándo se actualizan las tarjetas al inicio de sesión. Para detalles de implementación, consulta [Personalizar la fuente de Content Cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) y [Crear Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Impacto de detener Campaigns de Content Cards {#impact-of-stopping-content-cards-campaigns}
 
@@ -359,9 +359,9 @@ Para las campañas de entrega basada en acciones (como el inicio de sesión), ex
 - El evento desencadenante se envía a los servidores de Braze
 - Se desencadena la Campaign y se registra la elegibilidad del usuario
 - La Content Card se crea en la base de datos para ese usuario
-- El SDK se sincroniza y descarga todas las tarjetas disponibles en el dispositivo
+- El SDK or kit de desarrollo de software se sincroniza y descarga todas las tarjetas disponibles en el dispositivo
 
-Si la sincronización del SDK ocurre antes de que se registre la elegibilidad del usuario, este no recibe la tarjeta.
+Si la sincronización del SDK or kit de desarrollo de software ocurre antes de que se registre la elegibilidad del usuario, este no recibe la tarjeta.
 
 Para los nuevos usuarios en su primera sesión, este retraso es inevitable. Para los usuarios existentes que necesitan disponibilidad inmediata, considera utilizar la entrega programada en su lugar.
 

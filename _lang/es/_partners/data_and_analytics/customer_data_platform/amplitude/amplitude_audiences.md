@@ -37,8 +37,8 @@ Amplitude y Braze ofrecen dos métodos de integración diferentes. Lee la docume
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST][1]. Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional][1]. Tu endpoint dependerá de la URL de Braze de tu instancia. |
 | Identificador de la aplicación Braze | El identificador de la aplicación que recibirá los eventos de Amplitude. Esto se puede encontrar en **Panel de Braze > Consola para desarrolladores > Configuración**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -46,7 +46,7 @@ Amplitude y Braze ofrecen dos métodos de integración diferentes. Lee la docume
 
 1. En Amplitude, ve a **Data Destinations** y busca "Braze - Event Stream".
 2. Introduce un nombre para la sincronización y haz clic en **Create Sync**.
-3. Haz clic en **Edit** e indica tu endpoint REST API de Braze, tu clave de API REST y el identificador de la aplicación Braze.
+3. Haz clic en **Edit** e indica tu endpoint REST or transferencia de estado representacional API de Braze, tu clave de API REST or transferencia de estado representacional y el identificador de la aplicación Braze.
 4. Utiliza el filtro de envío de eventos para seleccionar los eventos que deseas enviar. Puedes enviar todos los eventos, pero Amplitude recomienda elegir los más importantes.
 5. Cuando hayas terminado, habilita el destino y guárdalo.
 

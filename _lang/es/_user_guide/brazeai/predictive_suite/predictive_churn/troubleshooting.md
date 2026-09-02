@@ -29,7 +29,7 @@ Busca el mensaje de error, la advertencia o el resultado que ves al crear una pr
 
 Usa este flujo de trabajo cuando la creación de una predicción falla o estás bloqueado por requisitos de datos o audiencia. Comienza en el paso 1.
 
-1. Confirma que Predictive Churn está activado para tu empresa y que el espacio de trabajo tiene suficientes usuarios activos al mes (MAU), generalmente 300,000 MAU en un solo espacio de trabajo.
+1. Confirma que Predictive Churn está activado para tu empresa y que el espacio de trabajo tiene suficientes MAU or usuarios activos al mes or usuarios activos al mes (MAU or usuarios activos al mes), generalmente 300,000 MAU or usuarios activos al mes en un solo espacio de trabajo.
 2. Revisa tu definición de cancelación. Los filtros demasiado restrictivos reducen la cantidad de usuarios perdidos disponibles para el entrenamiento.
 3. Revisa la definición de tu audiencia de predicción. Muy pocos usuarios históricos que no cancelaron bloquean el entrenamiento del modelo.
 4. Confirma que los eventos personalizados (no solo los atributos personalizados) capturan las acciones de alto valor que indican riesgo de cancelación.
@@ -44,7 +44,7 @@ Este error aparece cuando tu definición de cancelación es demasiado restrictiv
 Para solucionarlo, cambia el número de días, las acciones que definen la cancelación para captar más usuarios, o ambos. Asegúrate de que estás utilizando correctamente los filtros `AND/OR` para no crear definiciones excesivamente restrictivas.
 
 {% alert important %}
-Aunque Predictive Churn está activado a nivel de empresa, algunos espacios de trabajo pueden no tener suficientes usuarios para crear predicciones. Normalmente, necesitas 300.000 usuarios activos al mes en un solo espacio de trabajo.
+Aunque Predictive Churn está activado a nivel de empresa, algunos espacios de trabajo pueden no tener suficientes usuarios para crear predicciones. Normalmente, necesitas 300.000 MAU or usuarios activos al mes or usuarios activos al mes en un solo espacio de trabajo.
 {% endalert %}
 
 ## Problemas con el tamaño de la audiencia de predicción {#problems-with-prediction-audience-size}

@@ -542,7 +542,7 @@ A CDI sincronizará apenas as novas linhas, então a próxima sincronização qu
 
 Cada vez que uma sincronização é executada, a Braze procura por linhas que não foram sincronizadas anteriormente. Verificamos isso usando a coluna `UPDATED_AT` na sua tabela ou view. A Braze seleciona e importa quaisquer linhas em que o `UPDATED_AT` seja posterior ao último valor de `UPDATED_AT` sincronizado, independentemente de serem iguais ao que está atualmente no perfil de usuário. Linhas no limite do timestamp também podem ser sincronizadas novamente se novas linhas compartilharem esse timestamp. Sendo assim, recomendamos sincronizar apenas os atributos que você deseja adicionar ou atualizar.
 
-O uso de pontos de dados é idêntico ao usar CDI ou outros métodos de ingestão, como REST APIs ou SDKs, então cabe a você garantir que está adicionando apenas atributos novos ou atualizados às suas tabelas de origem.
+O uso de pontos de dados é idêntico ao usar CDI ou outros métodos de ingestão, como REST or transferir estado representacional APIs ou SDKs, então cabe a você garantir que está adicionando apenas atributos novos ou atualizados às suas tabelas de origem.
 
 ### Separe o `EXTERNAL_ID` da coluna `PAYLOAD` {#separate-external_id-from-payload-column}
 

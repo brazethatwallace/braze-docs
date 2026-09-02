@@ -22,7 +22,7 @@ La integración de Braze y OneTrust te permite utilizar el generador de flujos d
 | Requisitos | Descripción |
 |---|---|
 | Cuenta de OneTrust | Una cuenta de [OneTrust](https://www.onetrust.com/) para aprovechar esta asociación. |
-| Clave de API de Braze | Una clave de API REST de Braze con los permisos necesarios para el punto de conexión que utilizará tu acción de OneTrust.<br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los permisos necesarios para el punto de conexión que utilizará tu acción de OneTrust.<br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
 | Instancia de Braze | Tu instancia de Braze se puede obtener a través de tu administrador de incorporación de Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

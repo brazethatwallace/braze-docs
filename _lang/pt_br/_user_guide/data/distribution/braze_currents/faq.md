@@ -15,7 +15,7 @@ tool: Currents
 
 Para obter métricas de Campaign ou Canvas para um intervalo de datas definido, use uma das seguintes abordagens:
 
-- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API or interface de programação do aplicativo (API) windows" %}
 - Chame os endpoints de [análise de dados de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) ou [análise de dados de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) com os parâmetros `ending_at` e `length` (ou use [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) e [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) para dados de séries temporais.
 - Transmita eventos para o seu data warehouse com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) quando precisar de dados contínuos e consultáveis de engajamento com mensagem no Amazon S3, Azure Blob Storage ou outro destino compatível.
 
@@ -68,7 +68,7 @@ O Currents e o dashboard da Braze calculam determinadas métricas de maneiras di
 
 **Cliques únicos:** Para e-mail, o dashboard rastreia cliques únicos ao longo de um período de sete dias e os mede por `dispatch_id`. O Currents registra cada evento de clique bruto. Para alinhar as contagens de cliques únicos baseadas no Currents com as métricas do dashboard, filtre por eventos em que `is_unique` seja `true`.
 
-**Cancelamentos de inscrição:** A métrica *Unsub* do dashboard reflete cliques no link padrão de cancelamento de inscrição da Braze. Páginas personalizadas de cancelamento de inscrição não incrementam essa métrica, a menos que você atualize o usuário por meio da API. O evento `users.messages.email.Unsubscribe` do Currents é um evento de clique especializado que é disparado quando um usuário clica em um link de cancelamento de inscrição no corpo ou rodapé do e-mail, ou pelo cabeçalho list-unsubscribe. Ele não representa todas as mudanças de estado de inscrição de e-mail.
+**Cancelamentos de inscrição:** A métrica *Unsub* do dashboard reflete cliques no link padrão de cancelamento de inscrição da Braze. Páginas personalizadas de cancelamento de inscrição não incrementam essa métrica, a menos que você atualize o usuário por meio da API or interface de programação do aplicativo (API). O evento `users.messages.email.Unsubscribe` do Currents é um evento de clique especializado que é disparado quando um usuário clica em um link de cancelamento de inscrição no corpo ou rodapé do e-mail, ou pelo cabeçalho list-unsubscribe. Ele não representa todas as mudanças de estado de inscrição de e-mail.
 
 **Timestamps e fusos horários:** Todos os timestamps do Currents estão em UTC. As métricas do dashboard seguem o fuso horário da sua empresa. Agregar dados do Currents por dia do calendário sem converter para o fuso horário da sua empresa pode fazer com que as contagens caiam em intervalos de data diferentes dos que aparecem no dashboard.
 
@@ -105,7 +105,7 @@ Não. O Currents não inclui atributos personalizados nos eventos de envio. O Cu
 
 ## O Currents inclui tags de Campaign ou Canvas, ou pares de chave-valor? {#does-currents-include-campaign-or-canvas-tags-or-key-value-pairs}
 
-Não. O Currents não inclui tags de Campaign ou Canvas nem pares de chave-valor no nível da mensagem. Para recuperar dados de tags, use a [REST API de exportação]({{site.baseurl}}/api/endpoints/export). Como alternativa, você pode usar um canal de webhook em uma Campaign para enviar dados de tags ou pares de chave-valor para o seu próprio endpoint, usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para modelar os valores.
+Não. O Currents não inclui tags de Campaign ou Canvas nem pares de chave-valor no nível da mensagem. Para recuperar dados de tags, use a [REST or transferir estado representacional API or interface de programação do aplicativo (API) de exportação]({{site.baseurl}}/api/endpoints/export). Como alternativa, você pode usar um canal de webhook em uma Campaign para enviar dados de tags ou pares de chave-valor para o seu próprio endpoint, usando [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para modelar os valores.
 
 ## Como a Braze notifica os clientes sobre mudanças no Currents? {#how-does-braze-notify-customers-of-changes-to-currents}
 
@@ -121,9 +121,9 @@ Quando você cria uma nova Campaign ou Canvas, o nome pode levar algum tempo par
 
 ## Por que os eventos de término de sessão estão atrasados ou ausentes no Currents? {#why-are-session-end-events-delayed-or-missing-in-currents}
 
-Os eventos de término de sessão seguem o cronograma normal de upload do SDK. O SDK da Braze armazena os dados de sessão localmente e os envia periodicamente com base na qualidade da rede — por exemplo, aproximadamente a cada 10 segundos em uma conexão forte. Até que o SDK faça o upload do evento, ele não aparece no Currents.
+Os eventos de término de sessão seguem o cronograma normal de upload do SDK or kit de desenvolvimento de software. O SDK or kit de desenvolvimento de software da Braze armazena os dados de sessão localmente e os envia periodicamente com base na qualidade da rede — por exemplo, aproximadamente a cada 10 segundos em uma conexão forte. Até que o SDK or kit de desenvolvimento de software faça o upload do evento, ele não aparece no Currents.
 
-Se um usuário forçar o encerramento do app ou ficar offline antes do próximo envio, o evento de término de sessão pode chegar com atraso ou simplesmente não chegar. No iOS, os eventos de término de sessão geralmente não são enviados até que o app seja reaberto, porque o SDK não consegue enviar dados enquanto o app está em segundo plano.
+Se um usuário forçar o encerramento do app ou ficar offline antes do próximo envio, o evento de término de sessão pode chegar com atraso ou simplesmente não chegar. No iOS, os eventos de término de sessão geralmente não são enviados até que o app seja reaberto, porque o SDK or kit de desenvolvimento de software não consegue enviar dados enquanto o app está em segundo plano.
 
 Quando você precisar de limites de sessão mais oportunos no Currents, chame `requestImmediateDataFlush()` em pontos do ciclo de vida, como quando o app vai para segundo plano ou retorna ao primeiro plano. Para saber mais, consulte [Upload e download de dados]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#data-upload-and-download) e [Término de sessão e início de sessão com timestamps semelhantes (iOS)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log#session-end-and-session-start-have-similar-timestamps-ios).
 
@@ -143,7 +143,7 @@ Se algum pool estiver esgotado, a Braze exibe um aviso de direitos e bloqueia es
 
 ## Com que frequência a versão do Currents no caminho de armazenamento muda? {#how-often-does-the-currents-version-in-the-storage-path-change}
 
-O segmento `version=<currents_version>` no caminho de armazenamento avança a cada lançamento do Currents em uma cadência mensal (por exemplo, de `version=6` para `version=7`). Recomendamos a leitura de arquivos de forma recursiva a partir do caminho raiz, em vez de codificar um segmento de versão específico, para que seu pipeline capture automaticamente os dados após uma mudança de versão. Para mais detalhes sobre o formato do caminho, consulte [Semântica de entrega de eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics). Para um histórico de alterações por versão, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).
+O Segment or segmento or segmento `version=<currents_version>` no caminho de armazenamento avança a cada lançamento do Currents em uma cadência mensal (por exemplo, de `version=6` para `version=7`). Recomendamos a leitura de arquivos de forma recursiva a partir do caminho raiz, em vez de codificar um Segment or segmento or segmento de versão específico, para que seu pipeline capture automaticamente os dados após uma mudança de versão. Para mais detalhes sobre o formato do caminho, consulte [Semântica de entrega de eventos]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/event_delivery_semantics). Para um histórico de alterações por versão, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).
 
 ## Por que `campaign_id` ou `canvas_id` estão ausentes em um evento de engajamento com mensagem? {#why-are-campaign_id-or-canvas_id-missing-from-a-message-engagement-event}
 
@@ -169,6 +169,6 @@ Dados de usuários anônimos, identificados por `device_id`, podem ser enviados 
 
 Quando um usuário é atribuído a um grupo de controle para uma Campaign de Content Cards ou mensagem no app, o Currents emite um evento `users.campaigns.EnrollInControl` em vez de um evento de impressão.
 
-## O que acontece quando você direciona um usuário inexistente pela API? {#what-happens-when-you-target-a-non-existent-user-through-the-api}
+## O que acontece quando você direciona um usuário inexistente pela API or interface de programação do aplicativo (API)? {#what-happens-when-you-target-a-non-existent-user-through-the-api}
 
-Quando você direciona um usuário que não existe, a API retorna uma resposta `200`, mas o envio é cancelado com o resultado "Unknown external ID". Nenhum evento do Currents é gerado para esse envio. Observe que o parâmetro `send_to_existing_only` tem o valor padrão `true`, então envios para usuários desconhecidos são silenciosamente ignorados, a menos que você defina explicitamente como `false`.
+Quando você direciona um usuário que não existe, a API or interface de programação do aplicativo (API) retorna uma resposta `200`, mas o envio é cancelado com o resultado "Unknown external ID". Nenhum evento do Currents é gerado para esse envio. Observe que o parâmetro `send_to_existing_only` tem o valor padrão `true`, então envios para usuários desconhecidos são silenciosamente ignorados, a menos que você defina explicitamente como `false`.

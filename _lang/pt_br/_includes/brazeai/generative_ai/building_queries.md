@@ -130,14 +130,14 @@ Para a lista completa de valores de `ABORT_TYPE` e suas descrições, consulte [
 
 ## Dados e resultados {#data-and-results}
 
-Todas as consultas exibem dados dos últimos 60 dias. Quando você exportar seus resultados, o arquivo conterá no máximo 1.000 linhas. Para relatórios que exigem volumes maiores de dados, você pode usar ferramentas como o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou o [endpoint de exportação da API]({{site.baseurl}}/api/endpoints/export).
+Todas as consultas exibem dados dos últimos 60 dias. Quando você exportar seus resultados, o arquivo conterá no máximo 1.000 linhas. Para relatórios que exigem volumes maiores de dados, você pode usar ferramentas como o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou o [endpoint de exportação da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/export).
 
 ## Créditos do Snowflake {#snowflake-credits}
 
 Cada empresa tem 5 créditos do Snowflake disponíveis por mês, compartilhados entre todos os espaços de trabalho. Uma pequena parte de um crédito do Snowflake é utilizada sempre que você executa uma consulta ou visualiza a prévia de uma tabela.
 
 {% alert note %}
-Os créditos do Snowflake não são compartilhados entre recursos. Por exemplo, os créditos das extensões de segmento SQL e do Criador de consultas são independentes entre si.
+Os créditos do Snowflake não são compartilhados entre recursos. Por exemplo, os créditos das extensões de Segment or segmento or segmento SQL e do Criador de consultas são independentes entre si.
 {% endalert %}
 
 O uso de créditos está correlacionado ao tempo de execução da sua consulta SQL. Quanto maior o tempo de execução, maior a parte de um crédito do Snowflake que a consulta consumirá. O tempo de execução pode variar dependendo da complexidade e do tamanho das suas consultas ao longo do tempo. Quanto mais complexas e frequentes forem as consultas executadas, maior será a alocação de recursos e mais rápido será o tempo de execução.

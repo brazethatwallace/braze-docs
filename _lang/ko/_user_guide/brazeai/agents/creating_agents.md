@@ -30,7 +30,7 @@ alias: /creating-agents/
 | 사용 사례 | 설명 |
 | --- | --- |
 | 고객 피드백 처리 | 사용자 피드백을 에이전트에 전달하여 감성을 분석하고 공감 어린 후속 메시지를 생성합니다. 고가치 사용자의 경우, 에이전트가 응답을 에스컬레이션하거나 특별 혜택을 포함할 수 있습니다. |
-| 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나, 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나, SMS Campaign용으로 설명을 축약할 수 있습니다. |
+| 콘텐츠 현지화 | 글로벌 Campaign을 위해 카탈로그 텍스트를 다른 언어로 번역하거나, 지역별 채널에 맞게 톤과 길이를 조정합니다. 예를 들어, "Classic Clubmaster Sunglasses"를 스페인어로 "Gafas de sol Classic Clubmaster"로 번역하거나, 단문 메시지 서비스 Campaign용으로 설명을 축약할 수 있습니다. |
 | 리뷰 또는 피드백 요약 | 감성이나 피드백을 새 필드로 요약합니다. 예를 들어, 긍정적, 중립, 부정적과 같은 감성 점수를 할당하거나, "대부분의 고객이 훌륭한 핏을 언급하지만 배송이 느리다고 지적합니다."와 같은 짧은 텍스트 요약을 생성합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="작동 방식" }
 
@@ -87,7 +87,7 @@ Operator를 사용하는 경우, 다음 단계로 진행하기 전에 채팅에�
 - [카탈로그 필드]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): 더 정확한 응답을 위해 에이전트에 카탈로그 데이터에 대한 액세스를 제공합니다.
 - [지식 소스]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): 카탈로그를 직접 첨부하는 것보다 더 정확한 검색을 위해 지식 소스를 통해 에이전트에 카탈로그 데이터에 대한 액세스를 제공합니다.
 - [Segment 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): 사용자가 속한 Segments를 기반으로 에이전트가 응답을 개인화할 수 있도록 합니다. 최대 5개의 Segments를 선택할 수 있습니다.
-- [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): 에이전트가 따를 브랜드 보이스 및 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 헬스장 멤버십 가입을 권장하는 SMS 문구를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여적인 가이드라인을 참조할 수 있습니다.
+- [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): 에이전트가 따를 브랜드 보이스 및 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 헬스장 멤버십 가입을 권장하는 단문 메시지 서비스 문구를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여적인 가이드라인을 참조할 수 있습니다.
 - [모든 Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): 이 에이전트가 호출될 때 **Instructions** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 Canvas 컨텍스트 데이터를 분석합니다.
 - [사용자 상호작용 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): 각 사용자의 최근 Campaign 및 Canvas 열람, 클릭, 전환 데이터를 에이전트에 제공합니다.
 

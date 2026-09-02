@@ -86,9 +86,9 @@ Building Blocks를 Braze에 연결하는 것은 일회성 설정입니다. 자�
 
 Building Blocks에는 기본 Braze 사용자 속성(`first_name`, `email`, `country` 등)이 포함되어 있습니다. 블록을 자체 커스텀 속성에 바인딩하려면 Building Blocks에 한 번 가져오면 모든 **Personalize** 드롭다운에서 사용할 수 있습니다.
 
-1. Building Blocks에서 **Team Settings** > **Connect** > **Custom Attributes**로 이동합니다.
+1. Building Blocks에서 **Team Settings** > **Connect** > **커스텀 속성**로 이동합니다.
 2. 다음 방법 중 하나를 사용하여 커스텀 속성을 가져옵니다:
-* **일괄 가져오기(권장).** Braze에서 **Data Settings** > **Custom Attributes**로 이동하여 **Export**를 선택합니다. Building Blocks에서 CSV를 업로드합니다.
+* **일괄 가져오기(권장).** Braze에서 **Data Settings** > **커스텀 속성**로 이동하여 **Export**를 선택합니다. Building Blocks에서 CSV를 업로드합니다.
 * **속성을 하나씩 추가.** 속성 이름(예: `loyalty_tier`)을 입력하고 **Add**를 선택합니다. 이 방법은 몇 개의 속성만 추가하거나 Braze 내보내기 사이에 새 속성을 추가하려는 경우에 유용합니다.
 
 저장하면 커스텀 속성이 빌더의 **Personalize** 드롭다운에 기본값과 함께 표시됩니다. 속성을 삽입하면 내보내기 시 올바른 {% raw %}`{{custom_attribute.${name}}}`{% endraw %} Liquid가 렌더링되므로, Braze가 발송 시 수신자별로 값을 확인합니다.

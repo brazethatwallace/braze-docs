@@ -54,7 +54,7 @@ Para crear una extensión de Segment SQL de actualización incremental:
 {% tab Generador de SQL con IA %}
 
 {% alert note %}
-El generador de SQL con IA está disponible actualmente como característica en fase beta. Contacta con tu administrador de éxito de cliente si estás interesado en participar en esta prueba beta.
+El generador de SQL con IA está disponible actualmente como característica en fase beta. Contacta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si estás interesado en participar en esta prueba beta.
 {% endalert %}
 
 El generador de SQL con IA aprovecha [GPT](https://openai.com/gpt-4), impulsado por OpenAI, para recomendar SQL para tu segmento SQL.
@@ -139,7 +139,7 @@ En el siguiente ejemplo, el segmento resultante contendría usuarios que realiza
 ![Vista previa de SQL de una extensión de Segment SQL incremental.]({% image_buster /assets/img_archive/sql_segments_incremental_preview.png %}){: style="max-width:85%" }
 
 {% alert tip %}
-Los segmentos de actualización incremental tienen en cuenta los eventos tardíos, que son eventos que ocurrieron hace más de 2 días (por ejemplo, eventos del SDK que no se enviaron en el momento en que fueron capturados).
+Los segmentos de actualización incremental tienen en cuenta los eventos tardíos, que son eventos que ocurrieron hace más de 2 días (por ejemplo, eventos del SDK or kit de desarrollo de software que no se enviaron en el momento en que fueron capturados).
 {% endalert %}
 
 #### Reglas adicionales

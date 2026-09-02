@@ -2,7 +2,7 @@
 
 ## Criando um delegado universal {#creating-a-universal-delegate}
 
-O SDK do Android oferece a capacidade de definir um único objeto delegado para tratar de forma personalizada todos os deep links abertos pela Braze nos Content Cards, mensagens no app e notificações por push.
+O SDK or kit de desenvolvimento de software do Android oferece a capacidade de definir um único objeto delegado para tratar de forma personalizada todos os deep links abertos pela Braze nos Content Cards, mensagens no app e notificações por push.
 
 Seu objeto delegado deve implementar a interface [`IBrazeDeeplinkHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/index.html) e ser definido usando [`BrazeDeeplinkHandler.setBrazeDeeplinkHandler()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-deeplink-handler/-companion/set-braze-deeplink-handler.html). Na maioria dos casos, o delegado deve ser definido no `Application.onCreate()` do seu app.
 
@@ -147,7 +147,7 @@ BrazeDeeplinkHandler.setBrazeDeeplinkHandler(object : IBrazeDeeplinkHandler {
 Quando a Braze abre deep links de sites dentro do app, eles são tratados pela [`BrazeWebViewActivity`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui/-braze-web-view-activity/index.html).
 
 {% alert note %}
-Para mensagens no app personalizadas em HTML, links configurados com `target="_blank"` abrem no navegador web padrão do dispositivo e não são tratados pela `BrazeWebViewActivity`.
+Para mensagens no app personalizadas em HTML, links configurados com `target="_blank"` abrem no navegador de internet or navegador web padrão do dispositivo e não são tratados pela `BrazeWebViewActivity`.
 {% endalert %}
 
 Para mudar isso:

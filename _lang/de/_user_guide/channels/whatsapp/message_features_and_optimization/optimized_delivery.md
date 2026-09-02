@@ -25,7 +25,7 @@ Die Verfügbarkeit und die Optimierungsmöglichkeiten der optimierten Zustellung
 ## Optimierte Zustellung einrichten {#setting-up-optimized-delivery}
 
 1. Gehen Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** > **WhatsApp**.
-2. Wählen Sie im Abschnitt **Optimize your sending with optimized delivery** die Option **Upgrade setting** aus, um den [Embedded-Sign-up-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) zu starten.
+2. Wählen Sie im Abschnitt **Optimize your sending with optimized delivery** die Option **Upgrade or upgraden setting** aus, um den [Embedded-Registrierung or registrieren-Workflow]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) zu starten.
 
 ![Der Abschnitt „WhatsApp Message Integration“ mit einer Option zur Optimierung des Versands durch optimierte Zustellung.]({% image_buster /assets/img/whatsapp/whatsapp_messaging_integration.png %})
 
@@ -34,14 +34,14 @@ Die Verfügbarkeit und die Optimierungsmöglichkeiten der optimierten Zustellung
 
 ![Der Abschnitt „WhatsApp Business Account Management“ mit einer aufgelisteten Abo-Gruppe, die den Nummernstatus „Active“ hat.]({% image_buster /assets/img/whatsapp/optimized_delivery_message.png %})
 
-Alternativ können Sie die optimierte Zustellung direkt in Ihrem WhatsApp-Manager aktivieren und dann mit dem Versand in Braze beginnen.
+Alternativ können Sie die optimierte Zustellung direkt in Ihrem WhatsApp-Manager:in aktivieren und dann mit dem Versand in Braze beginnen.
 
 ### Fehlerbehebung bei der Einrichtung {#troubleshooting-your-setup}
 
-- **Allgemeiner Fehler:** Wenn bei dem Upgrade etwas schiefgeht, wird dieses Fehlerbanner angezeigt und empfiehlt Ihnen, [den Support zu kontaktieren]({{site.baseurl}}/user_guide/administer/personal/braze_support).
-- **Fehler wegen fehlender Berechtigung:** Wenn Sie von Meta eingeschränkt werden, wird dieses Fehlerbanner angezeigt: „At least one WhatsApp Business Account is restricted by Meta. Accounts must be in good standing to upgrade.“ Dieses Banner kann erst geschlossen werden, wenn das Problem behoben ist.
+- **Allgemeiner Fehler:** Wenn bei dem Upgrade or upgraden etwas schiefgeht, wird dieses Fehlerbanner angezeigt und empfiehlt Ihnen, [den Support zu kontaktieren]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+- **Fehler wegen fehlender Berechtigung:** Wenn Sie von Meta eingeschränkt werden, wird dieses Fehlerbanner angezeigt: „At least one WhatsApp Business Account is restricted by Meta. Accounts must be in good standing to Upgrade or upgraden.“ Dieses Banner kann erst geschlossen werden, wenn das Problem behoben ist.
 
-## Optimierte Zustellung in Campaigns und Canvases verwenden {#using-optimized-delivery-in-campaigns-and-canvases}
+## Optimierte Zustellung in Campaigns und Canvase verwenden {#using-optimized-delivery-in-campaigns-and-canvases}
 
 Die optimierte Zustellung sollte für **Marketing-Nachrichten** verwendet werden. Braze entfernt automatisch die Option für die optimierte Zustellung bei **Utility-, Authentifizierungs-, Service- und Antwortnachrichten**, die weiterhin über die Cloud-API gesendet werden sollten – dies ist die Standardeinstellung.
 
@@ -59,5 +59,5 @@ Da die MM-API für WhatsApp keine 100%ige Zustellbarkeit bietet, ist es wichtig 
 
 Um Nutzer:innen erneut anzusprechen, empfehlen wir, ein Segment von Nutzer:innen zu erstellen, die eine bestimmte Nachricht nicht erhalten haben. Filtern Sie dazu nach dem Fehlercode `131049`, der anzeigt, dass eine Marketing-Template-Nachricht aufgrund der WhatsApp-Begrenzung für Marketing-Templates pro Nutzer:in nicht gesendet wurde. Sie können dies über Braze-Currents oder SQL-Segmenterweiterungen tun:
 
-- **Braze-Currents:** Exportieren Sie Nachrichtenfehler-Ereignisse mithilfe von Braze-Currents. Sie können diese Daten dann verwenden, um ein angepasstes Attribut im Nutzerprofil zu aktualisieren (z. B. `whatsapp_failed_last_msg: true`), das Sie als Filter für Ihre Retargeting-Campaign nutzen können.
+- **Braze-Currents:** Exportieren Sie Nachrichtenfehler-Ereignisse mithilfe von Braze-Currents. Sie können diese Daten dann verwenden, um ein angepasstes Attribut im Kundenprofil or Nutzerprofil zu Update or aktualisieren or aktualisieren (z. B. `whatsapp_failed_last_msg: true`), das Sie als Filter für Ihre Retargeting-Campaign nutzen können.
 - **SQL-Segmenterweiterungen:** Wenn Sie Zugriff auf dieses Feature haben, können Sie SQL verwenden, um die Nachrichtenfehler-Protokolle abzufragen und ein Segment dieser Nutzer:innen zu erstellen. Dieses Segment können Sie dann auf einem anderen Kanal ansprechen.

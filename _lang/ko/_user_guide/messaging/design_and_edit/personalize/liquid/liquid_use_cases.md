@@ -1339,17 +1339,17 @@ This is a message for Verizon users!
 
 {% api %}
 
-## SMS
+## 단문 메시지 서비스
 
 {% apitags %}
-SMS
+단문 메시지 서비스
 {% endapitags %}
 
-- [수신 SMS 키워드에 따라 다른 메시지로 응답하기](#sms-keyword-response)
+- [수신 단문 메시지 서비스 키워드에 따라 다른 메시지로 응답하기](#sms-keyword-response)
 
-### 수신 SMS 키워드에 따라 다른 메시지로 응답하기 {#sms-keyword-response}
+### 수신 단문 메시지 서비스 키워드에 따라 다른 메시지로 응답하기 {#sms-keyword-response}
 
-이 사용 사례는 동적 SMS 키워드 처리를 통합하여 특정 수신 메시지에 다른 메시지 문구로 응답합니다. 예를 들어, 누군가 "START"를 문자로 보낸 경우와 "JOIN"을 보낸 경우에 다른 응답을 보낼 수 있습니다.
+이 사용 사례는 동적 단문 메시지 서비스 키워드 처리를 통합하여 특정 수신 메시지에 다른 메시지 문구로 응답합니다. 예를 들어, 누군가 "START"를 문자로 보낸 경우와 "JOIN"을 보낸 경우에 다른 응답을 보낼 수 있습니다.
 
 {% raw %}
 ```liquid

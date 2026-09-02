@@ -8,10 +8,10 @@ Braze erlaubt es den Nutzer, den Netzwerkverkehr mit den folgenden Protokollen z
 {% tab automatic %}
 Standardmäßig ist der`RequestPolicy`enum-Wert auf gesetzt`automatic`. Wenn diese Option aktiviert ist, werden sofortige Serveranfragen ausgeführt, wenn für Braze-Features, wie beispielsweise In-App-Nachrichten, benutzerseitige Daten erforderlich sind.
 
-Das Braze SDK verarbeitet automatisch die gesamte Serverkommunikation, darunter:
+Das Braze SDK or Software-Development-Kit verarbeitet automatisch die gesamte Serverkommunikation, darunter:
 
 - Flushen der Daten von angepassten Events und Attributen an die Braze-Server
-- Inhaltskarten und Geofences aktualisieren
+- Inhaltskarten und Geofences Update or aktualisieren or aktualisieren
 - Anfordern neuer In-App-Nachrichten
 
 Um die Serverlast zu minimieren, führt Braze regelmäßig alle paar Sekunden Flushes neuer Nutzerdaten durch.

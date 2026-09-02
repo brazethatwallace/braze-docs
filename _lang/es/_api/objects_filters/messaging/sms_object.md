@@ -1,15 +1,15 @@
 ---
-nav_title: "Objeto SMS"
-article_title: Objeto de mensajería SMS
+nav_title: "Objeto servicio de mensajes cortos"
+article_title: Objeto de mensajería servicio de mensajes cortos
 page_order: 10
 page_type: reference
 channel: SMS
-description: "Este artículo de referencia explica los distintos componentes del objeto SMS de Braze."
+description: "Este artículo de referencia explica los distintos componentes del objeto servicio de mensajes cortos de Braze."
 
 ---
-# Objeto SMS {#sms-object}
+# Objeto servicio de mensajes cortos {#sms-object}
 
-> El objeto `sms` te permite modificar o crear mensajes SMS a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
+> El objeto `sms` te permite modificar o crear mensajes servicio de mensajes cortos a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
 
 ```json
 {

@@ -89,7 +89,7 @@ Se quiser gerar relatórios sobre variantes ou etapas do Canvas, selecione **Can
 | --- | --- |
 | Métricas de conversão | Disponível para Campaigns, Canvas, Campaigns e Canvas. |
 | Entradas | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. |
-| Data do último envio | Disponível para Campaigns, Canvas, Campaigns e Canvas. Exibida apenas para Campaigns agendadas — não é preenchida para Campaigns baseadas em ação ou disparadas por API. |
+| Data do último envio | Disponível para Campaigns, Canvas, Campaigns e Canvas. Exibida apenas para Campaigns agendadas — não é preenchida para Campaigns baseadas em ação ou disparadas por API or interface de programação do aplicativo (API). |
 | Envios | Disponível para cada canal relevante. |
 | Mensagens enviadas | Disponível para Campaigns, Canvas, Campaigns e Canvas, Tags. |
 | Linha de assunto | Disponível para Campaigns de e-mail com detalhamento por **Variante**, Canvas e Canvas com detalhamento por **Variante**. |
@@ -130,7 +130,7 @@ Para baixar uma imagem do gráfico do relatório, selecione o ícone de pontos e
 
 Você pode compartilhar um link do dashboard para o relatório selecionando **Share** e uma destas opções:
 - **Share a link:** Copie e compartilhe o link.
-- **Send or schedule an email:** Envie um e-mail imediatamente ou em um horário específico contendo um link de download que expira após uma hora. Você pode selecionar destinatários entre os usuários da empresa listados no menu suspenso **Email Recipients** ou inserir qualquer outro endereço de e-mail.
+- **Send or agendar/cronograma an email:** Envie um e-mail imediatamente ou em um horário específico contendo um link de download que expira após uma hora. Você pode selecionar destinatários entre os usuários da empresa listados no menu suspenso **Email Recipients** ou inserir qualquer outro endereço de e-mail.
 
 {% alert note %}
 O menu suspenso **Email Recipients** lista apenas usuários da empresa na Braze e salva os endereços de e-mail deles entre os agendamentos de relatórios. Endereços de e-mail externos precisam ser inseridos manualmente cada vez que você cria um novo agendamento de relatório. Se você envia relatórios frequentemente para destinatários externos, como um contato de parceiro, considere adicioná-los como usuário da empresa com as permissões apropriadas para que o endereço deles apareça no menu suspenso.

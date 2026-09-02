@@ -19,8 +19,8 @@ La integración de Braze y Nexla permite a los clientes que utilizan [Currents](
 | Requisito | Descripción |
 |---|---|
 | Cuenta Nexla | Se necesita una [cuenta Nexla](https://www.nexla.com/get-demo) para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze  | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze  | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
@@ -38,7 +38,7 @@ Si aún no tienes una cuenta Nexla, visita el [sitio web](https://www.nexla.com)
 #### Si Braze es tu origen de datos {#if-braze-is-your-data-source}
 1. En la plataforma Nexla, ve a **Flows > Create a New Flow** en la barra de herramientas de navegación.
 2. Haz clic en **Create New Source**, selecciona el conector de Braze y haz clic en **Next**.
-3. Selecciona **Add a New Credential**, asigna un nombre a la credencial, añade tu clave de API de Braze y el endpoint REST, y haz clic en **Save**.
+3. Selecciona **Add a New Credential**, asigna un nombre a la credencial, añade tu clave de API de Braze y el endpoint REST or transferencia de estado representacional, y haz clic en **Save**.
 4. Por último, selecciona tus datos y haz clic en **Save**.
 
 Nexla buscará en el origen los datos disponibles y generará un [Nexset](https://nexla.zendesk.com/hc/en-us/articles/360052999674-Dataset-Information) para transformarlo o enviarlo a un destino.

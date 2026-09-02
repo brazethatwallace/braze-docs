@@ -1,16 +1,16 @@
 ---
-nav_title: iOS 14 Upgrade-Leitfaden
-article_title: Upgrade-Leitfaden für das iOS 14-SDK
+nav_title: iOS 14 Upgrade or upgraden-Leitfaden
+article_title: Upgrade or upgraden-Leitfaden für das iOS 14-SDK or Software-Development-Kit
 page_order: 7
 platform: iOS
-description: "Dieser Referenzartikel beschreibt das iOS 14-SDK-Update und hebt Änderungen wie Geofences, Standort-Targeting, IDFA und mehr hervor."
+description: "Dieser Referenzartikel beschreibt das iOS 14-SDK or Software-Development-Kit-Update or aktualisieren und hebt Änderungen wie Geofences, Standort-Targeting, IDFA und mehr hervor."
 hidden: true
 noindex: true
 ---
 
-# Upgrade-Leitfaden für das iOS 14-SDK {#ios-14-sdk-upgrade-guide}
+# Upgrade or upgraden-Leitfaden für das iOS 14-SDK or Software-Development-Kit {#ios-14-sdk-upgrade-guide}
 
-> Dieser Leitfaden beschreibt die für Braze relevanten Änderungen in iOS 14 sowie die erforderlichen Upgrade-Schritte für Ihre Braze iOS-SDK-Integration. Eine vollständige Liste der neuen iOS 14-Updates finden Sie auf Apples [iOS 14-Seite](https://www.apple.com/ios/ios-14/).
+> Dieser Leitfaden beschreibt die für Braze relevanten Änderungen in iOS 14 sowie die erforderlichen Upgrade or upgraden-Schritte für Ihre Braze iOS-SDK or Software-Development-Kit-Integration. Eine vollständige Liste der neuen iOS 14-Updates finden Sie auf Apples [iOS 14-Seite](https://www.apple.com/ios/ios-14/).
 
 {% alert tip %}
 Ab iOS 14.5 muss für die **IDFA**-Erfassung und für [bestimmte Datenfreigaben](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) eine Berechtigung über den neuen [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)-Framework-Prompt eingeholt werden ([Mehr erfahren über IDFA](#idfa)).
@@ -20,11 +20,11 @@ Ab iOS 14.5 muss für die **IDFA**-Erfassung und für [bestimmte Datenfreigaben]
 
 - Apps für iOS 14 / Xcode 12 müssen unser [offizielles iOS 14-Release](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0) verwenden.
 - Für Nutzer:innen, die die neue Berechtigung _Ungefährer Standort_ auswählen, werden Geofences [nicht mehr von iOS unterstützt](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization).
-- Die Verwendung der Targeting-Features „Letzter bekannter Standort“ erfordert ein Upgrade auf Braze iOS SDK v3.26.1+, um Kompatibilität mit der Berechtigung _Ungefährer Standort_ herzustellen. Wenn Sie Xcode 12 verwenden, müssen Sie ein Upgrade auf mindestens v3.27.0 durchführen.
+- Die Verwendung der Targeting-Features „Letzter bekannter Standort“ erfordert ein Upgrade or upgraden auf Braze iOS SDK or Software-Development-Kit v3.26.1+, um Kompatibilität mit der Berechtigung _Ungefährer Standort_ herzustellen. Wenn Sie Xcode 12 verwenden, müssen Sie ein Upgrade or upgraden auf mindestens v3.27.0 durchführen.
 - Ab iOS 14.5 muss für die IDFA-Erfassung und für [bestimmte Datenfreigaben](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) eine Berechtigung über den neuen [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)-Framework-Prompt eingeholt werden.
 - Wenn Sie das Feld „Ad-Tracking aktiviert“ für das Campaign-Targeting oder für Analytics verwenden, müssen Sie auf Xcode 12 upgraden und das neue AppTrackingTransparency-Framework verwenden, um den Opt-in-Status Ihrer Nutzer:innen zu melden.
 
-## Upgrade-Zusammenfassung {#upgrade-summary}
+## Upgrade or upgraden-Zusammenfassung {#upgrade-summary}
 
 <style>
 table th:nth-child(1),
@@ -38,12 +38,12 @@ table td {
 }
 </style>
 
-| Wenn Ihre App Folgendes verwendet: | Upgrade-Empfehlung | Beschreibung |
+| Wenn Ihre App Folgendes verwendet: | Upgrade or upgraden-Empfehlung | Beschreibung |
 |------|--------|---|
-| Xcode 12 | **Upgrade auf iOS SDK v3.27 oder höher** | Kund:innen, die Xcode 12 verwenden, müssen aus Kompatibilitätsgründen v3.27.0+ verwenden. Wenn Sie Probleme oder Fragen im Zusammenhang mit unserer iOS 14-Kompatibilität haben, öffnen Sie einen neuen [GitHub-Issue](https://github.com/Appboy/appboy-ios-sdk/issues). |
-| Letzter Standort | **Upgrade auf iOS SDK v3.26.1 oder höher** | Wenn Sie das Targeting-Feature „Letzter Standort“ verwenden und noch Xcode 11 einsetzen, sollten Sie mindestens auf iOS SDK v3.26.1 upgraden, das das neue Feature _Ungefährer Standort_ unterstützt. Ältere SDKs sind nicht in der Lage, den Standort zuverlässig zu erfassen, wenn Nutzer:innen ein Upgrade auf iOS 14 durchführen _und_ „Ungefährer Standort“ auswählen.<br><br>Auch wenn Ihre App nicht auf iOS 14 abzielt, könnten Ihre Nutzer:innen ein Upgrade auf iOS 14 durchführen und die neue Option für die Standortgenauigkeit nutzen. Apps, die nicht auf iOS SDK v3.26.1+ aktualisiert werden, sind nicht in der Lage, Standortattribute zuverlässig zu erfassen, wenn Nutzer:innen ihren _ungefähren Standort_ auf iOS 14-Geräten angeben. |
-| IDFA-Anzeigenverfolgungs-ID | **Upgrade auf Xcode 12 und iOS SDK v3.27 kann erforderlich sein** | 2021 hat Apple damit begonnen, einen Prompt zur Einholung einer Berechtigung für die IDFA-Erfassung zu verlangen. Das bedeutet, dass Apps auf Xcode 12 aktualisiert werden und das neue `AppTrackingTransparency`-Framework verwenden müssen, um weiterhin IDFA erfassen zu können. Für die Übermittlung von IDFA an das Braze SDK ist dann ebenfalls ein Upgrade auf v3.27.0+ erforderlich.<br><br>Apps, die die neuen iOS 14-APIs nicht verwenden, können keine IDFA erfassen. Sie erfassen stattdessen eine leere ID (`00000000-0000-0000-0000-000000000000`), nachdem Apple die Änderung 2021 durchgesetzt hat. Weitere Informationen darüber, ob dies auf Ihre App zutrifft, finden Sie unter [IDFA-Details](#idfa). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Upgrade-Zusammenfassung" }
+| Xcode 12 | **Upgrade or upgraden auf iOS SDK or Software-Development-Kit v3.27 oder höher** | Kund:innen, die Xcode 12 verwenden, müssen aus Kompatibilitätsgründen v3.27.0+ verwenden. Wenn Sie Probleme oder Fragen im Zusammenhang mit unserer iOS 14-Kompatibilität haben, öffnen Sie einen neuen [GitHub-Issue](https://github.com/Appboy/appboy-ios-sdk/issues). |
+| Letzter Standort | **Upgrade or upgraden auf iOS SDK or Software-Development-Kit v3.26.1 oder höher** | Wenn Sie das Targeting-Feature „Letzter Standort“ verwenden und noch Xcode 11 einsetzen, sollten Sie mindestens auf iOS SDK or Software-Development-Kit v3.26.1 upgraden, das das neue Feature _Ungefährer Standort_ unterstützt. Ältere SDKs sind nicht in der Lage, den Standort zuverlässig zu erfassen, wenn Nutzer:innen ein Upgrade or upgraden auf iOS 14 durchführen _und_ „Ungefährer Standort“ auswählen.<br><br>Auch wenn Ihre App nicht auf iOS 14 abzielt, könnten Ihre Nutzer:innen ein Upgrade or upgraden auf iOS 14 durchführen und die neue Option für die Standortgenauigkeit nutzen. Apps, die nicht auf iOS SDK or Software-Development-Kit v3.26.1+ aktualisiert werden, sind nicht in der Lage, Standortattribute zuverlässig zu erfassen, wenn Nutzer:innen ihren _ungefähren Standort_ auf iOS 14-Geräten angeben. |
+| IDFA-Anzeigenverfolgungs-ID | **Upgrade or upgraden auf Xcode 12 und iOS SDK or Software-Development-Kit v3.27 kann erforderlich sein** | 2021 hat Apple damit begonnen, einen Prompt zur Einholung einer Berechtigung für die IDFA-Erfassung zu verlangen. Das bedeutet, dass Apps auf Xcode 12 aktualisiert werden und das neue `AppTrackingTransparency`-Framework verwenden müssen, um weiterhin IDFA erfassen zu können. Für die Übermittlung von IDFA an das Braze SDK or Software-Development-Kit ist dann ebenfalls ein Upgrade or upgraden auf v3.27.0+ erforderlich.<br><br>Apps, die die neuen iOS 14-APIs nicht verwenden, können keine IDFA erfassen. Sie erfassen stattdessen eine leere ID (`00000000-0000-0000-0000-000000000000`), nachdem Apple die Änderung 2021 durchgesetzt hat. Weitere Informationen darüber, ob dies auf Ihre App zutrifft, finden Sie unter [IDFA-Details](#idfa). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Upgrade or upgraden-Zusammenfassung" }
 
 
 ## iOS 14-Verhaltensänderungen {#ios-14-behavior-changes}
@@ -58,17 +58,17 @@ Wenn eine Berechtigung zur Standortermittlung angefordert wird, können Nutzer:i
 
 #### Geofences {#geofences}
 
-Für Nutzer:innen, die die neue Berechtigung _Ungefährer Standort_ auswählen, werden Geofences [nicht mehr von iOS unterstützt](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization). Für Ihre Braze-SDK-Integration sind zwar keine Updates erforderlich, aber Sie müssen möglicherweise Ihre [standortbasierte Marketingstrategie](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) für Campaigns anpassen, die auf Geofences basieren.
+Für Nutzer:innen, die die neue Berechtigung _Ungefährer Standort_ auswählen, werden Geofences [nicht mehr von iOS unterstützt](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization). Für Ihre Braze-SDK or Software-Development-Kit-Integration sind zwar keine Updates erforderlich, aber Sie müssen möglicherweise Ihre [standortbasierte Marketingstrategie](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) für Campaigns anpassen, die auf Geofences basieren.
 
 #### Standort-Targeting {#location-tracking}
 
-Um weiterhin den _letzten bekannten Standort_ von Nutzer:innen zu erfassen, wenn die Berechtigung für den _ungefähren Standort_ erteilt wird, muss Ihre App mindestens auf v3.26.1 des Braze iOS SDK aktualisiert werden. Beachten Sie, dass die Ortung weniger präzise ist und nach unseren Tests bis zu 12.000 Meter (7+ Meilen) betragen hat. Wenn Sie die Targeting-Optionen für den _letzten bekannten Standort_ im Braze-Dashboard verwenden, sollten Sie den Radius des Standorts vergrößern, um neue _ungefähre Standorte_ zu berücksichtigen (wir empfehlen einen Radius von mindestens 1 Meile/1,6 km).
+Um weiterhin den _letzten bekannten Standort_ von Nutzer:innen zu erfassen, wenn die Berechtigung für den _ungefähren Standort_ erteilt wird, muss Ihre App mindestens auf v3.26.1 des Braze iOS SDK or Software-Development-Kit aktualisiert werden. Beachten Sie, dass die Ortung weniger präzise ist und nach unseren Tests bis zu 12.000 Meter (7+ Meilen) betragen hat. Wenn Sie die Targeting-Optionen für den _letzten bekannten Standort_ im Braze-Dashboard verwenden, sollten Sie den Radius des Standorts vergrößern, um neue _ungefähre Standorte_ zu berücksichtigen (wir empfehlen einen Radius von mindestens 1 Meile/1,6 km).
 
-Apps, die das Braze iOS SDK nicht mindestens auf v3.26.1 aktualisieren, können das Standort-Tracking nicht mehr nutzen, wenn auf iOS 14-Geräten die Berechtigung für den _ungefähren Standort_ erteilt wird.
+Apps, die das Braze iOS SDK or Software-Development-Kit nicht mindestens auf v3.26.1 Update or aktualisieren or aktualisieren, können das Standort-Tracking nicht mehr nutzen, wenn auf iOS 14-Geräten die Berechtigung für den _ungefähren Standort_ erteilt wird.
 
-Nutzer:innen, die bereits Zugriff auf ihren Standort gewährt haben, können auch nach dem Upgrade weiterhin ihren _genauen Standort_ angeben.
+Nutzer:innen, die bereits Zugriff auf ihren Standort gewährt haben, können auch nach dem Upgrade or upgraden weiterhin ihren _genauen Standort_ angeben.
 
-Wenn Sie Xcode 12 verwenden, müssen Sie ein Upgrade auf mindestens v3.27.0 durchführen.
+Wenn Sie Xcode 12 verwenden, müssen Sie ein Upgrade or upgraden auf mindestens v3.27.0 durchführen.
 
 Weitere Informationen zum ungefähren Standort finden Sie in Apples WWDC-Video [What's New In Location](https://developer.apple.com/videos/play/wwdc2020/10660/).
 
@@ -80,7 +80,7 @@ IDFA (Identifier for Advertisers) ist ein von Apple bereitgestellter Bezeichner 
 
 Ab iOS 14.5 muss ein neuer Prompt (eingeführt vom neuen `AppTrackingTransparency`-Framework) angezeigt werden, um die ausdrückliche Zustimmung der Nutzer:innen für IDFA einzuholen. Dieser Prompt, der um die Erlaubnis bittet, „Sie über Apps und Websites anderer Unternehmen zu verfolgen“, ist vergleichbar mit dem Prompt zur Standortermittlung.
 
-Wenn Nutzer:innen dem Prompt nicht zustimmen oder wenn Sie nicht auf das `AppTrackingTransparency`-Framework von Xcode 12 aktualisieren, wird ein leerer IDFA-Wert (`00000000-0000-0000-0000-000000000000`) zurückgegeben und Ihre App darf die Nutzer:innen nicht erneut auffordern.
+Wenn Nutzer:innen dem Prompt nicht zustimmen oder wenn Sie nicht auf das `AppTrackingTransparency`-Framework von Xcode 12 Update or aktualisieren or aktualisieren, wird ein leerer IDFA-Wert (`00000000-0000-0000-0000-000000000000`) zurückgegeben und Ihre App darf die Nutzer:innen nicht erneut auffordern.
 
 {% alert important %}
 Diese IDFA-Updates werden wirksam, nachdem die Endnutzer:innen ihre Geräte auf iOS 14.5 aktualisiert haben. Stellen Sie sicher, dass Ihre App das neue `AppTransparencyFramework` mit Xcode 12 verwendet, wenn Sie IDFA erfassen möchten.
@@ -89,7 +89,7 @@ Diese IDFA-Updates werden wirksam, nachdem die Endnutzer:innen ihre Geräte auf 
 #### Änderungen an der Braze IDFA-Erfassung {#changes-to-braze-idfa-collection}
 ![IDFA]({% image_buster /assets/img/ios/ios14-idfa.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
-1. Braze wird es Apps weiterhin ermöglichen, den IDFA-Wert von Nutzer:innen _an_ das Braze SDK zu übermitteln.
+1. Braze wird es Apps weiterhin ermöglichen, den IDFA-Wert von Nutzer:innen _an_ das Braze SDK or Software-Development-Kit zu übermitteln.
 
 2. Das Kompilierungsmakro `ABK_ENABLE_IDFA_COLLECTION`, das eine optionale automatische IDFA-Erfassung bedingt kompilieren würde, funktioniert unter iOS 14 nicht mehr und wurde in 3.27.0 entfernt.
 
@@ -122,14 +122,14 @@ Im _Apple Developer Portal_:
 Wenden Sie sich beim Ausfüllen Ihres Fragebogens an Ihr Rechtsteam und überlegen Sie, wie sich die Verwendung von Braze für die folgenden Felder auf Ihre Offenlegungspflichten auswirken könnte.
 
 #### Braze Standard-Datenerfassung {#braze-default-data-collection}
-**Bezeichner** – Eine anonyme Gerätekennung wird immer vom Braze SDK erfasst. Diese ist derzeit auf die Geräte-IDFV (Identifier for Vendors) eingestellt.
+**Bezeichner** – Eine anonyme Gerätekennung wird immer vom Braze SDK or Software-Development-Kit erfasst. Diese ist derzeit auf die Geräte-IDFV (Identifier for Vendors) eingestellt.
 
 **Nutzungsdaten** – Dies kann Braze-Sitzungsdaten sowie jede Ereignis- oder Attributerfassung umfassen, die Sie zur Messung der Produktinteraktion verwenden.
 
 #### Optionale Datenerfassung {#optional-data-collection}
 Daten, die Sie möglicherweise durch Ihre Nutzung von Braze erfassen:
 
-**Standort** – Das Braze SDK kann optional sowohl den ungefähren Standort als auch den genauen Standort erfassen. Diese Features sind standardmäßig deaktiviert.
+**Standort** – Das Braze SDK or Software-Development-Kit kann optional sowohl den ungefähren Standort als auch den genauen Standort erfassen. Diese Features sind standardmäßig deaktiviert.
 
 **Kontaktinformationen** – Dies kann Ereignisse und Attribute im Zusammenhang mit der Identität der Nutzer:innen enthalten.
 

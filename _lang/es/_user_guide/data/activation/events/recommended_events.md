@@ -23,10 +23,10 @@ Dado que estos eventos siguen un esquema definido, cada característica compatib
 
 ### Cómo funcionan los eventos de comercio electrónico {#how-ecommerce-events-work}
 
-Los eventos de comercio electrónico son eventos personalizados con nombres y esquemas de propiedades predefinidos. Los envías usando el [SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), el [endpoint de REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [ingesta de datos en la nube (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), y Braze valida cada evento contra su esquema en la ingesta. Cuando la validación es exitosa, Braze aplica automáticamente el posprocesamiento específico para ese tipo de evento, como calcular campos de ingresos y gestionar el estado del carrito en los perfiles de usuario.
+Los eventos de comercio electrónico son eventos personalizados con nombres y esquemas de propiedades predefinidos. Los envías usando el [SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), el [endpoint de REST or transferencia de estado representacional API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) o la [ingesta de datos en la nube (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), y Braze valida cada evento contra su esquema en la ingesta. Cuando la validación es exitosa, Braze aplica automáticamente el posprocesamiento específico para ese tipo de evento, como calcular campos de ingresos y gestionar el estado del carrito en los perfiles de usuario.
 
 {% alert note %}
-Las cargas de CSV no admiten eventos de comercio electrónico. Usa el SDK, `/users/track` o CDI para enviar estos eventos.
+Las cargas de CSV no admiten eventos de comercio electrónico. Usa el SDK or kit de desarrollo de software, `/users/track` o CDI para enviar estos eventos.
 {% endalert %}
 
 Los eventos de comercio electrónico funcionan en todos los lugares donde funcionan otros eventos personalizados: desencadenantes y filtros para eventos personalizados realizados, informes de eventos personalizados y más. Sin embargo, su validación de esquema desbloquea capacidades adicionales, incluyendo:
@@ -54,8 +54,8 @@ Los seis eventos recomendados de comercio electrónico se corresponden con etapa
 ![Diagrama del recorrido del usuario a través de los seis eventos recomendados de comercio electrónico: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled y order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% alert tip %}
-Los siguientes ejemplos muestran la carga útil de REST API para cada evento.
-Para el registro del lado del cliente, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` y `ecommerce.order_placed` usan las API de eventos de comercio electrónico del SDK cuando están disponibles, mientras que `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Los siguientes ejemplos muestran la carga útil de REST or transferencia de estado representacional API para cada evento.
+Para el registro del lado del cliente, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` y `ecommerce.order_placed` usan las API de eventos de comercio electrónico del SDK or kit de desarrollo de software cuando están disponibles, mientras que `ecommerce.order_cancelled` y `ecommerce.order_refunded` usan `logCustomEvent`. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 {% endalert %}
 
 {% tabs %}
@@ -65,7 +65,7 @@ Se desencadena cuando un usuario ve una página de detalle de producto. Este eve
 
 #### Implementación del lado del cliente {#client-side-implementation}
 
-Usa las API de eventos de comercio electrónico del SDK cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Usa las API de eventos de comercio electrónico del SDK or kit de desarrollo de software cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Propiedades del evento {#event-properties}
 
@@ -83,7 +83,7 @@ Usa las API de eventos de comercio electrónico del SDK cuando estén disponible
 | `metadata` | Object | Opcional | Pares clave-valor flexibles (por ejemplo, `category` o `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades del evento" }
 
-#### Ejemplo de REST API {#rest-api-example}
+#### Ejemplo de REST or transferencia de estado representacional API {#rest-api-example}
 
 ```json
 {
@@ -119,7 +119,7 @@ Se desencadena cada vez que cambia el contenido del carrito de un usuario.
 
 #### Implementación del lado del cliente
 
-Usa las API de eventos de comercio electrónico del SDK cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Usa las API de eventos de comercio electrónico del SDK or kit de desarrollo de software cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 Puedes enviar este evento de dos maneras:
 
@@ -575,7 +575,7 @@ Objective-C
 ```
 
 {% endsubtab %}
-{% subtab REST API %}
+{% subtab REST or transferencia de estado representacional API %}
 
 ##### `add`
 
@@ -707,7 +707,7 @@ Se desencadena cuando el usuario inicia el flujo de pago (por ejemplo, seleccion
 
 #### Implementación del lado del cliente
 
-Usa las API de eventos de comercio electrónico del SDK cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Usa las API de eventos de comercio electrónico del SDK or kit de desarrollo de software cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Propiedades del evento
 
@@ -739,7 +739,7 @@ Usa las API de eventos de comercio electrónico del SDK cuando estén disponible
 | `metadata` | Object | Opcional | Pares clave-valor flexibles (por ejemplo, color, talla). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto (products[])" }
 
-#### Ejemplo de REST API
+#### Ejemplo de REST or transferencia de estado representacional API
 
 ```json
 {
@@ -802,7 +802,7 @@ Se desencadena cuando un pedido se completa con éxito o se confirma el pago.
 
 #### Implementación del lado del cliente
 
-Usa las API de eventos de comercio electrónico del SDK cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Usa las API de eventos de comercio electrónico del SDK or kit de desarrollo de software cuando estén disponibles. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Este evento es el principal impulsor de ingresos. Incrementa `total_revenue` por el valor en `total_value` e incrementa `total_orders` en 1 en el perfil de usuario.
@@ -840,7 +840,7 @@ Este evento es el principal impulsor de ingresos. Incrementa `total_revenue` por
 | `metadata` | Object | Opcional | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto (products[])" }
 
-#### Ejemplo de REST API
+#### Ejemplo de REST or transferencia de estado representacional API
 
 ```json
 {
@@ -910,7 +910,7 @@ Se desencadena cuando un pedido es cancelado.
 
 #### Implementación del lado del cliente
 
-Usa `logCustomEvent`. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Usa `logCustomEvent`. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Este evento decrementa `total_orders` en 1 en el perfil de usuario. No afecta a `total_revenue`; usa `order_refunded` para ajustar los ingresos.
@@ -948,7 +948,7 @@ Este evento decrementa `total_orders` en 1 en el perfil de usuario. No afecta a 
 | `metadata` | Object | Opcional | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto (products[])" }
 
-#### Ejemplo de REST API
+#### Ejemplo de REST or transferencia de estado representacional API
 
 ```json
 {
@@ -1007,7 +1007,7 @@ Se desencadena cuando se emite un reembolso total o parcial.
 
 #### Implementación del lado del cliente
 
-Usa `logCustomEvent`. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Usa `logCustomEvent`. Para ejemplos de implementación específicos por plataforma, consulta [Registrar eventos de comercio electrónico a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Este evento decrementa `total_revenue` por el valor en `total_value` e incrementa `total_refunds` en el perfil de usuario. Para reembolsos parciales, establece `total_value` solo en el monto reembolsado, no en el total original del pedido.
@@ -1041,7 +1041,7 @@ Este evento decrementa `total_revenue` por el valor en `total_value` e increment
 | `metadata` | Object | Opcional | Pares clave-valor flexibles (por ejemplo, `color` o `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propiedades de producto (products[])" }
 
-#### Ejemplos de REST API {#rest-api-examples}
+#### Ejemplos de REST or transferencia de estado representacional API {#rest-api-examples}
 
 {% subtabs %}
 {% subtab Reembolso completo %}
@@ -1179,7 +1179,7 @@ Los eventos recomendados usan un esquema estricto. Como resultado, agregar propi
 
 ## Validación de eventos y solución de problemas {#event-validation-and-troubleshooting}
 
-Cuando envías un evento de comercio electrónico recomendado a través de `/users/track` o cualquier SDK de Braze, Braze valida la carga útil contra el esquema JSON del evento durante el procesamiento del evento recomendado. La validación se ejecuta automáticamente en cada evento cuyo nombre coincida exactamente con un evento recomendado (por ejemplo, `ecommerce.order_placed` o `ecommerce.cart_updated`).
+Cuando envías un evento de comercio electrónico recomendado a través de `/users/track` o cualquier SDK or kit de desarrollo de software de Braze, Braze valida la carga útil contra el esquema JSON del evento durante el procesamiento del evento recomendado. La validación se ejecuta automáticamente en cada evento cuyo nombre coincida exactamente con un evento recomendado (por ejemplo, `ecommerce.order_placed` o `ecommerce.cart_updated`).
 
 ### Qué validamos {#what-we-validate}
 
@@ -1223,8 +1223,8 @@ El evento no se procesa como un evento recomendado. Específicamente:
 
 La forma en que se reportan los errores depende de la ruta de ingesta:
 
-- **REST API (`/users/track`):** Cada evento no válido se reporta en la matriz de errores de la respuesta. Cada entrada te indica qué evento falló (índice) y por qué (tipo). El campo de mensaje de nivel superior sigue diciendo "success", lo que solo significa que tu solicitud llegó a Braze, no que cada evento fuera válido. Siempre revisa si hay una matriz de errores en la respuesta.
-- **SDK de Braze:** Las llamadas del SDK retornan inmediatamente y la validación se ejecuta en segundo plano, por lo que los errores no se envían de vuelta a tu aplicación. Para enterarte de los fallos de validación de eventos de comercio electrónico, busca el correo electrónico de resumen de fallos (consulta [Encontrar fallos](#find-failures)).
+- **REST or transferencia de estado representacional API (`/users/track`):** Cada evento no válido se reporta en la matriz de errores de la respuesta. Cada entrada te indica qué evento falló (índice) y por qué (tipo). El campo de mensaje de nivel superior sigue diciendo "success", lo que solo significa que tu solicitud llegó a Braze, no que cada evento fuera válido. Siempre revisa si hay una matriz de errores en la respuesta.
+- **SDK or kit de desarrollo de software de Braze:** Las llamadas del SDK or kit de desarrollo de software retornan inmediatamente y la validación se ejecuta en segundo plano, por lo que los errores no se envían de vuelta a tu aplicación. Para enterarte de los fallos de validación de eventos de comercio electrónico, busca el correo electrónico de resumen de fallos (consulta [Encontrar fallos](#find-failures)).
 
 #### Ejemplo de respuesta de error de la API {#example-api-error-response}
 
@@ -1258,7 +1258,7 @@ El correo electrónico de resumen incluye:
 
 - **Conteo total de errores:** Conteos de errores para el período de reporte.
 - **Errores por evento:** Un desglose de cuántos eventos fallaron para cada tipo de evento recomendado (por ejemplo, `ecommerce.cart_updated` y `ecommerce.order_placed`). Usa esto para identificar qué eventos en tu integración necesitan atención primero.
-- **Errores por origen:** Una división entre API y SDK, para que puedas identificar qué integración está generando los fallos.
+- **Errores por origen:** Una división entre API y SDK or kit de desarrollo de software, para que puedas identificar qué integración está generando los fallos.
 
 Si no estás recibiendo estos correos electrónicos o quieres verificar la lista de destinatarios, contacta a tu equipo de cuenta de Braze.
 
@@ -1266,7 +1266,7 @@ Si no estás recibiendo estos correos electrónicos o quieres verificar la lista
 
 Cuando recibas un correo electrónico de resumen de fallos:
 
-1. **Identifica el evento que falla y su origen.** El correo electrónico separa los fallos por nombre de evento y origen de integración (`sdk` versus `rest_api`), para que puedas identificar qué integración necesita la corrección. Si tienes múltiples orígenes enviando el mismo evento (por ejemplo, el SDK de tu tienda y un webhook de backend enviando ambos `cart_updated`), abórdalos de forma independiente.
+1. **Identifica el evento que falla y su origen.** El correo electrónico separa los fallos por nombre de evento y origen de integración (`sdk` versus `rest_api`), para que puedas identificar qué integración necesita la corrección. Si tienes múltiples orígenes enviando el mismo evento (por ejemplo, el SDK or kit de desarrollo de software de tu tienda y un webhook de backend enviando ambos `cart_updated`), abórdalos de forma independiente.
 2. **Compara tu carga útil con el esquema** en [Esquemas de eventos](#event-schemas). La mayoría de los fallos caen en uno de tres patrones:
    - `missing_property`: Un campo obligatorio está ausente. Para resolverlo, añade el campo obligatorio.
    - `extra_property`: Un campo personalizado está en el nivel superior de `properties`. Para resolverlo, mueve el campo personalizado dentro de `metadata` (a nivel de evento) o `products[].metadata` (por producto).

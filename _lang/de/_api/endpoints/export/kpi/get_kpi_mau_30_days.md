@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Monat
 {% api %}
 # Monatlich aktive Nutzer:innen der letzten 30 Tage exportieren {#export-monthly-active-users-for-last-30-days}
 {% apimethod get %}
-/kpi/mau/data_series
+/KPI or Leistungskennzahl or Leistungskennzahlen/MAU or monatlich aktive:r Nutzer:in/data_series
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um eine tägliche Reihe der Gesamtzahl eindeutiger aktiver Nutzer:innen über ein rollierendes 30-Tage-Fenster abzurufen.

@@ -10,7 +10,7 @@ description: "Este artículo contiene notas de la versión de agosto de 2017."
 
 ## Actualización de los botones de acción push {#update-to-push-action-buttons}
 
-Hemos añadido soporte para [botones de acción push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_action_buttons/#how-to-use-action-buttons) a nuestros puntos finales de mensajería de la REST API.
+Hemos añadido soporte para [botones de acción push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_action_buttons/#how-to-use-action-buttons) a nuestros puntos finales de mensajería de la REST or transferencia de estado representacional API.
 
 ## Actualización de la plantilla Liquid {#update-to-liquid-templating}
 
@@ -29,7 +29,7 @@ Ahora puedes desencadenar un [Canvas]({{site.baseurl}}/user_guide/messaging/canv
 
 ## Botones de acción para notificación push web {#web-push-action-buttons}
 
-Hemos añadido compatibilidad con botones de acción push en el SDK web para Chrome, lo que te permite aumentar tu interacción dando a tus usuarios opciones contextuales que simplifiquen sus ajetreadas vidas. Consulta las [mejores prácticas para las notificaciones push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+Hemos añadido compatibilidad con botones de acción push en el SDK or kit de desarrollo de software web para Chrome, lo que te permite aumentar tu interacción dando a tus usuarios opciones contextuales que simplifiquen sus ajetreadas vidas. Consulta las [mejores prácticas para las notificaciones push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
 
 ## Nuevos puntos finales de la API {#new-api-endpoints}
 

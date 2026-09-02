@@ -11,7 +11,7 @@ description: "Este artículo ofrece un resumen de los usuarios anónimos y los a
 
 > Los usuarios que visitan tu sitio web o aplicación sin iniciar sesión, como un visitante invitado, son reconocidos como usuarios anónimos. Estos usuarios no tienen `external_ids`, que se utilizan para actualizar los perfiles de usuario con la API de Braze, pero siguen teniendo [puntos de datos]({{site.baseurl}}/user_guide/data/infrastructure/data_points) asignados y pueden ser incluidos en tus segmentos.
 
-Cuando un usuario anónimo visita tu sitio web o aplicación, el SDK de Braze crea y le asigna un perfil de usuario "anónimo". Mientras el usuario navega, el SDK captura automáticamente datos para su perfil de usuario anónimo, como información de uso, información del dispositivo y más, si has configurado atributos personalizados y eventos personalizados.
+Cuando un usuario anónimo visita tu sitio web o aplicación, el SDK or kit de desarrollo de software de Braze crea y le asigna un perfil de usuario "anónimo". Mientras el usuario navega, el SDK or kit de desarrollo de software captura automáticamente datos para su perfil de usuario anónimo, como información de uso, información del dispositivo y más, si has configurado atributos personalizados y eventos personalizados.
 
 Puedes hacer lo siguiente con los usuarios anónimos capturados:
 
@@ -35,7 +35,7 @@ A veces, los perfiles de usuarios anónimos son duplicados que tienen el mismo n
 
 ## Buscar un usuario anónimo {#looking-up-an-anonymous-user}
 
-Dado que los usuarios anónimos no tienen un `external_id`, puedes utilizar un ID de dispositivo para buscar un perfil específico. Los siguientes pasos muestran cómo obtener el ID de dispositivo del usuario actual en tu integración del SDK Web:
+Dado que los usuarios anónimos no tienen un `external_id`, puedes utilizar un ID de dispositivo para buscar un perfil específico. Los siguientes pasos muestran cómo obtener el ID de dispositivo del usuario actual en tu integración del SDK or kit de desarrollo de software Web:
 
 1. Abre las herramientas de desarrollador de tu navegador (por ejemplo, en Chrome, pulsa **Command + Option + J** en Mac o **Ctrl + Shift + I** en Windows).
 2. En la pestaña **Console**, ejecuta lo siguiente:

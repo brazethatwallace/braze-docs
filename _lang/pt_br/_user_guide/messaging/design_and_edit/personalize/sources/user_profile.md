@@ -55,10 +55,10 @@ Thanks for purchasing {{event_properties.${product_name}}}! Your order is on its
 
 As propriedades de eventos estão disponíveis em Campaigns baseadas em ação e na primeira etapa de um Canvas baseado em ação. Para saber mais, consulte [Eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events).
 
-## Propriedades de disparo via API {#api-trigger-properties}
+## Propriedades de disparo via API or interface de programação do aplicativo (API) {#api-trigger-properties}
 
 {% raw %}
-Para Campaigns e Canvas disparados pela API, você pode enviar dados adicionais usando o objeto de propriedades de disparo. Referencie esses valores com `{{api_trigger_properties.${property_name}}}`.
+Para Campaigns e Canvas disparados pela API or interface de programação do aplicativo (API), você pode enviar dados adicionais usando o objeto de propriedades de disparo. Referencie esses valores com `{{api_trigger_properties.${property_name}}}`.
 
 Por exemplo:
 
@@ -67,7 +67,7 @@ Your verification code is {{api_trigger_properties.${verification_code}}}.
 ```
 {% endraw %}
 
-Para saber mais, consulte [Objeto de propriedades de disparo da API]({{site.baseurl}}/api/objects_filters/trigger_properties_object).
+Para saber mais, consulte [Objeto de propriedades de disparo da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/objects_filters/trigger_properties_object).
 
 ## Atributos do dispositivo {#device-attributes}
 

@@ -7,7 +7,7 @@ page_order: 2
 
 # Rastrear usuarios a través de un formulario {#track-users-through-a-form}
 
-> Aprende a rastrear a los usuarios que envían un formulario a través de tu página de inicio añadiendo una etiqueta de Liquid de página de inicio a tus mensajes. Esta etiqueta de Liquid es compatible con todos los canales de mensajería de Braze, incluidos correo electrónico, SMS, mensajes dentro de la aplicación y más. Para obtener más información sobre el seguimiento de datos, consulta [Acerca de los datos de seguimiento de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
+> Aprende a rastrear a los usuarios que envían un formulario a través de tu página de inicio añadiendo una etiqueta de Liquid de página de inicio a tus mensajes. Esta etiqueta de Liquid es compatible con todos los canales de mensajería de Braze, incluidos correo electrónico, servicio de mensajes cortos, mensajes dentro de la aplicación y más. Para obtener más información sobre el seguimiento de datos, consulta [Acerca de los datos de seguimiento de páginas de inicio]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
 
 ## Requisitos previos {#prerequisites}
 

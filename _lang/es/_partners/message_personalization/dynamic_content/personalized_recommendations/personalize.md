@@ -1,7 +1,7 @@
 ---
 nav_title: Personalize.AI
 article_title: Personalize.AI
-description: "Este artículo de referencia describe la asociación entre Braze y Personalize.AI, una plataforma empresarial SaaS basada en IA que impulsa el crecimiento de los ingresos a partir de recomendaciones personalizadas."
+description: "Este artículo de referencia describe la asociación entre Braze y Personalize.AI, una plataforma empresarial software como servicio (SaaS) basada en IA que impulsa el crecimiento de los ingresos a partir de recomendaciones personalizadas."
 alias: /partners/personalize_ai/
 page_type: partner
 search_tag: Partner
@@ -18,8 +18,8 @@ La integración de Braze y Personalize.AI te permite exportar datos de Personali
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Instancia de Personalize.AI | Se necesita una instancia de Personalize.AI para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos. <br><br>Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos. <br><br>Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la [URL de Braze para tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -44,7 +44,7 @@ La integración de Braze y Personalize.AI te permite exportar datos de Personali
     * **Connection Name:** Ponle nombre a tu conexión. Así es como se hará referencia a tu integración en Personalize.AI.
     * **Sync Frequency:** La frecuencia de sincronización controla con qué frecuencia Personalize.AI exporta datos a Braze. Selecciona **Daily**, **Weekly** o **Monthly**.
     * **API Key:** Añade tu clave de API de Braze.
-    * **API URL:** Añade la URL de tu punto de conexión REST de Braze.
+    * **API URL:** Añade la URL de tu punto de conexión REST or transferencia de estado representacional de Braze.
 4. Haz clic en **EXPORT** para exportar los datos a Braze.
 
 Una vez exportados tus datos, Personalize.AI seguirá pasando datos a Braze en los intervalos determinados por la frecuencia de sincronización que estableciste durante la integración.

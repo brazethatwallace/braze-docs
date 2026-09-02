@@ -100,35 +100,35 @@ Braze stellt vorgefertigte Dashboards für häufige Anwendungsfälle bereit. Ver
 | Messaging Diagnostics | **Analytics** > **Dashboard Builder** | [Messaging-Diagnose-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
 | Industry Benchmarks | **Analytics** > **Dashboard Builder** | [Industry-Benchmarks-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
 | Email performance | **Analytics** > **Email Performance** | [Kanal-Performance-Dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-performance-dashboard) |
-| SMS performance | **Analytics** > **SMS Performance** | [Kanal-Performance-Dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
+| Kurzmitteilungsdienst or SMS performance | **Analytics** > **Kurzmitteilungsdienst or SMS Performance** | [Kanal-Performance-Dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
 | Push performance | **Analytics** > **Dashboard Builder** > **Push Channel Dashboard** | [Kanal-Performance-Dashboards]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Verfügbare Dashboards" }
 
 {% alert note %}
-Die Möglichkeit, von Braze erstellte Dashboards zu bearbeiten, ist noch nicht verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie zusätzliche Dashboards anfordern möchten.
+Die Möglichkeit, von Braze erstellte Dashboards zu bearbeiten, ist noch nicht verfügbar. Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie zusätzliche Dashboards anfordern möchten.
 {% endalert %}
 
 #### Revenue - Last Touch Attribution {#revenue---last-touch-attribution}
 
-Das Dashboard **Revenue - Last Touch Attribution** bietet eine Übersicht über den Umsatz aus Campaigns, Canvases und Kanälen. Alle Umsatzdaten werden der zuletzt berührten Nachricht innerhalb des Attributionsfensters zugeordnet.
+Das Dashboard **Revenue - Last Touch Attribution** bietet eine Übersicht über den Umsatz aus Campaigns, Canvase und Kanälen. Alle Umsatzdaten werden der zuletzt berührten Nachricht innerhalb des Attributionsfensters zugeordnet.
 
-Berührungen umfassen *E-Mail-Klick* (Linkklick), *Content-Card-Klick*, *In-App-Nachricht-Klick* (ohne Schließen-Buttons), *Push-Öffnungen*, *SMS-Kurzlink-Klick*, *WhatsApp gelesen* und *Webhook-Versand*.
+Berührungen umfassen *E-Mail-Klick* (Linkklick), *Content-Card-Klick*, *In-App-Nachricht-Klick* (ohne Schließen-Buttons), *Push-Öffnungen*, *Kurzmitteilungsdienst or SMS-Kurzlink-Klick*, *WhatsApp gelesen* und *Webhook-Versand*.
 
 | Metrik | Definition |
 | --- | --- |
-| Gesamter Last-Touch-Umsatz | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem Last-Touch-Ereignis innerhalb des ausgewählten Zeitraums und Attributionsfensters. |
-| Kauf-Konversionen gesamt | Anzahl aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis. |
-| Durchschnittliche Tage bis zur Konversion | Durchschnittliche Zeitspanne zwischen allen Kauf-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis. |
+| Gesamter Last-Touch-Umsatz | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem Last-Touch-Ereignis innerhalb des ausgewählten Zeitraums und Attributionsfensters. |
+| Kauf-Konversionen gesamt | Anzahl aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis. |
+| Durchschnittliche Tage bis zur Konversion | Durchschnittliche Zeitspanne zwischen allen Kauf-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis. |
 | Umsatz pro Empfänger:in | Summe des Umsatzes aus qualifizierten Umsatz-Events geteilt durch die Anzahl der eindeutigen Nutzer:innen, die im ausgewählten Zeitraum eine Nachricht erhalten haben. |
 | Eindeutige Käufer:innen | Anzahl der eindeutigen Nutzer:innen mit einem qualifizierten Umsatz-Event. |
-| Umsatz nach Land | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem Last-Touch-Ereignis, gruppiert nach Land. |
-| Umsatz nach Campaign | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Campaign. |
-| Umsatz nach Kampagnenvariante | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Kampagnenvariante. |
-| Umsatz nach Canvas | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Canvas. |
-| Umsatz nach Canvas-Variante | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Canvas-Variante. |
+| Umsatz nach Land | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem Last-Touch-Ereignis, gruppiert nach Land. |
+| Umsatz nach Campaign | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Campaign. |
+| Umsatz nach Kampagnenvariante | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Kampagnenvariante. |
+| Umsatz nach Canvas | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Canvas. |
+| Umsatz nach Canvas-Variante | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Canvas-Variante. |
 | Käufe pro Produkt | Anzahl aller Käufe, gruppiert nach Produkt. |
-| Umsatz nach Kanal | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Kanal. |
-| Umsatz-Zeitreihe | Summe aller Umsatz-Events aus Campaigns und Canvases mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Tag in UTC. |
+| Umsatz nach Kanal | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Kanal. |
+| Umsatz-Zeitreihe | Summe aller Umsatz-Events aus Campaigns und Canvase mit einem qualifizierenden Last-Touch-Ereignis, gruppiert nach Tag in UTC. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue - Last Touch Attribution" }
 
 #### Devices and carriers {#devices-and-carriers}
@@ -153,12 +153,12 @@ Berührungen umfassen *E-Mail-Klick* (Linkklick), *Content-Card-Klick*, *In-App-
 | Käufe und Umsatz nach Segment | Zusammenfassungstabelle mit den gesamten Kauf-Metriken (Käufe, Umsatz und Umsatz pro Empfänger:in) aus E-Mail-Öffnungen und -Klicks, aggregiert nach Segment. |
 | Top-10-Campaigns nach Engagement-Metriken | Rangfolge der Campaigns mit den höchsten E-Mail-Engagement-Metriken (konfigurierbares Ranking-Kriterium). |
 | Untere 10 Campaigns nach Engagement-Metriken | Rangfolge der Campaigns mit den niedrigsten E-Mail-Engagement-Metriken (konfigurierbares Ranking-Kriterium). |
-| Top-10-Canvases nach Engagement-Metriken | Rangfolge der Canvases mit den höchsten E-Mail-Engagement-Metriken (konfigurierbares Ranking-Kriterium). |
-| Untere 10 Canvases nach Engagement-Metriken | Rangfolge der Canvases mit den niedrigsten E-Mail-Engagement-Metriken (konfigurierbares Ranking-Kriterium). |
+| Top-10-Canvase nach Engagement-Metriken | Rangfolge der Canvase mit den höchsten E-Mail-Engagement-Metriken (konfigurierbares Ranking-Kriterium). |
+| Untere 10 Canvase nach Engagement-Metriken | Rangfolge der Canvase mit den niedrigsten E-Mail-Engagement-Metriken (konfigurierbares Ranking-Kriterium). |
 | Top-10-Campaigns nach Kauf-Metriken | Rangfolge der Campaigns mit den höchsten Kauf-Konversionsmetriken aus E-Mail-Engagement (konfigurierbares Ranking-Kriterium). |
 | Untere 10 Campaigns nach Kauf-Metriken | Rangfolge der Campaigns mit den niedrigsten Kauf-Konversionsmetriken aus E-Mail-Engagement (konfigurierbares Ranking-Kriterium). |
-| Top-10-Canvases nach Kauf-Metriken | Rangfolge der Canvases mit den höchsten Kauf-Konversionsmetriken aus E-Mail-Engagement (konfigurierbares Ranking-Kriterium). |
-| Untere 10 Canvases nach Kauf-Metriken | Rangfolge der Canvases mit den niedrigsten Kauf-Konversionsmetriken aus E-Mail-Engagement (konfigurierbares Ranking-Kriterium). |
+| Top-10-Canvase nach Kauf-Metriken | Rangfolge der Canvase mit den höchsten Kauf-Konversionsmetriken aus E-Mail-Engagement (konfigurierbares Ranking-Kriterium). |
+| Untere 10 Canvase nach Kauf-Metriken | Rangfolge der Canvase mit den niedrigsten Kauf-Konversionsmetriken aus E-Mail-Engagement (konfigurierbares Ranking-Kriterium). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Insights - E-Mail" }
 
 #### Session Analytics {#session-analytics}
@@ -168,7 +168,7 @@ Berührungen umfassen *E-Mail-Klick* (Linkklick), *Content-Card-Klick*, *In-App-
 | Anzahl der Sitzungen pro Tag (Zeitreihe) | Anzahl der eindeutigen Sitzungen, gruppiert nach Tag innerhalb des ausgewählten Zeitraums, dargestellt als Zeitreihe. |
 | Durchschnittliche Sitzungen pro Nutzer:in | Durchschnittliche Anzahl der Sitzungen pro Nutzer:in, berechnet als Gesamtanzahl der Sitzungen geteilt durch eindeutige Nutzer:innen innerhalb des ausgewählten Zeitraums. |
 | Campaigns mit Sitzungskonversionen | Anzahl der eindeutigen Sitzungen, die gleichzeitig mit Campaign-Konversionen auftraten, gruppiert nach Campaign-ID und nach Sitzungsanzahl sortiert. |
-| Canvases mit Sitzungskonversionen | Anzahl der eindeutigen Sitzungen, die gleichzeitig mit Canvas-Konversionen auftraten, gruppiert nach Canvas-ID und nach Sitzungsanzahl sortiert. |
+| Canvase mit Sitzungskonversionen | Anzahl der eindeutigen Sitzungen, die gleichzeitig mit Canvas-Konversionen auftraten, gruppiert nach Canvas-ID und nach Sitzungsanzahl sortiert. |
 | Gesamtanzahl der Sitzungen pro Nutzer:in | Liste der Top-1.000-Nutzer:innen nach ihrer gesamten Sitzungsanzahl innerhalb des ausgewählten Zeitraums. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Session Analytics" }
 

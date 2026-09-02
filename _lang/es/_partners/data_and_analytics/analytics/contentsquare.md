@@ -23,7 +23,7 @@ La integración de Braze y Contentsquare te permite enviar señales en directo (
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Contentsquare | Se requiere una cuenta de Contentsquare para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Para crear una nueva clave en el panel de Braze, ve a **Settings** > **API Keys**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. Para crear una nueva clave en el panel de Braze, ve a **Settings** > **API Keys**. |
 | Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({% image_buster /assets/img/contentsquare_custom_events.png %}). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 

@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Antavo Loyalty Cloud
 
-> [Antavo](https://antavo.com/) es un proveedor de tecnología de fidelización SaaS de nivel empresarial que crea programas de fidelización integrales para fomentar la fidelidad a la marca y cambiar el comportamiento del cliente.
+> [Antavo](https://antavo.com/) es un proveedor de tecnología de fidelización software como servicio (SaaS) de nivel empresarial que crea programas de fidelización integrales para fomentar la fidelidad a la marca y cambiar el comportamiento del cliente.
 
 _Esta integración está mantenida por Antavo._
 
@@ -22,8 +22,8 @@ La integración de Antavo y Braze te permite utilizar los datos relacionados con
 | Requisito | Descripción |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cuenta Antavo | Se necesita una cuenta [Antavo](https://antavo.com/) con la integración Braze habilitada para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los siguientes permisos: `users.track`, `events.list`, `events.data_series` y `events.get`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los siguientes permisos: `users.track`, `events.list`, `events.data_series` y `events.get`.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
 | Identificador de la aplicación Braze | La clave del identificador de tu aplicación. <br><br>Para localizar esta clave en el panel de Braze, ve a **Configuración** > **Claves de API** y busca la sección **Identification**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -35,8 +35,8 @@ En Antavo, ve a **Modules** > **Braze** y haz clic en **Configure**. Al navegar 
 
 Proporciona las siguientes credenciales:
 
-- **Instance URL:** El punto de conexión REST de Braze de la instancia a la que estás aprovisionado.
-- **API Token (Identifier):** La clave de API REST de Braze que Antavo debe utilizar al enviar solicitudes a Braze.
+- **Instance URL:** El punto de conexión REST or transferencia de estado representacional de Braze de la instancia a la que estás aprovisionado.
+- **API Token (Identifier):** La clave de API REST or transferencia de estado representacional de Braze que Antavo debe utilizar al enviar solicitudes a Braze.
 - **App Identifier:** El identificador de la aplicación Braze.
 
 Después de introducir las credenciales, haz clic en **Connect**.

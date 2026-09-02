@@ -10,7 +10,7 @@ description: "Esta página aborda como dar as boas-vindas a novos usuários, gui
 
 > Use o modelo de mensagem no app **Fluxo de integração** para coletar atributos de usuários, insights e preferências que alimentam sua estratégia de Campaign.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
 
 ## Criando um fluxo de integração {#creating-an-onboarding-flow}
 

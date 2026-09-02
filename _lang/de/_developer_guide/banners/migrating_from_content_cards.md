@@ -33,7 +33,7 @@ Banner bieten gegenüber Content Cards für bannerartige Nachrichten mehrere Vor
 
 ### Bessere UX {#better-ux}
 
-- **Dynamische Content-Aktualisierungen**: Banner aktualisieren Liquid-Logik und Berechtigung bei jedem Refresh, sodass Nutzer:innen immer den relevantesten Content sehen.
+- **Dynamische Content-Aktualisierungen**: Banner Update or aktualisieren or aktualisieren Liquid-Logik und Berechtigung bei jedem Refresh, sodass Nutzer:innen immer den relevantesten Content sehen.
 - **Native Platzierungsunterstützung**: Nachrichten erscheinen in bestimmten Kontexten statt in einem Feed und bieten so eine bessere kontextuelle Relevanz.
 - **Native Priorisierung**: Kontrolle über die Anzeigereihenfolge ohne angepasste Logik, was die Verwaltung der Nachrichtenhierarchie erleichtert.
 
@@ -62,11 +62,11 @@ Verwenden Sie weiterhin Content Cards, wenn Sie Folgendes benötigen:
 
 ### Voraussetzungen {#prerequisites}
 
-Stellen Sie vor der Migration sicher, dass Ihr Braze SDK die Mindestversionsanforderungen erfüllt:
+Stellen Sie vor der Migration sicher, dass Ihr Braze SDK or Software-Development-Kit die Mindestversionsanforderungen erfüllt:
 
 {% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
-Für Dismissals und erneute Berechtigung sind die folgenden SDK-Mindestversionen erforderlich:
+Für Dismissals und erneute Berechtigung sind die folgenden SDK or Software-Development-Kit-Mindestversionen erforderlich:
 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
@@ -199,7 +199,7 @@ StreamSubscription bannerStreamSubscription = braze.subscribeToBanners((List<Bra
 ### Inhalte anzeigen {#display-content}
 
 {% alert note %}
-Content Cards können manuell mit benutzerdefinierter UI-Logik gerendert werden, während Banner nur mit den mitgelieferten SDK-Methoden gerendert werden können.
+Content Cards können manuell mit benutzerdefinierter UI-Logik gerendert werden, während Banner nur mit den mitgelieferten SDK or Software-Development-Kit-Methoden gerendert werden können.
 {% endalert %}
 
 #### Content-Cards-Ansatz
@@ -765,7 +765,7 @@ Beachten Sie bei der Migration von Content Cards zu Banner die folgenden Einschr
 
 Banner unterstützen nur Campaigns mit geplanter Zustellung. Um eine Nachricht zu migrieren, die zuvor API-getriggert oder aktionsbasiert war, konvertieren Sie sie in segmentbasiertes Targeting:
 
-- **Beispiel:** Anstatt eine „Profil vervollständigen“-Karte über die API zu triggern, erstellen Sie ein Segment für Nutzer:innen, die sich in den letzten 7 Tagen registriert, aber ihr Profil noch nicht vervollständigt haben.
+- **Beispiel:** Anstatt eine „Profil vervollständigen“-Karte über die API zu Trigger or triggern or triggern, erstellen Sie ein Segment für Nutzer:innen, die sich in den letzten 7 Tagen registriert, aber ihr Profil noch nicht vervollständigt haben.
 - **Realtime-Berechtigung:** Nutzer:innen qualifizieren oder disqualifizieren sich bei jeder Aktualisierung sofort für das Banner, basierend auf ihrer Segmentzugehörigkeit.
 
 ### Feature-Unterschiede {#feature-differences}
@@ -777,7 +777,7 @@ Banner unterstützen nur Campaigns mit geplanter Zustellung. Um eine Nachricht z
 | Mehrere Placements | N/A | ✅ Mehrere Placements unterstützt |
 | Kartentypen (Classic, Captioned, Image Only) | ✅ Mehrere vordefinierte Typen | ✅ Einzelnes HTML-basiertes Banner (flexibler) |
 | **Content-Verwaltung** |
-| Drag-and-Drop-Editor | ❌ Erfordert Entwickler:in für Anpassungen | ✅ Marketer können ohne Entwicklerteam erstellen/aktualisieren |
+| Drag-and-Drop-Editor | ❌ Erfordert Entwickler:in für Anpassungen | ✅ Marketer können ohne Entwicklerteam erstellen/Update or aktualisieren or aktualisieren |
 | Benutzerdefiniertes HTML/CSS | ❌ Auf Kartenstruktur beschränkt | ✅ Volle HTML/CSS-Unterstützung |
 | Schlüssel-Wert-Paare für Anpassungen | ✅ Erforderlich für erweiterte Anpassungen | ✅ Stark typisierte Schlüssel-Wert-Paare namens „Properties“ für erweiterte Anpassungen |
 | Message Extras | ✅ Unterstützt | ❌ Derzeit nicht unterstützt |
@@ -805,10 +805,10 @@ Banner unterstützen nur Campaigns mit geplanter Zustellung. Um eine Nachricht z
 - Bis zu 25 aktive Nachrichten pro Placement.
 - Bis zu 10 Placement-IDs pro Aktualisierungsanfrage; darüber hinausgehende Anfragen werden abgeschnitten.
 
-### SDK-Einschränkungen {#sdk-limitations}
+### SDK or Software-Development-Kit-Einschränkungen {#sdk-limitations}
 
 - Banner werden derzeit nicht auf .NET MAUI (Xamarin), Cordova, Unity, Vega oder TV-Plattformen unterstützt.
-- Stellen Sie sicher, dass Sie die in den Voraussetzungen aufgeführten Mindest-SDK-Versionen verwenden.
+- Stellen Sie sicher, dass Sie die in den Voraussetzungen aufgeführten Mindest-SDK or Software-Development-Kit-Versionen verwenden.
 
 ## Verwandte Artikel {#related-articles}
 

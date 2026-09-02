@@ -2,7 +2,7 @@
 
 ## Push-Deeplinking aktivieren
 
-Standardmäßig verarbeitet das Braze Cordova SDK Push-Deeplinks aus Push-Benachrichtigungen nicht automatisch. Um Push-Deeplinking zu aktivieren, fügen Sie bitte die folgenden Einstellungen zum`platform`Element in der Datei `config.xml`Ihres Projekts hinzu.
+Standardmäßig verarbeitet das Braze Cordova SDK or Software-Development-Kit Push-Deeplinks aus Push-Benachrichtigungen nicht automatisch. Um Push-Deeplinking zu aktivieren, fügen Sie bitte die folgenden Einstellungen zum`platform`Element in der Datei `config.xml`Ihres Projekts hinzu.
 
 {% tabs %}
 {% tab ios %}

@@ -10,7 +10,7 @@ description: "Découvrez comment optimiser les tests multivariés et les tests A
 
 > Utilisez **Optimiser avec BrazeAI<sup>TM</sup>** pour optimiser automatiquement une campagne comportant plusieurs variantes.
 
-À l'étape **Audiences cibles**, accédez à **A/B Testing**, puis activez **Optimiser avec BrazeAI<sup>TM</sup>**.
+À l'étape **Audiences cibles**, accédez à **test A/B**, puis activez **Optimiser avec BrazeAI<sup>TM</sup>**.
 
 Pour une campagne à envoi unique, BrazeAI<sup>TM</sup> envoie un test initial, puis envoie la variante la plus performante au reste de l'audience. Pour une campagne à envois multiples, BrazeAI<sup>TM</sup> analyse les performances toutes les 12 heures et oriente davantage d'utilisateurs vers les variantes les plus performantes.
 

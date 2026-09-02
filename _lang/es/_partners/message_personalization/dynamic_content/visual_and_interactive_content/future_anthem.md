@@ -24,8 +24,8 @@ Esta característica está actualmente en acceso anticipado. Ponte en contacto c
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Future Anthem | Una cuenta de Future Anthem. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permiso para el [punto de conexión `users.track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Puedes crearla en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | El [punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) de Braze que coincida con tu instancia, como `rest.iad-01.com`. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permiso para el [punto de conexión `users.track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). Puedes crearla en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | El [punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) de Braze que coincida con tu instancia, como `rest.iad-01.com`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}

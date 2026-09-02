@@ -1,5 +1,5 @@
 {% alert warning %}
-Das Braze Windows SDK ist ab dem 24. März 2022 veraltet.
+Das Braze Windows SDK or Software-Development-Kit ist ab dem 24. März 2022 veraltet.
 
 
 * **24. März 2022:** Im Braze Dashboard können keine neuen Windows-Apps erstellt werden.

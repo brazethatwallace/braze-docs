@@ -26,7 +26,7 @@ Os registros do **Histórico de mensagens** e do **Diagnóstico de mensagens** f
 | A análise de dados do Canvas parece incorreta (grupo de controle, conversões, zero envios) | [Divergências na análise de dados do Canvas](#canvas-analytics-mismatches) |
 | A análise de dados mostra muito mais envios do que entradas ou mais saídas do que entradas | [A filtragem por intervalo de datas pode exibir números inesperados](#date-range-filtering-can-show-unexpected-numbers) |
 | O Canvas não salva ou o editor congela | [Problemas com o editor e salvamento](#editor-and-save-issues) |
-| Não é possível excluir uma variante do Canvas | [Não é possível excluir uma variante do Canvas por causa de um Segment arquivado](#cant-delete-a-canvas-variant-because-of-an-archived-segment) |
+| Não é possível excluir uma variante do Canvas | [Não é possível excluir uma variante do Canvas por causa de um Segment or segmento arquivado](#cant-delete-a-canvas-variant-because-of-an-archived-segment) |
 | Parei o Canvas, mas as mensagens continuaram sendo enviadas | [Comportamento do Canvas interrompido](#stopped-canvas-behavior) |
 | Erro "Too many Canvas branches" ao lançar | [Erro "Too many Canvas branches"](#too-many-canvas-branches-error) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma do Canvas" }
@@ -36,7 +36,7 @@ Os registros do **Histórico de mensagens** e do **Diagnóstico de mensagens** f
 Use este fluxo de trabalho para investigar um usuário específico ou um problema de envio agregado. Comece pela etapa 1 para cada incidente.
 
 1. Confirme se o Canvas está ativo (não é rascunho, parado ou arquivado).
-2. Confirme se o cronograma de entrada (janela agendada, fuso horário, gatilho baseado em ação ou entrada disparada por API) corresponde ao momento em que você espera que os usuários entrem.
+2. Confirme se o cronograma de entrada (janela agendada, fuso horário, gatilho baseado em ação ou entrada disparada por API or interface de programação do aplicativo (API)) corresponde ao momento em que você espera que os usuários entrem.
 3. Verifique o registro de mensagens de um usuário acessando **Público** > **Pesquisar usuários**, abrindo o perfil e selecionando **Histórico de mensagens** (últimos 30 dias).
    - Se não houver registro para o horário de envio esperado, o problema é com a entrada, não com a mensagem. Acesse [Usuário não entrou no Canvas](#user-didnt-enter-the-canvas).
 4. Verifique o **Changelog** do Canvas e os changelogs de quaisquer Segments usados no direcionamento. Confirme se o público, as etapas ou as configurações de envio não foram alterados durante o incidente.
@@ -66,9 +66,9 @@ Verifique o seguinte:
 - **Público-alvo no momento da avaliação:** Revise os changelogs de Segments e filtros. [User Lookup]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) pode apresentar um falso positivo para alguns tipos de filtro (por exemplo, atributos de data em formato de string).
 - **Limites de entrada:** [Máximo de entradas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) ou limites de público podem ter sido atingidos.
 - **Grupo de controle global:** Usuários no [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) não entram em Canvas de envio de mensagens.
-- **Grupo de controle do Canvas:** Usuários atribuídos ao grupo de controle do Canvas na entrada não recebem mensagens de variante. A atribuição de variante acontece na entrada, não por meio de filtros de Segment. Consulte [Divergências na análise de dados do Canvas](#canvas-analytics-mismatches).
+- **Grupo de controle do Canvas:** Usuários atribuídos ao grupo de controle do Canvas na entrada não recebem mensagens de variante. A atribuição de variante acontece na entrada, não por meio de filtros de Segment or segmento. Consulte [Divergências na análise de dados do Canvas](#canvas-analytics-mismatches).
 - **Critérios de saída:** O usuário pode ter correspondido aos [critérios de saída]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) antes ou durante a entrada. Se a entrada e a saída usam o mesmo evento, consulte [Correspondência entre critérios de entrada e saída]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria).
-- **Entrada disparada por API:** Confirme se o usuário foi adicionado com o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Você pode [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com um filtro de entrada do Canvas e exportar usuários com [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
+- **Entrada disparada por API or interface de programação do aplicativo (API):** Confirme se o usuário foi adicionado com o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases). Você pode [criar um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) com um filtro de entrada do Canvas e exportar usuários com [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment).
 
 ### A contagem de eventos-gatilho é maior do que as entradas no Canvas {#trigger-event-count-is-higher-than-canvas-entries}
 
@@ -97,9 +97,9 @@ Verifique o [**histórico de mensagens**]({{site.baseurl}}/user_guide/audience/m
 Em seguida, verifique o seguinte por tipo de gatilho ou etapa:
 
 - **Gatilhos de evento personalizado ou compra:** Confirme se o evento aparece em **Analytics** > **Custom Events Report** (ou **Revenue** para compras). Compare o registro de data/hora do evento com o momento em que o Canvas foi ativado e com qualquer postergação programada na etapa.
-- **Entrada disparada por API:** Confirme a entrada com um filtro de Segment do Canvas e exportação, conforme descrito em [O usuário não entrou no Canvas](#user-didnt-enter-the-canvas).
+- **Entrada disparada por API or interface de programação do aplicativo (API):** Confirme a entrada com um filtro de Segment or segmento do Canvas e exportação, conforme descrito em [O usuário não entrou no Canvas](#user-didnt-enter-the-canvas).
 - **Gatilhos de jornadas de ação ou etapa de mensagem:** Confirme se o usuário realizou o evento pré-requisito e se as [propriedades do evento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#event-properties) estão disponíveis na etapa.
-- **Etapas de mensagem no app:** As mensagens no app são enviadas no próximo início de sessão após o usuário entrar na etapa, e apenas a partir de eventos do SDK (não da REST API). Consulte [Quando as mensagens no app do Canvas são enviadas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) nas Perguntas frequentes do Canvas.
+- **Etapas de mensagem no app:** As mensagens no app são enviadas no próximo início de sessão após o usuário entrar na etapa, e apenas a partir de eventos do SDK or kit de desenvolvimento de software (não da REST or transferir estado representacional API or interface de programação do aplicativo (API)). Consulte [Quando as mensagens no app do Canvas são enviadas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#when-are-in-app-messages-in-canvas-sent) nas Perguntas frequentes do Canvas.
 - **Grupo de controle do Canvas:** Verifique se o usuário não foi atribuído ao grupo de controle do Canvas na entrada.
 - **Elegibilidade do canal e configurações de envio:** Confirme o status de inscrição, o estado de push ativado e as [configurações de envio]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) por etapa (por exemplo, **Subscription Settings** definido apenas para usuários com opt-in). Não adicione filtros de canal único ao **Target Audience** em Canvas multicanal.
 - **Validações de entrega:** Se você ativou **Validate audience at message send** em uma etapa de mensagem, os usuários que não correspondem mais aos filtros no momento do envio não recebem a mensagem. Consulte [Validações de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations).
@@ -110,7 +110,7 @@ Em seguida, verifique o seguinte por tipo de gatilho ou etapa:
 Quando uma etapa de mensagem do Canvas interrompe um envio, o usuário ainda avança para a próxima etapa. O Canvas avança na interrupção para que etapas posteriores de postergação e jornadas de ação não fiquem permanentemente bloqueadas. Consulte [Como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) e [Resultados de interrupção]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard#abort-outcomes).
 {% endalert %}
 
-Para filtros em nível de etapa, conflitos entre ramificações e comportamento de ramificação de mensagens no app, consulte [Lançar com Canvas Flow — Solução de problemas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#troubleshooting) e as [Perguntas frequentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery).
+Para filtros em nível de etapa, conflitos entre ramificações e comportamento de Branch or ramificação or ramificação de mensagens no app, consulte [Lançar com Canvas Flow — Solução de problemas]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/launching_canvas_flow#troubleshooting) e as [Perguntas frequentes do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/faqs#messages-and-delivery).
 
 {% alert important %}
 Se o seu Canvas baseado em ação está enviando mensagens antes do esperado, verifique se o registro de data/hora do seu evento personalizado usa a hora atual, e não uma hora retroativa. A Braze avalia as postergações a partir do registro de data/hora enviado com o evento. Consulte [Entrega baseada em ação]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule).
@@ -124,7 +124,7 @@ Comece com o [Checklist de lançamento com Canvas Flow]({{site.baseurl}}/user_gu
 
 - O Canvas está ativo e o horário atual está dentro da janela de entrada agendada.
 - As [configurações de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) (reelegibilidade, máximo de entradas e limites de entrada) permitem que os usuários esperados entrem.
-- O público-alvo e os filtros de Segment ainda correspondem aos usuários esperados após o lançamento.
+- O público-alvo e os filtros de Segment or segmento ainda correspondem aos usuários esperados após o lançamento.
 - As porcentagens do grupo de controle global e do Canvas mostram qual proporção de usuários entra em cada jornada versus recebe mensagens.
 - Os limites de frequência do espaço de trabalho ou filas de entrada devem adicionar atrasos entre o momento em que os usuários se qualificam e quando entram ou avançam para uma etapa.
 
@@ -146,7 +146,7 @@ Use o [dashboard de Diagnósticos de Envio de Mensagens]({{site.baseurl}}/user_g
 
 **Sintoma:** A análise de dados do Canvas parece incorreta (divisões de grupo de controle, conversões ou zero envios).
 
-A atribuição do grupo de controle e da variante acontece na entrada do Canvas com base nas porcentagens definidas no builder, e não por meio de filtros de Segment. Usuários que não podem receber um canal específico ainda podem entrar em uma variante. Use as [Configurações de envio]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) por etapa para limitar quem recebe cada tipo de mensagem, em vez de restringir o **Público-alvo** com filtros de canal.
+A atribuição do grupo de controle e da variante acontece na entrada do Canvas com base nas porcentagens definidas no builder, e não por meio de filtros de Segment or segmento. Usuários que não podem receber um canal específico ainda podem entrar em uma variante. Use as [Configurações de envio]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings) por etapa para limitar quem recebe cada tipo de mensagem, em vez de restringir o **Público-alvo** com filtros de canal.
 
 Diferencie o grupo de controle do Canvas do [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group). Para definições de filtros, consulte [Qual é a diferença entre "Has not entered Canvas variation" e "Is not in Canvas control group"?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group) nas Perguntas frequentes do Canvas.
 
@@ -162,9 +162,9 @@ Imagine o seguinte cenário:
 
 Nesse cenário, 90% dos usuários que entram no Canvas entram na variante.
 
-Ao analisar o Segment de usuários ativos, você verá que, embora ele contenha 29,8 mil usuários, apenas 64% deles estão com push ativado:
+Ao analisar o Segment or segmento de usuários ativos, você verá que, embora ele contenha 29,8 mil usuários, apenas 64% deles estão com push ativado:
 
-![Segment com o filtro "Push Enabled" definido como "true" e estimativa de 29,8 mil usuários.]({% image_buster /assets/img_archive/trouble16.png %})
+![Segment or segmento com o filtro "Push Enabled" definido como "true" e estimativa de 29,8 mil usuários.]({% image_buster /assets/img_archive/trouble16.png %})
 
 Isso significa que, embora você tenha especificado que 90% dos usuários entrariam na variante, nem todos eles podem receber uma notificação por push. Usuários que não podem receber push ainda entram na variante — a contagem de envios reflete a elegibilidade do canal na etapa, e não a atribuição da variante na entrada.
 
@@ -199,13 +199,13 @@ Se o editor congelar em um Canvas grande ou complexo, tente o seguinte:
 
 - Limpe o cache e os cookies do navegador e recarregue a página. Bloqueadores de anúncios corporativos ou extensões do navegador podem interferir na plataforma da Braze.
 - Use os controles de zoom do Canvas para reduzir a visualização para 25% ou 10%, diminuindo a quantidade de UI que o navegador precisa renderizar.
-- Tente um navegador web diferente.
+- Tente um navegador de internet or navegador web diferente.
 
 Se o Canvas não carregar e não avançar, uma versão anterior não foi salva corretamente e pode conter etapas inválidas. Duplique o Canvas pelo dashboard. Se o problema persistir, abra um [ticket de suporte]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 Para tickets de suporte sobre "Request Timed Out", inclua uma gravação de tela, carimbo de data/hora e fuso horário, navegador e versão, etapas para reproduzir e, opcionalmente, um log HAR das ferramentas de desenvolvedor do navegador. Consulte [O que devo incluir ao enviar um ticket de suporte para um erro "Request Timed Out"?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error) nas Perguntas frequentes sobre Canvas.
 
-{% multi_lang_include audience/segments.md section='Canvas variant archived segment' %}
+{% multi_lang_include audience/segments.md section='Canvas variant archived Segment or segmento' %}
 
 ## Comportamento de Canvas interrompido {#stopped-canvas-behavior}
 

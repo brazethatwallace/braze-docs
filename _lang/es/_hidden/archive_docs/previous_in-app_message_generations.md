@@ -75,7 +75,7 @@ Los mensajes de captura de correo electrónico te permiten pedir fácilmente a l
 
 ![Mensaje de captura de correo electrónico]({% image_buster /assets/img_archive/web-email-capture.png %}){: style="max-width:60%;"}
 
->  Para habilitar la captura de mensajes por correo electrónico dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad: los mensajes dentro de la aplicación en HTML pueden ejecutar JavaScript, por lo que necesitamos que un mantenedor del sitio los habilite.
+>  Para habilitar la captura de mensajes por correo electrónico dentro de la aplicación a través del SDK or kit de desarrollo de software Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad: los mensajes dentro de la aplicación en HTML pueden ejecutar JavaScript, por lo que necesitamos que un mantenedor del sitio los habilite.
 
 **Características personalizables**
 
@@ -93,13 +93,13 @@ Aunque los mensajes predeterminados dentro de la aplicación de Braze pueden per
 
 **Puente JavaScript (appboyBridge)**
 
-Los mensajes HTML dentro de la aplicación admiten una interfaz "puente" de JavaScript con el SDK Web de Braze, lo que te permite desencadenar acciones Braze personalizadas cuando los usuarios hacen clic en elementos con enlaces o interactúan de otro modo con tu contenido. Los siguientes métodos de JavaScript son compatibles con los mensajes HTML dentro de la aplicación de Braze:
+Los mensajes HTML dentro de la aplicación admiten una interfaz "puente" de JavaScript con el SDK or kit de desarrollo de software Web de Braze, lo que te permite desencadenar acciones Braze personalizadas cuando los usuarios hacen clic en elementos con enlaces o interactúan de otro modo con tu contenido. Los siguientes métodos de JavaScript son compatibles con los mensajes HTML dentro de la aplicación de Braze:
 
 {% multi_lang_include archive/appboyBridge.md platform="web" %}
 
 Además, para el seguimiento de los análisis, cualquier elemento `<a>` o `<button>` de tu HTML registrará automáticamente una acción de "clic" en la Campaign asociada al mensaje dentro de la aplicación. Para registrar un "clic de botón" en lugar de un "clic de cuerpo", proporciona un valor de cadena de consulta de abButtonId en el href de tu enlace (por ejemplo, `<a href="http://mysite.com?abButtonId=0">click me</a>`), o proporciona un ID en el elemento HTML (por ejemplo, `<a id="0" href="http://mysite.com">click me</a>`). Ten en cuenta que los únicos ID de botón aceptados actualmente son "0" y "1". Un enlace con un ID de botón 0 se representará como "Button 1" en el dashboard, mientras que un enlace con un ID de botón 1 se representará como "Button 2".
 
->  Para habilitar los mensajes HTML dentro de la aplicación a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad: los mensajes dentro de la aplicación en HTML pueden ejecutar JavaScript, por lo que necesitamos que un mantenedor del sitio los habilite.
+>  Para habilitar los mensajes HTML dentro de la aplicación a través del SDK or kit de desarrollo de software Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad: los mensajes dentro de la aplicación en HTML pueden ejecutar JavaScript, por lo que necesitamos que un mantenedor del sitio los habilite.
 
 {% enddetails %}
 

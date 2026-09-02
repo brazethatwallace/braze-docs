@@ -59,7 +59,7 @@ Apenas Campaigns com rastreamento avançado ativado aparecem nos menus suspensos
 
 #### Redirecionar usuários que clicaram em uma Campaign específica de SMS, MMS ou RCS {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
 
-1. Crie um Segment usando o filtro **Clicked/Opened Campaign**.
+1. Crie um Segment or segmento usando o filtro **Clicked/Opened Campaign**.
 2. Selecione **clicked shortened sms link**.
 3. Escolha a Campaign desejada.
 
@@ -67,7 +67,7 @@ Apenas Campaigns com rastreamento avançado ativado aparecem nos menus suspensos
 
 #### Redirecionar usuários que clicaram em uma etapa específica do Canvas {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
-1. Crie um Segment usando o filtro **Clicked/Opened Step**.
+1. Crie um Segment or segmento usando o filtro **Clicked/Opened Step**.
 2. Selecione **clicked shortened sms link**.
 3. Escolha o Canvas e a etapa do Canvas desejados.
 

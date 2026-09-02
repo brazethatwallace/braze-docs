@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Amperity
 
-> [Amperity](https://amperity.com/) ist eine umfassende Customer Data Platform (CDP) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity bietet intelligente Funktionen für die Vereinheitlichung der Datenverwaltung, Analytics, Insights und Aktivierung.
+> [Amperity](https://amperity.com/) ist eine umfassende Customer Data Platform (Customer Data Platform (CDP)) für Unternehmen, die Marken dabei hilft, ihre Kund:innen kennenzulernen, strategische Entscheidungen zu treffen und konsequent die richtigen Maßnahmen zu ergreifen, um ihre Verbraucher:innen besser zu bedienen. Amperity bietet intelligente Funktionen für die Vereinheitlichung der Datenverwaltung, Analytics, Insights und Aktivierung.
 
 _Diese Integration wird von Amperity gepflegt._
 
@@ -28,9 +28,9 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Amperity-Konto | Sie benötigen ein [Amperity-Konto](https://amperity.com/request-a-demo), um die Vorteile dieser Partnerschaft zu nutzen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br> Dieser kann im Braze-Dashboard erstellt werden, indem Sie zu **Entwicklungskonsole** > **REST-API-Schlüssel** > **Neuen API-Schlüssel erstellen** navigieren. |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
-| Braze-REST-Endpunkt | Ihre Braze-Endpunkt-URL. Ihr Endpunkt hängt von Ihrer Braze-Instanz ab. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br> Dieser kann im Braze-Dashboard erstellt werden, indem Sie zu **Entwicklungskonsole** > **Representational State Transfer-API-Schlüssel** > **Neuen API-Schlüssel erstellen** navigieren. |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager:in oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
+| Braze-Representational State Transfer-Endpunkt | Ihre Braze-Endpunkt-URL. Ihr Endpunkt hängt von Ihrer Braze-Instanz ab. |
 | Currents-Konnektor (optional) | Der S3-Currents-Konnektor. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -84,7 +84,7 @@ Der verwendete Datentyp hängt von der Art des Attributs ab. Eine E-Mail-Adresse
 
 ### Duplizierung von Attributen {#duplication-of-attributes}
 
-Vermeiden Sie das Senden angepasster Attribute, die die Felder des Standard-Nutzerprofils duplizieren. Das Geburtsdatum sollte beispielsweise als Nutzerprofil-Feld mit dem Namen „dob“ an Braze gesendet werden, damit es mit dem Braze-Standardattribut übereinstimmt. Wenn es als „birthday“, „Birthdate“ oder ein anderer String gesendet wird, wird ein angepasstes Attribut erstellt, und die Werte im Feld „dob“ werden nicht aktualisiert.
+Vermeiden Sie das Senden angepasster Attribute, die die Felder des Standard-Nutzerprofils duplizieren. Das Geburtsdatum sollte beispielsweise als Kundenprofil or Nutzerprofil-Feld mit dem Namen „dob“ an Braze gesendet werden, damit es mit dem Braze-Standardattribut übereinstimmt. Wenn es als „birthday“, „Birthdate“ oder ein anderer String gesendet wird, wird ein angepasstes Attribut erstellt, und die Werte im Feld „dob“ werden nicht aktualisiert.
 
 ### Datenpunkte {#data-points}
 
@@ -94,8 +94,8 @@ Amperity verfolgt, was sich zwischen den Synchronisierungen mit Braze ändert un
 
 ### Schritt 1: Konfigurationsdetails für Braze erfassen {#step-1-capture-configuration-details-for-braze}
 
-1. Erstellen Sie einen Braze REST-API-Schlüssel für Ihren Braze-Workspace mit den `users.track`-Berechtigungen unter **User Data**. Der Endpunkt `users.track` synchronisiert die Amperity-Zielgruppe mit Braze als angepasstes Attribut.
-2. Ermitteln Sie den [REST-API-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz. Wenn Ihre Braze-URL beispielsweise `https://dashboard-03.braze.com` lautet, ist Ihr REST-API-Endpunkt `https://rest.iad-03.braze.com` und Ihre Instanz ist „US-03“.
+1. Erstellen Sie einen Braze Representational State Transfer-API-Schlüssel für Ihren Braze-Workspace mit den `users.track`-Berechtigungen unter **User Data**. Der Endpunkt `users.track` synchronisiert die Amperity-Zielgruppe mit Braze als angepasstes Attribut.
+2. Ermitteln Sie den [Representational State Transfer-API-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz. Wenn Ihre Braze-URL beispielsweise `https://dashboard-03.braze.com` lautet, ist Ihr REST-API-Endpunkt `https://rest.iad-03.braze.com` und Ihre Instanz ist „US-03“.
 3. Bestimmen Sie eine Liste von [Nutzerprofilfeldern]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) und [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die von Amperity an Braze gesendet werden können.
 
 ### Schritt 2: Braze als Ziel einrichten – DataGrid Operator {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
@@ -124,7 +124,7 @@ Geben Sie unter **Braze settings** die Braze-Zugangsdaten und die Zieleinstellun
 
 #### Schritt 2e: Daten-Template hinzufügen {#step-2e-add-a-data-template}
 
-Öffnen Sie auf dem Tab **Destinations** das Menü für das Braze-Ziel und wählen Sie **Add data template**. Geben Sie einen Namen und eine Beschreibung für das Template ein (z. B. „Braze“ und „Send custom attributes to Braze“), überprüfen Sie den Zugriff der geschäftlichen Nutzer:innen und kontrollieren Sie alle Konfigurationseinstellungen.
+Öffnen Sie auf dem Tab **Destinations** das Menü für das Braze-Ziel und wählen Sie **Add data template**. Geben Sie einen Namen und eine Beschreibung für das Template ein (z. B. „Braze“ und „Send angepasste Attribute to Braze“), überprüfen Sie den Zugriff der geschäftlichen Nutzer:innen und kontrollieren Sie alle Konfigurationseinstellungen.
 
 Wenn die erforderlichen Einstellungen nicht als Teil des Ziels konfiguriert wurden, konfigurieren Sie sie als Teil des Daten-Templates. Speichern Sie das Daten-Template.
 
@@ -154,7 +154,7 @@ Navigieren Sie zur Abfragefunktion in Amperity und erstellen Sie eine SQL-Abfrag
 2. Geben Sie an, was die Orchestrierung tun soll. Dazu gehört in der Regel die Angabe der SQL-Abfrage, die ausgeführt werden soll, und wohin die Ergebnisse gesendet werden sollen. Wählen Sie in diesem Fall die SQL-Abfrage aus, die Sie erstellt haben, um die Liste der aktiven Kund:innen zu generieren, und geben Sie Braze als Ziel für die Ergebnisse an.
 3. Legen Sie fest, wann und wie oft die Orchestrierung ausgeführt werden soll. Sie können die Orchestrierung zum Beispiel täglich zu einer bestimmten Zeit ausführen.
 4. Speichern Sie die Orchestrierung, nachdem Sie sie nach Ihren Wünschen konfiguriert haben. Sie wird zu Ihrer Liste der Orchestrierungen in Amperity hinzugefügt.
-5. Testen Sie die Orchestrierung, um sicherzustellen, dass sie wie erwartet funktioniert. Sie können dies tun, indem Sie die Orchestrierung manuell triggern und die Ergebnisse in Braze überprüfen.
+5. Testen Sie die Orchestrierung, um sicherzustellen, dass sie wie erwartet funktioniert. Sie können dies tun, indem Sie die Orchestrierung manuell Trigger or triggern or triggern und die Ergebnisse in Braze überprüfen.
 
 ##### Schritt 3: Orchestrierung ausführen {#step-3-run-the-orchestration}
 
@@ -166,7 +166,7 @@ Nutzer:innen von AmpIQ können Segmente in Amperity über eine Nicht-SQL-Schnitt
 
 ##### Schritt 1: Segment in Amperity erstellen {#step-1-create-a-segment-in-amperity}
 
-Erstellen Sie ein Segment in Amperity, das eine Liste von Kund:innen liefert. Dieses Segment sollte mit den angepassten Attributen verknüpft sein, die Sie in Braze aktualisieren möchten.
+Erstellen Sie ein Segment in Amperity, das eine Liste von Kund:innen liefert. Dieses Segment sollte mit den angepassten Attributen verknüpft sein, die Sie in Braze Update or aktualisieren or aktualisieren möchten.
 
 {% alert note %}
 In der Dokumentation von Amperity finden Sie Beispiele für verschiedene Segmenttypen, die Sie möglicherweise an Braze senden möchten.

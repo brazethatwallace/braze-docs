@@ -69,7 +69,7 @@ Canvas에 대해 더 알아보려면 아래 추가 자료를 확인하세요:
 | [모바일 푸시]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)                   | 사용자의 모바일 기기에 알림으로 직접 메시지를 전달합니다.                                                                                   |
 | [웹 푸시]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)                         | 사용자가 웹사이트를 활발히 사용하지 않을 때도 웹 브라우저로 알림을 전달합니다.                                                         |
 | [In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages)    | 사용자가 모바일 앱을 활발히 사용하는 동안 앱 내에서 메시지를 표시합니다.                                                                             |
-| [SMS, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)*                   | 사용자의 모바일 폰으로 문자 메시지를 보냅니다.                                                                                                            |
+| [단문 메시지 서비스, MMS, RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)*                   | 사용자의 모바일 폰으로 문자 메시지를 보냅니다.                                                                                                            |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)*              | 인기 메시징 플랫폼인 WhatsApp을 통해 메시지를 보내 사용자에게 도달하고 참여를 유도합니다.                                                   |
 | [배너]({{site.baseurl}}/user_guide/channels/banners)*       | 앱이나 웹사이트에 메시지를 직접 삽입합니다. |
 | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)*       | 앱이나 웹사이트 내에 사용자가 메시지를 수신하고 상호작용할 수 있는 받은편지함을 제공하거나, 캐러셀, 배너 등으로 메시지를 표시합니다. |
@@ -81,5 +81,5 @@ Canvas에 대해 더 알아보려면 아래 추가 자료를 확인하세요:
 <sup>*애드온 기능으로 제공됩니다.*</sup>
 
 {% alert tip %}
-대부분의 채널(이메일, SMS, 푸시)을 통해 전달할 수 있는 짧고 긴급한 메시지의 경우, [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 필터를 활용하여 각 사용자에게 가장 적합한 채널을 통해 자동으로 메시지를 보내세요.
+대부분의 채널(이메일, 단문 메시지 서비스, 푸시)을 통해 전달할 수 있는 짧고 긴급한 메시지의 경우, [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 필터를 활용하여 각 사용자에게 가장 적합한 채널을 통해 자동으로 메시지를 보내세요.
 {% endalert %}

@@ -3,12 +3,12 @@ nav_title: Atributos de Campaign y Canvas en distintas fuentes
 article_title: Atributos de Campaign y Canvas en distintas fuentes
 page_order: 1.5
 page_type: reference
-description: "Este artículo de referencia compara los nombres e ID de atributos de Campaign y Canvas en Liquid, la REST API y Currents."
+description: "Este artículo de referencia compara los nombres e ID de atributos de Campaign y Canvas en Liquid, la REST or transferencia de estado representacional API y Currents."
 ---
 
 # Atributos de Campaign y Canvas en distintas fuentes {#campaign-and-canvas-attributes-across-sources}
 
-> Los nombres e ID de Campaign, Canvas y pasos en Canvas están disponibles en Liquid, la REST API de Braze y Currents. Estos atributos se corresponden con el mismo valor en las tres fuentes, pero pueden tener nombres diferentes. Usa esta página para establecer las conexiones entre las tres.
+> Los nombres e ID de Campaign, Canvas y pasos en Canvas están disponibles en Liquid, la REST or transferencia de estado representacional API de Braze y Currents. Estos atributos se corresponden con el mismo valor en las tres fuentes, pero pueden tener nombres diferentes. Usa esta página para establecer las conexiones entre las tres.
 
 ## Casos de uso {#use-cases}
 
@@ -16,9 +16,9 @@ description: "Este artículo de referencia compara los nombres e ID de atributos
 
 Los atributos de Campaign y Canvas están disponibles como etiquetas de Liquid en el dashboard {% raw %}(como `{{campaign.${api_id}}}`){% endraw %}. Usa Liquid para pasar estos atributos en el propio mensaje, en una llamada de contenido conectado o como pares clave-valor. Esto se hace normalmente con fines de seguimiento.
 
-### REST API
+### REST or transferencia de estado representacional API
 
-Los atributos de Campaign y Canvas también están disponibles en el [punto de conexión Exportar detalles de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) o en el [punto de conexión Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details). Usa la REST API de Braze para crear mapeados, es decir, una lista de todos los nombres de Canvas y sus ID correspondientes.
+Los atributos de Campaign y Canvas también están disponibles en el [punto de conexión Exportar detalles de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) o en el [punto de conexión Exportar detalles de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details). Usa la REST or transferencia de estado representacional API de Braze para crear mapeados, es decir, una lista de todos los nombres de Canvas y sus ID correspondientes.
 
 ### Currents
 
@@ -26,7 +26,7 @@ Los atributos de Campaign y Canvas están vinculados a los [eventos de interacci
 
 ## Atributos de Campaign {#campaign-attributes}
 
-| Atributo | Liquid | REST API | Currents |
+| Atributo | Liquid | REST or transferencia de estado representacional API | Currents |
 | --- | --- | --- | --- |
 | Nombre de Campaign | {% raw %}`{{campaign.${name}}}`{% endraw %} | `name` | `campaign_name` |
 | ID de Campaign | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A (se usa como entrada para la propia llamada a la API) | campaign_id |
@@ -36,7 +36,7 @@ Los atributos de Campaign y Canvas están vinculados a los [eventos de interacci
 
 ## Atributos de Canvas {#canvas-attributes}
 
-| Atributo | Liquid | REST API | Currents |
+| Atributo | Liquid | REST or transferencia de estado representacional API | Currents |
 | --- | --- | --- | --- |
 | Nombre de Canvas | {% raw %}`{{canvas.${name}}}`{% endraw %} | `name` | `canvas_name` |
 | ID de Canvas | {% raw %}`{{canvas.${api_id}}}`{% endraw %} | N/A (se usa como entrada para la propia llamada a la API) | canvas_id |

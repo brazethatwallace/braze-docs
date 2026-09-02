@@ -1,14 +1,14 @@
 ---
 page_order: 4
 nav_title: Stories por push
-article_title: Configure histórias de push para o SDK do Braze
+article_title: Configure histórias de push para o SDK or kit de desenvolvimento de software do Braze
 channel:
   - push notifications
 ---
 
 # Stories por push
 
-> Aprenda como configurar histórias de push para o SDK do Braze.
+> Aprenda como configurar histórias de push para o SDK or kit de desenvolvimento de software do Braze.
 
 {% sdktabs %}
 {% sdktab swift %}
@@ -19,7 +19,7 @@ channel:
 {% multi_lang_include developer_guide/cordova/push_notifications/push_stories.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/push_notifications/push_stories.md %}
 {% endsdktab %}
 {% endsdktabs %}

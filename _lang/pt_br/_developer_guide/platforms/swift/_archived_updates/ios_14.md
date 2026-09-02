@@ -1,16 +1,16 @@
 ---
 nav_title: Guia para fazer upgrade do iOS 14
-article_title: Guia de atualização do SDK do iOS 14
+article_title: Guia de atualização do SDK or kit de desenvolvimento de software do iOS 14
 page_order: 7
 platform: iOS
-description: "Este artigo de referência aborda a atualização do SDK do iOS 14, destacando alterações como geofences, direcionamento de local, IDFA e muito mais."
+description: "Este artigo de referência aborda a atualização do SDK or kit de desenvolvimento de software do iOS 14, destacando alterações como geofences, direcionamento de local, IDFA e muito mais."
 hidden: true
 noindex: true
 ---
 
-# Guia de atualização do SDK do iOS 14 {#ios-14-sdk-upgrade-guide}
+# Guia de atualização do SDK or kit de desenvolvimento de software do iOS 14 {#ios-14-sdk-upgrade-guide}
 
-> Este guia descreve as alterações relacionadas à Braze introduzidas no iOS 14 e as etapas de upgrade necessárias para sua integração de SDK da Braze para iOS. Para obter uma lista completa das novas atualizações do iOS 14, consulte a página da Apple sobre [o iOS 14](https://www.apple.com/ios/ios-14/).
+> Este guia descreve as alterações relacionadas à Braze introduzidas no iOS 14 e as etapas de upgrade necessárias para sua integração de SDK or kit de desenvolvimento de software da Braze para iOS. Para obter uma lista completa das novas atualizações do iOS 14, consulte a página da Apple sobre [o iOS 14](https://www.apple.com/ios/ios-14/).
 
 {% alert tip %}
 A partir do iOS 14.5, a coleta de **IDFA** e [determinados compartilhamentos de dados](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) exigirão o novo prompt de permissão da estrutura [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) ([saiba mais sobre o IDFA](#idfa)).
@@ -20,7 +20,7 @@ A partir do iOS 14.5, a coleta de **IDFA** e [determinados compartilhamentos de 
 
 - Os apps com direcionamento para o iOS 14 / Xcode 12 devem usar nossa [versão oficial do iOS 14](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0).
 - [O iOS não oferece mais suporte a](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geofences para usuários que escolhem a nova permissão de _local aproximado_.
-- O uso dos recursos de direcionamento "Último local conhecido" exigirá uma atualização para o Braze iOS SDK v3.26.1+ para compatibilidade com a permissão de _local aproximado_. Note que, se estiver usando o Xcode 12, será necessário fazer upgrade para, pelo menos, a versão 3.27.0.
+- O uso dos recursos de direcionamento "Último local conhecido" exigirá uma atualização para o Braze iOS SDK or kit de desenvolvimento de software v3.26.1+ para compatibilidade com a permissão de _local aproximado_. Note que, se estiver usando o Xcode 12, será necessário fazer upgrade para, pelo menos, a versão 3.27.0.
 - A partir do iOS 14.5, a coleta de IDFA e [determinados compartilhamentos de dados](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) exigem o novo prompt de permissão da estrutura [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency).
 - Se usar o campo "Rastreamento de anúncios ativado" para direcionamento de Campaigns ou análise de dados, será necessário fazer upgrade para o Xcode 12 e usar a nova estrutura AppTrackingTransparency para informar o status de aceitação dos usuários.
 
@@ -40,9 +40,9 @@ table td {
 
 | Se o seu app usa: | Recomendação para fazer upgrade | Descrição |
 |------|--------|---|
-| Xcode 12 | **Faça upgrade para o iOS SDK v3.27 ou posterior** | Os clientes que usam o Xcode 12 devem usar a versão 3.27.0+ para compatibilidade. Se você tiver algum problema ou dúvida relacionada à nossa compatibilidade com o iOS 14, abra um novo [tópico no GitHub](https://github.com/Appboy/appboy-ios-sdk/issues). |
-| Local mais recente | **Faça upgrade para o iOS SDK v3.26.1 ou posterior** | Se você usa o recurso de direcionamento para o local mais recente e ainda está usando o Xcode 11, deve fazer upgrade para, pelo menos, o iOS SDK v3.26.1, que oferece suporte ao novo recurso de _localização aproximada_. Os SDKs mais antigos não conseguirão coletar o local de forma confiável quando um usuário fizer upgrade para o iOS 14 _e_ escolher a opção "Localização aproximada".<br><br>Mesmo que seu app não seja direcionado ao iOS 14, seus usuários podem fazer upgrade para o iOS 14 e começar a usar a nova opção de precisão de local. Os apps que não fizerem upgrade para o iOS SDK v3.26.1+ não poderão coletar de forma confiável atributos de local quando os usuários fornecerem sua _localização aproximada_ em dispositivos iOS 14. |
-| ID de rastreamento de anúncios IDFA | **Pode ser necessário fazer upgrade para o Xcode 12 e o iOS SDK v3.27** | Em algum momento de 2021, a Apple começará a exigir uma solicitação de permissão para a coleta do IDFA. Nesse momento, os apps deverão fazer upgrade para o Xcode 12 e usar a nova estrutura `AppTrackingTransparency` para continuar coletando o IDFA. Se você passar o IDFA para o SDK da Braze, também deverá fazer upgrade para a versão 3.27.0+ no mesmo momento.<br><br>Os apps que não usarem as novas APIs do iOS 14 não poderão coletar o IDFA e, em vez disso, coletarão um ID em branco (`00000000-0000-0000-0000-000000000000`) depois que a Apple começar a aplicar essa alteração em 2021. Para saber se isso se aplica ou não ao seu app, consulte [os detalhes do IDFA](#idfa). |
+| Xcode 12 | **Faça upgrade para o iOS SDK or kit de desenvolvimento de software v3.27 ou posterior** | Os clientes que usam o Xcode 12 devem usar a versão 3.27.0+ para compatibilidade. Se você tiver algum problema ou dúvida relacionada à nossa compatibilidade com o iOS 14, abra um novo [tópico no GitHub](https://github.com/Appboy/appboy-ios-sdk/issues). |
+| Local mais recente | **Faça upgrade para o iOS SDK or kit de desenvolvimento de software v3.26.1 ou posterior** | Se você usa o recurso de direcionamento para o local mais recente e ainda está usando o Xcode 11, deve fazer upgrade para, pelo menos, o iOS SDK or kit de desenvolvimento de software v3.26.1, que oferece suporte ao novo recurso de _localização aproximada_. Os SDKs mais antigos não conseguirão coletar o local de forma confiável quando um usuário fizer upgrade para o iOS 14 _e_ escolher a opção "Localização aproximada".<br><br>Mesmo que seu app não seja direcionado ao iOS 14, seus usuários podem fazer upgrade para o iOS 14 e começar a usar a nova opção de precisão de local. Os apps que não fizerem upgrade para o iOS SDK or kit de desenvolvimento de software v3.26.1+ não poderão coletar de forma confiável atributos de local quando os usuários fornecerem sua _localização aproximada_ em dispositivos iOS 14. |
+| ID de rastreamento de anúncios IDFA | **Pode ser necessário fazer upgrade para o Xcode 12 e o iOS SDK or kit de desenvolvimento de software v3.27** | Em algum momento de 2021, a Apple começará a exigir uma solicitação de permissão para a coleta do IDFA. Nesse momento, os apps deverão fazer upgrade para o Xcode 12 e usar a nova estrutura `AppTrackingTransparency` para continuar coletando o IDFA. Se você passar o IDFA para o SDK or kit de desenvolvimento de software da Braze, também deverá fazer upgrade para a versão 3.27.0+ no mesmo momento.<br><br>Os apps que não usarem as novas APIs do iOS 14 não poderão coletar o IDFA e, em vez disso, coletarão um ID em branco (`00000000-0000-0000-0000-000000000000`) depois que a Apple começar a aplicar essa alteração em 2021. Para saber se isso se aplica ou não ao seu app, consulte [os detalhes do IDFA](#idfa). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resumo do upgrade" }
 
 
@@ -58,13 +58,13 @@ Ao solicitar permissão de localização, os usuários agora terão a opção de
 
 #### Geofences {#geofences}
 
-[O iOS não oferece mais suporte a](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geofences para usuários que escolhem a nova permissão de _local aproximado_. Embora não sejam necessárias atualizações para a integração do SDK da Braze, talvez seja necessário ajustar sua [estratégia de marketing baseada em local](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) para Campaigns que dependem de geofences.
+[O iOS não oferece mais suporte a](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geofences para usuários que escolhem a nova permissão de _local aproximado_. Embora não sejam necessárias atualizações para a integração do SDK or kit de desenvolvimento de software da Braze, talvez seja necessário ajustar sua [estratégia de marketing baseada em local](https://www.braze.com/blog/geofencing-geo-targeting-beaconing-when-to-use/) para Campaigns que dependem de geofences.
 
 #### Direcionamento para a localização {#location-tracking}
 
-Para continuar a coletar a _última localização conhecida_ dos usuários quando _a localização aproximada_ for informada, seu app precisará fazer upgrade para, no mínimo, a versão 3.26.1 do SDK da Braze para iOS. Lembre-se de que o local será menos preciso e, com base em nossos testes, tem sido de mais de 12.000 metros (mais de 7 milhas). Ao usar as opções de direcionamento do _último local conhecido_ no dashboard da Braze, certifique-se de aumentar o raio do local para levar em conta os novos _locais aproximados_ (recomendamos um raio de pelo menos 1 milha/1,6 km).
+Para continuar a coletar a _última localização conhecida_ dos usuários quando _a localização aproximada_ for informada, seu app precisará fazer upgrade para, no mínimo, a versão 3.26.1 do SDK or kit de desenvolvimento de software da Braze para iOS. Lembre-se de que o local será menos preciso e, com base em nossos testes, tem sido de mais de 12.000 metros (mais de 7 milhas). Ao usar as opções de direcionamento do _último local conhecido_ no dashboard da Braze, certifique-se de aumentar o raio do local para levar em conta os novos _locais aproximados_ (recomendamos um raio de pelo menos 1 milha/1,6 km).
 
-Os apps que não fizerem upgrade do SDK da Braze para iOS para pelo menos a versão 3.26.1 não poderão mais usar o monitoramento de localização quando _a localização aproximada_ for informada em dispositivos iOS 14.
+Os apps que não fizerem upgrade do SDK or kit de desenvolvimento de software da Braze para iOS para pelo menos a versão 3.26.1 não poderão mais usar o monitoramento de localização quando _a localização aproximada_ for informada em dispositivos iOS 14.
 
 Os usuários que já concederam acesso ao local continuarão a fornecer _a localização precisa_ após fazer o upgrade.
 
@@ -89,13 +89,13 @@ Essas atualizações do IDFA entrarão em vigor depois que os usuários finais f
 #### Mudanças na coleta de IDFA da Braze {#changes-to-braze-idfa-collection}
 ![IDFA]({% image_buster /assets/img/ios/ios14-idfa.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
-1. A Braze continuará a permitir que os apps forneçam o valor IDFA de um usuário _ao_ SDK da Braze.
+1. A Braze continuará a permitir que os apps forneçam o valor IDFA de um usuário _ao_ SDK or kit de desenvolvimento de software da Braze.
 
 2. A macro de compilação `ABK_ENABLE_IDFA_COLLECTION`, que compilaria condicionalmente na coleta automática opcional de IDFA, não funcionará mais no iOS 14 e foi removida na versão 3.27.0.
 
 3. Se usar o campo "Rastreamento de anúncios ativado" para direcionamento de Campaigns ou análise de dados, será necessário fazer upgrade para o Xcode 12 e usar a nova estrutura AppTrackingTransparency para informar o status de aceitação dos usuários. O motivo dessa alteração é que, no iOS 14, o antigo campo [`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled) sempre retornará No.
 
-4. Se o seu app tiver usado IDFA ou IDFV como ID externo da Braze, recomendamos fortemente que você migre desses identificadores em favor de um UUID. Para saber mais sobre a migração de IDs externos, consulte nossos [endpoints da API de migração de IDs externos]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
+4. Se o seu app tiver usado IDFA ou IDFV como ID externo da Braze, recomendamos fortemente que você migre desses identificadores em favor de um UUID. Para saber mais sobre a migração de IDs externos, consulte nossos [endpoints da API or interface de programação do aplicativo (API) de migração de IDs externos]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 Leia mais sobre as [atualizações de privacidade](https://developer.apple.com/app-store/user-privacy-and-data-use/) da Apple e a nova [estrutura de transparência de rastreamento de aplicativos](https://developer.apple.com/documentation/apptrackingtransparency).
 
@@ -122,14 +122,14 @@ No _Portal do desenvolvedor da Apple_:
 Ao preencher seu questionário, consulte sua equipe jurídica e considere como o uso da Braze para os seguintes campos pode afetar seus requisitos de divulgação.
 
 #### Coleta de dados padrão da Braze {#braze-default-data-collection}
-**Identificadores** - Um identificador de dispositivo anônimo é sempre coletado pelo SDK da Braze. Atualmente, está definido como o IDFV (identificador do fornecedor) do dispositivo.
+**Identificadores** - Um identificador de dispositivo anônimo é sempre coletado pelo SDK or kit de desenvolvimento de software da Braze. Atualmente, está definido como o IDFV (identificador do fornecedor) do dispositivo.
 
 **Dados de uso** - Isso pode incluir dados de sessão da Braze, bem como qualquer coleta de evento ou atributo que você use para medir a interação com o produto.
 
 #### Coleta de dados opcional {#optional-data-collection}
 Dados que você pode estar coletando opcionalmente por meio do uso da Braze:
 
-**Localização** - Tanto a localização aproximada quanto o local preciso podem ser coletados opcionalmente pelo SDK da Braze. Esses recursos são desativados por padrão.
+**Localização** - Tanto a localização aproximada quanto o local preciso podem ser coletados opcionalmente pelo SDK or kit de desenvolvimento de software da Braze. Esses recursos são desativados por padrão.
 
 **Informações de contato** - Pode incluir eventos e atributos relacionados à identidade do usuário.
 

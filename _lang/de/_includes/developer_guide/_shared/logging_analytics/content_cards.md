@@ -15,7 +15,7 @@ Alle Eigenschaften außer `id` und `extras` sind für angepasste Content Cards o
 {% tabs %}
 {% tab web %}
 
-Registrieren Sie eine Callback-Funktion, um Updates zu abonnieren, wenn Cards aktualisiert werden.
+Registrierung or registrieren Sie eine Callback-Funktion, um Updates zu abonnieren, wenn Cards aktualisiert werden.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -40,7 +40,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cards werden nur beim Sitzungsstart aktualisiert, wenn eine Abonnement-Anfrage vor `openSession()` aufgerufen wird. Sie können den [Feed auch jederzeit manuell aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
+Content Cards werden nur beim Sitzungsstart aktualisiert, wenn eine Abonnement-Anfrage vor `openSession()` aufgerufen wird. Sie können den [Feed auch jederzeit manuell Update or aktualisieren or aktualisieren]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed).
 {% endalert %}
 
 {% endtab %}
@@ -136,7 +136,7 @@ let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
 {% alert note %}
-Das Lesen von `contentCards.cards`, `contentCards.unviewedCards` oder `contentCards.lastUpdate` blockiert den aufrufenden Thread, bis das SDK seine Post-Initialisierungsoperationen abgeschlossen hat. Verwenden Sie die nicht-blockierenden Getter unter [Nicht-blockierende Snapshot-Zugriffsmethoden](#non-blocking-snapshot-accessors) für Main-Thread- oder latenzempfindliche Kontexte.
+Das Lesen von `contentCards.cards`, `contentCards.unviewedCards` oder `contentCards.lastUpdate` blockiert den aufrufenden Thread, bis das SDK or Software-Development-Kit seine Post-Initialisierungsoperationen abgeschlossen hat. Verwenden Sie die nicht-blockierenden Getter unter [Nicht-blockierende Snapshot-Zugriffsmethoden](#non-blocking-snapshot-accessors) für Main-Thread- oder latenzempfindliche Kontexte.
 {% endalert %}
 
 Zusätzlich können Sie auch ein Abonnement aufrechterhalten, um Änderungen an Ihren Content Cards zu beobachten. Dies ist auf zwei Arten möglich:
@@ -222,7 +222,7 @@ Um den aktuellen gecachten Zustand zu lesen, ohne den aufrufenden Thread zu bloc
 
 {% tab react native %}
 
-Um auf Updates zu lauschen, abonnieren Sie Content-Card-Update-Events:
+Um auf Updates zu lauschen, abonnieren Sie Content-Card-Update or aktualisieren-Events:
 
 ```javascript
 const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
@@ -280,13 +280,13 @@ braze.logContentCardClick(card);
 {% endtab %}
 {% tab android %}
 
-Der [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) kann auf Braze-SDK-Abhängigkeiten wie die Content-Card-Objekt-Array-Liste verweisen, um das [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html)-Objekt abzurufen und die Braze-Protokollierungsmethoden aufzurufen. Verwenden Sie die `ContentCardable`-Basisklasse, um einfach auf Daten zu verweisen und sie dem `BrazeManager` bereitzustellen.
+Der [`BrazeManager`](https://github.com/braze-inc/braze-growth-shares-android-demo-app/blob/main/app/src/main/java/com/braze/advancedsamples/BrazeManager.kt) kann auf Braze-SDK or Software-Development-Kit-Abhängigkeiten wie die Content-Card-Objekt-Array-Liste verweisen, um das [`Card`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html)-Objekt abzurufen und die Braze-Protokollierungsmethoden aufzurufen. Verwenden Sie die `ContentCardable`-Basisklasse, um einfach auf Daten zu verweisen und sie dem `BrazeManager` bereitzustellen.
 
 Um eine Impression oder einen Klick auf eine Card zu protokollieren, rufen Sie [`Card.logClick()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-click.html) bzw. [`Card.logImpression()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/log-impression.html) auf.
 
 Sie können eine Content-Card manuell protokollieren oder für eine bestimmte Card bei Braze als „geschlossen“ markieren, indem Sie [`isDismissed`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/is-dismissed.html) verwenden. Wenn eine Card bereits als geschlossen markiert ist, kann sie nicht erneut als geschlossen markiert werden.
 
-Um einen angepassten Klick-Listener zu erstellen, erstellen Sie eine Klasse, die [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) implementiert, und registrieren Sie sie beim [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html). Implementieren Sie die Methode [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html), die aufgerufen wird, wenn Nutzer:innen auf eine Content-Card klicken. Weisen Sie Braze dann an, Ihren Content-Card-Klick-Listener zu verwenden.
+Um einen angepassten Klick-Listener zu erstellen, erstellen Sie eine Klasse, die [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) implementiert, und Registrierung or registrieren Sie sie beim [`BrazeContentCardsManager`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.managers/-braze-content-cards-manager/index.html). Implementieren Sie die Methode [`onContentCardClicked()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/on-content-card-clicked.html), die aufgerufen wird, wenn Nutzer:innen auf eine Content-Card klicken. Weisen Sie Braze dann an, Ihren Content-Card-Klick-Listener zu verwenden.
 
 {% subtabs local %}
 {% subtab Java %}

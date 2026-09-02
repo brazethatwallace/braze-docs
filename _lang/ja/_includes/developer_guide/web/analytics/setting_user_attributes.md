@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Google Tag Managerを使用する場合、標準ユーザー属性（ユーザーの名など）はカスタムユーザー属性と同じ方法で記録する必要があります。標準属性に渡す値が、[Userクラス](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html)のドキュメントで指定されている期待されるフォーマットと一致していることを確認してください。
+{% tab Google Tag マネージャー %}
+Google Tag マネージャーを使用する場合、標準ユーザー属性（ユーザーの名など）はカスタムユーザー属性と同じ方法で記録する必要があります。標準属性に渡す値が、[Userクラス](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html)のドキュメントで指定されている期待されるフォーマットと一致していることを確認してください。
 
 たとえば、性別属性は値として`"m" | "f" | "o" | "u" | "n" | "p"`のいずれかを受け付けます。そのため、ユーザーの性別を女性に設定するには、以下の内容でカスタムHTMLタグを作成します。
 
@@ -166,8 +166,8 @@ Brazeに渡される日付は、JavaScriptのDateオブジェクトでなけれ�
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
-Google Tag Managerのスクリプト言語の制限により、カスタムユーザー属性は利用できません。カスタム属性を記録するには、以下の内容でカスタムHTMLタグを作成してください:
+{% tab Google Tag マネージャー %}
+Google Tag マネージャーのスクリプト言語の制限により、カスタムユーザー属性は利用できません。カスタム属性を記録するには、以下の内容でカスタムHTMLタグを作成してください:
 
 ```html
 <script>

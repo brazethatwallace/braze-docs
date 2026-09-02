@@ -24,7 +24,7 @@ Para usar a Voucherify com a Braze, você precisará de:
 
 - Uma conta Voucherify
 - Uma conta Braze
-- Credenciais de API da Voucherify
+- Credenciais de API or interface de programação do aplicativo (API) da Voucherify
 - Acesso ao Conteúdo conectado da Braze, atributos personalizados, ou ambos
 
 ## Visão geral da integração {#integration-overview}

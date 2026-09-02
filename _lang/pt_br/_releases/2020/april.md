@@ -33,9 +33,9 @@ Observe que todos os clientes que atualmente usam o Facebook Custom Audiences de
 {% endalert%}
 
 
-## Atualizações da API do bloco de conteúdo e do modelo de e-mail {#content-block-and-email-template-api-updates}
+## Atualizações da API or interface de programação do aplicativo (API) do bloco de conteúdo e do modelo de e-mail {#content-block-and-email-template-api-updates}
 
-Os endpoints da API [template/email/list]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) e [content_block/list]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) foram atualizados para incluir um novo campo `tags`. Esse campo listará, como uma matriz, todas as tags que se aplicam ao bloco ou modelo de e-mail atual.
+Os endpoints da API or interface de programação do aplicativo (API) [template/email/list]({{site.baseurl}}/api/endpoints/templates/email_templates/get_list_email_templates/) e [content_block/list]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks/) foram atualizados para incluir um novo campo `tags`. Esse campo listará, como uma matriz, todas as tags que se aplicam ao bloco ou modelo de e-mail atual.
 
 ## Endereço de remetente personalizado {#personalized-from-address}
 

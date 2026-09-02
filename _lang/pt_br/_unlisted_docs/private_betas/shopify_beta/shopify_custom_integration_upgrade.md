@@ -25,7 +25,7 @@ Antes de começar, revise o seguinte:
 | Requisito           | Descrição |
 |-----------------------|-------------|
 | **Mudanças críticas**  | Certifique-se de ter revisado todas as mudanças importantes do conector legado para o novo conector em [Visão geral do upgrade do Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection). |
-| **Pré-requisitos de upgrade** | Certifique-se de ter concluído todos os [pré-requisitos de upgrade]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necessários com suas equipes de engenharia e marketing. Para fazer upgrade da sua loja headless do Shopify com a Braze, você precisa concluir duas etapas críticas:<br><br>- Inicializar e carregar o SDK para web da Braze para ativar o rastreamento no site<br>- Fazer upgrade da sua loja existente por meio da experiência de upgrade no produto |
+| **Pré-requisitos de upgrade** | Certifique-se de ter concluído todos os [pré-requisitos de upgrade]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necessários com suas equipes de engenharia e marketing. Para fazer upgrade da sua loja headless do Shopify com a Braze, você precisa concluir duas etapas críticas:<br><br>- Inicializar e carregar o SDK or kit de desenvolvimento de software para web da Braze para ativar o rastreamento no site<br>- Fazer upgrade da sua loja existente por meio da experiência de upgrade no produto |
 | **Mudanças que causam interrupção**  | Revise e corrija todas as mudanças que causam interrupção sinalizadas na Braze. Para um passo a passo completo, continue em [Corrigindo mudanças que causam interrupção](#fixing-breaking-changes-fixing-breaking-changes). |
 {: .reset-td-br-1 .reset-td-br-2  role="presentation"}
 
@@ -75,9 +75,9 @@ Quando o upgrade for concluído, novos grupos de inscrições padrão serão cri
 É essencial que você [corrija todas as alterações de quebra](#fixing-breaking-changes) antes de iniciar o upgrade.
 {% endalert %}
 
-### Etapa 1: Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site {#step-1}
+### Etapa 1: Inicializar e carregar o Braze Web SDK or kit de desenvolvimento de software para ativar o rastreamento no site {#step-1}
 
-Se ainda não fez isso, inicialize e carregue o Braze Web SDK para ativar o rastreamento no site. Para um passo a passo completo, consulte [Configuração de integração personalizada do Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
+Se ainda não fez isso, inicialize e carregue o Braze Web SDK or kit de desenvolvimento de software para ativar o rastreamento no site. Para um passo a passo completo, consulte [Configuração de integração personalizada do Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration#step-1):
 - Criar um app web na Braze
 - Adicionar subdomínio e variáveis de ambiente
 - Ativar o rastreamento no site
@@ -141,7 +141,7 @@ Se você selecionou um tipo de ID externo personalizado, prossiga para as etapas
 Após a criação do metafield, preencha-o para seus clientes. Recomendamos as seguintes abordagens:
 
 - **Escutar webhooks de criação de clientes:** Configure um webhook para escutar [eventos `customer/create`](https://help.shopify.com/en/manual/fulfillment/setup/notifications/webhooks). Isso permite que você grave o metafield quando um novo cliente for criado.
-- **Preencher retroativamente clientes existentes:** Use a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher retroativamente o metafield de clientes criados anteriormente.
+- **Preencher retroativamente clientes existentes:** Use a [Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para preencher retroativamente o metafield de clientes criados anteriormente.
 
 #### Etapa 4.2: Criar um endpoint para recuperar o ID externo {#step-42-create-an-endpoint-to-retrieve-your-external-id}
 
@@ -176,7 +176,7 @@ A Braze espera um código de status `200`. Qualquer outro código é considerado
 {% endraw %}
 
 {% alert important %}
-É importante validar que o `shopify_customer_id` e o `email_address` correspondem aos valores do cliente no Shopify. Você pode usar a [Admin API](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metafield `braze.external_id`.
+É importante validar que o `shopify_customer_id` e o `email_address` correspondem aos valores do cliente no Shopify. Você pode usar a [Admin API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-graphql) ou a [Customer API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/admin-rest/2025-04/resources/customer) para validar esses parâmetros e recuperar o metafield `braze.external_id`.
 {% endalert %}
 
 #### Etapa 4.3: Inserir o ID externo {#step-43-input-your-external-id}

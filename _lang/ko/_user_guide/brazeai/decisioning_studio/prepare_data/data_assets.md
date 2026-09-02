@@ -36,7 +36,7 @@ Decisioning Studio가 고객 참여 플랫폼(예: Braze 또는 Salesforce Marke
 - 지역(업종 및 개인정보 보호 요건에 따라 허용되는 경우)
 - 획득 채널(예: 웹, 전화, 매장)
 - 만족도 또는 감성 점수
-- 모델 기반 점수(예: 고객이탈 성향, 생애주기 가치 추정치)
+- 모델 기반 점수(예: 고객이탈 성향, LTV or 생애주기 가치 추정치)
 - 로열티 등급 또는 프로그램 멤버십
 
 ### 활성화 및 참여 데이터 {#activation-and-engagement-data}
@@ -79,7 +79,7 @@ Decisioning Studio가 고객 참여 플랫폼(예: Braze 또는 Salesforce Marke
 
 ### 기타 마케팅 참여 {#other-marketing-engagement}
 
-- Decisioning Studio 추천 외에 발송된 아웃바운드 커뮤니케이션(예: 이메일, SMS)
+- Decisioning Studio 추천 외에 발송된 아웃바운드 커뮤니케이션(예: 이메일, 단문 메시지 서비스)
 - Decisioning Studio에 의해 트리거되지 않은 이메일 참여(예: 열기, 클릭)
 - 설문조사 응답(예: 순고객추천지수 점수, 참여 설문조사)
 - 웹 및 모바일 앱 활동(예: 탐색한 페이지, 조회한 제품)

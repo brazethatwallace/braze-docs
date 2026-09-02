@@ -16,7 +16,7 @@ page_order: 7
 
 - Reorientar a tus usuarios existentes en The Trade Desk con campañas personalizadas.
 - Enviar datos propios a The Trade Desk para segmentación por exclusión.
-- Sincronizar usuarios con audiencias nuevas o existentes o segmentos de datos de CRM.
+- Sincronizar usuarios con audiencias nuevas o existentes o segmentos de datos de CRM or administración de las relaciones con el cliente.
 
 ## Requisitos previos {#prerequisites}
 
@@ -25,7 +25,7 @@ Asegúrate de tener los siguientes elementos creados, completados o aceptados an
 | Requisito | Origin | Descripción |
 | --- | --- | --- |
 | Token de API | [The Trade Desk](https://partner.thetradedesk.com/v3/portal/api/doc/Authentication#ui-method-create) | Un token de API estándar creado en la plataforma de The Trade Desk. Recomendamos configurar la duración del token de API en hasta un año para evitar interrupciones mínimas en tus Canvas con The Trade Desk Audience Sync. |
-| Términos y políticas de The Trade Desk | The Trade Desk | Debes aceptar una política de participación de UID2/CRM antes de que se te habilite para enviar datos a The Trade Desk. Ponte en contacto con tu representante en The Trade Desk para confirmar que tienes la firma adecuada para habilitar la entrega de datos a The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirma que el acceso a la gestión de datos de CRM está habilitado en tu cuenta&#8212;tu representante en The Trade Desk puede ayudarte con esto. Debes tener tu ID de anunciante.</li><li>Ten listo tu token de API estándar. Puedes seguir las instrucciones de esta página para generar uno.</li></ul>{:/} |
+| Términos y políticas de The Trade Desk | The Trade Desk | Debes aceptar una política de participación de UID2/CRM or administración de las relaciones con el cliente antes de que se te habilite para enviar datos a The Trade Desk. Ponte en contacto con tu representante en The Trade Desk para confirmar que tienes la firma adecuada para habilitar la entrega de datos a The Trade Desk.<br><br> {::nomarkdown}<ul><li>Confirma que el acceso a la gestión de datos de CRM or administración de las relaciones con el cliente está habilitado en tu cuenta&#8212;tu representante en The Trade Desk puede ayudarte con esto. Debes tener tu ID de anunciante.</li><li>Ten listo tu token de API estándar. Puedes seguir las instrucciones de esta página para generar uno.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -85,7 +85,7 @@ Puede tardar hasta 24 horas.
 
 ### ¿Cuál es el tamaño mínimo de audiencia para que The Trade Desk la llene dentro de tu cuenta de anuncios? {#what-is-the-minimum-audience-size-for-the-trade-desk-to-populate-within-your-ad-account}
 
-No hay un tamaño mínimo de audiencia para las audiencias de CRM en The Trade Desk.
+No hay un tamaño mínimo de audiencia para las audiencias de CRM or administración de las relaciones con el cliente en The Trade Desk.
 
 ### ¿Cómo sé si los usuarios han coincidido después de enviarlos a The Trade Desk? {#how-do-i-know-if-users-have-matched-after-passing-users-to-the-trade-desk}
 

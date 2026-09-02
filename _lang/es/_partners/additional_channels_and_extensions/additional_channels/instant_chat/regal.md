@@ -15,7 +15,7 @@ _Esta integración es mantenida por Regal._
 
 Al integrar Regal con Braze, puedes unificar datos de comportamiento e IA conversacional para orquestar recorridos del cliente personalizados y omnicanal. Braze captura señales a lo largo del ciclo de vida del cliente, que Regal utiliza para potenciar conversaciones con agentes de IA, enrutamiento y decisiones en tiempo real.
 
-Usa datos de Braze para dar forma a lo que dicen tus agentes de IA, cómo responden y cuándo interactuar. Envía resultados de conversaciones e información de vuelta a Braze para mejorar la segmentación y el marketing del ciclo de vida. Desencadena llamadas y SMS impulsados por IA en momentos clave del recorrido del cliente, y haz seguimiento en Braze en función de lo que ocurra en cada conversación.
+Usa datos de Braze para dar forma a lo que dicen tus agentes de IA, cómo responden y cuándo interactuar. Envía resultados de conversaciones e información de vuelta a Braze para mejorar la segmentación y el marketing del ciclo de vida. Desencadena llamadas y servicio de mensajes cortos impulsados por IA en momentos clave del recorrido del cliente, y haz seguimiento en Braze en función de lo que ocurra en cada conversación.
 
 ## Requisitos previos {#prerequisites}
 
@@ -54,7 +54,7 @@ Regal también requiere un encabezado HTTP para autorización y un método HTTP.
 
 #### Cuerpo de la solicitud {#request-body}
 
-El único identificador obligatorio es un número de teléfono dentro de `traits.phones`. Usa el objeto `traits.phones` para asociar uno o más números de teléfono con un contacto. Cada número de teléfono puede almacenar su propia etiqueta, designación principal y estado de adhesión voluntaria de voz y SMS. Esta estructura es especialmente útil cuando un contacto tiene múltiples números de teléfono.
+El único identificador obligatorio es un número de teléfono dentro de `traits.phones`. Usa el objeto `traits.phones` para asociar uno o más números de teléfono con un contacto. Cada número de teléfono puede almacenar su propia etiqueta, designación principal y estado de adhesión voluntaria de voz y servicio de mensajes cortos. Esta estructura es especialmente útil cuando un contacto tiene múltiples números de teléfono.
 
 ```json
 {
@@ -108,7 +108,7 @@ El único identificador obligatorio es un número de teléfono dentro de `traits
 }
 ```
 
-Este ejemplo de carga útil asume que los números de teléfono indicados incluyen el estado actual de consentimiento de voz y SMS. Si no es así, puedes omitir `voiceOptIn` y `smsOptIn` al crear el contacto y configurar un Canvas o Campaign separado para actualizar el consentimiento en el número de teléfono correspondiente cuando se recopile la adhesión voluntaria.
+Este ejemplo de carga útil asume que los números de teléfono indicados incluyen el estado actual de consentimiento de voz y servicio de mensajes cortos. Si no es así, puedes omitir `voiceOptIn` y `smsOptIn` al crear el contacto y configurar un Canvas o Campaign separado para actualizar el consentimiento en el número de teléfono correspondiente cuando se recopile la adhesión voluntaria.
 
 ### Paso 2: Actualizar la información de adhesión voluntaria {#step-2-update-opt-in-information}
 

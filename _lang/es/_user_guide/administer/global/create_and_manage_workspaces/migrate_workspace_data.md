@@ -8,7 +8,7 @@ description: "Descubre cómo se aíslan los datos del espacio de trabajo, qué p
 
 # Migrar datos entre espacios de trabajo e instancias {#migrate-data-between-workspaces-and-instances}
 
-> Los espacios de trabajo mantienen tus datos de Braze separados. Esta página explica cómo ese aislamiento afecta a la migración, qué puedes mover con las características del producto y las API, y qué necesitas reconstruir o gestionar fuera de Braze. La migración suele ser un esfuerzo multifuncional, no solo una tarea del administrador de la empresa. Los administradores suelen encargarse de la configuración del espacio de trabajo y la configuración de canales; los desarrolladores gestionan los cambios en el SDK y la API; los especialistas en marketing reconstruyen los segmentos y copian el contenido de mensajería. Cada paso requiere los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) correspondientes en los espacios de trabajo de origen y destino.
+> Los espacios de trabajo mantienen tus datos de Braze separados. Esta página explica cómo ese aislamiento afecta a la migración, qué puedes mover con las características del producto y las API, y qué necesitas reconstruir o gestionar fuera de Braze. La migración suele ser un esfuerzo multifuncional, no solo una tarea del administrador de la empresa. Los administradores suelen encargarse de la configuración del espacio de trabajo y la configuración de canales; los desarrolladores gestionan los cambios en el SDK or kit de desarrollo de software y la API; los especialistas en marketing reconstruyen los segmentos y copian el contenido de mensajería. Cada paso requiere los [permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) correspondientes en los espacios de trabajo de origen y destino.
 
 Todo lo que almacenas en Braze —perfiles de usuario, segmentos, contenido de mensajería e historial de participación— vive dentro de un espacio de trabajo. Un segmento, una Campaign o un Canvas no pueden leer ni dirigirse a datos de otro espacio de trabajo. Los usuarios del panel a menudo utilizan múltiples espacios de trabajo en el mismo panel de la empresa para staging y producción, para diferentes marcas o para divisiones regionales. Esa configuración te da aislamiento, pero también significa que no hay una única acción en el panel que mueva todos los datos de un espacio de trabajo a otro espacio de trabajo o a otra instancia de Braze.
 
@@ -16,14 +16,14 @@ Para contexto de planificación, consulta [Primeros pasos: Espacios de trabajo](
 
 ## Lo que Braze no migra automáticamente entre espacios de trabajo {#what-braze-does-not-automatically-migrate-between-workspaces}
 
-Lo siguiente no se migra de forma masiva cuando apuntas los SDK o las API a un nuevo espacio de trabajo (o a un nuevo entorno de panel de Braze con sus propios espacios de trabajo):
+Lo siguiente no se migra de forma masiva cuando apuntas los SDK or kit de desarrollo de software o las API a un nuevo espacio de trabajo (o a un nuevo entorno de panel de Braze con sus propios espacios de trabajo):
 
 | Área | Comportamiento |
 | --- | --- |
 | **Perfiles de usuario** | Los perfiles no se transfieren como una unidad empaquetada. Recrea o importa usuarios en el espacio de trabajo de destino (consulta [Datos del perfil de usuario](#user-profile-data)). |
 | **Segmentos y filtros** | Las definiciones de segmentos permanecen en el espacio de trabajo de origen. Reconstruye los segmentos en el espacio de trabajo de destino utilizando la misma lógica cuando sea posible. |
 | **Historial de mensajes** | El historial de recepción de Campaigns y Canvas en un perfil está vinculado al espacio de trabajo de origen. No aparece en un nuevo perfil en otro espacio de trabajo a menos que lo modeles tú mismo (por ejemplo, mediante atributos personalizados), como se indica en las [Preguntas frecuentes de incorporación a Braze]({{site.baseurl}}/onboarding_faq). |
-| **Configuración específica del canal** | Los dominios de envío, las suscripciones de SMS, los números de WhatsApp y configuraciones similares tienen alcance de espacio de trabajo. Reconfigúralos en el espacio de trabajo de destino cuando corresponda. |
+| **Configuración específica del canal** | Los dominios de envío, las suscripciones de servicio de mensajes cortos, los números de WhatsApp y configuraciones similares tienen alcance de espacio de trabajo. Reconfigúralos en el espacio de trabajo de destino cuando corresponda. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Lo que Braze no migra automáticamente entre espacios de trabajo" }
 
 {% alert important %}
@@ -40,7 +40,7 @@ Puedes copiar muchas definiciones de Campaigns, Canvas y páginas de destino a o
 
 Enfoques habituales:
 
-- **REST API:** Usa [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para crear o actualizar usuarios en el espacio de trabajo de destino con los identificadores y atributos que necesites. Este es el mismo patrón descrito para [migrar datos de usuario heredados]({{site.baseurl}}/developer_guide/getting_started/integration_overview#migrating-legacy-user-data) al incorporar datos históricos a Braze.
+- **REST or transferencia de estado representacional API:** Usa [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para crear o actualizar usuarios en el espacio de trabajo de destino con los identificadores y atributos que necesites. Este es el mismo patrón descrito para [migrar datos de usuario heredados]({{site.baseurl}}/developer_guide/getting_started/integration_overview#migrating-legacy-user-data) al incorporar datos históricos a Braze.
 - **Importación CSV:** Para importaciones dirigidas por especialistas en marketing, consulta [Importar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) e [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 - **Ingesta de datos en la nube:** Para sincronizar atributos desde un almacén de datos al espacio de trabajo de destino, consulta [Ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 - **Exportaciones desde el espacio de trabajo de origen:** Usa [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) o [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para extraer los datos que tienes permitido mover, y luego mapéalos en `users/track` o CSV para el destino. Respeta tus obligaciones de retención de datos, privacidad y contractuales al exportar y recargar datos.
@@ -51,13 +51,13 @@ La fusión de perfiles duplicados con el endpoint [Fusionar usuarios]({{site.bas
 
 ### Campos de exportación de usuarios que no se mapean a las API estándar de perfil {#user-export-fields-that-dont-map-to-standard-profile-apis}
 
-Cuando reconstruyes usuarios en un espacio de trabajo de destino a partir de una [exportación de usuarios]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), algunos campos de exportación no se pueden escribir de vuelta en los campos estándar de perfil de Braze a través de la REST API o CSV (de la forma en que el SDK y el servidor los rellenan). A menudo puedes conservar los valores como atributos personalizados en su lugar. Ten en cuenta las siguientes limitaciones.
+Cuando reconstruyes usuarios en un espacio de trabajo de destino a partir de una [exportación de usuarios]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier), algunos campos de exportación no se pueden escribir de vuelta en los campos estándar de perfil de Braze a través de la REST or transferencia de estado representacional API o CSV (de la forma en que el SDK or kit de desarrollo de software y el servidor los rellenan). A menudo puedes conservar los valores como atributos personalizados en su lugar. Ten en cuenta las siguientes limitaciones.
 
 #### Información del dispositivo (`devices`) {#device-information-devices}
 
-Los registros de dispositivo en la exportación son rellenados por el SDK. No puedes migrar esos datos a los campos estándar de dispositivo de Braze a través de la REST API.
+Los registros de dispositivo en la exportación son rellenados por el SDK or kit de desarrollo de software. No puedes migrar esos datos a los campos estándar de dispositivo de Braze a través de la REST or transferencia de estado representacional API.
 
-Si necesitas esa información antes de que el usuario inicie una sesión en una aplicación que apunte al espacio de trabajo de destino, envíala como atributos personalizados cuando importes al usuario. Los filtros de segmentación estándar y las referencias de Liquid que dependen de los datos de dispositivo integrados no utilizan la carga útil de dispositivo exportada hasta que el usuario abra una sesión en una instancia de la aplicación conectada al nuevo espacio de trabajo (cuando el SDK actualiza los campos estándar de dispositivo).
+Si necesitas esa información antes de que el usuario inicie una sesión en una aplicación que apunte al espacio de trabajo de destino, envíala como atributos personalizados cuando importes al usuario. Los filtros de segmentación estándar y las referencias de Liquid que dependen de los datos de dispositivo integrados no utilizan la carga útil de dispositivo exportada hasta que el usuario abra una sesión en una instancia de la aplicación conectada al nuevo espacio de trabajo (cuando el SDK or kit de desarrollo de software actualiza los campos estándar de dispositivo).
 
 {% alert note %}
 Esto es independiente de la [migración de tokens de notificaciones push](#push-tokens), que utiliza el campo `push_tokens` en [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
@@ -77,11 +77,11 @@ Si dependes del número anterior para grupos de exclusión o muestreo (por ejemp
 
 #### Campos de atribución de partners (`attributed_*`) {#partner-attribution-fields-attributed_}
 
-Los campos de atribución de integraciones de partners (los campos `attributed_*` en una exportación) no se pueden establecer en los campos estándar de atribución de Braze a través de la REST API. Mapéalos a atributos personalizados en el espacio de trabajo de destino si necesitas conservarlos para segmentación o mensajería.
+Los campos de atribución de integraciones de partners (los campos `attributed_*` en una exportación) no se pueden establecer en los campos estándar de atribución de Braze a través de la REST or transferencia de estado representacional API. Mapéalos a atributos personalizados en el espacio de trabajo de destino si necesitas conservarlos para segmentación o mensajería.
 
 ### Tokens de notificaciones push {#push-tokens}
 
-Cuando los usuarios ya tienen tokens de notificaciones push de un proveedor anterior o una versión anterior de la aplicación, puedes importar tokens para aplicaciones móviles a través de la API, o confiar en el SDK después de la integración. Los tokens de notificaciones push web tienen limitaciones de API. Para detalles completos y ejemplos, consulta [Migrar tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+Cuando los usuarios ya tienen tokens de notificaciones push de un proveedor anterior o una versión anterior de la aplicación, puedes importar tokens para aplicaciones móviles a través de la API, o confiar en el SDK or kit de desarrollo de software después de la integración. Los tokens de notificaciones push web tienen limitaciones de API. Para detalles completos y ejemplos, consulta [Migrar tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 
@@ -91,7 +91,7 @@ Los números de teléfono y los grupos de suscripción se pueden mover entre esp
 
 Si necesitas un registro histórico de envíos, aperturas o clics al consolidar entornos, [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) y otras exportaciones son la forma compatible de llevar esos datos a tu almacén de datos o herramientas. Esos datos no se reingestan en Braze como historial de mensajes nativo por usuario en otro espacio de trabajo.
 
-## Antes de cambiar las claves del SDK o la API {#before-you-change-sdk-or-api-keys}
+## Antes de cambiar las claves del SDK or kit de desarrollo de software o la API {#before-you-change-sdk-or-api-keys}
 
 Cuando hayas apuntado tu aplicación o sitio a un nuevo espacio de trabajo:
 

@@ -112,5 +112,5 @@ Usando una combinación de pasos de Rutas de audiencia y filtros de canal inteli
 Por ejemplo, en un paso de Rutas de audiencia, puedes crear tres audiencias: correo electrónico, push móvil y Todos los demás. Para la audiencia de correo electrónico, añade el filtro `Intelligent Channel is Email`. Para la audiencia de push móvil, añade el filtro `Intelligent Channel is Mobile Push`. Luego, puedes añadir un paso de mensaje para cada una de las rutas de audiencia para entregar mensajes personalizados y relevantes.
 
 {% alert tip %}
-Consulta nuestras [plantillas de Braze Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver ejemplos de cómo puedes personalizar estas plantillas prediseñadas a tu favor.
+Consulta nuestras [plantillas de BRAZE Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) para ver ejemplos de cómo puedes personalizar estas plantillas prediseñadas a tu favor.
 {% endalert %}

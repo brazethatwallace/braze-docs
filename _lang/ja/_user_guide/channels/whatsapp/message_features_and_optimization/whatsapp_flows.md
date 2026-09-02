@@ -25,7 +25,7 @@ channel:
 ![Flowsテンプレートを作成するページが表示されたWhatsApp Manager。]({% image_buster /assets/img/whatsapp/flows/create_flows_template.png %})
 
 {% alert tip %}
-Brazeの[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)を使用して、マーケティングまたはユーティリティのFlowテンプレートを作成することもできます。MetaのWhatsApp ManagerでFlow自体を作成・管理し、Brazeでテンプレートを作成する際にそのFlowを選択します。
+Brazeの[WhatsAppテンプレートビルダー]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/template_builder)を使用して、マーケティングまたはユーティリティのFlowテンプレートを作成することもできます。MetaのWhatsApp マネージャーでFlow自体を作成・管理し、Brazeでテンプレートを作成する際にそのFlowを選択します。
 {% endalert %}
 
 {: start="3"}

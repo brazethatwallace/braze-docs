@@ -125,7 +125,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 | `400` | Validierungsfehler | Stellen Sie sicher, dass `rel_kind` für den Objekttyp gültig ist und `attributes` dem Beziehungsschema entsprechen. |
 | `404` | Beziehung oder Objekt nicht gefunden (`data-object-relationship-not-found`) | Stellen Sie sicher, dass das Objekt, der/die Nutzer:in und die Beziehungsschlüsselwerte alle existieren. |
 | `422` | Objekte-pro-Nutzer:in-Limit erreicht (`data-objects-per-user-limit-exceeded`) oder Nutzer:innen-pro-Objekt-Limit erreicht (`users-per-data-object-limit-exceeded`) | Reduzieren Sie die Anzahl der Beziehungen für den/die Nutzer:in oder das Objekt, oder kontaktieren Sie den Braze-Support bezüglich Ihrer Workspace-Limits. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder Anfrage wird durch Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel die Berechtigung `data_objects.user_relationships.update` hat und dass Ihre Quell-IP auf der Schlüssel-Allowlist steht, sofern konfiguriert. |
 | `429` | Rate-Limit überschritten | Wiederholen Sie die Anfrage nach `X-RateLimit-Reset` und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Ersetzen von Nutzer:innen-Beziehungen" }

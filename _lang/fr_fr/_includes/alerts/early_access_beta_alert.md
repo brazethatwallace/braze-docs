@@ -3,9 +3,9 @@
   Paramètres :
   - feature (requis) : La fonctionnalité ou le sujet, par ex. « Ce endpoint », « Le provisionnement SCIM », « L'intégration Okta »
   - type (facultatif) : "early_access" (par défaut) ou "beta"
-  - contact (facultatif) : La personne à contacter, par ex. "Braze account manager" (par défaut) ou "customer success manager"
+  - contact (facultatif) : La personne à contacter, par ex. "Braze account gestionnaire" (par défaut) ou "CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients or gestionnaire de la satisfaction client or gestionnaire du succès des clients"
 {% endcomment %}
-{% assign contact_role = include.contact | default: "Braze account manager" %}
+{% assign contact_role = include.contact | default: "Braze account gestionnaire" %}
 {% if include.type == "beta" %}
 {% alert important %}
 {{ include.feature }} est actuellement en version bêta. Contactez votre {{ contact_role }} si vous souhaitez participer à la bêta.

@@ -3,20 +3,20 @@ nav_title: Agent starten
 article_title: Agent starten
 page_order: 5
 page_type: reference
-description: "Erfahren Sie, wie Sie Ihren Decisioning Studio Agent starten und den KI-Entscheidungskreislauf für selbstlernende Optimierung schließen."
+description: "Erfahren Sie, wie Sie Ihren Decisioning Studio Agent starten und den KI or künstliche Intelligenz-Entscheidungskreislauf für selbstlernende Optimierung schließen."
 ---
 
 # Agent starten {#launch-your-agent}
 
-> Nachdem Sie Datenquellen verbunden, die Orchestrierung eingerichtet und Ihren Agent entworfen haben, können Sie ihn starten. Dieser Artikel behandelt die Aktivierung Ihres Agents und das Schließen des KI-Entscheidungskreislaufs, damit der Agent kontinuierlich lernen und sich verbessern kann.
+> Nachdem Sie Datenquellen verbunden, die Orchestrierung eingerichtet und Ihren Agent entworfen haben, können Sie ihn starten. Dieser Artikel behandelt die Aktivierung Ihres Agents und das Schließen des KI or künstliche Intelligenz-Entscheidungskreislaufs, damit der Agent kontinuierlich lernen und sich verbessern kann.
 
 ## Schritte zum Starten {#launch-steps}
 
-Nachdem Sie alle Konfigurationsschritte mit Ihrem AI Decisioning Services-Team abgeschlossen haben:
+Nachdem Sie alle Konfigurationsschritte mit Ihrem KI or künstliche Intelligenz Decisioning Services-Team abgeschlossen haben:
 
 1. Überprüfen Sie die Konfiguration Ihres Agents, um sicherzustellen, dass alle Einstellungen korrekt sind.
 2. Stellen Sie sicher, dass Ihre Datenverbindungen und Orchestrierungs-Integrationen aktiv sind.
-3. Arbeiten Sie mit Ihrem AI Decisioning Services-Team zusammen, um den Agent zu aktivieren.
+3. Arbeiten Sie mit Ihrem KI or künstliche Intelligenz Decisioning Services-Team zusammen, um den Agent zu aktivieren.
 
 Nach dem Start wird Ihr Agent:
 - Zielgruppen- und Kundendaten empfangen
@@ -24,7 +24,7 @@ Nach dem Start wird Ihr Agent:
 - Aktionen über Ihre konfigurierte Customer-Engagement-Plattform orchestrieren
 - Feedback-Daten sammeln, um im Laufe der Zeit zu lernen und sich zu verbessern
 
-## Den KI-Entscheidungskreislauf schließen {#close-the-ai-decisioning-loop}
+## Den KI or künstliche Intelligenz-Entscheidungskreislauf schließen {#close-the-ai-decisioning-loop}
 
 Nach dem Start benötigt Ihr Agent Feedback-Daten, um zu lernen und sich zu verbessern. Dazu gehören Conversion-Daten, Engagement-Daten und Aktivierungsdaten, die dem Agent mitteilen, was nach dem Versand der Customer-Engagement-Entscheidungen passiert ist.
 
@@ -36,7 +36,7 @@ Wenn der Agent nativ in die Customer-Engagement-Plattform integriert ist (z. B. 
 
 ## Agent überwachen {#monitor-your-agent}
 
-Arbeiten Sie nach dem Start mit Ihrem AI Decisioning Services-Team zusammen, um die Performance zu überwachen:
+Arbeiten Sie nach dem Start mit Ihrem KI or künstliche Intelligenz Decisioning Services-Team zusammen, um die Performance zu überwachen:
 
 - **Performance-Metriken:** Verfolgen Sie Ihre Erfolgsmetrik über Experimentgruppen hinweg
 - **Lernfortschritt:** Beobachten Sie, wie sich die Empfehlungen des Agents im Laufe der Zeit entwickeln
@@ -44,7 +44,7 @@ Arbeiten Sie nach dem Start mit Ihrem AI Decisioning Services-Team zusammen, um 
 
 ## Laufende Optimierung {#ongoing-optimization}
 
-Ihr AI Decisioning Services-Team wird weiterhin mit Ihnen zusammenarbeiten, um:
+Ihr KI or künstliche Intelligenz Decisioning Services-Team wird weiterhin mit Ihnen zusammenarbeiten, um:
 
 - Die Performance des Agents zu analysieren und Optimierungsmöglichkeiten zu identifizieren
 - Dimensionen oder Optionen nach Bedarf zu erweitern

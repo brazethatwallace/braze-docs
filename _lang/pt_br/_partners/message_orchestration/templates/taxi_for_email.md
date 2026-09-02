@@ -23,7 +23,7 @@ A integração entre a Braze e o Taxi usa a sintaxe simples e poderosa do Taxi p
 | Requisito | Descrição |
 | ------------| ----------- |
 | Conta do Taxi for Email | É necessário ter uma conta do Taxi for Email para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Templates**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
 | Endpoint da Braze | [Seu endpoint da Braze]({{site.baseurl}}/api/basics/#endpoints) está alinhado com a URL do dashboard da Braze.<br><br> Por exemplo, se a URL do dashboard for `https://dashboard-03.braze.com`, seu endpoint será `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -37,7 +37,7 @@ Crie um modelo do Taxi na plataforma Taxi. Depois que o modelo for criado, naveg
 
 1. Na caixa de diálogo exibida, selecione o botão **Add New** e, em seguida, selecione **Braze** na lista suspensa.
 2. Selecione **Braze** para editar as configurações do conector da Braze.
-3. Insira o endpoint da Braze e a chave de API da Braze.
+3. Insira o endpoint da Braze e a chave de API or interface de programação do aplicativo (API) da Braze.
 
 O campo do conector mudará de cor depois que os detalhes com as permissões corretas forem fornecidos. Se esse campo não mudar, verifique se seus campos estão alinhados com os requisitos listados.
 

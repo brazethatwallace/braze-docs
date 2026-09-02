@@ -5,14 +5,14 @@ A partir de abril de 2022, los desarrolladores de Android deberán cumplimentar 
 Como desarrollador de la aplicación, tú controlas qué datos envías a Braze. Los datos recibidos por Braze se procesan de acuerdo con tus instrucciones. Esto es lo que Google clasifica como [proveedor de servicios](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cwhat-kinds-of-activities-can-service-providers-perform).
 
 {% alert important %}
-Este artículo proporciona información sobre los datos que procesa el SDK de Braze en relación con el cuestionario de la sección de seguridad de Google. Este artículo no proporciona asesoramiento jurídico, por lo que te recomendamos que consultes con tu equipo jurídico antes de enviar cualquier información a Google.
+Este artículo proporciona información sobre los datos que procesa el SDK or kit de desarrollo de software de Braze en relación con el cuestionario de la sección de seguridad de Google. Este artículo no proporciona asesoramiento jurídico, por lo que te recomendamos que consultes con tu equipo jurídico antes de enviar cualquier información a Google.
 {% endalert %}
 
 ### Preguntas {#questions}
 
-| Preguntas | Respuestas para el SDK de Braze |
+| Preguntas | Respuestas para el SDK or kit de desarrollo de software de Braze |
 |---|---|
-| ¿Recoge o comparte tu aplicación alguno de los tipos de datos de usuario requeridos? | Sí, el SDK para Android de Braze recopila datos según lo configure el desarrollador de la aplicación. |
+| ¿Recoge o comparte tu aplicación alguno de los tipos de datos de usuario requeridos? | Sí, el SDK or kit de desarrollo de software para Android de Braze recopila datos según lo configure el desarrollador de la aplicación. |
 | ¿Todos los datos de usuario recogidos por tu aplicación están encriptados en tránsito? | Sí. |
 | ¿Proporcionas alguna forma de que los usuarios puedan solicitar que se eliminen sus datos? | Sí. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Preguntas" }
@@ -21,7 +21,7 @@ Para obtener más información sobre la gestión de las solicitudes de los usuar
 
 ### Recopilación de datos {#data-collection}
 
-Los datos recopilados por Braze vienen determinados por tu integración específica y los datos de usuario que elijas recopilar. Para saber más sobre qué datos recopila Braze de manera predeterminada y cómo desactivar determinados atributos, consulta nuestras [opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration).
+Los datos recopilados por Braze vienen determinados por tu integración específica y los datos de usuario que elijas recopilar. Para saber más sobre qué datos recopila Braze de manera predeterminada y cómo desactivar determinados atributos, consulta nuestras [opciones de recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration).
 
 <table aria-label="Recopilación de datos" id="datatypes">
     <thead>
@@ -95,7 +95,7 @@ Los datos recopilados por Braze vienen determinados por tu integración específ
             <td rowspan="2">No se recopila de manera predeterminada.</td>
         </tr>
         <tr>
-            <td>SMS o MMS</td>
+            <td>servicio de mensajes cortos o MMS</td>
         </tr>
         <tr>
             <td>Otros mensajes dentro de la aplicación</td>
@@ -159,7 +159,7 @@ Los datos recopilados por Braze vienen determinados por tu integración específ
         <tr>
             <td rowspan="3">Información y rendimiento de la aplicación</td>
             <td>Registros de errores</td>
-            <td>Braze recopila registros de errores que se producen en el SDK. Contienen el modelo de teléfono del usuario y el nivel de sistema operativo, junto con un ID de usuario específico de Braze.</td>
+            <td>Braze recopila registros de errores que se producen en el SDK or kit de desarrollo de software. Contienen el modelo de teléfono del usuario y el nivel de sistema operativo, junto con un ID de usuario específico de Braze.</td>
         </tr>
         <tr>
             <td>Diagnóstico</td>
@@ -177,11 +177,11 @@ Los datos recopilados por Braze vienen determinados por tu integración específ
     </tbody>
 </table>
 
-Para obtener más información sobre otros datos de dispositivo que Braze recopila y que pueden quedar fuera del ámbito de las directrices de seguridad de datos de Google Play, consulta nuestro [resumen de almacenamiento de Android]({{site.baseurl}}/developer_guide/storage/?tab=android) y nuestras [opciones de recopilación de datos del SDK]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration).
+Para obtener más información sobre otros datos de dispositivo que Braze recopila y que pueden quedar fuera del ámbito de las directrices de seguridad de datos de Google Play, consulta nuestro [resumen de almacenamiento de Android]({{site.baseurl}}/developer_guide/storage/?tab=android) y nuestras [opciones de recopilación de datos del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection#minimum-integration).
 
 ## Desactivar el seguimiento de datos {#disabling-data-tracking}
 
-Para desactivar la actividad de seguimiento de datos en el SDK de Android, utiliza el método [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html). Esto hará que se cancelen todas las conexiones de red, lo que significa que el SDK de Braze ya no enviará ningún dato a los servidores de Braze.
+Para desactivar la actividad de seguimiento de datos en el SDK or kit de desarrollo de software de Android, utiliza el método [`disableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-sdk.html). Esto hará que se cancelen todas las conexiones de red, lo que significa que el SDK or kit de desarrollo de software de Braze ya no enviará ningún dato a los servidores de Braze.
 
 ## Borrar datos almacenados previamente {#wiping-previously-stored-data}
 
@@ -193,14 +193,14 @@ Para reanudar la recopilación de datos, puedes utilizar el método [`enableSDK(
 
 ## Cierre de sesión y cancelación del registro push {#logout-and-unregister-push}
 
-El SDK de Braze proporciona métodos para dejar de segmentar un dispositivo cuando un usuario cancela su registro de notificaciones push o cierra sesión. Estos métodos eliminan los datos de registro push del usuario actual en el servidor de Braze y en el SDK, de modo que Braze ya no envía futuras Campaigns de notificaciones push a ese usuario.
+El SDK or kit de desarrollo de software de Braze proporciona métodos para dejar de segmentar un dispositivo cuando un usuario cancela su registro de notificaciones push o cierra sesión. Estos métodos eliminan los datos de registro push del usuario actual en el servidor de Braze y en el SDK or kit de desarrollo de software, de modo que Braze ya no envía futuras Campaigns de notificaciones push a ese usuario.
 
 ### Cierre de sesión {#logout}
 
-Cuando un usuario cierra sesión en una aplicación, llama al método `logout` del SDK para eliminar el registro push del dispositivo del usuario actual y realizar automáticamente acciones de limpieza en el SDK. El método `logout` realiza lo siguiente:
+Cuando un usuario cierra sesión en una aplicación, llama al método `logout` del SDK or kit de desarrollo de software para eliminar el registro push del dispositivo del usuario actual y realizar automáticamente acciones de limpieza en el SDK or kit de desarrollo de software. El método `logout` realiza lo siguiente:
 
 - Cancela el registro del token push del dispositivo del usuario actual en el servidor de Braze.
-- Si la llamada de cancelación de registro tiene éxito, el SDK borra los datos del SDK almacenados localmente y desactiva el SDK.
+- Si la llamada de cancelación de registro tiene éxito, el SDK or kit de desarrollo de software borra los datos del SDK or kit de desarrollo de software almacenados localmente y desactiva el SDK or kit de desarrollo de software.
 - En caso de fallo, genera un error y un indicador `isRetriable` para permitir al integrador tomar medidas.
 
 El siguiente ejemplo de devolución de llamada muestra el manejo de éxito y error de `logout`. Úsalo para flujos de cierre de sesión basados en devoluciones de llamada, y reemplaza el registro con tu lógica de reintento o reautenticación.
@@ -236,7 +236,7 @@ lifecycleScope.launch {
 
 #### Reactivar el seguimiento y push después de `logout` {#re-enable-tracking-and-push-after-logout}
 
-Después de un `logout` exitoso, reactiva el SDK con [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html), y luego vuelve a registrarte para notificaciones con tu sistema operativo (SO) o proveedor de push siguiendo la [configuración push de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
+Después de un `logout` exitoso, reactiva el SDK or kit de desarrollo de software con [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html), y luego vuelve a registrarte para notificaciones con tu sistema operativo (SO) o proveedor de push siguiendo la [configuración push de Android]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android).
 
 #### Evitar llamadas de cancelación de registro inmediatas {#avoid-immediate-unregister-calls}
 

@@ -4,28 +4,28 @@ article_title: Integration von Browser-Erweiterungen für das Internet
 platform: Web
 page_order: 20
 page_type: reference
-description: "Dieser Artikel beschreibt, wie Sie das Braze Web SDK innerhalb Ihrer Browser-Erweiterungen (Google Chrome, Firefox) verwenden können."
+description: "Dieser Artikel beschreibt, wie Sie das Braze Web SDK or Software-Development-Kit innerhalb Ihrer Browser-Erweiterungen (Google Chrome, Firefox) verwenden können."
 
 ---
 
 # Browser-Erweiterung {#browser-extension}
 
-> Dieser Artikel beschreibt, wie Sie das Braze Web SDK innerhalb Ihrer Browser-Erweiterungen (Google Chrome, Firefox) verwenden können.
+> Dieser Artikel beschreibt, wie Sie das Braze Web SDK or Software-Development-Kit innerhalb Ihrer Browser-Erweiterungen (Google Chrome, Firefox) verwenden können.
 
-Integrieren Sie das Braze Web SDK in Ihre Browser-Erweiterung, um Analytics zu sammeln und Nutzer:innen umfangreiche Nachrichten anzuzeigen. Dazu gehören sowohl **Google Chrome-Erweiterungen** als auch **Firefox-Add-Ons**.
+Integrieren Sie das Braze Web SDK or Software-Development-Kit in Ihre Browser-Erweiterung, um Analytics zu sammeln und Nutzer:innen umfangreiche Nachrichten anzuzeigen. Dazu gehören sowohl **Google Chrome-Erweiterungen** als auch **Firefox-Add-Ons**.
 
 ## Was wird unterstützt {#whats-supported}
 
 Da es sich bei Erweiterungen um HTML und JavaScript handelt, können Sie Braze im Allgemeinen für Folgendes verwenden:
 
 * **Analytics**: Erfassen Sie angepasste Events, Attribute und identifizieren Sie sogar wiederkehrende Nutzer:innen innerhalb Ihrer Erweiterung. Nutzen Sie diese Profileigenschaften, um kanalübergreifendes Messaging zu betreiben.
-* **In-App-Nachrichten**: Triggern Sie In-App-Nachrichten, wenn Nutzer:innen innerhalb Ihrer Erweiterung eine Aktion ausführen, indem Sie unser natives oder angepasstes HTML-Messaging verwenden.
+* **In-App-Nachrichten**: Trigger or triggern or triggern Sie In-App-Nachrichten, wenn Nutzer:innen innerhalb Ihrer Erweiterung eine Aktion ausführen, indem Sie unser natives oder angepasstes HTML-Messaging verwenden.
 * **Content Cards**: Fügen Sie Ihrer Erweiterung einen Feed mit nativen Karten für Onboarding oder Aktionen hinzu.
 * **Web-Push**: Senden Sie zeitnahe Benachrichtigungen, auch wenn Ihre Webseite gerade nicht geöffnet ist.
 
 ## Was nicht unterstützt wird {#whats-not-supported}
 
-* Die Verwendung des Braze SDK innerhalb eines Service Workers wird nicht unterstützt. Sie können das Braze SDK jedoch weiterhin auf der Popup- oder Einstellungsseite Ihrer Erweiterung verwenden. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
+* Die Verwendung des Braze SDK or Software-Development-Kit innerhalb eines Service Workers wird nicht unterstützt. Sie können das Braze SDK or Software-Development-Kit jedoch weiterhin auf der Popup- oder Einstellungsseite Ihrer Erweiterung verwenden. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK or Software-Development-Kit" %}
 
 ## Erweiterungstypen {#extension-types}
 
@@ -40,25 +40,25 @@ Braze kann in den folgenden Bereichen Ihrer Erweiterung eingesetzt werden:
 
 ## Berechtigungen {#permissions}
 
-Für die Integration des Braze SDK (`braze.min.js`) als lokale Datei, die mit Ihrer Erweiterung gebündelt ist, sind in Ihrem `manifest.json` keine zusätzlichen Berechtigungen erforderlich.
+Für die Integration des Braze SDK or Software-Development-Kit (`braze.min.js`) als lokale Datei, die mit Ihrer Erweiterung gebündelt ist, sind in Ihrem `manifest.json` keine zusätzlichen Berechtigungen erforderlich.
 
-Wenn Sie jedoch den [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) verwenden, das Braze SDK von einer externen URL referenzieren oder eine strenge Content Security Policy für Ihre Erweiterung festgelegt haben, müssen Sie die [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)-Einstellung in Ihrer `manifest.json` anpassen, um Remote-Skriptquellen zuzulassen.
+Wenn Sie jedoch den [Google Tag Manager:in]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) verwenden, das Braze SDK or Software-Development-Kit von einer externen URL referenzieren oder eine strenge Content Security Policy für Ihre Erweiterung festgelegt haben, müssen Sie die [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)-Einstellung in Ihrer `manifest.json` anpassen, um Remote-Skriptquellen zuzulassen.
 
 ## Erste Schritte {#getting-started}
 
 {% alert tip %}
-Bevor Sie beginnen, sollten Sie den [Leitfaden zur SDK-Ersteinrichtung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) für das Web SDK lesen, um mehr über unsere JavaScript-Integration im Allgemeinen zu erfahren.  <br><br>Vielleicht möchten Sie auch die [JavaScript SDK-Referenz](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) als Lesezeichen speichern, um alle Einzelheiten zu den verschiedenen SDK-Methoden und Konfigurationsoptionen nachzuschlagen.
+Bevor Sie beginnen, sollten Sie den [Leitfaden zur SDK or Software-Development-Kit-Ersteinrichtung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) für das Web SDK or Software-Development-Kit lesen, um mehr über unsere JavaScript-Integration im Allgemeinen zu erfahren.  <br><br>Vielleicht möchten Sie auch die [JavaScript SDK or Software-Development-Kit-Referenz](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html) als Lesezeichen speichern, um alle Einzelheiten zu den verschiedenen SDK or Software-Development-Kit-Methoden und Konfigurationsoptionen nachzuschlagen.
 {% endalert %}
 
-Um das Braze Web SDK zu integrieren, müssen Sie zunächst eine Kopie der neuesten JavaScript-Bibliothek herunterladen. Dazu können Sie NPM verwenden oder sie direkt vom [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js) herunterladen.
+Um das Braze Web SDK or Software-Development-Kit zu integrieren, müssen Sie zunächst eine Kopie der neuesten JavaScript-Bibliothek herunterladen. Dazu können Sie NPM verwenden oder sie direkt vom [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js) herunterladen.
 
-Wenn Sie es vorziehen, den [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) oder eine extern gehostete Kopie des Braze SDK zu verwenden, beachten Sie bitte, dass Sie für das Laden externer Ressourcen Ihre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)-Einstellung in Ihrem `manifest.json` anpassen müssen.
+Wenn Sie es vorziehen, den [Google Tag Manager:in]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) oder eine extern gehostete Kopie des Braze SDK or Software-Development-Kit zu verwenden, beachten Sie bitte, dass Sie für das Laden externer Ressourcen Ihre [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy)-Einstellung in Ihrem `manifest.json` anpassen müssen.
 
 Kopieren Sie die Datei `braze.min.js` nach dem Download in das Verzeichnis Ihrer Erweiterung.
 
 ### Erweiterungs-Popups {#popup}
 
-Um Braze zu einem Erweiterungs-Popup hinzuzufügen, referenzieren Sie die lokale JavaScript-Datei in Ihrer `popup.html`, wie Sie es bei einer normalen Website tun würden. Wenn Sie Google Tag Manager verwenden, können Sie Braze stattdessen mithilfe unserer [Google Tag Manager-Templates]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) hinzufügen.
+Um Braze zu einem Erweiterungs-Popup hinzuzufügen, referenzieren Sie die lokale JavaScript-Datei in Ihrer `popup.html`, wie Sie es bei einer normalen Website tun würden. Wenn Sie Google Tag Manager:in verwenden, können Sie Braze stattdessen mithilfe unserer [Google Tag Manager:in-Templates]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/) hinzufügen.
 
 ```html
 <html>
@@ -94,7 +94,7 @@ Wenn Sie eine Optionsseite verwenden (über die Manifest-Eigenschaften `options`
 
 ## Initialisierung {#initialization}
 
-Sobald das SDK eingebunden ist, können Sie die Bibliothek wie gewohnt initialisieren.
+Sobald das SDK or Software-Development-Kit eingebunden ist, können Sie die Bibliothek wie gewohnt initialisieren.
 
 Da Cookies in Browser-Erweiterungen nicht unterstützt werden, können Sie Cookies deaktivieren, indem Sie mit `noCookies: true` initialisieren.
 
@@ -106,8 +106,8 @@ braze.initialize("YOUR-API-KEY-HERE", {
 });
 ```
 
-Weitere Informationen zu den unterstützten Initialisierungsoptionen finden Sie in der [Web SDK-Referenz](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
+Weitere Informationen zu den unterstützten Initialisierungsoptionen finden Sie in der [Web SDK or Software-Development-Kit-Referenz](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initialize).
 
 ## Push {#push}
 
-Popup-Dialoge von Erweiterungen erlauben keine Push-Eingabeaufforderungen (sie haben keine URL-Leiste in der Navigation). Um sich innerhalb des Popup-Dialogs einer Erweiterung zu registrieren und Push-Berechtigungen anzufordern, müssen Sie eine alternative Domain-Lösung verwenden, wie unter [Alternative Push-Domain]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/push_notifications/alternate_push_domain) beschrieben.
+Popup-Dialoge von Erweiterungen erlauben keine Push-Eingabeaufforderungen (sie haben keine URL-Leiste in der Navigation). Um sich innerhalb des Popup-Dialogs einer Erweiterung zu Registrierung or registrieren und Push-Berechtigungen anzufordern, müssen Sie eine alternative Domain-Lösung verwenden, wie unter [Alternative Push-Domain]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/push_notifications/alternate_push_domain) beschrieben.

@@ -88,7 +88,7 @@ Para atribuir comportamentos posteriores nas suas próprias ferramentas de anál
 
 Para obter os melhores resultados, use o Otimizador de Conteúdo em Canvas onde os usuários entram na etapa gradualmente e de forma regular ao longo do tempo, como em Canvas recorrentes ou sempre ativos com volume diário consistente. Se todos os usuários entrarem na etapa de uma vez, o Otimizador de Conteúdo não terá tempo para aprender com os resultados iniciais. A etapa se comportará mais como um teste A/B estático do que como um mecanismo de otimização em tempo real.
 
-O melhor cenário para o Otimizador de Conteúdo é em Canvas de entrada recorrente diária, bem como Canvas disparados por eventos e disparados por API com entradas de usuários diárias relativamente consistentes. Se você usar o Otimizador de Conteúdo em Canvas de envio único ou Canvas com entradas "em picos" (como recorrentes mensais), considere usar [Controles de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) para distribuir as entradas dos usuários ao longo de vários dias.
+O melhor cenário para o Otimizador de Conteúdo é em Canvas de entrada recorrente diária, bem como Canvas disparados por eventos e disparados por API or interface de programação do aplicativo (API) com entradas de usuários diárias relativamente consistentes. Se você usar o Otimizador de Conteúdo em Canvas de envio único ou Canvas com entradas "em picos" (como recorrentes mensais), considere usar [Controles de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) para distribuir as entradas dos usuários ao longo de vários dias.
 
 ### Conceitos-chave {#key-concepts}
 

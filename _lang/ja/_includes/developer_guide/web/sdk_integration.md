@@ -9,7 +9,7 @@ Web Braze SDKを使用すると、分析データを収集し、リッチなア�
 以下の方法でWeb Braze SDKを統合できます。その他のオプションについては、[その他の統合方法](#web_other-integration-methods)を参照してください。
 
 - **コードベースの統合：** お好みのパッケージマネージャーまたはBraze CDNを使用して、Web Braze SDKをコードベースに直接統合します。これにより、SDKの読み込みと設定を完全にコントロールできます。
-- **Google Tag Manager：** サイトのコードを変更せずにWeb Braze SDKを統合できるノーコードソリューションです。詳しくは、[Google Tag Manager with the Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager)を参照してください。
+- **Google Tag マネージャー：** サイトのコードを変更せずにWeb Braze SDKを統合できるノーコードソリューションです。詳しくは、[Google Tag マネージャー with the Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager)を参照してください。
 
 {% alert important %}
 [NPM統合方法]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)の使用を推奨します。この方法には、SDKライブラリをWebサイトにローカル保存できること、広告ブロッカー拡張機能の影響を受けないこと、バンドラーサポートの一部として読み込み時間の短縮に貢献することなどのメリットがあります。
@@ -26,7 +26,7 @@ Web Braze SDKを使用すると、分析データを収集し、リッチなア�
 {% endalert %}
 
 {% subtabs %}
-{% subtab package manager %}
+{% subtab package マネージャー %}
 サイトでNPMまたはYarnパッケージマネージャーを使用している場合は、[Braze NPMパッケージ](https://www.npmjs.com/package/@braze/web-sdk)を依存関係として追加できます。
 
 Typescriptの型定義はv3.0.0から含まれています。2.xから3.xへのアップグレードに関する注意事項については、[変更ログ](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md)を参照してください。
@@ -112,7 +112,7 @@ braze.openSession();
 {% endalert %}
 {% endtab %}
 
-{% tab Google Tag Manager %}
+{% tab Google Tag マネージャー %}
 {% multi_lang_include developer_guide/web/google_tag_manager/initialization_tag.md %}
 {% endtab %}
 {% endtabs %}

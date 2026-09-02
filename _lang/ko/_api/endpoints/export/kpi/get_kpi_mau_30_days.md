@@ -11,7 +11,7 @@ description: "이 문서에서는 월간 활성 사용자 내보내기 Braze 엔
 {% api %}
 # 지난 30일 동안의 월간 활성 사용자 내보내기 {#export-monthly-active-users-for-last-30-days}
 {% apimethod get %}
-/kpi/mau/data_series
+/KPI or 핵심 성과 지표(KPI)/mau/data_series
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 30일 롤링 기간 동안의 총 고유 활성 사용자 수에 대한 일별 시리즈를 조회합니다.

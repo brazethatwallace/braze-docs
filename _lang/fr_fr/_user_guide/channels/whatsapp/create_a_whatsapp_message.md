@@ -145,7 +145,7 @@ Si une étape affiche un échec, le panneau présente l'erreur et les prochaines
 - Le numéro de téléphone du destinataire est soumis à une limitation de débit
 - Les variables Liquid du message n'ont pas été renseignées pour l'utilisateur test sélectionné
 
-En cas de problèmes persistants, vérifiez le statut de votre modèle dans Meta Business Manager ou assurez-vous que votre destinataire test dispose des attributs utilisateur requis renseignés dans Braze.
+En cas de problèmes persistants, vérifiez le statut de votre modèle dans Meta Business gestionnaire ou assurez-vous que votre destinataire test dispose des attributs utilisateur requis renseignés dans Braze.
 
 ## Ce qu'il faut savoir {#supported-whatsapp-features}
 

@@ -8,7 +8,7 @@ guide_top_header: "Canvas-Komponenten"
 guide_top_text: "Optimieren Sie Ihre Canvas-Journey mit Canvas-Komponenten. Canvas-Komponenten können verwendet werden, um den Prozess der Effektivitätsmessung Ihres Canvas zu vereinfachen, indem übermäßig viele vollständige Schritte durch nur einen ersetzt werden. Komponenten in Canvas beziehen sich auf die personalisierte Nutzer-Journey in Ihren Canvas-Branches."
 
 page_type: landing
-description: "Diese Landing-Page enthält Artikel zu Canvas-Komponenten, die Ihnen helfen, fortgeschrittenere Canvases zu erstellen. Einige dieser Komponenten umfassen den Nachrichten-Schritt, den Verzögerungsschritt, den Decision-Split-Schritt und mehr."
+description: "Diese Landing-Page enthält Artikel zu Canvas-Komponenten, die Ihnen helfen, fortgeschrittenere Canvase zu erstellen. Einige dieser Komponenten umfassen den Nachrichten-Schritt, den Verzögerungsschritt, den Decision-Split-Schritt und mehr."
 tool: Canvas
 
 guide_featured_title: "Artikel in diesem Abschnitt"

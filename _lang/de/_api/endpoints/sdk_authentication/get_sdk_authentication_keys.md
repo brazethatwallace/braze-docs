@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Liste der SDK-Authentifizierungsschlüssel"
-article_title: "GET: SDK-Authentifizierungsschlüssel auflisten"
+nav_title: "GET: Liste der SDK or Software-Development-Kit-Authentifizierungsschlüssel"
+article_title: "GET: SDK or Software-Development-Kit-Authentifizierungsschlüssel auflisten"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Auflisten von SDK-Authentifizierungsschlüsseln."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Auflisten von SDK or Software-Development-Kit-Authentifizierungsschlüsseln."
 ---
 
 {% api %}
-# SDK-Authentifizierungsschlüssel auflisten {#list-sdk-authentication-keys}
+# SDK or Software-Development-Kit-Authentifizierungsschlüssel auflisten {#list-sdk-authentication-keys}
 {% apimethod get %}
 /app_group/sdk_authentication/keys
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um alle SDK-Authentifizierungsschlüssel für Ihre App abzurufen.
+> Verwenden Sie diesen Endpunkt, um alle SDK or Software-Development-Kit-Authentifizierungsschlüssel für Ihre App abzurufen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -63,11 +63,11 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 
 | Parameter | Datentyp | Beschreibung |
 | --------- | --------- | ----------- |
-| `keys` | Array | Array von SDK-Authentifizierungsschlüssel-Objekten. |
-| `keys[].id` | String | Die ID des SDK-Authentifizierungsschlüssels. |
+| `keys` | Array | Array von SDK or Software-Development-Kit-Authentifizierungsschlüssel-Objekten. |
+| `keys[].id` | String | Die ID des SDK or Software-Development-Kit-Authentifizierungsschlüssels. |
 | `keys[].rsa_public_key` | String | Der String für den öffentlichen RSA-Schlüssel. |
-| `keys[].description` | String | Beschreibung des SDK-Authentifizierungsschlüssels. |
-| `keys[].is_primary` | Boolescher Wert | Ob dieser Schlüssel der primäre SDK-Authentifizierungsschlüssel ist. |
+| `keys[].description` | String | Beschreibung des SDK or Software-Development-Kit-Authentifizierungsschlüssels. |
+| `keys[].is_primary` | Boolescher Wert | Ob dieser Schlüssel der primäre SDK or Software-Development-Kit-Authentifizierungsschlüssel ist. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
 ### Validierungsregeln {#validation-rules}

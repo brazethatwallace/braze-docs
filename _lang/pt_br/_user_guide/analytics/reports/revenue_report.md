@@ -32,10 +32,10 @@ Você pode visualizar os seguintes dados no gráfico **Performance Over Time**:
 - Compras
     - (Opcional) Compras por produto
 - Receita
-    - (Opcional) Receita por Segment
+    - (Opcional) Receita por Segment or segmento
     - (Opcional) Receita por produto
 - Receita por hora
-    - (Opcional) Receita por hora por Segment
+    - (Opcional) Receita por hora por Segment or segmento
 - Receita por usuário
 
 ## Entendendo os cálculos de receita {#understanding-revenue-calculations}
@@ -99,5 +99,5 @@ Procurando mais formas de obter dados de receita? Tente adicionar comportamento 
 Você também pode visualizar estatísticas de receita caso a caso nas páginas de [análise de dados de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) ou [análise de dados de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
 
 {% alert tip %}
-Relatórios de receita não podem ser exportados via API. Para ajuda com exportações CSV, consulte [solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Relatórios de receita não podem ser exportados via API or interface de programação do aplicativo (API). Para ajuda com exportações CSV, consulte [solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

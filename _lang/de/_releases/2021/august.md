@@ -10,11 +10,11 @@ description: "Dieser Artikel enthält Versionshinweise für August 2021."
 
 ## Google Audience Sync
 
-Die Braze [Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)-Integration ermöglicht es Marken, die Reichweite ihrer kanalübergreifenden Customer Journeys auf Google Search, Google Shopping, Gmail, YouTube und Google Display auszudehnen. Mithilfe Ihrer First-Party-Kundendaten können Sie Anzeigen auf der Grundlage von dynamischen Verhaltenstriggern, Segmentierung und mehr sicher zustellen. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (z. B. Push, E-Mail, SMS usw.) im Rahmen eines Braze-Canvas verwenden, kann verwendet werden, um eine Anzeige für diese Nutzer:innen über Googles Customer Match auszulösen.
+Die Braze [Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/)-Integration ermöglicht es Marken, die Reichweite ihrer kanalübergreifenden Customer Journeys auf Google Search, Google Shopping, Gmail, YouTube und Google Display auszudehnen. Mithilfe Ihrer First-Party-Kundendaten können Sie Anzeigen auf der Grundlage von dynamischen Verhaltenstriggern, Segmentierung und mehr sicher zustellen. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (z. B. Push, E-Mail, Kurzmitteilungsdienst or SMS usw.) im Rahmen eines Braze-Canvas verwenden, kann verwendet werden, um eine Anzeige für diese Nutzer:innen über Googles Customer Match auszulösen.
 
-## Best-Practice-Leitfaden für die iOS SDK-Integration {#best-practice-ios-sdk-integration-guide}
+## Best-Practice-Leitfaden für die iOS SDK or Software-Development-Kit-Integration {#best-practice-ios-sdk-integration-guide}
 
-Dieser optionale [SDK-Leitfaden für die iOS-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) führt Sie Schritt für Schritt durch die besten Vorgehensweisen bei der ersten Integration des iOS SDK und seiner Kernkomponenten in Ihre Anwendung. Diese Anleitung hilft Ihnen bei der Erstellung einer `BrazeManager.swift`-Hilfsdatei, die alle Abhängigkeiten vom Braze iOS SDK vom Rest Ihres produktiven Codes entkoppelt, was zu einem einzigen `import AppboyUI` in Ihrer gesamten Anwendung führt. Dieser Ansatz vermeidet Probleme, die durch übermäßige SDK-Importe entstehen, und erleichtert das Tracking, Debugging und Ändern von Code.
+Dieser optionale [SDK or Software-Development-Kit-Leitfaden für die iOS-Integration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) führt Sie Schritt für Schritt durch die besten Vorgehensweisen bei der ersten Integration des iOS SDK or Software-Development-Kit und seiner Kernkomponenten in Ihre Anwendung. Diese Anleitung hilft Ihnen bei der Erstellung einer `BrazeManager.swift`-Hilfsdatei, die alle Abhängigkeiten vom Braze iOS SDK or Software-Development-Kit vom Representational State Transfer Ihres produktiven Codes entkoppelt, was zu einem einzigen `import AppboyUI` in Ihrer gesamten Anwendung führt. Dieser Ansatz vermeidet Probleme, die durch übermäßige SDK or Software-Development-Kit-Importe entstehen, und erleichtert das Tracking, Debugging und Ändern von Code.
 
 ## Predictive Purchases
 
@@ -22,25 +22,25 @@ Predictive Purchases geben Marketern ein leistungsstarkes Tool zur Identifizieru
 
 ## Drag-and-Drop-Editor
 
-Mit Braze Email können Sie mithilfe unserer neuen [Drag-and-Drop-Bearbeitungsfunktion]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) vollständig angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvases erstellen. Nutzer:innen können jetzt Editor-Blöcke in ihre E-Mails ziehen, was eine intuitivere Anpassung ermöglicht.
+Mit Braze Email können Sie mithilfe unserer neuen [Drag-and-Drop-Bearbeitungsfunktion]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) vollständig angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvase erstellen. Nutzer:innen können jetzt Editor-Blöcke in ihre E-Mails ziehen, was eine intuitivere Anpassung ermöglicht.
 
 ## Import von Nutzer-Aliassen {#user-alias-import}
 
 Um Nutzer:innen anzusprechen, die keine `external_id` haben, können Sie [eine Liste von Nutzer:innen mit Nutzer-Aliassen importieren]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#import-with-user-alias). Ein Alias dient als alternativer eindeutiger Bezeichner für Nutzer:innen. Es kann hilfreich sein, wenn Sie versuchen, anonyme Nutzer:innen zu erreichen, die sich nicht bei Ihrer App registriert oder ein Konto erstellt haben.
 
-## iOS 15 Upgrade-Anleitung {#ios-15-upgrade-guide}
+## iOS 15 Upgrade or upgraden-Anleitung {#ios-15-upgrade-guide}
 
-Diese [iOS 15 Upgrade-Anleitung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze iOS SDK-Integration.
+Diese [iOS 15 Upgrade or upgraden-Anleitung]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, sowie die erforderlichen Upgrade or upgraden-Schritte für Ihre Braze iOS SDK or Software-Development-Kit-Integration.
 
-## Android 12 Upgrade-Anleitung {#android-12-upgrade-guide}
+## Android 12 Upgrade or upgraden-Anleitung {#android-12-upgrade-guide}
 
-Diese [Android 12 Upgrade-Anleitung]({{site.baseurl}}/developer_guide/platforms/android/android_13/) beschreibt die relevanten Änderungen, die mit Android 12 (2021) eingeführt wurden, sowie die erforderlichen Upgrade-Schritte für Ihre Braze Android SDK-Integration.
+Diese [Android 12 Upgrade or upgraden-Anleitung]({{site.baseurl}}/developer_guide/platforms/android/android_13/) beschreibt die relevanten Änderungen, die mit Android 12 (2021) eingeführt wurden, sowie die erforderlichen Upgrade or upgraden-Schritte für Ihre Braze Android SDK or Software-Development-Kit-Integration.
 
 ## A2P 10DLC
 
 A2P 10DLC bezieht sich auf ein System in den Vereinigten Staaten, das es Unternehmen ermöglicht, Nachrichten vom Typ Application-to-Person (A2P) über einen standardmäßigen 10-stelligen Langcode (10DLC) zu versenden. 10-stellige Langcodes wurden traditionell für den Person-to-Person (P2P)-Verkehr entwickelt, was dazu führte, dass Unternehmen durch einen begrenzten Durchsatz und verstärkte Filterung eingeschränkt wurden. Dieser Dienst trägt dazu bei, diese Probleme zu lösen, indem er die Zustellbarkeit von Nachrichten insgesamt verbessert, es Marken erlaubt, Nachrichten in großem Umfang zu versenden, einschließlich Links und Handlungsaufforderungen, und Verbraucher:innen vor unerwünschten Nachrichten schützt.
 
-Alle Kund:innen, die derzeit US-Langcodes haben und/oder verwenden, um an US-Kund:innen zu versenden, müssen ihre Langcodes für 10DLC registrieren. Wenn Sie mehr über die Besonderheiten von 10DLC erfahren möchten und warum es erforderlich ist, besuchen Sie unseren speziellen [10DLC-Artikel]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/).
+Alle Kund:innen, die derzeit US-Langcodes haben und/oder verwenden, um an US-Kund:innen zu versenden, müssen ihre Langcodes für 10DLC Registrierung or registrieren. Wenn Sie mehr über die Besonderheiten von 10DLC erfahren möchten und warum es erforderlich ist, besuchen Sie unseren speziellen [10DLC-Artikel]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/).
 
 ## Zwei-Faktor-Authentifizierung zurücksetzen {#two-factor-authentication-reset}
 
@@ -58,7 +58,7 @@ Die Partnerschaft von Braze und [Transcend]({{site.baseurl}}/partners/ecommerce/
 
 ### Tinyclues – Kohortenimport {#tinyclues-cohort-import}
 
-[Tinyclues]({{site.baseurl}}/partners/splio/) ist ein Feature zum Aufbau von Zielgruppen, das die Möglichkeit bietet, die Anzahl der Campaigns und den Umsatz zu steigern, ohne das Kundenerlebnis zu beeinträchtigen, sowie Analytics, um die Performance von CRM-Campaigns sowohl online als auch offline zu verfolgen. Gemeinsam bietet die Integration von Braze und Tinyclues Nutzer:innen einen Weg zu einer besseren CRM-Planung und -Strategie, die es ihnen erlaubt, gezieltere Campaigns zu versenden, neue Produktchancen zu finden und den Umsatz mithilfe eines unglaublich benutzerfreundlichen UI zu steigern.
+[Tinyclues]({{site.baseurl}}/partners/splio/) ist ein Feature zum Aufbau von Zielgruppen, das die Möglichkeit bietet, die Anzahl der Campaigns und den Umsatz zu steigern, ohne das Kundenerlebnis zu beeinträchtigen, sowie Analytics, um die Performance von CRM or Customer-Relationship-Management [-System] (CRM)-Campaigns sowohl online als auch offline zu verfolgen. Gemeinsam bietet die Integration von Braze und Tinyclues Nutzer:innen einen Weg zu einer besseren CRM or Customer-Relationship-Management [-System] (CRM)-Planung und -Strategie, die es ihnen erlaubt, gezieltere Campaigns zu versenden, neue Produktchancen zu finden und den Umsatz mithilfe eines unglaublich benutzerfreundlichen UI zu steigern.
 
 ### optilyz – Direkt-Mailing {#optilyz-direct-mail}
 

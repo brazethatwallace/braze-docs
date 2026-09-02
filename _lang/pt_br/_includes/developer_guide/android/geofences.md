@@ -50,7 +50,7 @@ Se ainda não tiver ativado a coleta de localização da Braze, atualize seu arq
 ```
 
 {% alert important %}
-A partir da versão 3.6.0 do SDK da Braze para Android, a coleta de localização da Braze é desativada por padrão.
+A partir da versão 3.6.0 do SDK or kit de desenvolvimento de software da Braze para Android, a coleta de localização da Braze é desativada por padrão.
 {% endalert %}
 
 Os geofences da Braze são ativados se a coleta de localização da Braze estiver ativada. Se você quiser fazer o descadastramento da nossa coleta de localização padrão, mas ainda quiser usar geofences, isso pode ser ativado seletivamente definindo o valor da chave `com_braze_geofences_enabled` como `true` em `braze.xml`, independentemente do valor de `com_braze_enable_location_collection`:
@@ -82,7 +82,7 @@ Braze.getInstance(context).requestLocationInitialization()
 {% endtab %}
 {% endtabs %}
 
-Isso fará com que o SDK solicite geofences dos servidores da Braze e inicialize o rastreamento de geofences.
+Isso fará com que o SDK or kit de desenvolvimento de software solicite geofences dos servidores da Braze e inicialize o rastreamento de geofences.
 
 Veja [`RuntimePermissionUtils.java`](https://github.com/braze-inc/braze-android-sdk/blob/master/droidboy/src/main/java/com/appboy/sample/util/RuntimePermissionUtils.kt) no nosso aplicativo de exemplo para ver uma implementação de referência.
 
@@ -272,5 +272,5 @@ Braze.getInstance(applicationContext).requestGeofences(33.078947, -116.601356)
 {% endtabs %}
 
 {% alert important %}
-Os geofences só podem ser solicitados uma vez por sessão, seja automaticamente pelo SDK ou manualmente com esse método.
+Os geofences só podem ser solicitados uma vez por sessão, seja automaticamente pelo SDK or kit de desenvolvimento de software ou manualmente com esse método.
 {% endalert %}

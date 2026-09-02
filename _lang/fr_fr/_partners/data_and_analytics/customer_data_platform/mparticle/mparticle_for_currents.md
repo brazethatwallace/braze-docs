@@ -59,7 +59,7 @@ Dans Braze, accédez à **Currents > + Create Current > Create mParticle Export*
 Il est important de maintenir votre clé API mParticle et votre clé secrète mParticle à jour ; si les identifiants de votre connecteur expirent, celui-ci cessera d'envoyer des événements. Si cette situation persiste pendant plus de **5 jours**, les événements du connecteur seront abandonnés et les données seront définitivement perdues.
 {% endalert %}
 
-Tous les événements envoyés à mParticle incluront le `external_user_id` de l'utilisateur en tant que `customerid`. À l'heure actuelle, Braze n'envoie pas de données d'événements pour les utilisateurs dont le `external_user_id` n'est pas défini. Si vous souhaitez mapper le `external_user_id` vers un autre identifiant dans mParticle qui n'est pas le `customerid` par défaut, veuillez contacter votre CSM Braze.
+Tous les événements envoyés à mParticle incluront le `external_user_id` de l'utilisateur en tant que `customerid`. À l'heure actuelle, Braze n'envoie pas de données d'événements pour les utilisateurs dont le `external_user_id` n'est pas défini. Si vous souhaitez mapper le `external_user_id` vers un autre identifiant dans mParticle qui n'est pas le `customerid` par défaut, veuillez contacter votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Braze.
 
 ## Événements Currents pris en charge {#supported-currents-events}
 

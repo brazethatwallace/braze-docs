@@ -9,5 +9,5 @@ Wenn ein solcher Bezeichner nicht verfügbar ist, weist Braze Ihren Nutzer:innen
 {% endalert %}
 
 {% alert warning %}
-Wenn Sie einen identifizierbaren Wert als Nutzer-ID verwenden möchten, **empfehlen wir Ihnen dringend**, zur zusätzlichen Sicherheit unser [SDK-Authentifizierungs-Feature]({{site.baseurl}}/developer_guide/authentication) hinzuzufügen, um einen Identitätswechsel zu verhindern.
+Wenn Sie einen identifizierbaren Wert als Nutzer-ID verwenden möchten, **empfehlen wir Ihnen dringend**, zur zusätzlichen Sicherheit unser [SDK or Software-Development-Kit-Authentifizierungs-Feature]({{site.baseurl}}/developer_guide/authentication) hinzuzufügen, um einen Identitätswechsel zu verhindern.
 {% endalert %}

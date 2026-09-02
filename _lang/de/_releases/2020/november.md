@@ -20,6 +20,6 @@ Das [Braze Produktportal]({{site.baseurl}}/user_guide/administrative/access_braz
 
 Braze hat seinen ersten Implementierungsleitfaden veröffentlicht, der eine auf Entwickler:in ausgerichtete technische Strategie verfolgt und die Richtlinien und Best Practices für iOS Content-Cards für Anwendungsfälle aufzeigt. Dieser umfassende Leitfaden bietet eindeutige Anwendungsfälle, Video-Walkthroughs, begleitende Code-Snippets und Anleitungen zur Protokollierung wertvoller Nutzer:innen-Metriken. Um mehr darüber zu erfahren, wie Sie iOS Content-Cards wie ein Profi implementieren können, lesen Sie unseren [Implementierungsleitfaden]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/implementation_guide/). 
 
-## Swift Paket Manager
+## Swift Paket Manager:in
 
-Der [Swift-Paketmanager:]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) in ist in das Swift-Build-System integriert und wird automatisch Abhängigkeiten herunterladen, kompilieren und verknüpfen. Die Installation des iOS SDK über den Swift-Paketmanager:in automatisiert den Großteil des Installationsprozesses für Sie.
+Der [Swift-Paketmanager:]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) in ist in das Swift-Build-System integriert und wird automatisch Abhängigkeiten herunterladen, kompilieren und verknüpfen. Die Installation des iOS SDK or Software-Development-Kit über den Swift-Paketmanager:in automatisiert den Großteil des Installationsprozesses für Sie.

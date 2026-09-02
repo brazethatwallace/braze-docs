@@ -4,10 +4,10 @@ article_title: Personalizar
 page_order: 4
 layout: dev_guide
 guide_top_header: "Personalizar"
-guide_top_text: "Personaliza la apariencia y el comportamiento de tus correos electrónicos con la configuración global de estilos, pies de página personalizados, compatibilidad con AMP y enlaces universales."
+guide_top_text: "Personaliza la apariencia y el comportamiento de tus correos electrónicos con la configuración global de estilos, pies de página personalizados, compatibilidad con páginas móviles aceleradas y enlaces universales."
 
 page_type: landing
-description: "Personaliza la configuración global de estilos de correo electrónico, pies de página, AMP y enlaces universales en Braze."
+description: "Personaliza la configuración global de estilos de correo electrónico, pies de página, páginas móviles aceleradas y enlaces universales en Braze."
 
 guide_featured_title: "Artículos de la sección"
 guide_featured_list:

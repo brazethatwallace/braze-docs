@@ -10,22 +10,22 @@ search_tag: Partner
 
 # Lemnisk
 
-> [Lemnisk](https://www.lemnisk.co/) es una solución de automatización del marketing y una plataforma de datos de clientes (CDP) impulsada por IA que habilita la captura, unificación y activación en tiempo real de datos de clientes procedentes de fuentes diversas y aisladas. Entrega fácilmente estos datos unificados a través de varias plataformas MarTech y empresariales, al tiempo que ofrece análisis sólidos y en tiempo real para hacer un seguimiento de cada etapa del ciclo de vida de los datos de los clientes.
+> [Lemnisk](https://www.lemnisk.co/) es una solución de automatización del marketing y una plataforma de datos de clientes (CDP or plataforma de datos de los clientes) impulsada por IA que habilita la captura, unificación y activación en tiempo real de datos de clientes procedentes de fuentes diversas y aisladas. Entrega fácilmente estos datos unificados a través de varias plataformas MarTech y empresariales, al tiempo que ofrece análisis sólidos y en tiempo real para hacer un seguimiento de cada etapa del ciclo de vida de los datos de los clientes.
 
 _Esta integración está mantenida por Lemnisk._
 
 ## Sobre la integración {#about-the-integration}
 
-La integración de Lemnisk y Braze permite a las marcas y empresas liberar todo el potencial de Braze actuando como una capa de inteligencia dirigida por CDP que unifica los datos de usuario en todas las plataformas en tiempo real, y enviando la información y los comportamientos del usuario recopilados a Braze en tiempo real. Lemnisk entrega perfiles de cliente enriquecidos directamente en Braze, combinando señales de comportamiento y atributos personales que te permiten personalizar tu mensajería con un contexto más profundo.
+La integración de Lemnisk y Braze permite a las marcas y empresas liberar todo el potencial de Braze actuando como una capa de inteligencia dirigida por CDP or plataforma de datos de los clientes que unifica los datos de usuario en todas las plataformas en tiempo real, y enviando la información y los comportamientos del usuario recopilados a Braze en tiempo real. Lemnisk entrega perfiles de cliente enriquecidos directamente en Braze, combinando señales de comportamiento y atributos personales que te permiten personalizar tu mensajería con un contexto más profundo.
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | --- | --- |
 | Cuentas Lemnisk | Se necesita una cuenta de [Lemnisk](https://www.lemnisk.co/) para beneficiarse de esta asociación. |
-| API externa en Lemnisk | Ponte en contacto con tu CSM de Lemnisk para habilitar la **API externa** en tu cuenta. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu cuenta]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
+| API externa en Lemnisk | Ponte en contacto con tu CSM or administrador de éxito de cliente de Lemnisk para habilitar la **API externa** en tu cuenta. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permiso `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu cuenta]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Lemnisk {#integrating-lemnisk}

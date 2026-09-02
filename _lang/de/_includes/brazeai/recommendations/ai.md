@@ -1,17 +1,17 @@
 {% if include.section == "Plan-specific features" %}
 
-## Planspezifische KI-Features {#plan-specific-ai-features}
+## Planspezifische KI or künstliche Intelligenz-Features {#plan-specific-ai-features}
 
-Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und der Pro-Version der Empfehlungstypen KI-Personalisiert, Beliebteste, Neueste und Im Trend:
+Die folgende Tabelle beschreibt die Unterschiede zwischen der kostenlosen und der Pro-Version der Empfehlungstypen KI or künstliche Intelligenz-Personalisiert, Beliebteste, Neueste und Im Trend:
 
 | Bereich                   | Kostenlose Version                          | Pro-Version            |
 | :---------------------- | ------------------------------------- | :--------------------------------------- |
-| Update-Häufigkeit für Nutzer:innen<sup>1</sup>   | Wöchentlich                                | Täglich                                    |
+| Update or aktualisieren-Häufigkeit für Nutzer:innen<sup>1</sup>   | Wöchentlich                                | Täglich                                    |
 | Häufigkeit des Modell-Retrainings  | Monatlich                               | Wöchentlich                                   |
 | Maximale Empfehlungsmodelle | 1 Modell pro Typ<sup>2</sup> | 100 Modelle pro Typ<sup>2</sup> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan-specific AI features" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plan-specific KI or künstliche Intelligenz features" }
 
-<sup>1. Dies ist die Häufigkeit, mit der nutzerspezifische Artikelempfehlungen aktualisiert werden (nur KI-Personalisiert und Neueste). Beliebteste und Im Trend sind globale Empfehlungen, die aktualisiert werden, wenn das Modell neu trainiert wird. Wenn beispielsweise ein:e Nutzer:in einen Artikel kauft, der auf KI-Artikelempfehlungen basiert, werden die empfohlenen Artikel gemäß dieser Häufigkeit aktualisiert.</sup><br>
-<sup>2. Verfügbare Empfehlungstypen sind KI-Personalisiert, Neueste, Beliebteste und Im Trend.</sup>
+<sup>1. Dies ist die Häufigkeit, mit der nutzerspezifische Artikelempfehlungen aktualisiert werden (nur KI or künstliche Intelligenz-Personalisiert und Neueste). Beliebteste und Im Trend sind globale Empfehlungen, die aktualisiert werden, wenn das Modell neu trainiert wird. Wenn beispielsweise ein:e Nutzer:in einen Artikel kauft, der auf KI or künstliche Intelligenz-Artikelempfehlungen basiert, werden die empfohlenen Artikel gemäß dieser Häufigkeit aktualisiert.</sup><br>
+<sup>2. Verfügbare Empfehlungstypen sind KI or künstliche Intelligenz-Personalisiert, Neueste, Beliebteste und Im Trend.</sup>
 
 {% endif %}

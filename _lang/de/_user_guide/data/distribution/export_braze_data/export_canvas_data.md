@@ -37,14 +37,14 @@ Um zu analysieren, wann Nutzer:innen einen Canvas betreten oder erneut betreten 
 - **Nutzerliste im Dashboard erstellen:** Erstellen Sie ein Segment mit dem Filter **Entered Canvas Variation** und exportieren Sie das Segment als CSV-Datei. Siehe [Canvas-Fehlerbehebung]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-the-canvas).
 
 {% alert note %}
-Wenn Sie Currents nicht integriert haben und jeden historischen Eintrittszeitstempel benötigen, wenden Sie sich an Ihren Customer-Success-Manager bei Braze.
+Wenn Sie Currents nicht integriert haben und jeden historischen Eintrittszeitstempel benötigen, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in bei Braze.
 {% endalert %}
 
 Für einen bestimmten Canvas-Schritt im Original-Workflow verwenden Sie **CSV Export User Data** auf der Detailseite des Schritts.
 
 ## Daten für eine Komponente exportieren (nur Original-Workflow) {#exporting-data-for-a-component-original-workflow-only}
 
-Canvas-Ergebnisse können auf Basis einzelner Komponenten für den ursprünglichen Canvas-Workflow exportiert werden. Wählen Sie dazu die entsprechende Komponente aus und wählen Sie dann das Dropdown-Menü **User Data** auf der Seite **Canvas Step Details**.
+Canvas-Ergebnisse können auf Basis einzelner Komponenten für den ursprünglichen Canvas-Workflow exportiert werden. Wählen Sie dazu die entsprechende Komponente aus und wählen Sie dann das Dropdown-Menü **User Data** auf der Seite **Canvas-Schritt Details**.
 
 ![Dropdown „Nutzerdaten“ auf der Seite „Canvas Details“.]({% image_buster /assets/img/canvas_csv_export.png %})
 

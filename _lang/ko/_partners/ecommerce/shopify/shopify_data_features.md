@@ -805,7 +805,7 @@ Shopify의 결제 완료 웹훅에는 제품 URL이나 이미지 URL이 포함�
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
-{% tab Shopify Custom Attributes %}
+{% tab Shopify 커스텀 속성 %}
 | 속성 이름 | 설명 |
 | --- | --- |
 | `shopify_total_spent` | 고객이 주문 내역 전체에서 지출한 총 금액입니다. |
@@ -827,7 +827,7 @@ Shopify에서 이 문제를 해결한 후 이 페이지가 업데이트될 예�
 
 ### Liquid 개인화 {#liquid-personalization}
 
-Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **Custom Attributes**를 선택합니다.
+Shopify 커스텀 속성에 대한 Liquid 개인화를 추가하려면 **+ Personalization**을 선택합니다. 그런 다음 개인화 유형으로 **커스텀 속성**를 선택합니다.
 
 ![속성 드롭다운이 펼쳐진 개인화 추가 섹션.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
@@ -890,5 +890,5 @@ Braze가 Shopify 고객을 가져올 때, 구성 설정에서 선택한 `externa
 
 | Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Braze 표준 속성 | Braze 가입 상태 |
 | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>이메일</li><li>이름</li><li>성</li><li>전화번호</li><li>구/군/시</li><li>국가</li><li>총 매출</li><li>총 환불</li><li>총 주문</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어에 연결된 이메일 마케팅 가입</li><li>이 Shopify 스토어에 연결된 SMS 마케팅 가입</li></ul>{:/} |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>이메일</li><li>이름</li><li>성</li><li>전화번호</li><li>구/군/시</li><li>국가</li><li>총 매출</li><li>총 환불</li><li>총 주문</li></ul>{:/} | {::nomarkdown}<ul><li>이 Shopify 스토어에 연결된 이메일 마케팅 가입</li><li>이 Shopify 스토어에 연결된 단문 메시지 서비스 마케팅 가입</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="동기화되는 데이터" }

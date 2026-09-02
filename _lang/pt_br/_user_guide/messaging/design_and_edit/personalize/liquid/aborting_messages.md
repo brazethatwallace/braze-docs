@@ -18,7 +18,7 @@ Se uma etapa de mensagem for cancelada em um Canvas, o usuário **não** sairá 
 
 `abort_message()` interrompe o envio para usuários que não atendem à sua condição. A mensagem não aparecerá no perfil deles e não contará como entrega nem para o limite de frequência.
 
-Se os envios de teste nunca chegarem, visualize como um usuário que satisfaça a condição de interrupção e, em seguida, em **Test Send**, ative **Override recipients' attributes with current preview user's attributes** (ou adicione um membro de um grupo de teste de conteúdo que se qualifique).
+Se os envios de teste nunca chegarem, visualize como um usuário que satisfaça a condição de interrupção e, em seguida, em **Test Send**, ative **Override recipients' attributes with current prévia user's attributes** (ou adicione um membro de um grupo de teste de conteúdo que se qualifique).
 
 ## Interromper mensagem se "Number Games Attended" = 0 {#abort-message-if-number-games-attended-0}
 
@@ -81,7 +81,7 @@ A lógica de interrupção é avaliada no momento do envio, quando a Braze proce
 
 ### In-App Messages {#in-app-messages}
 
-A lógica de interrupção é avaliada para [mensagens no app com modelo]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) somente no momento em que a mensagem no app é disparada (por exemplo, quando o usuário realiza o evento-gatilho ou inicia uma sessão), e não quando a mensagem é enviada inicialmente para o dispositivo. As mensagens no app são entregues ao SDK no início da sessão e armazenadas em cache localmente; o Liquid, incluindo quaisquer chamadas de `abort_message()`, é executado quando a condição de disparo é atendida.
+A lógica de interrupção é avaliada para [mensagens no app com modelo]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) somente no momento em que a mensagem no app é disparada (por exemplo, quando o usuário realiza o evento-gatilho ou inicia uma sessão), e não quando a mensagem é enviada inicialmente para o dispositivo. As mensagens no app são entregues ao SDK or kit de desenvolvimento de software no início da sessão e armazenadas em cache localmente; o Liquid, incluindo quaisquer chamadas de `abort_message()`, é executado quando a condição de disparo é atendida.
 
 ## Solução de problemas para altas taxas de interrupção {#troubleshooting-high-abort-rates}
 
@@ -98,8 +98,8 @@ Se uma campanha ou etapa do Canvas mostra muitos usuários que entraram, mas pou
 Para push, e-mail, SMS, webhooks e Content Cards, a lógica de interrupção é executada quando a Braze processa a mensagem para entrega — não quando o usuário entrou em um Canvas ou quando um evento-gatilho foi disparado anteriormente.
 
 - Confirme que os [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), propriedades de eventos ou campos de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) necessários estão definidos no usuário antes da execução da etapa de mensagem.
-- Adicione verificações explícitas de nil ou vazio antes de chamar `abort_message()`. Um branch `else` que interrompe quando um valor está ausente impede o envio para qualquer usuário sem esses dados.
-- Se a personalização depende de uma lista, Segment ou resposta de Connected Content, confirme que os dados estão disponíveis quando a etapa de mensagem é executada. Um usuário pode entrar em um Canvas antes que a associação à lista ou os dados downstream estejam prontos.
+- Adicione verificações explícitas de nil ou vazio antes de chamar `abort_message()`. Um Branch or ramificação `else` que interrompe quando um valor está ausente impede o envio para qualquer usuário sem esses dados.
+- Se a personalização depende de uma lista, Segment or segmento ou resposta de Connected Content, confirme que os dados estão disponíveis quando a etapa de mensagem é executada. Um usuário pode entrar em um Canvas antes que a associação à lista ou os dados downstream estejam prontos.
 
 ### Comportamento específico do Canvas {#canvas-specific-behavior}
 

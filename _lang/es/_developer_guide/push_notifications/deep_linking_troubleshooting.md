@@ -100,7 +100,7 @@ func application(_ application: UIApplication,
 }
 ```
 
-### Verifica la configuración del SDK de Braze {#verify-braze-sdk-configuration}
+### Verifica la configuración del SDK or kit de desarrollo de software de Braze {#verify-braze-sdk-configuration}
 
 Si utilizas enlaces universales desde notificaciones push, mensajes dentro de la aplicación o Content Cards entregados por Braze, confirma que `forwardUniversalLinks` está habilitado:
 
@@ -170,17 +170,17 @@ Opening '<URL>':
 - isUniversalLink: <true/false>
 ```
 
-Compara la salida del registro del canal que funciona con la del canal que no funciona. Las diferencias en `useWebView` o `isUniversalLink` indican cómo el SDK está interpretando el vínculo de forma diferente.
+Compara la salida del registro del canal que funciona con la del canal que no funciona. Las diferencias en `useWebView` o `isUniversalLink` indican cómo el SDK or kit de desarrollo de software está interpretando el vínculo de forma diferente.
 
 ### Verifica los delegados de visualización personalizados {#check-for-custom-display-delegates}
 
-Si usas un delegado de visualización personalizado para mensajes dentro de la aplicación o un controlador de clics de Content Cards, verifica que pase correctamente los eventos de vínculo al SDK de Braze para su gestión.
+Si usas un delegado de visualización personalizado para mensajes dentro de la aplicación o un controlador de clics de Content Cards, verifica que pase correctamente los eventos de vínculo al SDK or kit de desarrollo de software de Braze para su gestión.
 
 ## "Abrir URL web dentro de la aplicación" muestra una página en blanco o dañada {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
 **Síntoma:** Al seleccionar **Open Web URL Inside App** aparece una WebView en blanco o dañada.
 
-1. **Verifica que la URL utiliza HTTPS.** La WebView del SDK requiere URL compatibles con ATS. Los enlaces HTTP fallan silenciosamente.
+1. **Verifica que la URL utiliza HTTPS.** La WebView del SDK or kit de desarrollo de software requiere URL compatibles con ATS. Los enlaces HTTP fallan silenciosamente.
 2. **Comprueba los encabezados de Content Security Policy.** Si la página web de destino establece `X-Frame-Options: DENY` o una `Content-Security-Policy` restrictiva, bloquea la representación en una WebView.
 3. **Comprueba si hay redireccionamientos a esquemas personalizados.** Si la página web redirige a un esquema personalizado (por ejemplo, `myapp://`), la WebView no puede gestionarlo.
 4. **Prueba la URL en Safari.** Si la página no se carga en Safari en el dispositivo, tampoco se cargará en la WebView.
@@ -191,7 +191,7 @@ Si utilizas [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking
 
 ### Verifica que el BrazeDelegate enrute a Branch {#verify-the-brazedelegate-routes-to-branch}
 
-Tu `BrazeDelegate` debe interceptar los enlaces de Branch y pasarlos al SDK de Branch. Verifica lo siguiente:
+Tu `BrazeDelegate` debe interceptar los enlaces de Branch y pasarlos al SDK or kit de desarrollo de software de Branch. Verifica lo siguiente:
 
 ```swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
@@ -215,11 +215,11 @@ Verifica que el dominio de Branch en tu `BrazeDelegate` coincida con tu dominio 
 - `yourapp-alternate.app.link` (alternativo)
 - Dominios personalizados (si están configurados en el panel de Branch)
 
-### Habilita el registro de ambos SDK {#enable-both-sdks-logging}
+### Habilita el registro de ambos SDK or kit de desarrollo de software {#enable-both-sdks-logging}
 
 Para diagnosticar dónde se rompe el enlace en la cadena:
 
-1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Busca entradas `Opening '<URL>':` para verificar que el SDK recibió el enlace.
+1. Habilita el [registro detallado de Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Busca entradas `Opening '<URL>':` para verificar que el SDK or kit de desarrollo de software recibió el enlace.
 2. Habilita el [modo de prueba de Branch](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Comprueba el panel de Branch para ver los eventos de clics en los enlaces.
 3. Si Braze registra el enlace, pero Branch no detecta un clic, es probable que el problema esté en la lógica de enrutamiento del `BrazeDelegate`.
 
@@ -242,15 +242,15 @@ Prueba el enlace de Branch fuera de Braze para aislar el problema:
 
 ### Usar el registro detallado {#use-verbose-logging}
 
-[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK procesa los enlaces. Entradas clave que debes buscar:
+[Habilita el registro detallado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging) para ver exactamente cómo el SDK or kit de desarrollo de software procesa los enlaces. Entradas clave que debes buscar:
 
 | Entrada de registro | Qué significa |
 |---|---|
-| `Opening '<URL>': - channel: notification` | El SDK está procesando un enlace de una notificación push |
-| `Opening '<URL>': - channel: inAppMessage` | El SDK está procesando un enlace de un mensaje dentro de la aplicación |
-| `Opening '<URL>': - channel: contentCard` | El SDK está procesando un enlace de una tarjeta de contenido |
-| `useWebView: true` | El SDK abre la URL en el WebView dentro de la aplicación |
-| `isUniversalLink: true` | El SDK identificó la URL como un enlace universal |
+| `Opening '<URL>': - channel: notification` | El SDK or kit de desarrollo de software está procesando un enlace de una notificación push |
+| `Opening '<URL>': - channel: inAppMessage` | El SDK or kit de desarrollo de software está procesando un enlace de un mensaje dentro de la aplicación |
+| `Opening '<URL>': - channel: contentCard` | El SDK or kit de desarrollo de software está procesando un enlace de una tarjeta de contenido |
+| `useWebView: true` | El SDK or kit de desarrollo de software abre la URL en el WebView dentro de la aplicación |
+| `isUniversalLink: true` | El SDK or kit de desarrollo de software identificó la URL como un enlace universal |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Usar el registro detallado" }
 
 Para más detalles sobre cómo leer estos registros, consulta [Lectura de registros detallados]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).

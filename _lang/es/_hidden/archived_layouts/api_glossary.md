@@ -47,10 +47,10 @@ excerpt_separator: ""
 /templates/email/create
 {% endapimethod %}
 {% apitags %}
-Post,Email,Create,Template,REST,API
+Post,Email,Create,Template,REST or transferencia de estado representacional,API
 {% endapitags %}
 
-Utiliza las API REST de plantillas de correo electrónico para administrar mediante programación las plantillas de correo electrónico que almacenaste en los paneles de Braze, en la página Plantillas y medios. Braze proporciona dos puntos de conexión para crear y actualizar tus plantillas de correo electrónico.
+Utiliza las API REST or transferencia de estado representacional de plantillas de correo electrónico para administrar mediante programación las plantillas de correo electrónico que almacenaste en los paneles de Braze, en la página Plantillas y medios. Braze proporciona dos puntos de conexión para crear y actualizar tus plantillas de correo electrónico.
 
 La respuesta de este punto de conexión incluye un campo para `email_template_id`, que puede utilizarse para actualizar la plantilla en posteriores llamadas a la API.
 
@@ -98,7 +98,7 @@ La respuesta de este punto de conexión incluye un campo para `email_template_id
 /templates/email/list
 {% endapimethod %}
 {% apitags %}
-Get,Email,Template,List,REST
+Get,Email,Template,List,REST or transferencia de estado representacional
 {% endapitags %}
 
 Utiliza los siguientes puntos de conexión para obtener una lista de las plantillas disponibles.
@@ -273,7 +273,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | email | (cadena) |
 | email_subscribe | (cadena) Los valores disponibles son "opted_in" (se ha registrado explícitamente para recibir mensajes de correo electrónico), "unsubscribed" (se ha dado de baja explícitamente de los mensajes de correo electrónico) y "subscribed" (ni se ha dado de alta ni de baja).  |
 | external_id | (cadena) Del identificador único del usuario. |
-| facebook | hash que contiene cualquiera de `id` (cadena), `likes` (matriz de cadenas), `num_friends` (entero). |
+| Facebook | hash que contiene cualquiera de `id` (cadena), `likes` (matriz de cadenas), `num_friends` (entero). |
 | first_name | (cadena) |
 | gender | (cadena) "M", "F", "O" (otro), "N" (no procede), "P" (prefiere no decirlo) o nil (desconocido). |
 | home_city | (cadena) |

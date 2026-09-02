@@ -7,7 +7,7 @@ page_order: 3
 
 # Nutzer:innen über eine Landing-Page retargeten {#retarget-users-through-a-landing-page}
 
-> Erfahren Sie, wie Sie Nutzer:innen retargeten, die ein Formular über eine Landing-Page eingereicht haben, indem Sie ein dediziertes Segment erstellen oder eine Nachricht triggern, wenn das Formular eingereicht wird.
+> Erfahren Sie, wie Sie Nutzer:innen retargeten, die ein Formular über eine Landing-Page eingereicht haben, indem Sie ein dediziertes Segment erstellen oder eine Nachricht Trigger or triggern or triggern, wenn das Formular eingereicht wird.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -27,9 +27,9 @@ Erstellen Sie ein neues Segment, um automatisch Nutzer:innen zu identifizieren, 
 Von hier aus können Sie Nutzer:innen danach segmentieren, ob sie ein Landing-Page-Formular für Ihre Landing-Page eingereicht haben oder nicht.
 {% endtab %}
 
-{% tab Nachrichten-Trigger verwenden %}
+{% tab Nachrichten-Trigger or triggern verwenden %}
 
-Richten Sie einen Nachrichten-Trigger ein, um Nutzer:innen nach dem Absenden des Formulars automatisch eine Nachricht zu senden oder sie in einen Canvas aufzunehmen. Wenn Sie die Zustellungsoption für Ihre [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) oder Ihren [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) auswählen, wählen Sie **Action Based Delivery** und dann **Submitted a Landing Page form**.
+Richten Sie einen Nachrichten-Trigger or triggern ein, um Nutzer:innen nach dem Absenden des Formulars automatisch eine Nachricht zu senden oder sie in einen Canvas aufzunehmen. Wenn Sie die Zustellungsoption für Ihre [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns) oder Ihren [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) auswählen, wählen Sie **Action Based Delivery** und dann **Submitted a Landing Page form**.
 
 Alle Nutzer:innen, die ein Formular über dieses Landing-Page-Formular absenden, erhalten entweder eine Nachricht über den gewählten Messaging-Kanal oder werden in den gewählten Canvas aufgenommen.
 

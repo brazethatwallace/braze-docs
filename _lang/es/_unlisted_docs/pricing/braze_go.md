@@ -18,8 +18,8 @@ Braze Go ofrece toda la misma funcionalidad que Braze, con los siguientes cambio
 
 - Puedes tener hasta 30 campañas activas.
 - Puedes tener hasta 20 Canvas activos.
-- El límite de velocidad predeterminado total de la REST API es de 50 000 por hora, por espacio de trabajo.
-    - Para uso fuera de Braze Go, obtén más información sobre los [límites de la REST API]({{site.baseurl}}/api/api_limits#rate-limits-by-request-type).
+- El límite de velocidad predeterminado total de la REST or transferencia de estado representacional API es de 50 000 por hora, por espacio de trabajo.
+    - Para uso fuera de Braze Go, obtén más información sobre los [límites de la REST or transferencia de estado representacional API]({{site.baseurl}}/api/api_limits#rate-limits-by-request-type).
 - La retención de datos de interacción de campañas y Canvas es de 2 meses sin restauración.
     - Para uso fuera de Braze Go, obtén más información sobre la [disponibilidad de datos de interacción de mensajería]({{site.baseurl}}/messaging_interaction_data).
 

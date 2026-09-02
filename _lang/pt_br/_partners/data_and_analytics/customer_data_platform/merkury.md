@@ -23,21 +23,21 @@ A integração entre a Braze e a Merkle permite aproveitar o `MerkuryID` para au
 | Conta Merkle | Uma conta Merkle é necessária para aproveitar esta parceria. |
 | ID de cliente Merkle | Obtenha seu ID de cliente com seu representante Merkle. |
 | Tag Merkury | Insira a tag Merkury da Merkle no seu website. |
-| Endpoint REST e SDK da Braze | A URL do seu endpoint REST ou SDK. Seu endpoint dependerá da [URL da Braze para a sua instância]({{site.baseurl}}/api/basics#endpoints). |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Ela pode ser criada em **Dashboard da Braze > Console de desenvolvedor > Chave da API REST > Criar nova chave de API**. |
+| Endpoint REST or transferir estado representacional e SDK or kit de desenvolvimento de software da Braze | A URL do seu endpoint REST or transferir estado representacional ou SDK or kit de desenvolvimento de software. Seu endpoint dependerá da [URL da Braze para a sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as permissões `users.track, users.export.ids, users.export.segment, and segments.list`. <br><br>Ela pode ser criada em **Dashboard da Braze > Console de desenvolvedor > Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional > Criar nova chave de API or interface de programação do aplicativo (API)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% alert important %}
-As solicitações do conector de identidade Merkury para a Braze operam dentro das especificações de limite de frequência da API da Braze. Entre em contato com a Braze ou com seu gestor de conta Merkle se tiver alguma dúvida.<br><br>O Merkury envia pelo menos uma solicitação ao final de uma sessão qualificada.
+As solicitações do conector de identidade Merkury para a Braze operam dentro das especificações de limite de frequência da API or interface de programação do aplicativo (API) da Braze. Entre em contato com a Braze ou com seu gestor de conta Merkle se tiver alguma dúvida.<br><br>O Merkury envia pelo menos uma solicitação ao final de uma sessão qualificada.
 {% endalert %}
 
-## Integração SDK lado a lado {#side-by-side-sdk-integration}
+## Integração SDK or kit de desenvolvimento de software lado a lado {#side-by-side-sdk-integration}
 
 Utiliza a tag Merkury do lado do cliente da Merkle para capturar dispositivos da Braze e encaminhá-los ao endpoint do conector de identidade Merkury para identificação.
 
-### Etapa 1: Configurar a tag do SDK web da Braze {#step-1-setup-braze-web-sdk-tag}
+### Etapa 1: Configurar a tag do SDK or kit de desenvolvimento de software web da Braze {#step-1-setup-braze-web-sdk-tag}
 
-Você precisa ter o [SDK web da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) implantado no seu website para usar esta integração.
+Você precisa ter o [SDK or kit de desenvolvimento de software web da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-gtm) implantado no seu website para usar esta integração.
 
 ### Etapa 2: Implantar a tag Merkury da Merkle {#step-2-deploy-merkles-merkury-tag}
 

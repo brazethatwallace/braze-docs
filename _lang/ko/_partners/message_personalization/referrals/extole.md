@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Extole
 
-> [Extole](https://www.extole.com/)은 SaaS 회사로, 친구 추천 마케팅 분야의 업계 리더입니다. 효과적인 추천 마케팅 프로그램을 만들고 최적화하여 고객 확보를 늘리는 데 도움을 줍니다.
+> [Extole](https://www.extole.com/)은 SaaS(software-as-a-service) 회사로, 친구 추천 마케팅 분야의 업계 리더입니다. 효과적인 추천 마케팅 프로그램을 만들고 최적화하여 고객 확보를 늘리는 데 도움을 줍니다.
 
 _이 통합은 Extole에서 유지 관리합니다._
 
@@ -89,7 +89,7 @@ Braze와 Extole 통합을 사용하면 Extole의 친구 추천 및 성장 프로
 
 ### Braze에서 사용자 찾기 및 생성 {#find-and-create-users-in-braze}
 
-Extole에 외부 ID(사용자 ID)가 없는 새 이메일 또는 SMS 가입과 같은 특정 사용 사례의 경우, Extole은 Braze [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)를 사용하여 사용자의 식별자를 확인할 수 있습니다. 사용자가 Braze에 존재하는 경우 Extole은 프로필 속성을 추가하고 업데이트합니다. 요청이 고객 프로필을 반환하지 않는 경우, Extole은 `/users/track` 엔드포인트를 사용하여 사용자의 이메일 주소를 별칭 이름으로 하는 사용자 별칭을 생성합니다.
+Extole에 외부 ID(사용자 ID)가 없는 새 이메일 또는 단문 메시지 서비스 가입과 같은 특정 사용 사례의 경우, Extole은 Braze [식별자별 사용자 프로필 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)를 사용하여 사용자의 식별자를 확인할 수 있습니다. 사용자가 Braze에 존재하는 경우 Extole은 프로필 속성을 추가하고 업데이트합니다. 요청이 고객 프로필을 반환하지 않는 경우, Extole은 `/users/track` 엔드포인트를 사용하여 사용자의 이메일 주소를 별칭 이름으로 하는 사용자 별칭을 생성합니다.
 
 ## 이 통합 사용하기 {#using-this-integration}
 

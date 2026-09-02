@@ -4,19 +4,19 @@ article_title: An Ziel senden
 alias: "/send_to_destination/"
 page_order: 11.5
 page_type: reference
-description: "Dieser Referenzartikel behandelt die Komponente „An Ziel senden“ und wie Sie sie in Ihren Canvases verwenden können."
+description: "Dieser Referenzartikel behandelt die Komponente „An Ziel senden“ und wie Sie sie in Ihren Canvase verwenden können."
 tool: Canvas
 ---
 
 # Canvas-Schritt „An Ziel senden“ {#send-to-destination-step}
 
-> Der Canvas-Schritt „An Ziel senden“ ermöglicht es Ihnen, Nutzer:innen von einem Canvas in einen anderen zu senden. So können Sie beispielsweise Canvases verbinden, die gemeinsames Messaging für Aktionsangebote nutzen.
+> Der Canvas-Schritt „An Ziel senden“ ermöglicht es Ihnen, Nutzer:innen von einem Canvas in einen anderen zu senden. So können Sie beispielsweise Canvase verbinden, die gemeinsames Messaging für Aktionsangebote nutzen.
 
 ## So funktioniert es {#how-it-works}
 
 ![Ein „An Ziel senden“-Schritt, um Nutzer:innen an einen neuen Canvas zu senden.]({% image_buster /assets/img/send_to_destination1.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Ihr aktueller Canvas mit dem „An Ziel senden“-Schritt ist die Quelle. Innerhalb des Schritts können Sie den Ziel-Canvas auswählen. Nutzer:innen aus dem Quell-Canvas müssen die Zielgruppenkriterien des Ziel-Canvas erfüllen. Nehmen wir an, Sie haben zwei Canvases:
+Ihr aktueller Canvas mit dem „An Ziel senden“-Schritt ist die Quelle. Innerhalb des Schritts können Sie den Ziel-Canvas auswählen. Nutzer:innen aus dem Quell-Canvas müssen die Zielgruppenkriterien des Ziel-Canvas erfüllen. Nehmen wir an, Sie haben zwei Canvase:
 
 - **Quelle:** Canvas 1 enthält einen „An Ziel senden“-Schritt, der Nutzer:innen an Canvas 2 sendet
 - **Ziel:** Canvas 2 mit Zielgruppenkriterien für Nutzer:innen, die einen Artikel bestellt haben
@@ -61,11 +61,11 @@ Ja. Das Ziel-Canvas kann den Status „Entwurf“ oder „Inaktiv“ haben.
 
 Ja. Der [Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) des Quell-Canvas wird an das Ziel-Canvas übergeben. Kontextvariablen müssen jedoch innerhalb des Quell-Canvas aufgerufen werden, damit sie an das Ziel-Canvas übergeben werden.
 
-### Kann ich den Schritt „An Ziel senden“ verwenden, um Canvases zu verbinden, anstatt API- oder User-Update-Workarounds zu nutzen? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
+### Kann ich den Schritt „An Ziel senden“ verwenden, um Canvase zu verbinden, anstatt API- oder User-Update or aktualisieren-Workarounds zu nutzen? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 
-Ja. Sie können Canvases mit dem Schritt „An Ziel senden“ verbinden, wenn Nutzer:innen direkt in eine andere Canvas-Journey wechseln sollen.
+Ja. Sie können Canvase mit dem Schritt „An Ziel senden“ verbinden, wenn Nutzer:innen direkt in eine andere Canvas-Journey wechseln sollen.
 
-Sie benötigen keine separaten User-Update-Schritte, API-Trigger oder Webhooks, nur um Nutzer:innen zwischen Canvases zu verschieben – vorausgesetzt, sie erfüllen die Zielgruppenkriterien des Ziel-Canvas zum Zeitpunkt des Versands.
+Sie benötigen keine separaten User-Update or aktualisieren-Schritte, API-Trigger or triggern oder Webhooks, nur um Nutzer:innen zwischen Canvase zu verschieben – vorausgesetzt, sie erfüllen die Zielgruppenkriterien des Ziel-Canvas zum Zeitpunkt des Versands.
 
 ### Treten Nutzer:innen am Anfang des Ziel-Canvas ein? {#do-users-enter-at-the-start-of-the-destination-canvas}
 
@@ -81,4 +81,4 @@ Nutzer:innen, die den Schritt „An Ziel senden“ erreichen, setzen ihre Journe
 
 ### Unterliegt der Schritt „An Ziel senden“ API-Rate-Limits? {#is-the-send-to-destination-step-subject-to-api-rate-limits}
 
-Nein. Nutzer:innen werden innerhalb von Braze zwischen Canvases verschoben, ohne dass externe API-Aufrufe erfolgen.
+Nein. Nutzer:innen werden innerhalb von Braze zwischen Canvase verschoben, ohne dass externe API-Aufrufe erfolgen.

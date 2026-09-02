@@ -63,7 +63,7 @@ Cuando la encriptación a nivel de campo de identificador está activada, debes 
 
 Al actualizar la dirección de correo electrónico en Braze, debes usar el valor de correo electrónico con hash en cualquier lugar donde se incluya `email`. Esto incluye:
 
-- Endpoints REST:
+- Endpoints REST or transferencia de estado representacional:
     - `/users/track`
     - `/campaigns/trigger/send`
     - `/canvas/trigger/send`
@@ -78,7 +78,7 @@ Al crear un nuevo usuario con una dirección de correo electrónico, debes añad
 
 Estas características no son compatibles con la encriptación a nivel de campo de identificadores:
 
-- Identificación y captura de direcciones de correo electrónico a través del SDK
+- Identificación y captura de direcciones de correo electrónico a través del SDK or kit de desarrollo de software
 - Formularios de captura de correo electrónico en mensajes dentro de la aplicación
 - Informes sobre el dominio del destinatario, incluidos los gráficos de proveedores de buzón de Email Insights
 - Filtro de dirección de correo electrónico por expresión regular

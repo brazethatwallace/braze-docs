@@ -4,7 +4,7 @@ article_title: "Globale E-Mail-Stileinstellungen"
 alias: "/dnd/global_style_settings/"
 channel: email
 page_order: 3
-description: "Dieser Referenzartikel beschreibt, wie Sie globale E-Mail-Stileinstellungen im Drag-and-Drop-Editor für Ihre Campaigns und Canvases festlegen."
+description: "Dieser Referenzartikel beschreibt, wie Sie globale E-Mail-Stileinstellungen im Drag-and-Drop-Editor für Ihre Campaigns und Canvase festlegen."
 tool:
   - Campaigns
   - Canvas
@@ -12,19 +12,19 @@ tool:
 
 # Globale E-Mail-Stileinstellungen {#email-global-style-settings}
 
-> Mit globalen Stileinstellungen können Sie das Erscheinungsbild Ihrer E-Mail-Campaigns und Canvases personalisieren. Sie können ein Standard-Theme für Ihren Drag-and-Drop-Editor hinzufügen und anpassen. Dazu gehört die Bearbeitung Ihrer Stile für E-Mail-Titel, Text, Buttons und mehr. Eine Kombination dieser Einstellungen kann dazu beitragen, ein einheitliches Erscheinungsbild in Ihrem E-Mail-Messaging zu schaffen.
+> Mit globalen Stileinstellungen können Sie das Erscheinungsbild Ihrer E-Mail-Campaigns und Canvase personalisieren. Sie können ein Standard-Theme für Ihren Drag-and-Drop-Editor hinzufügen und anpassen. Dazu gehört die Bearbeitung Ihrer Stile für E-Mail-Titel, Text, Buttons und mehr. Eine Kombination dieser Einstellungen kann dazu beitragen, ein einheitliches Erscheinungsbild in Ihrem E-Mail-Messaging zu schaffen.
 
-Um Ihre globalen Stileinstellungen zu bearbeiten, gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Drag-and-Drop-E-Mail-Präferenzen**. Nachdem Sie die Stile im Drag-and-Drop-E-Mail-Editor bearbeitet haben, wählen Sie **Speichern**. Um Ihre E-Mail-Campaigns und Canvases weiter anzupassen, erfahren Sie, wie Sie [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) einbinden können.
+Um Ihre globalen Stileinstellungen zu bearbeiten, gehen Sie zu **Einstellungen** > **E-Mail-Präferenzen** > **Drag-and-Drop-E-Mail-Präferenzen**. Nachdem Sie die Stile im Drag-and-Drop-E-Mail-Editor bearbeitet haben, wählen Sie **Speichern**. Um Ihre E-Mail-Campaigns und Canvase weiter anzupassen, erfahren Sie, wie Sie [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) einbinden können.
 
 ![Abschnitt „Globale E-Mail-Stileinstellungen“ im Tab „Drag-and-Drop-E-Mail-Editor-Einstellungen“.]({% image_buster /assets/img_archive/dnd_global_style_settings.png %})
 
 {% alert note %}
-Änderungen an den globalen Stileinstellungen werden auf alle zukünftigen E-Mail-Campaigns und Canvases angewendet.
+Änderungen an den globalen Stileinstellungen werden auf alle zukünftigen E-Mail-Campaigns und Canvase angewendet.
 {% endalert %}
 
 ## Grundlegende Stiloptionen {#basic-styling}
 
-Unter **Basic Styling** können Sie Ihre Standard-E-Mail- und Inhaltshintergrundfarben für Ihre E-Mail-Campaigns und Canvases festlegen. Sie können auch eine Standardschriftart auswählen, eine benutzerdefinierte Schriftart hinzufügen und Linkfarben bearbeiten.
+Unter **Basic Styling** können Sie Ihre Standard-E-Mail- und Inhaltshintergrundfarben für Ihre E-Mail-Campaigns und Canvase festlegen. Sie können auch eine Standardschriftart auswählen, eine benutzerdefinierte Schriftart hinzufügen und Linkfarben bearbeiten.
 
 ![Grundlegende Stiloptionen mit Möglichkeiten zur Bearbeitung der E-Mail- und Inhaltshintergrundfarben, des Standardschriftnamens und der Standard-Linkfarbe.]({% image_buster /assets/img_archive/dnd_basic_styling.png %})
 

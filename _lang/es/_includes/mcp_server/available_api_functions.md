@@ -1,6 +1,6 @@
 # Funciones del servidor MCP de Braze {#braze-mcp-server-functions}
 
-> El servidor MCP de Braze expone herramientas de lectura y escritura que se corresponden con endpoints específicos de la REST API de Braze. Para más información, consulta [Servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
+> El servidor MCP de Braze expone herramientas de lectura y escritura que se corresponden con endpoints específicos de la REST or transferencia de estado representacional API de Braze. Para más información, consulta [Servidor MCP de Braze]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/){% endif %}.
 
 {% multi_lang_include mcp_server/beta_alert.md %}
 
@@ -105,7 +105,7 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | `trigger_integration_sync` | [`/cdi/integrations/{integration_id}/sync`]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) | escritura | Desencadena una sincronización para una integración CDI determinada. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Integraciones CDI" }
 
-### KPI
+### indicador clave de rendimiento
 
 | Herramienta | Endpoint de API | Acceso | Descripción |
 | --- | --- | --- | --- |
@@ -113,7 +113,7 @@ Tu cliente MCP hace referencia a estas herramientas para interactuar con el serv
 | `get_mau_data_series` | [`/kpi/mau/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) | lectura | Serie diaria de usuarios activos únicos en una ventana móvil de 30 días. |
 | `get_new_users_data_series` | [`/kpi/new_users/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) | lectura | Serie diaria del total de nuevos usuarios por fecha. |
 | `get_uninstalls_data_series` | [`/kpi/uninstalls/data_series`]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) | lectura | Serie diaria del total de desinstalaciones por fecha. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="KPI" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="indicador clave de rendimiento" }
 
 ### Biblioteca de medios {#media-library}
 

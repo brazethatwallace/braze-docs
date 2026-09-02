@@ -4,17 +4,17 @@ Die Prognose wird alle zwei Wochen erneut trainiert und zusammen mit der Metrik 
 
 {% details Beispiel für Prognosequalität %}
 
-Wenn beispielsweise 20 % Ihrer Nutzer:innen im Durchschnitt abwandern und Sie eine zufällige Teilmenge von 20 % Ihrer Nutzer:innen auswählen und diese nach dem Zufallsprinzip als abgewandert bezeichnen (unabhängig davon, ob sie es wirklich sind oder nicht), werden Sie voraussichtlich nur 20 % der tatsächlichen Abgewanderten korrekt identifizieren. Das ist reines Raten. Wenn das Modell nur so gut funktionieren würde, wäre der Lift in diesem Fall 1.
+Wenn beispielsweise 20 % Ihrer Nutzer:innen im Durchschnitt abwandern und Sie eine zufällige Teilmenge von 20 % Ihrer Nutzer:innen auswählen und diese nach dem Zufallsprinzip als abgewandert bezeichnen (unabhängig davon, ob sie es wirklich sind oder nicht), werden Sie voraussichtlich nur 20 % der tatsächlichen Abgewanderten korrekt identifizieren. Das ist reines Raten. Wenn das Modell nur so gut funktionieren würde, wäre der Uplift in diesem Fall 1.
 
-Wenn das Modell es Ihnen hingegen erlauben würde, 20 % der Nutzer:innen anzusprechen und dabei alle „echten“ Abgewanderten zu erfassen und niemanden sonst, wäre der Lift 100 % / 20 % = 5. Wenn Sie dieses Verhältnis für jeden Anteil der wahrscheinlichsten Abgewanderten, die Sie ansprechen könnten, aufzeichnen, erhalten Sie die [Lift-Kurve](https://en.wikipedia.org/wiki/Lift_(data_mining)).
+Wenn das Modell es Ihnen hingegen erlauben würde, 20 % der Nutzer:innen anzusprechen und dabei alle „echten“ Abgewanderten zu erfassen und niemanden sonst, wäre der Uplift 100 % / 20 % = 5. Wenn Sie dieses Verhältnis für jeden Anteil der wahrscheinlichsten Abgewanderten, die Sie ansprechen könnten, aufzeichnen, erhalten Sie die [Uplift-Kurve](https://en.wikipedia.org/wiki/Lift_(data_mining)).
 
-Eine andere Möglichkeit, die Lift-Qualität (und auch die _Prognosequalität_) zu betrachten, ist die Frage, wie weit die Lift-Kurve der Prognose bei der Identifizierung von Abgewanderten im Testdatensatz zwischen zufälligem Raten (0 %) und Perfektion (100 %) liegt. Die Originalarbeit zur Lift-Qualität finden Sie unter [Measuring lift quality in database marketing](https://dl.acm.org/doi/10.1145/380995.381018).
+Eine andere Möglichkeit, die Uplift-Qualität (und auch die _Prognosequalität_) zu betrachten, ist die Frage, wie weit die Uplift-Kurve der Prognose bei der Identifizierung von Abgewanderten im Testdatensatz zwischen zufälligem Raten (0 %) und Perfektion (100 %) liegt. Die Originalarbeit zur Uplift-Qualität finden Sie unter [Measuring Uplift quality in database marketing](https://dl.acm.org/doi/10.1145/380995.381018).
 
 {% enddetails %}
 
 ### Wie sie gemessen wird {#how-its-measured}
 
-Unser Maß für die _Prognosequalität_ ist die [Lift-Qualität](https://dl.acm.org/doi/10.1145/380995.381018). Im Allgemeinen bezeichnet „Lift“ den erhöhten Anteil oder Prozentsatz eines erfolgreichen Ergebnisses, wie z. B. einer Conversion. In diesem Fall ist das erfolgreiche Ergebnis die korrekte Identifizierung einer Nutzerin oder eines Nutzers, die oder der abgewandert wäre. Die Lift-Qualität ist der durchschnittliche Lift, den die Prognose für alle möglichen Zielgruppengrößen beim Messaging des Testdatensatzes liefert. Dieser Ansatz misst, um wie viel besser als zufälliges Raten das Modell ist. Bei diesem Maß bedeutet 0 %, dass das Modell nicht besser ist als eine zufällige Schätzung, wer abwandern wird, und 100 % bedeutet, dass man genau weiß, wer abwandern wird.
+Unser Maß für die _Prognosequalität_ ist die [Uplift-Qualität](https://dl.acm.org/doi/10.1145/380995.381018). Im Allgemeinen bezeichnet „Uplift“ den erhöhten Anteil oder Prozentsatz eines erfolgreichen Ergebnisses, wie z. B. einer Conversion. In diesem Fall ist das erfolgreiche Ergebnis die korrekte Identifizierung einer Nutzerin oder eines Nutzers, die oder der abgewandert wäre. Die Uplift-Qualität ist der durchschnittliche Uplift, den die Prognose für alle möglichen Zielgruppengrößen beim Messaging des Testdatensatzes liefert. Dieser Ansatz misst, um wie viel besser als zufälliges Raten das Modell ist. Bei diesem Maß bedeutet 0 %, dass das Modell nicht besser ist als eine zufällige Schätzung, wer abwandern wird, und 100 % bedeutet, dass man genau weiß, wer abwandern wird.
 
 ### Empfohlene Bereiche {#recommended-ranges}
 

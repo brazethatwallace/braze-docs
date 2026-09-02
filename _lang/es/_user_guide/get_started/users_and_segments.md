@@ -27,7 +27,7 @@ Al comprender los perfiles de usuario, puedes obtener información sobre tu audi
 - **Historial de mensajes:** Es un registro de todos los mensajes que se han enviado al usuario desde el respectivo canal de mensajería (como correo electrónico o push).
 
 {% alert tip %}
-Los SDK de la plataforma Braze recopilan automáticamente 27 atributos y eventos diferentes. Usando estos eventos y atributos estándar, puedes crear Segments tan pronto como integres el SDK.
+Los SDK or kit de desarrollo de software de la plataforma Braze recopilan automáticamente 27 atributos y eventos diferentes. Usando estos eventos y atributos estándar, puedes crear Segments tan pronto como integres el SDK or kit de desarrollo de software.
 {% endalert %}
 
 ### Atributos {#attributes}
@@ -36,7 +36,7 @@ Los atributos son características o propiedades específicas asociadas a un usu
 
 #### Atributos estándar {#standard-attributes}
 
-Los atributos estándar son atributos predefinidos que puedes rastrear con Braze tras integrar el SDK en tu aplicación. Son datos comunes de usuario que la mayoría de las aplicaciones encontrarían útiles, como información demográfica y datos de dispositivo. Algunos ejemplos incluyen:
+Los atributos estándar son atributos predefinidos que puedes rastrear con Braze tras integrar el SDK or kit de desarrollo de software en tu aplicación. Son datos comunes de usuario que la mayoría de las aplicaciones encontrarían útiles, como información demográfica y datos de dispositivo. Algunos ejemplos incluyen:
 
 - Nombre
 - Apellido
@@ -77,7 +77,7 @@ Los eventos representan acciones o comportamientos específicos realizados por l
 
 #### Eventos estándar {#standard-events}
 
-Los [eventos estándar]({{site.baseurl}}/user_guide/data/activation/events) son eventos predefinidos que Braze rastrea automáticamente tras integrar el SDK en tu aplicación o sitio. Algunos ejemplos de eventos estándar incluyen:
+Los [eventos estándar]({{site.baseurl}}/user_guide/data/activation/events) son eventos predefinidos que Braze rastrea automáticamente tras integrar el SDK or kit de desarrollo de software en tu aplicación o sitio. Algunos ejemplos de eventos estándar incluyen:
 
 - **Inicio de sesión:** Este evento se desencadena cuando un usuario abre la aplicación.
 - **Fin de sesión:** Este evento se desencadena cuando un usuario cierra la aplicación.

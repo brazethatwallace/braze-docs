@@ -16,7 +16,7 @@ noindex: true
 
 ## Modelo de datos de Content Cards {#content-cards-data-model}
 
-El modelo de datos de Content Cards está disponible en el SDK de iOS.
+El modelo de datos de Content Cards está disponible en el SDK or kit de desarrollo de software de iOS.
 
 ### Obtener los datos {#getting-the-data}
 
@@ -121,8 +121,8 @@ Braze ofrece tres tipos de Content Cards: banner, imagen con subtítulo y clási
 | Método | Descripción |
 |---|---|
 | `logContentCardImpression` | Registra manualmente una impresión en Braze para una tarjeta concreta. |
-| `logContentCardClicked` | Registra manualmente un clic en Braze para una tarjeta concreta. El SDK solo registrará un clic de tarjeta cuando la tarjeta tenga la propiedad `url` con un valor válido. |
-| `logContentCardDismissed` | Registra manualmente en Braze el descarte de una tarjeta concreta. El SDK solo registrará un descarte de tarjeta si la propiedad `dismissed` de la tarjeta no está ya establecida en `true`. |
+| `logContentCardClicked` | Registra manualmente un clic en Braze para una tarjeta concreta. El SDK or kit de desarrollo de software solo registrará un clic de tarjeta cuando la tarjeta tenga la propiedad `url` con un valor válido. |
+| `logContentCardDismissed` | Registra manualmente en Braze el descarte de una tarjeta concreta. El SDK or kit de desarrollo de software solo registrará un descarte de tarjeta si la propiedad `dismissed` de la tarjeta no está ya establecida en `true`. |
 | `isControlCard` | Determina si una tarjeta es la tarjeta de control para una prueba A/B. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 

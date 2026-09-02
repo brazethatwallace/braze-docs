@@ -89,11 +89,11 @@ https://example.com/{{url_var}}
 
 **Canais compatíveis:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-A Braze encurta URLs renderizadas por Liquid, incluindo aquelas incluídas em propriedades de disparo de API. Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa uma URL válida, a Braze encurta e rastreia essa URL antes de enviar a mensagem.
+A Braze encurta URLs renderizadas por Liquid, incluindo aquelas incluídas em propriedades de disparo de API or interface de programação do aplicativo (API). Por exemplo, se {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa uma URL válida, a Braze encurta e rastreia essa URL antes de enviar a mensagem.
 
 ### Encurtar URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-O encurtamento de links também é ativado para mensagens somente via API por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para também ativar o rastreamento básico ou avançado, use os parâmetros de solicitação `link_shortening_enabled` ou `user_click_tracking_enabled`.
+O encurtamento de links também é ativado para mensagens somente via API or interface de programação do aplicativo (API) por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para também ativar o rastreamento básico ou avançado, use os parâmetros de solicitação `link_shortening_enabled` ou `user_click_tracking_enabled`.
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
@@ -145,7 +145,7 @@ Sim. Quando o **Rastreamento avançado** está ativado, você pode redirecionar 
 
 ### O encurtamento de links funciona com deep links ou links universais? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
-O encurtamento de links não funciona com deep links. Como alternativa, você pode encurtar links universais de provedores terceiros como Branch ou Appsflyer, mas os usuários podem experimentar um breve redirecionamento ou efeito de "cintilação". Isso ocorre porque o link encurtado passa pela web primeiro antes de resolver para o link universal que suporta a abertura do app. Além disso, a Braze não consegue solucionar problemas que possam surgir ao encurtar links universais, como quebra de atribuição ou redirecionamentos inesperados.
+O encurtamento de links não funciona com deep links. Como alternativa, você pode encurtar links universais de provedores terceiros como Branch or ramificação ou Appsflyer, mas os usuários podem experimentar um breve redirecionamento ou efeito de "cintilação". Isso ocorre porque o link encurtado passa pela web primeiro antes de resolver para o link universal que suporta a abertura do app. Além disso, a Braze não consegue solucionar problemas que possam surgir ao encurtar links universais, como quebra de atribuição ou redirecionamentos inesperados.
 
 {% alert note %}
 Teste a experiência do usuário antes de implementar o encurtamento de links com links universais para confirmar que atende às suas expectativas.

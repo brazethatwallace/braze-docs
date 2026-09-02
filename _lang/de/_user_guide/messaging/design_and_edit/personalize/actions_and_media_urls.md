@@ -41,10 +41,10 @@ Standard-URI-Schemata, die nativ von iOS und Android verarbeitet werden (wie `te
 | ------ | ------- | ------ |
 | `tel:` | `tel:+18005555555` | Öffnet die Telefon-Wähltastatur |
 | `mailto:` | `mailto:support@example.com` | Öffnet die E-Mail-Erstellung |
-| `sms:` | `sms:+18005555555` | Öffnet die SMS-Erstellung |
+| `sms:` | `sms:+18005555555` | Öffnet die Kurzmitteilungsdienst or SMS-Erstellung |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="System-URI-Schemata"}
 
-Diese funktionieren für das Klickverhalten von Push-Benachrichtigungen und Button-Aktionen in In-App-Nachrichten. Es sind keine zusätzlichen SDK-Konfigurationen oder App-Code-Änderungen erforderlich.
+Diese funktionieren für das Klickverhalten von Push-Benachrichtigungen und Button-Aktionen in In-App-Nachrichten. Es sind keine zusätzlichen SDK or Software-Development-Kit-Konfigurationen oder App-Code-Änderungen erforderlich.
 
 ### Deeplink in die Anwendung {#deep-link-into-application}
 
@@ -54,7 +54,7 @@ Bevor Sie diese Option verwenden, arbeiten Sie mit Ihren Entwickler:innen zusamm
 
 So legen Sie dieses Klickverhalten fest:
 
-1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-click behavior**:
+1. Suchen Sie in Ihrem Campaign- oder Canvas-Composer nach **On-Klick, der or klicken behavior**:
    - Für Push-Benachrichtigungen und Content Cards gehen Sie zum Tab **Compose**.
    - Für In-App-Nachrichten gehen Sie zum Tab **Compose**. Wählen Sie im Drag-and-Drop-Editor einen Button- oder Bildblock aus und öffnen Sie dessen Eigenschaftenpanel.
 2. Wählen Sie **Deeplink into application** oder **Deep Link Into App**.
@@ -65,7 +65,7 @@ So legen Sie dieses Klickverhalten fest:
 
 #### Was ist ein UTM Tag? {#what-is-a-utm-tag}
 
-[UTM (Urchin Traffic Manager) Tags](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) ermöglichen es Ihnen, Campaign-Attribution-Details direkt in Links einzubetten. UTM Tags werden von Google Analytics verwendet, um Campaign-Attribution-Daten zu erfassen, und können zur Nachverfolgung der folgenden Eigenschaften verwendet werden:
+[UTM (Urchin Traffic Manager:in) Tags](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) ermöglichen es Ihnen, Campaign-Attribution-Details direkt in Links einzubetten. UTM Tags werden von Google Analytics verwendet, um Campaign-Attribution-Daten zu erfassen, und können zur Nachverfolgung der folgenden Eigenschaften verwendet werden:
 
 - `utm_source`: Der Bezeichner für die Quelle des Traffics (zum Beispiel `my_app`)
 - `utm_medium`: Das Campaign-Medium (zum Beispiel `newsfeed`)
@@ -83,9 +83,9 @@ Braze meldet _Gesamtklicks_ für alle Links in einer Campaign oder einem Canvas-
 
 Wenn Sie UTM Tags mit regulären HTTP-(Web-)Links verwenden möchten (zum Beispiel für die Campaign-Attribution Ihrer E-Mail-Campaigns) und Ihre Organisation bereits Google Analytics nutzt, können Sie [Googles URL-Builder](https://ga-dev-tools.google/ga4/campaign-url-builder/) verwenden, um UTM-Links zu generieren. Diese Links können wie jeder andere Link problemlos in den Braze-Campaign-Text eingebettet werden.
 
-Um UTM Tags in Deeplinks zu Ihrer App zu verwenden, muss Ihre App das entsprechende [Google Analytics SDK](https://developers.google.com/analytics/devguides/collection/) integriert und korrekt für die Verarbeitung von Deeplinks konfiguriert haben. Wenden Sie sich an Ihre Entwickler:innen, wenn Sie sich diesbezüglich unsicher sind.
+Um UTM Tags in Deeplinks zu Ihrer App zu verwenden, muss Ihre App das entsprechende [Google Analytics SDK or Software-Development-Kit](https://developers.google.com/analytics/devguides/collection/) integriert und korrekt für die Verarbeitung von Deeplinks konfiguriert haben. Wenden Sie sich an Ihre Entwickler:innen, wenn Sie sich diesbezüglich unsicher sind.
 
-Nachdem das Analytics SDK integriert und konfiguriert ist, können UTM Tags mit Deeplinks in Braze-Campaigns verwendet werden. Um UTM Tags für Ihre Campaign einzurichten, fügen Sie die erforderlichen UTM Tags in die Ziel-URL oder die Deeplinks ein. Die folgenden Beispiele zeigen, wie UTM Tags in Push-Benachrichtigungen und In-App-Nachrichten verwendet werden.
+Nachdem das Analytics SDK or Software-Development-Kit integriert und konfiguriert ist, können UTM Tags mit Deeplinks in Braze-Campaigns verwendet werden. Um UTM Tags für Ihre Campaign einzurichten, fügen Sie die erforderlichen UTM Tags in die Ziel-URL oder die Deeplinks ein. Die folgenden Beispiele zeigen, wie UTM Tags in Push-Benachrichtigungen und In-App-Nachrichten verwendet werden.
 
 ##### Push-Öffnungen und In-App-Nachricht-Klicks mit UTM Tags zuordnen {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
@@ -141,9 +141,9 @@ https://example.com/{{url_var}}
 
 ### Von Liquid-Variablen gerenderte URLs kürzen {#shorten-urls-rendered-by-liquid-variables}
 
-**Unterstützte Kanäle:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+**Unterstützte Kanäle:** KakaoTalk, LINE, Kurzmitteilungsdienst or SMS, RCS, WhatsApp
 
-Wir kürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
+Wir kürzen URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger or triggern-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, kürzen und tracken wir diese URL, bevor die Nachricht gesendet wird.
 
 ### URLs im `/messages/send`-Endpunkt kürzen {#shorten-urls-in-messagessend-endpoint}
 

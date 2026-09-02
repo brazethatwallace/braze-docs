@@ -2,7 +2,7 @@
 nav_title: 컨텍스트 변수
 article_title: 컨텍스트 변수
 page_type: reference
-description: "이 참조 문서에서는 Braze Canvas의 컨텍스트 변수에 대해 유형, 사용법, 모범 사례를 포함하여 설명합니다."
+description: "이 참조 문서에서는 BRAZE 캔버스의 컨텍스트 변수에 대해 유형, 사용법, 모범 사례를 포함하여 설명합니다."
 ---
 
 # 컨텍스트 변수 {#context-variables}

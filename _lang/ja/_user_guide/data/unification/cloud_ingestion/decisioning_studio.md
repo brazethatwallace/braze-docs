@@ -40,7 +40,7 @@ Decisioning Studioにデータを利用可能にするその他の方法につ�
 2. **Create data sync** を選択します。
 3. **Integration Name** を入力し、**Data sources** でソースを選択します。
 4. **Destination** で、**Data destination** を **BrazeAI Decisioning Studio™** に設定します。
-5. **Data category** で、テーブルに最も適した **Decisioning Studio data** タイプを選択します。**Customer profile**、**Message engagement events**、**Conversion events**、または **Other** から選択してください。これはDecisioning Studio用にデータにタグ付けするもので、CDIの行処理方法は変わりません。
+5. **Data category** で、テーブルに最も適した **Decisioning Studio data** タイプを選択します。**ユーザープロファイル**、**Message engagement events**、**Conversion events**、または **Other** から選択してください。これはDecisioning Studio用にデータにタグ付けするもので、CDIの行処理方法は変わりません。
 
 ### ステップ2:SQLクエリを記述する {#step-2-write-your-sql-query}
 

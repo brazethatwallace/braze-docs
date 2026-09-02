@@ -1,7 +1,7 @@
 ---
 nav_title: Zendesk
 article_title: Chat de Zendesk
-description: "Aprende a integrar Zendesk Chat con Braze y a configurar una conversación bidireccional por SMS."
+description: "Aprende a integrar Zendesk Chat con Braze y a configurar una conversación bidireccional por servicio de mensajes cortos."
 alias: /partners/zendesk_chat/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Chat de Zendesk {#zendesk-chat}
 
-> [Zendesk Chat](https://www.zendesk.com/service/messaging/) utiliza webhooks de cada plataforma para establecer una conversación bidireccional por SMS. Cuando un usuario solicita soporte, se crea un ticket en Zendesk. Las respuestas de los agentes se reenvían a Braze a través de una Campaign de SMS desencadenada por la API, y las respuestas de los usuarios se devuelven a Zendesk.
+> [Zendesk Chat](https://www.zendesk.com/service/messaging/) utiliza webhooks de cada plataforma para establecer una conversación bidireccional por servicio de mensajes cortos. Cuando un usuario solicita soporte, se crea un ticket en Zendesk. Las respuestas de los agentes se reenvían a Braze a través de una Campaign de servicio de mensajes cortos desencadenada por la API, y las respuestas de los usuarios se devuelven a Zendesk.
 
 ## Requisitos previos {#prerequisites}
 
@@ -19,12 +19,12 @@ search_tag: Partner
 |---|---|
 | Una cuenta de Zendesk | Se requiere una cuenta de Zendesk para aprovechar esta integración.|
 | Un token de autorización básica de Zendesk | Se utiliza un token de autorización básica de Zendesk para realizar una solicitud de webhook saliente de Braze a Zendesk.|
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `campaigns.trigger.send`. Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**.|
+| Una clave de API REST or transferencia de estado representacional de Braze  | Una clave de API REST or transferencia de estado representacional de Braze con permisos `campaigns.trigger.send`. Se puede crear en el dashboard de Braze desde **Settings** > **API Keys**.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
-Mejora la eficiencia de la atención al cliente combinando las capacidades de SMS de Braze con las respuestas en vivo de los agentes de Zendesk para atender las consultas de los usuarios con asistencia humana de forma rápida.
+Mejora la eficiencia de la atención al cliente combinando las capacidades de servicio de mensajes cortos de Braze con las respuestas en vivo de los agentes de Zendesk para atender las consultas de los usuarios con asistencia humana de forma rápida.
 
 ## Integración de Zendesk Chat {#integrating-zendesk-chat}
 
@@ -33,13 +33,13 @@ Mejora la eficiencia de la atención al cliente combinando las capacidades de SM
 1. En la consola para desarrolladores de Zendesk, ve a webhooks: {% raw %}`https://{{url}}.zendesk.com/admin/apps-integrations/webhooks/webhooks`{% endraw %}
 2. En **Create Webhook**, selecciona **Trigger or automation**.
 3. Para **Endpoint URL**, añade el punto de conexión **/campaign/trigger/send**.
-4. En **Authentication**, selecciona **Bearer token** y añade la clave de API REST de Braze con permisos `campaigns.trigger.send`.
+4. En **Authentication**, selecciona **Bearer token** y añade la clave de API REST or transferencia de estado representacional de Braze con permisos `campaigns.trigger.send`.
 
 ![Un ejemplo de webhook de Zendesk.]({% image_buster /assets/img/zendesk/instant_chat/chat1.png %}){: style="max-width:70%;"}
 
-### Paso 2: Crear una Campaign de SMS salientes {#step-2-create-an-outbound-sms-campaign}
+### Paso 2: Crear una Campaign de servicio de mensajes cortos salientes {#step-2-create-an-outbound-sms-campaign}
 
-A continuación, crearás una Campaign de SMS que escuchará los webhooks de Zendesk y enviará una respuesta SMS personalizada a tus clientes.
+A continuación, crearás una Campaign de servicio de mensajes cortos que escuchará los webhooks de Zendesk y enviará una respuesta servicio de mensajes cortos personalizada a tus clientes.
 
 #### Paso 2.1: Redacta tu mensaje {#step-21-compose-your-message}
 
@@ -84,7 +84,7 @@ Por último, en **Delivery Controls**, activa la reelegibilidad.
 Ve a **Objects and rules** > **Business rules** > **Triggers**.
 
 1. Crea una nueva **categoría** (por ejemplo, **Trigger a message**).
-2. Crea un nuevo **desencadenante** (por ejemplo, **Respond via SMS Braze**).
+2. Crea un nuevo **desencadenante** (por ejemplo, **Respond via servicio de mensajes cortos Braze**).
 3. En **Conditions**, selecciona:
 - **Ticket>Comment** está **Present and requester can see comment** para que el mensaje se desencadene cada vez que se incluya un nuevo comentario público en la actualización de un ticket
 - **Ticket>Update** *no es* **Web service (API)** para que cuando un usuario envíe un mensaje desde Braze, no se reenvíe a su teléfono móvil. Solo se reenvían los mensajes procedentes de Zendesk.
@@ -158,26 +158,26 @@ En **Actions**, selecciona **Notify by Webhook** y elige el segundo punto de con
 
 En el Centro de administración, selecciona **People** en la barra lateral y, a continuación, selecciona **Configuration** > **User fields**. Añade el campo de usuario personalizado `braze_external_id`.
 
-### Paso 6: Configurar el reenvío de SMS entrantes {#step-6-set-up-inbound-sms-forwarding}
+### Paso 6: Configurar el reenvío de servicio de mensajes cortos entrantes {#step-6-set-up-inbound-sms-forwarding}
 
-A continuación, crearás dos nuevas Campaigns de webhook en Braze para poder reenviar los SMS entrantes de los clientes al buzón de entrada de Zendesk.
+A continuación, crearás dos nuevas Campaigns de webhook en Braze para poder reenviar los servicio de mensajes cortos entrantes de los clientes al buzón de entrada de Zendesk.
 
 | Campaign           | Propósito                                                                              |
 |--------------------|--------------------------------------------------------------------------------------|
 | Campaign de webhook 1 | Crea un nuevo ticket en Zendesk.                                                     |
-| Campaign de webhook 2 | Reenvía todas las respuestas SMS conversacionales enviadas por el cliente a Zendesk. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Configurar el reenvío de SMS entrantes" }
+| Campaign de webhook 2 | Reenvía todas las respuestas servicio de mensajes cortos conversacionales enviadas por el cliente a Zendesk. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Configurar el reenvío de servicio de mensajes cortos entrantes" }
 
-#### Paso 6.1: Crear una categoría de palabras clave SMS {#step-61-create-an-sms-keyword-category}
+#### Paso 6.1: Crear una categoría de palabras clave servicio de mensajes cortos {#step-61-create-an-sms-keyword-category}
 
-En el dashboard de Braze, ve a **Audience**, elige tu **SMS subscription group** y, a continuación, selecciona **Add Custom Keyword**. Rellena los siguientes campos para crear una categoría de palabras clave SMS exclusiva para Zendesk.
+En el dashboard de Braze, ve a **Audience**, elige tu **servicio de mensajes cortos subscription group** y, a continuación, selecciona **Add Custom Keyword**. Rellena los siguientes campos para crear una categoría de palabras clave servicio de mensajes cortos exclusiva para Zendesk.
 
 | Campo            | Descripción                                                                                                               |
 |------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Keyword Category | El nombre de tu categoría de palabras clave, como `ZendeskSMS1`.                                                                 |
 | Keywords         | Tus palabras clave personalizadas, como `SUPPORT`.                                                                                  |
 | Reply Message    | El mensaje que se envía cuando se detecta una palabra clave, como "Un representante del servicio de atención al cliente se pondrá en contacto contigo en breve." |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6.1: Crear una categoría de palabras clave SMS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6.1: Crear una categoría de palabras clave servicio de mensajes cortos" }
 
 ![Un ejemplo de categoría de palabras clave SMS en Braze.]({% image_buster /assets/img/zendesk/instant_chat/chat11.png %}){: style="max-width:70%;"}
 
@@ -219,7 +219,7 @@ En el compositor del webhook, rellena los siguientes campos:
 
 #### Paso 6.3: Programar la primera entrega {#step-63-schedule-the-first-delivery}
 
-Para **Schedule Delivery**, selecciona **Action-Based Delivery** y, a continuación, elige **Send an SMS Inbound Message** para tu tipo de desencadenante. Añade también el grupo de suscripción SMS y la categoría de palabras clave que configuraste anteriormente.
+Para **Schedule Delivery**, selecciona **Action-Based Delivery** y, a continuación, elige **Send an servicio de mensajes cortos Inbound Message** para tu tipo de desencadenante. Añade también el grupo de suscripción servicio de mensajes cortos y la categoría de palabras clave que configuraste anteriormente.
 
 ![La página "Schedule Delivery" de la primera Campaign de webhook.]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
 
@@ -229,7 +229,7 @@ En **Delivery Controls**, activa la reelegibilidad.
 
 #### Paso 6.4: Crea tu segunda Campaign de webhook {#step-64-create-your-second-webhook-campaign}
 
-Configura una Campaign de webhook para reenviar los mensajes SMS restantes del usuario a Zendesk:
+Configura una Campaign de webhook para reenviar los mensajes servicio de mensajes cortos restantes del usuario a Zendesk:
 
 Como Zendesk envía el ID del ticket como una cadena, crea un bloque de contenido para convertir la cadena en un número entero y poder utilizarlo en el webhook de Zendesk.
 

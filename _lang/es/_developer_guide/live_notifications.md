@@ -1,7 +1,7 @@
 ---
 page_order: 2.4
 nav_title: Notificaciones en vivo
-article_title: Actividades en vivo para el SDK de Braze
+article_title: Actividades en vivo para el SDK or kit de desarrollo de software de Braze
 layout: dev_guide
 guide_top_header: "Actividades en vivo"
 guide_top_text: "> Aprende a enviar notificaciones persistentes y dinámicas directamente a las pantallas de bloqueo de tus usuarios, para que puedan recibir actualizaciones en tiempo real sin necesidad de abrir tu aplicación. Para Swift, esto es compatible de forma nativa."

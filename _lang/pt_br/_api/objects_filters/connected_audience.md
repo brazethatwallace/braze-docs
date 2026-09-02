@@ -1,6 +1,6 @@
 ---
 nav_title: "Filtro e objeto do público conectado"
-article_title: Objeto do público conectado à API
+article_title: Objeto do público conectado à API or interface de programação do aplicativo (API)
 page_order: 3
 page_type: reference
 description: "Este artigo explica o objeto de público conectado, incluindo como ele funciona, casos de uso e os diferentes filtros que o compõem."
@@ -8,13 +8,13 @@ description: "Este artigo explica o objeto de público conectado, incluindo como
 
 # Objeto de público conectado {#connected-audience-object}
 
-> Um público conectado é um filtro de público dinâmico que você define inline na sua requisição de API, permitindo direcionar os usuários certos no momento do envio sem precisar criar ou gerenciar Segments no dashboard da Braze.
+> Um público conectado é um filtro de público dinâmico que você define inline na sua requisição de API or interface de programação do aplicativo (API), permitindo direcionar os usuários certos no momento do envio sem precisar criar ou gerenciar Segments no dashboard da Braze.
 
-Em vez de pré-criar um Segment para cada combinação possível de público, você passa os critérios de filtro diretamente na sua chamada de API. Dependendo do endpoint, esse objeto é passado como `audience` ou `custom_audience`. A Braze avalia cada usuário em relação a esses critérios em tempo real e entrega a mensagem apenas aos usuários que correspondem. Isso significa que uma única Campaign, Canvas ou definição de mensagem somente via API pode atender a um número ilimitado de variações de público, totalmente orientadas pela sua lógica de negócios.
+Em vez de pré-criar um Segment or segmento para cada combinação possível de público, você passa os critérios de filtro diretamente na sua chamada de API or interface de programação do aplicativo (API). Dependendo do endpoint, esse objeto é passado como `audience` ou `custom_audience`. A Braze avalia cada usuário em relação a esses critérios em tempo real e entrega a mensagem apenas aos usuários que correspondem. Isso significa que uma única Campaign, Canvas ou definição de mensagem somente via API or interface de programação do aplicativo (API) pode atender a um número ilimitado de variações de público, totalmente orientadas pela sua lógica de negócios.
 
 ## Como funciona {#how-it-works}
 
-1. Defina sua mensagem criando uma Campaign ou um Canvas disparado por API no dashboard da Braze, ou defina o conteúdo da mensagem inteiramente inline usando os [objetos de mensagem]({{site.baseurl}}/api/objects_filters#messaging-objects) na sua requisição de API. Use [propriedades de disparo]({{site.baseurl}}/api/objects_filters/trigger_properties_object) ou [contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para personalização dinâmica.
+1. Defina sua mensagem criando uma Campaign ou um Canvas disparado por API or interface de programação do aplicativo (API) no dashboard da Braze, ou defina o conteúdo da mensagem inteiramente inline usando os [objetos de mensagem]({{site.baseurl}}/api/objects_filters#messaging-objects) na sua requisição de API or interface de programação do aplicativo (API). Use [propriedades de disparo]({{site.baseurl}}/api/objects_filters/trigger_properties_object) ou [contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para personalização dinâmica.
 2. Faça uma chamada a um endpoint compatível e inclua seus filtros de público conectado no parâmetro `audience`, ou em `custom_audience` para `/messages/live_activity/start`. Você pode filtrar por atributos personalizados, status de inscrição em push, status de inscrição em e-mail e horário do último uso do app.
 3. A Braze avalia os filtros no momento do envio, entregando a mensagem apenas aos usuários que correspondem aos seus critérios.
 
@@ -52,7 +52,7 @@ Use públicos conectados para cenários em que seus sistemas de backend detectam
 | Serviços financeiros | Uma plataforma de negociação alerta usuários cujo array `watchlist` inclui um ticker de ação que ultrapassou um limite de preço. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
-Em cada caso, uma única Campaign ou definição de mensagem somente via API lida com todas as variações. Seu backend determina os valores do filtro e os passa na requisição da API, então você não precisa criar um Segment ou Campaign separado para cada produto, série, time ou local.
+Em cada caso, uma única Campaign ou definição de mensagem somente via API or interface de programação do aplicativo (API) lida com todas as variações. Seu backend determina os valores do filtro e os passa na requisição da API or interface de programação do aplicativo (API), então você não precisa criar um Segment or segmento ou Campaign separado para cada produto, série, time ou local.
 
 ## Exemplo de solicitação {#example-request}
 
@@ -124,7 +124,7 @@ Os públicos conectados não podem filtrar usuários por:
  - Eventos de engajamento com mensagem
  - Atributos personalizados aninhados
 
-Para usar esses filtros, recomendamos incorporá-los a um Segment de público e, em seguida, especificar esse Segment no parâmetro `segment_id` do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). Ao usar outros endpoints, você deve primeiro adicionar o Segment à Campaign ou ao Canvas disparado por API no dashboard da Braze. Se você precisar filtrar por atributos aninhados, use um [Segment padrão]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+Para usar esses filtros, recomendamos incorporá-los a um Segment or segmento de público e, em seguida, especificar esse Segment or segmento no parâmetro `segment_id` do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters). Ao usar outros endpoints, você deve primeiro adicionar o Segment or segmento à Campaign ou ao Canvas disparado por API or interface de programação do aplicativo (API) no dashboard da Braze. Se você precisar filtrar por atributos aninhados, use um [Segment or segmento padrão]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 
 ### Filtro de atributo personalizado {#custom-attribute-filter}

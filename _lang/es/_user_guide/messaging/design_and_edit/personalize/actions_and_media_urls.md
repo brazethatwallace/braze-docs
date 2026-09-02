@@ -41,10 +41,10 @@ Los esquemas de URI estándar gestionados de forma nativa por iOS y Android (com
 | ------ | ------- | ------ |
 | `tel:` | `tel:+18005555555` | Abre el marcador telefónico |
 | `mailto:` | `mailto:support@example.com` | Abre la composición de correo electrónico |
-| `sms:` | `sms:+18005555555` | Abre la composición de SMS |
+| `sms:` | `sms:+18005555555` | Abre la composición de servicio de mensajes cortos |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Esquemas de URI del sistema"}
 
-Estos funcionan para los comportamientos al hacer clic en notificaciones push y las acciones de botones de mensajes dentro de la aplicación. No se necesitan configuraciones adicionales del SDK ni cambios en el código de la aplicación.
+Estos funcionan para los comportamientos al hacer clic en notificaciones push y las acciones de botones de mensajes dentro de la aplicación. No se necesitan configuraciones adicionales del SDK or kit de desarrollo de software ni cambios en el código de la aplicación.
 
 ### Vínculo profundo a la aplicación {#deep-link-into-application}
 
@@ -65,7 +65,7 @@ Para configurar este comportamiento al hacer clic:
 
 #### ¿Qué es una etiqueta UTM? {#what-is-a-utm-tag}
 
-Las [etiquetas UTM (Urchin Traffic Manager)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) te permiten incluir detalles de atribución de Campaign directamente dentro de los enlaces. Las etiquetas UTM son utilizadas por Google Analytics para recopilar datos de atribución de Campaign y se pueden usar para rastrear las siguientes propiedades:
+Las [etiquetas UTM (Urchin Traffic Administrador)](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article) te permiten incluir detalles de atribución de Campaign directamente dentro de los enlaces. Las etiquetas UTM son utilizadas por Google Analytics para recopilar datos de atribución de Campaign y se pueden usar para rastrear las siguientes propiedades:
 
 - `utm_source`: El identificador de la fuente del tráfico (por ejemplo, `my_app`)
 - `utm_medium`: El medio de la Campaign (por ejemplo, `newsfeed`)
@@ -83,9 +83,9 @@ Braze reporta _Clics totales_ para todos los enlaces en una Campaign o paso en C
 
 Si deseas usar etiquetas UTM con enlaces HTTP regulares (web) (por ejemplo, para hacer atribución de Campaign para tus campañas de correo electrónico) y tu organización ya usa Google Analytics, puedes utilizar el [constructor de URL de Google](https://ga-dev-tools.google/ga4/campaign-url-builder/) para generar enlaces UTM. Estos enlaces se pueden incrustar fácilmente en el texto de tu Campaign de Braze como cualquier otro enlace.
 
-Para usar etiquetas UTM en vínculos profundos a tu aplicación, tu aplicación debe tener el [SDK de Google Analytics](https://developers.google.com/analytics/devguides/collection/) relevante integrado y correctamente configurado para gestionar vínculos profundos. Consulta con tus desarrolladores si no estás seguro de esto.
+Para usar etiquetas UTM en vínculos profundos a tu aplicación, tu aplicación debe tener el [SDK or kit de desarrollo de software de Google Analytics](https://developers.google.com/analytics/devguides/collection/) relevante integrado y correctamente configurado para gestionar vínculos profundos. Consulta con tus desarrolladores si no estás seguro de esto.
 
-Una vez que el SDK de Analytics esté integrado y configurado, las etiquetas UTM se pueden usar con vínculos profundos en Campaigns de Braze. Para configurar etiquetas UTM para tu Campaign, incluye las etiquetas UTM necesarias en la URL de destino o en los vínculos profundos. Los siguientes ejemplos muestran cómo usar etiquetas UTM en notificaciones push y mensajes dentro de la aplicación.
+Una vez que el SDK or kit de desarrollo de software de Analytics esté integrado y configurado, las etiquetas UTM se pueden usar con vínculos profundos en Campaigns de Braze. Para configurar etiquetas UTM para tu Campaign, incluye las etiquetas UTM necesarias en la URL de destino o en los vínculos profundos. Los siguientes ejemplos muestran cómo usar etiquetas UTM en notificaciones push y mensajes dentro de la aplicación.
 
 ##### Atribuir aperturas push y clics en mensajes dentro de la aplicación con etiquetas UTM {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
@@ -141,7 +141,7 @@ https://example.com/{{url_var}}
 
 ### Acortar URL generadas por variables Liquid {#shorten-urls-rendered-by-liquid-variables}
 
-**Canales compatibles:** KakaoTalk, LINE, SMS, RCS, WhatsApp
+**Canales compatibles:** KakaoTalk, LINE, servicio de mensajes cortos, RCS, WhatsApp
 
 Acortamos las URL que son generadas por Liquid, incluso aquellas incluidas en propiedades de desencadenamiento por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y rastreamos esa URL antes de enviar el mensaje.
 

@@ -63,7 +63,7 @@ Para criar uma seleção, faça o seguinte.
 
 ### Testar e visualizar {#test-and-preview}
 
-Depois de criar uma seleção, você pode usar a seção **Preview for user** para visualizar o que uma seleção retornaria para um usuário aleatório ou um usuário específico. Para seleções que usam personalização, você só pode visualizar a prévia após selecionar um usuário.
+Depois de criar uma seleção, você pode usar a seção **prévia for user** para visualizar o que uma seleção retornaria para um usuário aleatório ou um usuário específico. Para seleções que usam personalização, você só pode visualizar a prévia após selecionar um usuário.
 
 ### Liquid nos resultados de seleção {#liquid-in-selection-results}
 

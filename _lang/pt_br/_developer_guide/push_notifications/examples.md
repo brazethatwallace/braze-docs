@@ -1,6 +1,6 @@
 ---
 nav_title: Exemplos avançados
-article_title: Exemplos avançados de notificações por push para o SDK da Braze
+article_title: Exemplos avançados de notificações por push para o SDK or kit de desenvolvimento de software da Braze
 layout: redirect
 redirect_to: /docs/developer_guide/push_notifications/
 noindex: true
@@ -9,7 +9,7 @@ noindex: true
 <!--
 # Exemplos avançados de notificações por push {#advanced-push-notification-examples}
 
-> O guia a seguir cobre alguns exemplos avançados de notificações por push para o SDK da Braze.
+> O guia a seguir cobre alguns exemplos avançados de notificações por push para o SDK or kit de desenvolvimento de software da Braze.
 
 {% sdktabs %}
 {% sdktab android %}

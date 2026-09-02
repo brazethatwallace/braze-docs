@@ -37,7 +37,7 @@ Lembre-se de que, embora esses e-mails possam não ser entregues ao gateway de S
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Para maior segurança, recomendamos adicionar nosso recurso de [autenticação do SDK]({{site.baseurl}}/developer_guide/authentication) para evitar a simulação de usuários.
+Para maior segurança, recomendamos adicionar nosso recurso de [autenticação do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/authentication) para evitar a simulação de usuários.
 {% endalert %}
 
 {% endif %}
@@ -61,7 +61,7 @@ O evento de compra legado está entrando em modo de manutenção. Clientes exist
 {% if include.alert == 'Purchase event deprecation for eCommerce filters' %}
 
 {% alert important %}
-O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Quando isso acontecer, os filtros de segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
+O evento de compra legado entrará em estado de descontinuação (modo de manutenção). Os eventos de compra continuarão funcionando como esperado, mas nenhuma nova funcionalidade será desenvolvida sobre eles, em favor dos [eventos recomendados de eCommerce]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). Quando isso acontecer, os filtros de Segment or segmento or segmento não serão mais preenchidos sob o comportamento de compra.<br><br> Se você está usando eventos de compra atualmente, receberá um aviso prévio sobre os planos de descontinuação. Por enquanto, você pode continuar usando eventos de compra até a data oficial de descontinuação. Para saber mais, consulte a [visão geral de eventos recomendados]({{site.baseurl}}/user_guide/data/activation/events/recommended_events).
 {% endalert %}
 
 {% endif %}

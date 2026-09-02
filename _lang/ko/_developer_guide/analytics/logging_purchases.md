@@ -8,7 +8,7 @@ description: "Braze SDK를 통해 구매를 기록하는 방법을 알아보세�
 
 # 구매 기록 {#log-purchases}
 
-> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [생애주기 가치에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) 사용자를 세분화할 수 있습니다.
+> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [LTV or 생애주기 가치에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) 사용자를 세분화할 수 있습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
@@ -28,7 +28,7 @@ USD가 아닌 통화로 보고된 구매는 보고된 날짜의 환율을 기준
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-Google Tag Manager를 대신 사용하려면 **Purchase** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 구매를 Braze에 추적하고, 선택적으로 구매 속성정보를 포함할 수 있습니다. 방법은 다음과 같습니다:
+Google Tag 매니저를 대신 사용하려면 **Purchase** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 구매를 Braze에 추적하고, 선택적으로 구매 속성정보를 포함할 수 있습니다. 방법은 다음과 같습니다:
 
 1. **Product ID** 및 **Price** 필드는 필수입니다.
 2. **Add Row** 버튼을 사용하여 구매 속성정보를 추가합니다.
@@ -145,7 +145,7 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-사이트에서 Google Tag Manager에 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 구매를 기록하는 경우, **E-commerce Purchase** 태그 유형을 사용할 수 있습니다. 이 액션 유형은 `items` 목록에 전송된 각 항목에 대해 Braze에서 별도의 "purchase"를 기록합니다.
+사이트에서 Google Tag 매니저에 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 구매를 기록하는 경우, **E-commerce Purchase** 태그 유형을 사용할 수 있습니다. 이 액션 유형은 `items` 목록에 전송된 각 항목에 대해 Braze에서 별도의 "purchase"를 기록합니다.
 
 구매 속성정보로 포함할 추가 속성정보 이름을 지정하려면 구매 속성정보 목록에 해당 키를 지정합니다. Braze는 목록에 추가한 구매 속성정보에 대해 기록 중인 개별 `item` 내에서 해당 값을 조회합니다.
 

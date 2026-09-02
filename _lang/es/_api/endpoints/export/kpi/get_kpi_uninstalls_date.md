@@ -1,6 +1,6 @@
 ---
-nav_title: "GET: Exportar KPI para desinstalaciones diarias de aplicaciones por fecha"
-article_title: "GET: Exportar KPI para desinstalaciones diarias de aplicaciones por fecha"
+nav_title: "GET: Exportar indicador clave de rendimiento para desinstalaciones diarias de aplicaciones por fecha"
+article_title: "GET: Exportar indicador clave de rendimiento para desinstalaciones diarias de aplicaciones por fecha"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -9,9 +9,9 @@ description: "Este artículo describe los detalles sobre el endpoint de Braze pa
 
 ---
 {% api %}
-# Exportar KPI para desinstalaciones diarias de aplicaciones por fecha {#export-kpis-for-daily-app-uninstalls-by-date}
+# Exportar indicador clave de rendimiento para desinstalaciones diarias de aplicaciones por fecha {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
-/kpi/uninstalls/data_series
+/indicador clave de rendimiento/uninstalls/data_series
 {% endapimethod %}
 
 > Utiliza este endpoint para recuperar una serie diaria del número total de desinstalaciones en cada fecha.

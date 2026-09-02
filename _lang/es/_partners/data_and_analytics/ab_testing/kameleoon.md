@@ -18,7 +18,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta Kameleoon | Se necesita una cuenta Kameleoon para beneficiarse de esta asociación.|
-| Cuenta Braze| Una cuenta Braze activa con el [SDK Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás que se habilite la segmentación de propiedades del evento. Para solicitarlo, consulta [Consideraciones](#considerations).|
+| Cuenta Braze| Una cuenta Braze activa con el [SDK or kit de desarrollo de software Web de Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado en tu página web. También necesitarás que se habilite la segmentación de propiedades del evento. Para solicitarlo, consulta [Consideraciones](#considerations).|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -78,7 +78,7 @@ Configura la integración en el entorno del conmutador de características en la
 Una vez establecido Braze como herramienta de elaboración de informes para un experimento, puedes seleccionarlo (o deseleccionarlo) en la página de resultados de Kameleoon, en el menú **Experiment configuration**.
 
 {% alert note %}
-Esta integración requiere una [implementación híbrida](https://developers.braze-presentation.preview.kameleoon.net/core-concepts/hybrid-experimentation?language=en#sending-exposure-events-to-third-party-analytics) y solo es compatible con SDK Web.
+Esta integración requiere una [implementación híbrida](https://developers.braze-presentation.preview.kameleoon.net/core-concepts/hybrid-experimentation?language=en#sending-exposure-events-to-third-party-analytics) y solo es compatible con SDK or kit de desarrollo de software Web.
 {% endalert %}
 
 ![El panel lateral de la página de resultados en Kameleoon.]({% image_buster /assets/img/kameleoon/img_8.png %}){: style="max-width:50%;" }
@@ -99,7 +99,7 @@ Además, se podrá acceder a estos eventos a través de [los objetos de eventos 
 
 ### Solicitar segmentación de propiedades del evento {#request-event-property-segmentation}
 
-Antes de poder utilizar la segmentación de propiedades de eventos, necesitarás habilitarla en Braze. Utiliza la siguiente plantilla para ponerte en contacto con tu CSM de Braze o con el equipo de soporte para obtener acceso.
+Antes de poder utilizar la segmentación de propiedades de eventos, necesitarás habilitarla en Braze. Utiliza la siguiente plantilla para ponerte en contacto con tu CSM or administrador de éxito de cliente de Braze o con el equipo de soporte para obtener acceso.
 
    <table aria-label="Solicitar segmentación de propiedades del evento">
      <caption>Solicitar segmentación de propiedades del evento</caption>

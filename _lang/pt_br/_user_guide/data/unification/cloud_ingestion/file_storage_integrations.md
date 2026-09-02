@@ -281,7 +281,7 @@ Não configure uma fila de mensagens mortas nessa assinatura. A Braze não ofere
 ### Etapa 3: Enviar notificações do bucket para o tópico {#step-3-send-bucket-notifications-to-the-topic}
 
 {% alert important %}
-Criar uma notificação do Cloud Storage para o Pub/Sub não está disponível no console do Google Cloud. Você deve usar o gcloud (mostrado aqui), Terraform ou a API JSON. Para saber mais, consulte [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) na documentação do Google Cloud.
+Criar uma notificação do Cloud Storage para o Pub/Sub não está disponível no console do Google Cloud. Você deve usar o gcloud (mostrado aqui), Terraform ou a API or interface de programação do aplicativo (API) JSON. Para saber mais, consulte [Configure Pub/Sub notifications for Cloud Storage](https://cloud.google.com/storage/docs/reporting-changes#enabling) na documentação do Google Cloud.
 {% endalert %}
 
 Primeiro, atribua ao agente de serviço do Cloud Storage a permissão de publicar no tópico e, em seguida, crie a notificação para `OBJECT_FINALIZE`. O evento `OBJECT_FINALIZE` é disparado sempre que um novo objeto é criado ou finalizado no bucket.
@@ -393,12 +393,12 @@ gcloud iam service-accounts keys create braze-cdi-gcs-key.json \
 4. Crie uma sincronização. Acesse **Data Settings** > **Cloud Data Ingestion** > **Syncs** e selecione **Create data sync**. Escolha um nome para a sincronização e um **Data Type** (como **User Attributes**, **Custom Events**, **Purchase Events**, **Catalog** ou **Delete Users**) e, em seguida, selecione **Next**.
 5. Na etapa **Data definition**, selecione a fonte GCS e especifique o seguinte:
     - **Pub/Sub subscription ID** — o ID da assinatura da etapa 2 (não o tópico)
-    - **Folder path** (opcional) — um prefixo de caminho dentro do bucket (consulte [Sincronizando uma pasta em um bucket compartilhado](#syncing-a-folder-in-a-shared-bucket))
+    - **Folder jornada** (opcional) — um prefixo de caminho dentro do bucket (consulte [Sincronizando uma pasta em um bucket compartilhado](#syncing-a-folder-in-a-shared-bucket))
 
 ![O formulário de sincronização do Google Cloud Storage mostrando os campos Pub/Sub subscription ID e caminho da pasta.]({% image_buster /assets/img/cloud_ingestion/gcs_sync_form.png %})
 
 {: start="6"}
-6. Selecione **Preview and validate** para confirmar que a Braze consegue acessar a assinatura e listar os arquivos disponíveis para ingestão. Um teste bem-sucedido listará os arquivos existentes no bucket, mas esses arquivos não serão sincronizados automaticamente.
+6. Selecione **prévia and validate** para confirmar que a Braze consegue acessar a assinatura e listar os arquivos disponíveis para ingestão. Um teste bem-sucedido listará os arquivos existentes no bucket, mas esses arquivos não serão sincronizados automaticamente.
 7. Adicione e-mail(s) de contato para notificações de erro. As sincronizações do Google Cloud Storage são orientadas por eventos, portanto não é necessário um cronograma — a Braze ingere novos arquivos conforme eles são carregados. Revise o resumo e selecione **Create sync**.
 
 ### Sincronizando uma pasta em um bucket compartilhado {#syncing-a-folder-in-a-shared-bucket}
@@ -445,7 +445,7 @@ Para cada pasta que você deseja sincronizar em um bucket compartilhado:
     ```
 
     Se você criou a função personalizada na [Etapa 5](#step-5-assign-permissions), use `--role="projects/YOUR-PROJECT-ID/roles/brazeCdiGcs"` em vez disso.
-4. Ao criar a sincronização na Braze, insira o novo **Pub/Sub subscription ID** e o **Folder path** dessa pasta para que a sincronização ingira apenas os arquivos dessa pasta.
+4. Ao criar a sincronização na Braze, insira o novo **Pub/Sub subscription ID** e o **Folder jornada** dessa pasta para que a sincronização ingira apenas os arquivos dessa pasta.
 
 
 {% endtab %}
@@ -472,7 +472,7 @@ Para sincronizações de dados de usuários (atributos, eventos personalizados, 
 | --- | --- |
 | `EXTERNAL_ID` | Identifica o usuário que você deseja atualizar. Deve corresponder ao valor `external_id` usado na Braze. |
 | `ALIAS_NAME` e `ALIAS_LABEL` | Essas duas colunas criam um objeto de alias de usuário. `alias_name` deve ser um identificador único, e `alias_label` especifica o tipo de alias. Os usuários podem ter vários aliases com rótulos diferentes, mas apenas um `alias_name` por `alias_label`. |
-| `BRAZE_ID` | O identificador de usuário da Braze. É gerado pelo SDK da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo ou alias de usuário. |
+| `BRAZE_ID` | O identificador de usuário da Braze. É gerado pelo SDK or kit de desenvolvimento de software da Braze, e novos usuários não podem ser criados usando um Braze ID por meio da ingestão de dados na nuvem. Para criar novos usuários, especifique um ID externo ou alias de usuário. |
 | `EMAIL` | O endereço de e-mail do usuário. Se existirem vários perfis com o mesmo endereço de e-mail, o perfil atualizado mais recentemente terá prioridade. Se você incluir tanto e-mail quanto telefone, a Braze usará o e-mail como identificador principal. |
 | `PHONE` | O número de telefone do usuário. Se existirem vários perfis com o mesmo número de telefone, o perfil atualizado mais recentemente terá prioridade. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Identificadores de usuário" }

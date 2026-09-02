@@ -9,7 +9,7 @@ page_type: reference
 
 # Endpunkte exportieren {#export-endpoints}
 
-Mit dieser Sammlung von Endpunkten können Sie auf verschiedene Details zu Ihren KPIs, App-Sitzungen, Nutzer:innen, Segmenten, Campaigns und Canvases zugreifen und diese exportieren. Stellen Sie sicher, dass Sie Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), Ihren [API-Schlüssel]({{site.baseurl}}/api/basics) und Ihren [API-Bezeichner]({{site.baseurl}}/api/identifier_types) kennen, wenn Sie Ihre Parameter und Anfragetexte erstellen.
+Mit dieser Sammlung von Endpunkten können Sie auf verschiedene Details zu Ihren KPIs, App-Sitzungen, Nutzer:innen, Segmenten, Campaigns und Canvase zugreifen und diese exportieren. Stellen Sie sicher, dass Sie Ihre [Braze-Instanz]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), Ihren [API-Schlüssel]({{site.baseurl}}/api/basics) und Ihren [API-Bezeichner]({{site.baseurl}}/api/identifier_types) kennen, wenn Sie Ihre Parameter und Anfragetexte erstellen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -17,7 +17,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Braze-REST-API-Schlüssel | Ein REST-API-Schlüssel mit den entsprechenden Exportberechtigungen für die Endpunkte, die Sie aufrufen möchten. API-Schlüssel sind auf bestimmte Endpunkte beschränkt, und Berechtigungen können nach der Erstellung nicht mehr geändert werden. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/api/basics#about-rest-api-keys). |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Representational State Transfer-API-Schlüssel mit den entsprechenden Exportberechtigungen für die Endpunkte, die Sie aufrufen möchten. API-Schlüssel sind auf bestimmte Endpunkte beschränkt, und Berechtigungen können nach der Erstellung nicht mehr geändert werden. Weitere Informationen finden Sie unter [Representational State Transfer-API-Schlüssel]({{site.baseurl}}/api/basics#about-rest-api-keys). |
 | Relevante Bezeichner | Die Bezeichner für die Daten, die Sie exportieren möchten, z. B. eine Campaign-ID, Segment-ID oder Canvas-ID. Sie finden diese im Braze-Dashboard. Eine vollständige Liste finden Sie unter [API-Bezeichnertypen]({{site.baseurl}}/api/identifier_types). |
 | Cloud-Storage-Zugangsdaten (optional) | Wenn Sie große Datensätze exportieren, verbinden Sie einen [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)-, [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents)- oder [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)-Bucket, damit Exportdateien direkt in Ihren Speicher geschrieben werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -33,10 +33,10 @@ Die folgende Tabelle fasst die Datenkategorien zusammen, die über die Export-AP
 | Kategorie | Enthaltene Daten | API-Referenz |
 | --- | --- | --- |
 | Campaigns | Performance-Analytics, Campaign-Details, Campaign-Listen und Versand-Analytics | [Campaign-Endpunkte]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) |
-| Canvases | Datenreihen-Analytics, Analytics-Zusammenfassungen, Canvas-Details und Canvas-Listen | [Canvas-Endpunkte]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) |
+| Canvase | Datenreihen-Analytics, Analytics-Zusammenfassungen, Canvas-Details und Canvas-Listen | [Canvas-Endpunkte]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) |
 | Segments | Segment-Listen, Segment-Analytics und Segment-Details | [Segment-Endpunkte]({{site.baseurl}}/api/endpoints/export/segments/get_segment) |
 | Nutzerdaten | Vollständige Nutzerprofile nach Bezeichner oder nach Segment sowie Nutzer:innen nach globaler Kontrollgruppe | [Nutzerdaten-Endpunkte]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) |
-| KPIs | Täglich aktive Nutzer:innen, monatlich aktive Nutzer:innen, täglich neue Nutzer:innen und Deinstallationen nach Datum | [KPI-Endpunkte]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) |
+| KPIs | Täglich aktive Nutzer:innen, monatlich aktive Nutzer:innen, täglich neue Nutzer:innen und Deinstallationen nach Datum | [KPI or Leistungskennzahl or Leistungskennzahlen-Endpunkte]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) |
 | Sitzungen | Zeitreihendaten zu App-Sitzungen | [Sitzungen-Endpunkt]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) |
 | Angepasste Events | Event-Namen, Event-Listen und Event-Analytics im Zeitverlauf | [Endpunkte für angepasste Events]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) |
 | Angepasste Attribute | Attributnamen | [Endpunkt für angepasste Attribute]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) |
@@ -66,10 +66,10 @@ Die folgende Tabelle listet alle verfügbaren Export-APIs auf.
 | Campaigns | GET | [Campaign-Details]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) |
 | Campaigns | GET | [Campaigns-Liste]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns) |
 | Campaigns | GET | [Sende-Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_send_analytics) |
-| Canvases | GET | [Canvas-Datenreihen-Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) |
-| Canvases | GET | [Canvas-Analytics-Zusammenfassung]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) |
-| Canvases | GET | [Canvas-Details]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) |
-| Canvases | GET | [Canvas-Liste]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) |
+| Canvase | GET | [Canvas-Datenreihen-Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) |
+| Canvase | GET | [Canvas-Analytics-Zusammenfassung]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics_summary) |
+| Canvase | GET | [Canvas-Details]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) |
+| Canvase | GET | [Canvas-Liste]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) |
 | Angepasste Events | GET | [Angepasste Events]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) |
 | Angepasste Events | GET | [Liste angepasster Events]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) |
 | Angepasste Events | GET | [Analytics für angepasste Events]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) |

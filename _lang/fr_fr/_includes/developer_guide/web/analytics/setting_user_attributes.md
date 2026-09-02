@@ -41,8 +41,8 @@ braze.getUser().setDateOfBirth(2000, 12, 25);
 {% endsubtabs %}
 {% endtab %}
 
-{% tab google tag manager %}
-Avec Google Tag Manager, les attributs utilisateur standard (tels que le prénom d'un utilisateur) doivent être enregistrés de la même manière que les attributs utilisateur personnalisés. Assurez-vous que les valeurs que vous transmettez pour les attributs standard correspondent au format attendu spécifié dans la documentation de la [classe User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
+{% tab google tag gestionnaire %}
+Avec Google Tag gestionnaire, les attributs utilisateur standard (tels que le prénom d'un utilisateur) doivent être enregistrés de la même manière que les attributs utilisateur personnalisés. Assurez-vous que les valeurs que vous transmettez pour les attributs standard correspondent au format attendu spécifié dans la documentation de la [classe User](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html).
 
 Par exemple, l'attribut de genre peut accepter l'une des valeurs suivantes : `"m" | "f" | "o" | "u" | "n" | "p"`. Par conséquent, pour définir le genre d'un utilisateur comme féminin, créez une balise HTML personnalisée avec le contenu suivant :
 
@@ -166,8 +166,8 @@ Les clés et les valeurs des attributs personnalisés ne peuvent avoir qu'un max
 {% endalert %}
 {% endtab %}
 
-{% tab google tag manager %}
-Les attributs utilisateur personnalisés ne sont pas disponibles en raison d'une limitation du langage de script de Google Tag Manager. Pour enregistrer des attributs personnalisés, créez une balise HTML personnalisée avec le contenu suivant :
+{% tab google tag gestionnaire %}
+Les attributs utilisateur personnalisés ne sont pas disponibles en raison d'une limitation du langage de script de Google Tag gestionnaire. Pour enregistrer des attributs personnalisés, créez une balise HTML personnalisée avec le contenu suivant :
 
 ```html
 <script>

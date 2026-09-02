@@ -20,8 +20,8 @@ A integração da Braze com a Fivetran permite que os usuários criem um pipelin
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Fivetran | É necessário ter uma conta [Fivetran](https://fivetran.com/login?next=%2Fdashboard) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões:<br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#api-definitions). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões:<br>- users.export.ids<br>- users.export.Segment or segmento<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze  | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#api-definitions). |
 | Braze Currents | O [Braze Currents](https://www.braze.com/product/data-agility-management/currents/) deve estar conectado ao Amazon S3 ou ao Google Cloud Storage. |
 | Amazon S3 ou Google Cloud Storage | Essa integração exige que você tenha acesso a um Amazon S3 ou Google Cloud Storage. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
@@ -104,8 +104,8 @@ Você pode especificar permissões para o Role ARN que designar para a Fivetran.
 
 Na Fivetran, selecione **+ Connector** e, em seguida, selecione o conector **Braze** para abrir o formulário de configuração. No formulário, preencha os campos fornecidos com os valores apropriados:
 - `Destination schema`: um nome de esquema exclusivo.
-- `API URL`: seu endpoint da REST API da Braze.
-- `API Key`: sua chave da API REST da Braze.
+- `API URL`: seu endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze.
+- `API Key`: sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze.
 - `External ID`: o ID externo definido na [etapa 2](#step-two) das instruções de configuração do Currents. Esse ID é um valor fixo.
 - `Bucket`: encontrado em sua conta Braze, navegando até **Integrações de parceiros** > **Exportação de dados** > nome do seu Current.
 - `Role ARN`: o Role ARN pode ser encontrado na [etapa 1](#step-one) das instruções de configuração do Current.
@@ -138,8 +138,8 @@ Em seguida, conceda acesso de `Storage Object Viewer` ao e-mail da [etapa 1](#st
 
 Na Fivetran, selecione **+ Connector** e, em seguida, selecione o conector **Braze** para abrir o formulário de configuração. No formulário, preencha os campos fornecidos com os valores apropriados:
 - `Destination schema`: um nome de esquema exclusivo.
-- `API URL`: seu endpoint da REST API da Braze.
-- `API Key`: sua chave da API REST da Braze.
+- `API URL`: seu endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze.
+- `API Key`: sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze.
 - `Bucket Name`: encontrado em sua conta Braze, navegando até **Integrações de parceiros** > **Exportação de dados** > nome do seu Current.
 - `Folder`: encontrado em sua conta Braze, navegando até **Integrações de parceiros** > **Exportação de dados** > nome do seu Current.
 

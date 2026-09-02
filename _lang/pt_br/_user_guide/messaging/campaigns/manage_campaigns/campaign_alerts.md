@@ -22,7 +22,7 @@ Os alertas de campanha estão disponíveis para as seguintes campanhas:
 
 - Campanhas agendadas recorrentes
 - Campanhas baseadas em ação
-- Campanhas disparadas por API
+- Campanhas disparadas por API or interface de programação do aplicativo (API)
 
 ## Configurando o alerta da sua campanha {#setting-up-your-campaign-alert}
 

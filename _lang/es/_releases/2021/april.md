@@ -29,11 +29,11 @@ La [integración de Airbridge y Braze]({{site.baseurl}}/partners/message_orchest
 
 [Kubit]({{site.baseurl}}/partners/data_and_analytics/analytics/kubit) es una plataforma de análisis sin código y de autoservicio que ofrece información instantánea sobre el producto. A través de la integración sin código con Braze, puedes importar información de cohortes de usuarios a Braze y lanzar campañas de participación dirigidas a cohortes específicas. Además, mediante el uso de Snowflake Secure Data Sharing, puedes integrar los datos sin procesar de Campaigns e impresiones de Braze con los análisis de producto en Kubit para medir el impacto de estas campañas en tiempo real.
 
-### Census - Plataforma de datos de los clientes {#census-customer-data-platform}
+### Census - CDP or plataforma de datos de los clientes or plataforma de datos de los clientes {#census-customer-data-platform}
 
 [Census]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/census) te permite mantener a tus equipos de éxito del cliente, ventas y marketing en sintonía, manteniendo tus datos de clientes sincronizados, todo sin la ayuda continua de tu departamento de ingeniería.
 
-### Treasure Data - Plataforma de datos de los clientes {#treasure-data-customer-data-platform}
+### Treasure Data - CDP or plataforma de datos de los clientes or plataforma de datos de los clientes {#treasure-data-customer-data-platform}
 
 [Treasure Data]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/treasure_data) ayuda a impulsar experiencias relevantes para el cliente armonizando datos, información y participación para que funcionen en perfecta sintonía. Con indicadores accionables, los equipos de experiencia del cliente, incluidos marketing, ventas y servicio al cliente, pueden optimizar eficazmente el gasto y personalizar las interacciones omnicanal a lo largo de todo el recorrido del cliente.
 

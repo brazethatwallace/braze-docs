@@ -35,7 +35,7 @@ Ao usar Canvas, lembre-se de que o usuário precisa primeiro entrar no Canvas co
 
 ## Não atualize os cartões excessivamente {#dont-refresh-cards-excessively}
 
-Os Content Cards são atualizados automaticamente pelo SDK a cada início de nova sessão. Você também pode solicitar manualmente uma atualização dos Content Cards a qualquer momento durante uma sessão ativa.
+Os Content Cards são atualizados automaticamente pelo SDK or kit de desenvolvimento de software a cada início de nova sessão. Você também pode solicitar manualmente uma atualização dos Content Cards a qualquer momento durante uma sessão ativa.
 
 Chamar o método `requestContentCardsRefresh` e atualizar com muita frequência pode levar a um limite de taxa. Se o seu app for temporariamente limitado, talvez você não consiga atualizar os cartões quando precisar ou em um momento crítico do engajamento do usuário com o app.
 
@@ -43,6 +43,6 @@ Para evitar que isso aconteça, chame esse método de atualização apenas em mo
 
 ## Evite incluir Conteúdo conectado {#avoid-including-connected-content}
 
-O Conteúdo conectado enriquece os Content Cards com dados de APIs próprias ou de terceiros. No entanto, quando incluído em uma mensagem de cartão de conteúdo, ele bloqueia a disponibilidade do cartão até que a requisição de rede do Conteúdo conectado seja concluída. Em alguns casos, isso faz com que os SDKs tentem novamente alguns segundos depois, para não atrasar a lógica de renderização do app, que pode estar aguardando o SDK concluir a tarefa de atualização.
+O Conteúdo conectado enriquece os Content Cards com dados de APIs próprias ou de terceiros. No entanto, quando incluído em uma mensagem de cartão de conteúdo, ele bloqueia a disponibilidade do cartão até que a requisição de rede do Conteúdo conectado seja concluída. Em alguns casos, isso faz com que os SDKs tentem novamente alguns segundos depois, para não atrasar a lógica de renderização do app, que pode estar aguardando o SDK or kit de desenvolvimento de software concluir a tarefa de atualização.
 
 Se você precisar usar Conteúdo conectado, agende esses cartões com antecedência e use a opção `At Campaign Launch` para que os cartões sejam pré-criados antes da próxima sessão do usuário. Observe que esses cartões não ficarão disponíveis imediatamente, pois a Braze precisa gravar todos os cartões para todos os usuários elegíveis.

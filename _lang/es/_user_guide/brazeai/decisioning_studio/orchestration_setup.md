@@ -46,7 +46,7 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 
 | Requisito | Descripción |
 |------|-------------|
-| **Clave de API REST** | Una nueva clave de API con permisos para datos de usuario, mensajes, Campaigns, Canvas, Segments y plantillas. |
+| **Clave de API REST or transferencia de estado representacional** | Una nueva clave de API con permisos para datos de usuario, mensajes, Campaigns, Canvas, Segments y plantillas. |
 | **URL del panel de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
 | **ID de la aplicación** | La clave de API asociada a la aplicación que deseas rastrear (se encuentra en **Configuración** > **Configuración de la aplicación**). |
 | **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus Campaigns (se encuentra en **Configuración** > **Preferencias de correo electrónico**). |
@@ -59,7 +59,7 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 
 | Requisito | Descripción |
 |------|-------------|
-| **Credenciales del paquete de la aplicación** | Client ID, Client Secret, Authentication Base URI, REST Base URI y SOAP Base URI de un paquete instalado con integración de API de servidor a servidor. |
+| **Credenciales del paquete de la aplicación** | Client ID, Client Secret, Authentication Base URI, REST or transferencia de estado representacional Base URI y SOAP Base URI de un paquete instalado con integración de API de servidor a servidor. |
 | **Permisos de API** | Alcances para canales, activos, automatizaciones, journeys, contactos, extensiones de datos y eventos de seguimiento. |
 | **Extensiones de datos** | Necesitas extensiones de datos para datos de suscriptores, datos de participación y recomendaciones. |
 | **Plantillas de correo electrónico** | Las plantillas que deseas que Decisioning Studio utilice, con los ID de plantilla para cada una. |
@@ -90,7 +90,7 @@ Antes de configurar la orquestación, ten en cuenta los siguientes detalles:
 Una plantilla base es cualquier plantilla de mensaje que tu agente de decisión podría utilizar. Considera lo siguiente:
 
 - **¿Cuántas plantillas?** Tu agente puede trabajar con una plantilla o con varias. Si son varias, el agente puede personalizar qué plantilla recibe cada cliente.
-- **¿Qué canales?** Correo electrónico, push, SMS o una combinación. Cada canal puede requerir plantillas y Campaigns independientes.
+- **¿Qué canales?** Correo electrónico, push, servicio de mensajes cortos o una combinación. Cada canal puede requerir plantillas y Campaigns independientes.
 - **¿Qué elementos dinámicos?** Identifica qué partes de tu mensaje personaliza el agente (como líneas del asunto, CTAs, ofertas, horarios). Estos se convierten en propiedades de desencadenamiento de API o marcadores de posición dinámicos.
 
 ### Configuración de reelegibilidad {#re-eligibility-settings}
@@ -175,9 +175,9 @@ Lo que resulta en el siguiente mensaje:
 
 ![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
 
-#### Ejemplo 3: Campaign de SMS {#example-3-sms-campaign}
+#### Ejemplo 3: Campaign de servicio de mensajes cortos {#example-3-sms-campaign}
 
-Supongamos que el agente de Decisioning Studio está optimizando campos en una Campaign de SMS. Esto podría configurarse de la siguiente manera:
+Supongamos que el agente de Decisioning Studio está optimizando campos en una Campaign de servicio de mensajes cortos. Esto podría configurarse de la siguiente manera:
 
 ![Diagrama de Decisioning Pro]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 

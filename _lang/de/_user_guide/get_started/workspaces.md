@@ -32,7 +32,7 @@ Es kann verlockend sein, mehrere App-Instanzen in einem Workspace zu haben, da S
 Typische Beispiele, wann Sie mehrere App-Instanzen im selben Workspace haben möchten:
 
 - Wenn Sie mehrere, nahezu identische Apps auf verschiedenen Plattformen haben
-- Wenn Sie verschiedene Hauptversionen der App haben, aber weiterhin dieselben Nutzer:innen ansprechen möchten, wenn sie ein Upgrade durchführen
+- Wenn Sie verschiedene Hauptversionen der App haben, aber weiterhin dieselben Nutzer:innen ansprechen möchten, wenn sie ein Upgrade or upgraden durchführen
 - Wenn Sie verschiedene Versionen der App haben, zwischen denen dieselben Nutzer:innen wechseln können (z. B. von kostenlos zu Premium)
 
 #### Auswirkungen auf Segmentierungsfilter {#impact-on-segmentation-filters}
@@ -69,7 +69,7 @@ Die folgenden Elemente werden alle innerhalb eines Workspaces konfiguriert:
 - [Unternehmensnutzer:innen-Berechtigungen](#company-user-permissions) (aber nicht die Unternehmensnutzer:innen selbst)
 - [Currents-Konnektoren](#currents-connectors)
 - [Nutzerprofile](#user-profiles) und die zugehörigen Nutzerdaten
-- [Segments, Campaigns und Canvases](#segments-campaigns-and-canvases)
+- [Segments, Campaigns und Canvase](#segments-campaigns-and-canvases)
 
 #### App-Instanzen {#app-instances}
 
@@ -93,9 +93,9 @@ Wenn Sie z. B. getrennte Workspaces für die Entwicklungs- und Produktionsumgebu
 
 #### Nutzerprofile {#user-profiles}
 
-Alle persistenten Daten, die mit Nutzer:innen verknüpft sind, werden in ihrem [Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für Fehlerbehebung und Tests, da Sie einfach auf Informationen zum Engagement-Verlauf, zur Segmentzugehörigkeit, zum Gerät und zum Betriebssystem von Nutzer:innen zugreifen können.
+Alle persistenten Daten, die mit Nutzer:innen verknüpft sind, werden in ihrem [Kundenprofil or Nutzerprofil]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) gespeichert. Nutzerprofile sind jedoch auch eine hervorragende Ressource für Fehlerbehebung und Tests, da Sie einfach auf Informationen zum Engagement-Verlauf, zur Segmentzugehörigkeit, zum Gerät und zum Betriebssystem von Nutzer:innen zugreifen können.
 
-#### Segments, Campaigns und Canvases {#segments-campaigns-and-canvases}
+#### Segments, Campaigns und Canvase {#segments-campaigns-and-canvases}
 
 Ein Segment, eine Campaign oder ein Canvas kann nicht auf Daten zugreifen oder diese referenzieren, die in einem anderen Workspace gespeichert sind. Umgekehrt werden die Daten aller Apps im selben Workspace aggregiert, wenn sich mehrere Apps in einem Workspace befinden. Dies hat [Auswirkungen auf Filter in Braze](#impact-on-segmentation-filters).
 
@@ -103,8 +103,8 @@ Ein Segment, eine Campaign oder ein Canvas kann nicht auf Daten zugreifen oder d
 
 Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätze zur Workspace-Planung:
 
-- **Getrennte Workspaces und Nutzerprofile:** Ein Workspace hat eine App-Instanz, und eine Person hat ein Nutzerprofil für diese App-Instanz.
-- **Gemeinsame Workspaces und Nutzerprofile:** Ein Workspace hat mehrere App-Instanzen, und eine Person hat ein Nutzerprofil für alle diese App-Instanzen.
+- **Getrennte Workspaces und Nutzerprofile:** Ein Workspace hat eine App-Instanz, und eine Person hat ein Kundenprofil or Nutzerprofil für diese App-Instanz.
+- **Gemeinsame Workspaces und Nutzerprofile:** Ein Workspace hat mehrere App-Instanzen, und eine Person hat ein Kundenprofil or Nutzerprofil für alle diese App-Instanzen.
 
 <style type="text/css">
   table {
@@ -173,7 +173,7 @@ Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätz
     <tr>
         <th scope="row">Targeting</th>
         <td>Sicherste Methode, um Kommunikation getrennt zu halten. Campaigns sprechen garantiert nur bestimmte Nutzerprofile an.</td>
-        <td>Cross-Promotion-Nachrichten können nicht gesendet werden, selbst wenn Sie wissen, dass Nutzer:innen ein weiteres Nutzerprofil in einem anderen Workspace haben.</td>
+        <td>Cross-Promotion-Nachrichten können nicht gesendet werden, selbst wenn Sie wissen, dass Nutzer:innen ein weiteres Kundenprofil or Nutzerprofil in einem anderen Workspace haben.</td>
         <td>Cross-Promotion-Nachrichten können gesendet werden, wenn Sie wissen, dass Nutzer:innen mehrere Apps in Ihrem Workspace haben.<br><br>Nutzerdaten aus verschiedenen Apps können referenziert werden. Beispiel: Max hat das Attribut X, das für App 1 relevant ist, und das Attribut Y, das für App 2 relevant ist – beide können in einer Campaign referenziert werden.</td>
         <td>Mehr Raum für menschliche Fehler – Sie könnten versehentlich Nutzer:innen über mehrere App-Instanzen hinweg ansprechen.<br><br>Um In-App-Nachrichten zu senden, benötigen Sie app-spezifische angepasste Events, damit eine Campaign nicht versehentlich in einer anderen App angezeigt wird. Zum Beispiel <code>app_1_action</code> versus <code>app_2_action</code>.</td>
     </tr>
@@ -182,7 +182,7 @@ Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätz
         <td>Angepasste Attribute und Events sind garantiert spezifisch für eine App-Instanz.</td>
         <td>Nutzerverhalten kann nicht workspace-übergreifend verfolgt werden.<br><br><b>Tipp:</b> Sie können mehrere Currents-Konnektoren nutzen, um dies zu erreichen.</td>
         <td>Nutzerverhalten kann über alle App-Instanzen im Workspace hinweg verfolgt werden.</td>
-        <td>Angepasste Attribute und Events gelten für alle App-Instanzen, was es schwierig machen kann, zu erkennen, welche Daten in einem Nutzerprofil für welche App-Instanz relevant sind. Beispiel: Ist „date_of_parking“ relevant für App 1 oder App 2? Verwenden Sie daher gut strukturierte Namenskonventionen.</td>
+        <td>Angepasste Attribute und Events gelten für alle App-Instanzen, was es schwierig machen kann, zu erkennen, welche Daten in einem Kundenprofil or Nutzerprofil für welche App-Instanz relevant sind. Beispiel: Ist „date_of_parking“ relevant für App 1 oder App 2? Verwenden Sie daher gut strukturierte Namenskonventionen.</td>
     </tr>
     <tr>
         <th scope="row">Frequency-Capping</th>
@@ -209,7 +209,7 @@ Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätz
         <th scope="row">Inhalte duplizieren</th>
         <td>N/A</td>
         <td>Einige Inhalte, wie Segmente und Content-Card-Kampagnen, können nicht zwischen Workspaces kopiert werden.</td>
-        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>Campaigns, Canvases und Landing-Pages über Workspaces kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvases für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Segmente, Campaigns, Canvases und Landing-Pages können dupliziert werden, um Inhalte von einer App-Instanz für eine andere wiederzuverwenden.</td>
+        <td>Sie können <a href='{{site.baseurl}}/user_guide/messaging/governance/copy_across_workspaces'>Campaigns, Canvase und Landing-Pages über Workspaces kopieren</a>. Unterstützte Inhalte umfassen Campaigns und Canvase für berechtigte Kanäle sowie Landing-Pages, E-Mail-Templates, Feature-Flags und Content Blocks.<br><br>Segmente, Campaigns, Canvase und Landing-Pages können dupliziert werden, um Inhalte von einer App-Instanz für eine andere wiederzuverwenden.</td>
         <td>N/A</td>
     </tr>
     <tr>
@@ -223,7 +223,7 @@ Die folgende Tabelle beschreibt die Vorteile und Nachteile dieser beiden Ansätz
 </table>
 
 {% alert note %}
-Informationen dazu, wie sich MAU bei der Ansicht aller Apps im Vergleich zu einer einzelnen App unterscheiden, finden Sie unter [Monatlich aktive Nutzer:innen]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
+Informationen dazu, wie sich MAU or monatlich aktive:r Nutzer:in bei der Ansicht aller Apps im Vergleich zu einer einzelnen App unterscheiden, finden Sie unter [Monatlich aktive Nutzer:innen]({{site.baseurl}}/user_guide/analytics/dashboards/home#monthly-active-users).
 {% endalert %}
 
 ## Best Practices {#best-practices}

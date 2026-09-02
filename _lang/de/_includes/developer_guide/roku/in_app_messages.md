@@ -1,4 +1,4 @@
-{% multi_lang_include developer_guide/prerequisites/roku.md %} Außerdem werden In-App-Nachrichten nur an Roku-Geräte gesendet, auf denen die minimal unterstützte SDK-Version läuft:
+{% multi_lang_include developer_guide/prerequisites/roku.md %} Außerdem werden In-App-Nachrichten nur an Roku-Geräte gesendet, auf denen die minimal unterstützte SDK or Software-Development-Kit-Version läuft:
 
 {% sdk_min_versions roku:0.1.2 %}
 

@@ -4,7 +4,7 @@ article_title: Kampagnen
 page_order: 2.5
 layout: dev_guide
 guide_top_header: "Kampagnen"
-guide_top_text: "Wenn Sie Ihre Nutzer:innen mit einem einzelnen Nachrichtenschritt ansprechen möchten, können Sie ihnen eine Kampagne über einen der unterstützten <a href='/docs/user_guide/channels'>Messaging-Kanäle</a> senden. Die meisten mehrstufigen User-Journeys lassen sich besser als <a href='/docs/user_guide/messaging/canvas'>Canvases</a> erstellen.<br> <br>Wählen Sie eines der folgenden Themen aus, um relevante Artikel zu entdecken."
+guide_top_text: "Wenn Sie Ihre Nutzer:innen mit einem einzelnen Nachrichtenschritt ansprechen möchten, können Sie ihnen eine Kampagne über einen der unterstützten <a href='/docs/user_guide/channels'>Messaging-Kanäle</a> senden. Die meisten mehrstufigen User-Journeys lassen sich besser als <a href='/docs/user_guide/messaging/Canvas'>Canvase</a> erstellen.<br> <br>Wählen Sie eines der folgenden Themen aus, um relevante Artikel zu entdecken."
 tool: Campaigns
 page_type: landing
 description: "Diese Landing-Page enthält alles rund um Kampagnen im Braze-Dashboard. Hier finden Sie Ressourcen zum Erstellen, Verwalten und Testen von Kampagnen sowie hilfreiche Ideen und Strategien."

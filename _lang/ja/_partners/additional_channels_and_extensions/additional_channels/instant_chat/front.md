@@ -181,7 +181,7 @@ Brazeのダッシュボードで、[以前に作成した](#step-3-configure-the
 
 #### ステップ5.3:最初の配信をスケジュールする {#step-53-schedule-the-first-delivery}
 
-**配信をスケジュール**で、**アクションベースの配信**を選択し、トリガータイプとして**SMSインバウンドメッセージを送信する**を選択します。また、[以前に設定した](#step-51-create-an-sms-keyword-category)SMS購読グループとキーワードカテゴリを追加します。
+**配信をスケジュール**で、**アクションベースの配信**を選択し、トリガータイプとして**SMS インバウンドメッセージを送信**を選択します。また、[以前に設定した](#step-51-create-an-sms-keyword-category)SMS購読グループとキーワードカテゴリを追加します。
 
 ![最初のWebhookキャンペーンの「配信をスケジュール」ページ。]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 

@@ -1,7 +1,7 @@
 ---
 nav_title: ActionIQ
 article_title: ActionIQ
-description: "Este artículo de referencia cubre la integración de Braze y ActionIQ. ActionIQ es una plataforma de datos de los clientes empresariales para especialistas en marketing, analistas y tecnólogos. Esta integración permite a las marcas sincronizar y asignar sus datos de ActionIQ directamente a Braze."
+description: "Este artículo de referencia cubre la integración de Braze y ActionIQ. ActionIQ es una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes empresariales para especialistas en marketing, analistas y tecnólogos. Esta integración permite a las marcas sincronizar y asignar sus datos de ActionIQ directamente a Braze."
 alias: /partners/actioniq/
 page_type: partner
 search_tag: ActionIQ
@@ -9,7 +9,7 @@ search_tag: ActionIQ
 
 # ActionIQ
 
-> [ActionIQ](https://www.actioniq.com/) es una plataforma de datos de los clientes para marcas empresariales que ofrece a los especialistas en marketing formas fáciles y seguras de activar los datos en cualquier punto de la experiencia del cliente. La arquitectura componible única de ActionIQ significa que los datos pueden permanecer seguros donde residen, y los equipos de marketing solo utilizan las herramientas que necesitan.
+> [ActionIQ](https://www.actioniq.com/) es una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes para marcas empresariales que ofrece a los especialistas en marketing formas fáciles y seguras de activar los datos en cualquier punto de la experiencia del cliente. La arquitectura componible única de ActionIQ significa que los datos pueden permanecer seguros donde residen, y los equipos de marketing solo utilizan las herramientas que necesitan.
 
 _Esta integración está mantenida por ActionIQ._
 
@@ -26,8 +26,8 @@ La integración de Braze y ActionIQ permite a las marcas sincronizar y mapear su
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta ActionIQ | Se requiere una cuenta ActionIQ para aprovechar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos necesarios para la integración correspondiente. Consulta la sección de requisitos correspondiente para más detalles. <br><br>Esta clave puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los permisos necesarios para la integración correspondiente. Consulta la sección de requisitos correspondiente para más detalles. <br><br>Esta clave puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integraciones {#integrations}
@@ -49,9 +49,9 @@ Además, esta integración actualizará cualquier atributo personalizado o está
 
 #### Requisitos {#requirements}
 
-Se necesita una clave de API REST de Braze con permisos para `users.track` y `user.export.ids`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**.
+Se necesita una clave de API REST or transferencia de estado representacional de Braze con permisos para `users.track` y `user.export.ids`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**.
 
-En ActionIQ, configura una conexión con Braze proporcionando tu clave de API REST y el punto de conexión REST de Braze.
+En ActionIQ, configura una conexión con Braze proporcionando tu clave de API REST or transferencia de estado representacional y el punto de conexión REST or transferencia de estado representacional de Braze.
 
 Para coincidir con los consumidores en la plataforma Braze, se deben incluir los siguientes identificadores en tu configuración de activación:
 - `braze_id`
@@ -63,7 +63,7 @@ Puedes configurar la plataforma ActionIQ para recibir información de eventos a 
 
 #### Requisitos
 
-Se necesita una clave de API REST de Braze con permisos para `users.track` y `user.export.ids`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**.
+Se necesita una clave de API REST or transferencia de estado representacional de Braze con permisos para `users.track` y `user.export.ids`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**.
 
 La integración de eventos envía la siguiente información a Braze:
 - Nombre del evento
@@ -79,7 +79,7 @@ Opcionalmente, puedes incluir cualquier otro atributo de ActionIQ en tu exportac
 
 #### Requisitos
 
-Se necesita una clave de API REST de Braze con permisos para `campaigns.trigger.send` y `campaigns.list`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**.
+Se necesita una clave de API REST or transferencia de estado representacional de Braze con permisos para `campaigns.trigger.send` y `campaigns.list`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**.
 
 Los siguientes valores deben enviarse en tu exportación de ActionIQ a Braze:
 - Identificador del consumidor (`braze_id` o `external_id`)

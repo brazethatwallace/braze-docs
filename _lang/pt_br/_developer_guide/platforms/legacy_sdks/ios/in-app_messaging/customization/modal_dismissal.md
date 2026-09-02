@@ -15,7 +15,7 @@ noindex: true
 
 O valor padrão é `NO`. Isso determina se a mensagem no app em formato modal será descartada quando o usuário tocar fora da mensagem no app.
 
-Para ativar as dispensas com toque fora do modal, adicione um dicionário chamado `Braze` ao seu arquivo `Info.plist`. No dicionário `Braze`, adicione a subentrada booleana `DismissModalOnOutsideTap` e defina o valor como `YES`, conforme mostrado no seguinte trecho de código. Note que, antes do SDK da Braze para iOS v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
+Para ativar as dispensas com toque fora do modal, adicione um dicionário chamado `Braze` ao seu arquivo `Info.plist`. No dicionário `Braze`, adicione a subentrada booleana `DismissModalOnOutsideTap` e defina o valor como `YES`, conforme mostrado no seguinte trecho de código. Note que, antes do SDK or kit de desenvolvimento de software da Braze para iOS v4.0.2, a chave do dicionário `Appboy` deve ser usada no lugar de `Braze`.
 
 ```
 <key>Braze</key>

@@ -206,7 +206,7 @@ Beachten Sie, dass ein null-Attributwert nicht streng mit einem Werttyp verknüp
 
 ### Leere Attributwerte {#blank-attribute-values}
 
-Ein leerer Wert tritt auf, wenn das Attribut in einem Nutzerprofil nicht gesetzt ist, mit einem Leerzeichen-String (` `) gesetzt ist oder als `false` gesetzt ist. Leere Werte sollten vor anderen Variablen geprüft werden, um einen Liquid-Verarbeitungsfehler zu vermeiden.
+Ein leerer Wert tritt auf, wenn das Attribut in einem Kundenprofil or Nutzerprofil nicht gesetzt ist, mit einem Leerzeichen-String (` `) gesetzt ist oder als `false` gesetzt ist. Leere Werte sollten vor anderen Variablen geprüft werden, um einen Liquid-Verarbeitungsfehler zu vermeiden.
 
 Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen festzulegen, die ein leeres Attribut „Vorname“ haben.
 

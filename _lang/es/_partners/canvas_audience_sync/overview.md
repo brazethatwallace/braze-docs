@@ -10,7 +10,7 @@ tool:
 
 # Acerca de Audience Sync {#about-audience-sync}
 
-> La característica Braze Audience Sync te ayuda a ampliar el alcance de tus campañas a muchas de las principales tecnologías sociales y publicitarias. A través de [Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas), las marcas pueden sincronizar de forma dinámica y segura datos de usuarios de primera mano en el ecosistema publicitario para impulsar el marketing y la eficiencia operativa.
+> La característica Braze Audience Sync te ayuda a ampliar el alcance de tus campañas a muchas de las principales tecnologías sociales y publicitarias. A través de [BRAZE Canvas]({{site.baseurl}}/user_guide/messaging/canvas), las marcas pueden sincronizar de forma dinámica y segura datos de usuarios de primera mano en el ecosistema publicitario para impulsar el marketing y la eficiencia operativa.
 
 ## Disponibilidad de la característica {#feature-availability}
 
@@ -39,7 +39,7 @@ table td {
 | [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 48 horas | LinkedIn procesa 10 consultas por segundo y 100 000 usuarios por solicitud. Braze agrupa usuarios por lotes cada 5 segundos. | Audiencias predictivas con IA | {::nomarkdown}<ul><li>El tamaño mínimo de la audiencia es de 300 miembros, teniendo en cuenta la segmentación por ubicación.</li><li>LinkedIn muestra la tasa de coincidencia en el panel de Braze.</li></ul>{:/} |
 | [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync) | Entre 24 y 48 horas | Pinterest procesa 7 consultas por segundo y 1900 usuarios por solicitud. Braze agrupa usuarios por lotes cada 5 segundos. | Sí | Las audiencias de Pinterest requieren al menos 100 usuarios. |
 | [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync) | N/D | Snapchat procesa 10 consultas por segundo y 100 000 usuarios por solicitud. Braze agrupa usuarios por lotes cada 5 segundos. | Sí | Snapchat admite hasta 1000 audiencias de anuncios. |
-| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync) | Hasta 24 horas | N/D | Sí | {::nomarkdown}<ul><li>No hay tamaño mínimo de audiencia para las audiencias de CRM en The Trade Desk.</li><li>No hay límite en la cantidad de audiencias que admite The Trade Desk.</li><li>Si sincronizas con una audiencia con la región configurada en la UE, no se admite el número de teléfono.</li></ul>{:/} |
+| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync) | Hasta 24 horas | N/D | Sí | {::nomarkdown}<ul><li>No hay tamaño mínimo de audiencia para las audiencias de CRM or administración de las relaciones con el cliente en The Trade Desk.</li><li>No hay límite en la cantidad de audiencias que admite The Trade Desk.</li><li>Si sincronizas con una audiencia con la región configurada en la UE, no se admite el número de teléfono.</li></ul>{:/} |
 | [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync) | Entre 24 y 48 horas | TikTok procesa 50 consultas por segundo y 10 000 usuarios por solicitud. Braze agrupa usuarios por lotes cada 5 segundos. | Sí | {::nomarkdown}<ul><li>TikTok admite hasta 400 audiencias de anuncios.</li><li>Las audiencias de TikTok requieren al menos 1000 usuarios para empezar a mostrar anuncios.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Resumen" }
 <sup>Cuando se alcanza el límite de velocidad, Braze reintenta las sincronizaciones durante 13 horas.</sup>
@@ -101,7 +101,7 @@ Los Canvas de alto volumen pueden enviar antes porque los lotes se llenan más r
 
 Braze registra la actividad de envío en registros internos para monitorización y solución de problemas, pero estas marcas de tiempo no se exponen como campos consultables. Después de que Braze envía un lote a la API del partner, el partner procesa la actualización de audiencia de acuerdo con sus propios acuerdos de nivel de servicio, normalmente entre 6 y 48 horas.
 
-Braze no recibe confirmación de los partners de que los usuarios individuales hayan sido emparejados o sincronizados. Las respuestas del partner son confirmaciones HTTP de recepción, no confirmaciones de coincidencia. Para verificar que una audiencia se ha poblado, comprueba la plataforma publicitaria del partner (como Google Ads Audience Manager o Meta Business Manager).
+Braze no recibe confirmación de los partners de que los usuarios individuales hayan sido emparejados o sincronizados. Las respuestas del partner son confirmaciones HTTP de recepción, no confirmaciones de coincidencia. Para verificar que una audiencia se ha poblado, comprueba la plataforma publicitaria del partner (como Google Ads Audience Administrador o Meta Business Administrador).
 
 ### Correos electrónicos de error de Audience Sync {#audience-sync-error-emails}
 
@@ -109,7 +109,7 @@ Si el error está relacionado con la integración general del partner (como un p
 
 Si el error está relacionado con problemas del componente de Audience Sync (como "La audiencia no existe") en Canvas, se envía un correo electrónico al usuario que configuró el Canvas. Si ese usuario ya no existe, se recurre al administrador de la empresa.
 
-Para configurar quién recibe estos correos electrónicos, contacta con tu administrador de éxito de cliente para añadir destinatarios en **Preferencias de notificación**. Esta preferencia cubre tanto los errores de integración como los errores del componente de Audience Sync. Los destinatarios que añadas reciben estos correos electrónicos además del usuario asociado con el error.
+Para configurar quién recibe estos correos electrónicos, contacta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para añadir destinatarios en **Preferencias de notificación**. Esta preferencia cubre tanto los errores de integración como los errores del componente de Audience Sync. Los destinatarios que añadas reciben estos correos electrónicos además del usuario asociado con el error.
 
 ## Consideraciones de privacidad de datos {#data-privacy-considerations}
 
@@ -119,7 +119,7 @@ Esta documentación no pretende proporcionar, ni se puede considerar como asesor
 
 Al crear audiencias para el seguimiento de anuncios, es posible que desees incluir o excluir a determinados usuarios en función de sus preferencias, así como cumplir con las leyes de privacidad, como el derecho a "No vender ni compartir" según la [CCPA](https://oag.ca.gov/privacy/ccpa). Los especialistas en marketing deben implementar los filtros relevantes para la elegibilidad de los usuarios dentro de los criterios de entrada de su Canvas. Las siguientes opciones pueden ser de ayuda.
 
-Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations), podrás utilizar el filtro "Ads Tracking Enabled". Selecciona el valor como `true` para enviar usuarios únicamente a los destinos de Audience Sync donde hayan dado su adhesión voluntaria.
+Si has recopilado el [IDFA de iOS a través del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations), podrás utilizar el filtro "Ads Tracking Enabled". Selecciona el valor como `true` para enviar usuarios únicamente a los destinos de Audience Sync donde hayan dado su adhesión voluntaria.
 
 ![Un Canvas con un público de entrada de "Ad Tracking Enabled is true".]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
 

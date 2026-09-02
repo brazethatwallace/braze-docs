@@ -50,9 +50,9 @@ Die folgenden zusätzlichen Bedingungen gelten für die Nutzung des Kanals für 
 
 **„Aggregatoren“**, **„Mobilfunkanbieter“** oder **„Vermittler für mobile Nachrichten“** bezeichnen Drittanbieter-Vermittler, die (i) mobile Nachrichten zwischen Anbietern mobiler Nachrichten und Mobilfunkanbietern übermitteln; (ii) Mobilfunkdienstanbieter sind (z. B. T-Mobile, AT\&T usw.); und/oder (iii) an der Übermittlung von RCS-Nachrichten von Anbietern mobiler Nachrichten an Endnutzer:innen beteiligt sind.
 
-**„SMS/MMS-Anbieter“ oder „Anbieter mobiler Nachrichten“** bezeichnen Braze-Unterauftragsverarbeiter, die bei der Übermittlung von SMS-, MMS- und/oder RCS-Nachrichten eingesetzt werden, wie unter [www.braze.com/subprocessors](http://www.braze.com/subprocessors) angegeben.
+**„Kurzmitteilungsdienst or SMS/MMS-Anbieter“ oder „Anbieter mobiler Nachrichten“** bezeichnen Braze-Unterauftragsverarbeiter, die bei der Übermittlung von Kurzmitteilungsdienst or SMS-, MMS- und/oder RCS-Nachrichten eingesetzt werden, wie unter [www.braze.com/subprocessors](http://www.braze.com/subprocessors) angegeben.
 
-**„SMS/MMS-Nachrichten“ oder „Mobile Nachrichten“** bezeichnen SMS-, MMS- und/oder RCS-Nachrichten.
+**„Kurzmitteilungsdienst or SMS/MMS-Nachrichten“ oder „Mobile Nachrichten“** bezeichnen Kurzmitteilungsdienst or SMS-, MMS- und/oder RCS-Nachrichten.
 
 ### Geltende Branchenstandards und Best Practices {#applicable-industry-standards-and-best-practices}
 
@@ -64,15 +64,15 @@ Dritte, die am Versand mobiler Nachrichten beteiligt sind, einschließlich Vermi
 
 Braze kann jeden Anbieter mobiler Nachrichten einsetzen, der in seiner Liste der Unterauftragsverarbeiter unter [www.braze.com/subprocessors](https://www.braze.com/subprocessors/) aufgeführt ist.
 
-Ungeachtet des Vorstehenden gelten für den Fall, dass Kund:innen mobile Nachrichten über das Modell „Bring Your Own (BYO) SMS Connector“ versenden, die am Versand beteiligten Anbieter mobiler Nachrichten als Drittanbieter (wie im Vertrag definiert) und nicht als Unterauftragsverarbeiter von Braze, und die nachstehenden Haftungsausschlüsse gelten für solche Drittanbieter.
+Ungeachtet des Vorstehenden gelten für den Fall, dass Kund:innen mobile Nachrichten über das Modell „Bring Your Own (BYO) Kurzmitteilungsdienst or SMS Connector“ versenden, die am Versand beteiligten Anbieter mobiler Nachrichten als Drittanbieter (wie im Vertrag definiert) und nicht als Unterauftragsverarbeiter von Braze, und die nachstehenden Haftungsausschlüsse gelten für solche Drittanbieter.
 
 ### Ausnahme für die Webhook-Nutzung {#webhook-use-exception-terms}
 
 Gilt für Kund:innen, die ab dem 9. Dezember 2024 Action Credits abonniert haben (gemäß dem Datum des Inkrafttretens des Bestellformulars): Die in der Compliance-Dokumentation des Webhooks-Kanals beschriebenen Einschränkungen gelten nicht für die Nutzung von Webhooks zum Versand mobiler Nachrichten über eine Drittanbieter-Plattform.
 
-### Bring Your Own (BYO) SMS Connector
+### Bring Your Own (BYO) Kurzmitteilungsdienst or SMS Connector
 
-Kund:innen können mobile Nachrichten über Braze mithilfe von Drittanbietern über das Modell „BYO SMS Connector“ versenden. Ungeachtet des Vorstehenden dürfen Kund:innen das BYO SMS Connector-Modell nicht zum Versand mobiler Nachrichten in die USA und nach Kanada verwenden.
+Kund:innen können mobile Nachrichten über Braze mithilfe von Drittanbietern über das Modell „BYO Kurzmitteilungsdienst or SMS Connector“ versenden. Ungeachtet des Vorstehenden dürfen Kund:innen das BYO Kurzmitteilungsdienst or SMS Connector-Modell nicht zum Versand mobiler Nachrichten in die USA und nach Kanada verwenden.
 
 ### Haftungsausschlüsse {#disclaimers}
 
@@ -154,9 +154,9 @@ Die Kund:innen erkennen an, dass die Nutzung der Nachrichtenarchivierung und/ode
 
 ### LLM-Anbieter als Unterauftragsverarbeiter oder Drittanbieter {#llm-providers-as-sub-processors-or-third-party-providers}
 
-Wenn Kund:innen eine Integration mit einem großen Sprachmodell nutzen, das von Braze über die Braze Auto-Option in den Braze-Diensten bereitgestellt wird („von Braze bereitgestelltes LLM“), fungiert der Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (DPA) zwischen den Kund:innen und Braze.
+Wenn Kund:innen eine Integration mit einem großen Sprachmodell nutzen, das von Braze über die Braze Auto-Option in den Braze-Diensten bereitgestellt wird („von Braze bereitgestelltes LLM“), fungiert der Anbieter eines solchen von Braze bereitgestellten LLM als Braze-Unterauftragsverarbeiter, vorbehaltlich der Bedingungen des Datenverarbeitungszusatzes (Datenschutzbeauftragte:r) zwischen den Kund:innen und Braze.
 
-Wenn Kund:innen sich dafür entscheiden, ihren eigenen API-Schlüssel für die Integration mit der Braze-KI-Funktionalität einzubringen, wird der Anbieter des eigenen LLM-Abos der Kund:innen als Drittanbieter betrachtet, wie im Vertrag zwischen den Kund:innen und Braze definiert.
+Wenn Kund:innen sich dafür entscheiden, ihren eigenen API-Schlüssel für die Integration mit der Braze-KI or künstliche Intelligenz-Funktionalität einzubringen, wird der Anbieter des eigenen LLM-Abos der Kund:innen als Drittanbieter betrachtet, wie im Vertrag zwischen den Kund:innen und Braze definiert.
 
 ## 9. KakaoTalk-Kanal – Compliance-Dokumentation {#kakaotalk-channel-compliance-documentation}
 

@@ -24,19 +24,19 @@ Sie wählen den Agent-Typ in der **Agent Console** aus, wenn Sie den Agent erste
 
 ## Best Practices {#best-practices}
 
-Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agents die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren werden. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity.
+Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agents die größte Kapitalrendite or Kapitalrendite or ROI (Kapitalrendite or ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren werden. Eine kleinere Zielgruppe mit hoher Opportunity übertrifft oft eine große Zielgruppe mit geringer Opportunity.
 
 Beginnen Sie bei Canvas-Schritt-Agents mit Nutzer:innen, die starke Signale aufweisen – wie kürzliche Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Catalog-Agents Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ergebnisse zu liefern.
 
-Um die ROI in kleinem Maßstab zu testen, bevor Sie einen Agent breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
+Um die Kapitalrendite or ROI in kleinem Maßstab zu testen, bevor Sie einen Agent breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 
 ### Nach einem erfolgreichen Test skalieren {#scale-after-a-successful-test}
 
-Nachdem ein Test in kleinem Maßstab (zum Beispiel ein [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Branch) akzeptable Qualität und ROI gezeigt hat, planen Sie den Rollout des Agents auf Ihre gesamte Zielgruppe (nicht nur die Testgruppe), damit alle berechtigten Nutzer:innen davon profitieren.
+Nachdem ein Test in kleinem Maßstab (zum Beispiel ein [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Branch) akzeptable Qualität und Kapitalrendite or ROI gezeigt hat, planen Sie den Rollout des Agents auf Ihre gesamte Zielgruppe (nicht nur die Testgruppe), damit alle berechtigten Nutzer:innen davon profitieren.
 
 Bevor Sie skalieren, beachten Sie Folgendes:
 
-- Erhöhen Sie das tägliche Aufruf-Limit des Agents in der Agent Console, damit er das volle Zielgruppenvolumen bewältigen kann. Der Standardwert beträgt 250.000; Sie können ihn auf bis zu 1.000.000 erhöhen (oder mit Ihrem Customer-Success-Manager auf einen höheren Wert). Siehe [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+- Erhöhen Sie das tägliche Aufruf-Limit des Agents in der Agent Console, damit er das volle Zielgruppenvolumen bewältigen kann. Der Standardwert beträgt 250.000; Sie können ihn auf bis zu 1.000.000 erhöhen (oder mit Ihrem CSM or Customer-Success-Manager or Customer-Success-Manager:in auf einen höheren Wert). Siehe [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - Überprüfen Sie die Schätzung des **Daily action credit cost limit** und bestätigen Sie, dass Ihr Workspace über genügend Credits für Sends im vollen Umfang verfügt.
 - Entfernen oder rekonfigurieren Sie das Experiment, sodass die gesamte Zielgruppe den Agent-Schritt betritt (oder stufen Sie die Gewinnervariante zum Hauptpfad hoch).
 
@@ -73,7 +73,7 @@ Informationen zu Ausgabedatentypen, Liquid-Templating und Screenshots finden Sie
 | Kundenfeedback-Verarbeitung | Übergeben Sie Kundenkommentare an einen Agent, um die Stimmung zu analysieren und empathische Follow-up-Nachrichten zu generieren. Bei hochwertigen Nutzer:innen kann der Agent die Antwort eskalieren oder Vergünstigungen einschließen. |
 | Intelligentes Routing | Verwenden Sie Agent-Ausgaben (boolesch oder numerisch), um Nutzer:innen in verschiedene Canvas-Pfade aufzuteilen. Klassifizieren Sie beispielsweise Nutzer:innen als „gefährdet“ oder „gesund“ und passen Sie die Messaging-Kadenz entsprechend an. |
 | Umfrage- oder Antwortinterpretation | Lassen Sie einen Agent offene Umfrageantworten oder Freitextfelder analysieren und strukturierte Werte zurückgeben (zum Beispiel Kategorisierung von Absicht oder Bedarf), die nachgelagerte Pfade steuern. |
-| Mehrstufiges Reasoning | Konfigurieren Sie einen Agent, um Kontextfelder zu kombinieren und komplexe Entscheidungen zu treffen, wie zum Beispiel die Empfehlung der nächstbesten Aktion (E-Mail, SMS oder menschliche Kontaktaufnahme) basierend auf mehreren Nutzerattributen. |
+| Mehrstufiges Reasoning | Konfigurieren Sie einen Agent, um Kontextfelder zu kombinieren und komplexe Entscheidungen zu treffen, wie zum Beispiel die Empfehlung der nächstbesten Aktion (E-Mail, Kurzmitteilungsdienst or SMS oder menschliche Kontaktaufnahme) basierend auf mehreren Nutzerattributen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ### Die Agent-Ausgabe verwenden {#use-the-agent-output}
@@ -82,7 +82,7 @@ Nachdem der Agent ausgeführt wurde, verwenden Sie die Ausgabevariable in Ihrem 
 
 - **Journey-Routing:** Leiten Sie Nutzer:innen basierend auf der Antwort des Agents in verschiedene Canvas-Pfade. Verwenden Sie [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) oder [Decision-Splits]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) mit numerischen, booleschen oder strukturierten Ausgaben.
 - **Personalisierung:** Fügen Sie die Antwort des Agents mithilfe von Liquid direkt in einen Nachrichtenschritt ein.
-- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Nutzerdaten und speichern Sie diese dann im Nutzerprofil (zum Beispiel mit einem [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt) oder senden Sie sie über einen Webhook.
+- **Nutzerdaten verarbeiten:** Analysieren und standardisieren Sie Nutzerdaten und speichern Sie diese dann im Kundenprofil or Nutzerprofil (zum Beispiel mit einem [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt) oder senden Sie sie über einen Webhook.
 
 Beispiele finden Sie unter [Funktionsweise]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#how-it-works) im Agent-Schritt.
 
@@ -109,13 +109,13 @@ Nachdem Sie einen Catalog Agent erstellt haben, wenden Sie ihn auf ein Katalogfe
 
 ### Funktionsweise
 
-Nach dem Start wird der Agent ausgeführt und wertet jede Zeile aus, wobei er die ausgewählten Spalten als Kontext heranzieht, um eine Ausgabe zu erzeugen. Agents werden für alle neuen Zeilen ausgeführt, die nach der Bereitstellung des Agents hinzugefügt werden. Wenn Sie **Recalculate when catalog rows update** ausgewählt haben, werden alle Werte für dieses Feld aktualisiert, wenn sich vorhandene Quellfelder ändern.
+Nach dem Start wird der Agent ausgeführt und wertet jede Zeile aus, wobei er die ausgewählten Spalten als Kontext heranzieht, um eine Ausgabe zu erzeugen. Agents werden für alle neuen Zeilen ausgeführt, die nach der Bereitstellung des Agents hinzugefügt werden. Wenn Sie **Recalculate when catalog rows Update or aktualisieren** ausgewählt haben, werden alle Werte für dieses Feld aktualisiert, wenn sich vorhandene Quellfelder ändern.
 
-Wenn Sie Eingabespalten für einen Catalog Agent konfigurieren, aktivieren Sie die produktinterne Steuerung, die kennzeichnet, welche ausgewählten Spalten erforderlich sein müssen, bevor der Agent aufgerufen wird (die Bezeichnungen können je nach Workspace leicht variieren). Wenn diese Steuerung aktiviert ist, wählen Sie die Teilmenge der Spalten aus, die Werte enthalten müssen – ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer bleiben dürfen, ohne den Agent zu blockieren. Der Agent überspringt eine Zeile nur dann, wenn eine Spalte, die Sie als erforderlich belassen haben, leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das noch nicht ausgefüllt wurde. Eine Ausführung ohne den erforderlichen Kontext verschwendet Token und kann zu minderwertiger Ausgabe führen.
+Wenn Sie Eingabespalten für einen Catalog Agent konfigurieren, aktivieren Sie die produktinterne Steuerung, die kennzeichnet, welche ausgewählten Spalten erforderlich sein müssen, bevor der Agent aufgerufen wird (die Bezeichnungen können je nach Workspace leicht variieren). Wenn diese Steuerung aktiviert ist, wählen Sie die Teilmenge der Spalten aus, die Werte enthalten müssen – ausgewählte Spalten sind standardmäßig als erforderlich markiert, aber Sie können Spalten entfernen, die leer bleiben dürfen, ohne den Agent zu blockieren. Der Agent überspringt eine Zeile nur dann, wenn eine Spalte, die Sie als erforderlich belassen haben, leer ist oder fehlt – zum Beispiel ein `gender`-Feld, das noch nicht ausgefüllt wurde. Eine Ausführung ohne den erforderlichen Kontext verschwendet Token / Textbaustein und kann zu minderwertiger Ausgabe führen.
 
 Catalog Agents berücksichtigen auch Abhängigkeiten zwischen Spalten. Wenn Spalte D aus den Spalten B und C generiert wird, führt der Agent Spalte D für eine Zeile erst aus, wenn B und C Werte für diese Zeile enthalten.
 
-Sie können die Felder in Ihrem Katalog, die Agents verwenden, aktualisieren und bearbeiten. Um einen Agent aus einer Spalte zu entfernen, deaktivieren Sie **Apply AI agent**. Dadurch wird die Spalte wieder zu einer nicht-agentischen Spalte, und die Felder behalten die letzten Werte bei, die der Agent bei seiner letzten Ausführung auf den Katalog angewendet hat.
+Sie können die Felder in Ihrem Katalog, die Agents verwenden, Update or aktualisieren or aktualisieren und bearbeiten. Um einen Agent aus einer Spalte zu entfernen, deaktivieren Sie **Apply KI or künstliche Intelligenz agent**. Dadurch wird die Spalte wieder zu einer nicht-agentischen Spalte, und die Felder behalten die letzten Werte bei, die der Agent bei seiner letzten Ausführung auf den Katalog angewendet hat.
 
 Zirkuläre Referenzen in Katalogen werden nicht unterstützt, d. h. das folgende Szenario kann nicht auftreten:
 
@@ -129,7 +129,7 @@ Zirkuläre Referenzen in Katalogen werden nicht unterstützt, d. h. das folgende
 So fügen Sie einen Agent zu Ihrem Katalogfeld hinzu:
 
 1. Fügen Sie in Ihrem Katalog ein neues Feld hinzu.
-2. Wählen Sie **Apply AI agent** aus.
+2. Wählen Sie **Apply KI or künstliche Intelligenz agent** aus.
 3. Weisen Sie diesem Feld einen Agent zu.
 4. Wählen Sie aus, welche Spalten als Eingabe übergeben werden sollen. Wenn keine ausgewählt sind, hat der Agent Zugriff auf alle Spalten im Katalog.
 5. (Optional) Aktivieren Sie **Only run when required columns have values**, um Zeilen zu überspringen, in denen eine oder mehrere ausgewählte Eingabespalten leer sind. Wenn diese Option aktiviert ist, wählen Sie aus, welche der Eingabespalten ausgefüllt sein müssen, damit der Agent ausgeführt wird – alle ausgewählten Spalten sind standardmäßig als erforderlich markiert, aber Sie können alle entfernen, die leer bleiben dürfen, ohne eine Ausführung zu blockieren.
@@ -140,7 +140,7 @@ So fügen Sie einen Agent zu Ihrem Katalogfeld hinzu:
 
 Planen Sie, welche Spalten der Agent benötigt, bevor Sie ihn auf ein Katalogfeld anwenden. Nachdem Sie die Steuerung für erforderliche Eingaben für das Feld aktiviert haben, wählen Sie die Spalten aus, die die Daten enthalten, die Ihr Agent lesen soll, und deaktivieren Sie dann alle Spalten, die leer bleiben dürfen, ohne eine Ausführung zu blockieren. Der Agent überspringt eine Zeile nur dann, wenn eine Spalte, die Sie als erforderlich markiert belassen haben, leer ist.
 
-Lassen Sie eine Spalte nicht als erforderlich markiert, wenn Sie erwarten, dass sie für einige Zeilen leer bleibt und der Agent trotzdem ausgeführt werden soll – entfernen Sie sie stattdessen aus der erforderlichen Menge. Das Überspringen unvollständiger Zeilen vermeidet unnötigen Token-Verbrauch und hält die Ausgabequalität hoch.
+Lassen Sie eine Spalte nicht als erforderlich markiert, wenn Sie erwarten, dass sie für einige Zeilen leer bleibt und der Agent trotzdem ausgeführt werden soll – entfernen Sie sie stattdessen aus der erforderlichen Menge. Das Überspringen unvollständiger Zeilen vermeidet unnötigen Token / Textbaustein-Verbrauch und hält die Ausgabequalität hoch.
 
 | Szenario | Was passiert |
 | --- | --- |
@@ -158,7 +158,7 @@ Lassen Sie eine Spalte nicht als erforderlich markiert, wenn Sie erwarten, dass 
 | Produktattribute anreichern | Füllen Sie fehlende Werte wie Farbfamilie, Stil oder Saison basierend auf einem Produktnamen und Details aus. Wenn ein Produktname beispielsweise „Laguna Polarized Sunglasses“ lautet, könnte der Agent den Stil als „Sport“ und die Farbfamilie als „Blau“ zuweisen. |
 | Abgeleitete Felder berechnen | Verwenden Sie vorhandene Felder, um neue Daten zu generieren, wie z. B. einen „Fit-Score“ basierend auf Attributen oder ein „Beliebtheitstag“ aus Verkaufs- und Bewertungszahlen. |
 | Artikel kategorisieren oder taggen | Weisen Sie Tags für Empfehlungslogik zu, damit Personalisierungsmodelle Produkte effektiver segmentieren können. Taggen Sie Produkte beispielsweise als „Outdoor“, „Festival-tauglich“ oder „Premium“. |
-| Inhalte lokalisieren | Übersetzen Sie Katalogtexte in eine andere Sprache für globale Campaigns, oder passen Sie Ton und Länge für regionsspezifische Kanäle an. Übersetzen Sie beispielsweise „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für SMS-Campaigns. |
+| Inhalte lokalisieren | Übersetzen Sie Katalogtexte in eine andere Sprache für globale Campaigns, oder passen Sie Ton und Länge für regionsspezifische Kanäle an. Übersetzen Sie beispielsweise „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für Kurzmitteilungsdienst or SMS-Campaigns. |
 | Bewertungen oder Feedback zusammenfassen | Fassen Sie Stimmung oder Feedback in einem neuen Feld zusammen, z. B. durch Zuweisung von Stimmungswerten wie Positiv, Neutral oder Negativ, oder erstellen Sie eine kurze Textzusammenfassung wie „Die meisten Kund:innen erwähnen eine tolle Passform, bemerken aber langsamen Versand.“ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
@@ -178,7 +178,7 @@ Sie können ein Feld namens **product_description** zu einem Katalog hinzufügen
 
 ![Ein Feld „product_description“ mit dem angewendeten Agent „Descriptor“. Die Ausgabe „description“ ist als Antwortfeld ausgewählt.]({% image_buster /assets/img/ai_agent/response_field.png %}){: style="max-width:80%;"}
 
-Sie können die vom Agent generierte Zelle auch manuell überschreiben, indem Sie **Edit Item** auswählen und die vom Agent generierte Beschreibung mit Ihren Änderungen aktualisieren. Um zur vom Agent generierten Beschreibung zurückzukehren, wählen Sie das Aktualisierungssymbol in der Zelle aus.
+Sie können die vom Agent generierte Zelle auch manuell überschreiben, indem Sie **Edit Item** auswählen und die vom Agent generierte Beschreibung mit Ihren Änderungen Update or aktualisieren or aktualisieren. Um zur vom Agent generierten Beschreibung zurückzukehren, wählen Sie das Aktualisierungssymbol in der Zelle aus.
 
 ### Fehlerbehandlung {#error-handling}
 
@@ -191,11 +191,11 @@ Sie können die vom Agent generierte Zelle auch manuell überschreiben, indem Si
 
 Die Überwachung funktioniert unabhängig davon, ob Ihr Agent in Canvas oder in Katalogen ausgeführt wird, auf die gleiche Weise.
 
-Im Abschnitt **Nutzung** Ihres Agenten können Sie nachschlagen und dorthin navigieren, wo der Agent aktiv in Katalogen und Canvases verwendet wird.
+Im Abschnitt **Nutzung** Ihres Agenten können Sie nachschlagen und dorthin navigieren, wo der Agent aktiv in Katalogen und Canvase verwendet wird.
 
 ![Abschnitt „Nutzung“ des Agenten, der zwei aktive und einen inaktiven Agenten für Canvases zeigt.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Im Abschnitt **Protokolle** Ihres Agenten können Sie die tatsächlichen Agentenaufrufe überwachen, die in Ihren Canvases und Katalogen stattfinden. Sie können nach Informationen wie dem Datumsbereich, dem Ergebnis (Erfolg oder Fehler) oder dem Aufrufstandort filtern. Sie können auch **CSV exportieren** auswählen, um nur die auf der aktuellen Seite angezeigten Protokolle zu exportieren.
+Im Abschnitt **Protokolle** Ihres Agenten können Sie die tatsächlichen Agentenaufrufe überwachen, die in Ihren Canvase und Katalogen stattfinden. Sie können nach Informationen wie dem Datumsbereich, dem Ergebnis (Erfolg oder Fehler) oder dem Aufrufstandort filtern. Sie können auch **CSV exportieren** auswählen, um nur die auf der aktuellen Seite angezeigten Protokolle zu exportieren.
 
 {% alert tip %}
 Sie können Fehler beim täglichen Aufruflimit auch im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) überwachen.

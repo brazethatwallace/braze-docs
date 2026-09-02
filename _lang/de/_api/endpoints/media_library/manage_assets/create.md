@@ -31,14 +31,14 @@ Dieser Endpunkt akzeptiert die folgenden Dateitypen, unabhängig davon, ob Sie s
 
 Wenn Sie einen Dateityp hochladen, der hier nicht aufgeführt ist, gibt der Endpunkt den Fehler `UNSUPPORTED_FILE_TYPE` zurück.
 
-Bei ZIP-Dateien muss jede Datei innerhalb des Archivs ebenfalls einem der hier aufgeführten unterstützten Dateitypen entsprechen, und alle Dateien müssen sich im Stammverzeichnis der ZIP-Datei befinden (keine Unterverzeichnisse). Nicht unterstützte Dateien werden übersprungen und im `errors`-Array der Antwort zurückgegeben, während der Rest des Archivs weiterhin hochgeladen wird.
+Bei ZIP-Dateien muss jede Datei innerhalb des Archivs ebenfalls einem der hier aufgeführten unterstützten Dateitypen entsprechen, und alle Dateien müssen sich im Stammverzeichnis der ZIP-Datei befinden (keine Unterverzeichnisse). Nicht unterstützte Dateien werden übersprungen und im `errors`-Array der Antwort zurückgegeben, während der Representational State Transfer des Archivs weiterhin hochgeladen wird.
 
 {% alert note %}
 Virtual Contact Files (.vcf) und Videodateien können in die Medienbibliothek hochgeladen werden, jedoch nur über die Dashboard-UI (**Inhalt** > **Medienbibliothek**), nicht über diesen API-Endpunkt.
 {% endalert %}
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze-MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) aufrufen. So können KI-Tools wie Claude und Cursor Assets über natürlichsprachliche Eingaben in Ihre Medienbibliothek hochladen.
+Sie können diesen Endpunkt auch über den [Braze-MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) aufrufen. So können KI or künstliche Intelligenz-Tools wie Claude und Cursor Assets über natürlichsprachliche Eingaben in Ihre Medienbibliothek hochladen.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}

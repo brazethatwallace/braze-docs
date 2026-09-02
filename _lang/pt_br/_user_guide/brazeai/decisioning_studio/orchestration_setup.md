@@ -28,8 +28,8 @@ A primeira etapa é escolher qual plataforma de engajamento com clientes usar co
 
 | Plataforma | Tipo de integração | Complexidade da configuração |
 |-----|-----------------|------------------|
-| **Braze** | Integração nativa via API (recomendada) | Baixa |
-| **Salesforce Marketing Cloud** | Eventos de API + Journey Builder | Média |
+| **Braze** | Integração nativa via API or interface de programação do aplicativo (API) (recomendada) | Baixa |
+| **Salesforce Marketing Cloud** | Eventos de API or interface de programação do aplicativo (API) + Journey Builder | Média |
 | **Outras plataformas** | Personalizada (arquivo de recomendação) | Alta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plataformas de engajamento com clientes compatíveis" }
 
@@ -46,11 +46,11 @@ Antes de configurar a orquestração, reúna os itens a seguir com base na CEP e
 
 | Requisito | Descrição |
 |------|-------------|
-| **Chave da API REST** | Uma nova chave de API com permissões para dados de usuários, mensagens, Campaigns, Canvas, Segments e modelos. |
+| **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional** | Uma nova chave de API or interface de programação do aplicativo (API) com permissões para dados de usuários, mensagens, Campaigns, Canvas, Segments e modelos. |
 | **URL do dashboard da Braze** | A URL da sua instância da Braze (por exemplo, `https://dashboard-01.braze.com`). |
-| **ID do app** | A chave de API associada ao app que você deseja rastrear (encontrada em **Configurações** > **Configurações do app**). |
+| **ID do app** | A chave de API or interface de programação do aplicativo (API) associada ao app que você deseja rastrear (encontrada em **Configurações** > **Configurações do app**). |
 | **Nome de exibição e endereço de e-mail** | As informações do remetente a serem usadas nas suas campanhas (encontradas em **Configurações** > **Preferências de e-mail**). |
-| **Modelos base** | Os modelos de mensagem que seu agente usa para orquestração. Você cria Campaigns disparadas por API para cada modelo. |
+| **Modelos base** | Os modelos de mensagem que seu agente usa para orquestração. Você cria Campaigns disparadas por API or interface de programação do aplicativo (API) para cada modelo. |
 | **ID do usuário teste** | Um ID de usuário para testar a integração antes do lançamento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -59,11 +59,11 @@ Antes de configurar a orquestração, reúna os itens a seguir com base na CEP e
 
 | Requisito | Descrição |
 |------|-------------|
-| **Credenciais do pacote do app** | Client ID, Client Secret, Authentication Base URI, REST Base URI e SOAP Base URI de um pacote instalado com integração de API server-to-server. |
-| **Permissões de API** | Escopos para canais, ativos, automações, jornadas, contatos, extensões de dados e eventos de rastreamento. |
+| **Credenciais do pacote do app** | Client ID, Client Secret, Authentication Base URI, REST or transferir estado representacional Base URI e SOAP Base URI de um pacote instalado com integração de API or interface de programação do aplicativo (API) server-to-server. |
+| **Permissões de API or interface de programação do aplicativo (API)** | Escopos para canais, ativos, automações, jornadas, contatos, extensões de dados e eventos de rastreamento. |
 | **Extensões de dados** | Você precisa de extensões de dados para dados de assinantes, dados de engajamento e recomendações. |
 | **Modelos de e-mail** | Os modelos que você deseja que o Decisioning Studio use, com IDs de modelo para cada um. |
-| **Acesso ao Journey Builder** | Acesso para criar e ativar jornadas de múltiplas etapas com fontes de entrada de eventos de API. |
+| **Acesso ao Journey Builder** | Acesso para criar e ativar jornadas de múltiplas etapas com fontes de entrada de eventos de API or interface de programação do aplicativo (API). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 {% endtab %}
@@ -91,7 +91,7 @@ Um modelo base é qualquer modelo de mensagem que seu agente de decisão pode us
 
 - **Quantos modelos?** Seu agente pode trabalhar com um modelo ou vários. Se forem vários, o agente pode personalizar qual modelo cada cliente recebe.
 - **Quais canais?** E-mail, push, SMS ou uma combinação. Cada canal pode exigir modelos e Campaigns separados.
-- **Quais elementos dinâmicos?** Identifique quais partes da sua mensagem o agente personaliza (como linhas de assunto, CTAs, ofertas, timing). Esses se tornam propriedades de disparo de API ou placeholders dinâmicos.
+- **Quais elementos dinâmicos?** Identifique quais partes da sua mensagem o agente personaliza (como linhas de assunto, CTAs, ofertas, timing). Esses se tornam propriedades de disparo de API or interface de programação do aplicativo (API) ou placeholders dinâmicos.
 
 ### Configurações de reelegibilidade {#re-eligibility-settings}
 
@@ -104,17 +104,17 @@ Suas Campaigns devem permitir que os usuários recebam mensagens várias vezes:
 Ao configurar a reelegibilidade para testes, os agentes do Decisioning Studio são projetados para respeitar os limites de frequência e não enviam a mesma Campaign para um usuário mais de uma vez por dia em produção.
 {% endalert %}
 
-### Propriedades de disparo de API {#api-trigger-properties}
+### Propriedades de disparo de API or interface de programação do aplicativo (API) {#api-trigger-properties}
 
-Para integrações com a Braze, planeje quais dimensões seu agente otimiza. Essas se tornam propriedades de disparo de API que passam valores dinâmicos para suas Campaigns:
+Para integrações com a Braze, planeje quais dimensões seu agente otimiza. Essas se tornam propriedades de disparo de API or interface de programação do aplicativo (API) que passam valores dinâmicos para suas Campaigns:
 
-| Exemplo de dimensão | Propriedade de disparo de API |
+| Exemplo de dimensão | Propriedade de disparo de API or interface de programação do aplicativo (API) |
 |-------------------|---------------------|
 | Linha de assunto | {% raw %}`{{api_trigger_properties.${subject_line}}}`{% endraw %} |
 | Call to action | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | Oferta | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | Valor do desconto | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Propriedades de disparo de API" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Propriedades de disparo de API or interface de programação do aplicativo (API)" }
 
 ## Configuração da integração {#integration-setup}
 
@@ -127,21 +127,21 @@ Selecione sua plataforma de engajamento com clientes nesta lista para começar a
 
 Siga estas etapas para integrar um agente do Decisioning Studio com os recursos de orquestração da Braze (a equipe de serviços da Braze está disponível para ajudar):
 
-### Etapa 1: Criar uma chave de API {#step-1-create-an-api-key}
+### Etapa 1: Criar uma chave de API or interface de programação do aplicativo (API) {#step-1-create-an-api-key}
 
-Acesse **Configurações** > **Chaves de API** e crie uma nova chave com as seguintes permissões:
+Acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)** e crie uma nova chave com as seguintes permissões:
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### Etapa 2: Configurar Campaigns disparadas por API {#step-2-set-up-api-triggered-campaigns}
+### Etapa 2: Configurar Campaigns disparadas por API or interface de programação do aplicativo (API) {#step-2-set-up-api-triggered-campaigns}
 
-Configure uma Campaign disparada por API para cada modelo base com propriedades de disparo de API para todas as dimensões otimizadas.
+Configure uma Campaign disparada por API or interface de programação do aplicativo (API) para cada modelo base com propriedades de disparo de API or interface de programação do aplicativo (API) para todas as dimensões otimizadas.
 
 Um modelo base é qualquer modelo que o agente de Decisioning pode usar para orquestrar mensagens. Um agente de Decisioning pode ter 1 modelo base ou vários. Nesse caso, escolher o modelo base certo para cada cliente é uma das decisões que o agente personaliza.
 
 ### Etapa 3: Configurar a reelegibilidade {#step-3-configure-re-eligibility}
 
-Certifique-se de que todas as Campaigns disparadas por API permitam que os usuários se tornem reelegíveis em até 15 minutos.
+Certifique-se de que todas as Campaigns disparadas por API or interface de programação do aplicativo (API) permitam que os usuários se tornem reelegíveis em até 15 minutos.
 
 ![Diagrama do Decisioning Pro mostrando configuração de limite de frequência]({% image_buster /assets/img/decisioning_studio/decisioning_studio_frequency_cap.png %})
 
@@ -159,7 +159,7 @@ Suponha que o agente do Decisioning Studio esteja otimizando uma Campaign de e-m
 
 ![Exemplo de configuração de Campaign de e-mail no Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_email_example_1.png %})
 
-Supondo que o agente esteja otimizando a escolha de modelos e a mensagem de Call to Action (CTA), uma Campaign disparada por API deve ser criada para cada modelo, e a seção de CTA de um modelo pode ter esta aparência:
+Supondo que o agente esteja otimizando a escolha de modelos e a mensagem de Call to Action (CTA), uma Campaign disparada por API or interface de programação do aplicativo (API) deve ser criada para cada modelo, e a seção de CTA de um modelo pode ter esta aparência:
 
 ![Exemplo de seção de CTA em modelo de e-mail no Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_braze_email_example_2.png %})
 
@@ -192,10 +192,10 @@ Resultando na seguinte mensagem:
 
 ## Configurar a integração com o SFMC {#set-up-sfmc-integration}
 
-O Decisioning Studio oferece integração nativa com o Salesforce Marketing Cloud. O Decisioning Studio dispara eventos de API em uma jornada com os dados necessários para preencher elementos dinâmicos.
+O Decisioning Studio oferece integração nativa com o Salesforce Marketing Cloud. O Decisioning Studio dispara eventos de API or interface de programação do aplicativo (API) em uma jornada com os dados necessários para preencher elementos dinâmicos.
 
 {% alert important %}
-Para sua configuração, os IDs de API devem ser inseridos em letras maiúsculas. Isso inclui IDs de jornada, IDs de Campaign e quaisquer outros identificadores. Se os IDs de API forem inseridos em letras minúsculas, mas os dados do seu SFMC contiverem UUIDs em maiúsculas, os filtros de eventos não corresponderão e as métricas de relatório não serão preenchidas corretamente.
+Para sua configuração, os IDs de API or interface de programação do aplicativo (API) devem ser inseridos em letras maiúsculas. Isso inclui IDs de jornada, IDs de Campaign e quaisquer outros identificadores. Se os IDs de API or interface de programação do aplicativo (API) forem inseridos em letras minúsculas, mas os dados do seu SFMC contiverem UUIDs em maiúsculas, os filtros de eventos não corresponderão e as métricas de relatório não serão preenchidas corretamente.
 {% endalert %}
 
 {% endtab %}
@@ -224,7 +224,7 @@ Tenha estas boas práticas em mente ao se preparar para a orquestração:
 
 1. **Comece com um escopo reduzido:** Use um canal e um ou dois modelos no início. Você pode expandir depois, conforme aprende o que funciona.
 2. **Teste com cuidado:** Antes de lançar, teste sua integração com um pequeno grupo de usuários para verificar se o conteúdo dinâmico é preenchido corretamente.
-3. **Documente sua configuração:** Mantenha um registro dos IDs de Campaigns, IDs de modelos, chaves de API e outros identificadores. Você precisará deles para fazer referência no portal do Decisioning Studio.
+3. **Documente sua configuração:** Mantenha um registro dos IDs de Campaigns, IDs de modelos, chaves de API or interface de programação do aplicativo (API) e outros identificadores. Você precisará deles para fazer referência no portal do Decisioning Studio.
 4. **Coordene com sua equipe:** A configuração da orquestração pode envolver equipes de marketing, engenharia e dados. Certifique-se de que todos entendam seu papel no processo.
 5. **Planeje os dados de feedback:** A orquestração envia mensagens e coleta dados de engajamento e conversão que ajudam seu agente a aprender. Consulte [Preparar seus dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para mais detalhes.
 

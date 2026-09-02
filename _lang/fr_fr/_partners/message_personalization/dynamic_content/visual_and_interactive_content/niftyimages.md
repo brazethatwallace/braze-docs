@@ -25,7 +25,7 @@ Vous pouvez utiliser NiftyImages pour :
 - **Ajouter des comptes à rebours :** Ajoutez des comptes à rebours en temps réel pour les soldes, les lancements de produits, les événements, les offres à durée limitée, les rendez-vous, les échéances d'onboarding et les dates d'expiration personnalisées.
 - **Afficher des cartes dynamiques :** Affichez le magasin le plus proche, le lieu d'un événement, la zone de service, le concessionnaire, le club, l'agence ou le point de retrait en fonction des données de localisation du client ou des propriétés de contact Braze.
 - **Afficher des calendriers :** Affichez des dates personnalisées, des événements, des rendez-vous, des périodes de renouvellement, des moments de campagne ou des jalons client directement dans les visuels de campagne.
-- **Lancer des sondages en direct :** Ajoutez des sondages interactifs aux Campaigns et affichez les résultats mis à jour en temps réel après le vote des clients.
+- **Lancer des sondages en direct or en ligne/en production/instantané :** Ajoutez des sondages interactifs aux Campaigns et affichez les résultats mis à jour en temps réel après le vote des clients.
 - **Créer des cartes à gratter :** Créez des expériences ludiques de cartes à gratter qui révèlent une récompense personnalisée, une remise, une offre, une image ou un message.
 - **Visualiser les données de fidélité :** Transformez les données client en barres de progression, résumés de compte, visuels de fidélité, graphiques et diagrammes personnalisés pour chaque destinataire.
 - **Appliquer du contenu basé sur des règles :** Affichez différents visuels en fonction de l'heure, de la localisation, de l'appareil, des données client, du segment d'audience ou de la logique de campagne.

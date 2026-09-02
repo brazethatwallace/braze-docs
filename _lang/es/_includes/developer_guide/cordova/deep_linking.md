@@ -2,7 +2,7 @@
 
 ## Habilitar la vinculación en profundidad push
 
-De forma predeterminada, el SDK de Braze Cordova no gestiona automáticamente la vinculación en profundidad desde las notificaciones push. Para habilitar la vinculación en profundidad, añade las siguientes preferencias al`platform`elemento  del archivo  `config.xml`de tu proyecto.
+De forma predeterminada, el SDK or kit de desarrollo de software de Braze Cordova no gestiona automáticamente la vinculación en profundidad desde las notificaciones push. Para habilitar la vinculación en profundidad, añade las siguientes preferencias al`platform`elemento  del archivo  `config.xml`de tu proyecto.
 
 {% tabs %}
 {% tab ios %}

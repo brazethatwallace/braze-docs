@@ -22,7 +22,7 @@ Usa los conjuntos de permisos para agrupar permisos relacionados con áreas tem�
 {% tab conjuntos de permisos de ejemplo %}
 | Nombre | Permisos |
 |-----------|----------------|
-| Desarrolladores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK Debugger", "Edit SDK Debugger". |
+| Desarrolladores | "View API Keys", "Edit API Keys", "View Internal Groups", "Edit Internal Groups", "View Message Activity Log", "View Event User Log", "View API identifiers", "View API Usage Dashboard", "View API Limits", "View API Usage Alerts", "Edit API Usage Alerts", "View SDK or kit de desarrollo de software Debugger", "Edit SDK or kit de desarrollo de software Debugger". |
 | Especialistas en marketing | "View Campaigns", "Edit Campaigns", "Archive Campaigns", "View Canvases", "Edit Canvases", "Archive Canvases", "View Frequency Capping Rules", "Edit Frequency Capping Rules", "View Message Prioritization", "Edit Message Prioritization", "View Content Blocks", "View Feature Flags", "Edit Feature Flags", "Archive Feature Flags", "View Segments", "Edit Segments", "Edit Global Control Group", "View IAM Templates", "Edit IAM Templates", "Archive IAM Templates", "View Email Templates", "Edit Email Templates", "Archive Email Templates", "View Webhook Templates", "Edit Webhook Templates", "Archive Webhook Templates", "View Email Link Templates", "Edit Email Link Templates", "View Media Library Assets", "View Locations", "Edit Locations", "Archive Locations", "View Promotion Codes", "Edit Promotion Codes", "Export Promotion Codes", "View Preference Centers", "Edit Preference Centers", "Edit Dashboard Reports", "View Banner Templates", "View Localization Settings", "Use Operator", "View Decisioning Studio Agents". |
 | Administración de usuarios | "Edit Dashboard Users", "View Teams", "Edit Teams", "Archive Teams". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conjunto de permisos de ejemplo" }
@@ -221,7 +221,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Datos de usuario | Editar datos de usuario | Crear y actualizar datos de usuario |
 | Datos de usuario | Exportar datos de usuario | Descargar usuarios del panel |
 | Usuarios duplicados | Ver registros de fusión de usuarios | Ver una lista de registros de fusión de usuarios |
-| Usuarios | Ver perfiles de usuario (PII oculta) | Ver perfiles de usuario de una manera que cumple con PII. Los usuarios con este permiso no pueden guardar ni lanzar Campaigns que hagan referencia a atributos personalizados marcados como PII, a menos que también tengan el permiso "Ver atributos personalizados marcados como PII".<br><br>El permiso "Ver perfiles de usuario (PII oculta)" debe habilitarse antes de su uso. Ponte en contacto con tu administrador de éxito de cliente para habilitarlo en tu espacio de trabajo. |
+| Usuarios | Ver perfiles de usuario (PII oculta) | Ver perfiles de usuario de una manera que cumple con PII. Los usuarios con este permiso no pueden guardar ni lanzar Campaigns que hagan referencia a atributos personalizados marcados como PII, a menos que también tengan el permiso "Ver atributos personalizados marcados como PII".<br><br>El permiso "Ver perfiles de usuario (PII oculta)" debe habilitarse antes de su uso. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para habilitarlo en tu espacio de trabajo. |
 | Usuarios | Ver propiedades de eventos de usuario | Ver propiedades de eventos en la pestaña **Historial de eventos** en los perfiles de usuario |
 | Usuarios duplicados | Fusionar usuarios duplicados | Combinar usuarios duplicados en un solo usuario. Los duplicados se eliminan después de la fusión |
 | Eliminar usuarios | Ver registros de eliminación de usuarios | Ver una lista de registros de eliminación de usuarios |
@@ -327,8 +327,8 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Centros de preferencias | Lanzar centros de preferencias | Activar un borrador de centro de preferencias o actualizar uno existente |
 | Configuración de push | Ver configuración de push | Ver configuración de push |
 | Configuración de push | Editar configuración de push | Crear y actualizar la configuración de push |
-| Depurador de SDK | Ver depurador de SDK | Ver el depurador de SDK o sesiones de depuración |
-| Depurador de SDK | Editar depurador de SDK | Crear y descargar sesiones del depurador de SDK |
+| Depurador de SDK or kit de desarrollo de software | Ver depurador de SDK or kit de desarrollo de software | Ver el depurador de SDK or kit de desarrollo de software o sesiones de depuración |
+| Depurador de SDK or kit de desarrollo de software | Editar depurador de SDK or kit de desarrollo de software | Crear y descargar sesiones del depurador de SDK or kit de desarrollo de software |
 | Etiquetas | Ver etiquetas | Ver etiquetas |
 | Etiquetas | Eliminar etiquetas | Eliminar permanentemente etiquetas |
 | Etiquetas | Editar etiquetas | Crear y actualizar etiquetas |

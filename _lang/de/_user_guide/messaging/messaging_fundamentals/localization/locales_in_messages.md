@@ -23,7 +23,7 @@ description: "Dieser Artikel beschreibt die Schritte zur Verwendung von Locales 
 
 | Feature | Erforderliche Nutzer:innenberechtigungen |
 | --- | --- |
-| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvases hinzuzufügen:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+| Nachrichtentypen | Sie benötigen diese Berechtigungen, um Locales und Übersetzungen zu Campaigns und Canvase hinzuzufügen:<br><br> {::nomarkdown} <ul><li>Edit Campaigns</li><li>Edit Canvase</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen"}
 
 {% endtab %}
@@ -177,9 +177,9 @@ Laden Sie dann die ausgefüllte Datei hoch, und die Übersetzungen werden auf Ih
 {% endtab %}
 {% tab Übersetzungs-API verwenden %}
 
-Verwenden Sie eine Partner-Übersetzungs-API, um Übersetzungen in Ihren Campaigns, Canvases, Content Blocks, E-Mail-Templates und Webhook-Templates zu verwalten und zu aktualisieren. Dies ist nützlich, wenn Sie ein externes System für die Lokalisierung verwenden oder eine direkte Verbindung zu einem Übersetzungspartner herstellen möchten.
+Verwenden Sie eine Partner-Übersetzungs-API, um Übersetzungen in Ihren Campaigns, Canvase, Content Blocks, E-Mail-Templates und Webhook-Templates zu verwalten und zu Update or aktualisieren or aktualisieren. Dies ist nützlich, wenn Sie ein externes System für die Lokalisierung verwenden oder eine direkte Verbindung zu einem Übersetzungspartner herstellen möchten.
 
-Um die Übersetzungs-Endpunkte mit Canvases zu verwenden, geben Sie die folgenden Parameter an:
+Um die Übersetzungs-Endpunkte mit Canvase zu verwenden, geben Sie die folgenden Parameter an:
   - `workflow_id`
   - `step_id`
   - `message_variation_id`
@@ -201,7 +201,7 @@ Um Ihre Nachricht in der Vorschau anzuzeigen, wählen Sie die Option **Mehrsprac
 
 ### Canvas-Schritte oder Campaigns duplizieren und Übersetzungen {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Wenn Sie einen Canvas-Schritt, eine Campaign oder eine Variante duplizieren, werden Übersetzungen mit übernommen. Dies gilt auch beim Kopieren über Workspaces hinweg, sofern die Locales im Ziel-Workspace definiert sind. Achten Sie darauf, Übersetzungen zu überprüfen und entsprechend zu aktualisieren, wenn Sie Änderungen an Ihrem Canvas oder Ihrer Campaign vornehmen.
+Wenn Sie einen Canvas-Schritt, eine Campaign oder eine Variante duplizieren, werden Übersetzungen mit übernommen. Dies gilt auch beim Kopieren über Workspaces hinweg, sofern die Locales im Ziel-Workspace definiert sind. Achten Sie darauf, Übersetzungen zu überprüfen und entsprechend zu Update or aktualisieren or aktualisieren, wenn Sie Änderungen an Ihrem Canvas oder Ihrer Campaign vornehmen.
 
 ### Übersetzungen in Content Blocks speichern {#save-translations-in-content-blocks}
 
@@ -255,7 +255,7 @@ Auf der Nachrichtenebene legen Sie die Barrierefreiheitssprache im Abschnitt **B
 
 Für mehrsprachige Nachrichten legen Sie die Barrierefreiheitssprache für jedes Locale in den **Lokalisierungseinstellungen** fest. Sie können {% raw %}`{{accessibility_language}}`{% endraw %} im Abschnitt **Barrierefreiheit** verwenden, damit die Dokument- oder Kartensprache auf diese Locale-Werte abgebildet wird.
 
-Ob dieses Token standardmäßig bei neuen Nachrichten angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App-Nachrichten und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Details finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
+Ob dieses Token / Textbaustein standardmäßig bei neuen Nachrichten angezeigt wird, hängt vom Kanal und Editor ab. Beispielsweise verhalten sich In-App-Nachrichten und Banner anders als Landing-Pages und Drag-and-Drop-E-Mails. Details finden Sie unter [Barrierefreiheitssprache]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -298,7 +298,7 @@ Erwägen Sie außerdem, kleinere, semantisch zusammengehörige Textstücke zu um
 
 #### Kann ich eine Änderung am übersetzten Text in einer meiner Locales vornehmen?
 
-Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Bearbeitung in der Datei vor und laden Sie sie dann erneut hoch, um eine Änderung am übersetzten Text vorzunehmen. Wenn Sie die [Übersetzungs-API]({{site.baseurl}}/api/endpoints/translations) verwenden, nutzen Sie die Update-Endpunkte, um Änderungen vorzunehmen.
+Ja. Wenn Sie eine CSV-Datei verwenden, nehmen Sie zuerst die Bearbeitung in der Datei vor und laden Sie sie dann erneut hoch, um eine Änderung am übersetzten Text vorzunehmen. Wenn Sie die [Übersetzungs-API]({{site.baseurl}}/api/endpoints/translations) verwenden, nutzen Sie die Update or aktualisieren-Endpunkte, um Änderungen vorzunehmen.
 
 #### Welche Validierungen oder zusätzlichen Prüfungen führt Braze durch? {#what-validations-or-extra-checks-does-braze-do}
 

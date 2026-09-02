@@ -12,7 +12,7 @@ toc_headers: h2
 > Esta página explica cómo usar el mapeador visual para sincronizar una tabla o vista de tu almacén de datos con Braze sin escribir SQL ni reestructurar tus datos.
 
 {% alert important %}
-El mapeador visual se encuentra actualmente en fase beta. El mapeador visual está disponible para sincronizaciones de atributos de usuario desde todos los orígenes de datos de almacén de datos de la ingesta de datos en la nube, y se irán añadiendo tipos de sincronización adicionales a lo largo de la fase beta. Ponte en contacto con tu administrador de éxito de cliente o director de cuentas para obtener acceso.
+El mapeador visual se encuentra actualmente en fase beta. El mapeador visual está disponible para sincronizaciones de atributos de usuario desde todos los orígenes de datos de almacén de datos de la ingesta de datos en la nube, y se irán añadiendo tipos de sincronización adicionales a lo largo de la fase beta. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o director de cuentas para obtener acceso.
 {% endalert %}
 
 Con el mapeador visual, puedes sincronizar una tabla o vista existente de tu almacén de datos sin escribir SQL ni reestructurar tus datos. En lugar de crear una tabla específica de Braze con las columnas `EXTERNAL_ID`, `UPDATED_AT` y `PAYLOAD`, mapeas las columnas de tu tabla existente a campos de Braze directamente en el panel.

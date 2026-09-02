@@ -19,7 +19,7 @@ Facebook Lead Ads est un format publicitaire qui permet aux entreprises de colle
 |---|---|
 | Compte Zapier | Un compte Zapier est requis pour bénéficier de ce partenariat. Cette intégration nécessite l'utilisation d'<a href="https://zapier.com/app/pricing/" target="_blank">applications Zapier premium</a>, vérifiez donc que votre forfait Zapier donne accès aux applications premium. |
 | <a href="https://www.facebook.com/business/help/540596413257598?id=735435806665862/" target="_blank">Accès Facebook Leads</a> | L'accès Facebook Leads est requis pour chaque compte publicitaire que vous prévoyez d'utiliser avec Braze. |
-| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business Manager</a> | Vous utiliserez Facebook Business Manager, un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages et les applications), dans le cadre de cette intégration. |
+| <a href="https://www.facebook.com/business/help/1710077379203657?id=180505742745347" target="_blank">Facebook Business gestionnaire</a> | Vous utiliserez Facebook Business gestionnaire, un outil centralisé pour gérer les ressources Facebook de votre marque (par exemple, les comptes publicitaires, les pages et les applications), dans le cadre de cette intégration. |
 | <a href="https://www.facebook.com/business/help/195296697183682?id=829106167281625/" target="_blank">Compte publicitaire Facebook</a> | Vous aurez besoin d'un compte publicitaire Facebook actif lié au gestionnaire d'entreprise de votre marque. <br><br>Assurez-vous que vous disposez de la permission « Manage ad accounts » pour chaque compte publicitaire que vous prévoyez d'utiliser avec Braze, et que vous avez accepté les conditions générales de votre compte publicitaire. |
 | <a href="https://www.facebook.com/business/help/183277585892925?id=420299598837059/" target="_blank">Page Facebook</a> | Vous aurez besoin d'une page Facebook active liée au gestionnaire d'entreprise de votre marque. <br><br>Assurez-vous que vous disposez des permissions « Manage Pages » pour chaque page Facebook que vous prévoyez d'utiliser avec Braze. |
 | Endpoint REST Braze | Assurez-vous de connaître l'[URL de votre endpoint REST]({{site.baseurl}}/api/basics#api-definitions). Votre endpoint d'API correspond à l'URL du tableau de bord de votre instance Braze. <br><br> Par exemple, si l'URL de votre tableau de bord est `https://dashboard-03.braze.com`, votre endpoint sera `dashboard-03`. |
@@ -47,9 +47,9 @@ Pour plus d'informations sur ces deux méthodes de connexion de votre compte Fac
 
 ![Recherche d'applications Zapier affichant les options de connexion Facebook Lead Ads.]({% image_buster /assets/img/fb_lead_ads_zapier/integration1.png %}){: style="max-width:80%;"}
 
-#### Étape 2b : Ajouter Zapier à l'accès aux prospects dans Facebook Business Manager {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
+#### Étape 2b : Ajouter Zapier à l'accès aux prospects dans Facebook Business gestionnaire {#step-2b-add-zapier-to-leads-access-in-facebook-business-manager}
 
-Dans votre Facebook Business Manager, accédez à **Integrations** > **Leads Access** dans le menu de navigation. Sélectionnez votre page Facebook, puis cliquez sur **CRMs**. Dans l'onglet CRM, sélectionnez **Assign CRMs** et ajoutez **Zapier**.
+Dans votre Facebook Business gestionnaire, accédez à **Integrations** > **Leads Access** dans le menu de navigation. Sélectionnez votre page Facebook, puis cliquez sur **CRMs**. Dans l'onglet CRM, sélectionnez **Assign CRMs** et ajoutez **Zapier**.
 
 ![Page d'accès aux prospects de Facebook Business Manager avec Zapier assigné comme intégration CRM.]({% image_buster /assets/img/fb_lead_ads_zapier/integration2.png %}){: style="max-width:80%;"}
 
@@ -147,7 +147,7 @@ Pour utiliser cette intégration, vous devez disposer d'un <a href="https://zapi
 {% details Pourquoi les prospects Facebook ne se synchronisent-ils pas avec Braze ? %}
 1. Vérifiez que vous disposez d'un accès administrateur à votre page Facebook, votre compte publicitaire et l'accès aux prospects. Ensuite, reconnectez votre compte dans Zapier.
 2. Vérifiez que le formulaire instantané que vous avez créé dans Facebook correspond au formulaire sélectionné dans votre étape de déclencheur.
-3. Vérifiez que vous avez attribué l'accès aux prospects à Zapier en accédant à **Facebook Business Manager** > **Integrations** > **Lead Access**.
+3. Vérifiez que vous avez attribué l'accès aux prospects à Zapier en accédant à **Facebook Business gestionnaire** > **Integrations** > **Lead Access**.
 {% enddetails %}
 
 {% details Pourquoi est-ce que je vois des profils utilisateur en double avec le même e-mail ? %}

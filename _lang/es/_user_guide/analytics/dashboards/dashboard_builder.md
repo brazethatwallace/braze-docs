@@ -100,12 +100,12 @@ Braze proporciona dashboards prediseñados para casos de uso frecuentes. Usa la 
 | Messaging Diagnostics | **Analytics** > **Generador de dashboards** | [Dashboard de diagnóstico de mensajería]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard) |
 | Industry Benchmarks | **Analytics** > **Generador de dashboards** | [Dashboard de referencias del sector]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/industry_benchmarks_dashboard) |
 | Email performance | **Analytics** > **Email Performance** | [Dashboards de rendimiento de canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-performance-dashboard) |
-| SMS performance | **Analytics** > **SMS Performance** | [Dashboards de rendimiento de canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
+| servicio de mensajes cortos performance | **Analytics** > **servicio de mensajes cortos Performance** | [Dashboards de rendimiento de canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#sms-performance-dashboard) |
 | Push performance | **Analytics** > **Generador de dashboards** > **Push Channel Dashboard** | [Dashboards de rendimiento de canal]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#push-performance-dashboard) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dashboards disponibles" }
 
 {% alert note %}
-La posibilidad de editar los dashboards creados por Braze aún no está disponible. Ponte en contacto con tu administrador de éxito de cliente si deseas solicitar dashboards adicionales.
+La posibilidad de editar los dashboards creados por Braze aún no está disponible. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente si deseas solicitar dashboards adicionales.
 {% endalert %}
 
 #### Revenue - Last Touch Attribution {#revenue---last-touch-attribution}

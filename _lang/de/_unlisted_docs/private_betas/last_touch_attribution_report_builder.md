@@ -9,7 +9,7 @@ hidden: true
 > Fügen Sie Last-Touch-Attribution-Metriken zu Ihren Berichten im Berichts-Builder hinzu.
 
 {% alert note %}
-Last-Touch-Attribution-Metriken befinden sich im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren Customer-Success-Manager.
+Last-Touch-Attribution-Metriken befinden sich im Early Access. Wenn Sie an der Teilnahme am Early Access interessiert sind, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 Last-Touch-Attribution (LTA) ist ein Konversions-Attributionsmodell, das die vollständige Zuordnung einer Konversion der letzten Nachricht zuschreibt, mit der ein:e Nutzer:in vor der Konversion interagiert hat. Im Gegensatz zu Konversions-Fenstern auf Campaign-Ebene verwendet LTA branchenübliche Attributionsfenster für jeden Kanal:
@@ -17,7 +17,7 @@ Last-Touch-Attribution (LTA) ist ein Konversions-Attributionsmodell, das die vol
 | Kanal | Attributionsfenster |
 | --- | --- |
 | E-Mail | 30 Tage |
-| SMS | 7 Tage |
+| Kurzmitteilungsdienst or SMS | 7 Tage |
 | WhatsApp | 7 Tage |
 | Push | 7 Tage |
 | In-App-Nachricht | 3 Tage |
@@ -33,8 +33,8 @@ Wenn eine Konversion außerhalb des Attributionsfensters eines Kanals stattfinde
 
 Last-Touch-Attribution bietet entscheidende Vorteile gegenüber dem standardmäßigen Conversion-Tracking:
 
-* Sie ermöglicht es, Konversionen bestimmten Touchpoints zuzuordnen, wodurch Sie nachvollziehen können, welche Kanäle (nicht nur Campaigns oder Canvases) Ergebnisse erzielen.
-* Die Zuordnung erfolgt ausschließlich an die zuletzt berührte Nachricht, sodass jede Konversion nur einmal gezählt wird. Dadurch werden überlappende Konversionen über Campaigns oder Canvases mit gemeinsamen Konversions-Events und Zielgruppen hinweg eliminiert.
+* Sie ermöglicht es, Konversionen bestimmten Touchpoints zuzuordnen, wodurch Sie nachvollziehen können, welche Kanäle (nicht nur Campaigns oder Canvase) Ergebnisse erzielen.
+* Die Zuordnung erfolgt ausschließlich an die zuletzt berührte Nachricht, sodass jede Konversion nur einmal gezählt wird. Dadurch werden überlappende Konversionen über Campaigns oder Canvase mit gemeinsamen Konversions-Events und Zielgruppen hinweg eliminiert.
 
 ## Last-Touch-Attribution-Metriken zu Ihrem Bericht hinzufügen {#add-last-touch-attribution-metrics-to-your-report}
 

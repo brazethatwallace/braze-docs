@@ -75,7 +75,7 @@ Mit Nachrichten zur E-Mail-Erfassung können Sie Nutzer:innen Ihrer Website auf 
 
 ![E-Mail-Erfassungsnachricht]({% image_buster /assets/img_archive/web-email-capture.png %}){: style="max-width:60%;"}
 
->  Um In-App-Nachrichten zur E-Mail-Erfassung über das Web SDK zu aktivieren, müssen Sie Braze die Initialisierungsoption `allowUserSuppliedJavascript` zur Verfügung stellen, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen – In-App-Nachrichten im HTML-Format können JavaScript ausführen, sodass ein Website-Betreiber sie aktivieren muss.
+>  Um In-App-Nachrichten zur E-Mail-Erfassung über das Web SDK or Software-Development-Kit zu aktivieren, müssen Sie Braze die Initialisierungsoption `allowUserSuppliedJavascript` zur Verfügung stellen, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen – In-App-Nachrichten im HTML-Format können JavaScript ausführen, sodass ein Website-Betreiber sie aktivieren muss.
 
 **Anpassbare Features**
 
@@ -93,13 +93,13 @@ Während die Standard-In-App-Nachrichten von Braze auf vielfältige Weise angepa
 
 **JavaScript-Brücke (appboyBridge)**
 
-In-App-Nachrichten im HTML-Format unterstützen eine JavaScript-„Bridge“-Schnittstelle zum Braze Web SDK, die es Ihnen erlaubt, angepasste Braze-Aktionen auszulösen, wenn Nutzer:innen auf Elemente mit Links klicken oder sich anderweitig mit Ihren Inhalten beschäftigen. Die folgenden JavaScript-Methoden werden in den HTML-In-App-Nachrichten von Braze unterstützt:
+In-App-Nachrichten im HTML-Format unterstützen eine JavaScript-„Bridge“-Schnittstelle zum Braze Web SDK or Software-Development-Kit, die es Ihnen erlaubt, angepasste Braze-Aktionen auszulösen, wenn Nutzer:innen auf Elemente mit Links klicken oder sich anderweitig mit Ihren Inhalten beschäftigen. Die folgenden JavaScript-Methoden werden in den HTML-In-App-Nachrichten von Braze unterstützt:
 
 {% multi_lang_include archive/appboyBridge.md platform="web" %}
 
 Für das Analytics-Tracking protokolliert jedes `<a>`- oder `<button>`-Element in Ihrem HTML-Code automatisch eine „Klick“-Aktion für die Campaign, die mit der In-App-Nachricht verknüpft ist. Um einen „Button-Klick“ anstelle eines „Body-Klicks“ zu protokollieren, geben Sie entweder einen Query-String-Wert von abButtonId in der href des Links an (z. B. `<a href="http://mysite.com?abButtonId=0">click me</a>`) oder eine ID im HTML-Element (z. B. `<a id="0" href="http://mysite.com">click me</a>`). Beachten Sie, dass derzeit nur die Button-IDs „0“ und „1“ akzeptiert werden. Ein Link mit einer Button-ID von 0 wird auf dem Dashboard als „Button 1“ dargestellt, während ein Link mit einer Button-ID von 1 als „Button 2“ dargestellt wird.
 
->  Um In-App-Nachrichten im HTML-Format über das Web SDK zu aktivieren, müssen Sie Braze die Initialisierungsoption `allowUserSuppliedJavascript` zur Verfügung stellen, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen – In-App-Nachrichten im HTML-Format können JavaScript ausführen, sodass ein Website-Betreiber sie aktivieren muss.
+>  Um In-App-Nachrichten im HTML-Format über das Web SDK or Software-Development-Kit zu aktivieren, müssen Sie Braze die Initialisierungsoption `allowUserSuppliedJavascript` zur Verfügung stellen, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies geschieht aus Sicherheitsgründen – In-App-Nachrichten im HTML-Format können JavaScript ausführen, sodass ein Website-Betreiber sie aktivieren muss.
 
 {% enddetails %}
 
@@ -112,7 +112,7 @@ Wir haben eine Reihe von HTML5-Templates für In-App-Nachrichten entworfen, die 
 - Schriftarten
 - Stile
 - Bilder + Videos
-- On-Click-Verhalten
+- On-Klick, der or klicken-Verhalten
 - Interaktive Komponenten
 
 {% enddetails %}

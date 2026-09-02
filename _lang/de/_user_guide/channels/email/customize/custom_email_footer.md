@@ -57,7 +57,7 @@ Um einen angepassten Abmeldelink hinzuzufügen, können Sie den Abmeldelink in d
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Rufen Sie anschließend den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) auf, um den Abo-Status der Nutzer:innen zu aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
+Rufen Sie anschließend den [`/email/status`-Endpunkt]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) auf, um den Abo-Status der Nutzer:innen zu Update or aktualisieren or aktualisieren. Weitere Details finden Sie in unserer Dokumentation zum [Ändern des E-Mail-Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Speichern Sie dann diesen neuen Link. Der standardmäßige Braze-Abmelde-Tag {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} muss in der Fußzeile enthalten sein. Das bedeutet, dass Sie den Standardlink einbinden müssen, indem Sie ihn „verstecken“ – entweder durch Platzierung des Tags in einem Kommentar oder in einem versteckten `<div>`-Tag.
 

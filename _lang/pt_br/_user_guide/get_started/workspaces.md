@@ -73,7 +73,7 @@ Os seguintes são todos elementos-chave que são configurados dentro de um espa�
 
 #### Instâncias de app {#app-instances}
 
-Você precisa criar instâncias de app separadas para cada versão do seu app em cada plataforma. Por exemplo, se você tem versões Free e Pro do seu app tanto no iOS quanto no Android, crie quatro instâncias de app dentro do seu espaço de trabalho (app iOS gratuito, app Android gratuito, app iOS pro e app Android pro). Isso fornecerá quatro chaves de API para uso, uma para cada instância de app.
+Você precisa criar instâncias de app separadas para cada versão do seu app em cada plataforma. Por exemplo, se você tem versões Free e Pro do seu app tanto no iOS quanto no Android, crie quatro instâncias de app dentro do seu espaço de trabalho (app iOS gratuito, app Android gratuito, app iOS pro e app Android pro). Isso fornecerá quatro chaves de API or interface de programação do aplicativo (API) para uso, uma para cada instância de app.
 
 #### Equipes {#teams}
 

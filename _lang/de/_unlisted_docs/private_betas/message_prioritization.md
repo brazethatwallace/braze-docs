@@ -10,7 +10,7 @@ description: "Dieser Referenzartikel beschreibt die übergeordnete Nachrichtenpr
 > Verwenden Sie die Nachrichtenpriorisierung, um sicherzustellen, dass Ihre Nutzer:innen die Nachrichten erhalten, die für Ihr Unternehmen am wichtigsten sind – und nicht nur diejenigen, die zufällig zuerst gesendet werden.
 
 {% alert important %}
-Die Nachrichtenpriorisierung befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an der Teilnahme an dieser Beta interessiert sind.<br><br>Dieser Artikel spiegelt die Version der Nachrichtenpriorisierung wider, die für das Produktionsrelease Ende Juli 2026 geplant ist. Einige hier beschriebene Verhaltensweisen sind möglicherweise noch nicht in allen Beta-Workspaces verfügbar.
+Die Nachrichtenpriorisierung befindet sich derzeit in der Beta-Phase. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an der Teilnahme an dieser Beta interessiert sind.<br><br>Dieser Artikel spiegelt die Version der Nachrichtenpriorisierung wider, die für das Produktionsrelease Ende Juli 2026 geplant ist. Einige hier beschriebene Verhaltensweisen sind möglicherweise noch nicht in allen Beta-Workspaces verfügbar.
 {% endalert %}
 
 ## Warum Nachrichtenpriorisierung verwenden? {#why-use-message-prioritization}
@@ -19,7 +19,7 @@ Nutzer:innen können nur eine begrenzte Anzahl von Nachrichten erhalten, bevor d
 
 Die meisten Teams steuern das Nachrichtenvolumen mit Frequency-Capping. Für sich allein ist Frequency-Capping ein grobes Instrument. Sobald Nutzer:innen ihr Limit erreicht haben, entscheidet der Sendezeitpunkt darüber, welche Nachrichten durchkommen – nicht die geschäftliche Bedeutung.
 
-Eine weniger wertvolle Aktion, die zuerst ausgelöst wird, kann einen Platz belegen, den eine Kundenbindungs-Belohnung oder eine zeitkritische Nachricht später am selben Tag genutzt hätte. Teams umgehen dies oft mit separaten Begrenzungsregeln, manueller Planung und Ad-hoc-Filtern. Diese Ansätze erfordern ständige Pflege. Sie werden schwieriger zu verwalten, wenn sich Campaigns und Canvases ändern. Und sie können trotzdem nicht garantieren, dass die richtige Nachricht gewinnt.
+Eine weniger wertvolle Aktion, die zuerst ausgelöst wird, kann einen Platz belegen, den eine Kundenbindungs-Belohnung oder eine zeitkritische Nachricht später am selben Tag genutzt hätte. Teams umgehen dies oft mit separaten Begrenzungsregeln, manueller Planung und Ad-hoc-Filtern. Diese Ansätze erfordern ständige Pflege. Sie werden schwieriger zu verwalten, wenn sich Campaigns und Canvase ändern. Und sie können trotzdem nicht garantieren, dass die richtige Nachricht gewinnt.
 
 Die Nachrichtenpriorisierung ändert die Frequency-Capping-Zuteilung von **Wer zuerst kommt, mahlt zuerst** zu **geschäftsprioritätsbewusst**: Sie legen fest, was wichtig ist, und Braze trifft die Sendeentscheidungen für Sie.
 
@@ -50,11 +50,11 @@ Die Nachrichtenpriorisierung kann Folgendes auswerten:
 
 - Geplante Campaigns
 - Aktionsbasierte Campaigns
-- Canvases
+- Canvase
 
-Derzeit werden API-getriggerte Campaigns oder Canvases von der Nachrichtenpriorisierung nicht unterstützt und nehmen nicht an der Priorisierung teil.
+Derzeit werden API-getriggerte Campaigns oder Canvase von der Nachrichtenpriorisierung nicht unterstützt und nehmen nicht an der Priorisierung teil.
 
-Braze nutzt seine Vorhersage, wann jede Nachricht voraussichtlich gesendet wird, um zu bewerten, ob das Senden einer Nachricht jetzt das spätere Senden einer Nachricht mit höherer Priorität verhindern könnte. Weitere Informationen darüber, wie Braze den zukünftigen Sendezeitpunkt für Campaigns und Canvases vorhersagt, finden Sie unter [Wie sagt Braze vorher, wann eine zukünftige Nachricht gesendet wird?](#how-does-braze-predict-when-a-future-message-sends)
+Braze nutzt seine Vorhersage, wann jede Nachricht voraussichtlich gesendet wird, um zu bewerten, ob das Senden einer Nachricht jetzt das spätere Senden einer Nachricht mit höherer Priorität verhindern könnte. Weitere Informationen darüber, wie Braze den zukünftigen Sendezeitpunkt für Campaigns und Canvase vorhersagt, finden Sie unter [Wie sagt Braze vorher, wann eine zukünftige Nachricht gesendet wird?](#how-does-braze-predict-when-a-future-message-sends)
 
 ### Unterstützte Nachrichtenkanäle {#supported-message-channels}
 
@@ -62,7 +62,7 @@ Die Nachrichtenpriorisierung unterstützt dieselben Kanäle wie das Frequency-Ca
 
 - Push-Benachrichtigungen
 - E-Mail
-- SMS
+- Kurzmitteilungsdienst or SMS
 - Webhooks
 - WhatsApp
 - LINE
@@ -75,13 +75,13 @@ Diese Kanäle sind nicht für die Nachrichtenpriorisierung geeignet, da sie nich
 - In-App-Nachrichten
 - Banner
 
-In-App-Nachrichten und Banner verwenden ihre eigenen Prioritätseinstellungen, um zu entscheiden, welche Nachricht angezeigt wird, wenn mehrere Nachrichten um denselben Trigger oder dieselbe Platzierung konkurrieren. Für In-App-Nachrichten siehe [Priorität auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority). Für Banner siehe [Banner-Priorität]({{site.baseurl}}/user_guide/channels/banners#priority).
+In-App-Nachrichten und Banner verwenden ihre eigenen Prioritätseinstellungen, um zu entscheiden, welche Nachricht angezeigt wird, wenn mehrere Nachrichten um denselben Trigger or triggern oder dieselbe Platzierung konkurrieren. Für In-App-Nachrichten siehe [Priorität auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-priority). Für Banner siehe [Banner-Priorität]({{site.baseurl}}/user_guide/channels/banners#priority).
 
 Wenn eine Campaign oder ein Canvas-Schritt nur nicht unterstützte Kanäle verwendet, nimmt sie nicht an der Priorisierung teil.
 
 ## Kategorien {#categories}
 
-Priorisierungsregeln basieren auf einer Rangfolge von Kategorien, die Labels sind, die Sie einer bestimmten Campaign oder einem Canvas zuweisen können (ähnlich wie ein [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)). Es gibt eine Obergrenze für die Anzahl der Kategorien, die Sie zu einem bestimmten Zeitpunkt erstellen können. Sprechen Sie mit Ihrem Account Manager, wenn Sie ein höheres Limit wünschen.
+Priorisierungsregeln basieren auf einer Rangfolge von Kategorien, die Labels sind, die Sie einer bestimmten Campaign oder einem Canvas zuweisen können (ähnlich wie ein [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)). Es gibt eine Obergrenze für die Anzahl der Kategorien, die Sie zu einem bestimmten Zeitpunkt erstellen können. Sprechen Sie mit Ihrem Account Manager:in, wenn Sie ein höheres Limit wünschen.
 
 So fügen Sie eine neue Kategorie hinzu:
 
@@ -100,7 +100,7 @@ Um eine Kategorie zu bearbeiten oder zu löschen, wählen Sie das Menü <i class
 
 ## Priorisierungsregeln {#prioritization-rules}
 
-Nachdem Ihre Kategorien eingerichtet sind, können Sie sie in einem Satz von Priorisierungsregeln einstufen. Regeln werden in absteigender Prioritätsreihenfolge eingestuft. Es gibt eine Obergrenze für die Anzahl der Priorisierungsregeln, die Sie zu einem bestimmten Zeitpunkt erstellen können. Wenden Sie sich an Ihren Account Manager, wenn Sie ein höheres Limit wünschen.
+Nachdem Ihre Kategorien eingerichtet sind, können Sie sie in einem Satz von Priorisierungsregeln einstufen. Regeln werden in absteigender Prioritätsreihenfolge eingestuft. Es gibt eine Obergrenze für die Anzahl der Priorisierungsregeln, die Sie zu einem bestimmten Zeitpunkt erstellen können. Wenden Sie sich an Ihren Account Manager:in, wenn Sie ein höheres Limit wünschen.
 
 1. Gehen Sie zu **Einstellungen** > **Nachrichtenpriorisierung** > **Priorisierungsregeln**, um Ihre Regeln zu konfigurieren.
 
@@ -154,7 +154,7 @@ Die Nachrichtenpriorisierung unterstützt geplante Campaigns und aktionsbasierte
 
 Das Canvas-Opt-in funktioniert ähnlich wie bei Campaigns. Um ein Canvas für die Nachrichtenpriorisierung anzumelden, aktivieren Sie die Nachrichtenpriorisierung in den Canvas-Einstellungen und weisen Sie das Canvas einer Kategorie zu. Alle Schritte im Canvas teilen dieselbe Kategorie und dieselbe Prioritätsstufe, was bedeutet, dass Sie die Priorität nicht individuell pro Schritt festlegen können.
 
-Die Nachrichtenpriorisierung unterstützt geplante Canvases und aktionsbasierte Canvases. API-getriggerte Canvases werden nicht unterstützt.
+Die Nachrichtenpriorisierung unterstützt geplante Canvase und aktionsbasierte Canvase. API-getriggerte Canvase werden nicht unterstützt.
 
 ## Intelligentes Timing {#intelligent-timing}
 
@@ -188,26 +188,26 @@ Wenn Nutzer:innen für mehrere priorisierte Nachrichten qualifiziert sind, bewer
 
 Für Campaigns umfasst dies qualifizierte geplante und aktionsbasierte Sendungen.
 
-Für Canvases umfasst dies:
+Für Canvase umfasst dies:
 
-- Zukünftige geplante Canvases, für die Nutzer:innen qualifiziert sind
-- Canvases, in denen sich Nutzer:innen derzeit befinden
+- Zukünftige geplante Canvase, für die Nutzer:innen qualifiziert sind
+- Canvase, in denen sich Nutzer:innen derzeit befinden
 
 Die Canvas-Priorisierung ist kein Alles-oder-nichts-Prinzip. Eine höher priorisierte Campaign kann dazu führen, dass ein Canvas-Schritt herabgestuft wird, während spätere qualifizierte Schritte in demselben Canvas je nach Kategorieranking, Sendezeitpunkt und Frequency-Capping-Regeln weiterhin gesendet werden können.
 
-Braze vergleicht priorisierte Nachrichten nur dann, wenn sie dieselbe anwendbare Frequency-Capping-Regel teilen. Zum Beispiel können zwei E-Mail-Campaigns, die auf dieselbe E-Mail-Frequency-Capping-Regel angerechnet werden, gegeneinander priorisiert werden, aber eine niedriger priorisierte E-Mail-Campaign wird nicht zugunsten einer höher priorisierten SMS-Nachricht herabgestuft, es sei denn, beide werden auf dieselbe Regel angerechnet. Nachrichten außerhalb der Nachrichtenpriorisierung teilen diese Frequency-Cap-Limits ebenfalls, sodass selbst eine hoch priorisierte Nachricht aufgrund einer Nachricht außerhalb der Nachrichtenpriorisierung abgebrochen werden kann.
+Braze vergleicht priorisierte Nachrichten nur dann, wenn sie dieselbe anwendbare Frequency-Capping-Regel teilen. Zum Beispiel können zwei E-Mail-Campaigns, die auf dieselbe E-Mail-Frequency-Capping-Regel angerechnet werden, gegeneinander priorisiert werden, aber eine niedriger priorisierte E-Mail-Campaign wird nicht zugunsten einer höher priorisierten Kurzmitteilungsdienst or SMS-Nachricht herabgestuft, es sei denn, beide werden auf dieselbe Regel angerechnet. Nachrichten außerhalb der Nachrichtenpriorisierung teilen diese Frequency-Cap-Limits ebenfalls, sodass selbst eine hoch priorisierte Nachricht aufgrund einer Nachricht außerhalb der Nachrichtenpriorisierung abgebrochen werden kann.
 
-Braze bewertet Campaigns und Canvases unterschiedlich, da ein Canvas sich verzweigen und über die Zeit entfalten kann.
+Braze bewertet Campaigns und Canvase unterschiedlich, da ein Canvas sich verzweigen und über die Zeit entfalten kann.
 
 ### Campaigns bewerten {#evaluating-campaigns}
 
 Braze vergleicht jede qualifizierte Campaign-Nachricht anhand des Zeitpunkts, zu dem die Nachricht voraussichtlich gesendet wird.
 
-### Canvases bewerten {#evaluating-canvases}
+### Canvase bewerten {#evaluating-canvases}
 
 Um ein Canvas zu bewerten, führt Braze einen **Look-Ahead** durch: Es durchläuft das Canvas von einem Startpunkt aus, um vorherzusagen, welche zukünftigen Nachrichten Nutzer:innen erhalten könnten und wann. Der Look-Ahead startet ab:
 
-- Canvas-Eintritt, bei zukünftigen geplanten Canvases
+- Canvas-Eintritt, bei zukünftigen geplanten Canvase
 - Dem aktuellen Schritt der Nutzer:innen, wenn sie sich bereits im Canvas befinden
 
 Beim Look-Ahead behandelt Braze jeden Typ von Canvas-Schritt unterschiedlich. Der Schritttyp bestimmt, ob der Look-Ahead ihn zählt, überspringt, dort stoppt oder sich auf mehrere Pfade aufteilt:
@@ -218,7 +218,7 @@ Beim Look-Ahead behandelt Braze jeden Typ von Canvas-Schritt unterschiedlich. De
 | Fortsetzungsschritte | Übersprungen; der Look-Ahead durchläuft sie |
 | Grenzschritte | Der Look-Ahead stoppt, bis Nutzer:innen den Schritt passiert haben |
 | Verzweigungsschritte | Der Look-Ahead folgt jedem möglichen Pfad |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvases bewerten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Canvase bewerten" }
 
 #### Messaging-Schritte {#messaging-steps}
 
@@ -289,10 +289,10 @@ Angenommen, eine Nutzerin oder ein Nutzer tritt in einen Canvas-Nachrichten-Schr
 
 ## Einschränkungen {#limitations}
 
-Die Nachrichtenpriorisierung hat die folgenden Feature-Grenzen. Spezifische Grenzen hängen von Ihrer Braze-Plattform-Edition ab; wenden Sie sich an Ihren Braze Account Manager für Details.
+Die Nachrichtenpriorisierung hat die folgenden Feature-Grenzen. Spezifische Grenzen hängen von Ihrer Braze-Plattform-Edition ab; wenden Sie sich an Ihren Braze Account Manager:in für Details.
 
-- Ein Limit für die Anzahl aktiver, angemeldeter geplanter Campaigns und Canvases (kombiniert)
-- Ein Limit für die Anzahl aktiver, angemeldeter aktionsbasierter Campaigns und Canvases (kombiniert)
+- Ein Limit für die Anzahl aktiver, angemeldeter geplanter Campaigns und Canvase (kombiniert)
+- Ein Limit für die Anzahl aktiver, angemeldeter aktionsbasierter Campaigns und Canvase (kombiniert)
 - Ein Limit für die Anzahl der Priorisierungsentscheidungen pro Monat
 - Ein Limit für die Anzahl der Kategorien pro Workspace
 - Ein Limit für die Anzahl der Priorisierungsregeln pro Workspace
@@ -304,7 +304,7 @@ Die Nachrichtenpriorisierung hat die folgenden Feature-Grenzen. Spezifische Gren
 
 Wenn zwei Campaigns in derselben Kategorie gegeneinander priorisiert werden, gibt Braze derjenigen mit der früheren Sendezeit die höhere Priorität. Wenn ein Wiederholungsfenster konfiguriert ist, verwendet Braze das Ende dieses Wiederholungsfensters beim Vergleich von Campaigns innerhalb derselben Prioritätsregel. Bei wiederkehrenden Campaigns wird die Sendezeit als das nächste Vorkommen ab Mitternacht in Unternehmenszeit berechnet. Bei Campaigns, die in Ortszeit geplant sind, geht Braze von einer Sendezeit in Unternehmenszeit aus.
 
-Bei Canvases in derselben Kategorie verwendet Braze den Canvas-Eintrittszeitpunkt als Entscheidungskriterium, sodass alle Schritte im selben Canvas die gleiche relative Priorität gegenüber anderen Campaigns und Canvases beibehalten.
+Bei Canvase in derselben Kategorie verwendet Braze den Canvas-Eintrittszeitpunkt als Entscheidungskriterium, sodass alle Schritte im selben Canvas die gleiche relative Priorität gegenüber anderen Campaigns und Canvase beibehalten.
 
 ### Wie kann ich sicherstellen, dass eine Nachricht immer gesendet wird? {#how-can-i-make-sure-a-message-is-always-sent}
 
@@ -319,7 +319,7 @@ Jede Nachricht wird basierend auf ihrem erwarteten Sendezeitpunkt priorisiert. E
 Braze prognostiziert den zukünftigen Sendezeitpunkt für jeden Nachrichtentyp unterschiedlich:
 
 - **Geplante Campaigns:** Braze verwendet den Zeitpunkt, zu dem jede Campaign voraussichtlich gesendet wird. Bei geplanten Campaigns, die intelligentes Timing verwenden, nutzt Braze den optimalen Sendezeitpunkt jedes Nutzers bzw. jeder Nutzerin für dieses Campaign-Vorkommen.
-- **Aktionsbasierte Campaigns:** Braze verwendet den Zeitpunkt, zu dem jede getriggerte Nachricht voraussichtlich gesendet wird, einschließlich einer konfigurierten Verzögerung zwischen Trigger und Versand.
+- **Aktionsbasierte Campaigns:** Braze verwendet den Zeitpunkt, zu dem jede getriggerte Nachricht voraussichtlich gesendet wird, einschließlich einer konfigurierten Verzögerung zwischen Trigger or triggern und Versand.
 - **Canvas-Schritte:** Braze verwendet den Canvas-Eintritt oder die aktuelle Canvas-Position des Nutzers bzw. der Nutzerin sowie das Timing nachfolgender Schritte. Bei Canvas-Nachrichtenschritten, die intelligentes Timing verwenden, nutzt Braze nach dem Eintritt in diesen Schritt den berechneten nutzerspezifischen Sendezeitpunkt. Für nachfolgende Nachrichtenschritte auf demselben deterministischen Pfad wird dieser Sendezeitpunkt des intelligenten Timings bei der Bestimmung späterer erwarteter Sendezeiten herangezogen. Bevor Nutzer:innen den Schritt mit intelligentem Timing erreichen, bleibt die Vorhersage eine Bestmöglichkeitsschätzung.
 
 ### Meine Nachricht war bereits zum Senden geplant, wurde aber wegen Rate-Limiting oder anderer Verzögerungen noch nicht gesendet. Was bedeutet das für die Priorisierung anderer Campaigns? {#my-message-was-scheduled-to-send-already-but-it-hasnt-yet-because-of-rate-limiting-or-other-delays-what-does-this-mean-for-prioritizing-other-campaigns}
@@ -351,6 +351,6 @@ Bei Campaigns verwendet die Nachrichtenpriorisierung den optimalen Sendezeitpunk
 
 ### Gibt es spezielle Berichts- oder Analytics-Funktionen für die Nachrichtenpriorisierung? {#is-there-any-reporting-or-analytics-functionality-specific-to-message-prioritization}
 
-Braze stellt Events zur Nachrichtenpriorisierung in Currents und Data Sharing für unterstützte Kanäle bereit, darunter E-Mail, LINE, Push-Benachrichtigungen, SMS, Webhooks und WhatsApp. Dazu gehören Events für herabgestufte und vom Frequency-Capping betroffene Nachrichten, die als `users.messages.<channel>.Abort`-Event protokolliert werden, sowie Wiederholungs-Events, die anzeigen, wann eine Nachricht innerhalb des konfigurierten Wiederholungsfensters erneut versucht wurde, protokolliert als `users.messages.<channel>.Retry`-Event.
+Braze stellt Events zur Nachrichtenpriorisierung in Currents und Data Sharing für unterstützte Kanäle bereit, darunter E-Mail, LINE, Push-Benachrichtigungen, Kurzmitteilungsdienst or SMS, Webhooks und WhatsApp. Dazu gehören Events für herabgestufte und vom Frequency-Capping betroffene Nachrichten, die als `users.messages.<channel>.Abort`-Event protokolliert werden, sowie Wiederholungs-Events, die anzeigen, wann eine Nachricht innerhalb des konfigurierten Wiederholungsfensters erneut versucht wurde, protokolliert als `users.messages.<channel>.Retry`-Event.
 
-Sie können auch das Messaging-Diagnose-Dashboard, die bestehenden täglichen Statistiken für herabgestufte und wiederholte Nachrichten sowie die bestehende [Braze-Berichtsfunktionalität]({{site.baseurl}}/user_guide/analytics/reports) nutzen, um den Zustand und die Performance Ihrer priorisierten Campaigns und Canvases zu überwachen.
+Sie können auch das Messaging-Diagnose-Dashboard, die bestehenden täglichen Statistiken für herabgestufte und wiederholte Nachrichten sowie die bestehende [Braze-Berichtsfunktionalität]({{site.baseurl}}/user_guide/analytics/reports) nutzen, um den Zustand und die Performance Ihrer priorisierten Campaigns und Canvase zu überwachen.

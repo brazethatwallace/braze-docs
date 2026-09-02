@@ -17,7 +17,7 @@ platform:
 {% tabs %}
 {% tab Android %}
 ## Push com bounce: MismatchSenderId {#push-bounced-mismatchsenderid}
-`MismatchSenderId` indica uma falha de autenticação. O Firebase Cloud Messaging (FCM) autentica com alguns dados essenciais: senderID e chave de API do FCM. Ambos devem ser validados quanto à precisão. Para saber mais, consulte a [documentação do Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) sobre esse problema.
+`MismatchSenderId` indica uma falha de autenticação. O Firebase Cloud Messaging (FCM) autentica com alguns dados essenciais: senderID e chave de API or interface de programação do aplicativo (API) do FCM. Ambos devem ser validados quanto à precisão. Para saber mais, consulte a [documentação do Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) sobre esse problema.
 
 Falhas comuns podem incluir:
 - [senderID]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android) incorreto
@@ -40,7 +40,7 @@ Isso geralmente ocorre por um dos seguintes motivos:
 
 - O usuário desinstalou o app. Essa é a causa mais comum. Quando o app é removido de um dispositivo, o token por push se torna inválido.
 - As credenciais de push foram atualizadas no app. Se sua equipe alterou as credenciais ou certificados do FCM incluídos no app, os usuários que se registraram com as credenciais anteriores terão tokens inválidos até que o app os registre novamente.
-- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de um dispositivo do push usando o [SDK do Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
+- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de um dispositivo do push usando o [SDK or kit de desenvolvimento de software do Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 Este erro não significa que o usuário está com push desativado — apenas que um token específico foi removido do perfil dele. Isso é comum para usuários que estão testando funcionalidades e instalando e desinstalando o app com frequência. Para verificar se o usuário ainda possui tokens válidos, acesse **Pesquisa de usuários** e revise a seção **Configurações de contato** na guia **Engajamento**.
@@ -76,7 +76,7 @@ Causas comuns incluem:
 Próximas etapas:
 
 - Reduza o tamanho da carga útil removendo chaves personalizadas e encurtando valores dinâmicos grandes.
-- Se você envia pela API, valide a carga útil JSON final (incluindo o tamanho) antes de enviar.
+- Se você envia pela API or interface de programação do aplicativo (API), valide a carga útil JSON final (incluindo o tamanho) antes de enviar.
 
 ### Push com bounce: BadToken {#push-bounced-badtoken}
 
@@ -110,7 +110,7 @@ Este é o equivalente iOS do erro [DEVICE_UNREGISTERED](#device-unregistered) do
 
 - O usuário desinstalou o app. Essa é a causa mais comum.
 - Os certificados de push foram atualizados. Se sua equipe alterou ou renovou os certificados APNs, os usuários que se registraram com os certificados anteriores podem ter tokens inválidos até que o app os registre novamente.
-- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de notificações remotas usando o SDK do iOS.
+- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de notificações remotas usando o SDK or kit de desenvolvimento de software do iOS.
 
 {% alert note %}
 Este erro não significa que o usuário está com push desativado — apenas que um token específico foi removido do perfil dele. Para verificar se o usuário ainda possui tokens válidos, acesse **Pesquisa de usuários** e revise a seção **Configurações de contato** na guia **Engajamento**.

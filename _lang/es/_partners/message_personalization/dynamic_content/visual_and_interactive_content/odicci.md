@@ -38,7 +38,7 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito previo | Descripción |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta de Odicci | Se requiere una cuenta de Odicci con acceso a la sección **Integraciones** para aprovechar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con los permisos `users.track` y `campaigns.list`. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con los permisos `users.track` y `campaigns.list`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración de Odicci {#integrating-odicci}
@@ -51,13 +51,13 @@ Antes de empezar, necesitarás lo siguiente:
 
    ![Conectar la integración de Braze]({% image_buster /assets/img/odicci/braze_connect.png %})
 
-4. Introduce tu clave de API REST de Braze en el campo correspondiente.
+4. Introduce tu clave de API REST or transferencia de estado representacional de Braze en el campo correspondiente.
 5. Guarda la configuración para activar la integración a nivel de cuenta.
 
-### Paso 2: Obtén tu clave de API REST de Braze {#step-2-obtain-your-braze-rest-api-key}
+### Paso 2: Obtén tu clave de API REST or transferencia de estado representacional de Braze {#step-2-obtain-your-braze-rest-api-key}
 
 1. Conéctate a tu cuenta de Braze.
-2. Ve a **Consola para desarrolladores > Claves de API REST**.
+2. Ve a **Consola para desarrolladores > Claves de API REST or transferencia de estado representacional**.
 3. Crea una nueva clave de API o copia una existente con el permiso `users.track`.
 
 ### Paso 3: Activar la integración a nivel de experiencia {#step-3-activate-the-integration-at-the-experience-level}

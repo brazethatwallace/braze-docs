@@ -8,5 +8,5 @@ Braze añade los siguientes encabezados a las solicitudes salientes de contenido
 | `Authorization` | Si la URL incluye un nombre de usuario y una contraseña (`user:pass@host`), Braze añade un encabezado `Authorization` de tipo Basic derivado de esas credenciales. Un encabezado `Authorization` explícito lo sobrescribe. Prefiere [`:basic_auth`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication) o `:headers` en lugar de incluir credenciales en la URL. |
 | `Host` | Nombre de host de la URL de la solicitud (por ejemplo, `www.example.com` para `https://www.example.com/abc/123`), a menos que establezcas un encabezado `Host`. |
 | `Content-Length` | Tamaño del cuerpo de la solicitud en bytes cuando hay un cuerpo presente. |
-| `BrazeToBraze` | Se establece como `true` solo para solicitudes a endpoints REST de Braze. Se omite para otros destinos. |
+| `BrazeToBraze` | Se establece como `true` solo para solicitudes a endpoints REST or transferencia de estado representacional de Braze. Se omite para otros destinos. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Encabezados de solicitud saliente que Braze añade al contenido conectado" }

@@ -2115,7 +2115,7 @@ erDiagram
 
 {% endsdktab %}
 
-{% sdktab SMS %}
+{% sdktab Kurzmitteilungsdienst or SMS %}
 ## Beziehungsdiagramm
 
 ```mermaid

@@ -25,28 +25,28 @@ Além disso, as Geo APIs da Radar podem ser usadas para enriquecer ou personaliz
 | Requisito | Descrição |
 |---|---|
 | Conta Radar | Uma conta Radar é necessária para aproveitar esta parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Identificador do app | Seu [identificador do app]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pode ser encontrado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Chave de API do iOS<br>Chave de API do Android | Essas chaves de API podem ser encontradas no dashboard da Braze em **Configurações** > **Configurações do app**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Identificador do app | Seu [identificador do app]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pode ser encontrado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Chave de API or interface de programação do aplicativo (API) do iOS<br>Chave de API or interface de programação do aplicativo (API) do Android | Essas chaves de API or interface de programação do aplicativo (API) podem ser encontradas no dashboard da Braze em **Configurações** > **Configurações do app**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
-Para mapear dados entre os SDKs da Braze e da Radar, você deve definir os mesmos IDs de usuário ou aliases de usuário em ambos os sistemas. Isso pode ser feito usando o método `changeUser()` no SDK da Braze e o método `setUserId()` no SDK da Radar.
+Para mapear dados entre os SDKs da Braze e da Radar, você deve definir os mesmos IDs de usuário ou aliases de usuário em ambos os sistemas. Isso pode ser feito usando o método `changeUser()` no SDK or kit de desenvolvimento de software da Braze e o método `setUserId()` no SDK or kit de desenvolvimento de software da Radar.
 
 Para ativar a integração:
 
 1. Na Radar, na página [Integrações](https://radar.com/documentation/integrations), localize Braze.
 1. Defina **Enabled** para **Yes**.
-3. Cole seu identificador de app e chaves de API.
+3. Cole seu identificador de app e chaves de API or interface de programação do aplicativo (API).
 
 {% alert note %}
-Você pode definir chaves de API separadas para ambientes de teste e produção.
+Você pode definir chaves de API or interface de programação do aplicativo (API) separadas para ambientes de teste e produção.
 {% endalert %}
 
 {:start="4"}
 4. Selecione seu endpoint da Braze.
-5. Insira qualquer filtragem de evento ou atributo de evento para garantir que apenas dados relevantes sejam enviados para a Braze para marketing de engajamento. Sempre que eventos da Radar são gerados, a Radar enviará eventos personalizados e atributos de usuário para a Braze. Eventos de dispositivos iOS serão enviados usando suas chaves de API do iOS; eventos e atributos de usuário de dispositivos Android serão enviados usando suas chaves de API do Android.
+5. Insira qualquer filtragem de evento ou atributo de evento para garantir que apenas dados relevantes sejam enviados para a Braze para marketing de engajamento. Sempre que eventos da Radar são gerados, a Radar enviará eventos personalizados e atributos de usuário para a Braze. Eventos de dispositivos iOS serão enviados usando suas chaves de API or interface de programação do aplicativo (API) do iOS; eventos e atributos de usuário de dispositivos Android serão enviados usando suas chaves de API or interface de programação do aplicativo (API) do Android.
 
 {% alert note %}
 Por padrão, o `userId` da Radar mapeia para o `external_id` da Braze para usuários logados. No entanto, você pode rastrear usuários desconectados ou especificar mapeamentos personalizados configurando o `metadata.brazeAlias` ou `metadata.brazeExternalId` da Radar. Se você definir `metadata.brazeAlias`, também deverá adicionar um alias correspondente na Braze com o rótulo `radarAlias`.
@@ -62,11 +62,11 @@ Envie uma notificação por push para o usuário com instruções de chegada ass
 
 ![Uma campanha de entrega baseada em ação mostrando que a campanha será entregue quando o evento personalizado "arrived_at_trip_destination" ocorrer, e o "trip_metadata" for igual a "curbside".]({% image_buster /assets/img_archive/radar-campaign.png %})
 
-### Construir um segmento de público de visitantes recentes da loja {#build-an-audience-segment-of-recent-store-visitors}
+### Construir um Segment or segmento or segmento de público de visitantes recentes da loja {#build-an-audience-segment-of-recent-store-visitors}
 
 Por exemplo, direcione qualquer usuário que tenha visitado sua loja nos últimos 7 dias, independentemente de ter feito uma compra ou não.
 
-![Um segmento onde "radar_geofence_tags" inclui o valor my_store e "radar_updated_at" foi há menos de 7 dias.]({% image_buster /assets/img_archive/radar-segment.png %})
+![Um Segment or segmento or segmento onde "radar_geofence_tags" inclui o valor my_store e "radar_updated_at" foi há menos de 7 dias.]({% image_buster /assets/img_archive/radar-segment.png %})
 
 ## Conteúdo conectado {#connected-content}
 
@@ -74,11 +74,11 @@ O exemplo a seguir mostra como executar uma promoção para atrair usuários pr�
 
 ![Uma imagem do Android de uma mensagem por push de Conteúdo conectado que exibe "New In Store Deals, Walmart and Target near you".]({% image_buster /assets/img/radar_example.png %}){: style="float:right;max-width:30%;border:0;"}
 
-Para começar, você precisará ter sua chave de API publicável da Radar em mãos para usar nas URLs de suas solicitações.
+Para começar, você precisará ter sua chave de API or interface de programação do aplicativo (API) publicável da Radar em mãos para usar nas URLs de suas solicitações.
 
-Em seguida, dentro de uma tag `connected_content`, faça uma solicitação GET para a [API Search Places](https://radar.com/documentation/api#search-places). A API Search Places retorna locais próximos com base em [Radar Places](https://radar.com/documentation/places): um banco de dados de locais para lugares, redes e categorias que fornece uma visão abrangente do mundo.
+Em seguida, dentro de uma tag `connected_content`, faça uma solicitação GET para a [API or interface de programação do aplicativo (API) Search Places](https://radar.com/documentation/api#search-places). A API or interface de programação do aplicativo (API) Search Places retorna locais próximos com base em [Radar Places](https://radar.com/documentation/places): um banco de dados de locais para lugares, redes e categorias que fornece uma visão abrangente do mundo.
 
-O trecho de código a seguir é um exemplo do que a Radar retornará como objeto JSON da chamada da API:
+O trecho de código a seguir é um exemplo do que a Radar retornará como objeto JSON da chamada da API or interface de programação do aplicativo (API):
 
 ```json
 {
@@ -129,7 +129,7 @@ O trecho de código a seguir é um exemplo do que a Radar retornará como objeto
 }
 ```
 
-Para construir a mensagem da Braze com Conteúdo conectado direcionada e personalizada, você pode usar o atributo `most_recent_location` da Braze como entrada para o parâmetro `near` na URL da solicitação da API. O atributo `most_recent_location` é coletado por meio da integração de eventos da Radar ou diretamente pelo SDK da Braze.
+Para construir a mensagem da Braze com Conteúdo conectado direcionada e personalizada, você pode usar o atributo `most_recent_location` da Braze como entrada para o parâmetro `near` na URL da solicitação da API or interface de programação do aplicativo (API). O atributo `most_recent_location` é coletado por meio da integração de eventos da Radar ou diretamente pelo SDK or kit de desenvolvimento de software da Braze.
 
 No exemplo a seguir, o filtro de rede da Radar é aplicado para as localizações do Target e Walmart, e o raio de busca para locais próximos é definido em 2 km.
 

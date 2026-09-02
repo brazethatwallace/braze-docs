@@ -40,7 +40,7 @@ glossaries:
   - name: Drop
     description: SendGrid führt E-Mail-Listen, um Bounces, Spam-Berichte und Abmeldungen für alle Nutzer:innen zu verfolgen. Wenn Nutzer:innen eine Nachricht an eine E-Mail-Adresse senden, die auf einer dieser Listen in ihrem Konto existiert, verwirft SendGrid die Nachricht automatisch (d. h. sie wird nicht an die Adresse gesendet).
   - name: ESP (E-Mail-Anbieter)
-    description: Unternehmen, das E-Mail-Versand- und Transportfunktionen für E-Mail-Marketer bereitstellt. Viele der heutigen Marketing-, CRM- und Customer-Engagement-Plattformen enthalten eine E-Mail-Versandkomponente und werden in Bezug auf die E-Mail-Versandfähigkeit häufig als ESPs bezeichnet. Beispiele sind ConstantContact, MailChimp, Emarsys, Salesforce Marketing Cloud, Cheetah Digital und Sailthru.
+    description: Unternehmen, das E-Mail-Versand- und Transportfunktionen für E-Mail-Marketer bereitstellt. Viele der heutigen Marketing-, CRM or Customer-Relationship-Management [-System] (CRM)- und Customer-Engagement-Plattformen enthalten eine E-Mail-Versandkomponente und werden in Bezug auf die E-Mail-Versandfähigkeit häufig als ESPs bezeichnet. Beispiele sind ConstantContact, MailChimp, Emarsys, Salesforce Marketing Cloud, Cheetah Digital und Sailthru.
   - name: Feedback Loop (FBL)
     description: Der Mechanismus, über den Absender über Spam-Berichte benachrichtigt werden, damit sie eine Spam-Berichtsrate berechnen und die Adresse aus zukünftigen Sendungen entfernen können.
   - name: Hard Bounce

@@ -11,7 +11,7 @@ description: "Dieser Artikel enthält Details zum Braze-Endpunkt „Tägliche Ap
 {% api %}
 # KPIs für tägliche App-Deinstallationen nach Datum exportieren {#export-kpis-for-daily-app-uninstalls-by-date}
 {% apimethod get %}
-/kpi/uninstalls/data_series
+/KPI or Leistungskennzahl or Leistungskennzahlen/uninstalls/data_series
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um eine tägliche Reihe der Gesamtzahl der Deinstallationen zu jedem Datum abzurufen.

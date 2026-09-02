@@ -19,7 +19,7 @@ Para acceder al registro, ve a **Configuración** > **Configuración y pruebas**
 
 Para encontrar tus registros fácilmente, puedes filtrar según:
 
-* SDK o API
+* SDK or kit de desarrollo de software o API
 * Nombres de aplicaciones
 * Período de tiempo
 * Usuario
@@ -42,21 +42,21 @@ Los registros de eventos de usuario permanecerán en el panel durante 30 días d
 
 ## Solución de problemas {#troubleshooting}
 
-### Faltan registros del SDK para usuarios de prueba {#missing-sdk-logs-for-test-users}
+### Faltan registros del SDK or kit de desarrollo de software para usuarios de prueba {#missing-sdk-logs-for-test-users}
 
-Si has añadido un usuario a un grupo interno, pero no muestra ningún registro del SDK en el registro de usuarios del evento, esto puede deberse a una opción de configuración que falta. Para capturar los registros del SDK, asegúrate de seleccionar **Registrar eventos de usuario para los miembros del grupo** en la **Configuración del grupo interno** de ese [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups).
+Si has añadido un usuario a un grupo interno, pero no muestra ningún registro del SDK or kit de desarrollo de software en el registro de usuarios del evento, esto puede deberse a una opción de configuración que falta. Para capturar los registros del SDK or kit de desarrollo de software, asegúrate de seleccionar **Registrar eventos de usuario para los miembros del grupo** en la **Configuración del grupo interno** de ese [grupo interno]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups).
 
 ### Retraso en las actualizaciones de los registros {#delay-in-logs-updates}
 
 Este retraso suele deberse a la carga normal de procesamiento de la API.
 
-Cuando llamas a métodos del SDK, generalmente el SDK almacena esos eventos en caché de forma local y los envía al servidor cada 10 segundos. Puede tardar desde un segundo hasta unos minutos para que nuestra cola de procesamiento de trabajos ingiera los eventos, dependiendo de la carga general en ese momento.
+Cuando llamas a métodos del SDK or kit de desarrollo de software, generalmente el SDK or kit de desarrollo de software almacena esos eventos en caché de forma local y los envía al servidor cada 10 segundos. Puede tardar desde un segundo hasta unos minutos para que nuestra cola de procesamiento de trabajos ingiera los eventos, dependiendo de la carga general en ese momento.
 
 Si deseas que los eventos lleguen lo más rápido posible, intenta llamar a la función `requestImmediateDataFlush()`.
 
 ### Fallos en las impresiones de mensajes dentro de la aplicación {#in-app-message-impression-failures}
 
-Si un mensaje dentro de la aplicación no se muestra, puedes encontrar el motivo en el registro de usuarios del evento expandiendo los datos JSON sin procesar de la solicitud del SDK correspondiente y buscando el campo `error_code` en la respuesta. El `error_code` identifica la razón específica por la que falló la impresión (por ejemplo, un valor de color no válido o un problema de renderizado). Comparte este código de error con el [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) si se necesita una investigación adicional.
+Si un mensaje dentro de la aplicación no se muestra, puedes encontrar el motivo en el registro de usuarios del evento expandiendo los datos JSON sin procesar de la solicitud del SDK or kit de desarrollo de software correspondiente y buscando el campo `error_code` en la respuesta. El `error_code` identifica la razón específica por la que falló la impresión (por ejemplo, un valor de color no válido o un problema de renderizado). Comparte este código de error con el [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support) si se necesita una investigación adicional.
 
 ### El fin de sesión y el inicio de sesión tienen marcas de tiempo similares (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
 

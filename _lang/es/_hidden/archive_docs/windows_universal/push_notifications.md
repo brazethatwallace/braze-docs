@@ -60,7 +60,7 @@ Los vínculos profundos se utilizan para dirigir a los usuarios desde fuera de t
 
 El soporte de vínculos profundos de WNS difiere de esto, ya que lanza tu aplicación con datos sobre dónde enviar al usuario. Cuando se crea un push WNS, puede incluir una cadena de lanzamiento que se transmite al `OnLaunched` de tu aplicación cuando se hace clic en el push y se abre tu aplicación. Ya utilizamos esta cadena de lanzamiento para hacer el seguimiento de campañas, y damos a los usuarios la posibilidad de añadir sus propios datos, que pueden ser analizados y utilizados para dirigir al usuario cuando se lanza la aplicación.
 
-Si especificas una cadena de lanzamiento adicional en el dashboard o en la REST API, se añadirá al final de la cadena de lanzamiento que creemos, después de la clave "abextras=". Así, un ejemplo de cadena de lanzamiento podría ser `ab_cn_id=_trackingid_abextras=page=settings`, en la que has especificado `page=settings` en el parámetro extra de la cadena de lanzamiento para poder analizarla y dirigir al usuario a la página de configuración.
+Si especificas una cadena de lanzamiento adicional en el dashboard o en la REST or transferencia de estado representacional API, se añadirá al final de la cadena de lanzamiento que creemos, después de la clave "abextras=". Así, un ejemplo de cadena de lanzamiento podría ser `ab_cn_id=_trackingid_abextras=page=settings`, en la que has especificado `page=settings` en el parámetro extra de la cadena de lanzamiento para poder analizarla y dirigir al usuario a la página de configuración.
 
 ### Parte 2: Vinculación en profundidad a través del dashboard {#part-2-deep-linking-through-the-dashboard}
 
@@ -68,6 +68,6 @@ Especifica la cadena que se añadirá a la cadena de lanzamiento en el campo "Ad
 
 ![]({% image_buster /assets/img_archive/windows_deep_link_click_action.png %} "Deep Link Click Action")
 
-### Parte 3: Vinculación en profundidad a través de la REST API {#part-3-deep-linking-through-the-rest-api}
+### Parte 3: Vinculación en profundidad a través de la REST or transferencia de estado representacional API {#part-3-deep-linking-through-the-rest-api}
 
-Braze también permite enviar vínculos profundos a través de la REST API. [Los objetos push de Windows Universal]({{site.baseurl}}/api/objects_filters/) aceptan un parámetro opcional `extra_launch_string`.
+Braze también permite enviar vínculos profundos a través de la REST or transferencia de estado representacional API. [Los objetos push de Windows Universal]({{site.baseurl}}/api/objects_filters/) aceptan un parámetro opcional `extra_launch_string`.

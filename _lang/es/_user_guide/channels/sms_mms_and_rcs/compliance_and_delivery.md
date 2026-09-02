@@ -4,9 +4,9 @@ article_title: Cumplimiento y entrega
 page_order: 4
 layout: dev_guide
 guide_top_header: "Cumplimiento y entrega"
-guide_top_text: "Asegúrate de que tus mensajes SMS, MMS y RCS cumplan con las regulaciones y sigan las buenas prácticas de capacidad de entrega y confianza del usuario."
+guide_top_text: "Asegúrate de que tus mensajes servicio de mensajes cortos, MMS y RCS cumplan con las regulaciones y sigan las buenas prácticas de capacidad de entrega y confianza del usuario."
 page_type: landing
-description: "Administra el cumplimiento y la capacidad de entrega para mensajería SMS, MMS y RCS, incluyendo leyes y regulaciones, adhesiones voluntarias y fraude de bombeo de tráfico."
+description: "Administra el cumplimiento y la capacidad de entrega para mensajería servicio de mensajes cortos, MMS y RCS, incluyendo leyes y regulaciones, adhesiones voluntarias y fraude de bombeo de tráfico."
 channel:
   - SMS
   - MMS

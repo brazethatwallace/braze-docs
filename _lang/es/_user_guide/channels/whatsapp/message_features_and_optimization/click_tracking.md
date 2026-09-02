@@ -39,9 +39,9 @@ Cualquier URL estática que comience con `http://` o `https://` se acortará. La
 
 ### Mensajes de plantilla {#template-messages}
 
-Recomendamos habilitar el seguimiento de clics para mensajes de plantilla a través del **Constructor de plantillas de WhatsApp** en Braze. Este método de habilitación gestiona automáticamente los requisitos de formato de URL, por lo que no necesitas configurar nada manualmente en WhatsApp Business Manager.
+Recomendamos habilitar el seguimiento de clics para mensajes de plantilla a través del **Constructor de plantillas de WhatsApp** en Braze. Este método de habilitación gestiona automáticamente los requisitos de formato de URL, por lo que no necesitas configurar nada manualmente en WhatsApp Business Administrador.
 
-Si estás creando plantillas directamente en WhatsApp Business Manager, consulta [Configurar el seguimiento de clics desde WhatsApp Business Manager](#configuring-click-tracking-from-whatsapp-business-manager).
+Si estás creando plantillas directamente en WhatsApp Business Administrador, consulta [Configurar el seguimiento de clics desde WhatsApp Business Administrador](#configuring-click-tracking-from-whatsapp-business-manager).
 
 #### Usar el Constructor de plantillas {#use-the-template-builder}
 
@@ -78,13 +78,13 @@ Puedes previsualizar el formato de la URL rastreada para cada botón directament
 
 Después de que una plantilla se envía a Meta, el dominio de seguimiento queda bloqueado, pero la URL de destino sigue siendo editable en cualquier momento. Para actualizar a dónde apunta un enlace, edita el campo **Click tracking URL** de ese botón. El formato de la URL rastreada permanece igual; Braze redirige a los usuarios al nuevo destino en el momento del envío.
 
-#### Configurar el seguimiento de clics desde WhatsApp Business Manager {#configuring-click-tracking-from-whatsapp-business-manager}
+#### Configurar el seguimiento de clics desde WhatsApp Business Administrador {#configuring-click-tracking-from-whatsapp-business-manager}
 
-Si estás creando plantillas en WhatsApp Business Manager en lugar del Constructor de plantillas, sigue estos pasos para que el seguimiento de clics funcione correctamente cuando la plantilla se use en Braze.
+Si estás creando plantillas en WhatsApp Business Administrador en lugar del Constructor de plantillas, sigue estos pasos para que el seguimiento de clics funcione correctamente cuando la plantilla se use en Braze.
 
-##### Paso 1: Crear una plantilla compatible con el seguimiento de clics en WhatsApp Business Manager {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+##### Paso 1: Crear una plantilla compatible con el seguimiento de clics en WhatsApp Business Administrador {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
 
-1. En tu WhatsApp Business Manager, crea una URL base que sea tu dominio personalizado o `brz.ai`.
+1. En tu WhatsApp Business Administrador, crea una URL base que sea tu dominio personalizado o `brz.ai`.
 2. Asegúrate de que los enlaces incluidos en la plantilla sean compatibles con el seguimiento de clics.
 3. No cambies las variables de la plantilla después de configurarla como Campaign en Braze; los cambios posteriores no se pueden incorporar.
 4. Para los enlaces de botones CTA, selecciona **Dynamic** y luego proporciona la URL base (`brz.ai` o tu dominio personalizado).
@@ -92,7 +92,7 @@ Si estás creando plantillas en WhatsApp Business Manager en lugar del Construct
 ![Sección para crear una llamada a la acción.]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. Para los enlaces en el cuerpo del texto, al escribir la plantilla en tu WhatsApp Business Manager, elimina cualquier espacio insertado en los enlaces contenidos en el cuerpo que quieras rastrear.
+5. Para los enlaces en el cuerpo del texto, al escribir la plantilla en tu WhatsApp Business Administrador, elimina cualquier espacio insertado en los enlaces contenidos en el cuerpo que quieras rastrear.
 
 ![Cuadro de texto para introducir el cuerpo de contenido de la llamada a la acción.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 

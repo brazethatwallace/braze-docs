@@ -23,9 +23,9 @@ A integração entre a Braze e a PassKit permite que você aumente e meça o eng
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da PassKit | Você deve ter uma conta PassKit e um gerente de conta PassKit. |
-| `userDefinedID` | Para atualizar adequadamente os eventos personalizados e os atributos personalizados para seus usuários entre a PassKit e a Braze, é necessário definir o ID externo da Braze como `userDefinedID`. Esse `userDefinedID` é usado ao fazer chamadas de API para os endpoints da PassKit. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| `userDefinedID` | Para atualizar adequadamente os eventos personalizados e os atributos personalizados para seus usuários entre a PassKit e a Braze, é necessário definir o ID externo da Braze como `userDefinedID`. Esse `userDefinedID` é usado ao fazer chamadas de API or interface de programação do aplicativo (API) para os endpoints da PassKit. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze  | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -45,7 +45,7 @@ Depois que os dados são transmitidos para a Braze, você pode criar públicos, 
 Para transmitir dados da PassKit, confirme se você definiu seu ID externo da Braze como `externalId` da PassKit.
 
 1. Em **Settings**, em **Integrations** no seu projeto ou programa de passes da PassKit, clique em **Connect** na guia **Braze**.<br>![O bloco de integração da Braze na plataforma PassKit.]({% image_buster /assets/img/passkit/passkit5.png %}){: style="max-width:80%"}<br><br>
-2. Informe sua chave de API da Braze, a URL do endpoint e um nome para seu conector.<br><br>
+2. Informe sua chave de API or interface de programação do aplicativo (API) da Braze, a URL do endpoint e um nome para seu conector.<br><br>
 3. Ative **Enable Integration** e os eventos que você deseja que a Braze dispare ou personalize suas mensagens.<br>![O bloco de integração da PassKit com a Braze expandido para aceitar a chave de API, a URL do endpoint, o nome da integração, as configurações de ativação, as configurações de associação e as configurações de passe.]({% image_buster /assets/img/passkit/passkit4.png %}){: style="max-width:70%"}
 
 ## Criar passe usando um link do SmartPass {#create-pass-using-a-smartpass-link}
@@ -232,7 +232,7 @@ Depois de selecionar o modelo de webhook da PassKit, você verá o seguinte:
 
 #### Cabeçalhos de solicitação e método {#request-headers-and-method}
 
-A PassKit requer um `HTTP Header` para autorização que inclui sua chave de API da PassKit codificada em base 64. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Settings**, você deve substituir o `<PASSKIT_LONG_LIVED_TOKEN>` pelo seu token da PassKit. Para recuperar seu token, navegue até seu projeto/programa da PassKit, navegue até **Settings > Integrations > Long Lived Token**.
+A PassKit requer um `HTTP Header` para autorização que inclui sua chave de API or interface de programação do aplicativo (API) da PassKit codificada em base 64. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Settings**, você deve substituir o `<PASSKIT_LONG_LIVED_TOKEN>` pelo seu token da PassKit. Para recuperar seu token, navegue até seu projeto/programa da PassKit, navegue até **Settings > Integrations > Long Lived Token**.
 
 {% raw %}
 - **Método HTTP**: PUT
@@ -257,7 +257,7 @@ Para configurar o webhook, preencha os detalhes do novo evento no corpo da solic
 
 Seu texto bruto será automaticamente destacado se for uma tag Braze aplicável.
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook).

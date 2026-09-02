@@ -1,22 +1,22 @@
 ---
-nav_title: "POST: Content-Block aktualisieren"
-article_title: "POST: Content-Block aktualisieren"
+nav_title: "POST: Content-Block Update or aktualisieren or aktualisieren"
+article_title: "POST: Content-Block Update or aktualisieren or aktualisieren"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Content Blocks aktualisieren“."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Content Blocks Update or aktualisieren or aktualisieren“."
 ---
 {% api %}
-# Content-Block aktualisieren {#update-content-block}
+# Content-Block Update or aktualisieren or aktualisieren {#update-content-block}
 {% apimethod post %}
-/content_blocks/update
+/content_blocks/Update or aktualisieren
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu aktualisieren.
+> Verwenden Sie diesen Endpunkt, um einen [Content-Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) zu Update or aktualisieren or aktualisieren.
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) aufrufen. So können KI-Tools wie Claude und Cursor Content Blocks über natürlichsprachliche Eingaben aktualisieren.
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) aufrufen. So können KI or künstliche Intelligenz-Tools wie Claude und Cursor Content Blocks über natürlichsprachliche Eingaben Update or aktualisieren or aktualisieren.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}

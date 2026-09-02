@@ -102,7 +102,7 @@ Por padrão, todos os usuários com permissões de administrador estão inscrito
 
 Content Cards em Campaigns não são interrompidos até o prazo de expiração e o período de buffer apropriado. A Braze os interrompe na data mais tardia entre o período de buffer (envio único, data de término ou sem data de término) e o prazo de expiração.
 
-Por exemplo, se um Content Card expira em 1º de abril, é um envio único e tem um prazo de conversão de 10 dias, a Braze o interrompe em 12 de abril (10 dias após o prazo de conversão, mais um dia). Se um Content Card expira em 1º de abril, é disparado por API e não enviou mensagens desde 15 de março, ele expira em 15 de março do ano seguinte.
+Por exemplo, se um Content Card expira em 1º de abril, é um envio único e tem um prazo de conversão de 10 dias, a Braze o interrompe em 12 de abril (10 dias após o prazo de conversão, mais um dia). Se um Content Card expira em 1º de abril, é disparado por API or interface de programação do aplicativo (API) e não enviou mensagens desde 15 de março, ele expira em 15 de março do ano seguinte.
 
 Canvas são interrompidos somente após a interrupção de seus Content Cards, ou seja, quando sua duração máxima tiver passado.
 

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint `PUT /media_library/replace_file`."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Substituir um ativo na biblioteca de mídia {#replace-an-asset-in-the-media-library}
 {% apimethod put %}
 /media_library/replace_file
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint `PUT /media_library
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.replace`.
+Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `media_library.replace`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -57,7 +57,7 @@ O corpo da solicitação inclui os seguintes parâmetros:
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Corpo da solicitação" }
 
 {% alert important %}
-`asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API.
+`asset_url` e `asset_file` são mutuamente exclusivos. Você deve incluir apenas um deles na sua solicitação de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ### Requisitos do arquivo de substituição {#replacement-file-requirements}

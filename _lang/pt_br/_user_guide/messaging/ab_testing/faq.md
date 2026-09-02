@@ -39,7 +39,7 @@ A atribuição de variantes é aleatorizada a cada envio, então a divisão real
 
 Para uma Campaign de envio único usando **Otimizar com BrazeAI<sup>TM</sup>**, o teste inicial termina após a duração configurada do experimento. O BrazeAI<sup>TM</sup> então envia a variante com melhor desempenho para o público restante.
 
-Para Campaigns recorrentes, baseadas em ação e disparadas por API que enviam várias vezes, **Otimizar com BrazeAI<sup>TM</sup>** acompanha continuamente o desempenho das variantes e direciona o tráfego da Campaign para as variantes com melhor desempenho.
+Para Campaigns recorrentes, baseadas em ação e disparadas por API or interface de programação do aplicativo (API) que enviam várias vezes, **Otimizar com BrazeAI<sup>TM</sup>** acompanha continuamente o desempenho das variantes e direciona o tráfego da Campaign para as variantes com melhor desempenho.
 
 ### Como a Braze lida com usuários que receberam uma variante de mensagem em uma Campaign recorrente ou etapa de entrada do Canvas? {#how-does-braze-handle-users-who-received-a-message-variant-in-a-recurring-campaign-or-canvas-entry-step}
 

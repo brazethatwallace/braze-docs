@@ -1,15 +1,15 @@
 ---
-nav_title: SSO Microsoft Entra
-article_title: SSO Microsoft Entra
+nav_title: authentification unique Microsoft Entra
+article_title: authentification unique Microsoft Entra
 page_order: 2
 page_type: tutorial
-description: "Cet article vous explique comment configurer les fonctionnalités d'authentification unique (SSO) Microsoft Entra avec Braze."
+description: "Cet article vous explique comment configurer les fonctionnalités d'authentification unique (authentification unique) Microsoft Entra avec Braze."
 
 ---
 
-# SSO Microsoft Entra {#microsoft-entra-sso}
+# authentification unique Microsoft Entra {#microsoft-entra-sso}
 
-> [Microsoft Entra SSO](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) est le service cloud de gestion des identités et des accès de Microsoft, qui aide vos employés à se connecter et à accéder aux ressources. Vous pouvez utiliser Entra SSO pour contrôler l'accès à vos applications et à leurs ressources, en fonction de vos besoins métier.
+> [Microsoft Entra authentification unique](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) est le service cloud de gestion des identités et des accès de Microsoft, qui aide vos employé or salariés à se connecter et à accéder aux ressources. Vous pouvez utiliser Entra authentification unique pour contrôler l'accès à vos applications et à leurs ressources, en fonction de vos besoins métier.
 
 ## Exigences {#requirements}
 
@@ -22,14 +22,14 @@ Lors de la configuration, il vous est demandé de fournir une URL ACS (Assertion
 | Clé API RelayState | Pour activer la connexion via le fournisseur d'identité, accédez à **Paramètres** > **Clés API** et créez une clé API avec les permissions `sso.saml.login`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exigences" }
 
-## Connexion initiée par le fournisseur de services (SP) avec Microsoft Entra SSO {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
+## Connexion initiée par le fournisseur de services (SP) avec Microsoft Entra authentification unique {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
 
 ### Étape 1 : Ajouter Braze depuis la galerie {#step-1-add-braze-from-the-gallery}
 
 1. Dans votre centre d'administration Microsoft Entra, accédez à **Identity** > **Applications** > **Enterprise Applications**, puis sélectionnez **New application**.
 2. Recherchez **Braze** dans la barre de recherche, sélectionnez-le dans le panneau de résultats, puis sélectionnez **Add**.
 
-### Étape 2 : Configurer Microsoft Entra SSO {#step-2-configure-microsoft-entra-sso}
+### Étape 2 : Configurer Microsoft Entra authentification unique {#step-2-configure-microsoft-entra-sso}
 
 1. Dans votre centre d'administration Microsoft Entra, accédez à la page d'intégration de l'application Braze et sélectionnez **Single sign-on**.
 2. Sur la page **Select a single sign-on method**, sélectionnez **SAML** comme méthode.
@@ -90,7 +90,7 @@ Vous pouvez gérer ces revendications et valeurs utilisateur depuis la section *
 8. Accédez à la page **Set up Single Sign-On with SAML**, puis faites défiler jusqu'à la section **SAML Signing Certificate** et téléchargez le **Certificate (Base64)** approprié en fonction de vos besoins.
 9. Accédez à la section **Set up Braze** et copiez les URL appropriées pour les utiliser dans la [configuration Braze](#step-3).
 
-### Étape 3 : Configurer Microsoft Entra SSO dans Braze {#step-3}
+### Étape 3 : Configurer Microsoft Entra authentification unique dans Braze {#step-3}
 
 Après avoir configuré Braze dans le centre d'administration Microsoft Entra, Microsoft Entra fournit une URL cible (URL de connexion) et un certificat **x.509**, que vous saisissez dans votre compte Braze.
 
@@ -104,7 +104,7 @@ Une fois que votre gestionnaire de compte a activé l'authentification unique SA
 | `SAML Name` | Ce nom apparaîtra comme texte du bouton sur l'écran de connexion. Il s'agit généralement du nom de votre fournisseur d'identité, par exemple « Microsoft Entra ». |
 | `Target URL` | Il s'agit de l'URL de connexion fournie par Microsoft Entra. |
 | `Certificate` | Le certificat `x.509` encodé en PEM est fourni par votre fournisseur d'identité. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer Microsoft Entra SSO dans Braze" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer Microsoft Entra authentification unique dans Braze" }
 
 {% alert tip %}
 Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) sur la page **Paramètres de sécurité** sous **Règles d'authentification**.

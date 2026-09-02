@@ -10,7 +10,7 @@ description: "Esta página explica cómo crear un formulario de registro de corr
 
 > Usa la plantilla de mensaje dentro de la aplicación de arrastrar y soltar para registro de correo electrónico para recopilar las direcciones de correo electrónico de los usuarios y hacer crecer tus grupos de suscripción.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desarrollo de software requirements' %}
 
 ## Crear un formulario de registro de correo electrónico {#creating-an-email-sign-up-form}
 
@@ -34,7 +34,7 @@ Puedes personalizar el texto del marcador de posición y el texto de la etiqueta
 
 #### Validación de correo electrónico {#email-validation}
 
-Si el usuario introduce una dirección de correo electrónico que incluye caracteres especiales no aceptados, verá un indicador de error genérico y no podrá enviar el formulario. Este mensaje de error no es personalizable. Puedes ver el comportamiento del error en la pestaña **Preview & Test** y en tu dispositivo de prueba. Obtén más información sobre cómo Braze formatea las direcciones de correo electrónico en [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
+Si el usuario introduce una dirección de correo electrónico que incluye caracteres especiales no aceptados, verá un indicador de error genérico y no podrá enviar el formulario. Este mensaje de error no es personalizable. Puedes ver el comportamiento del error en la pestaña **vista previa & Test** y en tu dispositivo de prueba. Obtén más información sobre cómo Braze formatea las direcciones de correo electrónico en [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 ### Paso 4: Añade un texto de exención de responsabilidad (opcional) {#step-4-add-disclaimer-language-optional}
 

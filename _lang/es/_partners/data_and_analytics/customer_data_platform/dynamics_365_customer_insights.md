@@ -22,7 +22,7 @@ La integración de Braze y Dynamics 365 Customer Insights te permite exportar se
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Dynamics 365 Customer Insights | Se necesita una cuenta de [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) para aprovechar esta asociación. Necesitarás acceso como administrador para ver y editar conexiones dentro de tu cuenta de Dynamics 365 Customer Insights para acceder a los plugins necesarios. |
-| Clave de API REST de Braze | Se necesita una clave de API REST de Braze con los permisos `users.track` y `users.export.segment`. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Se necesita una clave de API REST or transferencia de estado representacional de Braze con los permisos `users.track` y `users.export.segment`. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
 | Identificadores de perfiles coincidentes | Los perfiles de cliente unificados en los segmentos exportados contienen un campo que representa una dirección de correo electrónico y un `external_id` de Braze. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -34,7 +34,7 @@ En Customer Insights, ve a **Admin > Connections**. A continuación, selecciona 
 
 1. Dale a tu conexión un nombre reconocible en el campo **Display name**.
 2. Elige quién puede utilizar esta conexión. Si dejas este campo en blanco, el valor predeterminado será Administrators. Para más información, consulta [Allow contributors to use a connection for exports](https://docs.microsoft.com/en-us/dynamics365/customer-insights/connections#allow-contributors-to-use-a-connection-for-exports).
-3. Proporciona tu clave de API de Braze y el punto de conexión REST en el formato `rest.iad-03.braze.com`.
+3. Proporciona tu clave de API de Braze y el punto de conexión REST or transferencia de estado representacional en el formato `rest.iad-03.braze.com`.
 4. Selecciona **I agree** para confirmar la conformidad de los datos y la privacidad.
 5. Selecciona **Connect** para inicializar la conexión con Braze.
 6. Selecciona **Add yourself as export user** e introduce tus credenciales de Customer Insights.

@@ -19,7 +19,7 @@ Braze berechnet den optimalen Sendezeitpunkt auf Grundlage einer statistischen A
 - Beeinflusste Push-Öffnungen
 - E-Mail-Klicks
 - E-Mail-Öffnungen (ausgenommen [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
-- SMS-Klicks (nur wenn [Link-Verkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) und erweitertes Tracking aktiviert sind)
+- Kurzmitteilungsdienst or SMS-Klicks (nur wenn [Link-Verkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) und erweitertes Tracking aktiviert sind)
 
 Beispiel: Sam öffnet Ihre E-Mails regelmäßig morgens, nutzt Ihre App jedoch abends und interagiert dann auch mit Benachrichtigungen. Das bedeutet, dass Sam eine E-Mail-Campaign mit intelligentem Timing morgens erhalten würde, während sie Campaigns mit Push-Benachrichtigungen abends erhält – zu einem Zeitpunkt, an dem sie mit höherer Wahrscheinlichkeit interagiert.
 
@@ -33,7 +33,7 @@ Wenn für eine:n Nutzer:in keine relevanten Engagement-Daten vorliegen, anhand d
 
 ## Intelligentes Timing verwenden {#using-intelligent-timing}
 
-In diesem Abschnitt wird beschrieben, wie Sie intelligentes Timing für Ihre Campaigns und Canvases konfigurieren.
+In diesem Abschnitt wird beschrieben, wie Sie intelligentes Timing für Ihre Campaigns und Canvase konfigurieren.
 
 {% tabs local %}
 {% tab Campaign %}
@@ -136,7 +136,7 @@ Das Vorschau-Chart zeigt jede Stunde des Tages in Ihrer Ortszeit an. Die Beschri
 
 ![Beispielvorschau der Zustellzeiten für Android-Push.]({% image_buster /assets/img/intel-timing-preview.png %})
 
-Wenn Sie Einstellungen zum intelligenten Timing oder zu Ihrer Campaign-Zielgruppe ändern, aktualisieren Sie die Daten erneut, um ein aktualisiertes Chart anzuzeigen.
+Wenn Sie Einstellungen zum intelligenten Timing oder zu Ihrer Campaign-Zielgruppe ändern, Update or aktualisieren or aktualisieren Sie die Daten erneut, um ein aktualisiertes Chart anzuzeigen.
 
 Das Chart zeigt Nutzer:innen, die relevante Ereignisse zur Berechnung einer optimalen Zeit hatten, in blau und Nutzer:innen, die die Fallback-Zeit verwenden, in rot. Verwenden Sie die Berechnungsfilter, um die Vorschauansicht für einen detaillierteren Blick auf eine der beiden Nutzer:innengruppen anzupassen.
 {% endtab %}
@@ -225,7 +225,7 @@ Nein, intelligentes Timing ist nicht an bestimmte Tage gebunden. Stattdessen per
 
 Um die optimale Zeit zu berechnen, geht intelligentes Timing wie folgt vor:
 
-1. Analysiert die Interaktionsdaten für jede:n Nutzer:in, die vom Braze SDK aufgezeichnet wurden. Dies beinhaltet:
+1. Analysiert die Interaktionsdaten für jede:n Nutzer:in, die vom Braze SDK or Software-Development-Kit aufgezeichnet wurden. Dies beinhaltet:
   - Sitzungszeiten
   - Push-Direktöffnungen
   - Push-beeinflusste Öffnungen

@@ -13,7 +13,7 @@ tool: Canvas
 
 > Mit Canvas-Zielgruppenpfaden können Sie Nutzer:innen intuitiv in großem Umfang filtern und segmentieren, indem jede:r Nutzer:in den ersten Pfad durchläuft, dessen Kriterien erfüllt werden.
 
-Diese Canvas-Komponente ersetzt die Notwendigkeit, übermäßig viele zielgruppenbasierte vollständige Schritte zu erstellen, und ermöglicht es Ihnen, bis zu acht vollständige Komponenten in einer einzigen zusammenzufassen. Das vereinfacht das Targeting und befreit Ihre Canvases von unnötiger Unübersichtlichkeit und Komplexität.
+Diese Canvas-Komponente ersetzt die Notwendigkeit, übermäßig viele zielgruppenbasierte vollständige Schritte zu erstellen, und ermöglicht es Ihnen, bis zu acht vollständige Komponenten in einer einzigen zusammenzufassen. Das vereinfacht das Targeting und befreit Ihre Canvase von unnötiger Unübersichtlichkeit und Komplexität.
 
 ## So funktioniert es {#how-it-works}
 
@@ -34,7 +34,7 @@ Innerhalb eines einzelnen Zielgruppenpfade-Schritts werden Nutzer:innen der Reih
 
 ![Canvas mit einer 24-Stunden-Verzögerung nach einem Nachrichten-Schritt, gefolgt von einem Zielgruppenpfad.]({% image_buster /assets/img/audience_path/audience_path5.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
-Nutzer:innen werden anhand von Filtern und Segment-Zugehörigkeit **in dem Moment ausgewertet, in dem sie den Zielgruppenpfad-Schritt erreichen** – nicht beim Eintritt in den Canvas. Nach der Auswertung werden sie sofort zum passenden Pfad weitergeleitet. Wenn Nutzer:innen einer Zielgruppe zugeordnet wurden, bleiben sie in dieser Gruppe, auch wenn sich ihr Nutzerprofil danach ändert.
+Nutzer:innen werden anhand von Filtern und Segment-Zugehörigkeit **in dem Moment ausgewertet, in dem sie den Zielgruppenpfad-Schritt erreichen** – nicht beim Eintritt in den Canvas. Nach der Auswertung werden sie sofort zum passenden Pfad weitergeleitet. Wenn Nutzer:innen einer Zielgruppe zugeordnet wurden, bleiben sie in dieser Gruppe, auch wenn sich ihr Kundenprofil or Nutzerprofil danach ändert.
 
 <div style="clear: both;"></div>
 
@@ -42,7 +42,7 @@ Nutzer:innen werden anhand von Filtern und Segment-Zugehörigkeit **in dem Momen
 Zielgruppenpfade werten basierend auf den aktuellen Attributen, Filtern und der Segment-Zugehörigkeit zum Zeitpunkt der Auswertung aus. Sie werten nicht basierend auf dem spezifischen Event aus, das den Canvas-Eintritt ausgelöst hat. Um Nutzer:innen basierend auf einer durchgeführten Aktion (z. B. einem angepassten Event) weiterzuleiten, verwenden Sie stattdessen [Aktionspfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths).
 {% endalert %}
 
-Nutzer:innen werden nicht erneut anhand ihrer Zielgruppe ausgewertet, nachdem sie einen Pfad eingeschlagen haben. Wenn die nachfolgende Nachricht durch einen Verzögerungsschritt, Ruhezeiten, intelligentes Timing, Rate-Limiting oder Zustellung nach Ortszeit verzögert wird, kann sich das Nutzerprofil ändern, bevor die Nachricht gesendet wird.
+Nutzer:innen werden nicht erneut anhand ihrer Zielgruppe ausgewertet, nachdem sie einen Pfad eingeschlagen haben. Wenn die nachfolgende Nachricht durch einen Verzögerungsschritt, Ruhezeiten, intelligentes Timing, Rate-Limiting oder Zustellung nach Ortszeit verzögert wird, kann sich das Kundenprofil or Nutzerprofil ändern, bevor die Nachricht gesendet wird.
 
 Um sicherzustellen, dass Nutzer:innen vor dem Senden des Nachrichten-Schritts weiterhin die Segment- und Filterkriterien erfüllen, aktivieren Sie **Zielgruppe beim Nachrichtenversand validieren** in den [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) des Nachrichten-Schritts. Zustellungsvalidierungen prüfen nur die Segments und Filter, die Sie zu diesem Nachrichten-Schritt hinzufügen – sie verwenden nicht die Kriterien Ihres Zielgruppenpfads wieder. Bei In-App-Nachrichten werden Zustellungsvalidierungen geprüft, wenn Nutzer:innen den Nachrichten-Schritt erreichen, nicht wenn die Nachricht angezeigt wird.
 

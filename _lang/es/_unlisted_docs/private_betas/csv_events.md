@@ -8,20 +8,20 @@ page_type: reference
 
 # Importar datos de usuario (acceso anticipado a eventos CSV) {#importing-user-data-csv-events-early-access}
 
-> Braze ofrece diversas formas de importar datos de usuario a la plataforma: SDK, API, ingesta de datos en la nube, integraciones de partners tecnológicos y archivos CSV. Este artículo proporciona instrucciones detalladas sobre cómo importar datos de usuario, incluyendo cómo [importar eventos personalizados a través de archivos CSV (acceso anticipado)](#importing-custom-events).
+> Braze ofrece diversas formas de importar datos de usuario a la plataforma: SDK or kit de desarrollo de software, API, ingesta de datos en la nube, integraciones de partners tecnológicos y archivos CSV. Este artículo proporciona instrucciones detalladas sobre cómo importar datos de usuario, incluyendo cómo [importar eventos personalizados a través de archivos CSV (acceso anticipado)](#importing-custom-events).
 
 {% alert important %}
-No envíes correos transaccionales legalmente obligatorios a pasarelas SMS, ya que existe una alta probabilidad de que esos correos electrónicos no se entreguen.
+No envíes correos transaccionales legalmente obligatorios a pasarelas servicio de mensajes cortos, ya que existe una alta probabilidad de que esos correos electrónicos no se entreguen.
 
-Aunque los correos electrónicos que envías usando un número de teléfono y el dominio de pasarela de correo electrónico a SMS del proveedor (MM3) pueden resultar en que el correo electrónico se reciba como un mensaje SMS (texto), algunos proveedores de correo electrónico no admiten este comportamiento. Por ejemplo, si envías un correo electrónico a un número de teléfono de T-Mobile (como "9999999999@tmomail.net"), tu mensaje SMS se enviaría a quien sea propietario de ese número de teléfono en la red de T-Mobile.
+Aunque los correos electrónicos que envías usando un número de teléfono y el dominio de pasarela de correo electrónico a servicio de mensajes cortos del proveedor (MM3) pueden resultar en que el correo electrónico se reciba como un mensaje servicio de mensajes cortos (texto), algunos proveedores de correo electrónico no admiten este comportamiento. Por ejemplo, si envías un correo electrónico a un número de teléfono de T-Mobile (como "9999999999@tmomail.net"), tu mensaje servicio de mensajes cortos se enviaría a quien sea propietario de ese número de teléfono en la red de T-Mobile.
 
-Aunque estos correos electrónicos no se entreguen a la pasarela SMS, siguen contando para tu facturación de correo electrónico. Para evitar enviar correos electrónicos a pasarelas no compatibles, revisa la [lista de nombres de dominio de pasarelas no compatibles](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
+Aunque estos correos electrónicos no se entreguen a la pasarela servicio de mensajes cortos, siguen contando para tu facturación de correo electrónico. Para evitar enviar correos electrónicos a pasarelas no compatibles, revisa la [lista de nombres de dominio de pasarelas no compatibles](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads).
 {% endalert %}
 
 
 Antes de continuar, ten en cuenta que Braze no sanea (valida ni formatea correctamente) los datos HTML durante la importación. Esto significa que las etiquetas de script deben eliminarse de todos los datos de importación destinados a la personalización web.
 
-## REST API
+## REST or transferencia de estado representacional API
 
 Puedes usar el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar eventos personalizados, atributos de usuario y compras para los usuarios.
 
@@ -41,7 +41,7 @@ Si estás cargando una combinación de usuarios con un `external_id` y usuarios 
 
 ### Importar con ID externo {#importing-with-external-id}
 
-Al importar los datos de tus clientes, necesitarás especificar el identificador único de cada cliente, también conocido como `external_id`. Antes de comenzar tu importación de CSV, es importante que tu equipo de ingeniería te indique cómo se identificarán los usuarios en Braze. Normalmente, se trata de un ID de base de datos interna. Este debe coincidir con la forma en que los usuarios serán identificados por el SDK de Braze en dispositivos móviles y web, y está diseñado para que cada cliente tenga un único perfil de usuario dentro de Braze en todos sus dispositivos. Lee más sobre el [ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) de Braze.
+Al importar los datos de tus clientes, necesitarás especificar el identificador único de cada cliente, también conocido como `external_id`. Antes de comenzar tu importación de CSV, es importante que tu equipo de ingeniería te indique cómo se identificarán los usuarios en Braze. Normalmente, se trata de un ID de base de datos interna. Este debe coincidir con la forma en que los usuarios serán identificados por el SDK or kit de desarrollo de software de Braze en dispositivos móviles y web, y está diseñado para que cada cliente tenga un único perfil de usuario dentro de Braze en todos sus dispositivos. Lee más sobre el [ciclo de vida del perfil de usuario]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) de Braze.
 
 Cuando proporcionas un `external_id` en tu importación, Braze actualiza cualquier usuario existente con el mismo `external_id` o crea un nuevo usuario identificado con ese `external_id` configurado si no se encuentra uno.
 
@@ -148,7 +148,7 @@ Los arrays y tokens de notificaciones push no son compatibles con la importació
 
 ### Actualizar el estado del grupo de suscripción {#updating-subscription-group-status}
 
-Puedes agregar usuarios a grupos de suscripción de correo electrónico o SMS a través de la importación de usuarios. Esto es particularmente útil para SMS, ya que un usuario debe estar inscrito en un grupo de suscripción de SMS para recibir mensajes del canal SMS. Para más información, consulta [Grupos de suscripción de SMS]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement).
+Puedes agregar usuarios a grupos de suscripción de correo electrónico o servicio de mensajes cortos a través de la importación de usuarios. Esto es particularmente útil para servicio de mensajes cortos, ya que un usuario debe estar inscrito en un grupo de suscripción de servicio de mensajes cortos para recibir mensajes del canal servicio de mensajes cortos. Para más información, consulta [Grupos de suscripción de servicio de mensajes cortos]({{site.baseurl}}/user_guide/message_building_by_channel/sms/sms_subscription_group#subscription-group-mms-enablement).
 
 Si estás actualizando el estado del grupo de suscripción, debes tener las siguientes dos columnas en tu CSV:
 
@@ -237,7 +237,7 @@ Cada dato de cliente importado a través de CSV sobrescribirá el valor existent
 - Actualizar `email_subscribe`, `push_subscribe`, `subscription_group_id` o `subscription_state` no contará para el consumo de puntos de datos.
 
 {% alert important %}
-Configurar el idioma o el país de un usuario a través de la importación CSV o la API evitará que Braze capture automáticamente esta información a través del SDK.
+Configurar el idioma o el país de un usuario a través de la importación CSV o la API evitará que Braze capture automáticamente esta información a través del SDK or kit de desarrollo de software.
 {% endalert %}
 
 ## Importar un CSV {#importing-a-csv}

@@ -1,15 +1,15 @@
 ---
-nav_title: SMS
-article_title: Puntos finales SMS
+nav_title: servicio de mensajes cortos
+article_title: Puntos finales servicio de mensajes cortos
 search_tag: Endpoint
 page_order: 6
 layout: dev_guide
 
-description: "En esta página se enumeran los puntos finales de SMS de Braze."
+description: "En esta página se enumeran los puntos finales de servicio de mensajes cortos de Braze."
 page_type: landing
 
-guide_top_header: "Puntos finales SMS"
-guide_top_text: "Usa los puntos finales de SMS de Braze para administrar los números de teléfono de tus usuarios en tus grupos de suscripción."
+guide_top_header: "Puntos finales servicio de mensajes cortos"
+guide_top_text: "Usa los puntos finales de servicio de mensajes cortos de Braze para administrar los números de teléfono de tus usuarios en tus grupos de suscripción."
 
 guide_featured_title: ""
 guide_featured_list:

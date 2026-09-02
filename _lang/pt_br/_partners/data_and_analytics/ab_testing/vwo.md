@@ -18,7 +18,7 @@ Ao integrar o VWO com a Braze, você pode aproveitar os dados de experimentos do
 | Requisito | Descrição |
 |-----------------|-------------|
 | Conta do VWO | Uma conta do VWO com acesso a dados de experimentação. |
-| Conta da Braze | Uma conta ativa da Braze com o [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado em sua página da web. Você também precisará da segmentação de propriedades de eventos ativada. Para solicitá-la, veja [Considerações](#request-event-property-segmentation). |
+| Conta da Braze | Uma conta ativa da Braze com o [Braze Web SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) integrado em sua página da web. Você também precisará da segmentação de propriedades de eventos ativada. Para solicitá-la, veja [Considerações](#request-event-property-segmentation). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integrando o VWO com a Braze {#integrating-vwo-with-braze}
@@ -37,18 +37,18 @@ Ao integrar o VWO com a Braze, você pode aproveitar os dados de experimentos do
 
 6. Depois de ativar a integração, o VWO começará a enviar dados de experimentos para a Braze no nível da campanha.
 
-### Etapa 2: Crie um segmento na Braze com propriedades de evento do VWO {#step-2-create-a-segment-in-braze-with-vwo-event-properties}
+### Etapa 2: Crie um Segment or segmento or segmento na Braze com propriedades de evento do VWO {#step-2-create-a-segment-in-braze-with-vwo-event-properties}
 
 1. No dashboard da Braze, selecione **Segments** > **+ Create Segment**.
-3. Na janela **Create Segment**, insira um nome para o segmento e depois selecione **Create Segment**.
-4. No seu segmento recém-criado, selecione **Filters** > **Add Filter** e escolha **Custom Event** como o tipo de filtro.
+3. Na janela **Create Segment**, insira um nome para o Segment or segmento e depois selecione **Create Segment**.
+4. No seu Segment or segmento or segmento recém-criado, selecione **Filters** > **Add Filter** e escolha **Custom Event** como o tipo de filtro.
 6. No dropdown de filtro, procure por **VWO**.
 7. Selecione a propriedade relevante do VWO e especifique o valor necessário.
 8. Se necessário, configure o número de visitas e o período de tempo. Quando terminar, selecione **Save**.
 
    ![Criação de segmento na Braze]({% image_buster /assets/img/vwo/vwo3_braze_segment.png %})
 
-9. Para ver o número de usuários que correspondem aos critérios do seu segmento, selecione **Calculate Exact Statistics**.
+9. Para ver o número de usuários que correspondem aos critérios do seu Segment or segmento or segmento, selecione **Calculate Exact Statistics**.
 
    ![Estatísticas de segmento na Braze]({% image_buster /assets/img/vwo/vwo4_braze_segment_calculate_size.png %})
 

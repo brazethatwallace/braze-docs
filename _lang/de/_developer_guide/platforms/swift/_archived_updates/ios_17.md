@@ -1,29 +1,29 @@
 ---
-nav_title: Anleitung zum Upgrade für iOS 17
-article_title: Anleitung zum Upgrade für iOS 17
+nav_title: Anleitung zum Upgrade or upgraden für iOS 17
+article_title: Anleitung zum Upgrade or upgraden für iOS 17
 page_order: 7
 platform:
   - iOS
-description: "Dieser Artikel enthält Insights zum Release von iOS 17, damit Sie Ihr SDK nahtlos upgraden können."
+description: "Dieser Artikel enthält Insights zum Release von iOS 17, damit Sie Ihr SDK or Software-Development-Kit nahtlos upgraden können."
 hidden: true
 noindex: true
 ---
 
-# Anleitung zum Upgrade für iOS 17 {#ios-17-upgrade-guide}
+# Anleitung zum Upgrade or upgraden für iOS 17 {#ios-17-upgrade-guide}
 
 > Sind Sie neugierig, wie Braze sich auf das kommende iOS-Release vorbereitet? Dieser Artikel fasst unsere Insights zum iOS 17 Release zusammen, um Ihnen und Ihren Nutzer:innen ein nahtloses Erlebnis zu ermöglichen.
 
 ## Kompatibilität mit iOS 17 und Xcode 15 {#ios-17-and-xcode-15-compatibility}
 
-Das Braze Swift SDK und das Objective-C SDK sind beide rückwärtskompatibel mit Xcode 14 und Xcode 15 sowie mit iOS 17-Geräten.
+Das Braze Swift SDK or Software-Development-Kit und das Objective-C SDK or Software-Development-Kit sind beide rückwärtskompatibel mit Xcode 14 und Xcode 15 sowie mit iOS 17-Geräten.
 
 ## Änderungen in iOS 17 {#changes-in-ios-17}
 
 ### Link-Tracking und UTM-Parameter-Stripping {#link-tracking-and-utm-parameter-stripping}
 
-Eine der wichtigsten Änderungen in iOS 17 ist das Blockieren von UTM-Parametern in Safari. UTM-Parameter sind Code-Abschnitte, die zu URLs hinzugefügt werden. Sie werden häufig in Marketingkampagnen verwendet, um die Effektivität von E-Mail, SMS und anderen Messaging-Kanälen zu messen.
+Eine der wichtigsten Änderungen in iOS 17 ist das Blockieren von UTM-Parametern in Safari. UTM-Parameter sind Code-Abschnitte, die zu URLs hinzugefügt werden. Sie werden häufig in Marketingkampagnen verwendet, um die Effektivität von E-Mail, Kurzmitteilungsdienst or SMS und anderen Messaging-Kanälen zu messen.
 
-Diese Änderung wirkt sich nicht auf das Braze E-Mail-Klick-Tracking und SMS-Linkverkürzungen aus.
+Diese Änderung wirkt sich nicht auf das Braze E-Mail-Klick-Tracking und Kurzmitteilungsdienst or SMS-Linkverkürzungen aus.
 
 ### App-Tracking-Transparenz {#app-tracking-transparency}
 
@@ -37,12 +37,12 @@ Braze hat ein eigenes Datenschutzmanifest veröffentlicht, zusammen mit neuen fl
 
 #### Code Signing {#code-signing}
 
-Code Signing erlaubt es Entwickler:innen, die ein SDK eines Drittanbieters in ihrer Anwendung verwenden, zu überprüfen, ob derselbe Entwickler bzw. dieselbe Entwicklerin es signiert hat wie frühere Versionen in Xcode.
+Code Signing erlaubt es Entwickler:innen, die ein SDK or Software-Development-Kit eines Drittanbieters in ihrer Anwendung verwenden, zu überprüfen, ob derselbe Entwickler bzw. dieselbe Entwicklerin es signiert hat wie frühere Versionen in Xcode.
 
-### Braze SDK und Datenschutz {#braze-sdk-and-privacy}
+### Braze SDK or Software-Development-Kit und Datenschutz {#braze-sdk-and-privacy}
 
 Apple hat außerdem angekündigt, Ende 2023 eine Liste der SDKs von Drittanbietern zu veröffentlichen, die als „datenschutzrelevant“ gelten. Es wird erwartet, dass diese SDKs nach Einschätzung von Apple einen besonders großen Einfluss auf die Privatsphäre der Nutzer:innen haben.
 
-Anders als herkömmliche Tracking-SDKs, die darauf ausgelegt sind, Nutzer:innen über mehrere Websites und Anwendungen hinweg zu überwachen, konzentriert sich das Braze SDK auf First-Party-Daten-Messaging und Nutzererlebnisse.
+Anders als herkömmliche Tracking-SDKs, die darauf ausgelegt sind, Nutzer:innen über mehrere Websites und Anwendungen hinweg zu überwachen, konzentriert sich das Braze SDK or Software-Development-Kit auf First-Party-Daten-Messaging und Nutzererlebnisse.
 
-Wir gehen zwar nicht davon aus, dass das Braze SDK in diese Liste aufgenommen wird, aber wir werden die Situation genau beobachten und gegebenenfalls Updates veröffentlichen.
+Wir gehen zwar nicht davon aus, dass das Braze SDK or Software-Development-Kit in diese Liste aufgenommen wird, aber wir werden die Situation genau beobachten und gegebenenfalls Updates veröffentlichen.

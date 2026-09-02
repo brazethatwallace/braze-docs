@@ -14,7 +14,7 @@ toc_headers: h2
 Con el destino de Decisioning Studio de CDI, CDI también puede sincronizar datos del almacén directamente con BrazeAI Decisioning Studio. Los datos de estas sincronizaciones se ponen a disposición de Decisioning Studio para su activación, pero tus perfiles de usuario y espacios de trabajo de Braze permanecen sin cambios.
 
 {% alert important %}
-Esta característica se encuentra en acceso anticipado. Ponte en contacto con tu administrador de éxito de cliente o director de cuentas para obtener acceso.
+Esta característica se encuentra en acceso anticipado. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o director de cuentas para obtener acceso.
 {% endalert %}
 
 ## Cómo funciona {#how-it-works}
@@ -40,7 +40,7 @@ Para conocer otras formas de poner datos a disposición de Decisioning Studio, c
 2. Selecciona **Create data sync**.
 3. Introduce un **Integration Name** y luego selecciona tu origen en **Data sources**.
 4. En **Destination**, establece **Data destination** en **BrazeAI Decisioning Studio™**.
-5. En **Data category**, selecciona el tipo de **Decisioning Studio data** que mejor se ajuste a tu tabla. Elige entre **Customer profile**, **Message engagement events**, **Conversion events** u **Other**. Esto etiqueta los datos para Decisioning Studio y no cambia la forma en que CDI procesa tus filas.
+5. En **Data category**, selecciona el tipo de **Decisioning Studio data** que mejor se ajuste a tu tabla. Elige entre **perfil de usuario**, **Message engagement events**, **Conversion events** u **Other**. Esto etiqueta los datos para Decisioning Studio y no cambia la forma en que CDI procesa tus filas.
 
 ### Paso 2: Escribir tu consulta SQL {#step-2-write-your-sql-query}
 
@@ -62,7 +62,7 @@ Solo se admiten consultas de lectura de una sola sentencia, incluidas las cláus
 
 ### Paso 3: Previsualizar y validar tu consulta {#step-3-preview-and-validate-your-query}
 
-Selecciona **Preview and validate** para ejecutar tu consulta. La sección **Query preview (first 10 rows)** muestra las primeras 10 filas devueltas desde tu origen, junto con el tipo de datos detectado de cada columna, para que puedas confirmar que los datos son correctos antes de continuar.
+Selecciona **vista previa and validate** para ejecutar tu consulta. La sección **Query vista previa (first 10 rows)** muestra las primeras 10 filas devueltas desde tu origen, junto con el tipo de datos detectado de cada columna, para que puedas confirmar que los datos son correctos antes de continuar.
 
 ### Paso 4: Seleccionar una clave primaria {#step-4-select-a-primary-key}
 

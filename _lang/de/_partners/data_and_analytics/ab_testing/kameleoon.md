@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Kameleoon
 
->[Kameleoon](https://www.kameleoon.com) ist eine Optimierungslösung mit Funktionen für Experimente, KI-gestützte Personalisierung und Feature-Management in einer einzigen, einheitlichen Plattform.
+>[Kameleoon](https://www.kameleoon.com) ist eine Optimierungslösung mit Funktionen für Experimente, KI or künstliche Intelligenz-gestützte Personalisierung und Feature-Management in einer einzigen, einheitlichen Plattform.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -18,7 +18,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Anforderung | Beschreibung |
 | --- | --- |
 | Kameleoon-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Kameleoon-Konto. |
-| Braze-Konto | Ein aktives Braze-Konto mit dem auf Ihrer Webseite integrierten [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web). Außerdem muss die Segmentierung nach Event-Eigenschaften aktiviert sein. Informationen zur Anforderung finden Sie unter [Überlegungen](#considerations). |
+| Braze-Konto | Ein aktives Braze-Konto mit dem auf Ihrer Webseite integrierten [Braze Web SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web). Außerdem muss die Segmentierung nach Event-Eigenschaften aktiviert sein. Informationen zur Anforderung finden Sie unter [Überlegungen](#considerations). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -91,7 +91,7 @@ Nachdem die Integration eingerichtet ist, sendet Kameleoon angepasste Events nam
 
 ![Das Event-Nutzerprotokoll für angepasste Events in Braze mit einer Beispiel-Payload des Events, das Braze von Kameleoon erhalten hat.]({% image_buster /assets/img/kameleoon/img_9.png %})
 
-Sie können diese Daten dann unter den angepassten Events einsehen, angepasste Event-Berichte erstellen, um die Exposition gegenüber Kameleoon-Kampagnen zu ermitteln, und eine Segmentierung auf Basis von Event-Eigenschaften aktivieren. Sie können angepasste Events verwenden, wenn Sie nachfolgende oder verknüpfte Campaigns und Canvases über [Aktionspfade]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups), [aktionsbasierte Trigger]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) oder die Erstellung von [Segmenten]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) erstellen.
+Sie können diese Daten dann unter den angepassten Events einsehen, angepasste Event-Berichte erstellen, um die Exposition gegenüber Kameleoon-Kampagnen zu ermitteln, und eine Segmentierung auf Basis von Event-Eigenschaften aktivieren. Sie können angepasste Events verwenden, wenn Sie nachfolgende oder verknüpfte Campaigns und Canvase über [Aktionspfade]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/action_paths/#action-groups), [aktionsbasierte Trigger or triggern]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) oder die Erstellung von [Segmenten]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) erstellen.
 
 Darüber hinaus sind diese Events über [angepasste Event-Objekte von Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) zugänglich, um eine umfassende Berichterstattung und Analyse zu ermöglichen.
 
@@ -99,7 +99,7 @@ Darüber hinaus sind diese Events über [angepasste Event-Objekte von Currents](
 
 ### Segmentierung nach Event-Eigenschaften anfragen {#request-event-property-segmentation}
 
-Bevor Sie die Segmentierung nach Event-Eigenschaften verwenden können, muss diese in Braze aktiviert werden. Verwenden Sie das folgende Template, um Ihren Braze-CSM oder das Support-Team zu kontaktieren und den Zugang anzufragen.
+Bevor Sie die Segmentierung nach Event-Eigenschaften verwenden können, muss diese in Braze aktiviert werden. Verwenden Sie das folgende Template, um Ihren Braze-CSM or Customer-Success-Manager oder das Support-Team zu kontaktieren und den Zugang anzufragen.
 
    <table aria-label="Segmentierung nach Event-Eigenschaften anfragen">
      <caption>Segmentierung nach Event-Eigenschaften anfragen</caption>

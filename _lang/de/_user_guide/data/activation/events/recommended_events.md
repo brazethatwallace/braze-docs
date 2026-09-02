@@ -9,7 +9,7 @@ description: "Dieser Referenzartikel beschreibt empfohlene Events – Empfehlung
 
 # Empfohlene Events {#recommended-events}
 
-> Empfohlene Events basieren auf einem Framework, das standardisierte angepasste Events mit definierten JSON-Schemata sendet. Wenn Sie ein empfohlenes Event senden, validiert Braze es bei der Aufnahme gegen sein Schema und wendet eine spezialisierte Nachbearbeitung an – wie automatische Feldberechnungen oder Warenkorb-Verwaltung –, die generische angepasste Events nicht erhalten. Für bestimmte branchenspezifische Event-Sets unterstützt Braze außerdem eine spezielle Behandlung, wie z. B. dedizierte aktionsbasierte Trigger für Campaigns und Canvases.
+> Empfohlene Events basieren auf einem Framework, das standardisierte angepasste Events mit definierten JSON-Schemata sendet. Wenn Sie ein empfohlenes Event senden, validiert Braze es bei der Aufnahme gegen sein Schema und wendet eine spezialisierte Nachbearbeitung an – wie automatische Feldberechnungen oder Warenkorb-Verwaltung –, die generische angepasste Events nicht erhalten. Für bestimmte branchenspezifische Event-Sets unterstützt Braze außerdem eine spezielle Behandlung, wie z. B. dedizierte aktionsbasierte Trigger or triggern für Campaigns und Canvase.
 
 ## Empfohlene E-Commerce-Events {#ecommerce-recommended-events}
 
@@ -23,20 +23,20 @@ Da diese Events einem definierten Schema folgen, kann jedes unterstützte Featur
 
 ### So funktionieren E-Commerce-Events {#how-ecommerce-events-work}
 
-E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemas. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), den [`/users/track` REST API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachverarbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemas. Sie senden sie über das [Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), den [`/users/track` Representational State Transfer API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachverarbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
 
 {% alert note %}
-CSV-Uploads unterstützen keine E-Commerce-Events. Verwenden Sie das SDK, `/users/track` oder CDI, um diese Events zu senden.
+CSV-Uploads unterstützen keine E-Commerce-Events. Verwenden Sie das SDK or Software-Development-Kit, `/users/track` oder CDI, um diese Events zu senden.
 {% endalert %}
 
-E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger und Filter für durchgeführte angepasste Events, Reporting für angepasste Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
+E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger or triggern und Filter für durchgeführte angepasste Events, Reporting für angepasste Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
 
-- Trigger-Aktionen „Gibt Bestellung auf“ in Campaigns, Canvases, Aktionspfaden, In-App-Nachricht-Triggern und Content-Card-Entfernung
+- Trigger or triggern-Aktionen „Gibt Bestellung auf“ in Campaigns, Canvase, Aktionspfaden, In-App-Nachricht-Trigger or triggern or triggern und Content-Card-Entfernung
 - Berechnete E-Commerce-Nutzerprofilfelder (**Gesamtumsatz**, **Gesamtbestellungen**, **Gesamterstattungen**)
 - Warenkorb-Status-Verwaltung für Warenkorb-Abbruch-Flows
 - Umfangreichere Daten für BrazeAI<sup>TM</sup>-Features wie Predictive Events, voraussichtliche Abwanderung und Artikelempfehlungen
 
-Sie können E-Commerce-Events auch überall dort namentlich referenzieren, wo die Plattform angepasste Events unterstützt. Zum Beispiel können Sie eine aktionsbasierte Campaign mit `ecommerce.product_viewed`-Events triggern, ein Segment erstellen, das nach `ecommerce.checkout_started`-Events filtert, oder `ecommerce.order_placed`-Events über Currents exportieren.
+Sie können E-Commerce-Events auch überall dort namentlich referenzieren, wo die Plattform angepasste Events unterstützt. Zum Beispiel können Sie eine aktionsbasierte Campaign mit `ecommerce.product_viewed`-Events Trigger or triggern or triggern, ein Segment erstellen, das nach `ecommerce.checkout_started`-Events filtert, oder `ecommerce.order_placed`-Events über Currents exportieren.
 
 #### Event-Benennung {#event-naming}
 
@@ -54,8 +54,8 @@ Die sechs empfohlenen E-Commerce-Events bilden Phasen der Kaufreise ab. Lösen S
 ![Diagramm der Nutzerreise durch alle sechs empfohlenen E-Commerce-Events: product_viewed, cart_updated, checkout_started, order_placed, order_cancelled und order_refunded.]({% image_buster /assets/img/shopify/event_schemas.png %})
 
 {% alert tip %}
-Die folgenden Beispiele zeigen den REST API-Payload für jedes Event.
-Für die clientseitige Protokollierung verwenden `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` und `ecommerce.order_placed` die SDK-E-Commerce-Event-APIs, sofern verfügbar, während `ecommerce.order_cancelled` und `ecommerce.order_refunded` `logCustomEvent` verwenden. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Die folgenden Beispiele zeigen den Representational State Transfer API-Payload für jedes Event.
+Für die clientseitige Protokollierung verwenden `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` und `ecommerce.order_placed` die SDK or Software-Development-Kit-E-Commerce-Event-APIs, sofern verfügbar, während `ecommerce.order_cancelled` und `ecommerce.order_refunded` `logCustomEvent` verwenden. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 {% endalert %}
 
 {% tabs %}
@@ -65,7 +65,7 @@ Lösen Sie dieses Event aus, wenn Nutzer:innen eine Produktdetailseite aufrufen.
 
 #### Clientseitige Implementierung {#client-side-implementation}
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Verwenden Sie die SDK or Software-Development-Kit-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Event-Eigenschaften {#event-properties}
 
@@ -79,11 +79,11 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 | `price` | Gleitkommazahl | Ja | Varianten-Stückpreis zum Zeitpunkt der Ansicht. |
 | `currency` | String | Ja | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
 | `source` | String | Ja | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
-| `type` | String-Array | Nein | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-verfügbar- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
+| `type` | String-Array | Nein | Erforderlich, um die Braze-Katalog-Trigger or triggern-Features für Wieder-verfügbar- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
 | `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `category` oder `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
-#### REST API-Beispiel {#rest-api-example}
+#### Representational State Transfer API-Beispiel {#rest-api-example}
 
 ```json
 {
@@ -119,7 +119,7 @@ Lösen Sie dieses Event jedes Mal aus, wenn sich der Inhalt des Warenkorbs ände
 
 #### Clientseitige Implementierung
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Verwenden Sie die SDK or Software-Development-Kit-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 Sie können dieses Event auf zwei Arten senden:
 
@@ -130,10 +130,10 @@ Sie können dieses Event auf zwei Arten senden:
 Verwenden Sie entweder inkrementelle Warenkorb-Aktualisierungen (`add` oder `remove`) oder vollständigen Ersatz (kein `action` oder `replace`) für einen bestimmten Warenkorb. Das Mischen beider Ansätze für dieselbe `cart_id` wird nicht empfohlen und kann zu einem inkonsistenten Warenkorb-Status in Braze führen.
 {% endalert %}
 
-Um Messaging über dieses Event auszulösen, verwenden Sie den Trigger **Warenkorb-Aktualisierungs-Event durchführen** in Canvas und Campaigns. Dieser Trigger enthält eine spezielle Behandlung, um zu verhindern, dass der Warenkorb im Shopping-Funnel weiter fortschreitet.
+Um Messaging über dieses Event auszulösen, verwenden Sie den Trigger or triggern **Warenkorb-Aktualisierungs-Event durchführen** in Canvas und Campaigns. Dieser Trigger or triggern enthält eine spezielle Behandlung, um zu verhindern, dass der Warenkorb im Shopping-Funnel weiter fortschreitet.
 
 {% alert tip %}
-Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Nutzerprofil, das den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag unterstützt. Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. Wenn zwei Nutzerprofile zusammengeführt werden, behält Braze beide Warenkörbe bei.
+Der Warenkorb erstellt ein Warenkorb-Mapping-Objekt im Kundenprofil or Nutzerprofil, das den {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag unterstützt. Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. Wenn zwei Nutzerprofile zusammengeführt werden, behält Braze beide Warenkörbe bei.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -575,7 +575,7 @@ Objective-C
 ```
 
 {% endsubtab %}
-{% subtab REST API %}
+{% subtab Representational State Transfer API %}
 
 ##### `add`
 
@@ -707,7 +707,7 @@ Lösen Sie dieses Event aus, wenn Nutzer:innen den Checkout-Flow starten (z. B. 
 
 #### Clientseitige Implementierung
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Verwenden Sie die SDK or Software-Development-Kit-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Event-Eigenschaften
 
@@ -739,7 +739,7 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 | `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. Farbe, Größe). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST API-Beispiel
+#### Representational State Transfer API-Beispiel
 
 ```json
 {
@@ -802,10 +802,10 @@ Lösen Sie dieses Event aus, wenn eine Bestellung erfolgreich abgeschlossen oder
 
 #### Clientseitige Implementierung
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Verwenden Sie die SDK or Software-Development-Kit-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Nutzerprofil.
+Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Kundenprofil or Nutzerprofil.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -840,7 +840,7 @@ Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den W
 | `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST API-Beispiel
+#### Representational State Transfer API-Beispiel
 
 ```json
 {
@@ -910,10 +910,10 @@ Lösen Sie dieses Event aus, wenn eine Bestellung storniert wird.
 
 #### Clientseitige Implementierung
 
-Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
+Dieses Event verringert `total_orders` um 1 im Kundenprofil or Nutzerprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -948,7 +948,7 @@ Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfl
 | `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST API-Beispiel
+#### Representational State Transfer API-Beispiel
 
 ```json
 {
@@ -1007,10 +1007,10 @@ Lösen Sie dieses Event aus, wenn eine vollständige oder teilweise Erstattung a
 
 #### Clientseitige Implementierung
 
-Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
+Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK or Software-Development-Kit protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
-Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Nutzerprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
+Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Kundenprofil or Nutzerprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
 {% endalert %}
 
 #### Event-Eigenschaften
@@ -1041,7 +1041,7 @@ Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht
 | `metadata` | Object | Nein | Flexible Schlüssel-Wert-Paare (z. B. `color` oder `size`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Produkteigenschaften (products[])" }
 
-#### REST API-Beispiele {#rest-api-examples}
+#### Representational State Transfer API-Beispiele {#rest-api-examples}
 
 {% subtabs %}
 {% subtab Vollständige Erstattung %}
@@ -1133,12 +1133,12 @@ Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut,
 
 | Event | Was Braze automatisch tut |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| `ecommerce.order_placed` | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Nutzerprofil. |
+| `ecommerce.order_placed` | Erhöht **Gesamtumsatz** um `total_value` und **Gesamtbestellungen** um 1 im Kundenprofil or Nutzerprofil. |
 | `ecommerce.order_cancelled` | Verringert **Gesamtbestellungen** um 1. |
 | `ecommerce.order_refunded` | Verringert **Gesamtumsatz** um `total_value` und erhöht **Gesamterstattungswert**. |
-| `ecommerce.cart_updated` | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Nutzerprofil (vollständige Warenkorb-Payloads oder inkrementelle Warenkorb-Aktualisierungen mit optionalem `action`: `add`, `remove` oder `replace`). Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. |
-| `ecommerce.product_viewed` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
-| `ecommerce.checkout_started` | Keine Änderungen am Nutzerprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
+| `ecommerce.cart_updated` | Erstellt oder aktualisiert das Warenkorb-Mapping-Objekt im Kundenprofil or Nutzerprofil (vollständige Warenkorb-Payloads oder inkrementelle Warenkorb-Aktualisierungen mit optionalem `action`: `add`, `remove` oder `replace`). Der Warenkorb läuft nach 30 Tagen ohne Aktualisierung ab. |
+| `ecommerce.product_viewed` | Keine Änderungen am Kundenprofil or Nutzerprofil. Verfügbar für Segmentierung, Triggering und BrazeAI<sup>TM</sup>-Features (wie Artikelempfehlungen). |
+| `ecommerce.checkout_started` | Keine Änderungen am Kundenprofil or Nutzerprofil. Verfügbar für Segmentierung und Triggering (z. B. abgebrochene Checkout-Flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="E-Commerce-Event-Nachverarbeitung" }
 
 {% alert important %}
@@ -1155,7 +1155,7 @@ E-Commerce-Events verbrauchen keine [Datenpunkte]({{site.baseurl}}/user_guide/da
 
 Event-Eigenschaften, die an `/users/track` gesendet werden, sind auf 102.400 Bytes (100 KB) pro Event begrenzt. Für getriggerte Campaign- und Canvas-Nachrichten haben die `trigger_properties`, die an [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) und [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) gesendet werden, ein strengeres Standardlimit von 51.200 Bytes (50 KB).
 
-Als Best Practice senden Sie nur die Produktinformationen, die Sie zum Triggern, Personalisieren oder Zuordnen des Events benötigen. Speichern Sie umfangreichere Produktdetails – wie Beschreibungen, vollständige Variantenlisten, Lagerbestände oder alternative Bilder – in Braze Catalogs. Referenzieren Sie diese Details beim Senden von Nachrichten über `product_id` oder `variant_id`. Verwenden Sie das `metadata`-Objekt gezielt für bestell- oder produktspezifischen Kontext, den das Messaging nutzen wird.
+Als Best Practice senden Sie nur die Produktinformationen, die Sie zum Trigger or triggern or triggern, Personalisieren oder Zuordnen des Events benötigen. Speichern Sie umfangreichere Produktdetails – wie Beschreibungen, vollständige Variantenlisten, Lagerbestände oder alternative Bilder – in Braze Catalogs. Referenzieren Sie diese Details beim Senden von Nachrichten über `product_id` oder `variant_id`. Verwenden Sie das `metadata`-Objekt gezielt für bestell- oder produktspezifischen Kontext, den das Messaging nutzen wird.
 
 ### Währungsbehandlung {#currency-handling}
 
@@ -1179,7 +1179,7 @@ Empfohlene Events verwenden ein striktes Schema. Daher schlägt das Hinzufügen 
 
 ## Event-Validierung und Fehlerbehebung {#event-validation-and-troubleshooting}
 
-Wenn Sie ein empfohlenes E-Commerce-Event über `/users/track` oder ein Braze SDK senden, validiert Braze den Payload während der Verarbeitung des empfohlenen Events anhand des JSON-Schemas des Events. Die Validierung läuft automatisch bei jedem Event, dessen Name exakt mit einem empfohlenen Event übereinstimmt (zum Beispiel `ecommerce.order_placed` oder `ecommerce.cart_updated`).
+Wenn Sie ein empfohlenes E-Commerce-Event über `/users/track` oder ein Braze SDK or Software-Development-Kit senden, validiert Braze den Payload während der Verarbeitung des empfohlenen Events anhand des JSON-Schemas des Events. Die Validierung läuft automatisch bei jedem Event, dessen Name exakt mit einem empfohlenen Event übereinstimmt (zum Beispiel `ecommerce.order_placed` oder `ecommerce.cart_updated`).
 
 ### Was wir validieren {#what-we-validate}
 
@@ -1197,7 +1197,7 @@ Für jedes Event, dessen Name mit einem empfohlenen E-Commerce-Event übereinsti
 
 ### Warum wir validieren {#why-we-validate}
 
-E-Commerce-Events steuern Features, die auf konsistente, vorhersagbare Daten angewiesen sind – darunter Umsatz-Tracking, der {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag, der Warenkorb-Abbruch-Trigger und Reporting. Wenn Payloads vom Schema abweichen, erzeugen diese Features stille Ungenauigkeiten (falsche Umsatzsummen, fehlende Warenkörbe, fehlerhafte Trigger). Die Validierung erzwingt den Vertrag im Voraus, damit nachgelagerte Features vorhersagbar funktionieren.
+E-Commerce-Events steuern Features, die auf konsistente, vorhersagbare Daten angewiesen sind – darunter Umsatz-Tracking, der {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag, der Warenkorb-Abbruch-Trigger or triggern und Reporting. Wenn Payloads vom Schema abweichen, erzeugen diese Features stille Ungenauigkeiten (falsche Umsatzsummen, fehlende Warenkörbe, fehlerhafte Trigger or triggern). Die Validierung erzwingt den Vertrag im Voraus, damit nachgelagerte Features vorhersagbar funktionieren.
 
 ### Wenn die Validierung erfolgreich ist {#when-validation-passes}
 
@@ -1215,16 +1215,16 @@ Nachdem Sie ein Event gesendet haben, können Sie mit einer der folgenden Method
 
 Das Event wird nicht als empfohlenes Event verarbeitet. Im Einzelnen:
 
-- **Das Event wird vollständig verworfen.** Ungültige empfohlene E-Commerce-Events landen nicht im Nutzerprofil, erscheinen nicht in Currents und stehen nicht für die Segmentierung zur Verfügung.
+- **Das Event wird vollständig verworfen.** Ungültige empfohlene E-Commerce-Events landen nicht im Kundenprofil or Nutzerprofil, erscheinen nicht in Currents und stehen nicht für die Segmentierung zur Verfügung.
 - Nachgelagerte Features für empfohlene Events werden nicht ausgeführt, darunter:
   - Umsatz-Tracking (Umsatz-Reporting, berechnete Nutzerfelder wie `total_revenue`)
-  - Warenkorb-Objekt-Aktualisierungen im Nutzerprofil
-  - „Perform Cart Updated Event“- oder „Placed Order“-Trigger in Canvas und Campaigns
+  - Warenkorb-Objekt-Aktualisierungen im Kundenprofil or Nutzerprofil
+  - „Perform Cart Updated Event“- oder „Placed Order“-Trigger or triggern in Canvas und Campaigns
 
 Wie Fehler gemeldet werden, hängt vom Aufnahmepfad ab:
 
-- **REST API (`/users/track`):** Jedes ungültige Event wird im Fehler-Array der Antwort gemeldet. Jeder Eintrag gibt an, welches Event fehlgeschlagen ist (Index) und warum (Typ). Das Top-Level-Feld „message“ zeigt weiterhin „success“ an, was nur bedeutet, dass Ihre Anfrage Braze erreicht hat – nicht, dass jedes Event gültig war. Prüfen Sie immer das Fehler-Array in der Antwort.
-- **Braze SDKs:** SDK-Aufrufe kehren sofort zurück, und die Validierung läuft im Hintergrund, sodass Fehler nicht an Ihre App zurückgesendet werden. Um über Validierungsfehler bei E-Commerce-Events informiert zu werden, achten Sie auf die Zusammenfassungs-E-Mail zu Fehlern (siehe [Fehler finden](#find-failures)).
+- **Representational State Transfer API (`/users/track`):** Jedes ungültige Event wird im Fehler-Array der Antwort gemeldet. Jeder Eintrag gibt an, welches Event fehlgeschlagen ist (Index) und warum (Typ). Das Top-Level-Feld „message“ zeigt weiterhin „success“ an, was nur bedeutet, dass Ihre Anfrage Braze erreicht hat – nicht, dass jedes Event gültig war. Prüfen Sie immer das Fehler-Array in der Antwort.
+- **Braze SDKs:** SDK or Software-Development-Kit-Aufrufe kehren sofort zurück, und die Validierung läuft im Hintergrund, sodass Fehler nicht an Ihre App zurückgesendet werden. Um über Validierungsfehler bei E-Commerce-Events informiert zu werden, achten Sie auf die Zusammenfassungs-E-Mail zu Fehlern (siehe [Fehler finden](#find-failures)).
 
 #### Beispiel einer API-Fehlerantwort {#example-api-error-response}
 
@@ -1258,7 +1258,7 @@ Die Zusammenfassungs-E-Mail enthält:
 
 - **Gesamtanzahl der Fehler:** Fehlerzählungen für den Berichtszeitraum.
 - **Fehler nach Event:** Eine Aufschlüsselung, wie viele Events für jeden empfohlenen Event-Typ fehlgeschlagen sind (zum Beispiel `ecommerce.cart_updated` und `ecommerce.order_placed`). Nutzen Sie dies, um zu identifizieren, welche Events in Ihrer Integration zuerst Aufmerksamkeit benötigen.
-- **Fehler nach Quelle:** Eine Aufteilung zwischen API und SDK, damit Sie feststellen können, welche Integration die Fehler verursacht.
+- **Fehler nach Quelle:** Eine Aufteilung zwischen API und SDK or Software-Development-Kit, damit Sie feststellen können, welche Integration die Fehler verursacht.
 
 Wenn Sie diese E-Mails nicht erhalten oder die Empfängerliste überprüfen möchten, wenden Sie sich an Ihr Braze-Konto-Team.
 
@@ -1266,12 +1266,12 @@ Wenn Sie diese E-Mails nicht erhalten oder die Empfängerliste überprüfen möc
 
 Wenn Sie eine Zusammenfassungs-E-Mail zu Fehlern erhalten:
 
-1. **Identifizieren Sie das fehlgeschlagene Event und die Quelle.** Die E-Mail trennt Fehler nach Event-Name und Integrationsquelle (`sdk` versus `rest_api`), sodass Sie feststellen können, welche Integration die Korrektur benötigt. Wenn Sie mehrere Quellen haben, die dasselbe Event senden (zum Beispiel Ihr Storefront-SDK und ein Backend-Webhook, die beide `cart_updated` senden), behandeln Sie diese unabhängig voneinander.
+1. **Identifizieren Sie das fehlgeschlagene Event und die Quelle.** Die E-Mail trennt Fehler nach Event-Name und Integrationsquelle (`sdk` versus `rest_api`), sodass Sie feststellen können, welche Integration die Korrektur benötigt. Wenn Sie mehrere Quellen haben, die dasselbe Event senden (zum Beispiel Ihr Storefront-SDK or Software-Development-Kit und ein Backend-Webhook, die beide `cart_updated` senden), behandeln Sie diese unabhängig voneinander.
 2. **Vergleichen Sie Ihren Payload mit dem Schema** unter [Event-Schemas](#event-schemas). Die meisten Fehler fallen in eines von drei Mustern:
    - `missing_property`: Ein erforderliches Feld fehlt. Lösung: Fügen Sie das erforderliche Feld hinzu.
    - `extra_property`: Ein angepasstes Feld befindet sich auf der obersten Ebene von `properties`. Lösung: Verschieben Sie das angepasste Feld in `metadata` (Event-Ebene) oder `products[].metadata` (pro Produkt).
    - `unexpected_data_type`: Ein Wert hat den falschen Typ (zum Beispiel `total_value` als String gesendet). Lösung: Konvertieren Sie den Wert vor dem Senden.
-3. **Testen Sie den korrigierten Payload in einem Entwicklungs-Workspace**, bevor Sie ihn in die Produktion ausrollen. Senden Sie ein bekanntes Test-Event für eine Testnutzer:in und überprüfen Sie dann das erwartete Verhalten des empfohlenen Events im Profil dieser Nutzer:in (zum Beispiel ob das Warenkorb-Objekt aktualisiert wird, der Umsatz steigt oder der Warenkorb-Abbruch-Trigger ausgelöst wird).
+3. **Testen Sie den korrigierten Payload in einem Entwicklungs-Workspace**, bevor Sie ihn in die Produktion ausrollen. Senden Sie ein bekanntes Test-Event für eine Testnutzer:in und überprüfen Sie dann das erwartete Verhalten des empfohlenen Events im Profil dieser Nutzer:in (zum Beispiel ob das Warenkorb-Objekt aktualisiert wird, der Umsatz steigt oder der Warenkorb-Abbruch-Trigger or triggern ausgelöst wird).
 4. **Überwachen Sie die nächste Fehler-E-Mail**, um zu bestätigen, dass die Fehleranzahl für dieses Event, diese Quelle und diesen Typ auf null sinkt.
 
 Die vollständigen Eigenschaftsanforderungen pro Event finden Sie unter [Event-Schemas](#event-schemas).

@@ -10,9 +10,9 @@
 ## Aktivieren von In-App-Nachrichten
 
 {% tabs %}
-{% tab Flutter SDK 18.0.0+ %}
+{% tab Flutter SDK or Software-Development-Kit 18.0.0+ %}
 
-Das Braze Flutter SDK richtet den Standard-Presenter für In-App-Nachrichten auf Android und iOS automatisch ein. In-App-Nachrichten werden ohne zusätzliche Einrichtung angezeigt und an die Dart-Schicht weitergeleitet.
+Das Braze Flutter SDK or Software-Development-Kit richtet den Standard-Presenter für In-App-Nachrichten auf Android und iOS automatisch ein. In-App-Nachrichten werden ohne zusätzliche Einrichtung angezeigt und an die Dart-Schicht weitergeleitet.
 
 ### Anpassen des In-App-Nachrichten-Presenters unter iOS
 
@@ -44,7 +44,7 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 ```
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 und älter %}
+{% tab Flutter SDK or Software-Development-Kit 17.1.0 und älter %}
 
 {% alert note %}
 Dieser Schritt gilt ausschließlich für iOS. Die Standardimplementierung für In-App-Nachrichten ist auf Android bereits eingerichtet.

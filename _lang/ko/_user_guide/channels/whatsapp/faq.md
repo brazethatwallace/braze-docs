@@ -35,7 +35,7 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 임베디드 가입 플로우를 완료한 후, business.facebook.com에서 [WhatsApp 섹션](https://business.facebook.com/wa/manage/home)으로 이동하여 계정에 접근할 수 있습니다.
 
 #### 여러 WABA를 Braze에 연결할 수 있나요? {#can-i-connect-multiple-wabas-to-braze}
-네, 워크스페이스당 최대 10개의 WhatsApp 비즈니스 계정을 추가할 수 있으며, 각 비즈니스 계정은 서로 다른 Meta Business Manager 하위에 연결할 수 있습니다.
+네, 워크스페이스당 최대 10개의 WhatsApp 비즈니스 계정을 추가할 수 있으며, 각 비즈니스 계정은 서로 다른 Meta Business 매니저 하위에 연결할 수 있습니다.
 
 ![Braze와 WhatsApp 에코시스템의 다이어그램으로, 워크스페이스와 WhatsApp 비즈니스 계정이 서로 어떻게 연결되는지 보여줍니다. 하나의 구독 그룹을 하나의 전화번호에, 여러 WhatsApp 비즈니스 계정을 하나의 워크스페이스에, 하나의 워크스페이스를 여러 Meta Business Portfolio에 연결할 수 있습니다.]({% image_buster /assets/img/whatsapp/whatsapp_braze_ecosystem.png %})
 
@@ -208,9 +208,9 @@ Braze는 계정이 플래그되거나 신고될 때 WhatsApp으로부터 알림�
 
 그러나 사용자가 옵트아웃 키워드로 응답할 때 트리거되는 Campaign을 설정하여 [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 사용하여 자동으로 구독 취소할 수 있습니다. 자세한 내용은 [WhatsApp 옵트인 및 옵트아웃 프로세스]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)를 참조하세요.
 
-#### WhatsApp 전달이 실패할 때 Braze에서 자동 SMS 대체를 지원하나요? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
+#### WhatsApp 전달이 실패할 때 Braze에서 자동 단문 메시지 서비스 대체를 지원하나요? {#does-braze-support-automatic-sms-fallback-when-whatsapp-delivery-fails}
 
-아니요. Braze는 기본 WhatsApp-SMS 대체 경로를 제공하지 않습니다. 다른 채널에서 재시도하려면 WhatsApp 전송 실패 사용자(예: Currents 실패 이벤트 사용)를 세그먼트하고 SMS 또는 이메일 Campaign을 타겟으로 합니다.
+아니요. Braze는 기본 WhatsApp-단문 메시지 서비스 대체 경로를 제공하지 않습니다. 다른 채널에서 재시도하려면 WhatsApp 전송 실패 사용자(예: Currents 실패 이벤트 사용)를 세그먼트하고 단문 메시지 서비스 또는 이메일 Campaign을 타겟으로 합니다.
 
 #### WhatsApp 응답 메시지는 무료인가요? {#are-whatsapp-response-messages-free}
 

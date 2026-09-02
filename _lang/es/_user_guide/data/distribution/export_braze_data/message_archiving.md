@@ -12,11 +12,11 @@ description: "Este artículo de referencia trata sobre el archivado de mensajes,
 
 > El archivado de mensajes te permite guardar una copia de los mensajes enviados a los usuarios con fines de archivo o cumplimiento normativo en tu contenedor de AWS S3, contenedor de Azure Blob Storage o contenedor de Google Cloud Storage. <br><br> Este artículo trata sobre cómo configurar el archivado de mensajes, las referencias de carga útil JSON y las preguntas frecuentes.
 
-El archivado de mensajes está disponible como característica adicional. Para empezar a archivar mensajes, ponte en contacto con tu administrador de éxito de cliente de Braze.
+El archivado de mensajes está disponible como característica adicional. Para empezar a archivar mensajes, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
 
 ## Cómo funciona {#how-it-works}
 
-Cuando esta característica está activada, Braze escribe un archivo JSON comprimido con gzip por cada mensaje enviado a un usuario a través de los canales seleccionados (correo electrónico, SMS/MMS o push). Braze escribe estos archivos en tu destino predeterminado de exportación de datos. Esto incluye todos los tipos de campañas para cada canal, como las campañas de correo transaccional enviadas a través de la [API de correo transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+Cuando esta característica está activada, Braze escribe un archivo JSON comprimido con gzip por cada mensaje enviado a un usuario a través de los canales seleccionados (correo electrónico, servicio de mensajes cortos/MMS o push). Braze escribe estos archivos en tu destino predeterminado de exportación de datos. Esto incluye todos los tipos de campañas para cada canal, como las campañas de correo transaccional enviadas a través de la [API de correo transaccional]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
 
 Este archivo contendrá los campos definidos en [Referencias de archivos](#file-references) y reflejará los mensajes finales con plantilla enviados al usuario. Cualquier valor de plantilla definido en tu campaña (por ejemplo, {% raw %}`{{${first_name}}}`{% endraw %}) mostrará el valor final que el usuario recibió basándose en la información de su perfil. Esto te permite conservar una copia del mensaje enviado para satisfacer requisitos de cumplimiento, auditoría o atención al cliente.
 
@@ -117,7 +117,7 @@ El campo `extras` contiene los pares clave-valor configurados en el campo **Extr
 ![Sección de extras de correo electrónico del creador de correo electrónico con campos de clave y valor y la opción Añadir nuevo extra.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
-{% tab SMS/MMS %}
+{% tab servicio de mensajes cortos/MMS %}
 
 ```json
 {
@@ -177,7 +177,7 @@ El archivado de mensajes captura la carga útil del mensaje en sí, pero no incl
 
 - Tokens de dispositivo
 - Configuración de prioridades
-- Tiempo de vida (TTL)
+- TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida)
 - ID de colapso
 - Encabezados de APNs
 - Marcas de tiempo de caducidad
@@ -205,7 +205,7 @@ Las modificaciones realizadas después de que el mensaje salga de Braze no se re
 
 ### ¿Qué mensajes aparecen bajo el valor "no asociado" en la ruta de la campaña? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Cuando un mensaje se envía fuera de una Campaign o Canvas, el ID de la campaña en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el panel, cuando Braze envíe respuestas automáticas por SMS/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de campaña.
+Cuando un mensaje se envía fuera de una Campaign o Canvas, el ID de la campaña en el nombre del archivo será "no asociado". Esto ocurrirá cuando envíes mensajes de prueba desde el panel, cuando Braze envíe respuestas automáticas por servicio de mensajes cortos/MMS o cuando los mensajes enviados a través de la API no especifiquen un ID de campaña.
 
 ### ¿Cómo puedo encontrar más información sobre este envío? {#how-do-i-find-more-information-about-this-send}
 

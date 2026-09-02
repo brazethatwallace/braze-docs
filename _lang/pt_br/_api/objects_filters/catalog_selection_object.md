@@ -1,6 +1,6 @@
 ---
 nav_title: "Objeto de seleção de catálogo"
-article_title: Objeto de seleção de catálogo da API
+article_title: Objeto de seleção de catálogo da API or interface de programação do aplicativo (API)
 page_order: 12
 page_type: reference
 description: "Este artigo de referência explica os diferentes componentes do objeto de seleção de catálogo."
@@ -12,7 +12,7 @@ tool: Catalogs
 
 > Ao criar uma seleção de catálogo, você pode fornecer um objeto de seleção para definir os critérios de filtragem, ordenação e limitação para os itens retornados do seu catálogo.
 
-O objeto `selection` permite que você especifique quais itens do seu catálogo devem ser incluídos na seleção com base em filtros, como eles devem ser ordenados e quantos resultados retornar. Use este objeto ao criar seleções de catálogo pela API.
+O objeto `selection` permite que você especifique quais itens do seu catálogo devem ser incluídos na seleção com base em filtros, como eles devem ser ordenados e quantos resultados retornar. Use este objeto ao criar seleções de catálogo pela API or interface de programação do aplicativo (API).
 
 ## Corpo do objeto {#object-body}
 
@@ -68,5 +68,5 @@ Cada objeto de filtro no array `filters` contém os campos descritos na tabela a
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Objeto de filtro" }
 
 {% alert note %}
-A API suporta no máximo dez filtros por solicitação de seleção. Os filtros são aplicados na ordem em que aparecem no array.
+A API or interface de programação do aplicativo (API) suporta no máximo dez filtros por solicitação de seleção. Os filtros são aplicados na ordem em que aparecem no array.
 {% endalert %}

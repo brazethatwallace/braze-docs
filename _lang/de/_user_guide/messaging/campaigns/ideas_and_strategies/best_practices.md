@@ -16,7 +16,7 @@ tool: Campaign
 Braze empfiehlt, nur Kundendaten zu senden, die Sie tatsächlich auf der Braze-Plattform nutzen möchten. Orientieren Sie sich an der Philosophie der „Vier T's von Braze“, um sicherzustellen, dass Sie nur Daten senden, die Sie für folgende Zwecke verwenden:
 
 - **Target** – Ihre Zielgruppen durch die Erstellung von [Zielgruppen-Segmenten]({{site.baseurl}}/user_guide/audience/segments) ansprechen.
-- **Trigger** – Ihre Nachrichten mit [aktionsbasierter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) oder [API-getriggerter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) Zustellung triggern.
+- **Trigger or triggern** – Ihre Nachrichten mit [aktionsbasierter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) oder [API-getriggerter]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) Zustellung Trigger or triggern or triggern.
 - **Template** – Ihre Nachrichten mit [bedingter Liquid-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) gestalten und personalisieren.
 - **Track** – Die Wirksamkeit Ihrer Campaigns mit [Conversion-Tracking]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) verfolgen.
 
@@ -36,15 +36,15 @@ Es ist außerdem wichtig, Ihre [aktiven Nutzer:innen]({{site.baseurl}}/user_guid
 
 ### Feature-Awareness {#feature-awareness}
 
-Wenn Ihr Ziel darin besteht, Ihre Nutzer:innen auf ein neues Feature oder eine neue App-Version aufmerksam zu machen, verwenden Sie eine Multichannel-Strategie mit Fokus auf In-App-Kanäle. [In-App-Nachrichten]({{site.baseurl}}/in-app_messages) und [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) sind in der Regel weniger störend, wenn Nutzer:innen nicht sofort aktualisieren möchten.
+Wenn Ihr Ziel darin besteht, Ihre Nutzer:innen auf ein neues Feature oder eine neue App-Version aufmerksam zu machen, verwenden Sie eine Multichannel-Strategie mit Fokus auf In-App-Kanäle. [In-App-Nachrichten]({{site.baseurl}}/in-app_messages) und [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) sind in der Regel weniger störend, wenn Nutzer:innen nicht sofort Update or aktualisieren or aktualisieren möchten.
 
 Stellen Sie sicher, dass Sie [Deeplinks]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) zum entsprechenden App Store einfügen.
 
-Es kann schwierig sein, Nutzer:innen davon zu überzeugen, ihre App zu aktualisieren oder die Art und Weise zu ändern, wie sie Ihre App nutzen. Informieren Sie sie daher über alle Vorteile der neuen Version oder der neuen Features und darüber, wie sich ihr Erlebnis mit Ihrer App dadurch verbessert.
+Es kann schwierig sein, Nutzer:innen davon zu überzeugen, ihre App zu Update or aktualisieren or aktualisieren oder die Art und Weise zu ändern, wie sie Ihre App nutzen. Informieren Sie sie daher über alle Vorteile der neuen Version oder der neuen Features und darüber, wie sich ihr Erlebnis mit Ihrer App dadurch verbessert.
 
 ### Sendezeitpunkt {#send-timing}
 
-Timing ist entscheidend! Wenn Ihr Ziel darin besteht, Nutzer:innen zu einem App-Update zu bewegen, warten Sie, bis sie eine positive Erfahrung innerhalb der App gemacht haben, bevor Sie sie darum bitten. Um Ihre Zielgruppe bei der Stange zu halten, vermeiden Sie wiederholtes Messaging, das aufdringlich wirken könnte.
+Timing ist entscheidend! Wenn Ihr Ziel darin besteht, Nutzer:innen zu einem App-Update or aktualisieren zu bewegen, warten Sie, bis sie eine positive Erfahrung innerhalb der App gemacht haben, bevor Sie sie darum bitten. Um Ihre Zielgruppe bei der Stange zu halten, vermeiden Sie wiederholtes Messaging, das aufdringlich wirken könnte.
 
 Im Laufe der Zeit können Ihre Nutzer:innen bestimmte Features vergessen oder neue Features nicht bemerken. Wenn neue Features hinzugefügt werden, informieren Sie Ihre Nutzer:innen mit [In-App-Nachrichten]({{site.baseurl}}/in-app_messages). Wenn Nutzer:innen wichtige Features innerhalb der App nicht nutzen, kann es sinnvoll sein, sie daran zu erinnern, wenn sie die App aktiv verwenden und das neue Feature nützlich wäre. Unser Artikel zum [Daten-Opt-in]({{site.baseurl}}/user_guide/channels/content_cards) enthält weitere Informationen dazu, wie Sie sicherstellen, dass Ihre Anfrage den Workflow-Erwartungen der Nutzer:innen entspricht.
 

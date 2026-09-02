@@ -97,7 +97,7 @@ Braze behandelt drei Nutzertypen bei der Zusammenführung unterschiedlich: zur L
 
 #### Verhalten bei angepasstem Event-Datum und Kauf-Event-Datum {#custom-event-date-and-purchase-event-date-behavior}
 
-Diese zusammengeführten Felder aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Geldausgaben in den letzten Y Tagen“.
+Diese zusammengeführten Felder Update or aktualisieren or aktualisieren die Filter „für X Events in Y Tagen“. Bei Kauf-Events umfassen diese Filter „Anzahl der Käufe in Y Tagen“ und „Geldausgaben in den letzten Y Tagen“.
 
 ### Zusammenführung von Nutzer:innen per E-Mail oder Telefonnummer {#merging-users-by-email-or-phone-number}
 

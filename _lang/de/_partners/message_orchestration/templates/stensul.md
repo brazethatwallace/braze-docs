@@ -23,13 +23,13 @@ Die Integration von Braze und Stensul ermöglicht es Ihnen, Ihre HTML-formatiert
 | Anforderung | Beschreibung |
 | ------------| ----------- |
 | Stensul-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Stensul-Konto. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Cluster-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) ist auf Ihr Braze-Dashboard und Ihren REST-Endpunkt abgestimmt. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit vollständigen **Templates**-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Cluster-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) ist auf Ihr Braze-Dashboard und Ihren Representational State Transfer-Endpunkt abgestimmt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Stellen Sie Ihrem Stensul Customer-Success-Team Ihren Braze REST-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
+Stellen Sie Ihrem Stensul Customer-Success-Team Ihren Braze Representational State Transfer-API-Schlüssel und Ihre Cluster-Instanz zur Verfügung. Das Team wird dann die erste Integration für Sie einrichten.
 
 {% alert important %}
 Dies ist eine einmalige Einrichtung, und alle zukünftigen Exporte werden automatisch diesen API-Schlüssel verwenden.
@@ -42,7 +42,7 @@ Erstellen Sie eine Stensul-E-Mail auf der Stensul-Plattform und klicken Sie auf 
 ![Stensul-Speicheroptionen]({% image_buster /assets/img_archive/stensul_save_options.png %})
 
 ### 2. Schritt: Template nach Braze exportieren {#step-2-export-template-to-braze}
-Wählen Sie in dem neuen Dialog, der auf der Fertigstellungsseite erscheint, **Upload to ESP** aus.
+Wählen Sie in dem neuen Dialog, der auf der Fertigstellungsseite erscheint, **Upload to E-Mail-Anbieter or ESP** aus.
 
 ![Stensul-Upload-Optionen]({% image_buster /assets/img_archive/stensul_upload_options.png %})
 

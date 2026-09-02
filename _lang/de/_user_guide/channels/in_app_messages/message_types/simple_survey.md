@@ -20,21 +20,21 @@ Häufige Anwendungsfälle für Umfragen sind z. B. die Frage, wie Nutzer:innen I
 
 ![Drei einfache Umfragenachrichten: Benachrichtigungspräferenzen, Ernährungspräferenzen und eine Kundenzufriedenheitsumfrage. Die ausgewählten Optionen in den Umfragen entsprechen angepassten Attributen, die für die jeweiligen Nutzer:innen protokolliert werden.]({% image_buster /assets/img/iam/iam-survey.png %})
 
-## SDK-Anforderungen {#supported-sdk-versions}
+## SDK or Software-Development-Kit-Anforderungen {#supported-sdk-versions}
 
-Diese In-App-Nachricht wird nur an Geräte ausgeliefert, die [Flex CSS](https://caniuse.com/flexbox) unterstützen, und erfordert mindestens die folgenden [SDK-Versionen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Diese In-App-Nachricht wird nur an Geräte ausgeliefert, die [Flex CSS](https://caniuse.com/flexbox) unterstützen, und erfordert mindestens die folgenden [SDK or Software-Development-Kit-Versionen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
 {% alert note %}
-Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben.
+Um HTML-In-App-Nachrichten über das Web-SDK or Software-Development-Kit zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben.
 {% endalert %}
 
 ## Eine Umfrage erstellen {#create}
 
 Wenn Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) erstellen, wählen Sie **Simple Survey** als **Nachrichtentyp** aus.
 
-Dieses Umfrage-Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt. Stellen Sie sicher, dass Ihre SDKs die für dieses Feature erforderlichen [Mindest-SDK-Versionen](#supported-sdk-versions) erfüllen.
+Dieses Umfrage-Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt. Stellen Sie sicher, dass Ihre SDKs die für dieses Feature erforderlichen [Mindest-SDK or Software-Development-Kit-Versionen](#supported-sdk-versions) erfüllen.
 
 ### Schritt 1: Umfragefrage hinzufügen {#step-1-add-your-survey-question}
 
@@ -73,13 +73,13 @@ Wenn die Erfassung angepasster Attribute aktiviert ist, werden Auswahlmöglichke
 
 ##### Beispiel {#example}
 
-In einer [Umfrage zu Benachrichtigungspräferenzen](#notification-preferences) könnten Sie beispielsweise jede Auswahlmöglichkeit als boolesches (true/false) Attribut anlegen, damit Nutzer:innen auswählen können, welche Themen sie interessieren. Wenn Nutzer:innen die Auswahl „Aktionen“ ankreuzen, wird ihr [Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) mit dem angepassten Attribut `Promotions Topic` auf `true` aktualisiert. Wenn die Auswahl nicht angekreuzt wird, bleibt dasselbe Attribut unverändert.
+In einer [Umfrage zu Benachrichtigungspräferenzen](#notification-preferences) könnten Sie beispielsweise jede Auswahlmöglichkeit als boolesches (true/false) Attribut anlegen, damit Nutzer:innen auswählen können, welche Themen sie interessieren. Wenn Nutzer:innen die Auswahl „Aktionen“ ankreuzen, wird ihr [Kundenprofil or Nutzerprofil]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) mit dem angepassten Attribut `Promotions Topic` auf `true` aktualisiert. Wenn die Auswahl nicht angekreuzt wird, bleibt dasselbe Attribut unverändert.
 
 Sie können dann den Filter `Custom Attribute` verwenden, um ein Segment für Nutzer:innen mit dem angepassten Attribut `Promotions Topic` `is` `true` zu erstellen, damit nur Nutzer:innen, die an Ihren Aktionen interessiert sind, die relevanten Campaigns erhalten.
 
 #### Nur Antworten protokollieren {#no-attributes}
 
-Alternativ können Sie **Log responses only (no attributes)** wählen. Wenn diese Option ausgewählt ist, werden Umfrageantworten als Button-Klicks protokolliert, aber angepasste Attribute werden nicht im Profil der Nutzer:innen gespeichert. Das bedeutet, dass Sie weiterhin die Klick-Metriken für jede Umfrageoption einsehen können (siehe [Analytics](#analytics)), aber diese Auswahl wird nicht in ihrem Nutzerprofil widergespiegelt.
+Alternativ können Sie **Log responses only (no attributes)** wählen. Wenn diese Option ausgewählt ist, werden Umfrageantworten als Button-Klicks protokolliert, aber angepasste Attribute werden nicht im Profil der Nutzer:innen gespeichert. Das bedeutet, dass Sie weiterhin die Klick-Metriken für jede Umfrageoption einsehen können (siehe [Analytics](#analytics)), aber diese Auswahl wird nicht in ihrem Kundenprofil or Nutzerprofil widergespiegelt.
 
 Diese Klick-Metriken stehen nicht für Retargeting zur Verfügung.
 
@@ -129,7 +129,7 @@ Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/chan
 
 ### Currents {#currents}
 
-Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
+Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Klick, der or klicken Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -196,9 +196,9 @@ Wenn Nutzer:innen die Umfrage absenden, wird der ausgewählte Wert als angepasst
 
 ### Konversionsraten verbessern {#improve-conversion-rates}
 
-**Ziel:** Verstehen, warum Kund:innen kein Upgrade durchführen oder nicht kaufen.
+**Ziel:** Verstehen, warum Kund:innen kein Upgrade or upgraden durchführen oder nicht kaufen.
 
-Um dies einzurichten, verwenden Sie eine Umfrage mit Einzelauswahl, bei der jede Option ein häufiges Hindernis für ein Upgrade darstellt. Jede Auswahl wird dem angepassten Attribut `upgrade_reason` mit einem entsprechenden Wert zugeordnet, der die Auswahl der Nutzer:innen widerspiegelt.
+Um dies einzurichten, verwenden Sie eine Umfrage mit Einzelauswahl, bei der jede Option ein häufiges Hindernis für ein Upgrade or upgraden darstellt. Jede Auswahl wird dem angepassten Attribut `upgrade_reason` mit einem entsprechenden Wert zugeordnet, der die Auswahl der Nutzer:innen widerspiegelt.
 
 | Auswahl               | Attribut         | Wert        |
 |-----------------------|------------------|-------------|

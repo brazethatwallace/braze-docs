@@ -51,7 +51,7 @@ Não se esqueça de também fornecer qualquer código de desconto, oferta ou out
 
 {: start="4"}
 4. Faça a aceitação dos usuários atualizando o status de inscrição dos perfis de usuário com um dos seguintes métodos de atualização:
-    - Crie um webhook Braze-para-Braze que atualize o status de inscrição por meio da REST API.
+    - Crie um webhook Braze-para-Braze que atualize o status de inscrição por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API).
     - Use o editor JSON avançado para atualizar o perfil de usuário com o modelo para [atualizar o status de inscrição de um usuário para um Canvas do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 ![Etapa de atualização de usuário do Canvas que usa o editor JSON avançado para atualizar o perfil de usuário.]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})

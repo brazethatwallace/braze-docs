@@ -23,7 +23,7 @@ Vous pouvez effectuer une segmentation B2B basée sur les comptes de deux maniè
 
 Pour vous aider à démarrer, nous avons créé des modèles SQL de base pour une segmentation simple basée sur les comptes.
 
-Supposons que vous souhaitiez segmenter les utilisateurs qui sont des employés d'un compte d'entreprise cible.
+Supposons que vous souhaitiez segmenter les utilisateurs qui sont des employé or salariés d'un compte d'entreprise cible.
 
 1. Allez dans **Audience** > **Segment Extensions** > **Create New Extension** > **Start with a template** et sélectionnez le modèle **Catalog segment for events**. <br><br> ![Fenêtre modale « Sélectionner un modèle » avec des options de segmentation de catalogue pour les événements ou les achats.]({% image_buster /assets/img/b2b/select_a_template.png %})<br><br>L'éditeur SQL se remplit automatiquement avec un modèle qui associe les données d'événements utilisateur aux données du catalogue afin de segmenter les utilisateurs qui interagissent avec certains articles du catalogue. <br><br>![Un éditeur SQL pour une nouvelle extension avec un onglet « Variables » ouvert.]({% image_buster /assets/img/b2b/enter_new_name.png %})<br><br>
 2. Utilisez l'onglet **Variables** pour renseigner les champs nécessaires à votre modèle avant de générer votre segment.<br><br>Pour que Braze identifie les utilisateurs en fonction de leur engagement avec les articles du catalogue, vous devez :

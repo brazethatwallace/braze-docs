@@ -45,7 +45,7 @@ Vamos ajustar os detalhes do Canvas para refletir nosso objetivo.
 
 ### Etapa 2: Atribuir eventos de conversão {#step-2-assign-conversion-events}
 
-Altere o **Primary Conversion Event - A** para **Make a specific purchase** e selecione **Classic Straight Leg** como o nome do produto.
+Altere o **conversão primária Event - A** para **Make a specific purchase** e selecione **Classic Straight Leg** como o nome do produto.
 
 ![Seção "Atribuir eventos de conversão" para o tipo de evento de conversão de compra do produto Classic Straight Leg com um prazo de conversão de 7 dias.]({% image_buster /assets/img/canvas_templates/back_in_stock_2.png %})
 
@@ -68,7 +68,7 @@ Faremos dois ajustes nesta etapa:
 
 Vamos definir nosso público-alvo como usuários que acreditamos ter maior probabilidade de comprar o jeans Classic Straight Leg.
 
-1. Selecione nosso segmento alvo, "Favorited - Classic Straight Leg Jeans", que consiste em usuários que favoritaram nosso jeans Classic Straight Leg no app ou website.
+1. Selecione nosso Segment or segmento or segmento alvo, "Favorited - Classic Straight Leg Jeans", que consiste em usuários que favoritaram nosso jeans Classic Straight Leg no app ou website.
 2. Selecione um filtro para incluir usuários que compraram "Jeans" mais de "0" vezes.
 
 ![Etapa "Público-alvo" com o segmento "Favorited - Classic Straight Leg Jeans".]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})

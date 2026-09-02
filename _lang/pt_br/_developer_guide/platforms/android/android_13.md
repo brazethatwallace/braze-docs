@@ -5,18 +5,18 @@ page_order: 9
 platform:
   - Android
   - FireOS
-description: "Este artigo aborda o Android 13, as atualizações do SDK, as alterações na permissão push, a compatibilidade do SDK e muito mais."
+description: "Este artigo aborda o Android 13, as atualizações do SDK or kit de desenvolvimento de software, as alterações na permissão push, a compatibilidade do SDK or kit de desenvolvimento de software e muito mais."
 ---
 
 # Atualizando para Android 13 {#upgrading-to-android-13}
 
-> Este guia descreve as alterações relevantes introduzidas no Android 13 (2022) e as etapas de upgrade necessárias para a integração de seu SDK da Braze para Android.
+> Este guia descreve as alterações relevantes introduzidas no Android 13 (2022) e as etapas de upgrade necessárias para a integração de seu SDK or kit de desenvolvimento de software da Braze para Android.
 
 Consulte a [documentação do desenvolvedor do Android 13](https://developer.android.com/about/versions/13) para obter um guia de migração completo.
 
-## Android 13 Braze SDK {#android-13-braze-sdk}
+## Android 13 Braze SDK or kit de desenvolvimento de software {#android-13-braze-sdk}
 
-Para se preparar para o Android 13, faça o upgrade do SDK da Braze para a [versão mais recente (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Ao fazer isso, você terá acesso ao nosso novo [recurso de push primer "sem código"]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
+Para se preparar para o Android 13, faça o upgrade do SDK or kit de desenvolvimento de software da Braze para a [versão mais recente (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Ao fazer isso, você terá acesso ao nosso novo [recurso de push primer "sem código"]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 
 ## Alterações no Android 13 {#changes-in-android-13}
 
@@ -45,7 +45,7 @@ Para mais detalhes, consulte a documentação do desenvolvedor do Android sobre 
 Se o seu app ainda não direciona para o Android 13, quando um novo usuário no Android 13 instalar seu app, ele verá automaticamente um prompt de permissão de push quando o app criar seu primeiro canal de notificação (via `notificationManager.createNotificationChannel`). Usuários que já possuem seu app instalado e depois fazem upgrade para o Android 13 nunca verão um prompt e receberão automaticamente a permissão de push.
 
 {% alert note %}
-O SDK da Braze v23.0.0 cria automaticamente um canal de notificação padrão caso ainda não exista um quando uma notificação por push é recebida. Se você não direcionar para o Android 13, isso fará com que o prompt de permissão de push seja exibido, o que é necessário para mostrar a notificação.
+O SDK or kit de desenvolvimento de software da Braze v23.0.0 cria automaticamente um canal de notificação padrão caso ainda não exista um quando uma notificação por push é recebida. Se você não direcionar para o Android 13, isso fará com que o prompt de permissão de push seja exibido, o que é necessário para mostrar a notificação.
 {% endalert %}
 
 ## Preparando-se para o Android 13 {#next-steps}
@@ -54,4 +54,4 @@ O SDK da Braze v23.0.0 cria automaticamente um canal de notificação padrão ca
 
 Direcionar para o Android 13 permite otimizar suas [taxas de aceitação de push](https://www.braze.com/resources/articles/android-13-developer-preview-push-opt-ins-arrive-for-android-apps) solicitando permissão aos usuários em momentos mais apropriados, proporcionando uma melhor experiência de usuário em como e quando seu app solicita a permissão de push.
 
-Para começar a usar nosso novo [recurso de push primer "sem código"]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages), faça o upgrade do SDK para Android para a [versão mais recente (v23.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300).
+Para começar a usar nosso novo [recurso de push primer "sem código"]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages), faça o upgrade do SDK or kit de desenvolvimento de software para Android para a [versão mais recente (v23.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300).

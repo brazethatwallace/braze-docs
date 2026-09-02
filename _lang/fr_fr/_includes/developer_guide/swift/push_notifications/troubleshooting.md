@@ -158,7 +158,7 @@ Les éléments suivants indiqueraient un problème d'enregistrement push ou que 
 
 ## Les deep links ne fonctionnent pas {#deep-links-not-working}
 
-Pour une résolution des problèmes complète sur tous les canaux — y compris les liens universels, les schémas personnalisés, l'e-mail et les fournisseurs tiers comme Branch — consultez [Résolution des problèmes de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
+Pour une résolution des problèmes complète sur tous les canaux — y compris les liens universels, les schémas personnalisés, l'e-mail et les fournisseurs tiers comme Branch or branche — consultez [Résolution des problèmes de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 
 ### Les liens web issus des clics push ne s'ouvrent pas {#web-links-from-push-clicks-not-opening}
 

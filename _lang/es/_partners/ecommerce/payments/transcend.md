@@ -23,7 +23,7 @@ La asociación de Braze y Transcend ayuda a los usuarios a automatizar las solic
 | Requisitos | Descripción |
 |---|---|
 | Cuenta de Transcend | Se requiere una cuenta de [Transcend](https://app.transcend.io/) con privilegios de administrador para beneficiarse de esta asociación. |
-| Clave de API de Braze | Una clave de API REST de Braze con permisos `users.delete, users.alias.new, users.export.ids, email.unsubscribe,` y `email.blacklist`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.delete, users.alias.new, users.export.ids, email.unsubscribe,` y `email.blacklist`.<br><br>Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}

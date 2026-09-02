@@ -67,7 +67,7 @@ Wenn Sie am [Canvas-Kontext Early Access]({{site.baseurl}}/user_guide/messaging/
 Beispielsweise erhalten Nutzer:innen in diesen Szenarien keine Schritte oder Nachrichten:
 
 - Eine Nachricht ist für den 3. Mai um 21 Uhr geplant, aber der Verzögerungsschritt läuft am 3. Mai um 9 Uhr ab.
-- Ein Canvas-Schritt verzögert bis zu einer bestimmten Uhrzeit in der Ortszeit der Nutzer:innen, aber die Nutzer:innen haben keine Zeitzone in ihrem Nutzerprofil hinterlegt. Die Verzögerung verwendet dann standardmäßig die Unternehmens-Zeitzone für diese Nutzer:innen, und die angegebene Uhrzeit ist dort bereits vergangen.
+- Ein Canvas-Schritt verzögert bis zu einer bestimmten Uhrzeit in der Ortszeit der Nutzer:innen, aber die Nutzer:innen haben keine Zeitzone in ihrem Kundenprofil or Nutzerprofil hinterlegt. Die Verzögerung verwendet dann standardmäßig die Unternehmens-Zeitzone für diese Nutzer:innen, und die angegebene Uhrzeit ist dort bereits vergangen.
 
 #### Nutzer:innen verlassen den Canvas, wenn ein nachfolgender Verzögerungsschritt innerhalb des Zeitrahmens eines vorherigen Verzögerungsschritts liegt {#users-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 
@@ -159,7 +159,7 @@ Zeitreihen für diese Analytics sind in der erweiterten Komponentenansicht verf�
 
 ### Fehler bei der Personalisierung {#personalization-failed-errors}
 
-Wenn Nutzer:innen eine personalisierte Verzögerung nicht triggern, könnte es daran liegen, dass der Kontextschritt, den Sie eingerichtet haben, um sie für den Verzögerungsschritt zu qualifizieren, nicht wie erwartet funktioniert. Wenn eine [Kontextvariable ungültig ist]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), durchläuft eine Nutzer:in Ihren Canvas, ohne dass der Kontext durch den Kontextschritt gesetzt wurde. Dies kann dazu führen, dass sie sich nicht für spätere Schritte in Ihrem Canvas qualifizieren, wie z. B. personalisierte Verzögerungen.
+Wenn Nutzer:innen eine personalisierte Verzögerung nicht Trigger or triggern or triggern, könnte es daran liegen, dass der Kontextschritt, den Sie eingerichtet haben, um sie für den Verzögerungsschritt zu qualifizieren, nicht wie erwartet funktioniert. Wenn eine [Kontextvariable ungültig ist]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), durchläuft eine Nutzer:in Ihren Canvas, ohne dass der Kontext durch den Kontextschritt gesetzt wurde. Dies kann dazu führen, dass sie sich nicht für spätere Schritte in Ihrem Canvas qualifizieren, wie z. B. personalisierte Verzögerungen.
 
 ## Fehlerbehebung
 
@@ -167,4 +167,4 @@ Wenn Nutzer:innen eine personalisierte Verzögerung nicht triggern, könnte es d
 
 Wenn Sie [einen Canvas stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), werden Nutzer:innen, die sich bereits in einem Verzögerungsschritt befinden, nicht sofort aus dem Canvas entfernt. Braze plant den Abschluss der Verzögerung weiterhin ein, aber **es werden keine weiteren Nachrichten gesendet**, solange der Canvas gestoppt ist.
 
-Wenn Sie den Canvas wieder aktivieren, bevor die Verzögerung abgelaufen ist, können die Nutzer:innen planmäßig zum nächsten Schritt voranbringen. Ist das Verzögerungsfenster bereits abgelaufen, während der Canvas gestoppt war, verlassen diese Nutzer:innen den Canvas, anstatt den nächsten Schritt zu erhalten. Beispiele finden Sie unter [Was passiert, wenn Sie einen Canvas stoppen?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) und [Canvases stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).
+Wenn Sie den Canvas wieder aktivieren, bevor die Verzögerung abgelaufen ist, können die Nutzer:innen planmäßig zum nächsten Schritt voranbringen. Ist das Verzögerungsfenster bereits abgelaufen, während der Canvas gestoppt war, verlassen diese Nutzer:innen den Canvas, anstatt den nächsten Schritt zu erhalten. Beispiele finden Sie unter [Was passiert, wenn Sie einen Canvas stoppen?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) und [Canvase stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

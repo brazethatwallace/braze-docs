@@ -23,17 +23,17 @@ A integração entre a Braze e a Jebbit permite passar e-mails e atributos de us
 | Requisito | Descrição |
 |---|---|
 | Conta da Jebbit | É necessário ter uma conta da Jebbit para usar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com todas as permissões de dados de usuários. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com todas as permissões de dados de usuários. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 Ao solicitar a integração com a Jebbit, avise caso seja necessário cumprir algum prazo rígido. Além disso, confirme se você tem os atributos mapeados nas experiências da Jebbit que gostaria de passar para a Braze.
 
-### Etapa 1: Fornecer credenciais da API {#step-1-provide-api-credentials}
+### Etapa 1: Fornecer credenciais da API or interface de programação do aplicativo (API) {#step-1-provide-api-credentials}
 
-Forneça suas credenciais de API para a Jebbit em um arquivo de texto por meio de uma solicitação de arquivo do Dropbox.
+Forneça suas credenciais de API or interface de programação do aplicativo (API) para a Jebbit em um arquivo de texto por meio de uma solicitação de arquivo do Dropbox.
 Envie seu arquivo usando a seguinte [URL do Dropbox](https://www.dropbox.com/request/RqKQHkJHXw1cFBKbXpZx).
 
 ### Etapa 2: Confirmar o envio de teste {#step-2-confirm-test-submission}

@@ -45,7 +45,7 @@ Este objeto se utiliza con frecuencia en todos nuestros puntos de conexión, y a
 }
 ```
 
-En este ejemplo, `crm_id` es una etiqueta personalizada que indica que el alias representa un identificador de un sistema CRM.
+En este ejemplo, `crm_id` es una etiqueta personalizada que indica que el alias representa un identificador de un sistema CRM or administración de las relaciones con el cliente.
 
 ### Ejemplo adicional {#additional-example}
 

@@ -37,11 +37,11 @@ Cuando una dirección de correo electrónico tiene un rebote duro, Braze no camb
 
 Hay cuatro formas de actualizar el estado de suscripción de correo electrónico de un usuario:
 
-#### Integración de SDK {#sdk-integration}
+#### Integración de SDK or kit de desarrollo de software {#sdk-integration}
 
-Usa el SDK de Braze para actualizar el estado de suscripción de un usuario.
+Usa el SDK or kit de desarrollo de software de Braze para actualizar el estado de suscripción de un usuario.
 
-#### REST API
+#### REST or transferencia de estado representacional API
 
 Usa el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para actualizar el [atributo `email_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) de un usuario. Por ejemplo, para establecer el estado de suscripción de correo electrónico de un usuario como cancelado cuando utiliza un enlace de cancelación de suscripción personalizado, incluye `email_subscribe: "unsubscribed"` en los atributos de usuario de tu solicitud.
 
@@ -62,7 +62,7 @@ Incluye Liquid del [centro de preferencias](#email-preference-center) en la part
 
 Usa cualquiera de los siguientes métodos para verificar el estado de suscripción de correo electrónico de un usuario:
 
-1. **Exportación de REST API:** Usa los endpoints [Exportar usuarios por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Exportar usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para exportar perfiles de usuario individuales en formato JSON.
+1. **Exportación de REST or transferencia de estado representacional API:** Usa los endpoints [Exportar usuarios por Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) o [Exportar usuarios por identificador]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) para exportar perfiles de usuario individuales en formato JSON.
 2. **Perfil de usuario:** Busca el perfil del usuario en la página [Buscar usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles), luego selecciona la pestaña **Interacción** para ver y actualizar manualmente el estado de suscripción de un usuario.
 
 Cuando un usuario actualiza su dirección de correo electrónico, su estado de suscripción se establece como suscrito. Si la dirección de correo electrónico actualizada ya existe en otro lugar dentro de un espacio de trabajo de Braze, el usuario hereda el estado de suscripción de ese usuario existente, a menos que **Volver a suscribir a los usuarios cuando actualicen su configuración de correo electrónico** esté activado en **Configuración de envío**.
@@ -73,8 +73,8 @@ Las siguientes fuentes pueden desencadenar un cambio en el estado de suscripció
 
 | Fuente | Descripción |
 | ------ | ----------- |
-| SDK | Actualización de atributo de usuario enviada a través de un SDK de Braze |
-| REST API | Actualización de atributo de usuario enviada a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) |
+| SDK or kit de desarrollo de software | Actualización de atributo de usuario enviada a través de un SDK or kit de desarrollo de software de Braze |
+| REST or transferencia de estado representacional API | Actualización de atributo de usuario enviada a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) |
 | Panel | Estado de suscripción cambiado manualmente en la página del perfil de usuario |
 | Importación CSV | Estado de suscripción establecido durante una importación CSV de usuarios |
 | Centro de preferencias | El usuario actualizó su preferencia desde un centro de preferencias alojado en Braze |
@@ -107,7 +107,7 @@ Solo puedes usar la etiqueta de Liquid {%raw%}`${set_user_to_unsubscribed_url}`{
 
 Cuando un usuario selecciona "Cancelar suscripción de todos los tipos de correos electrónicos listados" en el centro de preferencias, Braze establece su estado de suscripción global de correo electrónico como `unsubscribed` y cancela su suscripción de todos los grupos.
 
-Las cancelaciones de suscripción del lado del destinatario —enlaces de cancelación de suscripción, list-unsubscribe, envíos del centro de preferencias y cancelaciones de suscripción reportadas por el ESP— aparecen en la tabla `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` de Snowflake. Las cancelaciones de suscripción realizadas a través de la REST API no se incluyen en esa tabla; en su lugar, emiten eventos [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) o [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events). Para el esquema de la tabla, consulta [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
+Las cancelaciones de suscripción del lado del destinatario —enlaces de cancelación de suscripción, list-unsubscribe, envíos del centro de preferencias y cancelaciones de suscripción reportadas por el ESP— aparecen en la tabla `USERS_MESSAGES_EMAIL_UNSUBSCRIBE` de Snowflake. Las cancelaciones de suscripción realizadas a través de la REST or transferencia de estado representacional API no se incluyen en esa tabla; en su lugar, emiten eventos [`users.behaviors.subscriptiongroup.StateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#subscription-group-state-change-events) o [`users.behaviors.subscription.GlobalStateChange`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#global-subscription-state-change-events). Para el esquema de la tabla, consulta [USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_EMAIL_UNSUBSCRIBE_SHARED).
 
 ### Creación de pies de página personalizados {#custom-footer}
 
@@ -130,7 +130,7 @@ Para usar una página de destino personalizada en su lugar:
 
 Incluye un enlace de resuscripción (por ejemplo {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}) para que los usuarios puedan deshacer una cancelación de suscripción accidental. Al igual que {% raw %}`${set_user_to_unsubscribed_url}`{% endraw %}, solo puedes usar esta etiqueta en Campaigns de correo electrónico y Canvas.
 
-También puedes enviar a los usuarios a tu sitio y actualizar el estado con la REST API de Braze (por ejemplo, un enlace con {% raw %}`?user_id={{${user_id}}}`{% endraw %} y luego llamar a [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
+También puedes enviar a los usuarios a tu sitio y actualizar el estado con la REST or transferencia de estado representacional API de Braze (por ejemplo, un enlace con {% raw %}`?user_id={{${user_id}}}`{% endraw %} y luego llamar a [`/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status)).
 
 {% alert note %}
 Si usas el pie de página del panel en lugar de solo un bloque de contenido HTML, la plantilla aún debe contener {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} para guardarse. Para usar una URL de cancelación de suscripción diferente temporalmente, puedes comentar la etiqueta predeterminada. Un ejemplo es: {% raw %}`<!-- {{${set_user_to_unsubscribed_url}}} -->`{% endraw %}.

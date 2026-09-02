@@ -52,7 +52,7 @@ Braze는 **메시지 활동 로그**에서 푸시 알림 오류 로그를 제공
 
 ![오류 발생 시간, 앱 이름, 채널, 오류 유형 및 오류 메시지를 표시하는 푸시 오류 로그.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
-여기에서 볼 수 있는 일반적인 오류에는 ["Received Unregistered Sending to Push Token"](#received-unregistered-sending)과 같은 사용자별 알림이 포함됩니다.
+여기에서 볼 수 있는 일반적인 오류에는 ["Received Unregistered Sending to 푸시 토큰"](#received-unregistered-sending)과 같은 사용자별 알림이 포함됩니다.
 
 또한 Braze는 고객 프로필의 **인게이지먼트** 탭에서 푸시 체인지로그를 제공합니다. 이 체인지로그는 토큰 무효화, 푸시 등록 오류, 토큰이 새 사용자에게 이동되는 경우 등 푸시 등록 동작에 대한 인사이트를 제공합니다.
 

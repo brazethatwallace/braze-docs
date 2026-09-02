@@ -14,7 +14,7 @@ Agora, oferecemos suporte a tipos de mensagens interativas no navegador, incluin
 
 ## Mensagem personalizada no app com conteúdo conectado {#personalized-in-app-message-with-connected-content}
 
-Adicionamos os blocos {% raw %} {%connected_content%} {% endraw %} nas mensagens no app disparadas, o que permite adicionar personalização avançada inserindo qualquer informação acessível via API diretamente em suas mensagens. Agora, você pode usar o Connected Content dentro do seu app, além de push, e-mail e webhooks. Saiba mais sobre o [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
+Adicionamos os blocos {% raw %} {%connected_content%} {% endraw %} nas mensagens no app disparadas, o que permite adicionar personalização avançada inserindo qualquer informação acessível via API or interface de programação do aplicativo (API) diretamente em suas mensagens. Agora, você pode usar o Connected Content dentro do seu app, além de push, e-mail e webhooks. Saiba mais sobre o [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 ## Navegação aprimorada para cartões do News Feed {#improved-navigation-for-news-feed-cards}
 
@@ -30,13 +30,13 @@ Adicionamos "Aberturas por Influência" à nossa lista de estatísticas padrão 
 
 ## Fazer upgrade para grupos internos {#upgrade-to-internal-groups}
 
-Agora é possível criar vários grupos internos e atribuir propriedades que indicam se o grupo será usado para registro de SDK, registro de REST API ou teste de conteúdo de mensagens. Saiba mais sobre os [registros de usuários de eventos]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab).
+Agora é possível criar vários grupos internos e atribuir propriedades que indicam se o grupo será usado para registro de SDK or kit de desenvolvimento de software, registro de REST or transferir estado representacional API or interface de programação do aplicativo (API) ou teste de conteúdo de mensagens. Saiba mais sobre os [registros de usuários de eventos]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab).
 
 > Atualização: Os grupos internos também podem ser usados para o [envio de e-mails de teste]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console#seed-groups).
 
 ## Novas opções para URLs da web {#new-options-for-web-urls}
 
-Agora você tem a opção de abrir URLs da web em um navegador externo para mensagens push, mensagens no app e no navegador e cartões do News Feed. A ação "Deep Link into App" agora também é compatível com deep links HTTP/HTTPS. Se estiver usando um parceiro como a Branch ou o Universal Links da Apple, você precisará personalizar o SDK. Saiba mais sobre o [deep linking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
+Agora você tem a opção de abrir URLs da web em um navegador externo para mensagens push, mensagens no app e no navegador e cartões do News Feed. A ação "Deep Link into App" agora também é compatível com deep links HTTP/HTTPS. Se estiver usando um parceiro como a Branch or ramificação ou o Universal Links da Apple, você precisará personalizar o SDK or kit de desenvolvimento de software. Saiba mais sobre o [deep linking]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Novo evento "Performed Conversion" no Canvas {#new-performed-conversion-event-canvas}
 

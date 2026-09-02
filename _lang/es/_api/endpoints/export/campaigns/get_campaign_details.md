@@ -173,7 +173,7 @@ El formato de la respuesta depende del tipo de mensaje dentro de la aplicación.
 ```
 
 {% endtab %}
-{% tab SMS %}
+{% tab servicio de mensajes cortos %}
 
 ```json
 {

@@ -21,7 +21,7 @@ Metaは引き続きMeta Business Agentを積極的に開発しているため、
 
 Meta Business Agentは、MetaがWhatsApp Businessの電話番号上で直接運用するAI搭載の応答システムです。対象の電話番号で有効にすると、Metaのツールで設定されたナレッジ（ビジネス情報、FAQ、ファイル、Webサイトのコンテンツ）やコネクターを使用して、ビジネスに代わってユーザーからの受信メッセージに返信できます。
 
-Meta Business Agentの有効化は、WhatsApp ManagerとMeta Business Suiteで完全に設定され、Brazeのワークスペースとは別のものです。設定にBrazeは必要なく、現在Brazeダッシュボードにはこの機能を制御する設定はありません。
+Meta Business Agentの有効化は、WhatsApp マネージャーとMeta Business Suiteで完全に設定され、Brazeのワークスペースとは別のものです。設定にBrazeは必要なく、現在Brazeダッシュボードにはこの機能を制御する設定はありません。
 
 ## Brazeに接続された電話番号との連携 {#how-it-interacts-with-your-braze-connected-number}
 
@@ -44,7 +44,7 @@ Meta Business AgentとBrazeは同じWhatsApp Businessの電話番号上で共存
 
 Meta Business Agentは、BrazeではなくMetaのツールで電話番号ごとに有効にします。
 
-1. [WhatsApp Manager](https://business.facebook.com/wa/manage/home/)で対象の電話番号の適格性を確認し、Meta Business Agent利用規約に同意して有効にします。
+1. [WhatsApp マネージャー](https://business.facebook.com/wa/manage/home/)で対象の電話番号の適格性を確認し、Meta Business Agent利用規約に同意して有効にします。
 2. Metaの[エージェント設定API](https://developers.facebook.com/documentation/meta-business-agent/reference/configure/agent-skills)を通じて、エージェントのナレッジとスキル（ビジネス情報、FAQ、ファイル、コネクター）を設定します。
 3. [Agent Settings](https://developers.facebook.com/documentation/meta-business-agent/reference/onboard/agent-settings)を使用してエージェントをオンにします。
 

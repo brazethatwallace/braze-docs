@@ -11,7 +11,7 @@ toc_headers: h2
 
 # Dashboards de rendimiento del canal {#channel-performance-dashboards}
 
-> Los dashboards de rendimiento del canal muestran métricas de rendimiento agregadas para un canal completo, tanto de Campaigns como de Canvas. Estos dashboards están disponibles actualmente para correo electrónico, push y SMS.
+> Los dashboards de rendimiento del canal muestran métricas de rendimiento agregadas para un canal completo, tanto de Campaigns como de Canvas. Estos dashboards están disponibles actualmente para correo electrónico, push y servicio de mensajes cortos.
 
 ## Paneles {#dashboards}
 
@@ -41,7 +41,7 @@ Para ver el panel de **Email Performance**, necesitas el permiso "View Usage Dat
 | Envíos | Recuento | Número total de envíos de cada día en el intervalo de fechas |
 | Tasa de entrega | Tasa | (Número total de entregas de cada día en el intervalo de fechas) / (Número total de envíos de cada día en el intervalo de fechas) |
 | Tasa de rebote | Tasa | (Número total de rebotes de cada día en el intervalo de fechas) / (Número total de envíos de cada día en el intervalo de fechas) |
-| Tasa de cancelaciones | Tasa | (Número total de cancelaciones de suscripción únicas de cada día en el intervalo de fechas) / (Número total de entregas en un intervalo de fechas)<br><br>Esto usa cancelaciones de suscripción únicas, que también se usan en los análisis de Campaigns, el resumen y el generador de informes. Estas cancelaciones de suscripción se registran en todas las fuentes (como la REST API, las importaciones CSV, los correos electrónicos y las cancelaciones de suscripción por lista). Las tasas de cancelaciones de suscripción en los análisis de Campaign y Canvas son cancelaciones que se producen como resultado de un clic en cancelar suscripción en un correo electrónico entregado por Braze.  |
+| Tasa de cancelaciones | Tasa | (Número total de cancelaciones de suscripción únicas de cada día en el intervalo de fechas) / (Número total de entregas en un intervalo de fechas)<br><br>Esto usa cancelaciones de suscripción únicas, que también se usan en los análisis de Campaigns, el resumen y el generador de informes. Estas cancelaciones de suscripción se registran en todas las fuentes (como la REST or transferencia de estado representacional API, las importaciones CSV, los correos electrónicos y las cancelaciones de suscripción por lista). Las tasas de cancelaciones de suscripción en los análisis de Campaign y Canvas son cancelaciones que se producen como resultado de un clic en cancelar suscripción en un correo electrónico entregado por Braze.  |
 | Tasa de aperturas únicas | Tasa | (Número total de aperturas únicas de cada día en el intervalo de fechas) / (Número total de entregas en un intervalo de fechas) |
 | Tasa de otras aperturas | Tasa | (Número total de otras aperturas de cada día en el intervalo de fechas) / (Número total de entregas en un intervalo de fechas)<br><br>Otras aperturas incluyen correos electrónicos que no se han identificado como aperturas de máquina, como cuando un usuario abre un correo electrónico. Esta métrica no es única y es una submétrica de las aperturas totales.  |
 | Tasa de clics únicos | Tasa | (Número total de clics únicos de cada día en el intervalo de fechas) / (Número total de entregas en un intervalo de fechas) |
@@ -97,17 +97,17 @@ El informe de participación por **hora del día** desglosa las aperturas o clic
 Para obtener más información sobre los análisis de tus correos electrónicos, consulta [Informes de correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
-{% tab Rendimiento de SMS %}
+{% tab Rendimiento de servicio de mensajes cortos %}
 
-### Panel de rendimiento de SMS {#sms-performance-dashboard}
+### Panel de rendimiento de servicio de mensajes cortos {#sms-performance-dashboard}
 
-Para usar tu panel de rendimiento de SMS, ve a **Analytics** > **SMS Performance** y selecciona el intervalo de fechas del periodo del que quieres ver datos. Tu intervalo de fechas puede abarcar hasta un año en el pasado.
+Para usar tu panel de rendimiento de servicio de mensajes cortos, ve a **Analytics** > **servicio de mensajes cortos Performance** y selecciona el intervalo de fechas del periodo del que quieres ver datos. Tu intervalo de fechas puede abarcar hasta un año en el pasado.
 
-![Un ejemplo de Campaign de SMS con 335.630 envíos y un promedio de 11.187,667 por día.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
+![Un ejemplo de Campaign de servicio de mensajes cortos con 335.630 envíos y un promedio de 11.187,667 por día.]({% image_buster /assets/img_archive/email_performance_dashboard_2.png %}){: style="max-width:40%;float:right;margin-left:15px;border:none;"}
 
 #### Cómo se calculan las métricas
 
-{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="SMS" %}
+{% multi_lang_include analytics/channel_performance_how_metrics_calculated.md channel="servicio de mensajes cortos" %}
 
 | Métrica | Tipo | Cálculo |
 | --- | --- | ---- |

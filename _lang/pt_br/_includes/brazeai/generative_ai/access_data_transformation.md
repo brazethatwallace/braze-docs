@@ -1,1 +1,1 @@
-No editor de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation/), selecione **Inserir código** para gerar o código de transformação que converte uma carga útil de webhook recebida em solicitações válidas para a API da Braze.
+No editor de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation/), selecione **Inserir código** para gerar o código de transformação que converte uma carga útil de webhook recebida em solicitações válidas para a API or interface de programação do aplicativo (API) da Braze.

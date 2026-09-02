@@ -24,8 +24,8 @@ La integración de Braze y PassKit te permite aumentar y medir la participación
 | ----------- | ----------- |
 | Cuenta PassKit | Debes tener una cuenta PassKit y un director de cuentas PassKit. |
 | `userDefinedID` | Para actualizar adecuadamente los eventos personalizados y los atributos personalizados de tus usuarios entre PassKit y Braze, debes establecer el ID externo de Braze como `userDefinedID`. Este `userDefinedID` se utiliza cuando se hacen llamadas a la API a los endpoints de PassKit. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze  | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze  | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -201,7 +201,7 @@ El cuerpo del mensaje debería verse similar a esto:
 La URL de salida de ejemplo es:
 ![La URL de salida que incluye una larga cadena de letras y números generada aleatoriamente.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
 
-La URL de salida será larga. La razón es que contiene todos los datos del pase e incorpora seguridad de primer nivel para garantizar la integridad de los datos y que no se alteren mediante la modificación de la URL. Si utilizas SMS para distribuir esta URL, tal vez quieras pasarla por un proceso de acortamiento de enlaces como [bit.ly](https://dev.bitly.com/v4/#operation/createFullBitlink). Esto puede hacerse mediante una llamada de contenido conectado a un endpoint de bit.ly.
+La URL de salida será larga. La razón es que contiene todos los datos del pase e incorpora seguridad de primer nivel para garantizar la integridad de los datos y que no se alteren mediante la modificación de la URL. Si utilizas servicio de mensajes cortos para distribuir esta URL, tal vez quieras pasarla por un proceso de acortamiento de enlaces como [bit.ly](https://dev.bitly.com/v4/#operation/createFullBitlink). Esto puede hacerse mediante una llamada de contenido conectado a un endpoint de bit.ly.
 
 ## Actualizar el pase utilizando el webhook de PassKit {#update-pass-using-the-passkit-webhook}
 

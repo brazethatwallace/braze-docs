@@ -118,7 +118,7 @@ BrazeからLyticsへのオーディエンスデータのインポートは、以
 
 ![アカウントメニューからCreate API Tokenが選択されたLyticsのAccess Tokens画面。]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 
-名前、オプションの説明、トークンの有効期限を入力します。次にAPI権限の**Data Manager**スコープをオンに切り替え、**Generate Token**を選択します。トークンをコピーし、安全な場所に保管してください。
+名前、オプションの説明、トークンの有効期限を入力します。次にAPI権限の**Data マネージャー**スコープをオンに切り替え、**Generate Token**を選択します。トークンをコピーし、安全な場所に保管してください。
 
 ![トークン生成前にData Managerスコープが有効になっているLytics APIトークン権限。]({% image_buster /assets/img/lytics/data_manager.png %}){: style="max-width:80%;"}
 

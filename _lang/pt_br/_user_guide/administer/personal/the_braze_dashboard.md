@@ -91,7 +91,7 @@ Para pesquisar texto exato, coloque o termo de pesquisa entre aspas (""). Por ex
 
 ### Tags de tipo de conteúdo e status {#content-type-and-status-tags}
 
-Cada resultado é identificado com uma tag indicando seu tipo de conteúdo — como Campaign, Canvas ou Segment — e seu status (ativo, arquivado, parado).
+Cada resultado é identificado com uma tag indicando seu tipo de conteúdo — como Campaign, Canvas ou Segment or segmento — e seu status (ativo, arquivado, parado).
 
 ### Filtrar por conteúdo ativo e rascunho {#filter-for-active-and-draft-content}
 
@@ -161,7 +161,7 @@ Para gerenciar as configurações da sua conta, preferências de notificação e
 1. Selecione o ícone do seu perfil no cabeçalho global.
 2. Selecione **Gerenciar sua conta** para acessar a página do seu perfil.
 
-Na página do seu perfil, você pode atualizar suas configurações de e-mail, configurar a autenticação de dois fatores, visualizar suas chaves de API e gerenciar outros detalhes da conta.
+Na página do seu perfil, você pode atualizar suas configurações de e-mail, configurar a autenticação de dois fatores, visualizar suas chaves de API or interface de programação do aplicativo (API) e gerenciar outros detalhes da conta.
 
 ## Acessibilidade no dashboard {#accessibility-in-the-dashboard}
 
@@ -184,6 +184,6 @@ Quer nos dizer o que pensa? Você pode compartilhar feedback sobre navegação, 
 
 - **Criar campanhas**: [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
 - **Criar jornadas**: [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
-- **Definir públicos**: [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **Definir públicos**: [Criar um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
 - **Revisar desempenho**: [Visão geral de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home)
 - **Definir configurações**: [Configurações do app]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

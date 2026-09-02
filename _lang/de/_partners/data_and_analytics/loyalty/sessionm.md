@@ -15,16 +15,16 @@ search_tag: Partner
 
 | Quelle | Anforderung | Beschreibung |
 | --- | --- | --- |
-| Braze | Ein Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `trigger_send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze | Ein Braze REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
+| Braze | Ein Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `trigger_send`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze | Ein Braze Representational State Transfer-Endpunkt | Ihre URL für den Representational State Transfer-Endpunkt. Ihr Endpunkt hängt von der Braze-URL für [Ihre Instanz]({{site.baseurl}}/api/basics#endpoints) ab. |
 | Braze und SessionM | Passender Bezeichner | Um die Integration zu nutzen, stellen Sie sicher, dass sowohl SessionM als auch Braze über einen Datensatz mit den von jeder Plattform verwendeten Bezeichnern verfügen. Verweise auf `user_id` entsprechen dem SessionM-Bezeichner der Nutzer:innen, der zum Zeitpunkt der Profilerstellung in SessionM generiert wurde. |
 | SessionM | Ein SessionM-Konto | Um diese Partnerschaft zu nutzen, benötigen Sie ein SessionM-Konto. |
-| SessionM | Ein SessionM Core REST-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
-| SessionM | Ein SessionM Core REST-API-Schlüssel | Der SessionM-API-Schlüssel, der mit Ihrer Instanz und der Braze-Integration verbunden ist. Dieser Schlüssel kann für alle Core-basierten Aufrufe einschließlich Tags verwendet werden. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
-| SessionM | Ein SessionM Core REST-API-Geheimnis | Das SessionM-API-Geheimnis, das mit Ihrer Instanz und der Braze-Integration verbunden ist. Dieser Schlüssel kann für alle Core-basierten Aufrufe einschließlich Tags verwendet werden. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
-| SessionM | Ein SessionM Connect REST-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
-| SessionM | Ein SessionM Connect REST-Autorisierungs-String | Der SessionM Connect Basic-Authorization-String, der mit Ihrer Instanz verknüpft ist. Dieser Authentifizierungs-String kann für alle verbindungsbasierten Aufrufe verwendet werden, einschließlich get_user_offers. Bitte wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
-| SessionM | Eine SessionM Connect REST-Retailer-ID | Eine eindeutige GUID-Kennung für den spezifischen Kunden, der mit Ihrer Instanz verbunden ist. Wenden Sie sich an Ihren technischen SessionM Account Manager oder das Delivery-Team. |
+| SessionM | Ein SessionM Core Representational State Transfer-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
+| SessionM | Ein SessionM Core Representational State Transfer-API-Schlüssel | Der SessionM-API-Schlüssel, der mit Ihrer Instanz und der Braze-Integration verbunden ist. Dieser Schlüssel kann für alle Core-basierten Aufrufe einschließlich Tags verwendet werden. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
+| SessionM | Ein SessionM Core Representational State Transfer-API-Geheimnis | Das SessionM-API-Geheimnis, das mit Ihrer Instanz und der Braze-Integration verbunden ist. Dieser Schlüssel kann für alle Core-basierten Aufrufe einschließlich Tags verwendet werden. Dieser kann im SessionM-Dashboard unter **Digital Properties** erstellt werden. |
+| SessionM | Ein SessionM Connect Representational State Transfer-Endpunkt | Ihr Endpunkt hängt von der SessionM-URL Ihrer Instanz ab. Wenden Sie sich an Ihren technischen SessionM Account Manager:in oder das Delivery-Team. |
+| SessionM | Ein SessionM Connect Representational State Transfer-Autorisierungs-String | Der SessionM Connect Basic-Authorization-String, der mit Ihrer Instanz verknüpft ist. Dieser Authentifizierungs-String kann für alle verbindungsbasierten Aufrufe verwendet werden, einschließlich get_user_offers. Bitte wenden Sie sich an Ihren technischen SessionM Account Manager:in oder das Delivery-Team. |
+| SessionM | Eine SessionM Connect Representational State Transfer-Retailer-ID | Eine eindeutige GUID-Kennung für den spezifischen Kunden, der mit Ihrer Instanz verbunden ist. Wenden Sie sich an Ihren technischen SessionM Account Manager:in oder das Delivery-Team. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -51,7 +51,7 @@ Erstellen Sie in Braze ein Segment von Nutzer:innen für das Targeting mit Sessi
 
 Erstellen Sie zunächst eine Webhook-Kampagne in Braze und setzen Sie die Webhook-URL auf {% raw %}`{{endpoint_core}}/priv/v1/apps/{{appkey_core}}/users/{{${user_id}}}/tags`{% endraw %}. Verwenden Sie Liquid, um die `user_id` innerhalb der URL zu definieren.
 
-Stellen Sie den **Body für die Anfrage** des Webhooks mit Hilfe eines Rohtextes so zusammen, dass er die gewünschten Tags, die dem Nutzerprofil in SessionM hinzugefügt werden sollen, und die gewünschte Gültigkeitsdauer enthält. Ein Beispiel:
+Stellen Sie den **Body für die Anfrage** des Webhooks mit Hilfe eines Rohtextes so zusammen, dass er die gewünschten Tags, die dem Kundenprofil or Nutzerprofil in SessionM hinzugefügt werden sollen, und die gewünschte Gültigkeitsdauer enthält. Ein Beispiel:
 
  ```
  {
@@ -212,7 +212,7 @@ Zusätzliche Felder können je nach Bedarf konfiguriert werden:
 
 - **Angebotsdaten:** `offer_id`, `offer title`, `user offer id`, `description`, `terms and conditions`, `logo`, `pos discount id`, `expiration date`
 - **Punkteprämien-Daten:** `point award amount`, `point account name`
-- **Ereignis-Trigger-Daten:** Alle Daten im Trigger-Ereignis, die das Ergebnis des Trigger/Sende-Webhooks nutzen
+- **Ereignis-Trigger or triggern-Daten:** Alle Daten im Trigger or triggern-Ereignis, die das Ergebnis des Trigger or triggern/Sende-Webhooks nutzen
 - **Kampagnenspezifische Daten:** `campaign runtime`, `campaign_id`, `campaign name`, `campaign custom data`
 
 Zusätzliche Felder werden als `trigger_properties` an Braze gesendet, um die Nachricht zu personalisieren.
@@ -235,7 +235,7 @@ Erstellen Sie als Nächstes Ihre Kampagne in SessionM.
 
 ![SessionM-Kampagne erstellen.]({% image_buster /assets/img/sessionm/SessionMCampaignCreation.png %})
 
-Aktualisieren Sie die erweiterten Einstellungen in der SessionM-Kampagne, um die folgende JSON-Payload einzuschließen, die die `braze_campaign_id` oder `braze_canvas_id` enthält.
+Update or aktualisieren or aktualisieren Sie die erweiterten Einstellungen in der SessionM-Kampagne, um die folgende JSON-Payload einzuschließen, die die `braze_campaign_id` oder `braze_canvas_id` enthält.
 
 {% raw %}
 ```
@@ -248,7 +248,7 @@ Aktualisieren Sie die erweiterten Einstellungen in der SessionM-Kampagne, um die
 
 ![Erweiterte Einstellungen von SessionM.]({% image_buster /assets/img/sessionm/SessionMAdvancedSettings.png %}){: style="max-width:85%;"}
 
-Erstellen Sie einen Nachrichten-Trigger nach dem gewünschten Zeitplan oder Verhalten. Wählen Sie dann im Menü **External Message** die **Braze Messaging Variant** als **Messaging Variant** aus, um das Template zu verwenden.
+Erstellen Sie einen Nachrichten-Trigger or triggern nach dem gewünschten Zeitplan oder Verhalten. Wählen Sie dann im Menü **External Message** die **Braze Messaging Variant** als **Messaging Variant** aus, um das Template zu verwenden.
 
 ![Externe Nachricht von SessionM.]({% image_buster /assets/img/sessionm/SessionMExternalMessage.png %})
 

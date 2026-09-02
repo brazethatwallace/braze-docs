@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Lista de claves de autenticación SDK"
-article_title: "GET: Lista de claves de autenticación SDK"
+nav_title: "GET: Lista de claves de autenticación SDK or kit de desarrollo de software"
+article_title: "GET: Lista de claves de autenticación SDK or kit de desarrollo de software"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el endpoint de Braze para listar las claves de autenticación SDK."
+description: "Este artículo describe los detalles sobre el endpoint de Braze para listar las claves de autenticación SDK or kit de desarrollo de software."
 ---
 
 {% api %}
-# Lista de claves de autenticación SDK {#list-sdk-authentication-keys}
+# Lista de claves de autenticación SDK or kit de desarrollo de software {#list-sdk-authentication-keys}
 {% apimethod get %}
 /app_group/sdk_authentication/keys
 {% endapimethod %}
 
-> Utiliza este endpoint para recuperar todas las claves de autenticación SDK de tu aplicación.
+> Utiliza este endpoint para recuperar todas las claves de autenticación SDK or kit de desarrollo de software de tu aplicación.
 
 ## Requisitos previos {#prerequisites}
 
@@ -63,11 +63,11 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 
 | Parámetro | Tipo de datos | Descripción |
 | --------- | --------- | ----------- |
-| `keys` | Matriz | Matriz de objetos de clave de autenticación SDK. |
-| `keys[].id` | Cadena | El ID de la clave de autenticación SDK. |
+| `keys` | Matriz | Matriz de objetos de clave de autenticación SDK or kit de desarrollo de software. |
+| `keys[].id` | Cadena | El ID de la clave de autenticación SDK or kit de desarrollo de software. |
 | `keys[].rsa_public_key` | Cadena | La cadena de clave pública RSA. |
-| `keys[].description` | Cadena | Descripción de la clave de autenticación SDK. |
-| `keys[].is_primary` | Booleano | Si esta clave es la clave de autenticación SDK principal. |
+| `keys[].description` | Cadena | Descripción de la clave de autenticación SDK or kit de desarrollo de software. |
+| `keys[].is_primary` | Booleano | Si esta clave es la clave de autenticación SDK or kit de desarrollo de software principal. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parámetros de respuesta" }
 
 ### Reglas de validación {#validation-rules}

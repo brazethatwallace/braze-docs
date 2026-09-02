@@ -30,7 +30,7 @@ Siga estas etapas para configurar notificações de volta ao estoque em um catá
     - **Custom event for unsubscribing** é o evento personalizado da Braze que será usado para cancelar a inscrição de um usuário nas notificações de volta ao estoque. Esse evento é opcional. Se o usuário não realizar esse evento, a inscrição será cancelada após 90 dias ou quando o evento de volta ao estoque for disparado, o que ocorrer primeiro.
     - **Item ID event property** é a propriedade no evento personalizado mencionado anteriormente nesta seção que será usada para determinar o item para uma inscrição ou cancelamento de inscrição de volta ao estoque. Essa propriedade no evento personalizado deve conter um ID de item (`id`) que esteja presente em um catálogo. O ID do item deve ser enviado como uma string para que corresponda ao tipo de dados `id` armazenado no catálogo de destino. O evento personalizado também deve conter uma propriedade `catalog_name` para especificar em qual catálogo esse item está.
 
-    - O exemplo a seguir mostra um evento personalizado de amostra enviado pela REST API:
+    - O exemplo a seguir mostra um evento personalizado de amostra enviado pela REST or transferir estado representacional API or interface de programação do aplicativo (API):
 
 ```json
 {
@@ -52,7 +52,7 @@ Siga estas etapas para configurar notificações de volta ao estoque em um catá
 Para rastrear o mesmo evento de inscrição usando os SDKs da Braze, use o seguinte código:
 
 {% tabs %}
-{% tab Web SDK %}
+{% tab Web SDK or kit de desenvolvimento de software %}
 
 ```javascript
 import { logCustomEvent } from "@braze/web-sdk";

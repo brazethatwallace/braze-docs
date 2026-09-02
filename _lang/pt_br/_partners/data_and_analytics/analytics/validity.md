@@ -30,8 +30,8 @@ Antes de começar, você precisa do seguinte:
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Uma conta Validity | Uma conta Validity é necessária para aproveitar esta parceria. |
-| Uma chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.delete`, `email.bounce.remove`, `email.spam.remove`, `campaigns.list`, `campaigns.details`, `campaigns.data_series`, `canvas.list`, `canvas.details`, `canvas.data_series`, `content_blocks.list`, `content_blocks.info` e `messages.send`. <br><br> Crie essa chave no dashboard da Braze em **Configurações** > **APIs e identificadores**. |
-| Um endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Seu endpoint depende da URL da Braze para sua instância. Por exemplo, `rest.iad-01.braze.com`. |
+| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões: `users.track`, `users.delete`, `email.bounce.remove`, `email.spam.remove`, `campaigns.list`, `campaigns.details`, `campaigns.data_series`, `canvas.list`, `canvas.details`, `canvas.data_series`, `content_blocks.list`, `content_blocks.info` e `messages.send`. <br><br> Crie essa chave no dashboard da Braze em **Configurações** > **APIs e identificadores**. |
+| Um endpoint REST or transferir estado representacional da Braze | [A URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints). Seu endpoint depende da URL da Braze para sua instância. Por exemplo, `rest.iad-01.braze.com`. |
 | Um identificador de app da Braze | O identificador de app da Braze ao qual os envios de seed devem ser atribuídos. Encontre-o em **Configurações** > **APIs e identificadores** > **Identificadores de app**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -41,8 +41,8 @@ Antes de começar, você precisa do seguinte:
 
 A Validity precisa de três credenciais de **Configurações** > **APIs e identificadores** no dashboard da Braze:
 
-- Sua chave da API REST (com as permissões listadas em [Pré-requisitos](#prerequisites))
-- Seu endpoint REST
+- Sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional (com as permissões listadas em [Pré-requisitos](#prerequisites))
+- Seu endpoint REST or transferir estado representacional
 - Seu identificador de app
 
 Compartilhe essas credenciais com seu representante da Validity, que concluirá a configuração da integração para você. A Validity valida as credenciais com uma chamada de teste ao vivo para a Braze antes de ativar a integração. Se você não sabe quem é seu contato na Validity, envie um e-mail para [support@validity.com](mailto:support@validity.com).
@@ -51,9 +51,9 @@ Após a integração ser ativada, a Validity sincroniza sua lista de seed do Eve
 
 ### Etapa 2: Opcionalmente, crie um Segment na Braze para usuários de seed da Validity {#step-2-optionally-create-a-braze-segment-for-validity-seed-users}
 
-Criar um Segment é opcional. O auto-seeding envia e-mails de teste usando um objeto [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience) filtrado pelo atributo personalizado `validity_seed` sempre que um envio qualificado é detectado. Você não precisa criar um Segment ou anexá-lo às suas Campaigns.
+Criar um Segment or segmento é opcional. O auto-seeding envia e-mails de teste usando um objeto [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience) filtrado pelo atributo personalizado `validity_seed` sempre que um envio qualificado é detectado. Você não precisa criar um Segment or segmento ou anexá-lo às suas Campaigns.
 
-Se quiser visualizar esse público dentro da Braze para referência, crie um Segment em **Público** > **Segments** com o filtro `validity_seed` igual a `true`.
+Se quiser visualizar esse público dentro da Braze para referência, crie um Segment or segmento em **Público** > **Segments** com o filtro `validity_seed` igual a `true`.
 
 A Validity cria usuários por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) usando o seguinte esquema:
 

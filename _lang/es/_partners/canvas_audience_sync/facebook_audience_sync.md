@@ -14,7 +14,7 @@ tool:
 
 > Con la Sincronización de audiencias de Braze con Facebook, puedes optar por añadir los datos de tus propios usuarios de tu integración Braze a las audiencias personalizadas de Facebook para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más.
 
-Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, SMS o webhook) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en Facebook utilizando audiencias personalizadas. Por ejemplo, cuando configuras una sincronización de audiencia con Facebook, puedes utilizar una amplia variedad de campos de datos propios, como correo electrónico, teléfono, nombre y apellidos.
+Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos o webhook) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en Facebook utilizando audiencias personalizadas. Por ejemplo, cuando configuras una sincronización de audiencia con Facebook, puedes utilizar una amplia variedad de campos de datos propios, como correo electrónico, teléfono, nombre y apellidos.
 
 **Entre los casos de uso habituales para sincronizar audiencias personalizadas se incluyen**:
 
@@ -37,8 +37,8 @@ Deberás confirmar que tienes los siguientes elementos creados y completados ant
 
 | Requisito | Origin | Descripción |
 | ----------- | ------ | ----------- |
-| Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas publicitarias, páginas y aplicaciones). |
-| Cuenta publicitaria de Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Una cuenta publicitaria de Facebook activa vinculada al administrador de negocios de tu marca.<br><br>Asegúrate de que el administrador de tu Facebook Business Manager te haya concedido permisos de "Manage Campaigns" o "Manage ad accounts" para las cuentas publicitarias de Facebook que planeas usar con Braze. Además, asegúrate de haber aceptado los términos y condiciones de tu cuenta publicitaria. |
+| Facebook Business Administrador | [Facebook](https://www.facebook.com/business/help/113163272211510) | Una herramienta centralizada para gestionar los activos de Facebook de tu marca (por ejemplo, cuentas publicitarias, páginas y aplicaciones). |
+| Cuenta publicitaria de Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Una cuenta publicitaria de Facebook activa vinculada al administrador de negocios de tu marca.<br><br>Asegúrate de que el administrador de tu Facebook Business Administrador te haya concedido permisos de "Manage Campaigns" o "Manage ad accounts" para las cuentas publicitarias de Facebook que planeas usar con Braze. Además, asegúrate de haber aceptado los términos y condiciones de tu cuenta publicitaria. |
 | Términos de Facebook Custom Audiences | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Acepta los términos de Facebook Custom Audiences para las cuentas publicitarias de Facebook que planeas usar con Braze. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
@@ -62,7 +62,7 @@ Después de vincular Braze a tu cuenta de Facebook, selecciona las cuentas publi
 
 ![Una versión actualizada de la página de partners tecnológicos de Facebook que muestra las cuentas publicitarias conectadas correctamente.]({% image_buster /assets/img/fb/afb_5.png %}){: style="max-width:85%;"}
 
-Tu conexión con Facebook se aplica a nivel del espacio de trabajo de Braze. Si tu administrador de Facebook te elimina de tu Facebook Business Manager o del acceso a las cuentas de Facebook conectadas, Braze detectará un token no válido. Como resultado, tus Canvas activos que utilicen componentes de Facebook Audience mostrarán errores, y Braze no podrá sincronizar usuarios.
+Tu conexión con Facebook se aplica a nivel del espacio de trabajo de Braze. Si tu administrador de Facebook te elimina de tu Facebook Business Administrador o del acceso a las cuentas de Facebook conectadas, Braze detectará un token no válido. Como resultado, tus Canvas activos que utilicen componentes de Facebook Audience mostrarán errores, y Braze no podrá sincronizar usuarios.
 
 {% alert important %}
 Para los clientes que anteriormente pasaron por el proceso de revisión de la aplicación de Facebook para [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) y [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard), tu token de usuario del sistema seguirá siendo válido para el componente de Facebook Audience. No podrás editar ni revocar el token de usuario del sistema de Facebook a través de la página del partner de Facebook. En su lugar, puedes conectar tu cuenta de Facebook para reemplazar tu token de usuario del sistema de Facebook dentro de tu espacio de trabajo de Braze.
@@ -164,11 +164,11 @@ El tiempo que tarda en llenarse una audiencia depende del partner específico. T
 
 ### ¿Qué debo hacer si recibo un error de token no válido? {#what-should-i-do-next-if-i-receive-an-invalid-token-error}
 
-Puedes simplemente desconectar y volver a conectar tu cuenta de Facebook en la página del partner de Facebook. Confirma con el administrador de tu Facebook Business Manager que tienes los permisos adecuados para la cuenta publicitaria con la que deseas sincronizar.
+Puedes simplemente desconectar y volver a conectar tu cuenta de Facebook en la página del partner de Facebook. Confirma con el administrador de tu Facebook Business Administrador que tienes los permisos adecuados para la cuenta publicitaria con la que deseas sincronizar.
 
 ### ¿Por qué no se permite lanzar mi Canvas? {#why-is-my-canvas-not-allowed-to-launch}
 
-- Asegúrate de que tu token de usuario del sistema esté autenticado y tenga acceso a las cuentas publicitarias deseadas en Facebook Business Manager.
+- Asegúrate de que tu token de usuario del sistema esté autenticado y tenga acceso a las cuentas publicitarias deseadas en Facebook Business Administrador.
 - Asegúrate de haber seleccionado una cuenta publicitaria, ingresado un nombre para la nueva audiencia personalizada y seleccionado los campos para hacer coincidir.
 - Es posible que hayas alcanzado el límite de 500 audiencias personalizadas en Facebook. Ve al Administrador de audiencias de Facebook para eliminar algunas que no necesites antes de crear nuevas audiencias personalizadas con Canvas.
 
@@ -197,7 +197,7 @@ En cuanto a la frecuencia, Braze solo aplica hash a la información de identific
 
 En este momento, Braze no admite audiencias personalizadas similares basadas en valor. Si intentas sincronizar con esta audiencia, esto puede causar errores en tu paso de Audience Sync. Para resolver esto, sigue estos pasos:
 
-1. Ve al panel de Facebook Ad Manager y selecciona **Audiences**.
+1. Ve al panel de Facebook Ad Administrador y selecciona **Audiences**.
 2. Selecciona **Create audience** > **Custom audience**.
 3. Selecciona **Customer list**.
 4. Sube tu CSV o lista sin la columna **Value**. Selecciona **No, continue with a customer list that doesn't include customer value**.
@@ -209,7 +209,7 @@ En este momento, Braze no admite audiencias personalizadas similares basadas en 
 Para usar Audience Sync con Facebook, debes aceptar estos términos de servicio.
 
 - Si tu cuenta publicitaria está directamente asociada con tu cuenta personal de Facebook, puedes aceptar los términos de servicio desde tu cuenta personal aquí: `https://www.facebook.com/ads/manage/customaudiences/tos.php?act=<ACCOUNT_ID>`.
-- Si tu cuenta publicitaria está vinculada a la cuenta de Business Manager de tu empresa, debes aceptar los términos de servicio en tu cuenta de Facebook Business Manager aquí: `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`.
+- Si tu cuenta publicitaria está vinculada a la cuenta de Business Administrador de tu empresa, debes aceptar los términos de servicio en tu cuenta de Facebook Business Administrador aquí: `https://business.facebook.com/customaudiences/value_based/tos.php?act=<ACCOUNT_ID>&business_id=<BUSINESS_ID>`.
 
 Después de haber aceptado los términos de servicio de audiencias personalizadas de Facebook, haz lo siguiente:
 
@@ -220,11 +220,11 @@ Entonces, Braze podrá sincronizar usuarios tan pronto como lleguen al paso de F
 
 ### ¿Qué pasó con los filtros **Connected Facebook** y **Number of Facebook Friends Using App**? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
 
-Los filtros de segmentación de Braze **Number of Facebook Friends Using App** y **Connected Facebook** están obsoletos. Facebook y los SDK de Braze ya no recopilan los datos subyacentes en los que se basaban esos filtros.
+Los filtros de segmentación de Braze **Number of Facebook Friends Using App** y **Connected Facebook** están obsoletos. Facebook y los SDK or kit de desarrollo de software de Braze ya no recopilan los datos subyacentes en los que se basaban esos filtros.
 
 Reemplaza los filtros obsoletos con atributos personalizados, eventos personalizados o Segments basados en la participación; por ejemplo, inicio de sesión de Facebook o vinculación social en lugar de **Connected Facebook**, o referidos, invitaciones y compartidos en lugar de **Number of Facebook Friends Using App**.
 
-Para la reorientación con Canvas, haz coincidir a los usuarios con correo electrónico, teléfono, nombre y apellido, como se muestra en el [Paso 4: Configuración de sincronización](#step-4-sync-setup). Para ampliar el alcance, sincroniza un Segment de alto valor con Facebook y crea una audiencia similar en Meta Ads Manager.
+Para la reorientación con Canvas, haz coincidir a los usuarios con correo electrónico, teléfono, nombre y apellido, como se muestra en el [Paso 4: Configuración de sincronización](#step-4-sync-setup). Para ampliar el alcance, sincroniza un Segment de alto valor con Facebook y crea una audiencia similar en Meta Ads Administrador.
 
 ## Solución de problemas {#troubleshooting}
 
@@ -255,7 +255,7 @@ table td {
     <tr>
       <td><b>Token no válido</b></td>
       <td>Las causas típicas son que el usuario que conectó la integración cambie su contraseña, que las credenciales caduquen, entre otras.</td>
-      <td>Ve a <b>Partner Integrations</b> > <b>Facebook</b> y desconecta y vuelve a conectar tu cuenta. Consulta <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>esta sección de solución de problemas</a> para conocer los pasos adicionales para auditar tu cuenta de Facebook.</td>
+      <td>Ve a <b>Partner Integrations</b> > <b>Facebook</b> y desconecta y vuelve a conectar tu cuenta. Consulta <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-Facebook-account'>esta sección de solución de problemas</a> para conocer los pasos adicionales para auditar tu cuenta de Facebook.</td>
     </tr>
     <tr>
       <td><b>Tamaño de audiencia demasiado bajo</b></td>
@@ -280,24 +280,24 @@ table td {
     <tr>
       <td><b>Todos los usuarios están generando errores</b></td>
       <td>Si todos los usuarios están generando errores en un paso a pesar de confirmar que estos usuarios tienen valores para los campos seleccionados en el paso, esto podría indicar un problema con tu cuenta de Facebook.</td>
-      <td>Sigue los pasos en <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>esta sección de solución de problemas</a> para verificar si tu cuenta tiene algún problema.
+      <td>Sigue los pasos en <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-Facebook-account'>esta sección de solución de problemas</a> para verificar si tu cuenta tiene algún problema.
       </td>
     </tr>
     <tr>
       <td><b>Error al crear audiencia</b></td>
       <td>En la página de partners tecnológicos de Facebook, ves "Connected", pero hay un error en el paso de Facebook Audience Sync al sincronizar una audiencia: "Failed to create audience 'audience name'". La autorización de tu cuenta de Facebook falló. Visita la página de partners tecnológicos para volver a conectar tu cuenta.</td>
-      <td>Sigue los pasos en <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>esta sección de solución de problemas</a> para verificar si tu cuenta tiene algún problema.
+      <td>Sigue los pasos en <a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-Facebook-account'>esta sección de solución de problemas</a> para verificar si tu cuenta tiene algún problema.
       </td>
     </tr>
     <tr>
       <td><b>Cuenta publicitaria no aparece en el menú desplegable</b></td>
-      <td>Cuando configuras el paso de Facebook Audience, una cuenta publicitaria que esperas no aparece en el selector de cuentas publicitarias.</td>
-      <td>Confirma que tu aplicación de Facebook completó la <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">revisión de la aplicación</a> para <code>ads_management</code> con el nivel de acceso que Facebook requiere para el uso de la API de Marketing. En <a href="https://business.facebook.com/">Facebook Business Manager</a>, confirma que el token del usuario del sistema tiene los permisos correctos y está asociado con las cuentas publicitarias que usas en Braze, y que los términos de la cuenta publicitaria están aceptados. <br><br>Si el menú desplegable funciona en un Canvas nuevo pero no en un Canvas que ya editaste, intenta una actualización forzada de tu navegador (o borra tu caché) y confirma que has iniciado sesión como un usuario que aún tiene acceso a esas cuentas publicitarias.</td>
+      <td>Cuando configuras el paso de Facebook Audience, una cuenta publicitaria que esperas no aparece en el SELECTOR de cuentas publicitarias.</td>
+      <td>Confirma que tu aplicación de Facebook completó la <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">revisión de la aplicación</a> para <code>ads_management</code> con el nivel de acceso que Facebook requiere para el uso de la API de Marketing. En <a href="https://business.facebook.com/">Facebook Business Administrador</a>, confirma que el token del usuario del sistema tiene los permisos correctos y está asociado con las cuentas publicitarias que usas en Braze, y que los términos de la cuenta publicitaria están aceptados. <br><br>Si el menú desplegable funciona en un Canvas nuevo pero no en un Canvas que ya editaste, intenta una actualización forzada de tu navegador (o borra tu caché) y confirma que has iniciado sesión como un usuario que aún tiene acceso a esas cuentas publicitarias.</td>
     </tr>
     <tr>
       <td><b>Error al validar el token de acceso</b></td>
       <td>Ves un error sobre la validación del token de acceso de Facebook al conectar Braze con Facebook o al sincronizar audiencias.</td>
-      <td>Cierra sesión en Facebook en tu navegador. En Braze, ve a <b>Partner Integrations</b> &gt; <b>Facebook</b>, elimina las credenciales guardadas de Facebook y luego vuelve a conectar Facebook. En la página de partners tecnológicos de Facebook para Braze, desconecta y vuelve a conectar la integración si la opción está disponible. <br><br>Si los problemas continúan, sigue <a href="#audit-your-facebook-account">Auditar tu cuenta de Facebook</a>.</td>
+      <td>Cierra sesión en Facebook en tu navegador. En Braze, ve a <b>Partner Integrations</b> &gt; <b>Facebook</b>, elimina las credenciales guardadas de Facebook y luego vuelve a conectar Facebook. En la página de partners tecnológicos de Facebook para Braze, desconecta y vuelve a conectar la integración si la opción está disponible. <br><br>Si los problemas continúan, sigue <a href="#audit-your-Facebook-account">Auditar tu cuenta de Facebook</a>.</td>
     </tr>
     <tr>
       <td><b>Errores de permisos de exportación o sincronización de audiencia</b></td>
@@ -313,7 +313,7 @@ Si experimentas problemas adicionales con tu integración, consulta las siguient
 
 #### Revisar permisos de la cuenta {#review-account-permissions}
 
-1. Revisa [la documentación de Facebook](https://www.facebook.com/business/help/186007118118684?id=829106167281625) sobre cómo gestionar estos permisos en su plataforma. Para Facebook Business Manager, necesitas al menos un rol de **Admin** o **Employee** en Business Manager con acceso a las cuentas publicitarias necesarias.
+1. Revisa [la documentación de Facebook](https://www.facebook.com/business/help/186007118118684?id=829106167281625) sobre cómo gestionar estos permisos en su plataforma. Para Facebook Business Administrador, necesitas al menos un rol de **Admin** o **Employee** en Business Administrador con acceso a las cuentas publicitarias necesarias.
 2. Como **Employee**, confirma que el Admin te otorgue permisos completos de **Manage Ad Account** para cada cuenta publicitaria para crear una audiencia o sincronizar usuarios con la audiencia.
 3. Después de que se hayan otorgado, debes desconectar y volver a conectar tu cuenta.
 
@@ -329,7 +329,7 @@ Acepta cualquier término de servicio (TOS) pendiente de Facebook. Facebook peri
 
 Para encontrar tu ID de cuenta e ID de negocio, sigue estos pasos:
 
-1. Ve a tu [cuenta de Facebook Ads Manager](https://adsmanager.facebook.com/).
+1. Ve a tu [cuenta de Facebook Ads Administrador](https://adsmanager.facebook.com/).
 2. Confirma que estás usando la cuenta publicitaria correcta verificándola en el menú desplegable.
 3. En la URL, encuentra el ID de cuenta después de `act=` y el ID de negocio después de `business_id=`
 
@@ -345,13 +345,13 @@ Para encontrar tu ID de cuenta e ID de negocio, sigue estos pasos:
 5. Debes seleccionar **Accept** para los términos de servicio. Después, verás este mensaje: "You have accepted these terms of service on behalf of Braze".
 6. Actualiza tu token de acceso de Facebook con Braze desconectando y volviendo a conectar tu cuenta de Facebook.
 7. Vuelve a habilitar tu paso de Facebook Audience Sync editando y actualizando tu Canvas. Braze podrá entonces sincronizar usuarios tan pronto como lleguen al paso de audiencia de Facebook.
-8. Si el problema persiste, intenta usar un usuario diferente con permisos de administrador para aceptar manualmente los términos a través del Ads Manager.
+8. Si el problema persiste, intenta usar un usuario diferente con permisos de administrador para aceptar manualmente los términos a través del Ads Administrador.
 
 #### Completar cualquier tarea pendiente {#complete-any-pending-tasks}
 
 Verifica si tienes alguna tarea pendiente con Facebook que pueda estar impidiéndote usar los servicios de Facebook Ads:
 
-1. [Inicia sesión en Facebook Ads Manager](https://adsmanager.facebook.com/).
+1. [Inicia sesión en Facebook Ads Administrador](https://adsmanager.facebook.com/).
 2. Selecciona la cuenta publicitaria con la que tienes problemas.
 3. En la navegación, selecciona tu **Account Overview**. <br> ![La navegación con Account Overview seleccionado.]({% image_buster /assets/img/fb_audience_sync/ads_manager_accouint_overview.png %})
 4. Verifica si hay alertas que necesiten ser atendidas. <br> ![Una cuenta con una tarjeta de crédito vencida.]({% image_buster /assets/img/fb_audience_sync/resolve_alerts.png %})

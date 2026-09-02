@@ -1,16 +1,16 @@
 ---
 nav_title: Fehlerbehebung
-article_title: Fehlerbehebung für Predictive Churn
-description: "Diagnostizieren Sie Trainings- und Zielgruppenfehler bei Predictive Churn mithilfe eines Symptomindex und der Datenanforderungen."
+article_title: Fehlerbehebung für Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen
+description: "Diagnostizieren Sie Trainings- und Zielgruppenfehler bei Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen mithilfe eines Symptomindex und der Datenanforderungen."
 page_order: 3
 
 ---
 
-# Fehlerbehebung für Predictive Churn {#troubleshoot-predictive-churn}
+# Fehlerbehebung für Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen {#troubleshoot-predictive-churn}
 
-> Verwenden Sie diese Seite, um Trainings- und Zielgruppenfehler bei Predictive Churn zu beheben. Informationen zu Analytics und Modellqualität finden Sie unter [Predictive Churn Analytics]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics).
+> Verwenden Sie diese Seite, um Trainings- und Zielgruppenfehler bei Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen zu beheben. Informationen zu Analytics und Modellqualität finden Sie unter [Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen Analytics]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics).
 
-Predictive Churn (und jedes Modell des maschinellen Lernens) ist nur so gut wie die Daten, die dem Modell zur Verfügung stehen. Es hängt außerdem davon ab, dass im Workspace ein ausreichendes Nutzer:innenvolumen vorhanden ist.
+Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen (und jedes Modell des maschinellen Lernens) ist nur so gut wie die Daten, die dem Modell zur Verfügung stehen. Es hängt außerdem davon ab, dass im Workspace ein ausreichendes Nutzer:innenvolumen vorhanden ist.
 
 ## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
 
@@ -29,22 +29,22 @@ Ordnen Sie die Fehlermeldung, Warnung oder das Ergebnis, das Sie beim Erstellen 
 
 Verwenden Sie diesen Workflow, wenn das Erstellen einer Prognose fehlschlägt oder Sie durch Daten- oder Zielgruppenanforderungen blockiert werden. Beginnen Sie bei Schritt 1.
 
-1. Bestätigen Sie, dass voraussichtliche Abwanderung für Ihr Unternehmen aktiviert ist und der Workspace über ausreichend monatlich aktive Nutzer:innen (MAU) verfügt – in der Regel 300.000 MAU in einem einzelnen Workspace.
-2. Überprüfen Sie Ihre Churn-Definition. Zu restriktive Filter reduzieren die Anzahl der abgewanderten Nutzer:innen, die für das Training verfügbar sind.
+1. Bestätigen Sie, dass voraussichtliche Abwanderung für Ihr Unternehmen aktiviert ist und der Workspace über ausreichend monatlich aktive Nutzer:innen (MAU or monatlich aktive:r Nutzer:in) verfügt – in der Regel 300.000 MAU or monatlich aktive:r Nutzer:in in einem einzelnen Workspace.
+2. Überprüfen Sie Ihre Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Definition. Zu restriktive Filter reduzieren die Anzahl der abgewanderten Nutzer:innen, die für das Training verfügbar sind.
 3. Überprüfen Sie Ihre Definition der Prognosezielgruppe. Zu wenige historische nicht abgewanderte Nutzer:innen blockieren das Modelltraining.
-4. Bestätigen Sie, dass angepasste Events (nicht allein angepasste Attribute) die hochwertigen Aktionen erfassen, die auf ein Churn-Risiko hinweisen.
+4. Bestätigen Sie, dass angepasste Events (nicht allein angepasste Attribute) die hochwertigen Aktionen erfassen, die auf ein Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Risiko hinweisen.
 5. Wenn nach dem Erweitern der Definitionen weiterhin Fehler auftreten, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
 ## Nicht genügend Daten zum Trainieren {#not-enough-data-to-train}
 
 **Symptom:** Beim Erstellen einer Prognose wird die Fehlermeldung „Nicht genügend Daten zum Trainieren“ angezeigt.
 
-Dieser Fehler tritt auf, wenn Ihre Churn-Definition zu einschränkend ist und zu wenige abgewanderte Nutzer:innen zurückgibt.
+Dieser Fehler tritt auf, wenn Ihre Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Definition zu einschränkend ist und zu wenige abgewanderte Nutzer:innen zurückgibt.
 
-Um dies zu beheben, ändern Sie entweder die Anzahl der Tage oder die Aktionen, die Churn definieren, um mehr Nutzer:innen zu erfassen – oder beides. Stellen Sie sicher, dass Sie `AND/OR`-Filter korrekt verwenden, damit Sie keine übermäßig restriktiven Definitionen erstellen.
+Um dies zu beheben, ändern Sie entweder die Anzahl der Tage oder die Aktionen, die Abwanderung or Abwanderung, Churn or Abwanderung, churnen definieren, um mehr Nutzer:innen zu erfassen – oder beides. Stellen Sie sicher, dass Sie `AND/OR`-Filter korrekt verwenden, damit Sie keine übermäßig restriktiven Definitionen erstellen.
 
 {% alert important %}
-Obwohl voraussichtliche Abwanderung auf Unternehmensebene aktiviert ist, verfügen einige Workspaces möglicherweise nicht über genügend Nutzer:innen, um Prognosen zu erstellen. In der Regel benötigen Sie 300.000 monatlich aktive Nutzer:innen (MAU) in einem einzelnen Workspace.
+Obwohl voraussichtliche Abwanderung auf Unternehmensebene aktiviert ist, verfügen einige Workspaces möglicherweise nicht über genügend Nutzer:innen, um Prognosen zu erstellen. In der Regel benötigen Sie 300.000 monatlich aktive Nutzer:innen (MAU or monatlich aktive:r Nutzer:in) in einem einzelnen Workspace.
 {% endalert %}
 
 ## Probleme mit der Größe der Prognose-Zielgruppe {#problems-with-prediction-audience-size}
@@ -77,9 +77,9 @@ Wenn Sie beim Erstellen Ihrer Prognosedefinitionen sowohl die Anforderung an die
 
 ## Überlegungen zu Daten {#data-considerations}
 
-Die folgenden Fragen sollten Sie sich stellen, wenn Sie Predictive Churn einrichten. Modelle für maschinelles Lernen sind nur so gut wie die Daten, mit denen sie trainiert werden. Eine gute Datenhygiene und das Verständnis dessen, was in das Modell einfließt, machen also einen großen Unterschied.
+Die folgenden Fragen sollten Sie sich stellen, wenn Sie Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen einrichten. Modelle für maschinelles Lernen sind nur so gut wie die Daten, mit denen sie trainiert werden. Eine gute Datenhygiene und das Verständnis dessen, was in das Modell einfließt, machen also einen großen Unterschied.
 
 - Welche wertvollen Aktionen führen zu Bindung und Treue?
-- Haben Sie angepasste Events eingerichtet, die diesen spezifischen Aktionen zugeordnet sind? Predictive Churn arbeitet mit angepassten Events im Gegensatz zu angepassten Attributen.
-- Denken Sie in Zeitfenstern, innerhalb derer Sie Churn definieren? Sie können Churn als etwas definieren, das in bis zu 60 Tagen passiert.
+- Haben Sie angepasste Events eingerichtet, die diesen spezifischen Aktionen zugeordnet sind? Predictive Abwanderung or Abwanderung, Churn or Abwanderung, churnen arbeitet mit angepassten Events im Gegensatz zu angepassten Attributen.
+- Denken Sie in Zeitfenstern, innerhalb derer Sie Abwanderung or Abwanderung, Churn or Abwanderung, churnen definieren? Sie können Abwanderung or Abwanderung, Churn or Abwanderung, churnen als etwas definieren, das in bis zu 60 Tagen passiert.
 - Haben Sie an Jahreszeiten gedacht, die zu untypischem Nutzer:innenverhalten führen, wie z. B. Feiertage? Rasche Veränderungen im Verbraucher:innenverhalten werden Ihre Prognosen beeinflussen.

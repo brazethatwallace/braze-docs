@@ -48,7 +48,7 @@ Canvas에서 하나의 프로모션 코드를 할당하고 여러 단계에서 �
 
 ### Currents용 메시지 추가 정보와 함께 사용 {#with-message-extras-for-currents}
 
-{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid 프로모션 코드 with Currents' %}
 
 ## 고객 프로필에 프로모션 코드 저장 {#save-to-profile}
 

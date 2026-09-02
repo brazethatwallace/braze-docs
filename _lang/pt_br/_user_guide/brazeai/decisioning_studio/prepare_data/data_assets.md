@@ -81,5 +81,5 @@ Mais dados geralmente levam a um melhor desempenho do modelo, mas isso deve ser 
 
 - Comunicações enviadas fora das recomendações do Decisioning Studio (por exemplo, e-mails, SMS)
 - Engajamento de e-mail não disparado pelo Decisioning Studio (por exemplo, aberturas, cliques)
-- Respostas a pesquisas (por exemplo, pontuações NPS, pesquisas de engajamento)
+- Respostas a pesquisas (por exemplo, pontuações Net Promoter Score (NPS), pesquisas de engajamento)
 - Atividade em web e app mobile (por exemplo, páginas navegadas, produtos visualizados)

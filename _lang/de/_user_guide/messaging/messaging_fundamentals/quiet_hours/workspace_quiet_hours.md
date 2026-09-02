@@ -10,7 +10,7 @@ description: "Dieser Referenzartikel behandelt Workspace-Ruhezeiten, wie Braze N
 
 > Mit Workspace-Ruhezeiten können Sie ein Standard-Ruhezeitfenster für einen Messaging-Kanal in Ihrem gesamten Workspace festlegen. Jede Campaign und jedes Canvas, die auf diesem Kanal senden, respektieren das Fenster automatisch, sodass Sie Ruhezeiten nicht für jede Campaign oder jedes Canvas einzeln konfigurieren müssen.
 
-Workspace-Ruhezeiten sind getrennt von Ruhezeiten auf Campaign- und Canvas-Ebene, die weiterhin gelten, wenn Sie sie konfigurieren. Verwenden Sie Workspace-Ruhezeiten für den Standardfall (zum Beispiel eine Compliance-Anforderung für alle SMS-Sendungen). Behalten Sie Ruhezeiten auf Campaign- und Canvas-Ebene für Ausnahmen bei.
+Workspace-Ruhezeiten sind getrennt von Ruhezeiten auf Campaign- und Canvas-Ebene, die weiterhin gelten, wenn Sie sie konfigurieren. Verwenden Sie Workspace-Ruhezeiten für den Standardfall (zum Beispiel eine Compliance-Anforderung für alle Kurzmitteilungsdienst or SMS-Sendungen). Behalten Sie Ruhezeiten auf Campaign- und Canvas-Ebene für Ausnahmen bei.
 
 {% alert important %}
 Workspace-Ruhezeiten sind derzeit im Early Access verfügbar. Die Konfigurationsoptionen können sich vor der allgemeinen Verfügbarkeit ändern. Kontaktieren Sie Ihr Braze-Kontoteam, um Zugang anzufordern.
@@ -33,21 +33,21 @@ Sie können ein Workspace-Ruhezeiten-Fenster für jeden der folgenden Kanäle fe
 - LINE
 - Push
    - Dies umfasst jede Push-Plattform in Ihrem Workspace. Es gibt keine Option, unterschiedliche Ruhezeiten für einzelne Plattformen festzulegen (z. B. iOS vs. Android).
-- SMS/MMS/RCS
+- Kurzmitteilungsdienst or SMS/MMS/RCS
 - Webhook
 - WhatsApp
 
 ## Voraussetzungen {#prerequisites}
 
-Um Ruhezeiten für den Workspace zu erstellen oder zu aktualisieren, benötigen Sie die Berechtigung „Ruhezeiten bearbeiten“.
+Um Ruhezeiten für den Workspace zu erstellen oder zu Update or aktualisieren or aktualisieren, benötigen Sie die Berechtigung „Ruhezeiten bearbeiten“.
 
 | Berechtigung | Zugriff |
 |---|---|
-| Ruhezeiten bearbeiten | Ruhezeiten für den Workspace erstellen und aktualisieren. |
+| Ruhezeiten bearbeiten | Ruhezeiten für den Workspace erstellen und Update or aktualisieren or aktualisieren. |
 | Ruhezeiten anzeigen | Die Konfiguration der Ruhezeiten für den Workspace anzeigen, ohne sie zu bearbeiten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Berechtigungen für Ruhezeiten" }
 
-Bestehende Bearbeitungsberechtigungen für Campaigns und Canvases sind davon nicht betroffen. Nutzer:innen mit diesen Berechtigungen können Ruhezeiten weiterhin auf Campaign- oder Canvas-Ebene bearbeiten.
+Bestehende Bearbeitungsberechtigungen für Campaigns und Canvase sind davon nicht betroffen. Nutzer:innen mit diesen Berechtigungen können Ruhezeiten weiterhin auf Campaign- oder Canvas-Ebene bearbeiten.
 
 ## Ruhezeiten für den Workspace einrichten {#set-up-workspace-quiet-hours}
 
@@ -79,13 +79,13 @@ Für jede Campaign oder jedes Canvas ist immer nur eine Ruhezeiten-Einstellung g
 
 Wie Ruhezeiten angewendet werden, hängt auch davon ab, wann die Campaign oder das Canvas erstellt wurde:
 
-- **Bestehende Campaigns und Canvases** (erstellt, bevor Sie Workspace-Ruhezeiten aktiviert haben): Wenn die Campaign oder das Canvas kein eigenes Ruhezeiten-Fenster hat, gilt das Workspace-Ruhezeiten-Fenster für diesen Kanal automatisch. Wenn bereits ein Fenster auf Campaign- oder Canvas-Ebene vorhanden ist, wird dieses weiterhin angewendet.
-- **Neue Campaigns und Canvases:** Wenn Sie eine Campaign oder ein Canvas erstellen, können Sie die Workspace-Ruhezeiten als Standard verwenden, ein angepasstes Fenster auf Campaign- oder Canvas-Ebene festlegen oder die Ruhezeiten vollständig deaktivieren.
+- **Bestehende Campaigns und Canvase** (erstellt, bevor Sie Workspace-Ruhezeiten aktiviert haben): Wenn die Campaign oder das Canvas kein eigenes Ruhezeiten-Fenster hat, gilt das Workspace-Ruhezeiten-Fenster für diesen Kanal automatisch. Wenn bereits ein Fenster auf Campaign- oder Canvas-Ebene vorhanden ist, wird dieses weiterhin angewendet.
+- **Neue Campaigns und Canvase:** Wenn Sie eine Campaign oder ein Canvas erstellen, können Sie die Workspace-Ruhezeiten als Standard verwenden, ein angepasstes Fenster auf Campaign- oder Canvas-Ebene festlegen oder die Ruhezeiten vollständig deaktivieren.
 
 | Vorhandene Konfiguration | Welche Ruhezeiten gelten |
 |---|---|
 | Campaign oder Canvas hat ein eigenes Ruhezeiten-Fenster | Das Fenster auf Campaign- oder Canvas-Ebene gilt. Workspace-Ruhezeiten werden für diese Campaign oder dieses Canvas ignoriert. |
-| Campaign oder Canvas hat kein eigenes Ruhezeiten-Fenster, und es existiert ein Workspace-Ruhezeiten-Fenster für den verwendeten Kanal | Das Workspace-Ruhezeiten-Fenster gilt automatisch. Dies umfasst bestehende Campaigns und Canvases, für die nie Ruhezeiten konfiguriert wurden. |
+| Campaign oder Canvas hat kein eigenes Ruhezeiten-Fenster, und es existiert ein Workspace-Ruhezeiten-Fenster für den verwendeten Kanal | Das Workspace-Ruhezeiten-Fenster gilt automatisch. Dies umfasst bestehende Campaigns und Canvase, für die nie Ruhezeiten konfiguriert wurden. |
 | Campaign oder Canvas hat Ruhezeiten deaktiviert | Es gelten keine Ruhezeiten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vorrang der Ruhezeiten" }
 
@@ -93,7 +93,7 @@ Wie Ruhezeiten angewendet werden, hängt auch davon ab, wann die Campaign oder d
 
 Was mit einer Nachricht passiert, die in ein Ruhezeiten-Fenster fällt, hängt vom Zustellungstyp der Campaign oder des Canvas ab:
 
-- **Aktionsbasierte Campaigns und Canvases:** Der Fallback kann entweder **Nachricht abbrechen** oder **Zum nächsten verfügbaren Zeitpunkt senden** sein – dieselben Optionen wie bei Ruhezeiten auf Campaign- und Canvas-Ebene.
+- **Aktionsbasierte Campaigns und Canvase:** Der Fallback kann entweder **Nachricht abbrechen** oder **Zum nächsten verfügbaren Zeitpunkt senden** sein – dieselben Optionen wie bei Ruhezeiten auf Campaign- und Canvas-Ebene.
 - **Geplante Campaigns mit fester Sendezeit:** Der Fallback ist **Nachricht abbrechen**. Braze verzögert einen Versand mit fester Sendezeit nicht auf den nächsten verfügbaren Zeitpunkt, da dies ein großes Nachrichtenvolumen in ein komprimiertes Sendefenster nach Ende der Ruhezeiten drängen könnte.
 - **Campaigns mit intelligentem Timing:** Es ist kein separater Fallback erforderlich. Braze berücksichtigt das Workspace-Ruhezeiten-Fenster bereits bei der Berechnung des optimalen Sendezeitpunkts für jede:n Nutzer:in, sodass Nachrichten von vornherein nicht innerhalb des Fensters geplant werden.
 - **API-getriggerte Campaigns und API-Campaigns:** Der Fallback ist standardmäßig **Nachricht abbrechen**.
@@ -117,7 +117,7 @@ API-Campaigns können keine Ruhezeiten auf Campaign-Ebene verwenden. Es gilt nur
 Die folgenden Nachrichten werden unabhängig vom Kanal nie durch Workspace-Ruhezeiten zurückgehalten:
 
 - Transaktions-E-Mail-Nachrichten
-- Automatische SMS-Antworten (zum Beispiel Antworten auf die Schlüsselwörter `STOP` oder `HELP`)
+- Automatische Kurzmitteilungsdienst or SMS-Antworten (zum Beispiel Antworten auf die Schlüsselwörter `STOP` oder `HELP`)
 - Testsendungen und Seed-Gruppe-Sendungen
 
 ## Weitere Überlegungen {#other-considerations}

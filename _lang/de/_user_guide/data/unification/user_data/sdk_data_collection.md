@@ -1,16 +1,16 @@
 ---
-nav_title: SDK-Datenerfassung
-article_title: SDK-Datenerfassung
+nav_title: SDK or Software-Development-Kit-Datenerfassung
+article_title: SDK or Software-Development-Kit-Datenerfassung
 page_order: 1
 page_type: reference
-description: "Dieser Referenzartikel befasst sich mit den Daten, die vom SDK über personalisierte Integrationen, automatisch erfasste Integrationen und minimale Integrationen gesammelt werden."
+description: "Dieser Referenzartikel befasst sich mit den Daten, die vom SDK or Software-Development-Kit über personalisierte Integrationen, automatisch erfasste Integrationen und minimale Integrationen gesammelt werden."
 ---
 
-# SDK-Datenerfassung {#sdk-data-collection}
+# SDK or Software-Development-Kit-Datenerfassung {#sdk-data-collection}
 
-> Wenn Sie das Braze SDK in Ihre App oder Website integrieren, sammelt Braze automatisch bestimmte Arten von Daten. Einige dieser Daten sind für unsere Prozesse unerlässlich, und einige dieser Daten können je nach Ihren Bedürfnissen ein- oder ausgeschaltet werden. Sie können Braze auch so konfigurieren, dass es weitere Datentypen erfasst, um Segmentierung und Messaging zu verbessern.
+> Wenn Sie das Braze SDK or Software-Development-Kit in Ihre App oder Website integrieren, sammelt Braze automatisch bestimmte Arten von Daten. Einige dieser Daten sind für unsere Prozesse unerlässlich, und einige dieser Daten können je nach Ihren Bedürfnissen ein- oder ausgeschaltet werden. Sie können Braze auch so konfigurieren, dass es weitere Datentypen erfasst, um Segmentierung und Messaging zu verbessern.
 
-Braze ist auf eine flexible Datenerfassung ausgelegt. Daher können Sie das Braze SDK auf folgende Weise integrieren:
+Braze ist auf eine flexible Datenerfassung ausgelegt. Daher können Sie das Braze SDK or Software-Development-Kit auf folgende Weise integrieren:
 
 - **[Minimale Integration](#minimum-integration):** Braze sammelt automatisch Daten, die für die Kommunikation mit den Braze-Diensten erforderlich sind.
 - **[Optionale Daten, die standardmäßig erfasst werden](#optional-data-collected-by-default):** Braze erfasst automatisch bestimmte Daten, die für die meisten Anwendungsfälle nützlich sind. Sie können die automatische Erfassung dieser Daten deaktivieren, wenn sie für die Kommunikation mit den Diensten von Braze nicht erforderlich sind.
@@ -19,23 +19,23 @@ Braze ist auf eine flexible Datenerfassung ausgelegt. Daher können Sie das Braz
 
 ## Mindestintegration {#minimum-integration}
 
-In der folgenden Liste sind die streng notwendigen Daten aufgeführt, die von Braze generiert und empfangen werden, wenn Sie das SDK initialisieren. Diese Daten sind nicht konfigurierbar und für die Kernfunktionen der Plattform unerlässlich. Mit Ausnahme von Sitzungsstart und Sitzungsende zählen alle anderen automatisch erfassten Daten nicht zu Ihrer Datenpunkt-Nutzung.
+In der folgenden Liste sind die streng notwendigen Daten aufgeführt, die von Braze generiert und empfangen werden, wenn Sie das SDK or Software-Development-Kit initialisieren. Diese Daten sind nicht konfigurierbar und für die Kernfunktionen der Plattform unerlässlich. Mit Ausnahme von Sitzungsstart und Sitzungsende zählen alle anderen automatisch erfassten Daten nicht zu Ihrer Datenpunkt-Nutzung.
 
 | Attribut | Beschreibung | Warum es erfasst wird |
 | --------- | ----------- | ------------------ |
 | App-Versionsname /<br> App-Versionscode | Die neueste App-Version | Dieses Attribut wird verwendet, um Nachrichten zur App-Versionskompatibilität an die richtigen Geräte zu senden. Es kann verwendet werden, um Nutzer:innen über Dienstunterbrechungen oder Fehler zu informieren. |
-| Land | Land, identifiziert durch IP-Adress-Geolocation. Wenn die IP-Adress-Geolocation nicht verfügbar ist, wird es anhand der [Geräte-Locale](#optional-data-collected-by-default) identifiziert. Der Wert kann alternativ das sein, was die SDKs direkt mit `setCountry` festlegen, aber beachten Sie, dass das Übergeben eines Attributwerts per SDK oder API Datenpunkte protokolliert. **Nachdem das Land manuell festgelegt wurde (über die SDK-Methode, REST API oder CSV-Upload), aktualisiert das SDK diesen Wert nicht mehr automatisch.** | Dieses Attribut wird verwendet, um Nachrichten basierend auf dem Standort zu targeten. |
+| Land | Land, identifiziert durch IP-Adress-Geolocation. Wenn die IP-Adress-Geolocation nicht verfügbar ist, wird es anhand der [Geräte-Locale](#optional-data-collected-by-default) identifiziert. Der Wert kann alternativ das sein, was die SDKs direkt mit `setCountry` festlegen, aber beachten Sie, dass das Übergeben eines Attributwerts per SDK or Software-Development-Kit oder API Datenpunkte protokolliert. **Nachdem das Land manuell festgelegt wurde (über die SDK or Software-Development-Kit-Methode, Representational State Transfer API oder CSV-Upload), aktualisiert das SDK or Software-Development-Kit diesen Wert nicht mehr automatisch.** | Dieses Attribut wird verwendet, um Nachrichten basierend auf dem Standort zu targeten. |
 | Geräte-ID | Gerätebezeichner, ein zufällig generierter String | Dieses Attribut wird verwendet, um die Geräte der Nutzer:innen zu unterscheiden und Nachrichten an das richtige Gerät zu senden. |
-| Betriebssystem und Betriebssystemversion | Aktuell gemeldetes Gerät oder Browser und Geräte- oder Browserversion | Dieses Attribut wird verwendet, um Nachrichten nur an kompatible Geräte zu senden. Es kann auch innerhalb der Segmentierung verwendet werden, um Nutzer:innen zum Upgrade von App-Versionen anzusprechen. |
-| Sitzungsstart und Sitzungsende | Wann der/die Nutzer:in beginnt, Ihre integrierte App oder Website zu verwenden | Das Braze SDK meldet Sitzungsdaten, die vom Braze-Dashboard verwendet werden, um das Nutzer:innen-Engagement und andere Analytics zu berechnen, die für das Verständnis Ihrer Nutzer:innen wesentlich sind. Wann genau der Sitzungsstart und das Sitzungsende von Ihrer App oder Website aufgerufen wird, kann von Entwickler:innen konfiguriert werden ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)). |
-| SDK-Nachrichteninteraktionsdaten | Push-Direktöffnungen, In-App-Nachricht-Interaktionen, Content-Card-Interaktionen | Dieses Attribut wird zur Qualitätskontrolle verwendet, z. B. um zu prüfen, ob eine Nachricht empfangen wurde und ob der Versand nicht dupliziert wird. |
-| SDK-Version | Aktuelle SDK-Version | Dieses Attribut wird verwendet, um Nachrichten nur an kompatible Geräte zu senden und Dienstunterbrechungen zu vermeiden. |
+| Betriebssystem und Betriebssystemversion | Aktuell gemeldetes Gerät oder Browser und Geräte- oder Browserversion | Dieses Attribut wird verwendet, um Nachrichten nur an kompatible Geräte zu senden. Es kann auch innerhalb der Segmentierung verwendet werden, um Nutzer:innen zum Upgrade or upgraden von App-Versionen anzusprechen. |
+| Sitzungsstart und Sitzungsende | Wann der/die Nutzer:in beginnt, Ihre integrierte App oder Website zu verwenden | Das Braze SDK or Software-Development-Kit meldet Sitzungsdaten, die vom Braze-Dashboard verwendet werden, um das Nutzer:innen-Engagement und andere Analytics zu berechnen, die für das Verständnis Ihrer Nutzer:innen wesentlich sind. Wann genau der Sitzungsstart und das Sitzungsende von Ihrer App oder Website aufgerufen wird, kann von Entwickler:innen konfiguriert werden ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)). |
+| SDK or Software-Development-Kit-Nachrichteninteraktionsdaten | Push-Direktöffnungen, In-App-Nachricht-Interaktionen, Content-Card-Interaktionen | Dieses Attribut wird zur Qualitätskontrolle verwendet, z. B. um zu prüfen, ob eine Nachricht empfangen wurde und ob der Versand nicht dupliziert wird. |
+| SDK or Software-Development-Kit-Version | Aktuelle SDK or Software-Development-Kit-Version | Dieses Attribut wird verwendet, um Nachrichten nur an kompatible Geräte zu senden und Dienstunterbrechungen zu vermeiden. |
 | Sitzungs-ID und Sitzungszeitstempel | Sitzungsbezeichner, ein zufällig generierter String und Sitzungszeitstempel | Wird verwendet, um festzustellen, ob der/die Nutzer:in eine neue oder bestehende Sitzung startet, und um die erneute Berechtigung für Nachrichten zu bestimmen, die für diese:n Nutzer:in bestimmt sind.<br><br>Bestimmte Messaging-Kanäle wie In-App-Nachrichten und Content Cards werden beim Sitzungsstart mit dem Gerät synchronisiert. Unser Backend verwendet dann Daten darüber, wann es zuletzt die Braze-Server kontaktiert hat (die das Gerät speichert und zurücksendet), um festzustellen, ob der/die Nutzer:in für neue Nachrichten berechtigt ist.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mindestintegration" }
 
 ### Berechnete Metriken {#calculated-metrics}
 
-Braze generiert berechnete Metriken aus drei Eingaben: [SDK-erfasste Daten](#minimum-integration) (zum Beispiel [Sitzungsstart und Sitzungsende]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)), [Nachrichteninteraktionsdaten für Nicht-SDK-Kanäle]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und [von Braze abgeleitete Berichtsfelder]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Diese Werte werden von Braze-Diensten generiert, sodass ein Nutzerprofil sowohl SDK-erfasste als auch von Braze generierte Daten enthalten kann.
+Braze generiert berechnete Metriken aus drei Eingaben: [SDK or Software-Development-Kit-erfasste Daten](#minimum-integration) (zum Beispiel [Sitzungsstart und Sitzungsende]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)), [Nachrichteninteraktionsdaten für Nicht-SDK or Software-Development-Kit-Kanäle]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und [von Braze abgeleitete Berichtsfelder]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Diese Werte werden von Braze-Diensten generiert, sodass ein Kundenprofil or Nutzerprofil sowohl SDK or Software-Development-Kit-erfasste als auch von Braze generierte Daten enthalten kann.
 
 Berechnete Metriken umfassen kanalbasierte Metriken (aufgelistet im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary)) und die folgenden Attribute.
 
@@ -56,17 +56,17 @@ Berechnete Metriken umfassen kanalbasierte Metriken (aufgelistet im [Glossar der
 | Deinstalliert                                  | Boolean und Zeitpunkt                                                |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Berechnete Metriken" }
 
-Mindestintegration bedeutet, dass Sie nur die erforderlichen Daten erfassen, die unter [Mindestintegration](#minimum-integration) aufgeführt sind, und sich von den [optional standardmäßig erfassten Daten](#optional-data-collected-by-default) abmelden, indem Sie die [optionale SDK-Datenerfassung blockieren]({{site.baseurl}}/developer_guide/getting_started/sdk_overview).
+Mindestintegration bedeutet, dass Sie nur die erforderlichen Daten erfassen, die unter [Mindestintegration](#minimum-integration) aufgeführt sind, und sich von den [optional standardmäßig erfassten Daten](#optional-data-collected-by-default) abmelden, indem Sie die [optionale SDK or Software-Development-Kit-Datenerfassung blockieren]({{site.baseurl}}/developer_guide/getting_started/sdk_overview).
 
 {% alert important %}
 Wenn Sie eine Mindestintegration wünschen und mParticle, Segment, Tealium oder GTM verwenden, beachten Sie Folgendes:
-- **Mobile Plattformen**: Sie müssen den Code für diese Konfigurationen manuell aktualisieren. mParticle und Segment bieten keine Möglichkeit, dies über ihre Plattform zu tun.
-- **Web**: Die Braze-Integration muss nativ erfolgen, um die Konfiguration der Mindestintegration zu ermöglichen. Tag-Manager bieten keine Möglichkeit, dies über ihre Plattform zu tun.
+- **Mobile Plattformen**: Sie müssen den Code für diese Konfigurationen manuell Update or aktualisieren or aktualisieren. mParticle und Segment bieten keine Möglichkeit, dies über ihre Plattform zu tun.
+- **Web**: Die Braze-Integration muss nativ erfolgen, um die Konfiguration der Mindestintegration zu ermöglichen. Tag-Manager:in bieten keine Möglichkeit, dies über ihre Plattform zu tun.
 {% endalert %}
 
 ## Optionale Daten, die standardmäßig erfasst werden {#optional-data-collected-by-default}
 
-Zusätzlich zu den Mindestintegrationsdaten werden die folgenden Attribute automatisch von Braze erfasst, wenn Sie die SDK-Integration initialisieren. Sie können die Erfassung dieser Attribute [deaktivieren]({{site.baseurl}}/developer_guide/getting_started/sdk_overview), um eine Mindestintegration zu ermöglichen.
+Zusätzlich zu den Mindestintegrationsdaten werden die folgenden Attribute automatisch von Braze erfasst, wenn Sie die SDK or Software-Development-Kit-Integration initialisieren. Sie können die Erfassung dieser Attribute [deaktivieren]({{site.baseurl}}/developer_guide/getting_started/sdk_overview), um eine Mindestintegration zu ermöglichen.
 
 | Attribut                | Plattform         | Beschreibung                                                                       | Warum es erfasst wird                                                                                                                                                   |
 |-------------------------|-------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -94,19 +94,19 @@ Standardmäßig werden die folgenden Attribute nicht erfasst. Jedes Attribut mus
 | Device Ad Tracking Enabled | Android, iOS | Unter iOS:<br>[`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:))<br><br>Unter Android:<br>[`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html) | Diese Eigenschaft erfordert zusätzliche Berechtigungen auf App-Ebene, die von der integrierenden Partei erteilt werden müssen.                                                                                                                                                                                      |
 | Device IDFA                | iOS          | Geräte-Bezeichner für Werbetreibende                                                                                                                                                                                                                                                                                         | Dies erfordert das Ad Tracking Transparency Framework, das eine zusätzliche Datenschutzprüfung durch den App Store auslöst. Weitere Informationen finden Sie unter [`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)) |
 | Google Advertising ID      | Android      | Bezeichner für Werbung innerhalb von Google Play Apps                                                                                                                                                                                                                                                                        | Dies erfordert, dass die App die GAID abruft und an Braze übergibt. Weitere Informationen finden Sie unter [Optionale Google Advertising ID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration#google-advertising-id).                                         |
-| Letzter bekannter Standort | Android, iOS | Dies ist der zuletzt bekannte GPS-Standort des Geräts der Nutzer:innen. Dieser wird beim Sitzungsstart aktualisiert und im Nutzerprofil gespeichert. | Dies erfordert, dass Nutzer:innen Ihrer App eine Standortberechtigung erteilen. |
+| Letzter bekannter Standort | Android, iOS | Dies ist der zuletzt bekannte GPS-Standort des Geräts der Nutzer:innen. Dieser wird beim Sitzungsstart aktualisiert und im Kundenprofil or Nutzerprofil gespeichert. | Dies erfordert, dass Nutzer:innen Ihrer App eine Standortberechtigung erteilen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Standardmäßig nicht erfasste Daten" }
 
 {% alert note %}
-Das Braze SDK speichert keine IP-Adressen lokal.
+Das Braze SDK or Software-Development-Kit speichert keine IP-Adressen lokal.
 {% endalert %}
 
 ## Personalisierte Integration {#personalized-integration}
 
-Um das Beste aus Braze herauszuholen, implementieren unsere SDK-Integratoren häufig die Braze SDKs und protokollieren [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) und [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events), die für ihr Geschäft relevant sind – zusätzlich zu den automatisch erfassten Daten.
+Um das Beste aus Braze herauszuholen, implementieren unsere SDK or Software-Development-Kit-Integratoren häufig die Braze SDKs und protokollieren [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) und [Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events), die für ihr Geschäft relevant sind – zusätzlich zu den automatisch erfassten Daten.
 
 Eine personalisierte Integration ermöglicht eine maßgeschneiderte Kommunikation, die für die Erfahrung Ihrer Nutzer:innen relevant ist.
 
 {% alert important %}
-Braze blockiert Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 unterschiedlichen angepassten Event-Namen oder mehr als 20.000 unterschiedlichen Produktnamen bei Käufen und stoppt die Aufnahme aller eingehenden Daten für dieses Profil – sowohl über die SDKs als auch über die REST API. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_archival).
+Braze blockiert Nutzerprofile („Dummy-Nutzer:innen“) mit mehr als 5.000.000 Sitzungen, mehr als 20.000 unterschiedlichen angepassten Event-Namen oder mehr als 20.000 unterschiedlichen Produktnamen bei Käufen und stoppt die Aufnahme aller eingehenden Daten für dieses Profil – sowohl über die SDKs als auch über die Representational State Transfer API. Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_archival).
 {% endalert %}

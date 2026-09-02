@@ -12,11 +12,11 @@ channel:
 
 # 이중 옵트인 {#double-opt-in}
 
-> 이중 옵트인 기능은 사용자가 SMS, MMS 또는 RCS 메시지를 수신하기 전에 옵트인 의도를 명시적으로 확인하도록 요구합니다. 이를 통해 참여도가 높은 사용자에게 메시지를 집중하고 규정 준수 모범 사례를 지원합니다.
+> 이중 옵트인 기능은 사용자가 단문 메시지 서비스, MMS 또는 RCS 메시지를 수신하기 전에 옵트인 의도를 명시적으로 확인하도록 요구합니다. 이를 통해 참여도가 높은 사용자에게 메시지를 집중하고 규정 준수 모범 사례를 지원합니다.
 
 이중 옵트인이 활성화되면, 사용자는 Campaign(캠페인) 또는 Canvas를 통해 메시지를 받기 전에 명시적 동의를 요청하는 메시지를 수신합니다.
 
-1991년 전화 소비자 보호법(TCPA)의 명시적 요구 사항은 아니지만, Braze는 사용자가 SMS, MMS 또는 RCS 프로그램에 참여하는 것을 인지하고 동의하는지 확인하기 위해 이중 옵트인을 구성할 것을 권장합니다. 규정 준수에 대한 자세한 내용은 [SMS, MMS 및 RCS에 대한 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)를 참조하세요.
+1991년 전화 소비자 보호법(TCPA)의 명시적 요구 사항은 아니지만, Braze는 사용자가 단문 메시지 서비스, MMS 또는 RCS 프로그램에 참여하는 것을 인지하고 동의하는지 확인하기 위해 이중 옵트인을 구성할 것을 권장합니다. 규정 준수에 대한 자세한 내용은 [단문 메시지 서비스, MMS 및 RCS에 대한 법률, 규정 및 남용 방지]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)를 참조하세요.
 
 ## 이중 옵트인 워크플로 {#double-opt-in-workflows}
 

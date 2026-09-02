@@ -8,15 +8,15 @@ description: "Dieser Artikel enthält Versionshinweise für Juli 2019."
 
 # Juli 2019 {#july-2019}
 
-{% alert update %}
+{% alert Update or aktualisieren %}
 Braze hat in diesem Monat zwei (Sie haben richtig gelesen – **zwei**) Produkt-Release-Zyklen gehabt! Die neueste Version steht ganz oben, die frühere Version wird im Abschnitt [Zu Beginn dieses Monats](#earlier-this-month) behandelt!
 {% endalert %}
 
-## SAML/SSO
+## SAML/Single Sign-on
 
-[Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) (SSO) bietet Unternehmen eine sichere und zentralisierte Möglichkeit, den Zugriff auf das Braze-Dashboard zu kontrollieren. Kurz gesagt, ein einziger Satz Zugangsdaten kann für den Zugriff auf verschiedene Anwendungen, einschließlich Braze, verwendet werden.
+[Single Sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) (Single Sign-on) bietet Unternehmen eine sichere und zentralisierte Möglichkeit, den Zugriff auf das Braze-Dashboard zu kontrollieren. Kurz gesagt, ein einziger Satz Zugangsdaten kann für den Zugriff auf verschiedene Anwendungen, einschließlich Braze, verwendet werden.
 
-Zusätzlich zu [Google Sign-In mit OAuth 2.0-Unterstützung](https://developers.google.com/identity/protocols/OAuth2) wünschen sich Unternehmen SSO mit Security Assertion Markup Language (SAML) Unterstützung. Dies ermöglicht ihnen die nahtlose Integration mit großen Identitätsanbietern (IdPs), einschließlich [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) und [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta), die die neuesten Branchenstandards (SAML 2.0) unterstützen.
+Zusätzlich zu [Google Sign-In mit OAuth 2.0-Unterstützung](https://developers.google.com/identity/protocols/OAuth2) wünschen sich Unternehmen Single Sign-on mit Security Assertion Markup Language (SAML) Unterstützung. Dies ermöglicht ihnen die nahtlose Integration mit großen Identitätsanbietern (IdPs), einschließlich [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso) und [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta), die die neuesten Branchenstandards (SAML 2.0) unterstützen.
 
 Braze unterstützt:
 - [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin)
@@ -75,7 +75,7 @@ Betrachten Sie [mehrere Campaigns gleichzeitig, um ihre relative Performance zu 
 ## Template der Versand-ID in Nachrichten mit Liquid {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvases und Campaigns.
+Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) in Canvase und Campaigns.
 {% endalert %}
 
 Wenn Sie den Versand einer Nachricht aus der Nachricht heraus verfolgen möchten (z. B. in einer URL), können Sie die `dispatch_id` als Template einfügen. Die Formatierung dafür finden Sie in unserer Liste der unterstützten Tags für die Personalisierung unter [Canvas-Attribute]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

@@ -30,9 +30,9 @@ Se han añadido a la plataforma Braze nuevos [filtros de codificación Liquid `h
 
 [Nexla]({{site.baseurl}}/partners/nexla) es líder en operaciones de datos unificadas y fue reconocida como Gartner Cool Vendor en 2021. Los clientes que utilizan Currents para enviar datos a almacenes de datos pueden aprovechar Nexla para extraer, transformar y cargar esos datos en otras ubicaciones, haciendo que los datos sean fácilmente accesibles en todo tu ecosistema. Nexla te permite utilizar Braze Currents para obtener datos en un formato personalizado y entregarlos al destino de tu elección con solo apuntar y hacer clic.
 
-### Amperity - Plataforma de datos de los clientes {#amperity-customer-data-platform}
+### Amperity - CDP or plataforma de datos de los clientes or plataforma de datos de los clientes {#amperity-customer-data-platform}
 
-[Amperity]({{site.baseurl}}/partners/amperity) es una plataforma integral de datos de clientes empresariales que ayuda a las marcas a conocer a sus clientes, tomar decisiones estratégicas y actuar de manera consistente para servir mejor a sus consumidores. Amperity es compatible con la plataforma Braze al proporcionar una vista unificada de tus clientes a través de su CDP y Braze, lo que te permite enviar datos valiosos de Amperity a Braze.
+[Amperity]({{site.baseurl}}/partners/amperity) es una plataforma integral de datos de clientes empresariales que ayuda a las marcas a conocer a sus clientes, tomar decisiones estratégicas y actuar de manera consistente para servir mejor a sus consumidores. Amperity es compatible con la plataforma Braze al proporcionar una vista unificada de tus clientes a través de su CDP or plataforma de datos de los clientes y Braze, lo que te permite enviar datos valiosos de Amperity a Braze.
 
 ### Digioh - Cuestionarios {#digioh-surveys}
 

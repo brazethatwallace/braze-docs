@@ -19,7 +19,7 @@ channel:
   }
 </style>
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Variante {#variation}
 
@@ -33,7 +33,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Envio de e-mail {#emailable}
 
@@ -47,7 +47,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### % de público {#audience}
 
@@ -61,7 +61,7 @@ Percentage
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Destinatários únicos {#unique-recipients}
 
@@ -75,7 +75,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Envios {#sends}
 
@@ -89,7 +89,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Mensagens enviadas {#messages-sent}
 
@@ -103,7 +103,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Entregas {#deliveries}
 
@@ -121,7 +121,7 @@ Para o estado de **recebimento** no nível do usuário e a lógica relacionada (
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### % de entregas
 
@@ -135,7 +135,7 @@ Percentage
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Bounces {#bounces}
 
@@ -165,7 +165,7 @@ No [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Hard bounce {#hard-bounce}
 
@@ -181,7 +181,7 @@ Quando um e-mail sofre hard bounce ou é marcado como spam, a Braze marca o ende
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Soft bounce {#soft-bounce}
 
@@ -191,13 +191,13 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Se um e-mail receber um soft bounce, geralmente tentaremos novamente dentro de 72 horas, mas o número de tentativas varia de acordo com o destinatário.
 
-Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
+Embora os soft bounces não sejam rastreados na análise de dados da sua campanha, você pode monitorá-los no [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou excluir esses usuários do seu envio com o [filtro de Segment or segmento Soft Bounce]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). No Registro de atividades de mensagem, você também pode ver o motivo dos soft bounces e entender possíveis discrepâncias entre os "envios" e as "entregas" das suas campanhas de e-mail.
 
 <span class="calculation-line">Cálculo: Contagem </span>
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Spam {#spam}
 
@@ -219,7 +219,7 @@ Count, Percentage
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Aberturas únicas {#unique-opens}
 
@@ -241,7 +241,7 @@ Count, Percentage
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Cliques únicos {#unique-clicks}
 
@@ -269,7 +269,7 @@ A Braze não expande tags Liquid na prévia da mensagem, então o renderizador d
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Total de cliques {#total-clicks}
 
@@ -283,7 +283,7 @@ Quando o *Total de cliques* é muito maior do que os *Cliques únicos*, ferramen
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Cancelamentos de inscrição {#unsubscribers-or-unsub}
 
@@ -291,7 +291,7 @@ Quando o *Total de cliques* é muito maior do que os *Cliques únicos*, ferramen
 Count, Percentage
 {% endapitags %}
 
-_Cancelamentos de inscrição_ refletem o link padrão de cancelamento de inscrição da Braze. Páginas de cancelamento de inscrição personalizadas não incrementam essa métrica, a menos que você atualize os usuários usando a API. A **Série temporal do grupo de inscrições** ainda reflete as alterações feitas via API.
+_Cancelamentos de inscrição_ refletem o link padrão de cancelamento de inscrição da Braze. Páginas de cancelamento de inscrição personalizadas não incrementam essa métrica, a menos que você atualize os usuários usando a API or interface de programação do aplicativo (API). A **Série temporal do grupo de inscrições** ainda reflete as alterações feitas via API or interface de programação do aplicativo (API).
 
 {% multi_lang_include analytics/metrics.md metric='Unsubscribers or Unsub' %}
 
@@ -316,7 +316,7 @@ Para saber mais, consulte [Por que estou vendo um número diferente de cancelame
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Receita {#revenue}
 
@@ -330,7 +330,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Conversões primárias (A) ou evento de conversão primária {#primary-conversions-a-or-primary-conversion-event}
 
@@ -338,7 +338,7 @@ Count
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} Para e-mail, push e webhooks, começamos a rastrear conversões após o envio inicial.
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or conversão primária Event' %} Para e-mail, push e webhooks, começamos a rastrear conversões após o envio inicial.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -352,7 +352,7 @@ Count, Percentage
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Confiança {#confidence}
 
@@ -364,7 +364,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Aberturas por máquina {#machine-opens}
 
@@ -374,7 +374,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Outras aberturas {#other-opens}
 
@@ -388,7 +388,7 @@ Count
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Aberturas reais estimadas {#estimated-real-opens}
 
@@ -400,7 +400,7 @@ Count, Percentage
 
 {% endapi %}
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 
 ### Taxa de clique por abertura {#click-to-open-rate}
 
@@ -414,7 +414,7 @@ Percentage
 
 #### Pontuações de probabilidade de abertura de mensagem (segmentação) {#message-open-likelihood-scores-segmentation}
 
-O filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) classifica a probabilidade de um usuário abrir e-mails em uma escala de 0 a 100%. Usuários sem histórico suficiente de envio ou abertura para o canal aparecem em branco. Para e-mail, as aberturas por máquina são excluídas do cálculo, que usa o histórico recente de mensagens nesse canal (consulte [Filtro de probabilidade de abertura de mensagem para canais individuais]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
+O filtro de Segment or segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) classifica a probabilidade de um usuário abrir e-mails em uma escala de 0 a 100%. Usuários sem histórico suficiente de envio ou abertura para o canal aparecem em branco. Para e-mail, as aberturas por máquina são excluídas do cálculo, que usa o histórico recente de mensagens nesse canal (consulte [Filtro de probabilidade de abertura de mensagem para canais individuais]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
 
 {% endapi %}
 
@@ -436,7 +436,7 @@ As alterações na sua [página personalizada de cancelamento de inscrição]({{
 
 Um bounce por cota excedida ou caixa de entrada cheia significa que a caixa de entrada do destinatário não pode aceitar novos e-mails. Você pode ver esses endereços entre novas inscrições com endereços inválidos ou de risco, ou entre perfis inativos há muito tempo cujas caixas de entrada ficaram cheias enquanto estavam inativos.
 
-Analise as taxas de bounce por Segment e origem, remova ou desative endereços que apresentam hard bounce repetidamente e use aceitação confirmada ou dupla para novos inscritos. Para práticas de higiene de lista, consulte [Armadilhas de entregabilidade e SPAM traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) e [Relatórios de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
+Analise as taxas de bounce por Segment or segmento e origem, remova ou desative endereços que apresentam hard bounce repetidamente e use aceitação confirmada ou dupla para novos inscritos. Para práticas de higiene de lista, consulte [Armadilhas de entregabilidade e SPAM traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps) e [Relatórios de e-mail]({{site.baseurl}}/user_guide/channels/email/reporting#troubleshooting).
 
 ### 550 5.7.1 e-mail não solicitado {#550-571-unsolicited-mail}
 

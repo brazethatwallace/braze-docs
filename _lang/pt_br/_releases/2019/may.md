@@ -16,11 +16,11 @@ Com Content Cards, você pode enviar um fluxo altamente segmentado e dinâmico d
 
 ![Feed de Content Cards]({% image_buster /assets/img/cc-feed.png %}){: height="50%" width="50%"}
 
-Além disso, Content Cards oferecem suporte a recursos mais personalizados, incluindo fixação de cartão, descarte de cartão, entrega baseada em API, tempos de expiração de cartão personalizados e análise de dados de cartão.
+Além disso, Content Cards oferecem suporte a recursos mais personalizados, incluindo fixação de cartão, descarte de cartão, entrega baseada em API or interface de programação do aplicativo (API), tempos de expiração de cartão personalizados e análise de dados de cartão.
 
 Use esse recurso para criar centrais de notificações, feeds de página inicial e feeds de promoção.
 
-Você precisará atualizar para uma versão compatível do SDK da Braze:
+Você precisará atualizar para uma versão compatível do SDK or kit de desenvolvimento de software da Braze:
 - iOS: 3.8.0 ou posterior
 - Android: 2.6.0 ou posterior
 - Web: 2.2.0 ou posterior
@@ -28,7 +28,7 @@ Você precisará atualizar para uma versão compatível do SDK da Braze:
 [Saiba mais sobre Content Cards aqui!]({{site.baseurl}}/user_guide/channels/content_cards)
 
 {% alert update %}
-Content Cards para Currents e nossa documentação de API para Content Cards serão lançados no final desta semana. Fique de olho!
+Content Cards para Currents e nossa documentação de API or interface de programação do aplicativo (API) para Content Cards serão lançados no final desta semana. Fique de olho!
 {% endalert %}
 
 ## Adição da plataforma Roku {#roku-platform-addition}
@@ -65,7 +65,7 @@ No esforço de continuar aprimorando nossas capacidades do Currents, estamos adi
 
 O `dispatch_id` é o ID único gerado para cada transmissão, ou despacho, enviado pela plataforma Braze.
 
-Embora todos os clientes que recebem uma mensagem agendada recebam o mesmo `dispatch_id`, os clientes que recebem mensagens baseadas em ações ou disparadas por API receberão um `dispatch_id` único por mensagem. O campo `dispatch_id` permite que você identifique qual instância de uma Campaign recorrente é responsável pela conversão, fornecendo assim mais insights e informações sobre quais tipos de Campaigns estão ajudando a impulsionar suas metas comerciais.
+Embora todos os clientes que recebem uma mensagem agendada recebam o mesmo `dispatch_id`, os clientes que recebem mensagens baseadas em ações ou disparadas por API or interface de programação do aplicativo (API) receberão um `dispatch_id` único por mensagem. O campo `dispatch_id` permite que você identifique qual instância de uma Campaign recorrente é responsável pela conversão, fornecendo assim mais insights e informações sobre quais tipos de Campaigns estão ajudando a impulsionar suas metas comerciais.
 
 ## Recurso de classificação "Mostrar só os meus" para Campaigns {#only-show-mine-campaign-sorting-feature}
 

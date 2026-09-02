@@ -22,7 +22,7 @@ Puedes generar un enlace de vista previa compartible para los siguientes canales
 - LINE
 - Notificaciones push
 - Páginas de suscripción
-- SMS y RCS
+- servicio de mensajes cortos y RCS
 - WhatsApp
 
 {% alert note %}
@@ -67,7 +67,7 @@ La vista previa compartible no está disponible para mensajes dentro de la aplic
 |---|---|
 | Correo electrónico | La vista previa incluye los campos Para, De y línea del asunto del mensaje, además del cuerpo del mensaje. <br><br>Si estás personalizando como un usuario personalizado, los valores introducidos como propiedades de activación de API o propiedades del evento pueden no aparecer en la vista previa, aunque se muestren correctamente en **Vista previa y prueba**. Los atributos personalizados, los usuarios de prueba y los usuarios aleatorios no se ven afectados. |
 | Banner (editor de arrastrar y soltar) | La vista previa refleja el contenido de la última vez que abriste la pestaña **Vista previa** en el creador, no necesariamente tus ediciones más recientes. <br><br>Abre **Vista previa** de nuevo antes de generar o regenerar un enlace para asegurarte de que esté actualizado. |
-| SMS y RCS | Ambos se rigen por la misma funcionalidad de vista previa compartible, pero cada uno genera su propio enlace independiente. |
+| servicio de mensajes cortos y RCS | Ambos se rigen por la misma funcionalidad de vista previa compartible, pero cada uno genera su propio enlace independiente. |
 | WhatsApp | La vista previa compartible está disponible por separado tanto para mensajes de plantilla de WhatsApp como para mensajes de respuesta de WhatsApp. |
 | Content Blocks, pies de correo electrónico y páginas de suscripción | Estos generan una vista previa del contenido independiente, sin depender de ninguna Campaign o Canvas específico en el que se utilicen. |
 | Páginas de destino | La vista previa se comporta de manera diferente para las páginas de destino que para otros canales. Consulta [Vista previa de la página]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#step-5-preview-the-page) para más detalles. |

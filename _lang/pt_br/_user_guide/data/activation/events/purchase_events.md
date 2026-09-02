@@ -17,7 +17,7 @@ Os eventos de compra são ações de compra realizadas por seus usuários e são
 
 ## Registrar eventos de compra {#log-purchase-events}
 
-Você pode registrar compras passando um [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object) pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ou usando uma de nossas bibliotecas de SDK listadas na seção a seguir.
+Você pode registrar compras passando um [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object) pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), ou usando uma de nossas bibliotecas de SDK or kit de desenvolvimento de software listadas na seção a seguir.
 
 {% alert note %}
 As propriedades de eventos de compra usam os mesmos tipos de dados que as [propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format).
@@ -48,7 +48,7 @@ Existem várias maneiras de usar dados de compra na Braze:
 
 ### Segmentação {#purchase-event-segmentation}
 
-Você pode disparar qualquer número ou tipo de campanhas de acompanhamento com base em eventos de compra registrados. Por exemplo, você pode criar um segmento de usuários que fizeram uma compra nos últimos 30 dias ou um segmento de usuários que gastaram acima de um determinado valor.
+Você pode disparar qualquer número ou tipo de campanhas de acompanhamento com base em eventos de compra registrados. Por exemplo, você pode criar um Segment or segmento or segmento de usuários que fizeram uma compra nos últimos 30 dias ou um Segment or segmento or segmento de usuários que gastaram acima de um determinado valor.
 
 Os seguintes filtros de segmentação estão disponíveis ao direcionar usuários:
 
@@ -209,7 +209,7 @@ Esses filtros de segmentação incluem:
 - Fez qualquer compra com propriedade Y com valor V X vezes nos últimos Y dias
 - Adiciona segmentação de 1 a 30 dias em todas as compras, eventos e propriedades dentro de compras e eventos
 
-Diferentemente das [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), os segmentos usados são atualizados em tempo real, suportam uma quantidade ilimitada de segmentos, oferecem um histórico retroativo de no máximo 30 dias e consomem pontos de dados. Devido à cobrança adicional de pontos de dados, você deve entrar em contato com seu gerente de sucesso do cliente da Braze para ativar as propriedades de eventos para seus eventos personalizados.
+Diferentemente das [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), os segmentos usados são atualizados em tempo real, suportam uma quantidade ilimitada de segmentos, oferecem um histórico retroativo de no máximo 30 dias e consomem pontos de dados. Devido à cobrança adicional de pontos de dados, você deve entrar em contato com seu gerente de sucesso do cliente da Braze para ativar as propriedades de eventos para seus eventos personalizados.
 
 Quando aprovadas, propriedades adicionais podem ser adicionadas no dashboard em **Configurações de dados** > **Eventos personalizados** selecionando **Manage Properties**. Você pode então usar essas propriedades de eventos na etapa de direcionamento do construtor de Campaigns ou Canvas.
 

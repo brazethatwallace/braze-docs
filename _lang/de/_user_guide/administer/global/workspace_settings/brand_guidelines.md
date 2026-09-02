@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Markenrichtlinien erste
 
 # Markenrichtlinien {#brand-guidelines}
 
-> Passen Sie den Stil Ihrer KI-generierten Texte mit personalisierten Markenrichtlinien an die Stimme, den Ton und die Persönlichkeit Ihrer Marke an.
+> Passen Sie den Stil Ihrer KI or künstliche Intelligenz-generierten Texte mit personalisierten Markenrichtlinien an die Stimme, den Ton und die Persönlichkeit Ihrer Marke an.
 
 Erstellen und verwalten Sie Markenrichtlinien unter **Content** > **Brand Guidelines**.
 

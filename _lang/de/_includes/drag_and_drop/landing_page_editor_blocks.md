@@ -26,7 +26,7 @@ Wenn Sie einen Button mit **Submit form when button is clicked** konfigurieren u
 
 ### Optionsfeld {#radio-button}
 
-Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Nutzerprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Nutzerprofil gespeichert.
+Fügt eine Liste von Optionen hinzu, aus der Nutzer:innen eine auswählen können. Verwenden Sie das Eigenschaftenpanel, um die verfügbaren Optionen und das angepasste Attribut zu konfigurieren, das den ausgewählten Wert empfängt. Das Kundenprofil or Nutzerprofil protokolliert den ausgewählten Wert als [angepasstes String-Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), wenn das Formular abgesendet wird. Angepasste Attribute mit anderen Datentypen werden nicht im Kundenprofil or Nutzerprofil gespeichert.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/radio_button_properties.md %}
 
@@ -60,7 +60,7 @@ Fügt vertikalen Abstand zwischen Elementen hinzu.
 
 ### Benutzerdefinierter Code {#custom-code}
 
-Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen ein, z. B. [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
+Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen ein, z. B. [Google Tag Manager:in]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
@@ -70,7 +70,7 @@ Fügt benutzerdefiniertes HTML, CSS oder JavaScript für erweiterte Anpassungen 
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer
 
-Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
@@ -83,7 +83,7 @@ Fügt ein Formularfeld für E-Mail-Adressen hinzu. Beim Absenden wird die Adress
 
 ### Telefonnummer-Erfassung {#phone-capture}
 
-Fügt ein Formularfeld für Telefonnummern hinzu. Beim Absenden werden die Nutzer:innen für Ihre ausgewählte [SMS]({{site.baseurl}}/sms_rcs_subscription_groups)- oder [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups)-Abo-Gruppe angemeldet.
+Fügt ein Formularfeld für Telefonnummern hinzu. Beim Absenden werden die Nutzer:innen für Ihre ausgewählte [Kurzmitteilungsdienst or SMS]({{site.baseurl}}/sms_rcs_subscription_groups)- oder [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups)-Abo-Gruppe angemeldet.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -113,14 +113,14 @@ Nutzer:innen wählen mehrere Optionen aus; die Werte werden in einem definierten
 
 ### Langer Text {#long-text}
 
-Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren Customer-Success-Manager. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
+Mehrzeiliges Textfeld für umfrageähnliche Abläufe. Wenn Sie diesen Block nicht sehen, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) oder Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in. Dieser Block ist für Standard-Landing-Pages nicht verfügbar.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/long_text.md %}
 
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 -->
 
 ## Wissenswertes {#things-to-know}

@@ -7,7 +7,7 @@ page_order: 3
 
 # Redirecionar usuários por meio de uma landing page {#retarget-users-through-a-landing-page}
 
-> Saiba como redirecionar usuários que enviaram um formulário por meio de uma landing page criando um segmento dedicado ou disparando uma mensagem quando o formulário é enviado.
+> Saiba como redirecionar usuários que enviaram um formulário por meio de uma landing page criando um Segment or segmento or segmento dedicado ou disparando uma mensagem quando o formulário é enviado.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -18,9 +18,9 @@ Antes de começar, crie uma [landing page]({{site.baseurl}}/user_guide/messaging
 A Braze rastreia automaticamente quando um usuário envia um formulário de landing page. Você pode visualizar o número total de envios de um formulário em [análise de dados de landing pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#view-analytics). Para redirecionamento específico de usuários, redirecione usuários por meio do formulário da sua landing page usando um dos seguintes métodos:
 
 {% tabs local %}
-{% tab Usando um Segment %}
+{% tab Usando um Segment or segmento %}
 
-Crie um novo Segment para identificar automaticamente os usuários que enviaram ou não um formulário de landing page. Ao [criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), no grupo "Retargeting", escolha **Submitted Form on Landing Page**.
+Crie um novo Segment or segmento para identificar automaticamente os usuários que enviaram ou não um formulário de landing page. Ao [criar um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), no grupo "Retargeting", escolha **Submitted Form on Landing Page**.
 
 ![Criação de Segment com o grupo de filtros selecionado como "Submitted Form on Landing Page".]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
 

@@ -22,11 +22,11 @@ Una vez creada tu nueva aplicación de Braze, localiza la configuración de noti
 
 ![Configuración del proveedor push de Huawei en Braze con los campos Huawei App ID y Client Secret.]({% image_buster /assets/img/huawei/huawei-dashboard-credentials.png %})
 
-### Paso 3: Integra el SDK de mensajería de Huawei en tu aplicación {#step-3-integrate-the-huawei-messaging-sdk-into-your-app}
+### Paso 3: Integra el SDK or kit de desarrollo de software de mensajería de Huawei en tu aplicación {#step-3-integrate-the-huawei-messaging-sdk-into-your-app}
 
 Huawei proporcionó un [codelab de integración en Android](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html) en el que se detalla la integración del servicio de mensajería de Huawei en tu aplicación. Sigue esos pasos para empezar.
 
-Después de completar el codelab, tendrás que crear un [servicio de mensajes personalizado de Huawei](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) para obtener tokens de notificaciones push y reenviar mensajes al SDK de Braze.
+Después de completar el codelab, tendrás que crear un [servicio de mensajes personalizado de Huawei](https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessageService-cls) para obtener tokens de notificaciones push y reenviar mensajes al SDK or kit de desarrollo de software de Braze.
 
 {% tabs %}
 {% tab JAVA %}
@@ -89,11 +89,11 @@ De forma predeterminada, cuando llega una notificación push mientras la aplicac
 
 Cuando llamas a `BrazeHuaweiPushHandler.handleHmsRemoteMessageData`, Braze determina si la carga útil es una notificación push de Braze y, si es así, crea y muestra la notificación. Para obtener más información, consulta [Gestión de notificaciones en primer plano]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#handling-foreground-notifications) en la documentación sobre notificaciones push de Android.
 
-Para ver un ejemplo completo, consulta la [referencia del controlador Huawei](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-huawei-push-handler/index.html) en la documentación del SDK de Braze para Android.
+Para ver un ejemplo completo, consulta la [referencia del controlador Huawei](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-huawei-push-handler/index.html) en la documentación del SDK or kit de desarrollo de software de Braze para Android.
 
 ### Paso 5: Prueba tus notificaciones push (opcional) {#step-5-test-your-push-notifications-optional}
 
-En este punto, habrás creado una nueva aplicación Android de Huawei en el panel de Braze, la habrás configurado con tus credenciales de desarrollador de Huawei y habrás integrado los SDK de Braze y Huawei en tu aplicación.
+En este punto, habrás creado una nueva aplicación Android de Huawei en el panel de Braze, la habrás configurado con tus credenciales de desarrollador de Huawei y habrás integrado los SDK or kit de desarrollo de software de Braze y Huawei en tu aplicación.
 
 A continuación, podemos poner a prueba la integración probando una nueva campaña push en Braze.
 

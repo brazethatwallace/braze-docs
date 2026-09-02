@@ -11,7 +11,7 @@ description: "Erfahren Sie, wie Sie mit Braze-Umfragen First-Party-Feedback übe
 
 # Umfragen {#surveys}
 
-> Braze-Umfragen ermöglichen es Ihnen, First-Party-Feedback direkt von Ihren Nutzer:innen zu erfassen und in Folge-Nachrichten darauf zu reagieren – ohne das Braze-Dashboard zu verlassen. Nutzen Sie Umfragen, um die Stimmung Ihrer Nutzer:innen zu verstehen, Präferenzen zu erfassen und Segmente sowie Trigger auf Basis der gesammelten Antworten zu erstellen.
+> Braze-Umfragen ermöglichen es Ihnen, First-Party-Feedback direkt von Ihren Nutzer:innen zu erfassen und in Folge-Nachrichten darauf zu reagieren – ohne das Braze-Dashboard zu verlassen. Nutzen Sie Umfragen, um die Stimmung Ihrer Nutzer:innen zu verstehen, Präferenzen zu erfassen und Segmente sowie Trigger or triggern auf Basis der gesammelten Antworten zu erstellen.
 
 
 ## Kanalverfügbarkeit {#channel-availability}
@@ -26,10 +26,10 @@ Umfragen sind auf zwei Kanälen verfügbar. Jede Kanalseite behandelt den kanals
 
 ## Umfragenseite {#surveys-page}
 
-Gehen Sie zu **Messaging** > **Surveys**, um Umfragen über Landing-Pages, Campaigns und Canvases an einem Ort zu finden. Nutzen Sie diese Seite als Einstiegspunkt, um die Performance Ihrer Umfragen kanalübergreifend zu überprüfen.
+Gehen Sie zu **Messaging** > **Surveys**, um Umfragen über Landing-Pages, Campaigns und Canvase an einem Ort zu finden. Nutzen Sie diese Seite als Einstiegspunkt, um die Performance Ihrer Umfragen kanalübergreifend zu überprüfen.
 
 {% alert note %}
-Wenn **Surveys** unter **Messaging** nicht angezeigt wird, wenden Sie sich an Ihren Braze Account Manager.
+Wenn **Surveys** unter **Messaging** nicht angezeigt wird, wenden Sie sich an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ## Analytics {#analytics}
@@ -70,15 +70,15 @@ Diese Funktion ist spezifisch für den Landing-Pages-Kanal. In-App-Nachricht-Umf
 
 ## Frage- und Formularblöcke {#question-and-form-blocks}
 
-Landing-Pages und In-App-Nachrichten unterstützen alle ihre Standard-Formularblöcke auch in Umfragen, einschließlich Optionsfeldgruppe, Checkbox, Checkbox-Gruppe, Dropdown, Telefonnummernerfassung, E-Mail-Erfassung und Kurztexterfassung. Dieser Abschnitt hebt die drei Formularblöcke hervor, die speziell für Umfragen entwickeltes Reporting bieten: NPS, Zahlenskala und Langtext.
+Landing-Pages und In-App-Nachrichten unterstützen alle ihre Standard-Formularblöcke auch in Umfragen, einschließlich Optionsfeldgruppe, Checkbox, Checkbox-Gruppe, Dropdown, Telefonnummernerfassung, E-Mail-Erfassung und Kurztexterfassung. Dieser Abschnitt hebt die drei Formularblöcke hervor, die speziell für Umfragen entwickeltes Reporting bieten: Net Promoter Score, Zahlenskala und Langtext.
 
 {% tabs local %}
-{% tab NPS %}
-### Eigenständiger NPS-Block {#standalone-nps-block}
+{% tab Net Promoter Score %}
+### Eigenständiger Net Promoter Score-Block {#standalone-nps-block}
 
-Der **NPS**-Block ist ein separater Formularblock, der sich vom **Bewertungs**-Block (Zahlenskala) unterscheidet und keine Konfigurationsoption innerhalb dieses Blocks ist. Fügen Sie ihn einer Umfrage hinzu, um die standardmäßige Net Promoter Score-Frage (0–10) zu stellen und Reporting zu erhalten, das speziell für diesen Anwendungsfall entwickelt wurde.
+Der **Net Promoter Score**-Block ist ein separater Formularblock, der sich vom **Bewertungs**-Block (Zahlenskala) unterscheidet und keine Konfigurationsoption innerhalb dieses Blocks ist. Fügen Sie ihn einer Umfrage hinzu, um die standardmäßige Net Promoter Score-Frage (0–10) zu stellen und Reporting zu erhalten, das speziell für diesen Anwendungsfall entwickelt wurde.
 
-Der **NPS**-Block bietet besseres Dashboard-Reporting als eine einfache Bewertungsfrage, die für denselben Zweck verwendet wird. Anstelle einer einfachen Zählung der Antworten pro Zahl gruppiert Braze die Antworten automatisch in Promoter (9–10), Passive (7–8) und Detractors (0–6) und zeigt diese Segmente – und den resultierenden NPS-Score – direkt in der Umfrage-Analytics-Ansicht an.
+Der **Net Promoter Score**-Block bietet besseres Dashboard-Reporting als eine einfache Bewertungsfrage, die für denselben Zweck verwendet wird. Anstelle einer einfachen Zählung der Antworten pro Zahl gruppiert Braze die Antworten automatisch in Promoter (9–10), Passive (7–8) und Detractors (0–6) und zeigt diese Segmente – und den resultierenden Net Promoter Score-Score – direkt in der Umfrage-Analytics-Ansicht an.
 
 Currents exportiert den numerischen Score (und, falls hinzugefügt, das Freitext-Feedback-Feld) über das **Survey Response**-Ereignis. Promoter-, Passiv- und Detractor-Segmente sind keine separaten Currents-Felder.
 
@@ -102,7 +102,7 @@ Die Langtext-Erfassung ist nützlich für qualitatives Feedback. Sie können die
 
 ![Einstellungen für den Langtext-Erfassungsblock.]({% image_buster /assets/img/surveys/long-form-surveys.png %}){: style="max-width:40%;"}
 
-Langtext-Antworten sind im Reporting und in Exporten verfügbar, können aber nicht als angepasste Attribute im Nutzerprofil protokolliert werden – Sie können Nutzer:innen also nicht direkt nach einem Langtext-Antwortwert segmentieren. Details finden Sie unter [Einschränkungen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#limitations) auf der jeweiligen Kanalseite.
+Langtext-Antworten sind im Reporting und in Exporten verfügbar, können aber nicht als angepasste Attribute im Kundenprofil or Nutzerprofil protokolliert werden – Sie können Nutzer:innen also nicht direkt nach einem Langtext-Antwortwert segmentieren. Details finden Sie unter [Einschränkungen]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/surveys#limitations) auf der jeweiligen Kanalseite.
 
 In Currents verwenden Langtext-Antworten `answer_type = 'free_form_text'` mit dem Text in `answer_long_string`.
 {% endtab %}
@@ -116,7 +116,7 @@ Die Randomisierung ändert nur die Anzeigereihenfolge für die jeweilige umfrage
 
 ## Umfrage-Templates {#survey-templates}
 
-Speichern Sie eine Umfrage als Template aus der Landing-Page- oder In-App-Nachricht-Template-Bibliothek, damit Ersteller:innen damit starten können, anstatt jedes Mal dieselben Fragen und Formularblöcke neu zu erstellen. Wenn Umfrage-Templates für Ihren Workspace aktiviert sind, filtern Sie die Bibliothek nach **Survey**, um gespeicherte Umfragestrukturen über Campaigns, Canvases und Landing-Pages hinweg zu finden und wiederzuverwenden.
+Speichern Sie eine Umfrage als Template aus der Landing-Page- oder In-App-Nachricht-Template-Bibliothek, damit Ersteller:innen damit starten können, anstatt jedes Mal dieselben Fragen und Formularblöcke neu zu erstellen. Wenn Umfrage-Templates für Ihren Workspace aktiviert sind, filtern Sie die Bibliothek nach **Survey**, um gespeicherte Umfragestrukturen über Campaigns, Canvase und Landing-Pages hinweg zu finden und wiederzuverwenden.
 
 ## Survey-Response-Ereignisse {#survey-response-events}
 
@@ -126,7 +126,7 @@ Braze exportiert einzelne Umfrageantworten über das **Survey Response**-Ereigni
 
 ## Landing-Page-Engagement-Funnel {#landing-page-engagement-funnel}
 
-Landing-Page-Umfragen generieren auch **Landing Page Impression**- und **Landing Page Click**-Ereignisse für Seitenaufrufe und getrackte Klicks. Das Abschließen einer Landing-Page-Umfrage schreibt ein **Survey Response**-Ereignis; es löst nicht zusätzlich das generische **Landing Page Form Submission**-Ereignis aus, das für Standard-Landing-Page-Formulare (ohne Umfrage) vorgesehen ist. Die vollständige Feldreferenz für diese Ereignisse finden Sie im [Currents-Ereignisglossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Landing-Page-Umfragen generieren auch **Landing Page Impression**- und **Landing Page Klick, der or klicken**-Ereignisse für Seitenaufrufe und getrackte Klicks. Das Abschließen einer Landing-Page-Umfrage schreibt ein **Survey Response**-Ereignis; es löst nicht zusätzlich das generische **Landing Page Form Submission**-Ereignis aus, das für Standard-Landing-Page-Formulare (ohne Umfrage) vorgesehen ist. Die vollständige Feldreferenz für diese Ereignisse finden Sie im [Currents-Ereignisglossar]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 ## Verwandte Artikel {#related-articles}
 

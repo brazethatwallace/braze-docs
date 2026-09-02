@@ -1,7 +1,7 @@
 ---
 nav_title: Olo
 article_title: Olo
-description: "Dieser Artikel beschreibt die Partnerschaft zwischen Braze und Olo, einer führenden offenen SaaS-Plattform für Restaurants, die Gastfreundschaft an jedem Touchpoint ermöglicht."
+description: "Dieser Artikel beschreibt die Partnerschaft zwischen Braze und Olo, einer führenden offenen SaaS or Software-as-a-Service-Plattform für Restaurants, die Gastfreundschaft an jedem Touchpoint ermöglicht."
 alias: /partners/olo/
 page_type: partner
 search_tag: Partner
@@ -9,11 +9,11 @@ search_tag: Partner
 
 # Olo
 
-> [Olo](https://www.olo.com/) ist eine führende offene SaaS-Plattform für Restaurants, die Gastfreundschaft an jedem Touchpoint ermöglicht.
+> [Olo](https://www.olo.com/) ist eine führende offene SaaS or Software-as-a-Service-Plattform für Restaurants, die Gastfreundschaft an jedem Touchpoint ermöglicht.
 
 Durch die Integration von Olo und Braze können Sie:
 
-- Nutzerprofile in Braze aktualisieren, damit sie mit den Olo-Nutzerprofilen übereinstimmen
+- Nutzerprofile in Braze Update or aktualisieren or aktualisieren, damit sie mit den Olo-Nutzerprofilen übereinstimmen
 - Die richtigen nächstbesten Nachrichten von Braze basierend auf Olo-Events senden
 
 ## Voraussetzungen {#prerequisites}
@@ -59,8 +59,8 @@ Olo benötigt eine erfolgreiche Antwort vom Test-Event-Webhook, bevor Sie die Ko
 In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von der Quellplattform gesendet wird, in einen Rückgabewert als JavaScript-Objekt.
 
 1. Senden Sie eine Anfrage an Ihre URL für die Datentransformation mit einer Beispiel-Event-Nutzlast eines Olo-Events, das Sie unterstützen möchten. Siehe [Format des Anfragekörpers](#request-body-format) für Hilfe bei der Formatierung Ihrer Anfrage.
-2. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Beispiel-Event-Nutzlast in den **Webhook-Details** sehen können.
-3. Aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Olo-Events zu unterstützen.
+2. Update or aktualisieren or aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Beispiel-Event-Nutzlast in den **Webhook-Details** sehen können.
+3. Update or aktualisieren or aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Olo-Events zu unterstützen.
 4. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 5. Speichern und aktivieren Sie Ihre Datentransformation.
 
@@ -80,7 +80,7 @@ Nachdem die `/users/track`-Anfrage `brazecall` zugewiesen wurde, geben Sie `braz
 
 ### Einzelne Event-Transformation {#single-event-transformation}
 
-Wenn Sie nur ein einzelnes Olo-Event unterstützen möchten, müssen Sie den `X-Olo-Event-Type`-Header nicht verwenden, um den `/users/track`-Anfrage-Payload bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Nutzerprofil, wenn ein Olo-Order-Placed-Webhook an Braze gesendet wird.
+Wenn Sie nur ein einzelnes Olo-Event unterstützen möchten, müssen Sie den `X-Olo-Event-Type`-Header nicht verwenden, um den `/users/track`-Anfrage-Payload bedingt zu erstellen. Zum Beispiel das Protokollieren eines Kauf-Events oder eines angepassten Events im Kundenprofil or Nutzerprofil, wenn ein Olo-Order-Placed-Webhook an Braze gesendet wird.
 
 ### Jedes Produkt als Kauf protokollieren {#logging-each-product-as-a-purchase}
 

@@ -9,7 +9,7 @@
 
 ## Datenmodell {#data-model}
 
-Das Modell für In-App-Nachrichten ist im React Native SDK verfügbar. Braze verfügt über vier In-App-Nachrichtentypen, die dasselbe Datenmodell verwenden: **Slideup**, **Modal**, **Full** und **HTML Full**.
+Das Modell für In-App-Nachrichten ist im React Native SDK or Software-Development-Kit verfügbar. Braze verfügt über vier In-App-Nachrichtentypen, die dasselbe Datenmodell verwenden: **Slideup**, **Modal**, **Full** und **HTML Full**.
 
 ### Nachrichten {#messages}
 
@@ -27,7 +27,7 @@ Das In-App-Nachricht-Modell bildet die Grundlage für alle In-App-Nachrichten.
 | `duration` | Die Anzeigedauer der Nachricht. |
 | `clickAction` | Der Aktionstyp für den Klick auf den Button. Die Typen sind: `URI` und `NONE`. |
 | `dismissType` | Die Art des Schließens der Nachricht. Die beiden Arten sind: `SWIPE` und `AUTO_DISMISS`. |
-| `messageType` | Der vom SDK unterstützte Typ der In-App-Nachricht. Die vier Typen sind: `SLIDEUP`, `MODAL`, `FULL` und `HTML_FULL`. |
+| `messageType` | Der vom SDK or Software-Development-Kit unterstützte Typ der In-App-Nachricht. Die vier Typen sind: `SLIDEUP`, `MODAL`, `FULL` und `HTML_FULL`. |
 | `extras` | Das Extras-Wörterbuch der Nachricht. Standardwert: `[:]`. |
 | `buttons` | Die Liste der Buttons in der In-App-Nachricht. |
 | `toString()` | Die Nachricht als String-Darstellung. |

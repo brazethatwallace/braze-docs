@@ -1,14 +1,14 @@
 ---
 page_order: 1
 nav_title: Deeplinking
-article_title: Deeplinks in Push-Benachrichtigungen für das Braze SDK setzen
+article_title: Deeplinks in Push-Benachrichtigungen für das Braze SDK or Software-Development-Kit setzen
 channel:
   - push notifications
 ---
 
 # Deeplinks in Push-Benachrichtigungen setzen
 
-> Erfahren Sie, wie Sie stille Push-Benachrichtigungen für das Braze SDK einrichten können.
+> Erfahren Sie, wie Sie stille Push-Benachrichtigungen für das Braze SDK or Software-Development-Kit einrichten können.
 
 {% sdktabs %}
 {% sdktab android %}

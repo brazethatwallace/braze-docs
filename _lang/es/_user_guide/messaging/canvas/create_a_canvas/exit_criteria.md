@@ -52,7 +52,7 @@ Los eventos de excepción adicionales incluyen:
 - Interactuar con una Campaign
 - Entrar en una ubicación
 - Desencadenar una geovalla
-- Enviar un mensaje SMS entrante
+- Enviar un mensaje servicio de mensajes cortos entrante
 - Enviar un mensaje WhatsApp entrante
 - Enviar un mensaje LINE entrante
 - Realizar un evento de carrito actualizado

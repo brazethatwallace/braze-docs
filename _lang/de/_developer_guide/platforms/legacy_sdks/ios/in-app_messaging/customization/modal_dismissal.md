@@ -15,7 +15,7 @@ noindex: true
 
 Der Standardwert ist `NO`. Hierdurch wird festgelegt, ob die modale In-App-Nachricht ausgeblendet wird, wenn der/die Nutzer:in auf eine Stelle außerhalb der In-App-Nachricht tippt.
 
-Wenn Sie Ausblendungen durch Tippen außerhalb des Fensters aktivieren möchten, fügen Sie ein Wörterbuch namens `Braze` zur Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den booleschen Untereintrag `DismissModalOnOutsideTap` hinzu und setzen Sie den Wert auf `YES`. Siehe hierzu das folgende Code-Snippet. Beachten Sie, dass vor Braze iOS SDK v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
+Wenn Sie Ausblendungen durch Tippen außerhalb des Fensters aktivieren möchten, fügen Sie ein Wörterbuch namens `Braze` zur Datei `Info.plist` hinzu. Fügen Sie im Wörterbuch `Braze` den booleschen Untereintrag `DismissModalOnOutsideTap` hinzu und setzen Sie den Wert auf `YES`. Siehe hierzu das folgende Code-Snippet. Beachten Sie, dass vor Braze iOS SDK or Software-Development-Kit v4.0.2 der Wörterbuchschlüssel `Appboy` anstelle von `Braze` verwendet werden muss.
 
 ```
 <key>Braze</key>

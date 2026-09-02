@@ -12,7 +12,7 @@ description: "Este artículo ofrece un resumen del editor HTML actualizado para 
 
 ## Beneficios {#benefits}
 
-El editor HTML actualizado crea una experiencia coherente con nuestros editores en otros canales de mensajería. Puedes cambiar fácilmente entre editores (HTML, clásico, texto sin formato y AMP) con la navegación superior del editor. Estas opciones estaban previamente ocultas en un desplegable en el antiguo editor HTML.
+El editor HTML actualizado crea una experiencia coherente con nuestros editores en otros canales de mensajería. Puedes cambiar fácilmente entre editores (HTML, clásico, texto sin formato y páginas móviles aceleradas) con la navegación superior del editor. Estas opciones estaban previamente ocultas en un desplegable en el antiguo editor HTML.
 
 Los beneficios también incluyen compatibilidad mejorada con la sintaxis de Liquid y [compatibilidad con la configuración multilingüe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings).
 

@@ -19,9 +19,9 @@ Puedes usar objetos anidados —objetos que están dentro de otro objeto— para
 - No se pueden generar esquemas de propiedades de eventos para eventos de compra.
 - Los esquemas de propiedades de eventos se generan mediante el muestreo de eventos personalizados de las últimas 24 horas.
 
-### Versiones mínimas del SDK {#minimum-sdk-versions}
+### Versiones mínimas del SDK or kit de desarrollo de software {#minimum-sdk-versions}
 
-Las siguientes versiones del SDK admiten objetos anidados:
+Las siguientes versiones del SDK or kit de desarrollo de software admiten objetos anidados:
 
 {% sdk_min_versions swift:5.0.0 android:20.0.0 web:3.3.0 %}
 
@@ -183,13 +183,13 @@ Usando el modal **Add Personalization**, selecciona **Advanced Event Properties*
 
 ## Probar objetos anidados en mensajes {#testing-nested-objects-in-messages}
 
-La herramienta **Preview & Test** del dashboard no admite añadir datos simulados para objetos anidados o atributos personalizados anidados. Para probar mensajes que hacen referencia a datos anidados a través de Liquid, puedes previsualizar mensajes con atributos anidados como un usuario existente que tenga ese atributo anidado, o previsualizar mensajes con propiedades de eventos personalizados lanzando una campaña en vivo a usuarios de prueba.
+La herramienta **vista previa & Test** del dashboard no admite añadir datos simulados para objetos anidados o atributos personalizados anidados. Para probar mensajes que hacen referencia a datos anidados a través de Liquid, puedes previsualizar mensajes con atributos anidados como un usuario existente que tenga ese atributo anidado, o previsualizar mensajes con propiedades de eventos personalizados lanzando una campaña en vivo a usuarios de prueba.
 
 ### Atributos personalizados anidados {#nested-custom-attributes}
 
 1. Importa los atributos anidados al perfil del usuario de prueba a través de la API.
-2. En tu campaña o Canvas, ve a **Preview & Test**.
-3. Selecciona **Preview as user** y busca al usuario de prueba. El Liquid se resolverá usando los atributos anidados reales del perfil de ese usuario.
+2. En tu campaña o Canvas, ve a **vista previa & Test**.
+3. Selecciona **vista previa as user** y busca al usuario de prueba. El Liquid se resolverá usando los atributos anidados reales del perfil de ese usuario.
 
 ### Propiedades de eventos anidados {#nested-event-properties}
 
@@ -197,7 +197,7 @@ Las propiedades de eventos anidados no se pueden previsualizar en el dashboard p
 
 1. Crea una campaña o paso en Canvas que se dirija solo a tus usuarios de prueba y que sea desencadenada por (o haga referencia a) el evento personalizado con propiedades anidadas.
 2. Lanza la campaña a tu audiencia de prueba.
-3. Registra el evento personalizado con la carga útil del objeto anidado en el perfil de tu usuario de prueba (usando la API o el SDK).
+3. Registra el evento personalizado con la carga útil del objeto anidado en el perfil de tu usuario de prueba (usando la API o el SDK or kit de desarrollo de software).
 4. Verifica que el mensaje se renderice correctamente con los valores de las propiedades anidadas.
 
 ## Preguntas frecuentes {#frequently-asked-questions}

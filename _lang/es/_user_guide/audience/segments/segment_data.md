@@ -54,8 +54,8 @@ Puedes ver las siguientes estadísticas de Segment, que se actualizan en tiempo 
             <td class="no-split">Cuántos usuarios hay en tu Segment y qué porcentaje de tu base de usuarios total representan.</td>
         </tr>
         <tr>
-            <td class="no-split">LTV (usuarios de pago)</td>
-            <td class="no-split">El valor de duración del ciclo de vida por usuario (LTV) en este Segment y el valor de duración del ciclo de vida por usuario de pago en este Segment. El LTV se calcula dividiendo tus ingresos de duración del ciclo de vida entre los usuarios de duración del ciclo de vida.</td>
+            <td class="no-split">LTV or valor de duración del ciclo de vida (usuarios de pago)</td>
+            <td class="no-split">El LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida por usuario (LTV or valor de duración del ciclo de vida) en este Segment y el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida por usuario de pago en este Segment. El LTV or valor de duración del ciclo de vida se calcula dividiendo tus ingresos de duración del ciclo de vida entre los usuarios de duración del ciclo de vida.</td>
         </tr>
         <tr>
             <td class="no-split">Contactable por correo electrónico (adhesión voluntaria)</td>
@@ -70,7 +70,7 @@ Puedes ver las siguientes estadísticas de Segment, que se actualizan en tiempo 
 
 ### Información del segmento {#segment-insights}
 
-Puedes ver cómo se desempeña un Segment en comparación con otro a través de un conjunto de KPI preseleccionados visitando la página [Información del segmento]({{site.baseurl}}/user_guide/audience/segments/segment_insights) de tu panel.
+Puedes ver cómo se desempeña un Segment en comparación con otro a través de un conjunto de indicador clave de rendimiento preseleccionados visitando la página [Información del segmento]({{site.baseurl}}/user_guide/audience/segments/segment_insights) de tu panel.
 
 ### Uso de mensajería {#messaging-use}
 La sección **Messaging Use** muestra qué Segments, Campaigns actualmente habilitadas y Canvas actualmente habilitados están dirigidos a tu Segment.
@@ -83,7 +83,7 @@ Para obtener más información sobre cómo monitorear la membresía y el tamaño
 
 ### Vista previa de usuario {#user-preview}
 
-Para ver información detallada y específica del usuario sobre tus Segments, haz clic en **User Data** y selecciona **User Preview**.
+Para ver información detallada y específica del usuario sobre tus Segments, haz clic en **User Data** y selecciona **User vista previa**.
 
 En esta página, puedes ver una serie de atributos específicos del usuario, como género, edad, número de sesiones y si han optado por la adhesión voluntaria a push y correo electrónico.
 

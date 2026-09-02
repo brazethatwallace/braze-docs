@@ -13,7 +13,7 @@ channel:
 
 > Dieser Artikel behandelt die Voraussetzungen, die erforderlich sind, um Ihren RCS-Kanal einzurichten und in Betrieb zu nehmen.
 
-Die Einrichtung von RCS ist genauso unkompliziert wie die Einrichtung von SMS. Lesen Sie weiter, um zu erfahren, wie Sie mit dem Versand von reichhaltigen und interaktiven Nachrichten beginnen können.
+Die Einrichtung von RCS ist genauso unkompliziert wie die Einrichtung von Kurzmitteilungsdienst or SMS. Lesen Sie weiter, um zu erfahren, wie Sie mit dem Versand von reichhaltigen und interaktiven Nachrichten beginnen können.
 
 ## Schritt 1: Eignungskriterien erfüllen {#step-1-meet-the-eligibility-criteria}
 
@@ -34,9 +34,9 @@ Um mit Braze RCS-Nachrichten senden zu können, muss Ihr Unternehmen vorab drei 
 - Kolumbien
 3. Sie müssen eine oder mehrere RCS-SKU(s) in Ihrem Vertrag erwerben.
 
-## Schritt 2: Einen RCS-verifizierten Sender registrieren {#step-2-register-an-rcs-verified-sender}
+## Schritt 2: Einen RCS-verifizierten Sender Registrierung or registrieren {#step-2-register-an-rcs-verified-sender}
 
-Bevor Sie RCS-Nachrichten senden können, müssen Sie einen RCS-verifizierten Sender registrieren. Dies ist die Darstellung Ihrer Marke, die Nutzer:innen auf ihren Mobilgeräten sehen, einschließlich des Namens Ihrer Marke, Ihres Logos, eines Verifizierungs-Badges und eines optionalen Slogans. Der RCS-verifizierte Sender stärkt das Vertrauen der Kund:innen und bestätigt, dass Ihre Nachrichten von einer authentifizierten Quelle stammen.
+Bevor Sie RCS-Nachrichten senden können, müssen Sie einen RCS-verifizierten Sender Registrierung or registrieren. Dies ist die Darstellung Ihrer Marke, die Nutzer:innen auf ihren Mobilgeräten sehen, einschließlich des Namens Ihrer Marke, Ihres Logos, eines Verifizierungs-Badges und eines optionalen Slogans. Der RCS-verifizierte Sender stärkt das Vertrauen der Kund:innen und bestätigt, dass Ihre Nachrichten von einer authentifizierten Quelle stammen.
 
 ![Ein Beispiel für einen RCS-verifizierten Sender in einer RCS-Nachricht namens „Cat Failz Cafe“.]({% image_buster /assets/img/rcs/rcs_sender.png %}){: style="max-width:60%;"}
 
@@ -44,26 +44,26 @@ Nachdem Sie die RCS-SKU(s) zu Ihrem Bestellformular hinzugefügt haben, wird Bra
 
 Wenn Sie Ihre ausgefüllten Formulare an Braze übermittelt haben, schließt Braze den Registrierungsprozess in Ihrem Namen ab.
 
-### Schritt 2.1: SMS-Fallbacks für RCS-Abo-Gruppen einrichten {#step-21-set-up-sms-fallbacks-for-rcs-subscription-groups}
+### Schritt 2.1: Kurzmitteilungsdienst or SMS-Fallbacks für RCS-Abo-Gruppen einrichten {#step-21-set-up-sms-fallbacks-for-rcs-subscription-groups}
 
-Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Software-Unterstützung der Nutzer:innen individuell unterschiedlich ist, ist SMS-Fallback heute eine Schlüsselkomponente für ein erfolgreiches RCS-Programm. Wir empfehlen, SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin oder eines Nutzers keine RCS-Nachrichten empfangen kann, sendet SMS-Fallback Ihre Nachricht trotzdem, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
+Da die aktuelle Carrier-Abdeckung je nach Land variiert und die Hardware- und Software-Unterstützung der Nutzer:innen individuell unterschiedlich ist, ist Kurzmitteilungsdienst or SMS-Fallback heute eine Schlüsselkomponente für ein erfolgreiches RCS-Programm. Wir empfehlen, Kurzmitteilungsdienst or SMS-Fallback einzurichten. Wenn ein Carrier RCS nicht unterstützt oder das Gerät einer Nutzerin oder eines Nutzers keine RCS-Nachrichten empfangen kann, sendet Kurzmitteilungsdienst or SMS-Fallback Ihre Nachricht trotzdem, sodass Sie keinen wichtigen Moment mit Ihren Nutzer:innen verpassen.
 
-Wir empfehlen dringend, Ihre aktuelle SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr Customer-Success-Manager jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
+Wir empfehlen dringend, Ihre aktuelle Kurzmitteilungsdienst or SMS-Opt-in-Erfahrung, Abo-Gruppen und Zielgruppen-Segmentierung zu überprüfen, bevor Sie Ihre erste RCS-Campaign bereitstellen. Bei Bedarf steht Ihnen Ihr CSM or Customer-Success-Manager or Customer-Success-Manager:in jederzeit zur Verfügung, um Sie zu beraten und durch den Einrichtungsprozess zu begleiten.
 
-#### Wie SMS-Fallback mit Events und Segmentierung funktioniert {#how-sms-fallback-works-with-events-and-segmentation}
+#### Wie Kurzmitteilungsdienst or SMS-Fallback mit Events und Segmentierung funktioniert {#how-sms-fallback-works-with-events-and-segmentation}
 
 {% tabs %}
 {% tab Event-Verhalten %}
 
-Wenn Sie SMS-Fallback mit RCS verwenden, hängt das Event-Verhalten davon ab, ob die Nachricht erfolgreich über RCS gesendet wird oder auf SMS zurückfällt:
+Wenn Sie Kurzmitteilungsdienst or SMS-Fallback mit RCS verwenden, hängt das Event-Verhalten davon ab, ob die Nachricht erfolgreich über RCS gesendet wird oder auf Kurzmitteilungsdienst or SMS zurückfällt:
 
 - **Wenn der RCS-Versand erfolgreich ist:** Sie erhalten ein RCS-Versand-Event und ein RCS-Zustellungs-Event.
-- **Wenn der RCS-Versand auf SMS zurückfällt:** Sie erhalten ein RCS-Versand-Event, ein RCS-Ablehnungs-Event und ein SMS-Zustellungs-Event. Das SMS-Zustellungs-Event hat `IS_SMS_FALLBACK=TRUE`.
+- **Wenn der RCS-Versand auf Kurzmitteilungsdienst or SMS zurückfällt:** Sie erhalten ein RCS-Versand-Event, ein RCS-Ablehnungs-Event und ein Kurzmitteilungsdienst or SMS-Zustellungs-Event. Das Kurzmitteilungsdienst or SMS-Zustellungs-Event hat `IS_SMS_FALLBACK=TRUE`.
 
 {% endtab %}
 {% tab Segmentierungsverhalten %}
 
-Für SMS und RCS werten [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) aus, wann eine Nachricht gesendet wird, nicht wann sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf SMS zurückfällt, oder wenn die Fallback-SMS nicht an das Gerät der Nutzerin oder des Nutzers zugestellt wird.
+Für Kurzmitteilungsdienst or SMS und RCS werten [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) für empfangene Nachrichten (wie [Nachricht von Campaign erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) und [Nachricht von Canvas-Schritt erhalten]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) aus, wann eine Nachricht gesendet wird, nicht wann sie das Gerät der Nutzerin oder des Nutzers erreicht. Bei aktiviertem Kurzmitteilungsdienst or SMS-Fallback können Nutzer:innen diese Filter weiterhin erfüllen, wenn eine RCS-Nachricht abgelehnt wird und auf Kurzmitteilungsdienst or SMS zurückfällt, oder wenn die Fallback-Kurzmitteilungsdienst or SMS nicht an das Gerät der Nutzerin oder des Nutzers zugestellt wird.
 
 {% endtab %}
 {% endtabs %}
@@ -76,8 +76,8 @@ Wenn Ihr RCS-verifizierter Sender genehmigt ist, aktualisiert unser Operations-T
 
 ## Schritt 3: Abo-Gruppen einrichten {#step-3-set-up-subscription-groups}
 
-Je nach Integration kann Braze RCS-verifizierte Absender zu Ihren bestehenden SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
+Je nach Integration kann Braze RCS-verifizierte Absender zu Ihren bestehenden Kurzmitteilungsdienst or SMS-Abo-Gruppen hinzufügen oder neue einrichten. Detaillierte Einrichtungsanweisungen finden Sie unter [Kurzmitteilungsdienst or SMS- und RCS-Abo-Gruppen]({{site.baseurl}}/sms_rcs_subscription_groups).
 
-## SMS-Datenverkehr zu RCS migrieren {#migrating-sms-traffic-to-rcs}
+## Kurzmitteilungsdienst or SMS-Datenverkehr zu RCS migrieren {#migrating-sms-traffic-to-rcs}
 
-Wenn Sie separate SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithilfe eines einstufigen Canvas von SMS zu RCS migrieren. Eine Schritt-für-Schritt-Anleitung finden Sie unter [SMS-Datenverkehr zu RCS migrieren]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#migrate-sms-traffic-to-rcs).
+Wenn Sie separate Kurzmitteilungsdienst or SMS- und RCS-Abo-Gruppen haben, können Sie Nutzer:innen mithilfe eines einstufigen Canvas von Kurzmitteilungsdienst or SMS zu RCS migrieren. Eine Schritt-für-Schritt-Anleitung finden Sie unter [Kurzmitteilungsdienst or SMS-Datenverkehr zu RCS migrieren]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#migrate-sms-traffic-to-rcs).

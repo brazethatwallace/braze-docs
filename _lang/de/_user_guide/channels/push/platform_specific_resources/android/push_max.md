@@ -29,7 +29,7 @@ Einige Android-Geräte, die von chinesischen Originalgeräteherstellern (OEMs) w
 
 ## Voraussetzungen {#prerequisites}
 
-Push-Benachrichtigungen, die mit Push Max gesendet werden, werden nur an Geräte zugestellt, die mindestens die folgende [SDK-Mindestversion]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) haben:
+Push-Benachrichtigungen, die mit Push Max gesendet werden, werden nur an Geräte zugestellt, die mindestens die folgende [SDK or Software-Development-Kit-Mindestversion]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions) haben:
 
 {% sdk_min_versions android:29.0.1 %}
 
@@ -62,19 +62,19 @@ So verwenden Sie Push Max in Ihrem Canvas:
 {% endtab %}
 {% endtabs %}
 
-Die folgenden beiden Features, intelligentes Timing und Time to Live, können in Kombination mit Push Max verwendet werden, um die Zustellbarkeit Ihrer Android-Push-Benachrichtigungen potenziell zu erhöhen.
+Die folgenden beiden Features, intelligentes Timing und TTL, können in Kombination mit Push Max verwendet werden, um die Zustellbarkeit Ihrer Android-Push-Benachrichtigungen potenziell zu erhöhen.
 
 ### Intelligentes Timing {#intelligent-timing}
 
 Push Max funktioniert am besten, wenn [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) aktiviert ist. Intelligentes Timing kann den optimalen Zeitpunkt berechnen und die Push-Benachrichtigung dann senden, wenn die Nutzer:innen die App am wahrscheinlichsten verwenden und die Push-Benachrichtigung am wahrscheinlichsten zugestellt wird.
 
-### Time to Live (TTL) {#time-to-live-ttl}
+### TTL (TTL) {#time-to-live-ttl}
 
-Time to Live (TTL) kann fehlgeschlagene Push-Benachrichtigungen an Firebase Cloud Messaging (FCM) nachverfolgen und die Benachrichtigung erneut senden, wenn die Nutzer:innen sie wahrscheinlich empfangen.
+TTL (TTL) kann fehlgeschlagene Push-Benachrichtigungen an Firebase Cloud Messaging (FCM) nachverfolgen und die Benachrichtigung erneut senden, wenn die Nutzer:innen sie wahrscheinlich empfangen.
 
-Standardmäßig ist Time to Live auf 28 Tage eingestellt, was dem Maximum entspricht. Sie können den Standard-TTL-Wert für alle neuen Android-Push-Nachrichten unter **Einstellungen** > **Workspace-Einstellungen** > **Push-Einstellungen** verringern oder die Anzahl der Tage pro Nachricht im Tab **Settings** beim Erstellen einer Android-Push-Benachrichtigung konfigurieren.
+Standardmäßig ist TTL auf 28 Tage eingestellt, was dem Maximum entspricht. Sie können den Standard-TTL-Wert für alle neuen Android-Push-Nachrichten unter **Einstellungen** > **Workspace-Einstellungen** > **Push-Einstellungen** verringern oder die Anzahl der Tage pro Nachricht im Tab **Settings** beim Erstellen einer Android-Push-Benachrichtigung konfigurieren.
 
-![Feld „Time to Live“ auf 28 Tage eingestellt.]({% image_buster /assets/img_archive/time_to_live.png %}){: style="max-width:60%"}
+![Feld „TTL“ auf 28 Tage eingestellt.]({% image_buster /assets/img_archive/time_to_live.png %}){: style="max-width:60%"}
 
 ## Wissenswertes {#things-to-know}
 

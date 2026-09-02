@@ -24,37 +24,37 @@ Si quieres usar tus plantillas HTML personalizadas existentes o plantillas cread
 
 ## Requisitos previos {#prerequisites}
 
-### Requisitos del SDK {#sdk-requirements}
+### Requisitos del SDK or kit de desarrollo de software {#sdk-requirements}
 
-| Versión mínima del SDK                                                          | Versión recomendada del SDK                                                       |
+| Versión mínima del SDK or kit de desarrollo de software                                                          | Versión recomendada del SDK or kit de desarrollo de software                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK or kit de desarrollo de software" }
 
-{% details Más información sobre los SDK mínimos %}
+{% details Más información sobre los SDK or kit de desarrollo de software mínimos %}
 
-Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios que tengan las versiones mínimas del SDK (consulta la tabla de la sección anterior). Si un usuario no ha actualizado su aplicación (es decir, tiene una versión anterior del SDK), no recibirá el mensaje dentro de la aplicación.
+Los mensajes creados con el editor de arrastrar y soltar solo pueden enviarse a usuarios que tengan las versiones mínimas del SDK or kit de desarrollo de software (consulta la tabla de la sección anterior). Si un usuario no ha actualizado su aplicación (es decir, tiene una versión anterior del SDK or kit de desarrollo de software), no recibirá el mensaje dentro de la aplicación.
 
-Para aprovechar todas las características disponibles en el editor de arrastrar y soltar, actualiza tus SDK a las versiones recomendadas. Esto te permite aprovechar las siguientes características adicionales:
+Para aprovechar todas las características disponibles en el editor de arrastrar y soltar, actualiza tus SDK or kit de desarrollo de software a las versiones recomendadas. Esto te permite aprovechar las siguientes características adicionales:
 
 - Enlaces de texto que no descartan el mensaje
 - Acción de botón para solicitar push primer
 
-A continuación se detallan los requisitos mínimos del SDK para estas características:
+A continuación se detallan los requisitos mínimos del SDK or kit de desarrollo de software para estas características:
 
 | Enlaces de texto*                                                         | Solicitar push primer                                                           |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos del SDK or kit de desarrollo de software" }
 
-*Si incluyes un enlace en tu mensaje dentro de la aplicación que redirige a una URL y el usuario final no tiene las versiones mínimas del SDK especificadas, al seleccionar el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
+*Si incluyes un enlace en tu mensaje dentro de la aplicación que redirige a una URL y el usuario final no tiene las versiones mínimas del SDK or kit de desarrollo de software especificadas, al seleccionar el enlace se cerrará el mensaje y el usuario no podrá volver al mensaje para enviar el formulario.
 
 {% enddetails %}
 
 ### Requisitos previos adicionales {#additional-prerequisites}
 
-- Para el SDK Web, la opción de inicialización [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) debe configurarse como `true`. La opción `enableHtmlInAppMessages` también permitirá que estos mensajes funcionen, pero está obsoleta y debe actualizarse a `allowUserSuppliedJavascript`.
-- Si usas Google Tag Manager, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
+- Para el SDK or kit de desarrollo de software Web, la opción de inicialización [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) debe configurarse como `true`. La opción `enableHtmlInAppMessages` también permitirá que estos mensajes funcionen, pero está obsoleta y debe actualizarse a `allowUserSuppliedJavascript`.
+- Si usas Google Tag Administrador, debes habilitar "Allow HTML In-App Messages" en la configuración de GTM.
 
 ## Paso 1: Crea un mensaje dentro de la aplicación {#step-1-create-an-in-app-message}
 
@@ -117,7 +117,7 @@ Los mensajes dentro de la aplicación de varias páginas son secuenciales, lo qu
 Para conectar páginas entre sí:
 
 1. Selecciona tu página de inicio.
-2. Selecciona un elemento de botón o imagen en el canvas.
+2. Selecciona un elemento de botón o imagen en el Canvas.
 3. Establece **On-click behavior** en **Go to page**.
 4. Selecciona la página a la que quieres enlazar desde la página de inicio.
 5. Continúa hasta que todas las páginas estén enlazadas.
@@ -170,7 +170,7 @@ Considera las siguientes preguntas mientras pruebas tu mensaje dentro de la apli
 
 ### ¿Por qué los clics en el cuerpo no aparecen en mi página de análisis? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
-Los clics en el cuerpo no se recopilan automáticamente para los mensajes dentro de la aplicación creados con el editor de arrastrar y soltar. Para obtener más detalles, consulta los registros de cambios del SDK para [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) y [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
+Los clics en el cuerpo no se recopilan automáticamente para los mensajes dentro de la aplicación creados con el editor de arrastrar y soltar. Para obtener más detalles, consulta los registros de cambios del SDK or kit de desarrollo de software para [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) y [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### ¿Puedo segmentar en función de los clics en los botones? {#can-i-segment-based-on-button-clicks}
 

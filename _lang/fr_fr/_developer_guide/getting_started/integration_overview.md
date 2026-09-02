@@ -21,7 +21,7 @@ platform:
 
 ![Diagramme de Venn avec quatre cercles (découverte, intégration, assurance qualité et maintenance) centré sur le délai de rentabilisation.]({% image_buster /assets/img/getting-started/getting-started-integrate-flower.png %}){: style="max-width:50%;float:right;margin-left:15px;border:none;"}
 
-En tant que ressource technique, vous donnerez à votre équipe les moyens d'agir en intégrant Braze dans votre tech stack. L'onboarding se divise globalement en quatre étapes :
+En tant que ressource technique, vous donnerez à votre équipe les moyens d'agir en intégrant Braze dans votre outils or tech stack. L'onboarding se divise globalement en quatre étapes :
 * [Découverte et planification](#discovery) : Travaillez avec votre équipe pour vous aligner sur le périmètre, planifier une structure pour les données et les campagnes, et créer une structure d'espace de travail appropriée.
 * [Intégration](#integration) : Exécutez votre plan en intégrant le SDK et l'API, en activant les canaux de communication et en configurant l'importation et l'exportation des données.
 * [Assurance qualité](#qa) : Confirmez que la boucle de données et d'envoi de messages entre la plateforme Braze et votre application ou site fonctionne comme prévu.

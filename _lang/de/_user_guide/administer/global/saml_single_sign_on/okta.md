@@ -19,7 +19,7 @@ Die vorgefertigte Braze-Okta-Marketplace-App verwendet die gemeinsame Entity-ID 
 
 | Voraussetzung | Details |
 | ----------- | ------- |
-| Okta für Ihr Konto aktiviert | Wenden Sie sich an Ihren Braze Account Manager, um dies für Ihr Konto aktivieren zu lassen. |
+| Okta für Ihr Konto aktiviert | Wenden Sie sich an Ihren Braze Account Manager:in, um dies für Ihr Konto aktivieren zu lassen. |
 | Okta-Administratorrechte | Stellen Sie sicher, dass Sie über Administratorrechte verfügen, bevor Sie Okta einrichten. |
 | Braze-Administratorrechte | Stellen Sie sicher, dass Sie über Administratorrechte verfügen, bevor Sie Okta einrichten. |
 | RelayState-API-Schlüssel | Um die IdP-Anmeldung zu aktivieren, gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen API-Schlüssel mit `sso.saml.login`-Berechtigungen. |
@@ -29,11 +29,11 @@ Die vorgefertigte Braze-Okta-Marketplace-App verwendet die gemeinsame Entity-ID 
 
 ### Schritt 1a: Zu den Sicherheitseinstellungen in Braze navigieren {#step-1a-navigate-to-security-settings-in-braze}
 
-Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie zu **Einstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und schalten Sie den Abschnitt SAML SSO auf **EIN**.
+Nachdem Ihr Account Manager:in SAML Single Sign-on für Ihr Konto aktiviert hat, gehen Sie zu **Einstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und schalten Sie den Abschnitt SAML Single Sign-on auf **EIN**.
 
 ![Okta SAML SSO aktiviert auf der Seite „Sicherheitseinstellungen“.]({% image_buster/assets/img/Okta/okta1.png %})
 
-### Schritt 1b: SAML-SSO-Einstellungen bearbeiten {#step-1b-edit-saml-sso-settings}
+### Schritt 1b: SAML-Single Sign-on-Einstellungen bearbeiten {#step-1b-edit-saml-sso-settings}
 
 Über Ihr Okta-Admin-Dashboard stellt Ihnen Okta eine Ziel-URL (Anmelde-URL) und ein `x.509`-Zertifikat zur Verfügung, die Sie auf der Seite **Sicherheitseinstellungen** Ihres Braze-Kontos eingeben müssen.
 
@@ -44,7 +44,7 @@ Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie zu 
 | `SAML Name` | Dies wird als Button-Text auf dem Anmeldebildschirm angezeigt. In der Regel ist dies der Name Ihres Identitätsanbieters, zum Beispiel „Okta“. |
 | `Target URL` | Dies ist die Anmelde-URL, die über das Okta-Admin-Dashboard bereitgestellt wird. Sie finden sie unter **Applications** > Ihre Anwendung > Tab **General** > **App Embed Link** > **Embed Link**. |
 | `Certificate` | Das PEM-codierte `x.509`-Zertifikat wird von Ihrem Identitätsanbieter bereitgestellt. Sie müssen es kopieren und in dieses Feld einfügen. Rufen Sie es in Okta ab, indem Sie zu **SAML Signing Certificates** gehen und **Actions** > **Download certificate** auswählen. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1b: SAML-SSO-Einstellungen bearbeiten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1b: SAML-Single Sign-on-Einstellungen bearbeiten" }
 
 Wählen Sie unten auf der Seite **Save Changes** aus, wenn Sie fertig sind.
 
@@ -59,7 +59,7 @@ Geben Sie als Nächstes den RelayState-API-Schlüssel mit der Berechtigung `sso.
 Stellen Sie sicher, dass Sie diese neuen Einstellungen speichern.
 
 {% alert tip %}
-Wenn Sie möchten, dass sich Nutzer:innen Ihres Braze-Kontos nur mit SAML SSO anmelden, können Sie die [Single-Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) auf der Seite **Unternehmenseinstellungen**.
+Wenn Sie möchten, dass sich Nutzer:innen Ihres Braze-Kontos nur mit SAML Single Sign-on anmelden, können Sie die [Single-Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) auf der Seite **Unternehmenseinstellungen**.
 {% endalert %}
 
 ## Schritt 3: Anmeldung {#step-3-log-in}

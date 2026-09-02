@@ -8,15 +8,15 @@ page_order: 3.5
 
 # Wissensquellen {#knowledge-sources}
 
-> Wissensquellen helfen Ihren KI-Agenten, Katalogdaten zu interpretieren und die richtigen Informationen abzurufen, um Ihre Ziele zu erreichen. Eine Einführung in Braze Agents finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Informationen zum Hinzufügen von Wissen zu einem Agenten finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
+> Wissensquellen helfen Ihren KI or künstliche Intelligenz-Agenten, Katalogdaten zu interpretieren und die richtigen Informationen abzurufen, um Ihre Ziele zu erreichen. Eine Einführung in Braze Agents finden Sie unter [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents). Informationen zum Hinzufügen von Wissen zu einem Agenten finden Sie unter [Angepasste Agenten erstellen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
 
 {% alert important %}
-Wissensquellen für die Agentenkonsole befinden sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager, wenn Sie an diesem Early Access teilnehmen möchten.
+Wissensquellen für die Agentenkonsole befinden sich derzeit im Early Access. Kontaktieren Sie Ihren Braze Account Manager:in, wenn Sie an diesem Early Access teilnehmen möchten.
 {% endalert %}
 
 ## So funktioniert es {#how-it-works}
 
-Wissensquellen sind eine Art von Agentenkontext. Ein KI-Agent kann eine Wissensquelle referenzieren, um Daten aus dem Katalog genauer abzurufen, als wenn der Katalog direkt in den Anweisungen des Agenten referenziert wird.
+Wissensquellen sind eine Art von Agentenkontext. Ein KI or künstliche Intelligenz-Agent kann eine Wissensquelle referenzieren, um Daten aus dem Katalog genauer abzurufen, als wenn der Katalog direkt in den Anweisungen des Agenten referenziert wird.
 
 Nehmen wir an, Sie erstellen einen Agenten, der Restaurants in New York City basierend auf der Lieblingsküche einer Nutzerin oder eines Nutzers empfiehlt – einem angepassten Attribut. Dieser Agent referenziert die Wissensquelle für den Katalog „nyc_restaurants“. Wenn Sie diese Wissensquelle erstellen, nehmen Sie nur die Felder auf, die der Agent benötigt – wie Restaurantname, Standort und Küche – und schließen andere Katalogspalten aus, die keine Empfehlungen unterstützen.
 
@@ -53,11 +53,11 @@ Das Einbeziehen aller Katalogfelder kann unnötigen Kontext hinzufügen und die 
 
 Sie können auch eine Wissensquelle erstellen, während Sie einen Agenten aufbauen, indem Sie zum Abschnitt **Anweisungen** Ihres Agenten gehen. Wählen Sie **Wissen hinzufügen** > **Wissensquelle erstellen** aus.
 
-## Eine Wissensquelle in Ihrem KI-Agenten verwenden {#use-a-knowledge-source-in-your-ai-agent}
+## Eine Wissensquelle in Ihrem KI or künstliche Intelligenz-Agenten verwenden {#use-a-knowledge-source-in-your-ai-agent}
 
 Sie können Wissensquellen im Abschnitt **Wissensquellen** verwalten. Hier sehen Sie Details wie z. B. welche Wissensquellen aktiv sind und wann sie zuletzt synchronisiert wurden. Beachten Sie, dass der Name der Wissensquelle mit dem Namen des als Quelle verwendeten Katalogs übereinstimmt.
 
-So verwenden Sie eine Wissensquelle in Ihrem KI-Agenten:
+So verwenden Sie eine Wissensquelle in Ihrem KI or künstliche Intelligenz-Agenten:
 
 1. Gehen Sie zum Abschnitt **Anweisungen** Ihres Agenten.
 2. Wählen Sie **+ Agentenkontext** > **Wissen hinzufügen** aus.

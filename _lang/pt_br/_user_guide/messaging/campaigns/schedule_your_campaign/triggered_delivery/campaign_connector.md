@@ -36,7 +36,7 @@ Esse recurso permite direcionar usuários que realizam as seguintes interações
 - Dispensar cartão de conteúdo
 
 {% alert important %}
-Os gatilhos do Campaign Connector não podem ser usados para disparar campanhas de mensagens no app. Mensagens no app só podem ser disparadas por eventos do SDK, como eventos personalizados ou início de sessão. Para saber mais, consulte [Criar uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
+Os gatilhos do Campaign Connector não podem ser usados para disparar campanhas de mensagens no app. Mensagens no app só podem ser disparadas por eventos do SDK or kit de desenvolvimento de software, como eventos personalizados ou início de sessão. Para saber mais, consulte [Criar uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 {% endalert %}
 
 ### Regras de entrega {#delivery-rules}
@@ -73,7 +73,7 @@ Os eventos de exceção só serão disparados enquanto o usuário estiver aguard
 
 ### Etapa 4: Continuar com a criação da campanha {#step-4-proceed-with-campaign-creation}
 
-Continue criando sua campanha normalmente. Se você quiser garantir que enviará uma mensagem a todos os usuários que vão interagir com uma campanha específica, o ideal é direcionar um segmento que contenha todos os usuários do seu app.
+Continue criando sua campanha normalmente. Se você quiser garantir que enviará uma mensagem a todos os usuários que vão interagir com uma campanha específica, o ideal é direcionar um Segment or segmento or segmento que contenha todos os usuários do seu app.
 
 ## Casos de uso {#use-cases}
 

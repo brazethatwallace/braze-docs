@@ -221,7 +221,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 ```
 
 {% alert note %}
-SMS 구독 그룹의 경우, 그룹의 `subscription_state`를 `subscribed`로 설정할 때 해당 구독 그룹 오브젝트 내에 선택적 `use_double_opt_in_logic` 매개변수를 `true`로 설정하여 사용자를 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 워크플로에 진입시킬 수 있습니다. `subscription_state`가 `subscribed`일 때 이 매개변수를 생략하거나 `false`로 설정하면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. 이 매개변수는 `subscription_state`가 `unsubscribed`와 같은 다른 값으로 설정된 경우에는 적용되지 않습니다.
+단문 메시지 서비스 구독 그룹의 경우, 그룹의 `subscription_state`를 `subscribed`로 설정할 때 해당 구독 그룹 오브젝트 내에 선택적 `use_double_opt_in_logic` 매개변수를 `true`로 설정하여 사용자를 [단문 메시지 서비스 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 워크플로에 진입시킬 수 있습니다. `subscription_state`가 `subscribed`일 때 이 매개변수를 생략하거나 `false`로 설정하면 사용자는 이중 옵트인 워크플로를 거치지 않고 바로 구독됩니다. 이 매개변수는 `subscription_state`가 `unsubscribed`와 같은 다른 값으로 설정된 경우에는 적용되지 않습니다.
 {% endalert %}
 
 ### 별칭 전용 사용자 만들기 요청 예시 {#example-request-to-create-an-alias-only-user}

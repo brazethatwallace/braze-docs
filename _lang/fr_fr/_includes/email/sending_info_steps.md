@@ -1,4 +1,4 @@
 1. Sous **Informations d'envoi**, sélectionnez un e-mail comme **Nom d'affichage de l'expéditeur + Adresse**. Vous pouvez également personnaliser cela en sélectionnant **Personnaliser le nom d'affichage de l'expéditeur + Adresse**.
 2. Sélectionnez un e-mail comme **Adresse de réponse**. Vous pouvez également personnaliser cela en sélectionnant **Personnaliser l'adresse de réponse**.
-3. Ensuite, sélectionnez un e-mail comme **Adresse CCI** pour rendre votre e-mail visible à cette adresse.
+3. Ensuite, sélectionnez un e-mail comme **Adresse CCI or carte de contenu de type bannière** pour rendre votre e-mail visible à cette adresse.
 4. Ajoutez une ligne d'objet à votre e-mail. Vous pouvez également ajouter une accroche. Pour ajouter un espace après l'accroche, cochez la case **Ajouter un espace après l'accroche**.

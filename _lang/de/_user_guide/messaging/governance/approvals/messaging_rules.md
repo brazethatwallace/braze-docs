@@ -3,12 +3,12 @@ nav_title: Messaging-Regeln
 article_title: Messaging-Regeln
 page_order: 1
 page_type: reference
-description: "Diese Seite beschreibt, wie Sie Messaging-Regeln im Genehmigungs-Workflow für Campaigns und Canvases mit großem Sendevolumen verwenden."
+description: "Diese Seite beschreibt, wie Sie Messaging-Regeln im Genehmigungs-Workflow für Campaigns und Canvase mit großem Sendevolumen verwenden."
 ---
 
 # Messaging-Regeln {#messaging-rules}
 
-> Verwenden Sie Messaging-Regeln in Ihrem Genehmigungs-Workflow, um die Zahl erreichbarer Nutzer:innen zu begrenzen, bevor eine zusätzliche Genehmigung erforderlich ist – so können Sie Ihre Campaigns und Canvases überprüfen, bevor Sie eine größere Zielgruppe ansprechen.
+> Verwenden Sie Messaging-Regeln in Ihrem Genehmigungs-Workflow, um die Zahl erreichbarer Nutzer:innen zu begrenzen, bevor eine zusätzliche Genehmigung erforderlich ist – so können Sie Ihre Campaigns und Canvase überprüfen, bevor Sie eine größere Zielgruppe ansprechen.
 
 ## Voraussetzungen {#prerequisites}
 

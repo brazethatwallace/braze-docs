@@ -11,7 +11,7 @@ tool:
 
 # Sincronización de audiencias con Criteo {#audience-sync-to-criteo}
 
-Mediante la Sincronización de audiencias de Braze con Criteo, las marcas pueden optar por añadir datos de usuarios de su propia integración de Braze a las listas de clientes de Criteo para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, SMS, webhook, etc.) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en tus listas de clientes de Criteo.
+Mediante la Sincronización de audiencias de Braze con Criteo, las marcas pueden optar por añadir datos de usuarios de su propia integración de Braze a las listas de clientes de Criteo para entregar anuncios basados en desencadenantes de comportamiento, segmentación y mucho más. Cualquier criterio que utilices normalmente para desencadenar un mensaje (push, correo electrónico, servicio de mensajes cortos, webhook, etc.) en un Canvas de Braze basado en tus datos de usuario puede utilizarse ahora para desencadenar un anuncio dirigido a ese usuario en tus listas de clientes de Criteo.
 
 **Entre los casos de uso más comunes para la sincronización de audiencias se incluyen:**
 
@@ -62,7 +62,7 @@ Tu conexión con Criteo se aplicará a nivel del espacio de trabajo de Braze. Si
 
 Al crear audiencias para el seguimiento de anuncios, es posible que desees incluir o excluir a ciertos usuarios en función de sus preferencias y para cumplir con las leyes de privacidad, como el derecho de "No vender ni compartir" en virtud de la [CCPA](https://oag.ca.gov/privacy/ccpa). Los especialistas en marketing deben implementar los filtros relevantes para la elegibilidad de los usuarios dentro de sus criterios de entrada de Canvas. Las siguientes opciones pueden ayudar.
 
-Si has recopilado el [IDFA de iOS a través de Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), podrás utilizar el filtro Seguimiento de anuncios habilitado. Selecciona el valor como verdadero para enviar usuarios únicamente a destinos de Audience Sync donde hayan dado su adhesión voluntaria.
+Si has recopilado el [IDFA de iOS a través de Braze SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), podrás utilizar el filtro Seguimiento de anuncios habilitado. Selecciona el valor como verdadero para enviar usuarios únicamente a destinos de Audience Sync donde hayan dado su adhesión voluntaria.
 
 ![Filtro de entrada de Canvas que muestra Seguimiento de anuncios habilitado configurado como verdadero.]({% image_buster /assets/img/criteo/criteo11.png %})
 

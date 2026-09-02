@@ -39,7 +39,7 @@ Die Vertragsdetails listen das Start- und Enddatum Ihres aktuellen Vertrags mit 
 
 #### Hinweise {#considerations}
 
-Wenn Ihr Vertrag monatlich eindeutige Besucher:innen (MUV) verwendet und Sie zu einem Vertrag wechseln, der nur monatlich aktive Nutzer:innen (MAU) verwendet, werden Ihre historischen Daten weiterhin im MUV-Diagramm angezeigt und Ihre neuen Daten erscheinen nur im MAU-Diagramm. Wenn Ihr Vertrag beispielsweise im Oktober endet, zeigt das MUV-Diagramm Daten bis Ende September an.
+Wenn Ihr Vertrag monatlich eindeutige Besucher:innen (MUV) verwendet und Sie zu einem Vertrag wechseln, der nur monatlich aktive Nutzer:innen (MAU or monatlich aktive:r Nutzer:in) verwendet, werden Ihre historischen Daten weiterhin im MUV-Diagramm angezeigt und Ihre neuen Daten erscheinen nur im MAU or monatlich aktive:r Nutzer:in-Diagramm. Wenn Ihr Vertrag beispielsweise im Oktober endet, zeigt das MUV-Diagramm Daten bis Ende September an.
 
 ## Meistgenutzte Events und Attribute nach App {#most-used-events-and-attributes-by-app}
 
@@ -51,7 +51,7 @@ Für jede App können Sie **Aufschlüsselung anzeigen** auswählen, um eine gesc
 
 ![Tab „Aufschlüsselung“ für meistgenutzte Events und Attribute nach App]({% image_buster /assets/img/most_used_events_attributes_2.png %}){: style="max-width:60%"}
 
-Datenaufschlüsselungen wie diese können Ihnen helfen zu verstehen, welche spezifischen Datenpunkte große Prozentsätze Ihres Kontingents beanspruchen. Wir empfehlen, diese Informationen von Zeit zu Zeit zu überprüfen, um sicherzustellen, dass Sie keine Datenpunkte auf versehentliche und unnötige Weise verbrauchen. Ihr Customer-Success-Manager kann Ihnen Hinweise geben, wie Sie das Beste aus Ihrem aktuellen Plan herausholen, oder Optionen für mehr Flexibilität anbieten.
+Datenaufschlüsselungen wie diese können Ihnen helfen zu verstehen, welche spezifischen Datenpunkte große Prozentsätze Ihres Kontingents beanspruchen. Wir empfehlen, diese Informationen von Zeit zu Zeit zu überprüfen, um sicherzustellen, dass Sie keine Datenpunkte auf versehentliche und unnötige Weise verbrauchen. Ihr CSM or Customer-Success-Manager or Customer-Success-Manager:in kann Ihnen Hinweise geben, wie Sie das Beste aus Ihrem aktuellen Plan herausholen, oder Optionen für mehr Flexibilität anbieten.
 
 ## Dashboard „Datenpunkt-Nutzung gesamt“ {#total-data-points-dashboard}
 

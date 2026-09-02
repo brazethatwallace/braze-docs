@@ -12,7 +12,7 @@ hidden: true
 
 ## Seguimiento de la sesión
 
-El SDK de Braze genera datos de sesión que utiliza el panel de Braze para calcular la interacción del usuario y otros análisis esenciales para comprender a tus usuarios. Basándose en la siguiente semántica de sesión, nuestro SDK genera puntos de datos de "inicio de sesión" y "cierre de sesión" que tienen en cuenta la duración de la sesión y los recuentos de sesiones visibles en el panel de Braze.
+El SDK or kit de desarrollo de software de Braze genera datos de sesión que utiliza el panel de Braze para calcular la interacción del usuario y otros análisis esenciales para comprender a tus usuarios. Basándose en la siguiente semántica de sesión, nuestro SDK or kit de desarrollo de software genera puntos de datos de "inicio de sesión" y "cierre de sesión" que tienen en cuenta la duración de la sesión y los recuentos de sesiones visibles en el panel de Braze.
 
 ### Ciclo de vida de la sesión
 

@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para exportar análise de dados de campaign."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Exportar análise de dados de campaign {#export-campaign-analytics}
 {% apimethod get %}
 /campaigns/data_series
@@ -18,13 +18,13 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze para expor
 
 Os dados retornados incluem quantas mensagens foram enviadas, abertas, clicadas ou convertidas por canal de envio de mensagens.
 
-{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='campaign' %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/export_data_series_analytics_dashboard_note.md type='campaign' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#c07b5ebd-0246-471e-b154-416d63ae28a1 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.data_series`.
+Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.data_series`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -34,7 +34,7 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatório | String | Consulte [identificador de API de campaign]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para Campaigns de API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Detalhes da Campaign** no seu dashboard, ou você pode usar o [endpoint Listar campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
+| `campaign_id` | Obrigatório | String | Consulte [identificador de API or interface de programação do aplicativo (API) de campaign]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para Campaigns de API or interface de programação do aplicativo (API) pode ser encontrado na página [Chaves de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Detalhes da Campaign** no seu dashboard, ou você pode usar o [endpoint Listar campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
 | `length` | Obrigatório | Inteiro | Número máximo de dias antes de `ending_at` a serem incluídos na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é o horário da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
@@ -227,15 +227,15 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/data_s
 Os tipos de mensagem possíveis são: `email`, `trigger_in_app_message`, `webhook`, `android_push`, `ios_push`, `kindle_push` e `web_push`. Todos os tipos de mensagem push terão as mesmas estatísticas mostradas para `android_push`.
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}
 
 ## Solução de problemas {#troubleshooting}
 
-### Visualização de falhas de entrega para Campaigns disparadas por API {#viewing-delivery-failures-for-api-triggered-campaigns}
+### Visualização de falhas de entrega para Campaigns disparadas por API or interface de programação do aplicativo (API) {#viewing-delivery-failures-for-api-triggered-campaigns}
 
 O endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) retorna estatísticas diárias agregadas (por exemplo, `delivery_failed` para SMS ou `errors` para webhooks). Ele não retorna os motivos de falha por destinatário.
 
-Para falhas de envio por mensagem, bounces e interrupções de Campaigns disparadas por API, use o [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) no dashboard. Para relatórios personalizados sobre eventos de envio e entrega, use o [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou SQL personalizado. Você também pode transmitir eventos de falha por meio do Currents ou do Snowflake Data Sharing se o seu espaço de trabalho tiver esses produtos ativados.
+Para falhas de envio por mensagem, bounces e interrupções de Campaigns disparadas por API or interface de programação do aplicativo (API), use o [Registro de atividade de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) no dashboard. Para relatórios personalizados sobre eventos de envio e entrega, use o [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou SQL personalizado. Você também pode transmitir eventos de falha por meio do Currents ou do Snowflake Data Sharing se o seu espaço de trabalho tiver esses produtos ativados.

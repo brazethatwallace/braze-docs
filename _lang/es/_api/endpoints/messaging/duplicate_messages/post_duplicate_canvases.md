@@ -11,7 +11,7 @@ description: "Este artículo describe los detalles sobre el endpoint Duplicar Ca
 {% api %}
 # Duplicar Canvas utilizando la API {#duplicate-canvases-using-the-api}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/canvas/duplicate
+/Canvas/duplicate
 {% endapimethod %}
 
 > Utiliza este endpoint para duplicar Canvas. Este endpoint de la API es similar a [duplicar Canvas en el panel de Braze]({{site.baseurl}}/user_guide/messaging/governance/duplicating).

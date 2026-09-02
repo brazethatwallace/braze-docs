@@ -41,7 +41,7 @@ Al configurar un agente de toma de decisiones, necesitarás pensar en cuatro ele
 
 *¿Qué resultado quieres que el agente maximice?*
 
-Tu métrica de éxito es el resultado de negocio para el que el agente optimizará. Esto debe alinearse directamente con tus objetivos de negocio, no métricas intermedias como clics o aperturas, sino resultados de negocio reales como ingresos, conversiones, ARPU o valor de duración del ciclo de vida del cliente.
+Tu métrica de éxito es el resultado de negocio para el que el agente optimizará. Esto debe alinearse directamente con tus objetivos de negocio, no métricas intermedias como clics o aperturas, sino resultados de negocio reales como ingresos, conversiones, ARPU o LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida del cliente.
 
 ### El "quién": selecciona tu audiencia {#the-who-select-your-audience}
 
@@ -67,7 +67,7 @@ Para maximizar el impacto de tu agente de toma de decisiones, deberías:
 
 - Elegir una métrica de éxito que se alinee estrechamente con tus metas y objetivos de negocio, como ingresos, conversiones o ARPU.
 - Enfocarte en las dimensiones, o "palancas" a probar, como oferta, línea del asunto, creatividad, canal o momento de envío, que tengan más probabilidades de tener un impacto significativo en la métrica de éxito.
-- Seleccionar las opciones para cada dimensión, como correo electrónico versus SMS, o frecuencia diaria versus semanal, que tengan más probabilidades de tener un impacto significativo en la métrica de éxito.
+- Seleccionar las opciones para cada dimensión, como correo electrónico versus servicio de mensajes cortos, o frecuencia diaria versus semanal, que tengan más probabilidades de tener un impacto significativo en la métrica de éxito.
 
 Algunos ejemplos de agentes de toma de decisiones que podrías construir son:
 

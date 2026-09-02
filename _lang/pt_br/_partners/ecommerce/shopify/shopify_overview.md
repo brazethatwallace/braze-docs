@@ -43,7 +43,7 @@ Se você já é cliente da Braze com Campaigns ou Canvas ativos, consulte [Preen
 ### Sincronização de usuários e dados {#user-and-data-syncing}
 
 Após a integração estar ativa, a Braze coletará dados de usuários de duas fontes principais por meio da integração com o Shopify:
-- **API Shopify Web Pixel e app embeds:** Isso alimenta o SDK web da Braze e o SDK JavaScript para oferecer suporte ao rastreamento no site, gerenciamento de identidade, dados comportamentais de eCommerce e canais de envio de mensagens como In-App Messages.
+- **API or interface de programação do aplicativo (API) Shopify Web Pixel e app embeds:** Isso alimenta o SDK or kit de desenvolvimento de software web da Braze e o SDK or kit de desenvolvimento de software JavaScript para oferecer suporte ao rastreamento no site, gerenciamento de identidade, dados comportamentais de eCommerce e canais de envio de mensagens como In-App Messages.
 - **Webhooks do Shopify:** dados comportamentais de eCommerce, sincronização de produtos e coleta de inscritos
 
 Durante a integração, você precisará selecionar quando os SDKs da Braze inicializam e carregam no seu site Shopify:
@@ -54,7 +54,7 @@ Durante a integração, você precisará selecionar quando os SDKs da Braze inic
 
 {% alert note %}
 - Visitas ao site (sessões) contam para a sua cota de usuários ativos mensais (MAU).
-- As versões do SDK web da Braze e do SDK JavaScript são automaticamente definidas como v6.8.0. Você pode atualizar a versão do SDK a qualquer momento nas configurações da integração.
+- As versões do SDK or kit de desenvolvimento de software web da Braze e do SDK or kit de desenvolvimento de software JavaScript são automaticamente definidas como v6.8.0. Você pode atualizar a versão do SDK or kit de desenvolvimento de software a qualquer momento nas configurações da integração.
 {% endalert %}
 
 A Braze usa a integração com o Shopify para oferecer suporte a múltiplos identificadores que rastreiam seus usuários desde a experiência de compra como visitante até se tornarem usuários identificados:
@@ -110,7 +110,7 @@ Usuários que inserirem seu endereço de e-mail no rodapé de newsletter do Shop
 
 1. A Braze recebe um webhook de entrada do Shopify sempre que um cliente é criado ou atualizado.
 2. A Braze cria um perfil de usuário contendo o endereço de e-mail e o alias do ID de cliente do Shopify associados a esse usuário.
-3. O SDK da Braze atualiza o perfil anônimo com o endereço de e-mail.
+3. O SDK or kit de desenvolvimento de software da Braze atualiza o perfil anônimo com o endereço de e-mail.
 
 {% alert note %}
 Isso pode resultar em um perfil duplicado até que o usuário se identifique criando sua conta, fazendo login na conta ou fazendo um pedido. A Braze oferece ferramentas de mesclagem em massa para ajudar você a automatizar a reconciliação de perfis duplicados. Consulte [Usuários duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users) para mais detalhes.
@@ -130,12 +130,12 @@ Quando você usa esses modelos de formulários de inscrição, a Braze atualiza 
 
 {% alert note %}
 - Certifique-se de incluir critérios de entrada na sua Campaign ou Canvas que incluam tanto o status de inscrição global de e-mail quanto o grupo de inscrições conectado à sua loja Shopify. Isso ajudará a garantir que você esteja direcionando o público certo.
-- A Braze coleta informações de visitantes, como endereços de e-mail e números de telefone, por meio de mensagens no navegador. Essas informações são então enviadas para a API de Visitantes do Shopify, mas não criam um perfil de cliente no Shopify. Para mais detalhes, consulte [Visitor API](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
+- A Braze coleta informações de visitantes, como endereços de e-mail e números de telefone, por meio de mensagens no navegador. Essas informações são então enviadas para a API or interface de programação do aplicativo (API) de Visitantes do Shopify, mas não criam um perfil de cliente no Shopify. Para mais detalhes, consulte [Visitor API or interface de programação do aplicativo (API)](https://shopify.dev/docs/api/web-pixels-api/emitting-data#visitor-api).
 {% endalert %}
 
 #### Formulários de inscrição de terceiros {#third-party-sign-up-forms}
 
-Se você estiver usando uma plataforma de terceiros ou um plugin do Shopify para seus formulários de inscrição, precisará trabalhar com seus desenvolvedores para integrar o código do SDK da Braze para capturar o endereço de e-mail e o status de inscrição global de e-mail a partir dos envios de formulário. Para saber mais, consulte [Configuração de integração padrão do Shopify]({{site.baseurl}}/shopify_standard_integration) e [Configuração de integração personalizada do Shopify]({{site.baseurl}}/shopify_custom_integration).
+Se você estiver usando uma plataforma de terceiros ou um plugin do Shopify para seus formulários de inscrição, precisará trabalhar com seus desenvolvedores para integrar o código do SDK or kit de desenvolvimento de software da Braze para capturar o endereço de e-mail e o status de inscrição global de e-mail a partir dos envios de formulário. Para saber mais, consulte [Configuração de integração padrão do Shopify]({{site.baseurl}}/shopify_standard_integration) e [Configuração de integração personalizada do Shopify]({{site.baseurl}}/shopify_custom_integration).
 
 ### Sincronização de produtos {#product-syncing}
 

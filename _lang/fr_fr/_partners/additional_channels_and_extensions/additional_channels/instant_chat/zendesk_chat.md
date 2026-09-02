@@ -24,7 +24,7 @@ search_tag: Partner
 
 ## Cas d'utilisation {#use-cases}
 
-Améliorez l'efficacité du support client en combinant les fonctionnalités SMS de Braze avec les réponses des agents en direct de Zendesk pour répondre rapidement aux demandes des utilisateurs avec un support humain.
+Améliorez l'efficacité du support client en combinant les fonctionnalités SMS de Braze avec les réponses des agents en direct or en ligne/en production/instantané de Zendesk pour répondre rapidement aux demandes des utilisateurs avec un support humain.
 
 ## Intégration de Zendesk Chat {#integrating-zendesk-chat}
 

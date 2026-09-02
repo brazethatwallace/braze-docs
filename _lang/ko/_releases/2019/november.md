@@ -24,9 +24,9 @@ iOS 13과 Android 10 모두 휴대폰의 색상 테마를 "다크 모드"로 변
 
 <img src="{% image_buster /assets/img_archive/iam-dark-mode.gif %}" style="width:100%;max-width:800px;" />
 
-## 참여 보고서의 SMS 측정기준 {#sms-metrics-in-engagement-reports}
+## 참여 보고서의 단문 메시지 서비스 측정기준 {#sms-metrics-in-engagement-reports}
 
-이제 [참여 보고서]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)에서 SMS 측정기준을 사용할 수 있습니다!
+이제 [참여 보고서]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/)에서 단문 메시지 서비스 측정기준을 사용할 수 있습니다!
 
 ## Braze 사용자의 Teams 삭제 {#delete-a-braze-users-teams}
 

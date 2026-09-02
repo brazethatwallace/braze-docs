@@ -9,7 +9,7 @@ description: "Esta landing page explica e lista o recurso de migração de ID ex
 page_type: landing
 
 guide_top_header: "Migração de ID externo"
-guide_top_text: "A API de migração de ID externo permite que você renomeie os IDs externos existentes (criando um novo ID primário e descontinuando o ID existente) e remova IDs descontinuados após a migração. <br><br> Projetamos essa solução para permitir vários IDs externos a fim de dar suporte a um período de migração em que as versões mais antigas de seus apps que ainda estão em uso e que usam o esquema de nomenclatura de ID externo anterior não sejam interrompidas. É altamente recomendável remover IDs externos obsoletos quando o esquema de nomenclatura antigo não estiver mais em uso."
+guide_top_text: "A API or interface de programação do aplicativo (API) de migração de ID externo permite que você renomeie os IDs externos existentes (criando um novo ID primário e descontinuando o ID existente) e remova IDs descontinuados após a migração. <br><br> Projetamos essa solução para permitir vários IDs externos a fim de dar suporte a um período de migração em que as versões mais antigas de seus apps que ainda estão em uso e que usam o esquema de nomenclatura de ID externo anterior não sejam interrompidas. É altamente recomendável remover IDs externos obsoletos quando o esquema de nomenclatura antigo não estiver mais em uso."
 
 guide_featured_title: "Endpoints de migração de ID externo"
 guide_featured_list:

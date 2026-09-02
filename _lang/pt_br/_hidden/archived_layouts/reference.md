@@ -40,7 +40,7 @@ noindex: true
 
 # Título da página {#page-title}
 
->  Esse tipo de artigo explica um conceito e contém informações específicas sobre processos técnicos e conteúdo do produto (etapas do Canvas, segmentação, um tipo específico de objeto etc.). O outro tipo de modelo de Referência é um Glossário. Esse formato não é usado em nosso glossário ou documentação de referência da API, a menos que haja um conceito específico que precise ser explicado. Não se esqueça de indicar que o leitor aprenderá [isso](#what-is-x-concept), [aquilo](#topic-1-regarding-this-concept) e [aquilo outro](#topic-2-regarding-this-concept) nesta página. Este é um [bom exemplo de um documento de referência geral](https://guide.meteor.com/code-style.html). Este é um bom exemplo de um [documento de referência muito técnico](https://www.w3schools.com/html/html_intro.asp).
+>  Esse tipo de artigo explica um conceito e contém informações específicas sobre processos técnicos e conteúdo do produto (etapas do Canvas, segmentação, um tipo específico de objeto etc.). O outro tipo de modelo de Referência é um Glossário. Esse formato não é usado em nosso glossário ou documentação de referência da API or interface de programação do aplicativo (API), a menos que haja um conceito específico que precise ser explicado. Não se esqueça de indicar que o leitor aprenderá [isso](#what-is-x-concept), [aquilo](#topic-1-regarding-this-concept) e [aquilo outro](#topic-2-regarding-this-concept) nesta página. Este é um [bom exemplo de um documento de referência geral](https://guide.meteor.com/code-style.html). Este é um bom exemplo de um [documento de referência muito técnico](https://www.w3schools.com/html/html_intro.asp).
 
 ## O que é o conceito X {#what-is-x-concept}
 

@@ -22,7 +22,7 @@ Consulte a tabela a seguir para mais detalhes sobre este relatório:
 | Dimensão | O atributo usado para organizar os resultados, como canal, Campaign ou plataforma. |
 | Grupo de comparação | Os grupos que você deseja comparar no seu relatório. Você pode selecionar múltiplos grupos de comparação. |
 | Parâmetro | A métrica aplicada a esse atributo, como aberturas, cliques ou taxa de conversão. |
-| Segment | O [Segment de público]({{site.baseurl}}/user_guide/audience/segments) que você criou na Braze. |
+| Segment or segmento | O [Segment or segmento de público]({{site.baseurl}}/user_guide/audience/segments) que você criou na Braze. |
 | Opção             | A opção de recomendação específica selecionada do banco de ações. |
 | Descrição        | Uma breve explicação do que a opção representa.            |
 | Nº de vezes escolhida  | A contagem total de quantas vezes a opção foi selecionada.         |

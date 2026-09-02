@@ -16,7 +16,7 @@ _Cette intégration est assurée par Contentsquare._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et Contentsquare vous permet d'envoyer des Live Signals (fraude, signaux de frustration, etc.) en tant qu'événements personnalisés dans Braze. Exploitez les informations d'expérience de Contentsquare pour améliorer la pertinence de vos campagnes et les taux de conversion en ciblant les messages en fonction de l'expérience numérique et du langage corporel de vos clients.
+L'intégration de Braze et Contentsquare vous permet d'envoyer des en direct or en ligne/en production/instantané Signals (fraude, signaux de frustration, etc.) en tant qu'événements personnalisés dans Braze. Exploitez les informations d'expérience de Contentsquare pour améliorer la pertinence de vos campagnes et les taux de conversion en ciblant les messages en fonction de l'expérience numérique et du langage corporel de vos clients.
 
 ## Conditions préalables {#prerequisites}
 
@@ -37,11 +37,11 @@ Voici quelques cas d'utilisation courants de Braze et Contentsquare :
 
 ## Intégration {#integration}
 
-Pour intégrer Contentsquare dans Braze, vous devez demander l'installation d'une intégration « Live Signals » à partir du catalogue d'intégration de Contentsquare :
+Pour intégrer Contentsquare dans Braze, vous devez demander l'installation d'une intégration « en direct or en ligne/en production/instantané Signals » à partir du catalogue d'intégration de Contentsquare :
 
 1. Dans Contentsquare, cliquez sur **Console** dans le menu **Settings**. Vous serez redirigé vers le projet sur lequel vous travaillez actuellement.
 2. Sur la page **Projects**, accédez à l'onglet **Integrations** et cliquez sur le bouton **+ Add integration**.
-3. Dans le catalogue des intégrations, recherchez l'intégration **Live Signals** et cliquez sur **Add**. L'équipe de Contentsquare vous contactera ensuite pour configurer l'extrait de code afin d'envoyer des Live Signals à Braze.
+3. Dans le catalogue des intégrations, recherchez l'intégration **en direct or en ligne/en production/instantané Signals** et cliquez sur **Add**. L'équipe de Contentsquare vous contactera ensuite pour configurer l'extrait de code afin d'envoyer des en direct or en ligne/en production/instantané Signals à Braze.
 4. Contentsquare va maintenant traiter votre intégration. Le texte de l'indicateur sera mis à jour une fois l'intégration terminée.
 
 Pour plus d'informations, consultez la section [Demander une intégration Contentsquare](https://uxanalyser.zendesk.com/hc/en-gb/articles/4405613239186).

@@ -10,7 +10,7 @@ description: "이 참조 문서에서는 Braze REST API를 사용하여 프로�
 
 > 두 가지 Braze 엔드포인트를 사용하여 백엔드에서 실시간으로 메시지를 보낼 수 있습니다. 각각 요청 형식이 다릅니다. 하나는 요청에 전체 메시지 내용을 포함해야 하며, 다른 하나는 Campaign ID를 요구하고 대시보드에서 정의된 콘텐츠를 전송합니다.
 
-이 접근 방식은 API가 지원하는 모든 메시징 채널(WhatsApp, 이메일, SMS, 푸시, Content Cards, 웹훅 등)에서 작동합니다.
+이 접근 방식은 API가 지원하는 모든 메시징 채널(WhatsApp, 이메일, 단문 메시지 서비스, 푸시, Content Cards, 웹훅 등)에서 작동합니다.
 
 ## 보내는 두 가지 방법 {#two-ways-to-send}
 
@@ -96,7 +96,7 @@ Braze 대시보드에서 메시지 콘텐츠가 구축된 경우(API 트리거 C
 
 1. Braze 대시보드에서 **메시징** > **Campaigns**로 이동합니다.
 2. **캠페인 생성**을 선택한 후, **API-Triggered Campaign**("API Campaign"이 아님)을 선택합니다.
-3. 메시지 채널(WhatsApp, 이메일, SMS 등)을 추가하고 대시보드에서 메시지 내용을 구축합니다.
+3. 메시지 채널(WhatsApp, 이메일, 단문 메시지 서비스 등)을 추가하고 대시보드에서 메시지 내용을 구축합니다.
 4. **Campaign ID**를 기록합니다(여러 메시지 배리언트를 사용하는 경우 **Send ID**도 함께 기록). API 요청에서 이 값들을 사용하게 됩니다.
 
 API 트리거 Campaign 구축에 대한 자세한 내용은 [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)을 참조하세요.

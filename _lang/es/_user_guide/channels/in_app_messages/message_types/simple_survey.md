@@ -20,21 +20,21 @@ Los casos de uso comunes de cuestionarios incluyen preguntar a los usuarios cóm
 
 ![Tres mensajes de cuestionario simple: preferencias de notificación, preferencias dietéticas y un cuestionario de satisfacción del cliente. Las opciones seleccionadas en los cuestionarios corresponden a atributos personalizados que se registrarán para ese usuario.]({% image_buster /assets/img/iam/iam-survey.png %})
 
-## Requisitos del SDK {#supported-sdk-versions}
+## Requisitos del SDK or kit de desarrollo de software {#supported-sdk-versions}
 
-Este mensaje dentro de la aplicación solo se entregará a dispositivos que admitan [Flex CSS](https://caniuse.com/flexbox), y debe tener al menos las siguientes [versiones del SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
+Este mensaje dentro de la aplicación solo se entregará a dispositivos que admitan [Flex CSS](https://caniuse.com/flexbox), y debe tener al menos las siguientes [versiones del SDK or kit de desarrollo de software]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
 {% alert note %}
-Para habilitar los mensajes dentro de la aplicación HTML a través del SDK Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze.
+Para habilitar los mensajes dentro de la aplicación HTML a través del SDK or kit de desarrollo de software Web, debes proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze.
 {% endalert %}
 
 ## Crear un cuestionario {#create}
 
 Al crear un [mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), selecciona **Simple Survey** para tu **Message Type**.
 
-Esta plantilla de cuestionario es compatible tanto con aplicaciones móviles como con navegadores web. Recuerda verificar que tus SDK estén en las [versiones mínimas del SDK](#supported-sdk-versions) requeridas para esta característica.
+Esta plantilla de cuestionario es compatible tanto con aplicaciones móviles como con navegadores web. Recuerda verificar que tus SDK or kit de desarrollo de software estén en las [versiones mínimas del SDK or kit de desarrollo de software](#supported-sdk-versions) requeridas para esta característica.
 
 ### Paso 1: Agrega tu pregunta del cuestionario {#step-1-add-your-survey-question}
 
@@ -105,7 +105,7 @@ Si deseas guiar a los usuarios a otra página de tu aplicación o sitio web, cam
 
 ### Paso 5: Estiliza tu mensaje (opcional) {#styling}
 
-Puedes personalizar el color de la fuente y el color de acento del mensaje usando el selector de **Color Theme**.
+Puedes personalizar el color de la fuente y el color de acento del mensaje usando el SELECTOR de **Color Theme**.
 
 ![Pestaña Redactar del editor de cuestionario simple con el selector de Color Theme expandido después de que un usuario ha hecho clic en la paleta de colores.]({% image_buster /assets/img/iam/color-theme-picker.png %}){: style="max-width:80%"}
 

@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar item de catálogo\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Criar item de catálogo {#create-catalog-item}
 {% apimethod post %}
 /catalogs/{catalog_name}/items/{item_id}
@@ -21,7 +21,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar it
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_item`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.create_item`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -123,7 +123,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `id-in-body` | Remova quaisquer IDs de item no corpo da solicitação. |
 | `ids-too-large` | O limite de caracteres para cada ID de item é de 250 caracteres. |
 | `invalid-ids` | Os caracteres compatíveis com os nomes de ID de item são letras, números, hífens e sublinhados. |
-| `invalid-fields` | Confirme se todos os campos que está enviando na solicitação de API já existem no catálogo. Isso não está relacionado ao campo ID mencionado no erro. |
+| `invalid-fields` | Confirme se todos os campos que está enviando na solicitação de API or interface de programação do aplicativo (API) já existem no catálogo. Isso não está relacionado ao campo ID mencionado no erro. |
 | `invalid-keys-in-value-object` | As chaves de objeto do item não podem incluir `.` ou `$`. |
 | `item-already-exists` | O item já existe no catálogo. |
 | `item-array-invalid` | `items` deve ser um vetor de objetos. |

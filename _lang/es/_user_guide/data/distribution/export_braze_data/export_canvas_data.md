@@ -37,7 +37,7 @@ Para analizar cuándo los usuarios entraron o volvieron a entrar en un Canvas, u
 - **Crear una lista de usuarios en el panel:** Crea un segmento con un filtro **Entered Canvas Variation** y luego exporta el segmento a CSV. Consulta [Solución de problemas de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/troubleshooting#user-didnt-enter-the-canvas).
 
 {% alert note %}
-Si no tienes Currents integrado y necesitas cada marca de tiempo de entrada histórica, contacta con tu administrador de éxito de cliente de Braze.
+Si no tienes Currents integrado y necesitas cada marca de tiempo de entrada histórica, contacta con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze.
 {% endalert %}
 
 Para un paso en Canvas específico en el flujo de trabajo original, usa **Exportación de datos de usuario a CSV** en la página de detalles del paso.

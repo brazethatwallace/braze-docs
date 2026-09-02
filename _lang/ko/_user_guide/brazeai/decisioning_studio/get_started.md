@@ -60,7 +60,7 @@ AI Decisioning Services 팀과 협력하여 다음 사항을 결정하세요:
 
 | 기능 | 세부 정보 |
 |------------|---------|
-| **모든 성공 측정기준** | 매출, 전환, ARPU, LTV 또는 모든 비즈니스 핵심 성과 지표(KPI)에 대해 최적화 |
+| **모든 성공 측정기준** | 매출, 전환, ARPU, LTV 또는 모든 비즈니스 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI))에 대해 최적화 |
 | **무제한 차원** | 오퍼, 채널, 타이밍, 빈도, 크리에이티브 등 다양한 항목에 걸쳐 개인화 |
 | **모든 CEP** | Braze, Salesforce Marketing Cloud와의 네이티브 통합 또는 모든 플랫폼에 대한 커스텀 통합 |
 | **AI Decisioning Services** | Braze 데이터 사이언스 팀의 전담 지원 |

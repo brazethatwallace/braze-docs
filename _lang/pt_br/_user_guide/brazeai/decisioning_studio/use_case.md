@@ -23,7 +23,7 @@ Este passo a passo descreve como Poppy:
 
 Poppy confirma a métrica de sucesso que o agente deve maximizar: receita de recompras entre clientes que pararam de comprar.
 
-Ela define quem entra no programa: um Segment da Braze com compradores inativos ou usuários de alto valor que estão inativos. Agora, Poppy só precisa compartilhar qual Segment o agente deve atingir com a equipe de AI Decisioning Services. A integração para extrair os dados desse Segment acontece em segundo plano, sem que Poppy precise configurar uma integração.
+Ela define quem entra no programa: um Segment or segmento da Braze com compradores inativos ou usuários de alto valor que estão inativos. Agora, Poppy só precisa compartilhar qual Segment or segmento o agente deve atingir com a equipe de AI Decisioning Services. A integração para extrair os dados desse Segment or segmento acontece em segundo plano, sem que Poppy precise configurar uma integração.
 
 ## Etapa 2: Construa o banco de ações e as restrições {#step-2-build-the-action-bank-and-constraints}
 
@@ -40,7 +40,7 @@ Para cada dimensão, ela lista opções concretas no banco de ações — as ún
 
 Seguindo [Conecte seus dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/connect_data_sources/), Poppy garante que sinais ricos de dados primários (incluindo histórico de compras, afinidade de categoria, comportamento de navegação e engajamento) alimentem o agente para que cada decisão seja baseada em comportamento real.
 
-Para a orquestração, ela usa o caminho nativo da Braze: o Decisioning Studio decide o que enviar e quando; a Braze entrega. Ela planeja modelos base (Campaigns disparadas por API) por canal com campos dinâmicos para ofertas e criativos, e configura a reelegibilidade.
+Para a orquestração, ela usa o caminho nativo da Braze: o Decisioning Studio decide o que enviar e quando; a Braze entrega. Ela planeja modelos base (Campaigns disparadas por API or interface de programação do aplicativo (API)) por canal com campos dinâmicos para ofertas e criativos, e configura a reelegibilidade.
 
 ## Etapa 4: Lance, monitore e otimize para receita {#step-4-launch-monitor-and-optimize-for-revenue}
 

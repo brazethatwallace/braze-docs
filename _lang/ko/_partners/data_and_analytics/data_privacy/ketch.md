@@ -18,7 +18,7 @@ _이 통합은 Ketch에서 유지 관리합니다._
 Braze와 Ketch 통합을 사용하면 Ketch 환경설정 센터 내에서 고객 커뮤니케이션 환경설정을 제어하고 이러한 변경 사항을 Braze에 자동으로 전파할 수 있습니다.
 
 {% alert note %}
-구독 그룹 생성에 대한 안내가 필요하신가요? <a href='/docs/user_guide/message_building_by_channel/sms/sms_subscription_group/'>SMS 구독 그룹</a> 및 <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>이메일 구독 그룹</a> 문서를 확인하세요.
+구독 그룹 생성에 대한 안내가 필요하신가요? <a href='/docs/user_guide/message_building_by_channel/단문 메시지 서비스/sms_subscription_group/'>단문 메시지 서비스 구독 그룹</a> 및 <a href='/docs/user_guide/message_building_by_channel/email/managing_user_subscriptions/'>이메일 구독 그룹</a> 문서를 확인하세요.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}

@@ -41,7 +41,7 @@ As pontuações e as categorias correspondentes serão atualizadas de acordo com
 
 ### Acessando pontuações de probabilidade no nível do usuário {#accessing-user-level-likelihood-scores}
 
-Para visualizar a pontuação de probabilidade de um único usuário, procure esse usuário no dashboard e acesse **Engajamento** > **Previsões** para ver sua pontuação. Para acessar pontuações e categorias para vários usuários de uma só vez, crie um [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando os filtros [Pontuação de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) ou [Categoria de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) e, em seguida, exporte os usuários desse segmento. Ao exportar, você pode incluir as pontuações de probabilidade nos dados exportados.
+Para visualizar a pontuação de probabilidade de um único usuário, procure esse usuário no dashboard e acesse **Engajamento** > **Previsões** para ver sua pontuação. Para acessar pontuações e categorias para vários usuários de uma só vez, crie um [Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando os filtros [Pontuação de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) ou [Categoria de probabilidade de evento]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) e, em seguida, exporte os usuários desse Segment or segmento. Ao exportar, você pode incluir as pontuações de probabilidade nos dados exportados.
 
 {% alert note %}
 Embora tanto Predictive Events quanto [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) atribuam pontuações aos usuários, existem diferenças importantes:<br><br>
@@ -49,7 +49,7 @@ Embora tanto Predictive Events quanto [Predictive Churn]({{site.baseurl}}/user_g
 - **Predictive Events** (previsões de compra): Consideram todos os usuários no público de previsão, independentemente de já terem realizado o evento-alvo anteriormente. Por exemplo, uma previsão de compra pode identificar usuários propensos a fazer sua primeira compra.
 - **Predictive Churn**: Considera apenas usuários que já realizaram o evento personalizado. As previsões de churn identificam usuários que já realizaram alguma ação anteriormente e que provavelmente deixarão de fazê-la. Um usuário que nunca fez login não pode ser considerado em "churn" se não fizer login.
 
-Ao exportar pontuações de risco de churn de um segmento, essas pontuações refletem o modelo de previsão de churn, que difere dos modelos de previsão de compras ou outros eventos.
+Ao exportar pontuações de risco de churn de um Segment or segmento or segmento, essas pontuações refletem o modelo de previsão de churn, que difere dos modelos de previsão de compras ou outros eventos.
 {% endalert %}
 
 ## Precisão estimada {#estimated_results}

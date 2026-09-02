@@ -18,7 +18,7 @@ Sie können nun Segmente mit Hilfe der folgenden Filter erstellen:
 - Geöffneter/Klick auf den Canvas-Schritt
 - Zuletzt erhaltener spezifischer Canvas-Schritt
 
-{% alert update %}
+{% alert Update or aktualisieren %}
 Ab März 2019 wurde `Received Canvas Step` in `Received Message from Canvas Step` umbenannt, und `Last Received Specific Canvas Step` wurde in `Last Received Message from Specific Canvas Step` umbenannt.
 {% endalert %}
 
@@ -28,7 +28,7 @@ Dieser Endpunkt akzeptiert jetzt einen Bezeichner des Geräts als Parameter, mit
 
 Sie können die ID des Geräts verwenden, um alle Nutzerprofile auf diesem Gerät zu exportieren.
 
-## Engagement-Berichte Update
+## Engagement-Berichte Update or aktualisieren
 
 Zusätzliche Statistiken, wie **Push Öffnungsrate** und **Konversionsrate**, sind jetzt in den [Engagement-Berichten]({{site.baseurl}}/user_guide/data_and_analytics/reporting/engagement_reports/#engagement-reports) verfügbar.
 

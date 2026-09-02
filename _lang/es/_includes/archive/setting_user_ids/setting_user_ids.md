@@ -9,5 +9,5 @@ Si no dispones de un identificador de este tipo, Braze asignará un identificado
 {% endalert %}
 
 {% alert warning %}
-Si quieres incluir un valor identificable como tu ID de usuario, para mayor seguridad, **te recomendamos encarecidamente** que añadas nuestra característica de [autenticación del SDK]({{site.baseurl}}/developer_guide/authentication) para evitar la suplantación de identidad de usuarios.
+Si quieres incluir un valor identificable como tu ID de usuario, para mayor seguridad, **te recomendamos encarecidamente** que añadas nuestra característica de [autenticación del SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/authentication) para evitar la suplantación de identidad de usuarios.
 {% endalert %}

@@ -6,12 +6,12 @@ platform:
   - FireOS
   - Swift
 page_order: 2.2
-description: "Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK de Braze."
+description: "Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK or kit de desarrollo de software de Braze."
 ---
 
 # Mensajes dentro de la aplicación {#in-app-messages}
 
-> Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK de Braze.
+> Obtén información sobre los mensajes dentro de la aplicación y cómo configurarlos para el SDK or kit de desarrollo de software de Braze.
 
 {% sdktabs %}
 {% sdktab web %}
@@ -38,7 +38,7 @@ description: "Obtén información sobre los mensajes dentro de la aplicación y 
 {% multi_lang_include developer_guide/flutter/in_app_messages.md %}
 {% endsdktab %}
 
-{% sdktab react native %}
+{% sdktab React Native %}
 {% multi_lang_include developer_guide/react_native/in_app_messages.md %}
 {% endsdktab %}
 

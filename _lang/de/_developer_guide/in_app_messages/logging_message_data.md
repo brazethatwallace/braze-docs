@@ -1,14 +1,14 @@
 ---
 nav_title: Protokoll-Nachrichten-Daten
-article_title: Bitte melden Sie sich über das Braze SDK bei den Daten der In-App-Nachrichten an.
+article_title: Bitte melden Sie sich über das Braze SDK or Software-Development-Kit bei den Daten der In-App-Nachrichten an.
 page_order: 7
-description: "Erfahren Sie, wie Sie In-App-Nachricht-Daten (IAM) über das Braze SDK protokollieren können."
+description: "Erfahren Sie, wie Sie In-App-Nachricht-Daten (IAM) über das Braze SDK or Software-Development-Kit protokollieren können."
 noindex: true
 ---
 
 # Daten zu In-App-Nachrichten protokollieren
 
-> Erfahren Sie, wie Sie In-App-Nachricht-Daten (IAM) über das Braze SDK protokollieren können.
+> Erfahren Sie, wie Sie In-App-Nachricht-Daten (IAM) über das Braze SDK or Software-Development-Kit protokollieren können.
 
 {% sdktabs %}
 {% sdktab web %}

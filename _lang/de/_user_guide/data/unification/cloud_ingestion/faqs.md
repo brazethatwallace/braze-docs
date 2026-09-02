@@ -21,11 +21,11 @@ Dies könnte bedeuten, dass die Zugangsdaten in CDI falsch sind oder im Data War
 
 ### Die Tabelle kann nicht gefunden werden {#the-table-cannot-be-found}
 
-Versuchen Sie, Ihre Integration mit der korrekten Datenbankkonfiguration zu aktualisieren, oder erstellen Sie passende Ressourcen im Data Warehouse, z. B. `database/table`.
+Versuchen Sie, Ihre Integration mit der korrekten Datenbankkonfiguration zu Update or aktualisieren or aktualisieren, oder erstellen Sie passende Ressourcen im Data Warehouse, z. B. `database/table`.
 
 ### Der Katalog kann nicht gefunden werden {#the-catalog-cannot-be-found}
 
-Der in der Integration eingerichtete Katalog existiert nicht im Braze-Katalog. Ein Katalog kann nach der Einrichtung der Integration entfernt worden sein. Um das Problem zu beheben, aktualisieren Sie entweder die Integration, um einen anderen Katalog zu verwenden, oder erstellen Sie einen neuen Katalog, der dem Katalognamen in der Integration entspricht.
+Der in der Integration eingerichtete Katalog existiert nicht im Braze-Katalog. Ein Katalog kann nach der Einrichtung der Integration entfernt worden sein. Um das Problem zu beheben, Update or aktualisieren or aktualisieren Sie entweder die Integration, um einen anderen Katalog zu verwenden, oder erstellen Sie einen neuen Katalog, der dem Katalognamen in der Integration entspricht.
 
 ## Warum habe ich eine E-Mail erhalten: „Zeilenfehler in Ihrer CDI-Synchronisierung“? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
 
@@ -143,7 +143,7 @@ Wenn Sie diesen Fehler erhalten, lesen Sie [Databricks: Forbidden error while ac
 
 ## Wie aktualisiere ich meine E-Mail-Benachrichtigungseinstellungen für CDI-Integrationen? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Jede Integration hat ihre eigenen Benachrichtigungseinstellungen. Navigieren Sie zur CDI-Seite und wählen Sie den Namen der Integration aus, die Sie aktualisieren möchten. Im Abschnitt **Notification preferences** können Sie festlegen, wie Sie Benachrichtigungen zur ausgewählten Integration erhalten.
+Jede Integration hat ihre eigenen Benachrichtigungseinstellungen. Navigieren Sie zur CDI-Seite und wählen Sie den Namen der Integration aus, die Sie Update or aktualisieren or aktualisieren möchten. Im Abschnitt **Notification preferences** können Sie festlegen, wie Sie Benachrichtigungen zur ausgewählten Integration erhalten.
 
 ## Was passiert, wenn ein zukünftiger `UPDATED_AT`-Wert mit einer Integration synchronisiert wird? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
@@ -158,8 +158,8 @@ CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Daten neu sind. Nachdem ei
 CDI verwendet `UPDATED_AT`, um zu entscheiden, welche Datensätze während einer Synchronisierung abgerufen werden. Sehen Sie sich [diese Darstellung]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#how-it-works) an, um zu verstehen, wie es funktioniert. Zu Beginn eines Synchronisierungslaufs fragt CDI Ihr Data Warehouse ab, um alle Datensätze mit einem `UPDATED_AT`-Wert abzurufen, der nach dem zuletzt verarbeiteten `UPDATED_AT`-Wert liegt. Datensätze am exakten Grenz-Zeitstempel können ebenfalls erneut synchronisiert werden, wenn neue Zeilen denselben Zeitstempel aufweisen. Jeder Datensatz, der zum Zeitpunkt der Abfrageausführung abgerufen wird, wird in Braze synchronisiert. Hier sind häufige Fälle, in denen ein Datensatz möglicherweise nicht synchronisiert wird:
 
 - Sie fügen der Tabelle Datensätze mit einem `UPDATED_AT`-Wert hinzu, der bereits verarbeitet wurde.
-- Sie aktualisieren Datensatzwerte, nachdem sie durch eine Synchronisierung verarbeitet wurden, lassen `UPDATED_AT` jedoch unverändert.
-- Sie fügen Datensätze hinzu oder aktualisieren sie, während eine Synchronisierung läuft. Je nachdem, wann die CDI-Abfrage ausgeführt wird, können Race-Conditions auftreten, die dazu führen, dass Datensätze nicht abgerufen werden.
+- Sie Update or aktualisieren or aktualisieren Datensatzwerte, nachdem sie durch eine Synchronisierung verarbeitet wurden, lassen `UPDATED_AT` jedoch unverändert.
+- Sie fügen Datensätze hinzu oder Update or aktualisieren or aktualisieren sie, während eine Synchronisierung läuft. Je nachdem, wann die CDI-Abfrage ausgeführt wird, können Race-Conditions auftreten, die dazu führen, dass Datensätze nicht abgerufen werden.
 
 {% alert tip %}
 Um dieses Verhalten in Zukunft zu vermeiden, empfehlen wir die Verwendung monoton steigender `UPDATED_AT`-Werte und keine Aktualisierung der Tabelle während Ihres geplanten Synchronisierungslaufs.
@@ -223,13 +223,13 @@ Eine CDI-Synchronisierung umfasst eine feste Anlaufphase, bevor die Zeilenverarb
 
 ## Wird bei einer Synchronisierung die Reihenfolge beibehalten, wenn mehrere Datensätze dieselbe ID haben? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
-Die Verarbeitungsreihenfolge ist nicht zu 100 % vorhersagbar. Wenn beispielsweise während einer Synchronisierung mehrere Zeilen mit derselben `EXTERNAL_ID` in der Tabelle vorhanden sind, kann nicht garantiert werden, welcher Wert letztendlich im Profil landet. Wenn Sie dieselbe `EXTERNAL_ID` mit unterschiedlichen Attributen in der Payload-Spalte aktualisieren, werden alle Änderungen nach Abschluss der Synchronisierung übernommen.
+Die Verarbeitungsreihenfolge ist nicht zu 100 % vorhersagbar. Wenn beispielsweise während einer Synchronisierung mehrere Zeilen mit derselben `EXTERNAL_ID` in der Tabelle vorhanden sind, kann nicht garantiert werden, welcher Wert letztendlich im Profil landet. Wenn Sie dieselbe `EXTERNAL_ID` mit unterschiedlichen Attributen in der Payload-Spalte Update or aktualisieren or aktualisieren, werden alle Änderungen nach Abschluss der Synchronisierung übernommen.
 
 ## Warum werden durch meinen CDI-Sync keine neuen Nutzer:innen erstellt? {#why-are-new-users-not-being-created-from-my-cdi-sync}
 
-Wenn in Ihrer CDI-Integration die Option **Nur bestehende Nutzer:innen aktualisieren** aktiviert ist, werden nur Nutzer:innen aktualisiert, die bereits in Braze vorhanden sind, und es werden keine neuen Nutzer:innen erstellt. Das bedeutet, dass eine Zeile in Ihrer Sync-Tabelle übersprungen wird, wenn sie eine `EXTERNAL_ID` referenziert, die keinem bestehenden Braze-Nutzerprofil entspricht.
+Wenn in Ihrer CDI-Integration die Option **Nur bestehende Nutzer:innen Update or aktualisieren or aktualisieren** aktiviert ist, werden nur Nutzer:innen aktualisiert, die bereits in Braze vorhanden sind, und es werden keine neuen Nutzer:innen erstellt. Das bedeutet, dass eine Zeile in Ihrer Sync-Tabelle übersprungen wird, wenn sie eine `EXTERNAL_ID` referenziert, die keinem bestehenden Braze-Kundenprofil or Nutzerprofil entspricht.
 
-Um neue Nutzer:innen über CDI zu erstellen, deaktivieren Sie den Schalter **Nur bestehende Nutzer:innen aktualisieren** in Ihren Integrationseinstellungen. Navigieren Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und wählen Sie eine Integration aus.
+Um neue Nutzer:innen über CDI zu erstellen, deaktivieren Sie den Schalter **Nur bestehende Nutzer:innen Update or aktualisieren or aktualisieren** in Ihren Integrationseinstellungen. Navigieren Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** und wählen Sie eine Integration aus.
 
 ## Welche Sicherheitsmaßnahmen gibt es für CDI? {#what-are-the-security-measures-for-cdi}
 
@@ -240,7 +240,7 @@ Braze hat die folgenden Maßnahmen für CDI implementiert:
 - Alle Zugangsdaten werden in unserer Datenbank verschlüsselt gespeichert, und nur bestimmte Mitarbeitende haben authentifizierten Zugriff darauf.
 - Wir verwenden verschlüsselte Verbindungen, um Daten an die Data Warehouses der Kund:innen zu übertragen.
 - Wir senden Anfragen an die Braze-API-Endpunkte mit denselben API-Schlüsseln und TLS-Verbindungen, die wir auch unseren Kund:innen empfehlen.
-- Wir aktualisieren regelmäßig unsere Bibliotheken und installieren alle Sicherheitspatches.
+- Wir Update or aktualisieren or aktualisieren regelmäßig unsere Bibliotheken und installieren alle Sicherheitspatches.
 
 ### Ihre Maßnahmen {#your-measures}
 

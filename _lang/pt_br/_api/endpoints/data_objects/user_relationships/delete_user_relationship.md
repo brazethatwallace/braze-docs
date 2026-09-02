@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint para excluir relacionamento de usuário."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Excluir relacionamento de usuário {#delete-user-relationship}
 {% apimethod delete %}
 /data_objects/objects/{type_name}/{external_id}/users
@@ -16,12 +16,12 @@ description: "Este artigo descreve detalhes sobre o endpoint para excluir relaci
 > Use este endpoint para remover um relacionamento entre usuário e objeto.
 
 {% alert important %}
-Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API de Data Objects apareçam em **Configurações** > **Chaves de API**.
+Data Objects está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de Data Objects apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.delete`.
+Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.user_relationships.delete`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -107,8 +107,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 |---|---|---|
 | `400` | Erro de validação | Confirme que o corpo da solicitação inclui valores válidos para `braze_id` e `rel_kind`. |
 | `404` | Relacionamento ou objeto não encontrado | Confirme que o objeto, o usuário e os valores da chave de relacionamento existem. |
-| `401` | Chave da REST API ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme que a chave tem a permissão `data_objects.user_relationships.delete` e que seu IP de origem está na lista de permissões da chave, se configurada. |
+| `401` | Chave da REST or transferir estado representacional API or interface de programação do aplicativo (API) ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme que a chave tem a permissão `data_objects.user_relationships.delete` e que seu IP de origem está na lista de permissões da chave, se configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência de solicitações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros do endpoint de excluir relacionamento de usuário" }
 {% endapi %}

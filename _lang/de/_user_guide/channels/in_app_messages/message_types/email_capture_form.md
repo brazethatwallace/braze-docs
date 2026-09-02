@@ -10,18 +10,18 @@ channel:
 
 # E-Mail-Erfassungsformular {#email-capture-form}
 
-> E-Mail-Erfassungsnachrichten ermöglichen es Ihnen, Nutzer:innen Ihrer Website aufzufordern, ihre E-Mail-Adresse einzugeben. Braze fügt die Adresse ihrem Nutzerprofil hinzu, damit sie in all Ihren Messaging-Kampagnen verwendet werden kann.
+> E-Mail-Erfassungsnachrichten ermöglichen es Ihnen, Nutzer:innen Ihrer Website aufzufordern, ihre E-Mail-Adresse einzugeben. Braze fügt die Adresse ihrem Kundenprofil or Nutzerprofil hinzu, damit sie in all Ihren Messaging-Kampagnen verwendet werden kann.
 
 Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) verfügbar.
 
-Wenn Sie E-Mail-Adressen über ein benutzerdefiniertes Formular anstelle dieses In-App-Nachrichtentyps erfassen und dann die Zugehörigkeit zu Abo-Gruppen über die REST API festlegen, prüfen Sie, ob bereits ein Profil existiert, bevor Sie eine:n Nutzer:in erstellen. Siehe [Best Practices für die Erfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
+Wenn Sie E-Mail-Adressen über ein benutzerdefiniertes Formular anstelle dieses In-App-Nachrichtentyps erfassen und dann die Zugehörigkeit zu Abo-Gruppen über die Representational State Transfer API festlegen, prüfen Sie, ob bereits ein Profil existiert, bevor Sie eine:n Nutzer:in erstellen. Siehe [Best Practices für die Erfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices#step-1-check-if-the-user-exists).
 
 ## So funktioniert es {#how-it-works}
 
-Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braze die E-Mail-Adresse zu ihrem Nutzerprofil hinzu.
+Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braze die E-Mail-Adresse zu ihrem Kundenprofil or Nutzerprofil hinzu.
 
-- Bei [anonymen Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles), die noch kein Konto haben, wird die E-Mail-Adresse im anonymen Nutzerprofil gespeichert, das mit dem Gerät der Nutzer:innen verknüpft ist.
-- Wenn bereits eine E-Mail-Adresse im Nutzerprofil vorhanden ist, überschreibt die neu eingegebene E-Mail-Adresse die bestehende.
+- Bei [anonymen Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles), die noch kein Konto haben, wird die E-Mail-Adresse im anonymen Kundenprofil or Nutzerprofil gespeichert, das mit dem Gerät der Nutzer:innen verknüpft ist.
+- Wenn bereits eine E-Mail-Adresse im Kundenprofil or Nutzerprofil vorhanden ist, überschreibt die neu eingegebene E-Mail-Adresse die bestehende.
 - Wenn bekannte Nutzer:innen eine E-Mail-Adresse haben, die als [Hard Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce) gekennzeichnet ist, prüft Braze, ob die neu eingegebene E-Mail-Adresse sich von der Adresse in ihrem Braze-Profil unterscheidet. Wenn die angegebene E-Mail-Adresse abweicht, aktualisiert Braze die E-Mail-Adresse und entfernt den Hard-Bounce-Status.
 - Wenn Nutzer:innen eine ungültige E-Mail-Adresse eingeben, wird die Fehlermeldung angezeigt: „Please enter a valid email.“
     - Ungültige E-Mail-Adressen:
@@ -36,13 +36,13 @@ Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braz
 
 {% details Mehr zu identifizierten versus anonymen Nutzer:innen %}
 
-Das E-Mail-Erfassungsformular setzt die E-Mail-Adresse im derzeit aktiven Nutzerprofil in Braze. Das Verhalten unterscheidet sich je nachdem, ob die Nutzer:innen identifiziert (eingeloggt, `changeUser` aufgerufen) sind oder nicht.
+Das E-Mail-Erfassungsformular setzt die E-Mail-Adresse im derzeit aktiven Kundenprofil or Nutzerprofil in Braze. Das Verhalten unterscheidet sich je nachdem, ob die Nutzer:innen identifiziert (eingeloggt, `changeUser` aufgerufen) sind oder nicht.
 
-Wenn anonyme Nutzer:innen ihre E-Mail-Adresse in das Formular eingeben und absenden, fügt Braze die E-Mail-Adresse zu ihrem Profil hinzu. Wenn `changeUser` später im Verlauf ihrer Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich neue Nutzer:innen beim Dienst registrieren), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
+Wenn anonyme Nutzer:innen ihre E-Mail-Adresse in das Formular eingeben und absenden, fügt Braze die E-Mail-Adresse zu ihrem Profil hinzu. Wenn `changeUser` später im Verlauf ihrer Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich neue Nutzer:innen beim Dienst Registrierung or registrieren), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
 
-Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
+Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Kundenprofil or Nutzerprofil verwaist und [bestimmte Kundenprofil or Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
 
-Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
+Weitere Informationen finden Sie unter [Kundenprofil or Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 
@@ -51,7 +51,7 @@ Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseur
 Um zu dieser Option zu gelangen, müssen Sie eine In-App-Messaging-Campaign erstellen. Legen Sie dort je nach Anwendungsfall unter **Send To** entweder **Web Browsers**, **Mobile Apps** oder **Both Mobile Apps & Web Browsers** fest und wählen Sie dann **Email Capture Form** als **Message Type** aus.
 
 {% alert note %}
-**Targeting für Internet-Nutzer:innen?** <br>Um HTML-In-App-Nachrichten über das Web-SDK zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies dient der Sicherheit, da HTML-In-App-Nachrichten JavaScript ausführen können und daher von einem Website-Administrator aktiviert werden müssen.
+**Targeting für Internet-Nutzer:innen?** <br>Um HTML-In-App-Nachrichten über das Web-SDK or Software-Development-Kit zu aktivieren, müssen Sie die Initialisierungsoption `allowUserSuppliedJavascript` an Braze übergeben, zum Beispiel `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Dies dient der Sicherheit, da HTML-In-App-Nachrichten JavaScript ausführen können und daher von einem Website-Administrator aktiviert werden müssen.
 {% endalert %}
 
 ## Schritt 2: Das Formular anpassen {#customizable-features}

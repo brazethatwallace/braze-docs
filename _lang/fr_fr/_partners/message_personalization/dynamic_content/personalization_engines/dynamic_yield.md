@@ -73,7 +73,7 @@ Utilisez le contenu dynamique pour cibler différentes promotions et messages au
 
 Cette intégration vous permet d'ajouter des widgets de recommandations personnalisées et du contenu dynamique alimentés par Dynamic Yield dans vos Campaigns d'e-mail Braze. L'intégration de ces campagnes dans les Campaigns Braze se fait à l'aide d'un simple code d'intégration que vous collez dans l'éditeur d'e-mail Braze.
 
-1. Cliquez sur l'icône d'intégration ESP sur la page de liste Experience Email.<br><br>
+1. Cliquez sur l'icône d'intégration fournisseur de services d'e-mailing sur la page de liste Experience Email.<br><br>
 2. Saisissez le jeton pertinent de Braze qui insère le CUID et l'ID d'e-mail de l'utilisateur.<br>![Fenêtre modale d'intégration ESP Dynamic Yield avec les champs de jeton utilisateur Braze.]({% image_buster /assets/img/dynamic_yield/dynamic_yield2_new.png %})
 
 Lorsque vous êtes satisfait de votre e-mail, l'étape suivante consiste à générer le code à intégrer dans Braze.

@@ -177,7 +177,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Percentual de envio | ID da API |
+| Percentual de envio | ID da API or interface de programação do aplicativo (API) |
 | Tipo | IDs do grupo de teste |
 |  | IDs do modelo de link |
 |  | IDs do grupo de usuários internos |
@@ -188,7 +188,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Percentual de envio | ID da API |
+| Percentual de envio | ID da API or interface de programação do aplicativo (API) |
 | Tipo | IDs do grupo de teste |
 |  | IDs do modelo de link |
 |  | IDs do grupo de usuários internos |
@@ -265,7 +265,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Corpo do e-mail | IDs da API |
+| Corpo do e-mail | IDs da API or interface de programação do aplicativo (API) |
 | Descrição | IDs de imagem |
 | Assunto | Territórios |
 | Cabeçalhos | Tags |
@@ -277,7 +277,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 
 | Copiado | Omitido |
 |---|---|
-| Corpo do e-mail | IDs da API |
+| Corpo do e-mail | IDs da API or interface de programação do aplicativo (API) |
 | Descrição | IDs de imagem |
 | Assunto | Territórios |
 | Cabeçalhos | Tags |
@@ -295,7 +295,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 | Copiado | Omitido |
 |---|---|
 | Nome | Alias de link |
-| Descrição | Chaves de API |
+| Descrição | Chaves de API or interface de programação do aplicativo (API) |
 | Conteúdo | Territórios |
 | Conteúdo HTML e arrastar e soltar | Tags |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
@@ -306,7 +306,7 @@ Os critérios de filtro das etapas do Canvas (por exemplo, etapas de [divisão d
 | Copiado | Omitido |
 |---|---|
 | Nome | Alias de link |
-| Descrição | Chaves de API |
+| Descrição | Chaves de API or interface de programação do aplicativo (API) |
 | Conteúdo | Territórios |
 | Conteúdo HTML e arrastar e soltar | Tags |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Content Blocks" }
@@ -358,9 +358,9 @@ Acompanhe as seguintes referências de Liquid com dependências ao copiar Campai
 
 ## Copiando mensagens com feature flags {#copying-messages-with-feature-flags}
 
-Para copiar uma campanha de feature flag e um Canvas com uma etapa de Feature Flag entre espaços de trabalho, certifique-se de que o espaço de trabalho de destino tenha um [experimento de feature flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado com um ID que corresponda à feature flag referenciada na campanha original ou à etapa de Feature Flag referenciada no Canvas original.
+Para copiar uma campanha de Feature Flag e um Canvas com uma etapa de Feature Flag entre espaços de trabalho, certifique-se de que o espaço de trabalho de destino tenha um [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments) configurado com um ID que corresponda à Feature Flag referenciada na campanha original ou à etapa de Feature Flag referenciada no Canvas original.
 
-Se você copiar uma campanha ou um Canvas que tenha uma etapa de Feature Flag com um ID de feature flag que não existe no espaço de trabalho de destino, a etapa de Feature Flag será copiada, mas seu conteúdo não será.
+Se você copiar uma campanha ou um Canvas que tenha uma etapa de Feature Flag com um ID de Feature Flag que não existe no espaço de trabalho de destino, a etapa de Feature Flag será copiada, mas seu conteúdo não será.
 
 ## Copiando mensagens com Content Blocks {#copying-messages-with-content-blocks}
 

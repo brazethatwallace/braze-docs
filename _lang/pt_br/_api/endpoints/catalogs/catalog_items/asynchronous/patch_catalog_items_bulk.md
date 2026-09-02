@@ -10,7 +10,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Editar vários itens do catálogo\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Editar vários itens do catálogo {#edit-multiple-catalog-items}
 {% apimethod patch %}
 /catalogs/{catalog_name}/items
@@ -24,7 +24,7 @@ Cada solicitação pode suportar até 50 itens. Este endpoint é assíncrono.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.update_items`.
+Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.update_items`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -137,7 +137,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `ids-not-strings` | Os IDs de item devem ser do tipo string. |
 | `ids-not-unique` | Os IDs de item devem ser exclusivos na solicitação. |
 | `invalid-ids` | Os IDs de item só podem conter letras, números, hifens e underscores. |
-| `invalid-fields` | Confirme se todos os campos que está enviando na solicitação de API já existem no catálogo. Isso não está relacionado ao campo ID mencionado no erro. |
+| `invalid-fields` | Confirme se todos os campos que está enviando na solicitação de API or interface de programação do aplicativo (API) já existem no catálogo. Isso não está relacionado ao campo ID mencionado no erro. |
 | `invalid-keys-in-value-object` | As chaves de objeto do item não podem incluir `.` ou `$`. |
 | `items-missing-ids` | Alguns itens não têm IDs de item. Verifique se cada item tem um ID de item. |
 | `item-array-invalid` | `items` deve ser um vetor de objetos. |

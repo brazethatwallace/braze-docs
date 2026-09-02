@@ -6,7 +6,7 @@
 
 Para crear una [extensión del servicio de notificación](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension), en Xcode ve a **File > New > Target** y selecciona **Notification Service Extension**.
 
-![Selector de destino de Xcode creando una extensión del servicio de notificación para push enriquecido.]({% image_buster /assets/img_archive/ios10_se_at.png %}){: width="1442" height="1030" style="max-width:90%"}
+![SELECTOR de destino de Xcode creando una extensión del servicio de notificación para push enriquecido.]({% image_buster /assets/img_archive/ios10_se_at.png %}){: width="1442" height="1030" style="max-width:90%"}
 
 Asegúrate de que **Embed In Application** esté configurado para incrustar la extensión en tu aplicación.
 
@@ -35,9 +35,9 @@ Para ver un ejemplo, consulta el uso en [`NotificationService`](https://github.c
 #### Añadir el framework de push enriquecido a tu aplicación {#adding-the-rich-push-framework-to-your-app}
 
 {% tabs local %}
-{% tab Swift Package Manager %}
+{% tab Swift Package Administrador %}
 
-Después de seguir la [guía de integración de Swift Package Manager]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/), añade `BrazeNotificationService` a tu `Notification Service Extension` haciendo lo siguiente:
+Después de seguir la [guía de integración de Swift Package Administrador]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/), añade `BrazeNotificationService` a tu `Notification Service Extension` haciendo lo siguiente:
 
 1. En Xcode, en frameworks y bibliotecas, selecciona el icono <i class="fas fa-plus" aria-label="Añadir"></i> para añadir un framework. <br><br>![El icono de más se encuentra en frameworks y bibliotecas en Xcode.]({% image_buster /assets/img_archive/rich_notification.png %}){: width="1930" height="446"}<br><br>
 

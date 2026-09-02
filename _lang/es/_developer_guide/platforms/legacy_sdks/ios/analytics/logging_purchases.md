@@ -12,7 +12,7 @@ noindex: true
 
 # Registrar compras para iOS {#log-purchases-for-ios}
 
-Registra las compras dentro de la aplicación para que puedas hacer un seguimiento de tus ingresos a lo largo del tiempo y de las distintas fuentes de ingresos, así como segmentar a tus usuarios por su valor de duración del ciclo de vida.
+Registra las compras dentro de la aplicación para que puedas hacer un seguimiento de tus ingresos a lo largo del tiempo y de las distintas fuentes de ingresos, así como segmentar a tus usuarios por su LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida.
 
 Braze admite compras en varias divisas. Las compras que notifiques en una divisa distinta del USD se mostrarán en el panel en USD según la tasa de cambio en la fecha en que se notificaron.
 
@@ -42,7 +42,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 {% endtabs %}
 
 - Los símbolos de moneda admitidos incluyen: USD, CAD, EUR, GBP, JPY, AUD, CHF, NOK, MXN, NZD, CNY, RUB, TRY, INR, IDR, ILS, SAR, ZAR, AED, SEK, HKD, SPD, DKK y más.
-  - Cualquier otro símbolo de moneda proporcionado generará una advertencia registrada y ninguna otra acción por parte del SDK.
+  - Cualquier otro símbolo de moneda proporcionado generará una advertencia registrada y ninguna otra acción por parte del SDK or kit de desarrollo de software.
 - El identificador del producto puede tener un máximo de 255 caracteres.
 - Ten en cuenta que si el identificador del producto está vacío, la compra no se registrará en Braze.
 
@@ -55,9 +55,9 @@ Consulta la [documentación de la clase iOS](http://appboy.github.io/appboy-ios-
 ### Añadir cantidad {#adding-quantity}
 Puedes añadir una cantidad a tus compras si los clientes realizan la misma compra varias veces en un mismo proceso de pago. Puedes lograrlo pasando un `NSUInteger` para la cantidad.
 
-* La entrada de cantidad debe estar en el rango de [0, 100] para que el SDK registre una compra.
+* La entrada de cantidad debe estar en el rango de [0, 100] para que el SDK or kit de desarrollo de software registre una compra.
 * Los métodos sin entrada de cantidad tendrán un valor de cantidad predeterminado de 1.
-* Los métodos con entrada de cantidad no tienen un valor predeterminado y **deben** recibir una entrada de cantidad para que el SDK registre una compra.
+* Los métodos con entrada de cantidad no tienen un valor predeterminado y **deben** recibir una entrada de cantidad para que el SDK or kit de desarrollo de software registre una compra.
 
 Consulta la [documentación de la clase iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#ab50403068be47c0acba9943583e259fa) para obtener más detalles.
 
@@ -99,6 +99,6 @@ Las siguientes claves están reservadas y no pueden utilizarse como propiedades 
 - `price`
 - `currency`
 
-### REST API
+### REST or transferencia de estado representacional API
 
-También puedes utilizar nuestra REST API para registrar compras. Consulta la [documentación de la API de usuario]({{site.baseurl}}/api/endpoints/user_data) para obtener más detalles.
+También puedes utilizar nuestra REST or transferencia de estado representacional API para registrar compras. Consulta la [documentación de la API de usuario]({{site.baseurl}}/api/endpoints/user_data) para obtener más detalles.

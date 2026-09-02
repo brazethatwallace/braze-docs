@@ -13,48 +13,48 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Eine In-App-Nachricht mit Drag-and-Drop erstellen {#create-an-in-app-message-with-drag-and-drop}
 
-> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte In-App-Nachrichten in Campaigns oder Canvases erstellen – ganz mit der Drag-and-Drop-Bearbeitungserfahrung. Weitere Informationen zu den verfügbaren Bausteinen im Editor finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte In-App-Nachrichten in Campaigns oder Canvase erstellen – ganz mit der Drag-and-Drop-Bearbeitungserfahrung. Weitere Informationen zu den verfügbaren Bausteinen im Editor finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Wenn Sie Ihre vorhandenen benutzerdefinierten HTML-Templates oder von Drittanbietern erstellte Templates verwenden möchten, müssen diese im Drag-and-Drop-Editor neu erstellt werden.
 
-Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
+Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvase besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
 
 ## Voraussetzungen {#prerequisites}
 
-### SDK-Anforderungen {#sdk-requirements}
+### SDK or Software-Development-Kit-Anforderungen {#sdk-requirements}
 
-| Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                       |
+| Mindest-SDK or Software-Development-Kit-Version                                                          | Empfohlene SDK or Software-Development-Kit-Version                                                       |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK or Software-Development-Kit-Anforderungen" }
 
 {% details Weitere Informationen zu Mindest-SDKs %}
 
-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen gesendet werden, die die Mindest-SDK-Versionen verwenden (siehe Tabelle im vorherigen Abschnitt). Wenn Nutzer:innen ihre Anwendung nicht aktualisiert haben (d. h. sie verwenden eine ältere SDK-Version), erhalten sie die In-App-Nachricht nicht.
+Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen gesendet werden, die die Mindest-SDK or Software-Development-Kit-Versionen verwenden (siehe Tabelle im vorherigen Abschnitt). Wenn Nutzer:innen ihre Anwendung nicht aktualisiert haben (d. h. sie verwenden eine ältere SDK or Software-Development-Kit-Version), erhalten sie die In-App-Nachricht nicht.
 
-Um alle im Drag-and-Drop-Editor verfügbaren Features nutzen zu können, aktualisieren Sie Ihre SDKs auf die empfohlenen SDK-Versionen. Dadurch können Sie die folgenden zusätzlichen Features nutzen:
+Um alle im Drag-and-Drop-Editor verfügbaren Features nutzen zu können, Update or aktualisieren or aktualisieren Sie Ihre SDKs auf die empfohlenen SDK or Software-Development-Kit-Versionen. Dadurch können Sie die folgenden zusätzlichen Features nutzen:
 
 - Textlinks, die die Nachricht nicht schließen
 - Button-Aktion zur Anforderung eines Push-Primers
 
-Im Folgenden finden Sie die einzelnen Mindest-SDK-Anforderungen für diese Features:
+Im Folgenden finden Sie die einzelnen Mindest-SDK or Software-Development-Kit-Anforderungen für diese Features:
 
 | Textlinks*                                                          | Push-Primer anfordern                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SDK or Software-Development-Kit-Anforderungen" }
 
-*Wenn Sie einen Link in Ihre In-App-Nachricht einfügen, der zu einer URL weiterleitet, und die Endnutzer:innen nicht die angegebenen Mindest-SDK-Versionen verwenden, wird durch Auswählen des Links die Nachricht geschlossen und die Nutzer:innen können nicht zur Nachricht zurückkehren, um das Formular abzusenden.
+*Wenn Sie einen Link in Ihre In-App-Nachricht einfügen, der zu einer URL weiterleitet, und die Endnutzer:innen nicht die angegebenen Mindest-SDK or Software-Development-Kit-Versionen verwenden, wird durch Auswählen des Links die Nachricht geschlossen und die Nutzer:innen können nicht zur Nachricht zurückkehren, um das Formular abzusenden.
 
 {% enddetails %}
 
 ### Weitere Voraussetzungen {#additional-prerequisites}
 
-- Für das Web SDK muss die Initialisierungsoption [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) auf `true` gesetzt sein. Die Option `enableHtmlInAppMessages` ermöglicht ebenfalls die Funktion dieser Nachrichten, ist jedoch veraltet und sollte auf `allowUserSuppliedJavascript` aktualisiert werden.
-- Wenn Sie Google Tag Manager verwenden, müssen Sie in der GTM-Konfiguration „Allow HTML In-App Messages“ aktivieren.
+- Für das Web SDK or Software-Development-Kit muss die Initialisierungsoption [`allowUserSuppliedJavascript`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions) auf `true` gesetzt sein. Die Option `enableHtmlInAppMessages` ermöglicht ebenfalls die Funktion dieser Nachrichten, ist jedoch veraltet und sollte auf `allowUserSuppliedJavascript` aktualisiert werden.
+- Wenn Sie Google Tag Manager:in verwenden, müssen Sie in der GTM-Konfiguration „Allow HTML In-App Messages“ aktivieren.
 
 ## Schritt 1: In-App-Nachricht erstellen {#step-1-create-an-in-app-message}
 
@@ -118,7 +118,7 @@ So verbinden Sie Seiten miteinander:
 
 1. Wählen Sie Ihre Startseite aus.
 2. Wählen Sie ein Button- oder Bildelement im Canvas aus.
-3. Setzen Sie **On-click behavior** auf **Go to page**.
+3. Setzen Sie **On-Klick, der or klicken behavior** auf **Go to page**.
 4. Wählen Sie die Seite aus, zu der Sie von der Startseite aus verlinken möchten.
 5. Fahren Sie fort, bis alle Seiten verknüpft sind.
 
@@ -170,7 +170,7 @@ Berücksichtigen Sie die folgenden Fragen beim Testen Ihrer In-App-Nachricht:
 
 ### Warum werden Body-Klicks nicht auf meiner Analytics-Seite angezeigt? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
-Body-Klicks werden für In-App-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, nicht automatisch erfasst. Weitere Details finden Sie in den SDK-Changelogs für [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) und [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
+Body-Klicks werden für In-App-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, nicht automatisch erfasst. Weitere Details finden Sie in den SDK or Software-Development-Kit-Changelogs für [iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/changelog/objc_changelog) und [Android]({{site.baseurl}}/developer_guide/changelogs?sdktab=android).
 
 ### Kann ich basierend auf Button-Klicks segmentieren? {#can-i-segment-based-on-button-clicks}
 

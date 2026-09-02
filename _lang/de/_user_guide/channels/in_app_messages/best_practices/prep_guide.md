@@ -23,15 +23,15 @@ toc_headers: h2
 
 - In-App-Nachrichten eignen sich am besten für Nutzer:innen, die Ihre App regelmäßig besuchen. Schließen Sie diese Zielgruppe ein?
 - Wo sollen Ihre Nutzer:innen Ihre Nachricht sehen? In Ihrer Web-App? In Ihrer mobilen App?
-- Welches Event soll diese Nachricht triggern?
+- Welches Event soll diese Nachricht Trigger or triggern or triggern?
 - Verwenden einige Ihrer Nutzer:innen ältere Versionen Ihrer App? Falls ja, können sie möglicherweise einige Elemente Ihrer Nachricht nicht sehen.
 - Für welchen Gerätetyp oder welche Geräte erstellen Sie diese Nachricht? Denken Sie daran, dass Sie Ihre Nachricht über das Feld **Vorschau** oder den Tab **Test** in der Vorschau ansehen können. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ## Zeitplanung, Verzögerungen und Sitzungsstarts {#scheduling-delays-and-session-starts}
 
-Wenn eine In-App-Nachrichten-Campaign mit **Schedule Delay** einen Trigger beim Sitzungsstart hat, kann eine Nutzer:in, die eine Sitzung startet und dann die App schließt, bevor die In-App-Nachricht angezeigt wird, diese Nachricht beim nächsten Sitzungsstart erhalten, nachdem die Verzögerung abgelaufen ist.
+Wenn eine In-App-Nachrichten-Campaign mit **Schedule Delay** einen Trigger or triggern beim Sitzungsstart hat, kann eine Nutzer:in, die eine Sitzung startet und dann die App schließt, bevor die In-App-Nachricht angezeigt wird, diese Nachricht beim nächsten Sitzungsstart erhalten, nachdem die Verzögerung abgelaufen ist.
 
-In-App-Nachrichten-Campaigns können die Zustellung nach dem Trigger um bis zu zwei Stunden verzögern. Für eine längere Wartezeit fügen Sie einen [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)-Schritt vor einem In-App-Nachrichten-Schritt in einem Canvas hinzu. Informationen zur Einrichtung der Verzögerung finden Sie unter [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
+In-App-Nachrichten-Campaigns können die Zustellung nach dem Trigger or triggern um bis zu zwei Stunden verzögern. Für eine längere Wartezeit fügen Sie einen [Delay]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)-Schritt vor einem In-App-Nachrichten-Schritt in einem Canvas hinzu. Informationen zur Einrichtung der Verzögerung finden Sie unter [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-2-select-delay-length).
 
 Dieses Timing kann zu unerwartetem Anzeigeverhalten führen, insbesondere wenn **Re-evaluate campaign eligibility before displaying** in der Campaign nicht ausgewählt ist.
 
@@ -51,13 +51,13 @@ Beispielsweise könnte eine Nutzer:in eine In-App-Nachricht mit einer Verzögeru
 
 ## Performance von In-App-Nachrichten optimieren {#optimize-in-app-message-performance}
 
-Braze liefert berechtigte In-App-Nachrichten-Trigger zu Beginn der Sitzung an Nutzer:innen. Die Vorbereitung vieler Nachrichten mit Liquid kann den Sitzungsstart verzögern und die App-Performance beeinträchtigen.
+Braze liefert berechtigte In-App-Nachrichten-Trigger or triggern zu Beginn der Sitzung an Nutzer:innen. Die Vorbereitung vieler Nachrichten mit Liquid kann den Sitzungsstart verzögern und die App-Performance beeinträchtigen.
 
 Wenn dieser Vorgang mehr als einige Sekunden dauert, kann Braze das verbleibende Liquid-Rendering zurückstellen. Jede Nachricht wird dann beim Auslösen gerendert und bei Bedarf abgerufen. Diese [Templated Delivery]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages) schützt Ihre Nutzer:innen vor schlechter App-Performance durch erhöhte Antwortlatenz.
 
 Nutzen Sie diese Best Practices, um Ihre Nachrichtenzustellung zu beschleunigen:
 
-- Richten Sie das Targeting nur auf Nutzer:innen aus, die den Trigger der Campaign auslösen können. Zu breites Targeting kann dazu führen, dass Nutzer:innen einen In-App-Nachrichten-Trigger erhalten, den sie nie aktivieren können. Zum Beispiel kann eine In-App-Nachricht, die durch eine bestimmte Push-Campaign getriggert wird, im Umfang eingeschränkt werden, sodass sie dieselbe Zielgruppe verwendet. Dies lässt sich ähnlich auf andere Campaign-Typen, Canvases, angepasste Events, die nur von bestimmten Nutzer:innen getriggert werden können, und mehr anwenden.
+- Richten Sie das Targeting nur auf Nutzer:innen aus, die den Trigger or triggern der Campaign auslösen können. Zu breites Targeting kann dazu führen, dass Nutzer:innen einen In-App-Nachrichten-Trigger or triggern erhalten, den sie nie aktivieren können. Zum Beispiel kann eine In-App-Nachricht, die durch eine bestimmte Push-Campaign getriggert wird, im Umfang eingeschränkt werden, sodass sie dieselbe Zielgruppe verwendet. Dies lässt sich ähnlich auf andere Campaign-Typen, Canvase, angepasste Events, die nur von bestimmten Nutzer:innen getriggert werden können, und mehr anwenden.
 - Legen Sie ein Enddatum für zeitkritische Campaigns fest. Stoppen Sie Campaigns, wenn Sie nicht mehr erwarten, dass sie Impressionen erhalten.
 - Vermeiden Sie es, große statische Stylesheets, Skripte oder Base64-kodierte Medien-Assets direkt in die Nachricht oder über einen Content-Block einzufügen. Verwenden Sie stattdessen die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), um die Renderzeit Ihrer Nachricht zu reduzieren.
 - Reduzieren Sie komplexe Verzweigungs- oder Schleifen-Liquid-Logik.

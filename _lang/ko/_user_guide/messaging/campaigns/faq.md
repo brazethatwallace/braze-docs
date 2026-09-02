@@ -281,9 +281,9 @@ Campaign 또는 Canvas를 생성하거나 편집하는 중 "요청 시간 초과
 
 단일 발생의 발송을 줄이는 [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) 및 기타 요인에 대해서는 [발송 수가 예상 오디언스 규모보다 낮은 이유는 무엇인가요?](#why-are-sends-lower-than-the-estimated-audience-size)를 참조하세요.
 
-### 이메일과 SMS에서 고유 수신자가 발송 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+### 이메일과 단문 메시지 서비스에서 고유 수신자가 발송 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
-이메일과 SMS의 경우, Braze는 ESP 발송 시도 전에 **고유 수신자**를 증가시키고, 성공적인 ESP 응답 후에 **발송**을 증가시킵니다. 영구적인 오류(예: 잘못된 이메일 주소) 또는 중복 주소로 인해 고유 수신자가 발송을 초과할 수 있습니다.
+이메일과 단문 메시지 서비스의 경우, Braze는 ESP 발송 시도 전에 **고유 수신자**를 증가시키고, 성공적인 ESP 응답 후에 **발송**을 증가시킵니다. 영구적인 오류(예: 잘못된 이메일 주소) 또는 중복 주소로 인해 고유 수신자가 발송을 초과할 수 있습니다.
 
 ### **마지막 발송**이 예약한 발송 시간과 일치하지 않는 이유는 무엇인가요? {#why-doesnt-last-sent-match-my-scheduled-send-time}
 

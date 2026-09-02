@@ -40,7 +40,7 @@ Um Text ohne Rich-Formatierung einzufügen, verwenden Sie eine der folgenden Met
 - Unter Windows: Drücken Sie <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>V</kbd> anstelle von <kbd>ctrl</kbd>+<kbd>V</kbd>
 - Klicken Sie mit der rechten Maustaste im Editor und wählen Sie **Einfügen und Stil anpassen** aus
 
-## Wie kann ich den E-Mail-Padding auf Mobilgeräten ändern, ohne das Padding in der Web-Ansicht zu aktualisieren? {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
+## Wie kann ich den E-Mail-Padding auf Mobilgeräten ändern, ohne das Padding in der Web-Ansicht zu Update or aktualisieren or aktualisieren? {#how-can-i-change-the-email-padding-on-mobile-without-updating-the-padding-in-the-web-view}
 
 Sie können das Padding nicht ausschließlich für die mobile oder die Web-Ansicht bearbeiten, sodass alle Änderungen in beiden Ansichten übernommen werden. Sie können jedoch im HTML-Editor CSS-Logik hinzufügen, die das Padding basierend auf verschiedenen Bildschirmgrößen festlegt. Dies wird im Drag-and-Drop-Editor nicht unterstützt, sodass Sie die HTML-Datei exportieren und stattdessen den HTML-Editor verwenden können.
 
@@ -71,7 +71,7 @@ Weitere Informationen darüber, wo Templates zu finden sind, finden Sie unter [T
 
 ## Warum kann ich die Füllfarbe eines Buttons im Drag-and-Drop-Editor nicht ändern? {#why-cant-i-change-a-buttons-fill-color-in-the-drag-and-drop-editor}
 
-Stile auf Seitenebene können Stile auf Nachrichtenebene überschreiben. Wenn das Aktualisieren von **Füllung** bei einem Button oder Block keine Wirkung zeigt, versuchen Sie Folgendes:
+Stile auf Seitenebene können Stile auf Nachrichtenebene überschreiben. Wenn das Update or aktualisieren or aktualisieren von **Füllung** bei einem Button oder Block keine Wirkung zeigt, versuchen Sie Folgendes:
 1. Öffnen Sie die [globalen E-Mail-Stileinstellungen]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) und wählen Sie **Auf Standard zurücksetzen** für den betreffenden Seitenstil aus, damit die Farbe auf Nachrichtenebene angewendet werden kann.
 2. Legen Sie die Farbe erneut für den Block fest.
 

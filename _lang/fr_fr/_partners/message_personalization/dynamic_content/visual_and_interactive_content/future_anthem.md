@@ -11,7 +11,7 @@ search_tag: Partner
 
 > La plateforme d'intelligence artificielle en temps réel de [Future Anthem](https://www.futureanthem.com/) permet la personnalisation dans les domaines du sport, du casino, du bingo et de la loterie. Les clients de Braze peuvent enrichir les profils des joueurs avec des attributs spécifiques au secteur, notamment le jeu préféré, l'équipe préférée, le score d'engagement, la recommandation du prochain pari, le prochain pari attendu, et bien plus encore.
 >
-> Fournis via les expériences en temps réel, les audiences dynamiques et les recommandations de contenu, chaque attribut repose sur le comportement en direct des joueurs, ce qui permet aux clients de Braze d'agir au bon moment.
+> Fournis via les expériences en temps réel, les audiences dynamiques et les recommandations de contenu, chaque attribut repose sur le comportement en direct or en ligne/en production/instantané des joueurs, ce qui permet aux clients de Braze d'agir au bon moment.
 
 _Cette intégration est maintenue par Future Anthem._
 

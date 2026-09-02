@@ -3,13 +3,13 @@ nav_title: Configuration d'Amazon SES
 article_title: Configuration d'Amazon SES
 page_order: 1
 page_type: reference
-description: "Cet article de référence explique comment configurer Amazon SES en tant que fournisseur de services d'e-mailing."
+description: "Cet article de référence explique comment configurer Amazon SES en tant que fournisseur de services d'e-mail marketing or e-mailing."
 channel: email
 ---
 
 # Configuration d'Amazon SES {#amazon-ses-setup}
 
-> Braze utilise Amazon Simple Email Service (SES) comme fournisseur de services d'e-mailing par défaut lors de la configuration initiale des e-mails. Si la configuration requise ne correspond pas aux fonctionnalités d'Amazon SES, contactez l'assistance Braze pour avoir la possibilité de finaliser la configuration dans SparkPost ou SendGrid.
+> Braze utilise Amazon Simple Email Service (SES) comme fournisseur de services d'e-mail marketing or e-mailing par défaut lors de la configuration initiale des e-mails. Si la configuration requise ne correspond pas aux fonctionnalités d'Amazon SES, contactez l'assistance Braze pour avoir la possibilité de finaliser la configuration dans SparkPost ou SendGrid.
 
 ## Conditions préalables {#prerequisites}
 
@@ -71,7 +71,7 @@ Ceci repose sur la règle selon laquelle le domaine de suivi des clics doit corr
 - Chaque domaine d'envoi possède un identifiant MAIL FROM qui lui est associé pour faciliter les validations SPF.
     - La valeur pour chaque domaine d'envoi est « e ».
     - La valeur MAIL FROM ne modifie pas l'adresse d'expéditeur que vos clients voient.
-- Les périodes de début et de fin des messages trap ne sont pas disponibles si vous utilisez Amazon SES comme fournisseur de services d'e-mailing.
+- Les périodes de début et de fin des messages trap ne sont pas disponibles si vous utilisez Amazon SES comme fournisseur de services d'e-mail marketing or e-mailing.
 
 ## Étapes suivantes {#next-steps}
 

@@ -22,7 +22,7 @@ Die Integration von Braze und Wyng erlaubt es Ihnen, Zero-Party-Daten, die über
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Wyng-Konto | Um diese Partnerschaft nutzen zu können, benötigen Sie ein Wyng-Konto. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -35,7 +35,7 @@ Gehen Sie in Wyng zu [**Integrations**](https://wyng.com/dashboard/integrations/
 
 ### 2. Schritt: Braze-Konnektor konfigurieren {#step-2-configure-the-braze-connector}
 
-1. Geben Sie in dem sich öffnenden Konfigurationsfenster Ihren Braze REST-API-Schlüssel an.
+1. Geben Sie in dem sich öffnenden Konfigurationsfenster Ihren Braze Representational State Transfer-API-Schlüssel an.
 ![Ein Bild, das zeigt, wie die Eingabeaufforderung für die Zugangsdaten aussieht.]({% image_buster /assets/img/wyng/4.png %}){: style="max-width:80%;"}<br><br>
 2. Wählen Sie dann aus der Dropdown-Liste die Wyng-Campaign aus, die Sie mit Braze teilen möchten.![Ein Bild des Braze-Konnektors, der Sie auffordert, eine bestehende Wyng-Campaign auszuwählen, die Sie mit Braze teilen möchten.]({% image_buster /assets/img/wyng/5.png %}){: style="max-width:80%;"}<br><br>
 3. Als Nächstes müssen Sie Abos, Attribut- und Ereignisobjekte sowie angepasste Events einrichten.<br><br>
@@ -55,9 +55,9 @@ Testen Sie in Wyng das Absenden des Formulars in Ihrer Wyng-Campaign. Sie könne
 
 ## Verwendung dieser Integration {#using-this-integration}
 
-Sobald der Datenkonnektor eingerichtet ist, können alle in Wyng erstellten und zu Braze hinzugefügten Felder wie jedes andere Datenfeld verwendet werden, um Campaigns zu triggern, Zielgruppen zu segmentieren oder personalisierte Inhalte einzuspeisen.
+Sobald der Datenkonnektor eingerichtet ist, können alle in Wyng erstellten und zu Braze hinzugefügten Felder wie jedes andere Datenfeld verwendet werden, um Campaigns zu Trigger or triggern or triggern, Zielgruppen zu segmentieren oder personalisierte Inhalte einzuspeisen.
 
-Die Anwendungsmöglichkeiten sind breit gefächert, und spezifische Fragen können Sie an [contact@wyng.com](mailto:contact@wyng.com) oder an Ihre:n zuständige:n Account Manager:in richten.
+Die Anwendungsmöglichkeiten sind breit gefächert, und spezifische Fragen können Sie an [contact@wyng.com](mailto:contact@wyng.com) oder an Ihre:n zuständige:n Account Manager:in:in richten.
 
 ## Fehlerbehebung {#troubleshooting}
 

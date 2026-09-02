@@ -14,7 +14,7 @@ description: "Dieser Referenzartikel erläutert den Unterschied zwischen Snapsho
 
 Ein Snapshot repräsentiert den Zustand einer Kund:in zu einem bestimmten Zeitpunkt. Er beantwortet die Frage: „Wie sieht diese Kund:in gerade aus?“
 
-Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Churn-Score“).
+Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis aller Änderungen bis zu diesem Zeitpunkt wider. Dies eignet sich am besten für Kundenprofile, berechnete Features (zum Beispiel „Tage seit dem letzten Kauf“, „Treuestufe“, „Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Score“).
 
 ### Erforderliche Felder {#required-fields}
 
@@ -27,7 +27,7 @@ Ein Snapshot ist statisch und aggregiert. Er spiegelt das kumulative Ergebnis al
 ### Wie Snapshots aktualisiert werden sollten {#how-snapshots-should-be-updated}
 
 - **Auslöser:** Zeitgesteuert, nicht ereignisgesteuert. Snapshots sollten nach einem festen Zeitplan generiert werden (zum Beispiel täglich), unabhängig davon, ob eine Kund:in an diesem Tag Aktivität hatte.
-- **Umfang:** Jedes Update muss alle relevanten Kund:innen umfassen, einschließlich derjenigen, die kein Event hatten.
+- **Umfang:** Jedes Update or aktualisieren muss alle relevanten Kund:innen umfassen, einschließlich derjenigen, die kein Event hatten.
 - **Methode:** Fügen Sie neue Snapshot-Datensätze zum Datensatz hinzu, anstatt vorherige Werte zu überschreiben. Dadurch bleibt der historische Zustand für das Modelltraining erhalten.
 
 ### Snapshot-Daten für die tägliche Zustellung abfragen {#query-snapshot-data-for-daily-delivery}
@@ -113,8 +113,8 @@ Das Aggregieren von Event-Daten in Snapshot-Felder vor dem Senden an Decisioning
 
 Wenn Sie Braze verwenden, nutzen Sie Currents-Exporte (nicht angepasste Attribute), um rohe Event-Daten an Decisioning Studio zu liefern.
 
-### Snapshot-Daten bei einem Event-Auslöser aktualisieren {#update-snapshot-data-on-an-event-trigger}
+### Snapshot-Daten bei einem Event-Auslöser Update or aktualisieren or aktualisieren {#update-snapshot-data-on-an-event-trigger}
 
-Einige Implementierungen aktualisieren Snapshot-Daten nur dann, wenn ein Event auftritt – zum Beispiel wird ein Feature nur dann neu berechnet, wenn eine Kund:in einen Kauf tätigt. Dies führt dazu, dass Features, die vom Zeitverlauf abhängen, für Kund:innen veralten, die kein kürzliches Event hatten.
+Einige Implementierungen Update or aktualisieren or aktualisieren Snapshot-Daten nur dann, wenn ein Event auftritt – zum Beispiel wird ein Feature nur dann neu berechnet, wenn eine Kund:in einen Kauf tätigt. Dies führt dazu, dass Features, die vom Zeitverlauf abhängen, für Kund:innen veralten, die kein kürzliches Event hatten.
 
-Beispiel: Ein Feature wie `days_since_last_purchase` hat jeden einzelnen Tag einen anderen korrekten Wert. Wenn es nur bei einem Kauf neu berechnet wird, bleibt es bei einem falschen Wert für alle Kund:innen eingefroren, die in letzter Zeit keinen Kauf getätigt haben. Aktualisieren Sie Snapshot-Daten immer nach einem zeitgesteuerten Zeitplan, der alle Kund:innen jeden Tag abdeckt.
+Beispiel: Ein Feature wie `days_since_last_purchase` hat jeden einzelnen Tag einen anderen korrekten Wert. Wenn es nur bei einem Kauf neu berechnet wird, bleibt es bei einem falschen Wert für alle Kund:innen eingefroren, die in letzter Zeit keinen Kauf getätigt haben. Update or aktualisieren or aktualisieren Sie Snapshot-Daten immer nach einem zeitgesteuerten Zeitplan, der alle Kund:innen jeden Tag abdeckt.

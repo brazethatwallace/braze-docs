@@ -14,7 +14,7 @@ description: "Verwenden Sie eine Katalogauswahl und Liquid, um Katalogzeilen anz
 
 Flash und Thread speichert die gespeicherten Produktnamen jeder Kund:in in einem angepassten Attribut vom Typ String-Array (`saved_product_names`). Der Katalog enthält vollständige Produktdetails (Kategorie, Preis, Bild-URL, Bestand).
 
-Katalogauswahlen können Katalogspalten anhand statischer oder Liquid-Werte filtern, einschließlich Array-Feldern in Katalogzeilen. Sie filtern jedoch keine Katalogzeile anhand von Werten, die in einem Nutzerprofil-Array gespeichert sind. Um Inhalte anhand der Liste der Nutzer:innen zu personalisieren, geben Sie mit einer Auswahl eine breite Menge von Katalogartikeln zurück und verwenden dann Liquid, um nur die Zeilen beizubehalten, die mit dem Profil-Array übereinstimmen.
+Katalogauswahlen können Katalogspalten anhand statischer oder Liquid-Werte filtern, einschließlich Array-Feldern in Katalogzeilen. Sie filtern jedoch keine Katalogzeile anhand von Werten, die in einem Kundenprofil or Nutzerprofil-Array gespeichert sind. Um Inhalte anhand der Liste der Nutzer:innen zu personalisieren, geben Sie mit einer Auswahl eine breite Menge von Katalogartikeln zurück und verwenden dann Liquid, um nur die Zeilen beizubehalten, die mit dem Profil-Array übereinstimmen.
 
 Dieses Muster:
 
@@ -30,7 +30,7 @@ Dieses Muster funktioniert nur, wenn die Ergebnismenge der Auswahl (bis zu 50 Ka
 
 - Testen Sie Liquid und Katalogdaten in einem Staging-Workspace, bevor Sie an Kund:innen senden.
 - Da eine Auswahl maximal 50 Katalogzeilen zurückgibt, fügen Sie Filter hinzu (z. B. auf Lager, aktive Kategorie oder Preisbereich), die die wahrscheinlich gespeicherten Artikel der jeweiligen Nutzer:innen innerhalb dieser Ergebnismenge halten.
-- Dieses Beispiel verwendet ein String-Array im Nutzerprofil.
+- Dieses Beispiel verwendet ein String-Array im Kundenprofil or Nutzerprofil.
 - Für ein Array von Objekten gleichen Sie anhand einer Eigenschaft innerhalb jedes Objekts ab (z. B. `product_id`) und passen die `contains`-Prüfung an oder verwenden eine `for`-Schleife über Objekte. Siehe [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 - Das Verhalten von `contains` hängt vom Attributtyp ab; für Arrays verwenden Sie `contains` statt `==`. Siehe [Bedingte Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic).
 - Gleichen Sie anhand stabiler Bezeichner ab (z. B. Katalog-`id`), wenn sich Produktnamen ändern oder doppelt vorkommen können.

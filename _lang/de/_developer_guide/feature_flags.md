@@ -1,7 +1,7 @@
 ---
 page_order: 2.5
 nav_title: Feature-Flags
-article_title: Feature-Flags für das Braze SDK
+article_title: Feature-Flags für das Braze SDK or Software-Development-Kit
 description: "Dieser Referenzartikel enthält eine Übersicht über Feature-Flags, einschließlich der Voraussetzungen und Anwendungsfälle."
 tool: Feature Flags
 platform:

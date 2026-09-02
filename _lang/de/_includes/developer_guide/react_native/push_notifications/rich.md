@@ -2,7 +2,7 @@
 
 ## Verwendung von Expo zur Aktivierung von Rich-Push-Benachrichtigungen
 
-Für das React Native SDK **sind Rich-Push-Benachrichtigungen für Android standardmäßig verfügbar**.
+Für das React Native SDK or Software-Development-Kit **sind Rich-Push-Benachrichtigungen für Android standardmäßig verfügbar**.
 
 Um Rich-Push-Benachrichtigungen unter iOS mit Expo zu aktivieren, legen Sie die Eigenschaft `enableBrazeIosRichPush` im Objekt `expo.plugins`der `app.json` auf `true` fest:
 

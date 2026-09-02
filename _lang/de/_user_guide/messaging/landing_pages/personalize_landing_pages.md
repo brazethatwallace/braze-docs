@@ -52,13 +52,13 @@ Liquid kann das Landing-Page-Erlebnis sowohl für identifizierte als auch für a
 
 ### Formularfelder vorausfüllen {#pre-fill-form-fields}
 
-Wenn ein Landing-Page-Formularfeld einem Nutzerprofil-Attribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen und verbessert die Abschlussraten für bekannte Nutzer:innen.
+Wenn ein Landing-Page-Formularfeld einem Kundenprofil or Nutzerprofil-Attribut zugeordnet ist, können Sie dieses Feld für wiederkehrende Nutzer:innen vorausfüllen. Dies reduziert die Hürden beim Ausfüllen und verbessert die Abschlussraten für bekannte Nutzer:innen.
 
 So verwenden Sie vorausgefüllte Formularfelder:
 
 1. Wählen Sie Ihr Formularfeld im Drag-and-Drop-Editor aus.
 2. Ordnen Sie im Einstellungs-Panel auf der rechten Seite das Feld dem entsprechenden Profil-Attribut zu.
-3. Wählen Sie **Aus Nutzerprofil vorausfüllen** aus.
+3. Wählen Sie **Aus Kundenprofil or Nutzerprofil vorausfüllen** aus.
 
 ![Einstellungen für Landing-Page-Formularfelder mit der Option zum Vorausfüllen aus Nutzerprofildaten.]({% image_buster /assets/img/landing_pages/pre-fill-checkbox.png %}){: style="max-width:70%;"}
 
@@ -68,7 +68,7 @@ Das Vorausfüllen funktioniert nur für [identifizierte Nutzer:innen](#use-liqui
 - **Checkboxen, Radio-Buttons und ähnliche Steuerelemente:** Bleiben nicht ausgewählt, bis die nutzende Person mit ihnen interagiert.
 
 {% alert warning %}
-Wenn eine nutzende Person einen Landing-Page-Link (aus einer E-Mail, SMS oder einer anderen Nachricht) an eine andere Person weiterleitet, sieht die empfangende Person die vorausgefüllten Daten, die für die ursprüngliche nutzende Person bestimmt waren. Dies ist die gleiche Sicherheitsüberlegung, die auch für Abmelde-Links und Preference-Center-Links gilt. Berücksichtigen Sie die Sensibilität der Daten, die Sie vorausfüllen, und das Weiterleitungsverhalten Ihrer Zielgruppe, wenn Sie dieses Feature verwenden.
+Wenn eine nutzende Person einen Landing-Page-Link (aus einer E-Mail, Kurzmitteilungsdienst or SMS oder einer anderen Nachricht) an eine andere Person weiterleitet, sieht die empfangende Person die vorausgefüllten Daten, die für die ursprüngliche nutzende Person bestimmt waren. Dies ist die gleiche Sicherheitsüberlegung, die auch für Abmelde-Links und Preference-Center-Links gilt. Berücksichtigen Sie die Sensibilität der Daten, die Sie vorausfüllen, und das Weiterleitungsverhalten Ihrer Zielgruppe, wenn Sie dieses Feature verwenden.
 {% endalert %}
 
 ## Externe Daten mit Custom Code abrufen {#fetching-external-data-with-custom-code}

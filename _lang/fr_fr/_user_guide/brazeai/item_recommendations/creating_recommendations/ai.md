@@ -65,7 +65,7 @@ Pour éviter de suggérer des articles qu'un utilisateur a déjà achetés ou av
 
 Ce paramètre empêche les messages de réutiliser les articles qu'un utilisateur a déjà achetés ou avec lesquels il a déjà interagi, à condition que la recommandation ait été mise à jour récemment. Les articles achetés ou ayant fait l'objet d'une interaction entre deux mises à jour de la recommandation peuvent toujours apparaître. Pour la version gratuite des recommandations d'articles, les mises à jour ont lieu chaque semaine. Pour la version pro des recommandations d'articles par IA, les mises à jour ont lieu toutes les 24 heures.
 
-Par exemple, avec la version pro des recommandations d'articles par IA, si un utilisateur achète un produit puis reçoit un e-mail marketing dans les 30 minutes, l'article qu'il vient d'acheter pourrait ne pas être exclu de l'e-mail à temps. Cependant, tout message envoyé après 24 heures n'inclura pas cet article.
+Par exemple, avec la version pro des recommandations d'articles par IA, si un utilisateur achète un produit puis reçoit un e-mail marketing or e-mail marketing or e-mailing dans les 30 minutes, l'article qu'il vient d'acheter pourrait ne pas être exclu de l'e-mail à temps. Cependant, tout message envoyé après 24 heures n'inclura pas cet article.
 
 #### Étape 3.2 : Sélectionner un catalogue {#step-32-select-a-catalog}
 

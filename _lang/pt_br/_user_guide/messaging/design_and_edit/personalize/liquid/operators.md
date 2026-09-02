@@ -26,7 +26,7 @@ Esta tabela lista os operadores compatíveis. Observe que parênteses são carac
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Operadores" }
 
 {% alert note %}
-Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada ramificação compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Os operadores podem ser usados em instruções condicionais (`if`, `elsif`, `unless`), mas não em instruções `assign`, loops `for` ou colchetes de acesso a arrays. Nas tags `case` e `when`, cada Branch or ramificação or ramificação compara a expressão `case` com um valor `when` usando igualdade, em vez de expressões arbitrárias com operadores. Para exemplos, consulte [Lógica condicional de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Para uma explicação completa, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ## Agrupando condições sem parênteses {#grouping-conditions-without-parentheses}
@@ -261,7 +261,7 @@ Ao pré-visualizar uma mensagem no dashboard, a maioria das variáveis (como atr
 
 Para essas propriedades, a prévia tenta inferir o tipo a partir do valor. Isso significa que um valor que você pretende que seja uma **string** pode ser interpretado incorretamente como um **número**. Por exemplo, se o valor de uma propriedade for a string `"3"`, a prévia pode convertê-lo para o inteiro `3`, o que pode causar comportamento inesperado em operações de string como `contains` ou `split`.
 
-Se você observar resultados inesperados na prévia ao usar esses tipos de propriedade, lembre-se de que a inferência de tipo da prévia pode não corresponder ao que acontece no momento do envio. No momento do envio, os tipos de dados reais do evento de disparo ou da chamada de API são preservados.
+Se você observar resultados inesperados na prévia ao usar esses tipos de propriedade, lembre-se de que a inferência de tipo da prévia pode não corresponder ao que acontece no momento do envio. No momento do envio, os tipos de dados reais do evento de disparo ou da chamada de API or interface de programação do aplicativo (API) são preservados.
 
 Para forçar um tipo específico na prévia, você pode converter explicitamente o valor:
 

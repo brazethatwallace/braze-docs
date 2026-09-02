@@ -11,7 +11,7 @@
 Para empezar, sigue la [documentación de configuración de Firebase Unity](https://firebase.google.com/docs/unity/setup).
 
 {% alert note %}
-La integración del SDK Unity de Firebase puede hacer que se anule tu `AndroidManifest.xml`. Si eso ocurre, asegúrate de revertirlo al original.
+La integración del SDK or kit de desarrollo de software Unity de Firebase puede hacer que se anule tu `AndroidManifest.xml`. Si eso ocurre, asegúrate de revertirlo al original.
 {% endalert %}
 
 #### Paso 1.2: Configura tus credenciales de Firebase {#step-12-set-your-firebase-credentials}
@@ -55,13 +55,13 @@ Nuestra solución de notificación push automática aprovecha la característica
 {% tab Android %}
 #### Paso 2.1: Configurar los ajustes push {#unity_step-21-configure-push-settings}
 
-El SDK de Braze puede gestionar automáticamente el registro push con los servidores de Firebase Cloud Messaging para que los dispositivos reciban notificaciones push. En Unity, habilita **Automate Unity Android Integration** y, a continuación, configura los siguientes ajustes de **Push Notification**.
+El SDK or kit de desarrollo de software de Braze puede gestionar automáticamente el registro push con los servidores de Firebase Cloud Messaging para que los dispositivos reciban notificaciones push. En Unity, habilita **Automate Unity Android Integration** y, a continuación, configura los siguientes ajustes de **Push Notification**.
 
 | Configuración | Descripción |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | Ordena al SDK de Braze que recupere y envíe automáticamente un token de notificaciones push de FCM para un dispositivo. |
+| Automatic Firebase Cloud Messaging Registration Enabled | Ordena al SDK or kit de desarrollo de software de Braze que recupere y envíe automáticamente un token de notificaciones push de FCM para un dispositivo. |
 | Firebase Cloud Messaging Sender ID | El ID de remitente de tu consola Firebase. |
-| Handle Push Deeplinks Automatically | Si el SDK debe gestionar la apertura de vínculos profundos o la apertura de la aplicación cuando se hace clic en las notificaciones push. |
+| Handle Push Deeplinks Automatically | Si el SDK or kit de desarrollo de software debe gestionar la apertura de vínculos profundos o la apertura de la aplicación cuando se hace clic en las notificaciones push. |
 | Small Notification Icon Drawable | Referencia de recurso drawable de Android para el icono pequeño que se muestra cuando llega una notificación push. Introduce la referencia completa incluyendo el prefijo `@drawable/` (por ejemplo, `@drawable/hourglass_icon`). La integración automatizada escribe este valor en `braze.xml` tal como se introduce. Si lo dejas vacío, la notificación utiliza el icono de la aplicación como icono pequeño. |
 | Large Notification Icon Drawable | Icono grande opcional para las notificaciones. Utiliza el mismo formato `@drawable/` que el icono pequeño (por ejemplo, `@drawable/my_large_icon`). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2.1: Configurar los ajustes push" }

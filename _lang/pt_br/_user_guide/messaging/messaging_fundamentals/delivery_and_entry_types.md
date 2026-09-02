@@ -11,7 +11,7 @@ tool:
 
 # Tipos de entrega e entrada {#delivery-and-entry-types}
 
-> Na Braze, existem três formas diferentes de programar sua mensagem: agendada, baseada em ação e disparada por API. Escolher como e quando sua mensagem será entregue é fundamental para desenvolver uma mensagem eficaz.
+> Na Braze, existem três formas diferentes de programar sua mensagem: agendada, baseada em ação e disparada por API or interface de programação do aplicativo (API). Escolher como e quando sua mensagem será entregue é fundamental para desenvolver uma mensagem eficaz.
 
 Para Campaigns, o tipo de entrega determina quando seus usuários entrarão na Campaign e quando ela será enviada. Como um Canvas é construído como uma jornada contínua do usuário, o conceito de agendamento de mensagens é chamado de tipo de entrada.
 
@@ -19,7 +19,7 @@ Para Campaigns, o tipo de entrega determina quando seus usuários entrarão na C
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Agendado** | Esse tipo de agendamento é projetado para mensagens únicas que você deseja enviar imediatamente, como Campaigns sobre um evento atual. <br><br>Ao enviar mensagens de teste destinadas apenas a você ou à sua equipe, essa opção permite entregá-las imediatamente. |
 | **Baseada em ação** | Mensagens de entrega baseada em ação, ou Campaigns e Canvas disparados por eventos, são muito eficazes para mensagens transacionais ou baseadas em conquistas. Você pode configurá-las para serem enviadas após o usuário concluir um determinado evento, em vez de enviar sua mensagem em dias específicos. |
-| **Disparada por API** | Mensagens disparadas por API permitem que você gerencie o texto da mensagem, testes multivariantes e regras de reelegibilidade no dashboard da Braze, enquanto dispara a entrega desse conteúdo a partir dos seus próprios servidores e sistemas. <br><br>A solicitação de API para disparar a mensagem também pode incluir dados adicionais para serem inseridos na mensagem em tempo real por meio de templates. |
+| **Disparada por API or interface de programação do aplicativo (API)** | Mensagens disparadas por API or interface de programação do aplicativo (API) permitem que você gerencie o texto da mensagem, testes multivariantes e regras de reelegibilidade no dashboard da Braze, enquanto dispara a entrega desse conteúdo a partir dos seus próprios servidores e sistemas. <br><br>A solicitação de API or interface de programação do aplicativo (API) para disparar a mensagem também pode incluir dados adicionais para serem inseridos na mensagem em tempo real por meio de templates. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de entrega e entrada" }
 
 ## Opções baseadas em tempo {#time-based-options}
@@ -62,14 +62,14 @@ O período de entrada do seu Canvas determina quais usuários podem entrar no Ca
 {% endtab %}
 {% endtabs %}
 
-## Opções de disparo por API {#api-trigger-options}
+## Opções de disparo por API or interface de programação do aplicativo (API) {#api-trigger-options}
 
 {% tabs %}
 {% tab campaign %}
-Ao selecionar disparada por API como sua opção de entrega, você receberá um ID de Campaign para identificar qual Campaign enviar com o [endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#prerequisites).
+Ao selecionar disparada por API or interface de programação do aplicativo (API) como sua opção de entrega, você receberá um ID de Campaign para identificar qual Campaign enviar com o [endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#prerequisites).
 {% endtab %}
 
 {% tab canvas %}
-Ao selecionar disparado por API como seu tipo de entrada, você receberá um ID de Canvas para identificar qual Canvas enviar com o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Ao selecionar disparado por API or interface de programação do aplicativo (API) como seu tipo de entrada, você receberá um ID de Canvas para identificar qual Canvas enviar com o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endtab %}
 {% endtabs %}

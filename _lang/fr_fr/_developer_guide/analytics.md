@@ -177,8 +177,8 @@ Le tableau suivant décrit les options de segmentation disponibles pour les attr
 
 | Options de segmentation | Filtre déroulant | Options de saisie |
 | ---------------------| --------------- | ------------- |
-| Vérifier si l'attribut temporel **est antérieur** à une **date sélectionnée** | **BEFORE** | **CALENDAR DATE SELECTOR** |
-| Vérifier si l'attribut temporel **est postérieur** à une **date sélectionnée** | **AFTER** | **CALENDAR DATE SELECTOR** |
+| Vérifier si l'attribut temporel **est antérieur** à une **date sélectionnée** | **BEFORE** | **CALENDAR DATE sélecteur** |
+| Vérifier si l'attribut temporel **est postérieur** à une **date sélectionnée** | **AFTER** | **CALENDAR DATE sélecteur** |
 | Vérifier si l'attribut temporel remonte à **plus de X jours** | **MORE THAN** | **NUMBER OF DAYS AGO** |
 | Vérifier si l'attribut temporel remonte à **moins de X jours** | **LESS THAN** | **NUMBER OF DAYS AGO** |
 | Vérifier si l'attribut temporel est **dans plus de X jours** dans le futur | **IN MORE THAN** | **NUMBER OF DAYS IN FUTURE** |

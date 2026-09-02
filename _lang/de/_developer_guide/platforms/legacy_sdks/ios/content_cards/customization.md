@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "iOS Content-Card-Anpassung"
 guide_top_text: "Die Anpassung der Content Cards und des Feeds, in dem sie sich befinden, muss während des Integrationsprozesses erfolgen. Vor der Anpassung sollten Entwickler:innen mit ihrem Marketing-Team zusammenarbeiten, um herauszufinden, welcher Anpassungsansatz am besten für die Bedürfnisse Ihrer Marke geeignet ist. Bei Braze gibt es drei Ansätze zur Anpassung, die sich nach dem damit verbundenen Aufwand und der gebotenen Flexibilität richten: Crawl, Walk oder Run. Erfahren Sie mehr über diese <a href='/docs/user_guide/message_building_by_channel/content_cards/customize#customization-approaches'>Anpassungsmöglichkeiten</a> in unserem Benutzerhandbuch."
-description: "Diese Landing-Page behandelt die Anpassungsoptionen für Content Cards im Braze iOS SDK, wie angepasste Stile, Feed-Anpassung, Klick-Behandlung, Ungelesen-Anzeige und mehr."
+description: "Diese Landing-Page behandelt die Anpassungsoptionen für Content Cards im Braze iOS SDK or Software-Development-Kit, wie angepasste Stile, Feed-Anpassung, Klick-Behandlung, Ungelesen-Anzeige und mehr."
 
 guide_featured_title: "Abschnittsartikel"
 guide_featured_list:

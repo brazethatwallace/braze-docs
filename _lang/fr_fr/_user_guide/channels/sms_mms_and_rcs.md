@@ -17,7 +17,7 @@ description: "Découvrez les SMS, MMS et RCS dans Braze, y compris la configurat
 
 ## Prérequis {#prerequisites}
 
-La disponibilité des SMS, MMS et RCS dépend de votre offre Braze. Contactez votre gestionnaire de compte ou votre CSM pour commencer.
+La disponibilité des SMS, MMS et RCS dépend de votre offre Braze. Contactez votre gestionnaire de compte ou votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients pour commencer.
 
 Avant de commencer, assurez-vous de disposer des éléments suivants :
 

@@ -5,31 +5,31 @@ page_order: 9
 platform: 
   - Android
   - FireOS
-description: "Este artículo de referencia cubre la actualización del SDK de Android 11, destacando cambios como la vinculación en profundidad, la compatibilidad con el SDK y mucho más."
+description: "Este artículo de referencia cubre la actualización del SDK or kit de desarrollo de software de Android 11, destacando cambios como la vinculación en profundidad, la compatibilidad con el SDK or kit de desarrollo de software y mucho más."
 hidden: true
 ---
 
-# Guía de actualización del SDK de Android 11
+# Guía de actualización del SDK or kit de desarrollo de software de Android 11
 
-Esta guía describe los cambios relevantes introducidos en Android 11 (publicado el 8 de septiembre de 2020) y los pasos de actualización necesarios para tu integración de SDK de Android Braze.
+Esta guía describe los cambios relevantes introducidos en Android 11 (publicado el 8 de septiembre de 2020) y los pasos de actualización necesarios para tu integración de SDK or kit de desarrollo de software de Android Braze.
 
 Para una guía completa de migración de Android 11, consulta la [documentación para desarrolladores de Android](https://developer.android.com/preview/migration).
 
-## Compatibilidad con el SDK Braze
+## Compatibilidad con el SDK or kit de desarrollo de software Braze
 
-Todas las aplicaciones _orientadas a_ Android 11 (API 30) deben actualizarse a [Braze Android SDK v8.1.0+](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) para seguir utilizando las características de mensajería de Braze.
+Todas las aplicaciones _orientadas a_ Android 11 (API 30) deben actualizarse a [Braze Android SDK or kit de desarrollo de software v8.1.0+](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) para seguir utilizando las características de mensajería de Braze.
 
 {% alert important %}
-Debido a los cambios en las API de Android 11, las aplicaciones destinadas a Android 11 que no se actualicen a Braze Android SDK v8.1.0+ experimentarán problemas con la vinculación en profundidad desde los componentes de la interfaz de usuario de Braze y no mostrarán correctamente los mensajes dentro de la aplicación en HTML personalizado.
+Debido a los cambios en las API de Android 11, las aplicaciones destinadas a Android 11 que no se actualicen a Braze Android SDK or kit de desarrollo de software v8.1.0+ experimentarán problemas con la vinculación en profundidad desde los componentes de la interfaz de usuario de Braze y no mostrarán correctamente los mensajes dentro de la aplicación en HTML personalizado.
 {% endalert %}
 
 ### Vínculos en profundidad
 
-Las aplicaciones destinadas a Android 11 o posterior (API versión 30+) deben actualizarse al [SDK para Android de Braze v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) para seguir utilizando los vínculos profundos dentro de los mensajes Braze. Debido a un cambio en las API de Android 11, las aplicaciones que no se actualicen al menos al SDK para Android v8.1.0 experimentarán problemas con los vínculos profundos dentro de los mensajes Braze (mensajes dentro de la aplicación o tarjetas de contenido).
+Las aplicaciones destinadas a Android 11 o posterior (API versión 30+) deben actualizarse al [SDK or kit de desarrollo de software para Android de Braze v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810) para seguir utilizando los vínculos profundos dentro de los mensajes Braze. Debido a un cambio en las API de Android 11, las aplicaciones que no se actualicen al menos al SDK or kit de desarrollo de software para Android v8.1.0 experimentarán problemas con los vínculos profundos dentro de los mensajes Braze (mensajes dentro de la aplicación o tarjetas de contenido).
 
 ### Mensajes HTML dentro de la aplicación
 
-Las aplicaciones destinadas a Android 11 o posterior (API versión 30+) deben actualizarse a Braze Android SDK v8.1.0 para seguir utilizando mensajes HTML personalizados dentro de la aplicación. Debido a un cambio en la configuración de Android 11 WebView, los mensajes HTML dentro de la aplicación no se mostrarán correctamente en las aplicaciones orientadas a Android 11 hasta que se actualice a [Braze Android SDK v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810). 
+Las aplicaciones destinadas a Android 11 o posterior (API versión 30+) deben actualizarse a Braze Android SDK or kit de desarrollo de software v8.1.0 para seguir utilizando mensajes HTML personalizados dentro de la aplicación. Debido a un cambio en la configuración de Android 11 WebView, los mensajes HTML dentro de la aplicación no se mostrarán correctamente en las aplicaciones orientadas a Android 11 hasta que se actualice a [Braze Android SDK or kit de desarrollo de software v8.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#810). 
 
 ### Permisos de ubicación
 

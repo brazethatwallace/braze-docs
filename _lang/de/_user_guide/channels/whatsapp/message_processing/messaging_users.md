@@ -11,17 +11,17 @@ alias: /whatsapp_quick_replies/
 
 # Nutzernachrichten {#user-messages}
 
-> WhatsApp ist ein Kanal für wechselseitige Kommunikation. Ihre Marke kann nicht nur Nachrichten an Nutzer:innen senden, sondern diese können auch über Template-Campaigns und Canvases an Konversationen teilnehmen. Es gibt verschiedene Möglichkeiten, dies zu tun, darunter WhatsApp-Schnellantworten, Listennachrichten und Trigger-Wörter. Schnellantwort- und Listennachrichten-Calls-to-Action (CTAs) sind eine großartige Möglichkeit, das Nutzer-Engagement mit Ihrem WhatsApp-Messaging zu fördern.
+> WhatsApp ist ein Kanal für wechselseitige Kommunikation. Ihre Marke kann nicht nur Nachrichten an Nutzer:innen senden, sondern diese können auch über Template-Campaigns und Canvase an Konversationen teilnehmen. Es gibt verschiedene Möglichkeiten, dies zu tun, darunter WhatsApp-Schnellantworten, Listennachrichten und Trigger or triggern-Wörter. Schnellantwort- und Listennachrichten-Calls-to-Action (CTAs) sind eine großartige Möglichkeit, das Nutzer-Engagement mit Ihrem WhatsApp-Messaging zu fördern.
 
-## Aktionsbasierte Trigger {#action-based-triggers}
+## Aktionsbasierte Trigger or triggern {#action-based-triggers}
 
-Sowohl Campaigns als auch Canvases können durch eine eingehende WhatsApp-Nachricht (eine Nachricht einer Nutzer:in an Ihr WhatsApp) gestartet, verzweigt und mit Änderungen während der Journey versehen werden, z. B. durch ein Trigger-Wort.
+Sowohl Campaigns als auch Canvase können durch eine eingehende WhatsApp-Nachricht (eine Nachricht einer Nutzer:in an Ihr WhatsApp) gestartet, verzweigt und mit Änderungen während der Journey versehen werden, z. B. durch ein Trigger or triggern-Wort.
 
-Stellen Sie sicher, dass Ihr Trigger-Wort dem entspricht, was Sie von Nutzer:innen erwarten.
+Stellen Sie sicher, dass Ihr Trigger or triggern-Wort dem entspricht, was Sie von Nutzer:innen erwarten.
 
 **Wichtige Hinweise:**
-- Jeder Buchstabe Ihres Trigger-Worts muss bei der Konfiguration großgeschrieben werden. Braze verlangt nicht, dass eingehende Trigger-Wörter, die von Nutzer:innen gesendet werden, großgeschrieben sind. Beispielsweise löst die Nachricht „jOin2023“ trotzdem das Canvas oder die Campaign aus.
-- Wenn kein Trigger-Wort im aktionsbasierten Trigger des Einstiegszeitplans angegeben ist, wird die Campaign oder das Canvas für ALLE eingehenden WhatsApp-Nachrichten ausgeführt. Dies schließt Nachrichten ein, die mit Phrasen in aktiven Campaigns und Canvases übereinstimmen. In diesem Fall erhält die Nutzer:in zwei WhatsApp-Nachrichten.
+- Jeder Buchstabe Ihres Trigger or triggern-Worts muss bei der Konfiguration großgeschrieben werden. Braze verlangt nicht, dass eingehende Trigger or triggern-Wörter, die von Nutzer:innen gesendet werden, großgeschrieben sind. Beispielsweise löst die Nachricht „jOin2023“ trotzdem das Canvas oder die Campaign aus.
+- Wenn kein Trigger or triggern-Wort im aktionsbasierten Trigger or triggern des Einstiegszeitplans angegeben ist, wird die Campaign oder das Canvas für ALLE eingehenden WhatsApp-Nachrichten ausgeführt. Dies schließt Nachrichten ein, die mit Phrasen in aktiven Campaigns und Canvase übereinstimmen. In diesem Fall erhält die Nutzer:in zwei WhatsApp-Nachrichten.
 
 {% tabs %}
 {% tab Campaign %}
@@ -38,7 +38,7 @@ Stellen Sie sicher, dass Ihr Trigger-Wort dem entspricht, was Sie von Nutzer:inn
 
 ## Nicht erkannte Antworten {#unrecognized-responses}
 
-Wir empfehlen, in interaktiven Canvases eine Option für nicht erkannte Antworten einzubauen. Dies hilft Nutzer:innen zu verstehen, welche Eingaben verfügbar sind, und setzt Erwartungen für den Kanal. Erwartungsmanagement kann besonders hilfreich sein, wenn Sie WhatsApp-Kanäle mit Live-Agent-Chat haben.
+Wir empfehlen, in interaktiven Canvase eine Option für nicht erkannte Antworten einzubauen. Dies hilft Nutzer:innen zu verstehen, welche Eingaben verfügbar sind, und setzt Erwartungen für den Kanal. Erwartungsmanagement kann besonders hilfreich sein, wenn Sie WhatsApp-Kanäle mit Live-Agent-Chat haben.
 - Fügen Sie im Aktionsschritt nach dem Erstellen der Aktionsgruppen für die angepassten Filterphrasen eine zusätzliche Aktionsgruppe für „WhatsApp-Nachricht senden“ hinzu, aber **aktivieren Sie nicht die Option Wo der Nachrichtentext**. Dies fängt alle nicht erkannten Nutzerantworten auf, ähnlich wie eine „else“-Klausel.
 - Wir empfehlen, eine WhatsApp-Nachricht zu senden, die Nutzer:innen darüber informiert, dass dieser Kanal nicht betreut wird, und sie bei Bedarf an einen Support-Kanal weiterzuleiten.
 
@@ -54,7 +54,7 @@ Schnellantworten erscheinen als anklickbare Button-Optionen innerhalb der Konver
 
 #### Schritt 1: CTAs erstellen {#step-1-build-out-ctas}
 
-Erstellen Sie zunächst Ihre Schnellantwort-CTAs im [WhatsApp-Nachrichtentemplate-Manager](https://business.facebook.com/wa/manage/message-templates/) innerhalb eines Nachrichtentemplates.
+Erstellen Sie zunächst Ihre Schnellantwort-CTAs im [WhatsApp-Nachrichtentemplate-Manager:in](https://business.facebook.com/wa/manage/message-templates/) innerhalb eines Nachrichtentemplates.
 
 ![Die WhatsApp-Nachrichtentemplate-Manager-UI, die zeigt, wie ein CTA-Button erstellt wird, mit Angabe des Button-Typs (angepasst) und des Button-Textes.]({% image_buster /assets/img/whatsapp/whatsapp12.png %}){: style="max-width:80%;"}
 
@@ -88,7 +88,7 @@ In den meisten Fällen möchten Sie für jede Antwort eine Antwortnachricht habe
 
 ![Ein Canvas, das die Antworten für jeden Call-to-Action-Button zeigt.]({% image_buster /assets/img/whatsapp/whatsapp18.png %})
 
-Beachten Sie, dass Sie alle nachfolgenden Aktionen nutzen können, die Braze Canvas bietet, wie z. B. Antwortnachrichten, Nutzerprofil-Aktualisierungen oder Braze-zu-Braze-Webhooks.
+Beachten Sie, dass Sie alle nachfolgenden Aktionen nutzen können, die Braze Canvas bietet, wie z. B. Antwortnachrichten, Kundenprofil or Nutzerprofil-Aktualisierungen oder Braze-zu-Braze-Webhooks.
 
 ## Listennachrichten {#list-messages}
 
@@ -100,7 +100,7 @@ Listennachrichten erscheinen als Textnachricht mit einer Liste anklickbarer Opti
 
 #### Schritt 1: Erstellen oder bearbeiten Sie ein bestehendes aktionsbasiertes Canvas {#step-1-create-or-edit-an-existing-action-based-canvases}
 
-Sie können WhatsApp-Listennachrichten nur zu Canvases hinzufügen, die aktionsbasiert sind, da sie eine Antwort auf eine Nutzernachricht sein müssen.
+Sie können WhatsApp-Listennachrichten nur zu Canvase hinzufügen, die aktionsbasiert sind, da sie eine Antwort auf eine Nutzernachricht sein müssen.
 
 #### Schritt 2: Erstellen Sie einen WhatsApp-Nachrichten-Schritt {#step-2-create-a-whatsapp-message-step}
 
@@ -122,7 +122,7 @@ Fügen Sie einen **List button**-Namen hinzu, den Nutzer:innen auswählen, um Ih
 
 Fügen Sie im Canvas-Composer nach dem Nachrichten-Schritt einen [Aktionspfad]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) hinzu, der eine Gruppe für jede Listenantwort enthält. In jeder Gruppe:
 
-1. Fügen Sie einen Trigger für **Sent inbound WhatsApp subscription group** hinzu und wählen Sie die entsprechende WhatsApp-Abo-Gruppe aus.
+1. Fügen Sie einen Trigger or triggern für **Sent inbound WhatsApp subscription group** hinzu und wählen Sie die entsprechende WhatsApp-Abo-Gruppe aus.
 2. Aktivieren Sie das Kontrollkästchen **Where the message body**.
 3. Geben Sie den Inhalt für eine Zeile (oder ein Listenelement) an.
 
@@ -142,12 +142,12 @@ Wenn Sie Zeilenbeschreibungen haben, müssen Sie **Matches regex** verwenden, um
 
 Antwortnachrichten müssen innerhalb von 24 Stunden nach Erhalt der Nachricht einer Nutzerin oder eines Nutzers gesendet werden. Um erfolgreiche Erlebnisse aufzubauen, überprüft Braze die Nachrichtenlogik, um sicherzustellen, dass eine vorgelagerte eingehende Nutzernachricht vorhanden ist, die die Antwortnachricht freigibt.
 
-Für Antworten im Sub-Minuten-Bereich in wechselseitigen Canvas-Flows sollten Sie die Schritte zwischen dem eingehenden Trigger und dem Versand der Antwortnachricht minimieren. Canvas-Architektur, Webhook-Roundtrips und User-Update-Batching können Latenz hinzufügen. Siehe [Antwortlatenz für wechselseitige Flows minimieren]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
+Für Antworten im Sub-Minuten-Bereich in wechselseitigen Canvas-Flows sollten Sie die Schritte zwischen dem eingehenden Trigger or triggern und dem Versand der Antwortnachricht minimieren. Canvas-Architektur, Webhook-Roundtrips und User-Update or aktualisieren-Batching können Latenz hinzufügen. Siehe [Antwortlatenz für wechselseitige Flows minimieren]({{site.baseurl}}/user_guide/channels/whatsapp/best_practices#minimize-response-latency-for-two-way-flows).
 
 Die folgenden Events geben Antwortnachrichten frei:
 
 - Eingehende Nachricht
-  - [Aktionspfad]({{site.baseurl}}/action_paths) oder [aktionsbasierter Entry]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit dem Trigger **Send a WhatsApp inbound message**.
+  - [Aktionspfad]({{site.baseurl}}/action_paths) oder [aktionsbasierter Entry]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) mit dem Trigger or triggern **Send a WhatsApp inbound message**.
 
 ![Ein aktionsbasierter Entry-Schritt mit dem Trigger „Send a WhatsApp inbound message“.]({% image_buster /assets/img/whatsapp/whatsapp_inbound_message_trigger.png %})
 
@@ -198,4 +198,4 @@ Wenn Sie einen `inbound_media_urls`-Wert in einem angepassten Nutzerattribut fü
 
 ### Eingehender Profilname {#inbound-profile-name}
 
-Wenn Meta einen Anzeigenamen in einer eingehenden WhatsApp-Nachricht mitliefert, stellt Braze diesen als Liquid-Attribut {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} für dieses eingehende Event zur Verfügung. Dieser Wert spiegelt den Namen wider, den die Nutzerin oder der Nutzer in WhatsApp eingestellt hat, und stimmt möglicherweise nicht mit CRM-Profildaten überein. Validieren Sie die Daten, bevor Sie sie in Nutzertexten verwenden, oder nutzen Sie einen Canvas-User-Update-Schritt, um den Wert in einem Profilfeld für die spätere Verwendung zu speichern. Eine vollständige Liste der WhatsApp-Liquid-Attribute finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
+Wenn Meta einen Anzeigenamen in einer eingehenden WhatsApp-Nachricht mitliefert, stellt Braze diesen als Liquid-Attribut {% raw %}`{{whats_app.${inbound_profile_name}}}`{% endraw %} für dieses eingehende Event zur Verfügung. Dieser Wert spiegelt den Namen wider, den die Nutzerin oder der Nutzer in WhatsApp eingestellt hat, und stimmt möglicherweise nicht mit CRM or Customer-Relationship-Management [-System] (CRM)-Profildaten überein. Validieren Sie die Daten, bevor Sie sie in Nutzertexten verwenden, oder nutzen Sie einen Canvas-User-Update or aktualisieren-Schritt, um den Wert in einem Profilfeld für die spätere Verwendung zu speichern. Eine vollständige Liste der WhatsApp-Liquid-Attribute finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).

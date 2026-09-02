@@ -45,7 +45,7 @@ Authorization: Bearer YOUR-SCIM-TOKEN-HERE
 ```
 
 {% alert note %}
-Si recibes una respuesta `401`, confirma que estás utilizando un token SCIM (no una clave de API REST), que `X-Request-Origin` coincide con el origen de tu servicio y que tu dirección IP está en la lista de permitidos de SCIM. Para más detalles, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
+Si recibes una respuesta `401`, confirma que estás utilizando un token SCIM (no una clave de API REST or transferencia de estado representacional), que `X-Request-Origin` coincide con el origen de tu servicio y que tu dirección IP está en la lista de permitidos de SCIM. Para más detalles, consulta [Aprovisionamiento automatizado de usuarios]({{site.baseurl}}/scim/automated_user_provisioning).
 {% endalert %}
 
 ## Ejemplo de solicitud {#example-request}

@@ -1,7 +1,7 @@
 ---
 nav_title: Lexer
 article_title: Lexer
-description: "Este artículo de referencia describe la asociación entre Braze y Lexer, una plataforma de datos de los clientes que pone los datos de los clientes en manos de los especialistas en marketing para inspirar experiencias que impulsen las ventas."
+description: "Este artículo de referencia describe la asociación entre Braze y Lexer, una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes que pone los datos de los clientes en manos de los especialistas en marketing para inspirar experiencias que impulsen las ventas."
 alias: /partners/lexer/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Lexer
 
-> [Lexer](https://lexer.io/), una plataforma de datos de los clientes creada para el comercio minorista, ayuda a las marcas a impulsar ventas incrementales mediante la mejora de la experiencia del cliente, combinando un sólido enriquecimiento de datos con las herramientas más intuitivas y el asesoramiento de expertos.
+> [Lexer](https://lexer.io/), una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes creada para el comercio minorista, ayuda a las marcas a impulsar ventas incrementales mediante la mejora de la experiencia del cliente, combinando un sólido enriquecimiento de datos con las herramientas más intuitivas y el asesoramiento de expertos.
 
 _Esta integración está mantenida por Lexer._
 
@@ -22,16 +22,16 @@ La integración de Braze y Lexer te permite sincronizar datos entre las dos plat
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de partner | Se necesita una cuenta de Lexer para aprovechar esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de `user` (excepto `user.delete`) y permisos de `segment.list`. El conjunto de permisos puede cambiar a medida que Lexer añada compatibilidad con más objetos de Braze, por lo que es posible que quieras conceder más permisos ahora o planificar la actualización de estos permisos en el futuro.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | La [URL de tu endpoint REST]({{site.baseurl}}/api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos de `user` (excepto `user.delete`) y permisos de `segment.list`. El conjunto de permisos puede cambiar a medida que Lexer añada compatibilidad con más objetos de Braze, por lo que es posible que quieras conceder más permisos ahora o planificar la actualización de estos permisos en el futuro.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | La [URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
 | Contenedor y credenciales de Amazon AWS S3 | Antes de comenzar la integración, debes tener credenciales de acceso para un contenedor de AWS S3 conectado a tu hub de Lexer (puede ser un contenedor creado por ti o uno que Lexer cree y gestione por ti). Visita [Lexer](https://learn.lexer.io/docs/amazon-s3) para obtener orientación sobre este requisito. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 En Lexer, ve a **Manage > Integration**, selecciona el mosaico **Braze** y haz clic en **Integrate Braze**. Proporciona la siguiente información:
-- **Braze REST endpoint**
-- **Braze REST API key**
+- **Braze REST or transferencia de estado representacional endpoint**
+- **Braze REST or transferencia de estado representacional API key**
 - **AWS Credentials**
   - **AWS S3 bucket name**
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**

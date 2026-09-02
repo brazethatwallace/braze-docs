@@ -2,7 +2,7 @@
 
 ## Festlegen des letzten bekannten Standorts
 
-Um den letzten bekannten Standort einer Nutzer:in manuell festzulegen, verwenden Sie bitte die`setLastKnownLocation`Methode. Dies ist nützlich, wenn Sie Standortdaten außerhalb des Braze SDK erfassen.
+Um den letzten bekannten Standort einer Nutzer:in manuell festzulegen, verwenden Sie bitte die`setLastKnownLocation`Methode. Dies ist nützlich, wenn Sie Standortdaten außerhalb des Braze SDK or Software-Development-Kit erfassen.
 
 ```javascript
 Braze.setLastKnownLocation(LATITUDE, LONGITUDE, ALTITUDE, HORIZONTAL_ACCURACY, VERTICAL_ACCURACY);
@@ -15,7 +15,7 @@ Für plattformübergreifende Kompatibilität stellen Sie bitte `horizontalAccura
 
 ## Festlegen eines angepassten Standort-Attributs
 
-Um ein angepasstes Attribut für den Standort in einem Nutzerprofil festzulegen, verwenden Sie bitte die`setLocationCustomAttribute`Methode.
+Um ein angepasstes Attribut für den Standort in einem Kundenprofil or Nutzerprofil festzulegen, verwenden Sie bitte die`setLocationCustomAttribute`Methode.
 
 ```javascript
 Braze.setLocationCustomAttribute("favorite_restaurant", 40.7128, -74.0060, optionalCallback);
@@ -31,11 +31,11 @@ Braze.requestLocationInitialization();
 
 ## Geofences
 
-Geofences werden sowohl auf iOS als auch auf Android unterstützt. Standardmäßig kann das Braze SDK automatisch Geofences anfragen und überwachen, wenn der Standort verfügbar ist. Bei den meisten Integrationen können Sie sich auf diese automatische Konfiguration verlassen.
+Geofences werden sowohl auf iOS als auch auf Android unterstützt. Standardmäßig kann das Braze SDK or Software-Development-Kit automatisch Geofences anfragen und überwachen, wenn der Standort verfügbar ist. Bei den meisten Integrationen können Sie sich auf diese automatische Konfiguration verlassen.
 
 ### Geofencing manuell anfordern
 
-Um manuell ein Geofence-Update für eine bestimmte GPS-Koordinate anzufordern, verwenden Sie bitte`requestGeofences` . Dies ist sowohl für iOS als auch für Android verfügbar. Wenn Sie diese Methode verwenden, deaktivieren Sie bitte die automatischen Geofence-Anfragen in Ihrer nativen Konfiguration, damit das SDK Ihre manuellen Anfragen nicht überschreibt.
+Um manuell ein Geofence-Update or aktualisieren für eine bestimmte GPS-Koordinate anzufordern, verwenden Sie bitte`requestGeofences` . Dies ist sowohl für iOS als auch für Android verfügbar. Wenn Sie diese Methode verwenden, deaktivieren Sie bitte die automatischen Geofence-Anfragen in Ihrer nativen Konfiguration, damit das SDK or Software-Development-Kit Ihre manuellen Anfragen nicht überschreibt.
 
 ```javascript
 Braze.requestGeofences(LATITUDE, LONGITUDE);

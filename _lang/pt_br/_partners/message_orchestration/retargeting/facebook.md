@@ -61,7 +61,7 @@ Para clientes que já passaram pelo processo de revisão de app do Facebook para
 
 Na Braze, a exportação de público do Facebook é acessível pela página **Segments**.
 
-1. Na página **Segments**, selecione o Segment que você deseja exportar.
+1. Na página **Segments**, selecione o Segment or segmento que você deseja exportar.
 2. Selecione **User Data** e depois selecione **Export as Facebook Audience**. <br><br>![A seção "Detalhes do Segment" de um Segment com "User Data" selecionado para exibir um menu suspenso de opções que inclui "Export as Facebook Audience".]({% image_buster /assets/img/fb/afb_6.png %})
 
 {: start="3"}
@@ -75,7 +75,7 @@ Você pode selecionar apenas um campo de usuário por exportação. Se escolher 
 {% endalert %}
 
 {: start="4"}
-4. Depois de selecionar o campo de usuário, selecione **Export Segment**. Assim como nas exportações CSV, você receberá um e-mail quando o Segment terminar de ser exportado para o Facebook.
+4. Depois de selecionar o campo de usuário, selecione **Export Segment or segmento**. Assim como nas exportações CSV, você receberá um e-mail quando o Segment or segmento terminar de ser exportado para o Facebook.
 5. Visualize o público personalizado no [Facebook Ads Manager](https://www.facebook.com/ads/manager/audiences/manage/).
 
 {% alert important %}
@@ -89,7 +89,7 @@ Por motivos de privacidade do usuário, o Facebook não permite que você veja:
 
 Ao criar públicos do Facebook, você pode querer incluir ou excluir determinados usuários com base em suas preferências, e para cumprir leis de privacidade, como o direito de "Não Vender ou Compartilhar" sob a [CCPA](https://oag.ca.gov/privacy/ccpa). Os profissionais de marketing devem implementar os filtros relevantes para a elegibilidade dos usuários nos critérios de entrada do Canvas. As opções a seguir podem ajudar.
 
-- Se você coletou o [IDFA do iOS através do SDK da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), pode usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar usuários para destinos de sincronização de público apenas quando eles tiverem optado por participar.
+- Se você coletou o [IDFA do iOS através do SDK or kit de desenvolvimento de software da Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), pode usar o filtro **Ads Tracking Enabled**. Selecione o valor como `true` para enviar usuários para destinos de sincronização de público apenas quando eles tiverem optado por participar.
 
 ![Filtro de entrada do Canvas mostrando Ads Tracking Enabled definido como true.]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
 
@@ -100,7 +100,7 @@ Ao criar públicos do Facebook, você pode querer incluir ou excluir determinado
 
 #### Públicos Semelhantes (Lookalike Audiences) {#lookalike-audiences}
 
-Depois de exportar com sucesso um Segment como público do Facebook, você pode criar grupos adicionais usando os [Públicos Semelhantes](https://www.facebook.com/business/help/164749007013531?id=401668390442328) do Facebook. Esse recurso analisa os dados demográficos, interesses e outros atributos do público escolhido e cria um novo público de pessoas com atributos semelhantes.
+Depois de exportar com sucesso um Segment or segmento como público do Facebook, você pode criar grupos adicionais usando os [Públicos Semelhantes](https://www.facebook.com/business/help/164749007013531?id=401668390442328) do Facebook. Esse recurso analisa os dados demográficos, interesses e outros atributos do público escolhido e cria um novo público de pessoas com atributos semelhantes.
 
 ## Solução de problemas {#troubleshooting}
 
@@ -112,7 +112,7 @@ Ao usar a exportação para o Facebook, o erro `Error Validating Access Token` a
 
 Para resolver esse erro, siga estas etapas:
 1. Saia do Facebook e faça login novamente.
-2. Na Braze, remova suas credenciais do Facebook e salve. Confirme que as credenciais foram removidas tentando exportar um Segment (o ícone de exportação deve estar desativado).
+2. Na Braze, remova suas credenciais do Facebook e salve. Confirme que as credenciais foram removidas tentando exportar um Segment or segmento (o ícone de exportação deve estar desativado).
 3. Adicione novamente e salve suas credenciais do Facebook.
 4. Tente exportar novamente.
 
@@ -123,15 +123,15 @@ Se a exportação não funcionar, faça o seguinte:
 
 ### Erro ao exportar um público do Facebook {#error-when-exporting-a-facebook-audience}
 
-Se você receber um erro ao exportar um Segment como público do Facebook, a documentação para desenvolvedores do Facebook destaca as seguintes causas comuns:
+Se você receber um erro ao exportar um Segment or segmento como público do Facebook, a documentação para desenvolvedores do Facebook destaca as seguintes causas comuns:
 
 1. **O token de acesso é de um usuário que não é administrador do app e da conta de anúncios:** O usuário do Facebook cujas credenciais estão conectadas à Braze deve ter as permissões corretas.
 2. **A conta de anúncios para a qual você está exportando não está associada ao seu app:** A conta de anúncios do Facebook deve estar vinculada ao seu app nas configurações do Facebook.
 
 Use as verificações a seguir para confirmar sua configuração:
 
-- **Verifique se você é administrador do app:** Acesse [developers.facebook.com](https://developers.facebook.com/), abra **My Apps** e selecione o app da sua empresa. Se você não vir o app, sua equipe de desenvolvimento pode precisar adicioná-lo. No dashboard do app, acesse **Roles** para confirmar sua função (Admin, Developer, Tester ou Analytics User).
+- **Verifique se você é administrador do app:** Acesse [developers.Facebook.com](https://developers.facebook.com/), abra **My Apps** e selecione o app da sua empresa. Se você não vir o app, sua equipe de desenvolvimento pode precisar adicioná-lo. No dashboard do app, acesse **Roles** para confirmar sua função (Admin, Developer, Tester ou Analytics User).
 - **Verifique se sua conta de anúncios está associada ao seu app:** No dashboard do app do Facebook, acesse **Settings** > **Advanced**, role até **Advertising Accounts** e adicione o ID da conta de anúncios do Facebook que você deseja usar para exportações de público da Braze, caso ainda não esteja listado.
-- **Verifique se você é administrador da conta de anúncios:** Acesse [business.facebook.com](https://business.facebook.com/), abra **Business Settings** no menu principal e acesse **Accounts** > **Ad accounts** e selecione a conta de anúncios. Confirme seu acesso e que você tem as permissões necessárias para criar públicos personalizados.
+- **Verifique se você é administrador da conta de anúncios:** Acesse [business.Facebook.com](https://business.facebook.com/), abra **Business Settings** no menu principal e acesse **Accounts** > **Ad accounts** e selecione a conta de anúncios. Confirme seu acesso e que você tem as permissões necessárias para criar públicos personalizados.
 
-Para mais detalhes, consulte a [documentação da API de públicos personalizados do Facebook](https://developers.facebook.com/docs/) e o [guia do Central de Ajuda para Empresas do Facebook sobre públicos personalizados](https://www.facebook.com/business/help).
+Para mais detalhes, consulte a [documentação da API or interface de programação do aplicativo (API) de públicos personalizados do Facebook](https://developers.facebook.com/docs/) e o [guia do Central de Ajuda para Empresas do Facebook sobre públicos personalizados](https://www.facebook.com/business/help).

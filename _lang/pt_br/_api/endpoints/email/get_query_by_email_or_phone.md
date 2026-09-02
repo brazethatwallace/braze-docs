@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve os detalhes sobre o endpoint da Braze para listar o estado da inscrição com um endereço de e-mail ou número de telefone."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Listar estado da inscrição com um endereço de e-mail ou número de telefone {#list-subscription-state-with-an-email-address-or-phone-number}
 {% apimethod get %}
 /users/subscription

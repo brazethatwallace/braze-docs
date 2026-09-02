@@ -11,22 +11,22 @@ alias: /query_builder/
 
 > O Criador de consultas gera relatórios usando dados da Braze no Snowflake. O Criador de consultas vem com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) SQL pré-criados para você começar, ou você pode escrever suas próprias consultas SQL personalizadas para obter ainda mais insights.
 
-Como o Criador de consultas permite acesso direto a alguns dados de cliente, você só pode acessá-lo se tiver a [permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View PII".
+Como o Criador de consultas permite acesso direto a alguns dados de cliente, você só pode acessá-lo se tiver a [permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) "View IPI".
 
 ## Tabelas de dados disponíveis {#available-data-tables}
 
-O Criador de consultas usa as mesmas tabelas SQL do Snowflake que as [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para uma lista completa das tabelas disponíveis e suas colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+O Criador de consultas usa as mesmas tabelas SQL do Snowflake que as [extensões de Segment or segmento or segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e o [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para uma lista completa das tabelas disponíveis e suas colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 
 ### Visualizações de atributos do perfil de usuário {#user-profile-attribute-views}
 
-O Criador de consultas e as extensões de segmento SQL incluem a maioria das [visualizações de atributos do perfil de usuário]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), como snapshots periódicos e histórico de atributos padrão.
+O Criador de consultas e as extensões de Segment or segmento or segmento SQL incluem a maioria das [visualizações de atributos do perfil de usuário]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#user-profile-attribute-views), como snapshots periódicos e histórico de atributos padrão.
 
 Duas visualizações de atributos personalizados estão disponíveis apenas por meio do [Compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/user_attributes):
 
 - `USER_CUSTOM_ATTRIBUTES_HISTORY_VIEW_SHARED`
 - `USER_LATEST_STATE_CUSTOM_ATTRIBUTE_VIEW_SHARED`
 
-A Braze exclui essas visualizações do Criador de consultas e das extensões de segmento SQL porque elas são lentas para consultar na escala do espaço de trabalho e frequentemente excedem o tempo limite. Use `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` para snapshots de atributos personalizados no Criador de consultas. Se você precisar de dados históricos ou quase em tempo real de atributos personalizados, consulte as visualizações excluídas por meio do Compartilhamento de dados do Snowflake.
+A Braze exclui essas visualizações do Criador de consultas e das extensões de Segment or segmento or segmento SQL porque elas são lentas para consultar na escala do espaço de trabalho e frequentemente excedem o tempo limite. Use `USER_CUSTOM_ATTRIBUTES_VIEW_SHARED` para snapshots de atributos personalizados no Criador de consultas. Se você precisar de dados históricos ou quase em tempo real de atributos personalizados, consulte as visualizações excluídas por meio do Compartilhamento de dados do Snowflake.
 
 ## Executando relatórios no Criador de consultas {#running-reports-in-the-query-builder}
 
@@ -275,26 +275,26 @@ Para selecionar múltiplas Campaigns. Compartilhar o mesmo nome com um Canvas re
 
 Para selecionar variantes de Campaign que pertencem à Campaign selecionada. Deve ser usada em conjunto com uma variável de Campaign ou Campaigns.
 
-- **Valor de substituição:** IDs de API das variantes de Campaign, strings delimitadas por vírgulas, como `api-id1, api-id2`.
+- **Valor de substituição:** IDs de API or interface de programação do aplicativo (API) das variantes de Campaign, strings delimitadas por vírgulas, como `api-id1, api-id2`.
 - **Exemplo de uso:** {% raw %}`message_variation_api_id IN ({{campaign_variants.${some name}}})`{% endraw %}
 
 ##### Variantes de Canvas {#canvas-variants}
 
 Para selecionar variantes de Canvas que pertencem a um Canvas escolhido. Deve ser usada com uma variável de Canvas ou Canvas (múltiplos).
 
-- **Valor de substituição:** IDs de API das variantes de Canvas, strings delimitadas por vírgulas, como `api-id1, api-id2`.
+- **Valor de substituição:** IDs de API or interface de programação do aplicativo (API) das variantes de Canvas, strings delimitadas por vírgulas, como `api-id1, api-id2`.
 - **Exemplo de uso:** {% raw %}`canvas_variation_api_id IN ({{canvas_variants.${some name}}})`{% endraw %}
 
 ##### Etapa do Canvas {#canvas-step}
 
 Para selecionar uma etapa do Canvas que pertence a um Canvas escolhido. Deve ser usada com uma variável de Canvas.
 
-- **Valor de substituição:** ID de API da etapa do Canvas
+- **Valor de substituição:** ID de API or interface de programação do aplicativo (API) da etapa do Canvas
 - **Exemplo de uso:** {% raw %}`canvas_step_api_id = '{{canvas_step.${some name}}}'`{% endraw %}
 
 ##### Etapas do Canvas {#canvas-steps}
 
 Para selecionar etapas do Canvas que pertencem a Canvas escolhidos. Deve ser usada com uma variável de Canvas ou Canvas (múltiplos).
 
-- **Valor de substituição:** IDs de API das etapas do Canvas
+- **Valor de substituição:** IDs de API or interface de programação do aplicativo (API) das etapas do Canvas
 - **Exemplo de uso:** {% raw %}`canvas_step_api_id IN ({{canvas_steps.${some name}}})`{% endraw %}

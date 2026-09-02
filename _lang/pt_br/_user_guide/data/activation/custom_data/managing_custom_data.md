@@ -38,7 +38,7 @@ Depois de criar um evento personalizado ou produto, selecione **Gerenciar propri
 
 Para colocar propriedades de eventos ou produtos na lista de bloqueio, use o menu de ações na página de propriedades. Para colocar atributos personalizados, eventos ou produtos inteiros na lista de bloqueio, consulte [Lista de bloqueio de dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data).
 
-Para tornar rastreáveis esses atributos personalizados, eventos, produtos ou propriedades de eventos adicionados, é necessário pedir à equipe de desenvolvimento que os crie no SDK usando o nome exato que você usou para adicioná-los anteriormente. Ou você pode usar a [API]({{site.baseurl}}/api/basics) da Braze para importar dados sobre esse atributo. Depois disso, o atributo personalizado, evento ou outro será acionável e se aplicará aos seus usuários.
+Para tornar rastreáveis esses atributos personalizados, eventos, produtos ou propriedades de eventos adicionados, é necessário pedir à equipe de desenvolvimento que os crie no SDK or kit de desenvolvimento de software usando o nome exato que você usou para adicioná-los anteriormente. Ou você pode usar a [API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics) da Braze para importar dados sobre esse atributo. Depois disso, o atributo personalizado, evento ou outro será acionável e se aplicará aos seus usuários.
 
 {% include alerts/note_alerts.md alert='Manage custom data storage' %}
 
@@ -63,14 +63,14 @@ Forçar tipos de dados não se aplica a propriedades de eventos ou propriedades 
 ![Menu suspenso de tipo de dados de atributos personalizados]({% image_buster /assets/img_archive/custom_events_view_data_type_dropdown.png %})
 
 {% alert warning %}
-Se você optar por forçar o tipo de dados de um atributo, todos os dados recebidos que não forem do tipo especificado serão convertidos para esse tipo. Se essa conversão for impossível (por exemplo, uma string contendo letras sendo convertida em um número), os dados serão ignorados. Todos os dados ingeridos antes da alteração do tipo continuarão armazenados como o tipo antigo (e, portanto, podem não ser segmentáveis), e um aviso aparecerá ao lado do atributo nos perfis dos usuários afetados.
+Se você optar por forçar o tipo de dados de um atributo, todos os dados recebidos que não forem do tipo especificado serão convertidos para esse tipo. Se essa conversão for impossível (por exemplo, uma string contendo letras sendo convertida em um número), os dados serão ignorados. Todos os dados ingeridos antes da alteração do tipo continuarão armazenados como o tipo antigo (e, portanto, podem não ser Segment or segmentoáveis), e um aviso aparecerá ao lado do atributo nos perfis dos usuários afetados.
 {% endalert %}
 
 ### Dados existentes após uma alteração de tipo {#existing-data-after-a-type-change}
 
-Forçar uma alteração de tipo de dados afeta apenas os novos dados que chegam à Braze. Todos os dados ingeridos antes da alteração de tipo continuam armazenados como o tipo antigo e podem não ser segmentáveis com os filtros do novo tipo. Um aviso aparece nos perfis dos usuários afetados. Para novos dados recebidos, se um valor não corresponder ao tipo forçado, a Braze pode convertê-lo para o tipo forçado (por exemplo, a string `"100"` para o número `100`). Valores que não podem ser convertidos são ignorados e não atualizam o atributo.
+Forçar uma alteração de tipo de dados afeta apenas os novos dados que chegam à Braze. Todos os dados ingeridos antes da alteração de tipo continuam armazenados como o tipo antigo e podem não ser Segment or segmentoáveis com os filtros do novo tipo. Um aviso aparece nos perfis dos usuários afetados. Para novos dados recebidos, se um valor não corresponder ao tipo forçado, a Braze pode convertê-lo para o tipo forçado (por exemplo, a string `"100"` para o número `100`). Valores que não podem ser convertidos são ignorados e não atualizam o atributo.
 
-Se você precisar que todos os dados de usuários existentes correspondam ao novo tipo, será necessário reenviar os valores do atributo para esses usuários por meio do SDK, da API ou de uma importação CSV. Não há conversão em massa automática para dados existentes.
+Se você precisar que todos os dados de usuários existentes correspondam ao novo tipo, será necessário reenviar os valores do atributo para esses usuários por meio do SDK or kit de desenvolvimento de software, da API or interface de programação do aplicativo (API) ou de uma importação CSV. Não há conversão em massa automática para dados existentes.
 
 ### Coerção de tipos de dados {#data-type-coercion}
 

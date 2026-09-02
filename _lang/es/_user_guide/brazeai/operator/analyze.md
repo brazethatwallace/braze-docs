@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze responde preguntas de rendimiento en lenguaje natural dentro de BrazeAI Operator<sup>TM</sup>. Las respuestas incluyen gráficos, comparaciones e información breve. No necesitas crear un panel ni generar un informe completo primero.
 
 {% alert important %}
-Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los análisis compatibles están en evolución. Para solicitar acceso para tu cuenta, ponte en contacto con tu administrador de éxito de cliente.
+Operator Analyze se encuentra actualmente en fase beta. Las capacidades y los análisis compatibles están en evolución. Para solicitar acceso para tu cuenta, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
 {% endalert %}
 
 ## ¿Por qué usar Operator Analyze? {#why-use-operator-analyze}
@@ -39,7 +39,7 @@ Describe lo que quieres saber. No se requiere una redacción fija. Selecciona un
 {% tab Comparaciones con puntos de referencia %}
 
 * "¿Cómo se compara nuestra *tasa de apertura* de correo electrónico con los puntos de referencia del sector en los últimos 30 días?"
-* "¿Estamos por encima o por debajo del punto de referencia para la *tasa de click-through* de SMS este trimestre?"
+* "¿Estamos por encima o por debajo del punto de referencia para la *tasa de click-through* de servicio de mensajes cortos este trimestre?"
 * "¿En qué áreas estamos por debajo del sector en nuestra combinación de canales?"
 
 {% endtab %}
@@ -97,7 +97,7 @@ Los *ingresos atribuidos* y las *conversiones* usan la misma agregación por Cam
 | --- | --- | --- |
 | Correo electrónico | *Envíos*, *Entregas*, *Unique Opens*, *Clics únicos*, *Cancelaciones de suscripción* | Sí |
 | Push (iOS, Android, Web) | *Envíos*, *Entregas*, *Aperturas* | Sí |
-| SMS | *Envíos*, *Entregas*, *Clics en enlaces* | Sí |
+| servicio de mensajes cortos | *Envíos*, *Entregas*, *Clics en enlaces* | Sí |
 | In-App Messages | *Impresiones*, *Clics* | Sí |
 | Content Cards | *Envíos*, *Impresiones*, *Clics* | Sí |
 | WhatsApp | *Envíos*, *Entregas*, *Lecturas*, *Clics* | Aún no |
@@ -140,21 +140,21 @@ Si los resultados difieren en más del 50 % entre ventanas, Operator muestra las
 
 ## Actualización de datos {#data-freshness}
 
-Los datos se actualizan diariamente. La actividad del mismo día aparece después de la siguiente actualización. Cada respuesta indica la fecha más reciente del conjunto de datos. Si esa fecha parece desactualizada, ponte en contacto con tu administrador de éxito de cliente.
+Los datos se actualizan diariamente. La actividad del mismo día aparece después de la siguiente actualización. Cada respuesta indica la fecha más reciente del conjunto de datos. Si esa fecha parece desactualizada, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
 
 ## Fuera del alcance {#whats-out-of-scope}
 
-* **Desgloses de rendimiento a nivel de producto.** Los *ingresos atribuidos* y la participación se agregan a nivel de Campaign, Canvas, canal o programa. No se desglosan por productos o SKU. Las preguntas a nivel de producto o SKU no son compatibles. Ponte en contacto con tu administrador de éxito de cliente para esos análisis.
+* **Desgloses de rendimiento a nivel de producto.** Los *ingresos atribuidos* y la participación se agregan a nivel de Campaign, Canvas, canal o programa. No se desglosan por productos o SKU. Las preguntas a nivel de producto o SKU no son compatibles. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para esos análisis.
 * **Puntos de referencia del sector para WhatsApp y RCS.** Las métricas de participación para ambos canales son compatibles. Los puntos de referencia aún no están disponibles.
 
-Las preguntas fuera del alcance reciben una respuesta directa, una alternativa sugerida cuando es posible, o una referencia a tu administrador de éxito de cliente.
+Las preguntas fuera del alcance reciben una respuesta directa, una alternativa sugerida cuando es posible, o una referencia a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente.
 
 ## Consejos para obtener mejores resultados {#tips-for-better-results}
 
 * **Rango de tiempo:** Prefiere rangos explícitos ("FY26 Q2", "los últimos 90 días") en lugar de frases vagas como "el trimestre pasado" cuando necesitas precisión.
 * **Métricas:** Nombra la tasa que te interesa (*tasa de apertura*, *tasa de click-through*, *tasa de clic a apertura*). Operator informa la fórmula que utilizó.
 * **Seguimientos:** Profundiza en un resultado, cambia la ventana o cambia de canal. Operator mantiene el contexto a lo largo del hilo.
-* **Terminología de canales:** WhatsApp y RCS usan *tasa de lectura* (no *tasa de apertura*). SMS usa *tasa de clics en enlaces*.
+* **Terminología de canales:** WhatsApp y RCS usan *tasa de lectura* (no *tasa de apertura*). servicio de mensajes cortos usa *tasa de clics en enlaces*.
 * **Solicitudes combinadas:** Se admite punto de referencia más tendencia en una sola indicación.
 
 ## Privacidad y seguridad de datos {#data-privacy-and-security}

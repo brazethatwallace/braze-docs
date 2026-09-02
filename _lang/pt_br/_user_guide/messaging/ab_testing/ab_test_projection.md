@@ -17,7 +17,7 @@ Esse recurso está atualmente em acesso antecipado. Entre em contato com seu ger
 
 ## Execução de uma projeção {#running-a-projection}
 
-Na composição da campanha, insira suas variantes de mensagens e suas linhas de assunto no editor. Quando estiver pronto, acesse a etapa **Target Audience** do fluxo de criação da campanha. No painel **A/B Testing**, selecione **Run Projection**.
+Na composição da campanha, insira suas variantes de mensagens e suas linhas de assunto no editor. Quando estiver pronto, acesse a etapa **Target Audience** do fluxo de criação da campanha. No painel **Testes A/B**, selecione **Run Projection**.
 
 <img width="518" alt="image" src="https://github.com/braze-inc/braze-docs/assets/17167198/8e74835c-76e4-4241-9763-c4f86a622c75">
 

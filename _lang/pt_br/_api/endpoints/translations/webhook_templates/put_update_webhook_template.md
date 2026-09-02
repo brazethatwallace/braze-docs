@@ -9,7 +9,7 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint para atualizar traduções de um modelo de webhook."
 ---
 
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar traduções para um modelo de webhook {#update-translations-for-a-webhook-template}
 {% apimethod put %}
 /templates/webhook/translations
@@ -19,7 +19,7 @@ description: "Este artigo descreve detalhes sobre o endpoint para atualizar trad
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.update`.
+Para usar este endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `templates.translations.update`.
 
 ## Limite de frequência {#rate-limit}
 

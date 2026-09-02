@@ -1,14 +1,14 @@
 ---
 page_order: 4
 nav_title: Push-Storys
-article_title: Richten Sie Push-Storys für das Braze SDK ein.
+article_title: Richten Sie Push-Storys für das Braze SDK or Software-Development-Kit ein.
 channel:
   - push notifications
 ---
 
 # Push-Storys
 
-> Erfahren Sie, wie Sie Push-Storys für das Braze SDK einrichten.
+> Erfahren Sie, wie Sie Push-Storys für das Braze SDK or Software-Development-Kit einrichten.
 
 {% sdktabs %}
 {% sdktab swift %}

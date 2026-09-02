@@ -27,7 +27,7 @@ Pour un déploiement standard du SDK Web, vous pouvez utiliser la méthode suiva
 braze.logCustomEvent("YOUR_EVENT_NAME");
 ```
 
-Si vous préférez utiliser Google Tag Manager, vous pouvez utiliser le type d'étiquette **Custom Event** pour appeler la [méthode `logCustomEvent`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) et envoyer des événements personnalisés à Braze, avec en option des propriétés d'événement personnalisées. Pour ce faire :
+Si vous préférez utiliser Google Tag gestionnaire, vous pouvez utiliser le type d'étiquette **Custom Event** pour appeler la [méthode `logCustomEvent`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent) et envoyer des événements personnalisés à Braze, avec en option des propriétés d'événement personnalisées. Pour ce faire :
 
 1. Saisissez le **Event Name** en utilisant une variable ou en tapant un nom d'événement.
 2. Utilisez le bouton **Add Row** pour ajouter des propriétés d'événement.

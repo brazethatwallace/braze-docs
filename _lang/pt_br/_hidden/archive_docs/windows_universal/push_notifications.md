@@ -60,7 +60,7 @@ Os deep links são usados para levar os usuários de fora do app diretamente par
 
 O suporte a deep linking do WNS é diferente, pois inicia seu app com dados sobre para onde enviar o usuário. Quando o push do WNS é criado, ele pode incluir uma string de inicialização que é passada para o `OnLaunched` do seu app quando o push é clicado e o aplicativo é aberto. Já usamos essa string de inicialização para fazer o rastreamento de campanhas e oferecemos aos usuários a capacidade de anexar seus próprios dados, que podem ser analisados e usados para navegar o usuário quando o app é iniciado.
 
-Se você especificar uma string de inicialização extra no dashboard ou na REST API, ela será adicionada ao final da string de inicialização que criamos, após a chave "abextras=". Portanto, um exemplo de string de inicialização pode ser `ab_cn_id=_trackingid_abextras=page=settings`, no qual você especificou `page=settings` no parâmetro extra da string de inicialização para que possa analisá-la e levar o usuário à página de configurações.
+Se você especificar uma string de inicialização extra no dashboard ou na REST or transferir estado representacional API or interface de programação do aplicativo (API), ela será adicionada ao final da string de inicialização que criamos, após a chave "abextras=". Portanto, um exemplo de string de inicialização pode ser `ab_cn_id=_trackingid_abextras=page=settings`, no qual você especificou `page=settings` no parâmetro extra da string de inicialização para que possa analisá-la e levar o usuário à página de configurações.
 
 ### Parte 2: Deep links pelo dashboard {#part-2-deep-linking-through-the-dashboard}
 
@@ -68,6 +68,6 @@ Especifique a string a ser anexada à string de inicialização no campo "Additi
 
 ![]({% image_buster /assets/img_archive/windows_deep_link_click_action.png %} "Deep Link Click Action")
 
-### Parte 3: Deep links pela REST API {#part-3-deep-linking-through-the-rest-api}
+### Parte 3: Deep links pela REST or transferir estado representacional API or interface de programação do aplicativo (API) {#part-3-deep-linking-through-the-rest-api}
 
-A Braze também permite o envio de deep links por meio da REST API. [Os objetos push do Windows Universal]({{site.baseurl}}/api/objects_filters/) aceitam um parâmetro opcional `extra_launch_string`.
+A Braze também permite o envio de deep links por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API). [Os objetos push do Windows Universal]({{site.baseurl}}/api/objects_filters/) aceitam um parâmetro opcional `extra_launch_string`.

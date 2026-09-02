@@ -18,29 +18,29 @@ Esta sección proporciona una vista más detallada y de extremo a extremo de có
 
 ## Qué se almacena y qué no {#what-is-and-isnt-stored}
 
-- **Cuerpo de respuesta de Contenido conectado:** No se almacena de forma permanente en Braze. Se puede mantener temporalmente en memoria y, cuando el almacenamiento en caché está habilitado, se almacena en caché con un tiempo de vida (TTL).
+- **Cuerpo de respuesta de Contenido conectado:** No se almacena de forma permanente en Braze. Se puede mantener temporalmente en memoria y, cuando el almacenamiento en caché está habilitado, se almacena en caché con un TTL or tiempo de vida or tiempo de vida (TTL or tiempo de vida).
 - **Metadatos de solicitud de Contenido conectado:** Los metadatos de solicitud, como la URL completamente representada, el código de estado HTTP y la duración de la respuesta, se registran para la solución de problemas y la supervisión. Estos registros se conservan durante un máximo de 30 días.
 - **Mensaje final representado:** Existe en memoria durante la representación. También puede almacenarse en otro lugar dependiendo de tu configuración y canal (por ejemplo, Archivado de mensajes o Content Cards).
 
 ## Flujo de representación (nivel alto) {#rendering-flow-high-level}
 
-El siguiente flujo describe cómo Braze representa y envía mensajes para canales basados en proveedores, como correo electrónico, SMS y push. Los canales entregados por SDK, como Content Cards, utilizan la misma representación subyacente de Liquid y Contenido conectado, pero difieren en cuándo se genera el contenido y cómo se entrega.
+El siguiente flujo describe cómo Braze representa y envía mensajes para canales basados en proveedores, como correo electrónico, servicio de mensajes cortos y push. Los canales entregados por SDK or kit de desarrollo de software, como Content Cards, utilizan la misma representación subyacente de Liquid y Contenido conectado, pero difieren en cuándo se genera el contenido y cómo se entrega.
 
 1. Un proceso en segundo plano representa la plantilla Liquid de un mensaje cuando el mensaje se prepara para ser entregado.
 2. Las etiquetas de Contenido conectado se evalúan durante la representación de Liquid.
 3. Para cada etiqueta de Contenido conectado, Braze verifica una caché de múltiples niveles. Si no existe un valor en caché (o el almacenamiento en caché está deshabilitado), Braze llama a tu punto de conexión y recibe la respuesta.
 4. La respuesta se inyecta en la plantilla Liquid y el mensaje se representa completamente.
-5. Para canales basados en proveedores, el mensaje representado se envía al proveedor del canal y luego al usuario. Para canales entregados por SDK, como Content Cards, el contenido representado se sincroniza con el SDK de Braze y puede generarse en la primera impresión o en el momento de visualización, momento en el cual se muestra al usuario.
+5. Para canales basados en proveedores, el mensaje representado se envía al proveedor del canal y luego al usuario. Para canales entregados por SDK or kit de desarrollo de software, como Content Cards, el contenido representado se sincroniza con el SDK or kit de desarrollo de software de Braze y puede generarse en la primera impresión o en el momento de visualización, momento en el cual se muestra al usuario.
 
 ## Dónde pueden existir temporalmente las respuestas de Contenido conectado {#where-connected-content-responses-can-live-temporarily}
 
-Braze utiliza una caché de múltiples niveles para las respuestas de Contenido conectado con TTL entre cinco minutos y cuatro horas, dependiendo de tu uso de `:cache_max_age` y otras reglas de almacenamiento en caché:
+Braze utiliza una caché de múltiples niveles para las respuestas de Contenido conectado con TTL or tiempo de vida entre cinco minutos y cuatro horas, dependiendo de tu uso de `:cache_max_age` y otras reglas de almacenamiento en caché:
 
 - **Caché de memoria en proceso:** Caché transitoria dentro del proceso del trabajador. Los datos solo pueden existir durante la duración del trabajo (hasta ~11 minutos según el tiempo de espera del trabajador).
 - **Caché de máquina local:** Una caché por trabajador, como una instancia local de Memcached.
 - **Caché a nivel de clúster:** Una caché distribuida compartida entre trabajadores, como un clúster de Memcached.
 
-Estas capas de caché son volátiles y pueden desalojar datos antes del TTL configurado.
+Estas capas de caché son volátiles y pueden desalojar datos antes del TTL or tiempo de vida configurado.
 
 ## Qué cambia cuando usas `:no_cache` {#what-changes-when-you-use-no_cache}
 

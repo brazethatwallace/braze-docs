@@ -20,7 +20,7 @@ Weitere Ressourcen und FAQs finden Sie im [Odicci Help Center](https://help.odic
 Sie können die Odicci-Plattform mit Braze verbinden, um nahtlose Datenfreigabe und Campaign-Verwaltung zu ermöglichen. Dies umfasst:
 
 - Automatische Übermittlung der in Odicci-Erlebnissen gesammelten Zielgruppendaten an Braze.
-- Triggern personalisierter Marketing-Campaigns basierend auf Nutzer:innen-Interaktionen.
+- Trigger or triggern or triggern personalisierter Marketing-Campaigns basierend auf Nutzer:innen-Interaktionen.
 - Abbildung von Feldern zwischen Odicci und Braze, um eine genaue Datensynchronisierung zu gewährleisten.
 
 ## Beispiel {#example}
@@ -38,7 +38,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Voraussetzung | Beschreibung |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein Odicci-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Odicci-Konto mit Zugriff auf den Bereich **Integrations**. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `campaigns.list`. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den Berechtigungen `users.track` und `campaigns.list`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration von Odicci {#integrating-odicci}
@@ -51,13 +51,13 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
    ![Braze-Integration verbinden]({% image_buster /assets/img/odicci/braze_connect.png %})
 
-4. Geben Sie Ihren Braze REST-API-Schlüssel in das vorgesehene Feld ein.
+4. Geben Sie Ihren Braze Representational State Transfer-API-Schlüssel in das vorgesehene Feld ein.
 5. Speichern Sie die Einstellungen, um die Integration auf Kontoebene zu aktivieren.
 
-### 2. Schritt: Beziehen Sie Ihren Braze REST-API-Schlüssel {#step-2-obtain-your-braze-rest-api-key}
+### 2. Schritt: Beziehen Sie Ihren Braze Representational State Transfer-API-Schlüssel {#step-2-obtain-your-braze-rest-api-key}
 
 1. Melden Sie sich bei Ihrem Braze-Konto an.
-2. Gehen Sie zu **Entwicklungskonsole > REST API Keys**.
+2. Gehen Sie zu **Entwicklungskonsole > Representational State Transfer API Keys**.
 3. Erstellen Sie einen neuen API-Schlüssel oder kopieren Sie einen vorhandenen Schlüssel mit der Berechtigung `users.track`.
 
 ### 3. Schritt: Aktivieren Sie die Integration auf Erlebnisebene {#step-3-activate-the-integration-at-the-experience-level}

@@ -44,7 +44,7 @@ Usa este flujo de trabajo cuando un usuario debería estar en un segmento pero n
 El tamaño de un Segment en el panel suele ser una estimación basada en una muestra de usuarios. Los Segments muy pequeños pueden mostrar un rango estimado que incluye 0, incluso cuando hay usuarios que coinciden con tus filtros.
 
 - Selecciona **Calculate exact stats** en el panel **Reachable users** para obtener un conteo preciso. Guarda el Segment primero. Para más información, consulta [Consideraciones para los conteos estimados]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#considerations-for-estimate-counts).
-- Si **User Preview** devuelve cero usuarios para un Segment pequeño, eso no significa necesariamente que el Segment esté vacío. Ejecuta **Calculate exact stats** para confirmarlo. Para más información, consulta [Vista previa de usuario]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
+- Si **User vista previa** devuelve cero usuarios para un Segment pequeño, eso no significa necesariamente que el Segment esté vacío. Ejecuta **Calculate exact stats** para confirmarlo. Para más información, consulta [Vista previa de usuario]({{site.baseurl}}/user_guide/audience/segments/segment_data#user-preview).
 
 ## Pertenencia retroactiva a Segments {#retroactive-segment-membership}
 

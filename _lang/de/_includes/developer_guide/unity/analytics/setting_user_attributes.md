@@ -162,14 +162,14 @@ AppboyBinding.RemoveFromCustomUserAttributeArray("key", "Attribute")
 
 {% tab Verschachtelte Objekte %}
 
-Sie können angepasste Attribute mit verschachtelten Objekten festlegen (verfügbar ab Unity SDK 5.1.0). Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Sie können angepasste Attribute mit verschachtelten Objekten festlegen (verfügbar ab Unity SDK or Software-Development-Kit 5.1.0). Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 Die folgenden Beispiele zeigen, wie Sie ein verschachteltes Objektattribut festlegen, Aktualisierungen in ein bestehendes Objekt zusammenführen und ein Array verschachtelter Objekte festlegen.
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom object attribute key", dictionary(Dictionary<string, object>));
 ```
 
-Um ein bestehendes verschachteltes Objekt zu aktualisieren, verwenden Sie den Merge-Parameter:
+Um ein bestehendes verschachteltes Objekt zu Update or aktualisieren or aktualisieren, verwenden Sie den Merge-Parameter:
 
 ```csharp
 AppboyBinding.SetCustomUserAttribute("custom object attribute key", dictionary(Dictionary<string, object>), merge(bool));
@@ -196,9 +196,9 @@ Um ein angepasstes Attribut zurückzusetzen, übergeben Sie den entsprechenden A
 AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 ```
 
-### Verwendung der REST API {#using-the-rest-api}
+### Verwendung der Representational State Transfer API {#using-the-rest-api}
 
-Sie können auch unsere REST API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
+Sie können auch unsere Representational State Transfer API verwenden, um Nutzerattribute festzulegen oder zurückzusetzen. Weitere Informationen finden Sie unter [Nutzerdaten-Endpunkte]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data).
 
 ## Nutzer:innen-Abos festlegen {#setting-user-subscriptions}
 

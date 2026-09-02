@@ -132,7 +132,7 @@ Wählen Sie in Braze **Verbindung testen**, um den Quellzugriff zu überprüfen,
 4. Referenzieren Sie die Quelle aus Schritt 2.
 5. Wählen Sie **SQL** und schreiben Sie eine SQL-Anfrage, die Nutzerdaten aus Ihrem Warehouse zurückgibt. Ihre SQL-Anfrage definiert die Daten, die mit Braze synchronisiert werden. Das Abfrageergebnis wird zum Schema für Ihre Synchronisierung.
 
-Sie können den Source Explorer verwenden, um verfügbare Tabellen und Views zum Synchronisieren zu durchsuchen, oder den KI-SQL-Generator nutzen, um Hilfe von Braze Operator für Ihre SQL-Anfrage zu erhalten.
+Sie können den Source Explorer verwenden, um verfügbare Tabellen und Views zum Synchronisieren zu durchsuchen, oder den KI or künstliche Intelligenz-SQL-Generator nutzen, um Hilfe von Braze Operator für Ihre SQL-Anfrage zu erhalten.
 
 {% alert note %}
 Es werden nur schreibgeschützte Anfragen unterstützt, einschließlich `JOIN`-Klauseln. Weitere Details finden Sie unter [SQL-Einschränkungen](#sql-constraints).
@@ -154,7 +154,7 @@ Für eine erfolgreiche Validierung muss Ihre SQL-Anfrage verschiedene erforderli
 |---|---|
 | Attribute | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`.<br>- Mindestens eine zusätzliche Spalte (Attribut) zum Synchronisieren. |
 | Nutzer:innen löschen | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`. |
-| Canvas-Trigger | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`. |
+| Canvas-Trigger or triggern | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`. |
 | Angepasste Events | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`.<br>- `NAME` zur Darstellung des Event-Namens.<br>- `TIME` zur Darstellung der Event-Zeit. Falls nicht verfügbar, verwendet CDI `UPDATED_AT` als Ersatz. |
 | Kauf-Events | - Ein Nutzerbezeichner, einer von `external_id`, `braze_id`, `alias_name` und `alias_label`, E-Mail oder Telefonnummer.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` zur Darstellung der Kauf-Event-Zeit. Falls nicht verfügbar, verwendet CDI `UPDATED_AT` als Ersatz. |
 | Katalog | - `ID` zur Darstellung des Katalogartikels-Bezeichners.<br>- `UPDATED_AT`.<br>- Mindestens eine zusätzliche Spalte (Katalogfeld) zum Synchronisieren. |

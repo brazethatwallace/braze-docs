@@ -17,7 +17,7 @@ Depois de [configurar o servidor MCP da Braze]{% if include.section == "user" %}
 - Engenheiros de CRM criando fluxos de trabalho de agentes com várias etapas.
 - Profissionais de marketing técnicos experimentando consultas em linguagem natural.
 
-O servidor MCP da Braze inclui ferramentas de leitura e escrita. Essas ferramentas não retornam dados de perfis de usuário da Braze. Seus agentes herdam as permissões do seu usuário no dashboard da Braze. Para a lista completa de ferramentas disponíveis, consulte [Funções de API disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
+O servidor MCP da Braze inclui ferramentas de leitura e escrita. Essas ferramentas não retornam dados de perfis de usuário da Braze. Seus agentes herdam as permissões do seu usuário no dashboard da Braze. Para a lista completa de ferramentas disponíveis, consulte [Funções de API or interface de programação do aplicativo (API) disponíveis]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
 
 {% alert warning %}
 Ferramentas que expõem IPI em nível de usuário não estão disponíveis.
@@ -31,15 +31,15 @@ Sim. O servidor MCP hospedado localmente lançado em agosto de 2025 foi desconti
 
 ### Como o servidor remoto é diferente? {#how-is-the-remote-server-different}
 
-O servidor MCP anterior da Braze era executado localmente na sua máquina. Era necessário instalar um pacote, gerenciar um arquivo de configuração e criar uma chave de API da Braze com as permissões corretas. O servidor MCP remoto elimina essa configuração local.
+O servidor MCP anterior da Braze era executado localmente na sua máquina. Era necessário instalar um pacote, gerenciar um arquivo de configuração e criar uma chave de API or interface de programação do aplicativo (API) da Braze com as permissões corretas. O servidor MCP remoto elimina essa configuração local.
 
-Conecte-se a partir de um cliente MCP compatível em menos de um minuto. A autenticação usa OAuth. O acesso está vinculado à sua conta de usuário do dashboard da Braze, não a uma chave de API compartilhada, então o que um agente pode ver e fazer reflete suas permissões no dashboard. Se um usuário do dashboard perder o acesso na Braze, o cliente também perde o acesso.
+Conecte-se a partir de um cliente MCP compatível em menos de um minuto. A autenticação usa OAuth. O acesso está vinculado à sua conta de usuário do dashboard da Braze, não a uma chave de API or interface de programação do aplicativo (API) compartilhada, então o que um agente pode ver e fazer reflete suas permissões no dashboard. Se um usuário do dashboard perder o acesso na Braze, o cliente também perde o acesso.
 
 As principais diferenças são:
 
 - **Configuração:** Cole uma URL da Braze em vez de instalar um pacote e editar arquivos de configuração.
-- **Autenticação:** Faça login com sua conta da Braze em vez de criar uma chave de API.
-- **Permissões:** O acesso é baseado na sua conta de usuário do dashboard em vez de permissões de chave de API.
+- **Autenticação:** Faça login com sua conta da Braze em vez de criar uma chave de API or interface de programação do aplicativo (API).
+- **Permissões:** O acesso é baseado na sua conta de usuário do dashboard em vez de permissões de chave de API or interface de programação do aplicativo (API).
 - **Direcionamento de espaço de trabalho:** O contexto do espaço de trabalho é passado por requisição em vez de ser fixado na configuração local.
 
 ## Perguntas frequentes (FAQ) {#faq}
@@ -63,9 +63,9 @@ Os clientes MCP podem acessar ferramentas que não retornam IPI em nível de usu
 
 Sim, se o seu usuário do dashboard tiver essas permissões.
 
-### Ainda preciso de uma chave de API da Braze? {#do-i-still-need-a-braze-api-key}
+### Ainda preciso de uma chave de API or interface de programação do aplicativo (API) da Braze? {#do-i-still-need-a-braze-api-key}
 
-Não para o MCP. As chaves de API ainda funcionam para a REST API e não estão sendo descontinuadas.
+Não para o MCP. As chaves de API or interface de programação do aplicativo (API) ainda funcionam para a REST or transferir estado representacional API or interface de programação do aplicativo (API) e não estão sendo descontinuadas.
 
 ### Quais regiões são suportadas? {#which-regions-are-supported}
 

@@ -10,7 +10,7 @@ description: "Saiba como a Braze lida com a mesclagem de usuários marcados para
 
 > Saiba como a Braze lida com a mesclagem de usuários, incluindo os três tipos de usuários em que o comportamento padrão não se aplica: usuários marcados para exclusão, usuários teste e usuários do Grupo de controle global.
 
-Esse comportamento se aplica a todas as mesclagens, seja usando [mesclagem individual]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#individual-merging), [mesclagem em massa]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) ou o [endpoint da API Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
+Esse comportamento se aplica a todas as mesclagens, seja usando [mesclagem individual]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#individual-merging), [mesclagem em massa]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#bulk-merging) ou o [endpoint da API or interface de programação do aplicativo (API) Merge users]({{site.baseurl}}/api/endpoints/user_data/post_users_merge).
 
 ## Comportamento geral de mesclagem {#general-merge-behavior}
 
@@ -45,9 +45,9 @@ Esse comportamento funciona bem para atributos padrão e personalizados. No enta
 
 ## Usuários marcados para exclusão {#users-marked-for-deletion}
 
-Quando você usa a [ferramenta de exclusão de usuários em massa]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) para excluir um segmento, a Braze marca esses perfis de usuário para exclusão nos próximos 7 dias. A Braze não mescla perfis marcados para exclusão, seja o perfil a ser mantido ou o perfil a ser mesclado.
+Quando você usa a [ferramenta de exclusão de usuários em massa]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) para excluir um Segment or segmento or segmento, a Braze marca esses perfis de usuário para exclusão nos próximos 7 dias. A Braze não mescla perfis marcados para exclusão, seja o perfil a ser mantido ou o perfil a ser mesclado.
 
-Se você precisar mesclar um perfil marcado para exclusão, primeiro [cancele a exclusão do segmento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel) ou remova o usuário da exclusão para que o perfil não esteja mais marcado.
+Se você precisar mesclar um perfil marcado para exclusão, primeiro [cancele a exclusão do Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users#cancel) ou remova o usuário da exclusão para que o perfil não esteja mais marcado.
 
 ## Usuários teste {#test-users}
 

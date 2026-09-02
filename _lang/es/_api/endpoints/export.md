@@ -9,7 +9,7 @@ page_type: reference
 
 # Endpoints de exportación {#export-endpoints}
 
-Con esta colección de endpoints, puedes acceder y exportar diversos niveles de detalle sobre tus KPI, sesiones de aplicación, usuarios, Segments, Campaigns y Canvas. Asegúrate de conocer tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), [clave de API]({{site.baseurl}}/api/basics) e [identificador de API]({{site.baseurl}}/api/identifier_types) al crear tus parámetros y cuerpos de solicitud.
+Con esta colección de endpoints, puedes acceder y exportar diversos niveles de detalle sobre tus indicador clave de rendimiento, sesiones de aplicación, usuarios, Segments, Campaigns y Canvas. Asegúrate de conocer tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints), [clave de API]({{site.baseurl}}/api/basics) e [identificador de API]({{site.baseurl}}/api/identifier_types) al crear tus parámetros y cuerpos de solicitud.
 
 ## Requisitos previos {#prerequisites}
 
@@ -17,7 +17,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 
 | Requisito | Descripción |
 | --- | --- |
-| Clave de API REST de Braze | Una clave de API REST con los permisos de exportación apropiados para los endpoints que planeas llamar. Las claves de API tienen un alcance limitado a endpoints específicos, y los permisos no se pueden cambiar después de la creación. Para más detalles, consulta [Clave de API REST]({{site.baseurl}}/api/basics#about-rest-api-keys). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional con los permisos de exportación apropiados para los endpoints que planeas llamar. Las claves de API tienen un alcance limitado a endpoints específicos, y los permisos no se pueden cambiar después de la creación. Para más detalles, consulta [Clave de API REST or transferencia de estado representacional]({{site.baseurl}}/api/basics#about-rest-api-keys). |
 | Identificadores relevantes | Los identificadores de los datos que deseas exportar, como un ID de Campaign, un ID de Segment o un ID de Canvas. Puedes encontrarlos en el panel de Braze. Para una lista completa, consulta [Tipos de identificadores de API]({{site.baseurl}}/api/identifier_types). |
 | Credenciales de almacenamiento en el cloud (opcional) | Si estás exportando conjuntos de datos grandes, conecta un contenedor de [Amazon S3]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3), [Microsoft Azure Blob Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/microsoft_azure_blob_storage_for_currents) o [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents) para que los archivos de exportación se escriban directamente en tu almacenamiento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -36,7 +36,7 @@ La siguiente tabla resume las categorías de datos disponibles a través de las 
 | Canvas | Análisis de series de datos, resúmenes de análisis, detalles de Canvas y listas de Canvas | [Endpoints de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) |
 | Segments | Listas de Segments, análisis de Segments y detalles de Segments | [Endpoints de Segment]({{site.baseurl}}/api/endpoints/export/segments/get_segment) |
 | Datos de usuario | Perfiles de usuario completos por identificador o por segmento, y usuarios por grupo de control global | [Endpoints de datos de usuario]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) |
-| KPIs | Usuarios activos diarios, usuarios activos al mes, nuevos usuarios diarios y desinstalaciones por fecha | [Endpoints de KPI]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) |
+| KPIs | Usuarios activos diarios, MAU or usuarios activos al mes or usuarios activos al mes, nuevos usuarios diarios y desinstalaciones por fecha | [Endpoints de indicador clave de rendimiento]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) |
 | Sesiones | Datos de series temporales de sesiones de la aplicación | [Endpoint de sesiones]({{site.baseurl}}/api/endpoints/export/sessions/get_sessions_analytics) |
 | Eventos personalizados | Nombres de eventos, listas de eventos y análisis de eventos a lo largo del tiempo | [Endpoints de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_data) |
 | Atributos personalizados | Nombres de atributos | [Endpoint de atributos personalizados]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) |
@@ -74,10 +74,10 @@ La siguiente tabla muestra todas las API de exportación disponibles.
 | Eventos personalizados | GET | [Lista de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events) |
 | Eventos personalizados | GET | [Análisis de eventos personalizados]({{site.baseurl}}/api/endpoints/export/custom_events/get_custom_events_analytics) |
 | Atributos personalizados | GET | [Atributos personalizados]({{site.baseurl}}/api/endpoints/export/custom_attributes/get_custom_attributes) |
-| KPI | GET | [KPI de nuevos usuarios diarios por fecha]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) |
-| KPI | GET | [KPI de usuarios activos diarios por fecha]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) |
-| KPI | GET | [KPI de usuarios activos al mes en los últimos 30 días]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) |
-| KPI | GET | [KPI de desinstalaciones por fecha]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) |
+| indicador clave de rendimiento | GET | [indicador clave de rendimiento de nuevos usuarios diarios por fecha]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_daily_new_users_date) |
+| indicador clave de rendimiento | GET | [indicador clave de rendimiento de usuarios activos diarios por fecha]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_dau_date) |
+| indicador clave de rendimiento | GET | [indicador clave de rendimiento de MAU or usuarios activos al mes or usuarios activos al mes en los últimos 30 días]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_mau_30_days) |
+| indicador clave de rendimiento | GET | [indicador clave de rendimiento de desinstalaciones por fecha]({{site.baseurl}}/api/endpoints/export/kpi/get_kpi_uninstalls_date) |
 | Compras | GET | [Lista de ID de productos]({{site.baseurl}}/api/endpoints/export/purchases/get_list_product_id) |
 | Compras | GET | [Número de compras]({{site.baseurl}}/api/endpoints/export/purchases/get_number_of_purchases) |
 | Compras | GET | [Datos de ingresos por período]({{site.baseurl}}/api/endpoints/export/purchases/get_revenue_series) |

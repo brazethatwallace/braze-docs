@@ -18,8 +18,8 @@ Sempre que possível, a Braze recomenda testar um Canvas antes de lançá-lo. Es
 Criar um plano de teste é essencial antes de começar a testar seu Canvas. Um plano de teste pode ajudar a identificar e acompanhar áreas específicas da jornada do seu Canvas.
 
 Ao elaborar seu plano de teste, considere as seguintes perguntas:
-- Pelo menos um usuário foi criado para cada ramificação e jornada do Canvas?
-- Algum segmento está sendo usado no seu Canvas?
+- Pelo menos um usuário foi criado para cada Branch or ramificação or ramificação e jornada do Canvas?
+- Algum Segment or segmento or segmento está sendo usado no seu Canvas?
 	- Se segmentos forem usados, pode haver pré-requisitos para que um usuário entre no Canvas antes de se tornar elegível para uma jornada de usuário.
 - As mensagens no Canvas de teste possuem algum Liquid nos títulos das mensagens que puxam o ID do usuário ou o endereço de e-mail para garantir que seja fácil identificar tanto a mensagem quanto o usuário para fins de teste?
 
@@ -47,7 +47,7 @@ Verifique se seus usuários teste estão recebendo as mensagens pretendidas das 
 
 - Não ser elegível para o grupo de controle global
 - Limitações de limite de frequência
-- Incompatibilidade na associação ao segmento
+- Incompatibilidade na associação ao Segment or segmento or segmento
 - Mensagens interrompidas
 - Tokens por push associados a usuários diferentes
 
@@ -75,11 +75,11 @@ Se algum conteúdo for repetido no seu framework de testes (por exemplo, Liquid 
 
 Você pode executar testes com o Postman e a [Coleção Postman da Braze]({{site.baseurl}}/api/postman_collection). Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para registrar e rastrear eventos personalizados e compras para seus diversos usuários teste.
 
-Note que o envio de dados para a API de rastreamento de usuários só pode ser feito com um ID externo. Portanto, os usuários teste podem precisar ser adicionados como usuários teste dentro de um grupo interno no dashboard da Braze para que erros específicos possam ser investigados mais a fundo.
+Note que o envio de dados para a API or interface de programação do aplicativo (API) de rastreamento de usuários só pode ser feito com um ID externo. Portanto, os usuários teste podem precisar ser adicionados como usuários teste dentro de um grupo interno no dashboard da Braze para que erros específicos possam ser investigados mais a fundo.
 
 #### Testando múltiplas ramificações {#testing-for-multiple-branches}
 
 Quando você está testando um Canvas com múltiplas ramificações que segmentam usuários com base em diferentes atributos e eventos, siga este plano de teste:
 
-1. Para cada ramificação, identifique os atributos e eventos que o usuário deve ter para ser incluído na jornada do Canvas.
+1. Para cada Branch or ramificação or ramificação, identifique os atributos e eventos que o usuário deve ter para ser incluído na jornada do Canvas.
 2. Construa esses dados em uma carga útil JSON para ser enviada usando o endpoint `/users/track`.

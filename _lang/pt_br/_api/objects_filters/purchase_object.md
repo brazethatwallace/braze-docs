@@ -14,7 +14,7 @@ description: "Este artigo de referência explica os diferentes componentes de um
 
 ## O que é um objeto de compra? {#what-is-a-purchase-object}
 
-Um objeto de compra é um objeto que é passado pela API quando uma compra é realizada. Cada objeto de compra está localizado dentro de um array de compras, sendo cada objeto uma compra individual feita por um usuário específico em um momento específico. O objeto de compra tem diversos campos que permitem ao backend da Braze armazenar e usar essas informações para personalização, coleta de dados e customização.
+Um objeto de compra é um objeto que é passado pela API or interface de programação do aplicativo (API) quando uma compra é realizada. Cada objeto de compra está localizado dentro de um array de compras, sendo cada objeto uma compra individual feita por um usuário específico em um momento específico. O objeto de compra tem diversos campos que permitem ao backend da Braze armazenar e usar essas informações para personalização, coleta de dados e customização.
 
 ### Corpo do objeto {#object-body}
 
@@ -72,7 +72,7 @@ Isso facilita a identificação dos produtos para segmentação e disparo de men
 
 Se você quiser registrar compras no nível do pedido em vez do nível do produto, pode usar o nome do pedido ou a categoria do pedido como `product_id` (como `Online Order` ou `Completed Order`).
 
-Por exemplo, para registrar compras no nível do pedido no SDK para web:
+Por exemplo, para registrar compras no nível do pedido no SDK or kit de desenvolvimento de software para web:
 
 ```html
 POST https://YOUR_REST_API_URL/users/track
@@ -116,7 +116,7 @@ Para uma referência consolidada dos tipos de dados em atributos personalizados,
 Nesse caso, recomendamos usar nomes de produtos em um nível de "grupo" em vez de identificadores em nível de transação ao definir estruturas de dados. Por exemplo, uma empresa de bilhetes de trem deve ter produtos para "viagem única", "viagem de ida e volta", "várias cidades", e não transações específicas, como "transação 123" ou "transação 046". Como outro exemplo, com o evento de compra "comida", as propriedades seriam melhor definidas como "bolo" e "sanduíche".
 
 {% alert important %}
-Observe que os produtos podem ser adicionados por meio da REST API da Braze. Por exemplo, se você enviar uma chamada para o endpoint `/users/track` e incluir um novo ID de compra, a Braze cria automaticamente um produto na seção **Configurações de dados** > **Produtos** do dashboard.
+Observe que os produtos podem ser adicionados por meio da REST or transferir estado representacional API or interface de programação do aplicativo (API) da Braze. Por exemplo, se você enviar uma chamada para o endpoint `/users/track` e incluir um novo ID de compra, a Braze cria automaticamente um produto na seção **Configurações de dados** > **Produtos** do dashboard.
 {% endalert %}
 
 ### Exemplo de objeto de compra {#example-purchase-object}
@@ -173,4 +173,4 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 Usando o exemplo fornecido, podemos ver que alguém comprou uma mochila com as propriedades: cor, monograma, duração do checkout, tamanho e marca. Em seguida, podemos criar segmentos com essas propriedades usando [propriedades de eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) ou enviar mensagens personalizadas por meio de um canal usando Liquid. Por exemplo, "Olá **Ana F.**, obrigado por comprar aquela **mochila vermelha média** por **R$ 40,00**! Obrigado por comprar na **Backpack Locker**!"
 
-Se quiser salvar, armazenar e rastrear propriedades para segmentar, será necessário configurá-las como atributos personalizados. Isso pode ser feito usando [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que permitem o direcionamento de usuários com base em eventos personalizados ou comportamento de compra armazenado durante toda a vida útil desse perfil de usuário.
+Se quiser salvar, armazenar e rastrear propriedades para segmentar, será necessário configurá-las como atributos personalizados. Isso pode ser feito usando [extensões de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), que permitem o direcionamento de usuários com base em eventos personalizados ou comportamento de compra armazenado durante toda a vida útil desse perfil de usuário.

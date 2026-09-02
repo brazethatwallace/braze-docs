@@ -90,7 +90,7 @@ Puedes solicitar el número de tarjetas no leídas en cualquier momento llamando
 braze.getCachedContentCards().getUnviewedCardCount();
 ```
 
-Luego puedes usar esta información para mostrar una señal que indique cuántas Content Cards no leídas hay. Consulta la <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">documentación de referencia del SDK</a> para más información.
+Luego puedes usar esta información para mostrar una señal que indique cuántas Content Cards no leídas hay. Consulta la <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">documentación de referencia del SDK or kit de desarrollo de software</a> para más información.
 
 {% endtab %}
 {% tab android %}
@@ -114,7 +114,7 @@ Braze.getInstance(context).contentCardUnviewedCount
 {% endsubtab %}
 {% endsubtabs %}
 
-Luego puedes usar esta información para mostrar una señal que indique cuántas Content Cards no leídas hay. Consulta la <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">documentación de referencia del SDK</a> para más información.
+Luego puedes usar esta información para mostrar una señal que indique cuántas Content Cards no leídas hay. Consulta la <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/get-content-card-unviewed-count.html" target="_blank">documentación de referencia del SDK or kit de desarrollo de software</a> para más información.
 
 
 {% endtab %}

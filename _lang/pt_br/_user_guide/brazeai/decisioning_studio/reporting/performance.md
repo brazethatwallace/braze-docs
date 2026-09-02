@@ -41,7 +41,7 @@ Alterar a configuração de agregação (como média móvel de 7 dias) afeta ape
 
 Se você não conseguir selecionar uma data recente no seletor de datas, essa data provavelmente está desabilitada devido a atrasos configurados nos dados. Existem dois tipos de atrasos que podem limitar a disponibilidade de datas:
 
-- **Atrasos no pipeline de dados:** O tempo necessário para ingerir e processar dados da sua plataforma de dados do cliente no Decisioning Studio. Isso garante que os relatórios mostrem apenas dados completos e confiáveis.
+- **Atrasos no pipeline de dados:** O tempo necessário para ingerir e processar dados da sua CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente no Decisioning Studio. Isso garante que os relatórios mostrem apenas dados completos e confiáveis.
 - **Atrasos na ativação de recomendações:** O tempo entre o momento em que o mecanismo do Decisioning Studio prevê uma recomendação e o momento em que você a ativa nas suas Campaigns. Os relatórios não incluirão dias em que as recomendações ainda não foram ativadas.
 
 Esses atrasos são configurados para o seu caso de uso. Se você precisar entender o período específico do seu relatório, entre em contato com o seu AI Success Manager.
@@ -116,7 +116,7 @@ As árvores de drivers usam as mesmas definições de KPI do restante do dashboa
 
 Os Segments permitem que você analise o desempenho por grupos definidos, como níveis de engajamento, características do cliente, tipo de dispositivo ou outros recursos configurados.
 
-A associação a Segments é configurada de forma personalizada para o seu caso de uso e calculada diariamente. Isso significa que o Segment passado de um cliente reflete quem ele era naquele dia. Se o comportamento dele mudar depois, os dias históricos permanecem inalterados. Isso preserva a precisão histórica e evita que os relatórios mudem retroativamente.
+A associação a Segments é configurada de forma personalizada para o seu caso de uso e calculada diariamente. Isso significa que o Segment or segmento passado de um cliente reflete quem ele era naquele dia. Se o comportamento dele mudar depois, os dias históricos permanecem inalterados. Isso preserva a precisão histórica e evita que os relatórios mudem retroativamente.
 
 ### O relatório de performance para agentes Go versus Pro é diferente? {#does-the-performance-report-for-go-versus-pro-agents-differ}
 
@@ -126,7 +126,7 @@ Os KPIs para casos de uso Go são definidos automaticamente e padronizados, já 
 
 O seletor de datas pode não permitir a seleção dos dias mais recentes. Isso é intencional. Os relatórios podem aplicar as seguintes restrições para evitar que dados incompletos ou instáveis apareçam:
 
-- **Atrasos no pipeline de dados:** Configurados para considerar o tempo necessário para ingerir e processar dados da sua plataforma de dados do cliente. Isso garante que todos os dados de um determinado dia estejam completos antes que ele apareça nos relatórios.
+- **Atrasos no pipeline de dados:** Configurados para considerar o tempo necessário para ingerir e processar dados da sua CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente. Isso garante que todos os dados de um determinado dia estejam completos antes que ele apareça nos relatórios.
 - **Atrasos na ativação de recomendações:** Configurados para considerar o intervalo entre o momento em que as recomendações são geradas e o momento em que são ativadas nas suas Campaigns. Dias em que as recomendações ainda não foram ativadas não aparecerão nos relatórios.
 - **Datas explicitamente excluídas:** Datas que você excluiu manualmente nas configurações de relatório.
 

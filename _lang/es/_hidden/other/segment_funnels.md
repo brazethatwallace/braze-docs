@@ -12,7 +12,7 @@ page_type: reference
 Los embudos de segmento le permiten ver cómo afecta cada filtro añadido a las estadísticas de su segmento. Al crear un segmento, aparecerá una fila de datos debajo de cada filtro. Estos datos proporcionarán la siguiente información para los usuarios a los que se dirigen todos los filtros hasta ese momento:
 
 - Número total de usuarios objetivo y porcentaje de tu base de audiencia
-- LTV y LTV para usuarios de pago  
+- LTV or valor de duración del ciclo de vida y LTV or valor de duración del ciclo de vida para usuarios de pago  
 - Número de usuarios que pueden enviar correos electrónicos
 - Número de usuarios que han optado por la adhesión voluntaria por correo electrónico
 - Número de usuarios con push activado  
@@ -24,9 +24,9 @@ Los embudos de segmento le permiten ver cómo afecta cada filtro añadido a las 
 
 - Si añade filtros que documenten su flujo de usuarios, podrá ver los puntos en los que los usuarios se caen. Por ejemplo, si eres una aplicación de redes sociales y quieres ver dónde puedes estar perdiendo usuarios durante el proceso de incorporación, puedes añadir filtros de datos personalizados para registrarse, añadir amigos y enviar el primer mensaje. Si descubres que el 85% de los usuarios se registran y añaden amigos, pero sólo el 45% envía el primer mensaje, sabrás que debes centrarte en fomentar más envíos de mensajes durante tus campañas de incorporación y marketing.
 
-- Los embudos de segmentos le permiten comparar el porcentaje de usuarios que realizan diferentes acciones. Por ejemplo, ¿los usuarios activos, o los que tienen un alto LTV, [tienden a interactuar más con push o correo electrónico](#push-email)? Para averiguarlo, cree un segmento de usuarios activos con uno o varios filtros y, a continuación, vea cómo cambian las estadísticas cuando añade un filtro para optar por el push y cuando añade un filtro para optar por el correo electrónico.
+- Los embudos de segmentos le permiten comparar el porcentaje de usuarios que realizan diferentes acciones. Por ejemplo, ¿los usuarios activos, o los que tienen un alto LTV or valor de duración del ciclo de vida, [tienden a interactuar más con push o correo electrónico](#push-email)? Para averiguarlo, cree un segmento de usuarios activos con uno o varios filtros y, a continuación, vea cómo cambian las estadísticas cuando añade un filtro para optar por el push y cuando añade un filtro para optar por el correo electrónico.
 
-- Analiza cómo cambia el LTV a medida que añades filtros. En el caso de los usuarios activos, ¿tienen mayor LTV los que se conectan a Facebook o los que se conectan a X (antes Twitter)? ¿O es el LTV significativamente mayor para quienes se han conectado a ambos? Si descubres, por ejemplo, que conectarse a X (antes Twitter) tiene muy poco impacto en el LTV, pero conectarse a Facebook tiene un gran impacto, puede que quieras que tus campañas de marketing se centren en incentivar las conexiones a Facebook.
+- Analiza cómo cambia el LTV or valor de duración del ciclo de vida a medida que añades filtros. En el caso de los usuarios activos, ¿tienen mayor LTV or valor de duración del ciclo de vida los que se conectan a Facebook o los que se conectan a X (antes Twitter)? ¿O es el LTV or valor de duración del ciclo de vida significativamente mayor para quienes se han conectado a ambos? Si descubres, por ejemplo, que conectarse a X (antes Twitter) tiene muy poco impacto en el LTV or valor de duración del ciclo de vida, pero conectarse a Facebook tiene un gran impacto, puede que quieras que tus campañas de marketing se centren en incentivar las conexiones a Facebook.
 
 ## Ejemplos
 
@@ -43,7 +43,7 @@ Por ejemplo, supongamos que tiene un grupo en el que todos los usuarios que han 
 
 ### Comparar canales de mensajería
 
-Cree un segmento de usuarios activos (o usuarios con rasgos deseados) y compare sus interacciones con diferentes canales de compromiso, como el correo electrónico y las notificaciones push. Por ejemplo, si los usuarios más fieles están suscritos a push, es posible que desee dedicar más tiempo a enviar campañas de usuarios activos a través de push. Sin embargo, si observa que el LTV es mayor para los que están suscritos al correo electrónico, puede que desee incitar a los usuarios más activos a suscribirse al correo electrónico.
+Cree un segmento de usuarios activos (o usuarios con rasgos deseados) y compare sus interacciones con diferentes canales de compromiso, como el correo electrónico y las notificaciones push. Por ejemplo, si los usuarios más fieles están suscritos a push, es posible que desee dedicar más tiempo a enviar campañas de usuarios activos a través de push. Sin embargo, si observa que el LTV or valor de duración del ciclo de vida es mayor para los que están suscritos al correo electrónico, puede que desee incitar a los usuarios más activos a suscribirse al correo electrónico.
 
 ![Ejemplo de embudo de segmentación para correo electrónico con los siguientes filtros: "Última compra realizada hace menos de 30 días", "Último uso de estas aplicaciones hace menos de 30 días", "Push en primer plano habilitado es verdadero" y "Estado de suscripción por correo electrónico habilitado" para llegar a 2.799 usuarios.]({% image_buster /assets/img_archive/Wish_List_Email.png %})
 

@@ -3,7 +3,7 @@ nav_title: 기능 도입
 article_title: 기능 도입
 page_order: 3
 page_type: reference
-description: "이 문서에서는 Braze Canvas 템플릿을 사용하여 혜택과 사용 팁을 강조하는 시의적절한 개인화된 메시지를 전달하는 방법을 설명합니다."
+description: "이 문서에서는 BRAZE 캔버스 템플릿을 사용하여 혜택과 사용 팁을 강조하는 시의적절한 개인화된 메시지를 전달하는 방법을 설명합니다."
 tool: Canvas
 ---
 

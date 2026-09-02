@@ -52,6 +52,6 @@ Uma melhor prática sugerida é fornecer instruções sobre como cancelar a insc
 
 Para fluxos interativos de Canvas que respondem com [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages):
 
-- Posicione a etapa de mensagem de resposta imediatamente após o disparador de entrada ou a avaliação do Action Path.
+- Posicione a etapa de mensagem de resposta imediatamente após o disparador de entrada ou a avaliação do Action jornada.
 - Use [webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) em vez de etapas de atualização de usuário quando não forem necessárias alterações de inscrição antes da resposta.
 - Evite postergações longas ou esperas de vários dias entre mensagens recebidas e envios de resposta; a janela de atendimento ao cliente do WhatsApp é de 24 horas por mensagem recebida.

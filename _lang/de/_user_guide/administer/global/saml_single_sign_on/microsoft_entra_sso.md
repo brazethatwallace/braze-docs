@@ -1,15 +1,15 @@
 ---
-nav_title: Microsoft Entra SSO
-article_title: Microsoft Entra SSO
+nav_title: Microsoft Entra Single Sign-on
+article_title: Microsoft Entra Single Sign-on
 page_order: 2
 page_type: tutorial
 description: "Dieser Artikel führt Sie durch die Einrichtung der Microsoft Entra Single Sign-on-Funktionen mit Braze."
 
 ---
 
-# Microsoft Entra SSO {#microsoft-entra-sso}
+# Microsoft Entra Single Sign-on {#microsoft-entra-sso}
 
-> [Microsoft Entra SSO](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) ist der cloudbasierte Identitäts- und Zugriffsverwaltungsdienst von Microsoft, der Ihren Mitarbeitenden hilft, sich anzumelden und auf Ressourcen zuzugreifen. Sie können Entra SSO verwenden, um den Zugriff auf Ihre Apps und Ihre App-Ressourcen basierend auf Ihren Geschäftsanforderungen zu steuern.
+> [Microsoft Entra Single Sign-on](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial) ist der cloudbasierte Identitäts- und Zugriffsverwaltungsdienst von Microsoft, der Ihren Mitarbeitenden hilft, sich anzumelden und auf Ressourcen zuzugreifen. Sie können Entra Single Sign-on verwenden, um den Zugriff auf Ihre Apps und Ihre App-Ressourcen basierend auf Ihren Geschäftsanforderungen zu steuern.
 
 ## Anforderungen {#requirements}
 
@@ -22,14 +22,14 @@ Bei der Einrichtung werden Sie aufgefordert, eine Assertion Consumer Service (AC
 | RelayState-API-Schlüssel | Um die Anmeldung über den Identitätsanbieter zu aktivieren, gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen API-Schlüssel mit `sso.saml.login`-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
-## Vom Service Provider (SP) initiierte Anmeldung mit Microsoft Entra SSO {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
+## Vom Service Provider (SP) initiierte Anmeldung mit Microsoft Entra Single Sign-on {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
 
 ### Schritt 1: Braze aus dem Katalog hinzufügen {#step-1-add-braze-from-the-gallery}
 
 1. Navigieren Sie in Ihrem Microsoft Entra Admin Center zu **Identity** > **Applications** > **Enterprise Applications** und wählen Sie dann **New application** aus.
 2. Suchen Sie im Suchfeld nach **Braze**, wählen Sie es im Ergebnisbereich aus und wählen Sie dann **Add** aus.
 
-### Schritt 2: Microsoft Entra SSO konfigurieren {#step-2-configure-microsoft-entra-sso}
+### Schritt 2: Microsoft Entra Single Sign-on konfigurieren {#step-2-configure-microsoft-entra-sso}
 
 1. Navigieren Sie in Ihrem Microsoft Entra Admin Center zur Braze-Anwendungsintegrationsseite und wählen Sie **Single sign-on** aus.
 2. Wählen Sie auf der Seite **Select a single sign-on method** die Option **SAML** als Ihre Methode aus.
@@ -39,7 +39,7 @@ Bei der Einrichtung werden Sie aufgefordert, eine Assertion Consumer Service (AC
 6. Konfigurieren Sie den RelayState, indem Sie Ihren generierten Relay-State-API-Schlüssel in das Feld **Relay State** eingeben.
 
 {% alert important %}
-Füllen Sie das Feld **Sign-On URL** **nicht** aus. Lassen Sie dieses Feld leer, um Probleme mit Ihrem IdP-initiierten SAML SSO zu vermeiden.
+Füllen Sie das Feld **Sign-On URL** **nicht** aus. Lassen Sie dieses Feld leer, um Probleme mit Ihrem IdP-initiierten SAML Single Sign-on zu vermeiden.
 {% endalert %}
 
 {: start="7"}
@@ -90,13 +90,13 @@ Sie können diese Nutzer:innen-Claims und -Werte im Abschnitt **Manage claim** v
 8. Navigieren Sie zur Seite **Set up Single Sign-On with SAML**, scrollen Sie dann zum Abschnitt **SAML Signing Certificate** und laden Sie das entsprechende **Certificate (Base64)** basierend auf Ihren Anforderungen herunter.
 9. Navigieren Sie zum Abschnitt **Set up Braze** und kopieren Sie die entsprechenden URLs zur Verwendung in der [Braze-Konfiguration](#step-3).
 
-### Schritt 3: Microsoft Entra SSO in Braze konfigurieren {#step-3}
+### Schritt 3: Microsoft Entra Single Sign-on in Braze konfigurieren {#step-3}
 
 Nachdem Sie Braze im Microsoft Entra Admin Center eingerichtet haben, stellt Microsoft Entra eine Ziel-URL (Anmelde-URL) und ein **x.509**-Zertifikat bereit, die Sie in Ihr Braze-Konto eingeben.
 
-Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie wie folgt vor:
+Nachdem Ihr Account Manager:in SAML Single Sign-on für Ihr Konto aktiviert hat, gehen Sie wie folgt vor:
 
-1. Navigieren Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und schalten Sie den Abschnitt SAML SSO auf **EIN**.
+1. Navigieren Sie zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **Sicherheitseinstellungen** und schalten Sie den Abschnitt SAML Single Sign-on auf **EIN**.
 2. Fügen Sie auf derselben Seite Folgendes hinzu:
 
 | Anforderung | Details |
@@ -104,8 +104,8 @@ Nachdem Ihr Account Manager SAML SSO für Ihr Konto aktiviert hat, gehen Sie wie
 | `SAML Name` | Dies wird als Button-Text auf dem Anmeldebildschirm angezeigt. Dies ist in der Regel der Name Ihres Identitätsanbieters, z. B. „Microsoft Entra“. |
 | `Target URL` | Dies ist die von Microsoft Entra bereitgestellte Anmelde-URL. |
 | `Certificate` | Das `x.509`-PEM-kodierte Zertifikat wird von Ihrem Identitätsanbieter bereitgestellt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Microsoft Entra SSO in Braze konfigurieren" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Microsoft Entra Single Sign-on in Braze konfigurieren" }
 
 {% alert tip %}
-Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen ausschließlich mit SAML SSO anmelden, können Sie die [Single-Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) auf der Seite **Sicherheitseinstellungen** unter **Authentifizierungsregeln**.
+Wenn Sie möchten, dass sich Ihre Braze-Kontonutzer:innen ausschließlich mit SAML Single Sign-on anmelden, können Sie die [Single-Sign-on-Authentifizierung einschränken]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) auf der Seite **Sicherheitseinstellungen** unter **Authentifizierungsregeln**.
 {% endalert %}

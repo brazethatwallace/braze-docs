@@ -38,7 +38,7 @@ Para actualizar manualmente la fuente en un momento específico:
 {% tabs %}
 {% tab web %}
 
-Solicita una actualización manual de Content Cards de Braze desde el SDK Web en cualquier momento llamando a [`requestContentCardsRefresh()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh).
+Solicita una actualización manual de Content Cards de Braze desde el SDK or kit de desarrollo de software Web en cualquier momento llamando a [`requestContentCardsRefresh()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh).
 
 También puedes llamar a [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) para obtener todas las tarjetas actualmente disponibles desde la última actualización de Content Cards.
 
@@ -50,12 +50,12 @@ function refresh() {
 }
 ```
 
-Para abrir los enlaces de Content Cards en una nueva pestaña del navegador en lugar de la misma pestaña, configura `openCardsInNewTab: true` en las opciones de inicialización de tu SDK Web. Para más información sobre las opciones de inicialización, consulta la [guía del repositorio del SDK Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
+Para abrir los enlaces de Content Cards en una nueva pestaña del navegador en lugar de la misma pestaña, configura `openCardsInNewTab: true` en las opciones de inicialización de tu SDK or kit de desarrollo de software Web. Para más información sobre las opciones de inicialización, consulta la [guía del repositorio del SDK or kit de desarrollo de software Web]({{site.baseurl}}/developer_guide/sdk_repository_guides/web).
 
 {% endtab %}
 {% tab android %}
 
-Solicita una actualización manual de Content Cards de Braze desde el SDK de Android en cualquier momento llamando a [`requestContentCardsRefresh`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-content-cards-refresh.html).
+Solicita una actualización manual de Content Cards de Braze desde el SDK or kit de desarrollo de software de Android en cualquier momento llamando a [`requestContentCardsRefresh`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-content-cards-refresh.html).
 
 {% subtabs local %}
 {% subtab Java %}
@@ -76,7 +76,7 @@ Braze.getInstance(context).requestContentCardsRefresh()
 {% endtab %}
 {% tab swift %}
 
-Solicita una actualización manual de Content Cards de Braze desde el SDK Swift en cualquier momento llamando al método [`requestRefresh`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/requestrefresh(_:)) en la clase [`Braze.ContentCards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class):
+Solicita una actualización manual de Content Cards de Braze desde el SDK or kit de desarrollo de software Swift en cualquier momento llamando al método [`requestRefresh`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/requestrefresh(_:)) en la clase [`Braze.ContentCards`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class):
 
 {% subtabs local %}
 {% subtab Swift %}
@@ -112,12 +112,12 @@ let contentCards = await AppDelegate.braze?.contentCards.requestRefresh()
 
 ### Sincronización completa vs. sincronización parcial {#full-sync-vs-partial-sync}
 
-El SDK de Braze utiliza dos tipos de sincronización al recuperar Content Cards del servidor:
+El SDK or kit de desarrollo de software de Braze utiliza dos tipos de sincronización al recuperar Content Cards del servidor:
 
 - **Sincronización completa:** Descarga todas las Content Cards para las que un usuario es elegible. Las sincronizaciones completas ocurren automáticamente cada 7 días o cada vez que se llama a `changeUser()`.
 - **Sincronización parcial:** Descarga solo las nuevas Content Cards desde la última solicitud. Si el usuario no es elegible para ninguna tarjeta nueva, la respuesta devuelve cero tarjetas. Las sincronizaciones parciales ocurren cada vez que se llama a `requestContentCardsRefresh()` (a menos que hayan pasado 7 días desde la última sincronización completa, en cuyo caso se desencadena una sincronización completa en su lugar).
 
-Las sincronizaciones parciales reducen la carga del servidor y el consumo de batería del dispositivo. Las Content Cards que ya se han recibido se almacenan localmente en el SDK, por lo que los usuarios seguirán viendo sus tarjetas disponibles incluso cuando una sincronización parcial devuelva cero tarjetas nuevas.
+Las sincronizaciones parciales reducen la carga del servidor y el consumo de batería del dispositivo. Las Content Cards que ya se han recibido se almacenan localmente en el SDK or kit de desarrollo de software, por lo que los usuarios seguirán viendo sus tarjetas disponibles incluso cuando una sincronización parcial devuelva cero tarjetas nuevas.
 
 ### Límite de velocidad {#rate-limit}
 
@@ -128,7 +128,7 @@ Braze utiliza un algoritmo de contenedor de tokens para aplicar los siguientes l
 - `subscribeToContentCards()` seguirá devolviendo tarjetas almacenadas en caché incluso cuando se haya alcanzado el límite de velocidad
 
 {% alert important %}
-El SDK de Braze también aplica límites de velocidad para garantizar el rendimiento y la fiabilidad. Ten esto en cuenta al ejecutar pruebas automatizadas o realizar controles de calidad manuales. Consulta [Límites de velocidad del SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits) para obtener más información.
+El SDK or kit de desarrollo de software de Braze también aplica límites de velocidad para garantizar el rendimiento y la fiabilidad. Ten esto en cuenta al ejecutar pruebas automatizadas o realizar controles de calidad manuales. Consulta [Límites de velocidad del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits) para obtener más información.
 {% endalert %}
 
 ## Personalizar el orden de las tarjetas mostradas {#customizing-displayed-card-order}
@@ -353,14 +353,14 @@ La personalización a través de `BrazeContentCardUI.ViewController.Attributes` 
 
 ## Personalizar el mensaje de "fuente vacía" {#customizing-empty-feed-message}
 
-Cuando un usuario no cumple los requisitos para ninguna Content Card, el SDK muestra un mensaje de error de "fuente vacía" que indica: "No tenemos actualizaciones. Vuelve a comprobarlo más tarde." Puedes personalizar este mensaje de error de "fuente vacía" de forma similar a la siguiente:
+Cuando un usuario no cumple los requisitos para ninguna Content Card, el SDK or kit de desarrollo de software muestra un mensaje de error de "fuente vacía" que indica: "No tenemos actualizaciones. Vuelve a comprobarlo más tarde." Puedes personalizar este mensaje de error de "fuente vacía" de forma similar a la siguiente:
 
 ![Un mensaje de error de fuente vacía que dice "Este es un mensaje personalizado de estado vacío."]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
 
 {% tabs %}
 {% tab web %}
 
-El SDK Web no permite sustituir el texto de "fuente vacía" mediante programación. Puedes optar por sustituirlo cada vez que se muestre la fuente, pero no es recomendable porque la fuente puede tardar en actualizarse y el texto de fuente vacía no se mostrará inmediatamente.
+El SDK or kit de desarrollo de software Web no permite sustituir el texto de "fuente vacía" mediante programación. Puedes optar por sustituirlo cada vez que se muestre la fuente, pero no es recomendable porque la fuente puede tardar en actualizarse y el texto de fuente vacía no se mostrará inmediatamente.
 
 {% endtab %}
 {% tab android %}
@@ -481,14 +481,14 @@ document.getElementById("show-transactional-feed").onclick = function() {
 };
 ```
 
-Para más información, consulta la [documentación del método del SDK](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards).
+Para más información, consulta la [documentación del método del SDK or kit de desarrollo de software](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards).
 
 {% endtab %}
 {% tab android %}
 {% subtabs %}
 {% subtab android view system %}
 
-De forma predeterminada, la fuente de Content Cards se muestra en un [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) y [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) devuelve una lista de tarjetas para mostrar después de recibir un [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) del SDK de Braze. Sin embargo, solo ordena las tarjetas y no gestiona ningún filtrado directamente.
+De forma predeterminada, la fuente de Content Cards se muestra en un [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) y [`IContentCardsUpdateHandler`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.handlers/-i-content-cards-update-handler/index.html) devuelve una lista de tarjetas para mostrar después de recibir un [`ContentCardsUpdatedEvent`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.events/-content-cards-updated-event/index.html) del SDK or kit de desarrollo de software de Braze. Sin embargo, solo ordena las tarjetas y no gestiona ningún filtrado directamente.
 
 #### Paso 2.1: Crear un controlador personalizado {#step-21-create-a-custom-handler}
 

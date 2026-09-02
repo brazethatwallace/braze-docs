@@ -80,7 +80,7 @@ Acesse seu [dashboard do Comm.One](https://ums.cjmplace.com/) e reúna as seguin
 | **Sender Key (발신프로필 키)** | Acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Channel name (카카오톡 채널 프로필명)** | No dashboard do Comm.One, acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Acesse <b>Account Management (계정 관리)</b>, selecione o ícone de menu e depois selecione <b>View Details (자세히보기)</b>.</li><li>Acesse <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
-| **Credential (ID) & Password (비밀번호)** | Acesse o mesmo local do **Sender number (사업자 등록번호)** e depois acesse **API** > **Brand Message (브랜드 메시지)**. |
+| **Credential (ID) & Password (비밀번호)** | Acesse o mesmo local do **Sender number (사업자 등록번호)** e depois acesse **API or interface de programação do aplicativo (API)** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
@@ -124,29 +124,29 @@ Acesse seu dashboard da Infobip e o [KakaoTalk Channel Admin Center](https://cen
 
 | Campo | Localização |
 | --- | --- |
-| **API Base URL** | No portal da Infobip, acesse **Developer Tools** > **API Keys**. |
-| **API Key** | No portal da Infobip, acesse **Developer Tools** > **API Keys**. |
+| **API or interface de programação do aplicativo (API) Base URL** | No portal da Infobip, acesse **Developer Tools** > **API or interface de programação do aplicativo (API) Keys**. |
+| **API or interface de programação do aplicativo (API) Key** | No portal da Infobip, acesse **Developer Tools** > **API or interface de programação do aplicativo (API) Keys**. |
 | **Sender name / Sender key** | No portal da Infobip, acesse **Channels and Numbers** > **Channels** e selecione a guia **Senders**. |
 | **Sender profile UUID** | No KakaoTalk Channel Admin Center, acesse **Channels** e encontre o **Search ID** na janela de informações do canal. |
 | **Channel name** | No KakaoTalk Channel Admin Center, encontre o **channel name** na mesma janela de informações do canal. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
-##### Chave de API e URL base {#api-key-and-base-url}
+##### Chave de API or interface de programação do aplicativo (API) e URL base {#api-key-and-base-url}
 
-1. No portal da Infobip, selecione **Developer Tools** > **API Keys**.
-2. Na página **API keys**, copie a **API base URL**.
+1. No portal da Infobip, selecione **Developer Tools** > **API or interface de programação do aplicativo (API) Keys**.
+2. Na página **API or interface de programação do aplicativo (API) keys**, copie a **API or interface de programação do aplicativo (API) base URL**.
 
 ![Página de API Keys da Infobip mostrando a URL base da API.]({% image_buster /assets/img/kakaotalk/infobip_api_keys_page.png %})
 
 {: start="3"}
-3. Selecione **CREATE API KEY**.
-4. Insira o **Name**, selecione a **Expiration date** e depois selecione os escopos de API necessários para o KakaoTalk. Esses escopos controlam quais ações da API da Infobip sua chave pode executar.
+3. Selecione **CREATE API or interface de programação do aplicativo (API) KEY**.
+4. Insira o **Name**, selecione a **Expiration date** e depois selecione os escopos de API or interface de programação do aplicativo (API) necessários para o KakaoTalk. Esses escopos controlam quais ações da API or interface de programação do aplicativo (API) da Infobip sua chave pode executar.
 
 ![Página de criação de chave de API da Infobip mostrando os campos de nome, data de expiração e escopos de API.]({% image_buster /assets/img/kakaotalk/infobip_api_key_scopes.png %})
 
 {: start="5"}
 5. Selecione **CREATE** para gerar a chave.
-6. Copie a chave gerada. Você pode retornar a esta página para atualizar o nome, a data de expiração ou os escopos de API.
+6. Copie a chave gerada. Você pode retornar a esta página para atualizar o nome, a data de expiração ou os escopos de API or interface de programação do aplicativo (API).
 
 ##### UUID do perfil do remetente e nome do canal {#sender-profile-uuid-and-channel-name}
 
@@ -166,4 +166,4 @@ Os perfis de usuário devem ter números de telefone no formato E.164 para receb
 
 ### Importar números de telefone {#import-phone-numbers}
 
-Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.
+Importe números de telefone [fazendo upload de um CSV ou usando a API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.

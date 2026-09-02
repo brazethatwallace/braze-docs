@@ -11,7 +11,7 @@ tool: Segments
 
 > Segmenterweiterungen ermöglichen es Ihnen, sehr präzise Segmente über einen längeren Zeitraum der Nutzer:innen-Historie zu erstellen. Zum Beispiel können Sie mit Segmenterweiterungen Nutzer:innen ansprechen, die in den letzten sechzehn Monaten ein bestimmtes Produkt gekauft oder einen bestimmten Betrag bei Ihrem Dienst ausgegeben haben. Verfeinern Sie diese Zielgruppe mithilfe von Event-Eigenschaften, um das Targeting noch granularer zu gestalten.
 
-Die Braze-Segmentierung ermöglicht es Ihnen, Nutzer:innen basierend auf angepassten Events oder Kaufverhalten anzusprechen. Segmenterweiterungen erweitern diese Möglichkeit, indem sie auf historische Daten zurückgreifen, die im Nutzerprofil gespeichert sind. Mit Segmenterweiterungen können Sie Nutzer:innen identifizieren und erreichen, die ein beliebiges angepasstes Event oder Kauf-Event beliebig oft in den letzten zwei Jahren (730 Tagen) abgeschlossen haben.
+Die Braze-Segmentierung ermöglicht es Ihnen, Nutzer:innen basierend auf angepassten Events oder Kaufverhalten anzusprechen. Segmenterweiterungen erweitern diese Möglichkeit, indem sie auf historische Daten zurückgreifen, die im Kundenprofil or Nutzerprofil gespeichert sind. Mit Segmenterweiterungen können Sie Nutzer:innen identifizieren und erreichen, die ein beliebiges angepasstes Event oder Kauf-Event beliebig oft in den letzten zwei Jahren (730 Tagen) abgeschlossen haben.
 
 ## Warum Segmenterweiterungen verwenden? {#why-use-segment-extensions}
 
@@ -20,7 +20,7 @@ Braze Segments bieten Ihnen leistungsstarke Targeting-Tools, um dynamische Nutze
 Zum Beispiel findet die Standard-Segmentierung von Braze Nutzer:innen, die bestimmte von Ihnen definierte Kriterien erfüllen, wie etwa die Identifizierung von Nutzer:innen, die kürzlich eines Ihrer Produkte gekauft haben. Segmenterweiterungen ermöglichen es Ihnen, tiefer zu gehen – etwa Nutzer:innen zu identifizieren, die eine bestimmte Farbe eines bestimmten Produkts mindestens zweimal zwischen 18 und 24 Monaten gekauft haben. Segmenterweiterungen sind eine Erweiterung, keine Voraussetzung. Wenn Sie fortgeschrittenere Filter oder ein längeres Rückblickfenster benötigen, sind sie ein großartiges Werkzeug, das Ihnen hilft und gleichzeitig Ihre Datennutzung optimiert.
 
 {% alert note %}
-Es gibt ein Standardkontingent von 50 aktiven Segmenterweiterungen pro Workspace zu einem bestimmten Zeitpunkt. Wenn Sie dieses Limit erhöhen müssen, wenden Sie sich an Ihren Braze Customer-Success-Manager, um Ihren Anwendungsfall zu besprechen.
+Es gibt ein Standardkontingent von 50 aktiven Segmenterweiterungen pro Workspace zu einem bestimmten Zeitpunkt. Wenn Sie dieses Limit erhöhen müssen, wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in, um Ihren Anwendungsfall zu besprechen.
 {% endalert %}
 
 ## Eine Segmenterweiterung erstellen {#creating-a-segment-extension}
@@ -35,7 +35,7 @@ Wählen Sie in der Segmenterweiterungen-Tabelle **Create New Extension** und dan
 
 - **Simple extension:** Erstellen Sie eine Segmenterweiterung, die sich auf ein einzelnes Event konzentriert, mithilfe eines geführten Formulars. Am besten geeignet, wenn Sie kein SQL verwenden möchten.
 - **Start with a template:** Erstellen Sie ein SQL-Segment mit einem anpassbaren Template unter Verwendung von Snowflake-Daten.
-- **Incremental refresh:** Schreiben Sie ein Snowflake-SQL-Segment, das automatisch die Daten der letzten 2 Tage aktualisiert, oder aktualisieren Sie bei Bedarf manuell. Am besten geeignet, um Genauigkeit und Kosteneffizienz in Einklang zu bringen.
+- **Incremental refresh:** Schreiben Sie ein Snowflake-SQL-Segment, das automatisch die Daten der letzten 2 Tage aktualisiert, oder Update or aktualisieren or aktualisieren Sie bei Bedarf manuell. Am besten geeignet, um Genauigkeit und Kosteneffizienz in Einklang zu bringen.
 - **Full refresh:** Schreiben Sie ein SQL-Segment mit Snowflake-Daten oder einer beliebigen [CDI-verbundenen Quelle]({{site.baseurl}}/cdi_segment_extensions), das die gesamte Zielgruppe bei manueller Aktualisierung neu berechnet. Am besten geeignet, wenn Sie eine vollständige, aktuelle Ansicht Ihrer Zielgruppe benötigen.
 
 ![Tabelle mit verschiedenen Erstellungsmethoden für Segmenterweiterungen zur Auswahl.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%"}
@@ -109,7 +109,7 @@ Während Ihre Segmenterweiterung verarbeitet wird, sehen Sie eine kleine Animati
 
 ![Seite „Segment Extensions“ mit zwei aktiven Erweiterungen.]({% image_buster /assets/img/segment/segment_extension5.png %})
 
-Wenn eine Segmenterweiterung verarbeitet wird, verwendet Braze weiterhin die Versionshistorie des Standard-Segments von vor Beginn der Verarbeitung für Zielgruppen-Segmentierungszwecke. Die Verarbeitung findet jedes Mal statt, wenn ein Speichern oder Aktualisieren erfolgt, und umfasst das Abfragen und Aktualisieren von Nutzerprofilen – mit anderen Worten, die Mitgliedschaft Ihres Standard-Segments wird nicht sofort aktualisiert. Das bedeutet, dass wir nicht garantieren können, dass Nutzer:innen in die Segmenterweiterung aufgenommen werden, wenn ihre Aktion nicht vor Beginn der Aktualisierungsverarbeitung durchgeführt wurde. Umgekehrt werden Nutzer:innen, die vor der Aktualisierung in der Segmenterweiterung waren und die Kriterien nicht mehr erfüllen, weiterhin Ihrem Standard-Segment zugeordnet, bis der Aktualisierungsprozess abgeschlossen ist und die Änderungen angewendet werden.
+Wenn eine Segmenterweiterung verarbeitet wird, verwendet Braze weiterhin die Versionshistorie des Standard-Segments von vor Beginn der Verarbeitung für Zielgruppen-Segmentierungszwecke. Die Verarbeitung findet jedes Mal statt, wenn ein Speichern oder Update or aktualisieren or aktualisieren erfolgt, und umfasst das Abfragen und Update or aktualisieren or aktualisieren von Nutzerprofilen – mit anderen Worten, die Mitgliedschaft Ihres Standard-Segments wird nicht sofort aktualisiert. Das bedeutet, dass wir nicht garantieren können, dass Nutzer:innen in die Segmenterweiterung aufgenommen werden, wenn ihre Aktion nicht vor Beginn der Aktualisierungsverarbeitung durchgeführt wurde. Umgekehrt werden Nutzer:innen, die vor der Aktualisierung in der Segmenterweiterung waren und die Kriterien nicht mehr erfüllen, weiterhin Ihrem Standard-Segment zugeordnet, bis der Aktualisierungsprozess abgeschlossen ist und die Änderungen angewendet werden.
 
 ### Schritt 6: Ihre Erweiterung in einem Segment verwenden {#step-6-use-your-extension-in-a-segment}
 

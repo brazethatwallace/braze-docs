@@ -28,7 +28,7 @@ Necesitarás lo siguiente para integrar LINE con Braze:
 El envío de mensajes de LINE desde Braze consume los créditos de mensajes o de acciones de tu cuenta.
 
 {% alert note %}
-**Configurar `native_line_id`**: Puedes configurar `native_line_id` enviando actualizaciones de usuario a Braze (por ejemplo, con el endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Si el SDK de tu aplicación no tiene un campo dedicado para `native_line_id`, envíalo en actualizaciones de usuario del lado del servidor usando uno de estos métodos.
+**Configurar `native_line_id`**: Puedes configurar `native_line_id` enviando actualizaciones de usuario a Braze (por ejemplo, con el endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Si el SDK or kit de desarrollo de software de tu aplicación no tiene un campo dedicado para `native_line_id`, envíalo en actualizaciones de usuario del lado del servidor usando uno de estos métodos.
 {% endalert %}
 
 ## Tipos de cuentas LINE {#types-of-line-accounts}

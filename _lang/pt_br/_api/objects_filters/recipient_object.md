@@ -1,6 +1,6 @@
 ---
 nav_title: "Objeto destinatários"
-article_title: Objeto de destinatários da API
+article_title: Objeto de destinatários da API or interface de programação do aplicativo (API)
 page_order: 9
 page_type: reference
 description: "Este artigo de referência explica os diferentes componentes do objeto de destinatários da Braze."
@@ -45,9 +45,9 @@ Esse perfil ainda precisa atender às regras de público e elegibilidade de cana
 
 ## Deduplicação do objeto de destinatário {#recipient-object-deduping}
 
-Ao fazer uma chamada de API com o objeto de destinatário, **se existir um destinatário duplicado direcionado ao mesmo endereço (ou seja, e-mail, push), a Braze faz a deduplicação do usuário**, o que significa que a Braze remove os usuários idênticos, mantendo apenas um.
+Ao fazer uma chamada de API or interface de programação do aplicativo (API) com o objeto de destinatário, **se existir um destinatário duplicado direcionado ao mesmo endereço (ou seja, e-mail, push), a Braze faz a deduplicação do usuário**, o que significa que a Braze remove os usuários idênticos, mantendo apenas um.
 
-Por exemplo, se você usar o mesmo `external_user_id`, o usuário receberá apenas uma mensagem. Considere fazer várias chamadas de API se precisar de uma solução alternativa para esse comportamento.
+Por exemplo, se você usar o mesmo `external_user_id`, o usuário receberá apenas uma mensagem. Considere fazer várias chamadas de API or interface de programação do aplicativo (API) se precisar de uma solução alternativa para esse comportamento.
 
 Quando o mesmo `external_user_id` aparece várias vezes no array de destinatários, a Braze envia apenas uma mensagem e usa as propriedades de disparo da última ocorrência no array. Esse comportamento é determinístico e baseado na ordem do array.
 

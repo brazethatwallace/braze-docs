@@ -32,9 +32,9 @@ Insira as informações mínimas necessárias:
 
 | Campo         | Descrição |
 | ------------- | ----------- |
-| **API Key**   | Sua [chave de API da Braze]({{site.baseurl}}/api/basics#about-rest-api-keys), encontrada no dashboard da Braze em **Settings** > **App Settings**. |
-| **API Endpoint** | A URL do seu endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics#endpoints). |
-| **SDK Version**  | A versão `MAJOR.MINOR` mais recente do SDK Web da Braze listada no [changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Para saber mais, consulte [Sobre o gerenciamento de versões do SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management). |
+| **API or interface de programação do aplicativo (API) Key**   | Sua [chave de API or interface de programação do aplicativo (API) da Braze]({{site.baseurl}}/api/basics#about-rest-api-keys), encontrada no dashboard da Braze em **Settings** > **App Settings**. |
+| **API or interface de programação do aplicativo (API) Endpoint** | A URL do seu endpoint REST or transferir estado representacional. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| **SDK or kit de desenvolvimento de software Version**  | A versão `MAJOR.MINOR` mais recente do SDK or kit de desenvolvimento de software Web da Braze listada no [changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Para saber mais, consulte [Sobre o gerenciamento de versões do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/version_management). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure a tag" }
 
 Para configurações adicionais de inicialização, selecione **Braze Initialization Options** e escolha as opções que você precisar.
@@ -43,20 +43,20 @@ Para configurações adicionais de inicialização, selecione **Braze Initializa
 
 ### Etapa 4: Escolha as opções de inicialização {#step-4-choose-initialization-options}
 
-A Braze Initialization Tag expõe as seguintes opções. A maioria delas mapeia diretamente para as [`InitializationOptions` do SDK Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions), e algumas correspondem a métodos do SDK Web que a tag chamará durante a inicialização. Selecione as opções que correspondem às suas necessidades de integração:
+A Braze Initialization Tag expõe as seguintes opções. A maioria delas mapeia diretamente para as [`InitializationOptions` do SDK or kit de desenvolvimento de software Web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#initializationoptions), e algumas correspondem a métodos do SDK or kit de desenvolvimento de software Web que a tag chamará durante a inicialização. Selecione as opções que correspondem às suas necessidades de integração:
 
-| Opção GTM | Configuração ou método do SDK Web | Descrição |
+| Opção GTM | Configuração ou método do SDK or kit de desenvolvimento de software Web | Descrição |
 | --- | --- | --- |
 | **Allow HTML In-App Messages** | `allowUserSuppliedJavascript` | Ativa mensagens no app em HTML, Banners e ações de clique em JavaScript fornecidas pelo usuário. Necessário para [mensagens no app em HTML]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) e [Banners]({{site.baseurl}}/developer_guide/banners/placements/?sdktab=web) que usam HTML personalizado. Ative isso apenas quando confiar no conteúdo HTML e JavaScript, pois permite a execução de JavaScript fornecido pelo usuário. |
 | **App Version Number** | `appVersion`, `appVersionNumber` | Versão do app para segmentação (por exemplo, `1.2.3.4`). |
-| **Automatically Open New Session** | `braze.openSession()` | Abre uma nova sessão após o SDK ser inicializado, chamando este método automaticamente. |
+| **Automatically Open New Session** | `braze.openSession()` | Abre uma nova sessão após o SDK or kit de desenvolvimento de software ser inicializado, chamando este método automaticamente. |
 | **Automatically show new in app messages** | `braze.automaticallyShowInAppMessages()` | Exibe automaticamente novas mensagens no app quando elas chegam do servidor, chamando este método após a inicialização. |
-| **Disable Automatic Push Token Maintenance** | `disablePushTokenMaintenance` | Impede que o SDK sincronize tokens por push com o backend da Braze em novas sessões. |
+| **Disable Automatic token por push Maintenance** | `disablePushTokenMaintenance` | Impede que o SDK or kit de desenvolvimento de software sincronize tokens por push com o backend da Braze em novas sessões. |
 | **Disable Automatic Service Worker Registration** | `manageServiceWorkerExternally` | Use se você registrar e controlar o service worker por conta própria. |
 | **Disable Cookies** | `noCookies` | Usa localStorage em vez de cookies para dados de usuário/sessão. Impede o reconhecimento entre subdomínios. |
-| **Disable Font Awesome** | `doNotLoadFontAwesome` | Impede que o SDK carregue o Font Awesome da rede de distribuição de conteúdo (CDN). Use se seu site já tiver o Font Awesome. |
-| **Enable SDK Authentication** | `enableSdkAuthentication` | Ativa a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication). |
-| **Enable Web SDK Logging** | `enableLogging` | Ativa o registro no console para depuração. Remova antes de ir para produção. |
+| **Disable Font Awesome** | `doNotLoadFontAwesome` | Impede que o SDK or kit de desenvolvimento de software carregue o Font Awesome da rede de distribuição de conteúdo (CDN). Use se seu site já tiver o Font Awesome. |
+| **Enable SDK or kit de desenvolvimento de software Authentication** | `enableSdkAuthentication` | Ativa a [autenticação do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/authentication). |
+| **Enable Web SDK or kit de desenvolvimento de software Logging** | `enableLogging` | Ativa o registro no console para depuração. Remova antes de ir para produção. |
 | **Minimum Interval Between Triggered Messages** | `minimumIntervalBetweenTriggerActionsInSeconds` | Segundos mínimos entre ações-gatilho (padrão: 30). |
 | **Open Cards in New Tab** | `openCardsInNewTab` | Abre links de cartões de conteúdo em uma nova guia ao usar a interface padrão do feed. |
 | **Service Worker Location** | `serviceWorkerLocation` | Caminho personalizado para o arquivo do service worker (padrão: `/service-worker.js`). |
@@ -71,10 +71,10 @@ Para opções não expostas no modelo GTM (como `contentSecurityNonce`, `localiz
 
 ### Etapa 5: Defina para disparar em *todas as páginas* {#step-5-set-to-trigger-on-all-pages}
 
-A tag de inicialização deve ser executada em todas as páginas do seu site. Isso permite que você use métodos do SDK da Braze e registre análise de dados de web push.
+A tag de inicialização deve ser executada em todas as páginas do seu site. Isso permite que você use métodos do SDK or kit de desenvolvimento de software da Braze e registre análise de dados de web push.
 
 {% alert important %}
-**Sequenciamento de tags:** A Braze Initialization Tag deve ser disparada antes de qualquer outra tag que chame métodos do SDK da Braze (como `braze.getUser()` ou `braze.logCustomEvent()`). Se eventos personalizados, atributos de usuário ou outras chamadas de métodos da Braze forem disparados antes de o SDK ser inicializado, você poderá encontrar erros como `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`. Para garantir o sequenciamento correto, configure sua Braze Initialization Tag como uma tag de configuração ou use o recurso de sequenciamento de tags do GTM para garantir que ela seja disparada primeiro. Para saber mais, consulte [Sequenciamento de tags para tags de ação da Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager/?sdktab=web#web_tag-sequencing-for-braze-action-tags).
+**Sequenciamento de tags:** A Braze Initialization Tag deve ser disparada antes de qualquer outra tag que chame métodos do SDK or kit de desenvolvimento de software da Braze (como `braze.getUser()` ou `braze.logCustomEvent()`). Se eventos personalizados, atributos de usuário ou outras chamadas de métodos da Braze forem disparados antes de o SDK or kit de desenvolvimento de software ser inicializado, você poderá encontrar erros como `Uncaught TypeError: Cannot read properties of undefined (reading 'getUser')`. Para garantir o sequenciamento correto, configure sua Braze Initialization Tag como uma tag de configuração ou use o recurso de sequenciamento de tags do GTM para garantir que ela seja disparada primeiro. Para saber mais, consulte [Sequenciamento de tags para tags de ação da Braze]({{site.baseurl}}/developer_guide/sdk_integration/google_tag_manager/?sdktab=web#web_tag-sequencing-for-braze-action-tags).
 {% endalert %}
 
 ### Etapa 6: Verifique sua integração {#step-6-verify-your-integration}

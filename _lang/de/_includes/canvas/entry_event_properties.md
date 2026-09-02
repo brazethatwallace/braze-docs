@@ -3,7 +3,7 @@ Sie können Canvas-Entry-Eigenschaften und Event-Eigenschaften in Ihren Canvas-J
 {% tabs local %}
 {% tab Canvas Entry Properties %}
 
-[Canvas-Entry-Eigenschaften]({{site.baseurl}}/api/objects_filters/context_object) sind die Eigenschaften, die Sie für Canvases zuordnen, die aktionsbasiert oder API-getriggert sind. Beachten Sie, dass das Objekt `canvas_entry_properties` eine maximale Größe von 50 KB hat.
+[Canvas-Entry-Eigenschaften]({{site.baseurl}}/api/objects_filters/context_object) sind die Eigenschaften, die Sie für Canvase zuordnen, die aktionsbasiert oder API-getriggert sind. Beachten Sie, dass das Objekt `canvas_entry_properties` eine maximale Größe von 50 KB hat.
 
 {% alert note %}
 Speziell für In-App-Nachricht-Kanäle gilt: `context` kann nur in Canvas referenziert werden.
@@ -19,7 +19,7 @@ Angenommen, der Shop RetailApp erhält folgende Anfrage: `"context" : {"product_
 RetailApp kann den Produktnamen (Schuhe) mit diesem Liquid in eine Nachricht einfügen: `{{context.${product_name}}}`.
 {% endraw %}
 
-RetailApp kann auch spezielle Nachrichten für verschiedene `product_name`-Eigenschaften in einem Canvas triggern, das Nutzer:innen anspricht, nachdem sie ein Kauf-Event ausgelöst haben. Sie können zum Beispiel unterschiedliche Nachrichten an Nutzer:innen, die Schuhe gekauft haben, und Nutzer:innen, die etwas anderes gekauft haben, senden, indem Sie das folgende Liquid in einen Nachrichten-Schritt einfügen.
+RetailApp kann auch spezielle Nachrichten für verschiedene `product_name`-Eigenschaften in einem Canvas Trigger or triggern or triggern, das Nutzer:innen anspricht, nachdem sie ein Kauf-Event ausgelöst haben. Sie können zum Beispiel unterschiedliche Nachrichten an Nutzer:innen, die Schuhe gekauft haben, und Nutzer:innen, die etwas anderes gekauft haben, senden, indem Sie das folgende Liquid in einen Nachrichten-Schritt einfügen.
 
 {% raw %}
 ```markdown
@@ -34,14 +34,14 @@ RetailApp kann auch spezielle Nachrichten für verschiedene `product_name`-Eigen
 
 {% details Für den Original-Canvas-Editor erweitern %}
 
-Sie können Canvases nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz. Bei Canvases, die mit dem Original-Editor erstellt wurden, können Canvas-Entry-Eigenschaften nur im ersten vollständigen Schritt eines Canvas referenziert werden.
+Sie können Canvase nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz. Bei Canvase, die mit dem Original-Editor erstellt wurden, können Canvas-Entry-Eigenschaften nur im ersten vollständigen Schritt eines Canvas referenziert werden.
 
 {% enddetails %}
 {% endtab %}
 
 {% tab Event Properties %}
 
-Event-Eigenschaften beziehen sich auf die Eigenschaften, die Sie für angepasste Events und Käufe festlegen. Diese `event_properties` können in Campaigns mit aktionsbasierter Zustellung und Canvases verwendet werden.
+Event-Eigenschaften beziehen sich auf die Eigenschaften, die Sie für angepasste Events und Käufe festlegen. Diese `event_properties` können in Campaigns mit aktionsbasierter Zustellung und Canvase verwendet werden.
 
 {% alert important %}
 Sie können `event_properties` nicht im ersten Nachrichten-Schritt Ihres Canvas verwenden. Stattdessen müssen Sie `context` verwenden oder einen Aktionspfade-Schritt mit dem entsprechenden Event **vor** dem Nachrichten-Schritt hinzufügen, der `event_properties` enthält.
@@ -53,7 +53,7 @@ Im ersten Nachrichten-Schritt, der auf einen Aktionspfade-Schritt folgt, können
 
 {% details Für den Original-Canvas-Editor erweitern %}
 
-Sie können Canvases nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz. Im Original-Canvas-Editor können Event-Eigenschaften nicht in geplanten vollständigen Schritten verwendet werden. Sie können jedoch Event-Eigenschaften im ersten vollständigen Schritt eines aktionsbasierten Canvas verwenden, auch wenn der vollständige Schritt geplant ist.
+Sie können Canvase nicht mehr mit dem Original-Editor erstellen oder duplizieren. Dieser Abschnitt dient nur als Referenz. Im Original-Canvas-Editor können Event-Eigenschaften nicht in geplanten vollständigen Schritten verwendet werden. Sie können jedoch Event-Eigenschaften im ersten vollständigen Schritt eines aktionsbasierten Canvas verwenden, auch wenn der vollständige Schritt geplant ist.
 
 {% enddetails %}
 

@@ -13,7 +13,7 @@ description: "Este artigo de referência explica as variáveis de contexto nos C
 
 As variáveis de contexto podem ser definidas de duas formas:
 
-- **Na entrada do Canvas:** quando os usuários entram em um Canvas, os dados do evento ou do gatilho de API podem preencher automaticamente as variáveis de contexto.
+- **Na entrada do Canvas:** quando os usuários entram em um Canvas, os dados do evento ou do gatilho de API or interface de programação do aplicativo (API) podem preencher automaticamente as variáveis de contexto.
 - **Em uma etapa de Contexto:** você pode definir ou atualizar variáveis de contexto manualmente dentro do Canvas adicionando uma [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context).
 
 Cada variável de contexto inclui:
@@ -34,7 +34,7 @@ Por exemplo, se um cliente tem dois voos próximos, ele terá dois estados de jo
 
 Você pode definir até 10 variáveis de contexto por [etapa de Contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). Cada nome de variável pode ter até 100 caracteres e deve usar apenas letras, números ou underscores.
 
-As definições de variáveis de contexto podem ter até 10.240 caracteres. Se você passar variáveis de contexto para um Canvas disparado por API, elas compartilham o mesmo namespace das variáveis criadas em uma etapa de Contexto. Por exemplo, se você enviar uma variável `purchased_item` no objeto de contexto do [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), poderá referenciá-la como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Se você redefinir essa variável em uma etapa de Contexto, o novo valor substituirá o valor da API para a jornada daquele usuário.
+As definições de variáveis de contexto podem ter até 10.240 caracteres. Se você passar variáveis de contexto para um Canvas disparado por API or interface de programação do aplicativo (API), elas compartilham o mesmo namespace das variáveis criadas em uma etapa de Contexto. Por exemplo, se você enviar uma variável `purchased_item` no objeto de contexto do [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), poderá referenciá-la como {% raw %}`{{context.${purchased_item}}}`{% endraw %}. Se você redefinir essa variável em uma etapa de Contexto, o novo valor substituirá o valor da API or interface de programação do aplicativo (API) para a jornada daquele usuário.
 
 Você pode armazenar até 50 KB por etapa de Contexto, distribuídos em até 10 variáveis. Se o tamanho total de todas as variáveis em uma etapa exceder 50 KB, as variáveis que ultrapassarem o limite não serão avaliadas nem armazenadas. Por exemplo, se você tiver três variáveis em uma etapa de Contexto:
 
@@ -206,7 +206,7 @@ Use o mesmo tipo de dado para sua variável de contexto e comparação. Por exem
 
 #### Comparando com variáveis de contexto ou atributos personalizados {#comparing-to-context-variables-or-custom-attributes}
 
-Ao selecionar o botão **Compare to a context variable or custom attribute**, você pode construir filtros de variáveis de contexto que comparam com variáveis de contexto definidas anteriormente ou atributos personalizados do usuário. Isso pode ser útil para realizar comparações dinâmicas por usuário, como `context` disparado por API, ou para condensar lógica de comparação complexa definida entre variáveis de contexto.
+Ao selecionar o botão **Compare to a context variable or custom attribute**, você pode construir filtros de variáveis de contexto que comparam com variáveis de contexto definidas anteriormente ou atributos personalizados do usuário. Isso pode ser útil para realizar comparações dinâmicas por usuário, como `context` disparado por API or interface de programação do aplicativo (API), ou para condensar lógica de comparação complexa definida entre variáveis de contexto.
 
 {% tabs %}
 {% tab Exemplo 1 %}

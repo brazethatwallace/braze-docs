@@ -20,7 +20,7 @@ Use a integração do MyPostcard com a Braze para enviar facilmente correspondê
 | Requisito                        | Descrição                                                                                                               |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Conta MyPostcard B2B             | O registro no MyPostcard é necessário para aproveitar esta integração.                                                  |
-| Chave de API B2B e credenciais   | Você pode encontrar sua chave de API e as credenciais na ferramenta de administração B2B do MyPostcard.                 |
+| Chave de API or interface de programação do aplicativo (API) B2B e credenciais   | Você pode encontrar sua chave de API or interface de programação do aplicativo (API) e as credenciais na ferramenta de administração B2B do MyPostcard.                 |
 | Campanha B2B MyPostcard aprovada | Para aproveitar esta integração, você precisa configurar uma campanha de mala direta impressa na ferramenta B2B do MyPostcard. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -91,7 +91,7 @@ Copie o corpo da solicitação exibido na ferramenta de administração B2B e pr
 
 ### Etapa 2: Visualize sua solicitação {#step-2-preview-your-request}
 
-Em seguida, visualize sua solicitação no painel **Preview** ou acesse a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou criar um usuário personalizado para testar seu webhook. Não se esqueça de salvar seu modelo antes de sair da página!
+Em seguida, visualize sua solicitação no painel **prévia** ou acesse a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou criar um usuário personalizado para testar seu webhook. Não se esqueça de salvar seu modelo antes de sair da página!
 
 ![Guia de teste de webhook com diferentes campos para validar a implementação.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 

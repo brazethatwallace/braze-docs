@@ -14,7 +14,7 @@ alias: /dnd_product_blocks/
 > Der Drag-and-Drop-Editor ermöglicht es Ihnen, Produkt-Blöcke schnell hinzuzufügen und zu konfigurieren, um Produkte nahtlos in Ihren Nachrichten zu präsentieren – ganz ohne angepassten Liquid-Code.
 
 {% alert important %}
-Das Feature für Drag-and-Drop-Produkt-Blöcke befindet sich im Early Access und ist derzeit nur für E-Mail verfügbar. Wenden Sie sich an Ihren Braze Account Manager, wenn Sie am Early Access teilnehmen möchten.
+Das Feature für Drag-and-Drop-Produkt-Blöcke befindet sich im Early Access und ist derzeit nur für E-Mail verfügbar. Wenden Sie sich an Ihren Braze Account Manager:in, wenn Sie am Early Access teilnehmen möchten.
 {% endalert %}
 
 ## Voraussetzungen {#requirements}
@@ -116,7 +116,7 @@ Starten Sie direkt mit diesem [Beispiel-Produktkatalog](/docs/assets/download_fi
 Im Tab **Einstellungen** Ihres Katalogs können Sie den Schalter **Product blocks** aktivieren, um bestimmte Felder und Informationen in Ihrem Katalog zuzuordnen. So können Sie auswählen, welche Felder als Produkttitel, Produkt-URL und Bild-URL verwendet werden sollen. Beachten Sie, dass Shopify-Katalogfelder standardmäßig zugeordnet sind und nicht geändert werden können.
 
 {% alert note %}
-Wenn Sie Shopify nicht verwenden, können Sie sich an Ihren Account Manager wenden, um die Feldzuordnung zu aktivieren. Damit können Sie jeden Katalog mit Produkt-Blöcken verbinden und seine Felder den Feldern `product_title`, `product_url` und `variant_image_url` zuordnen.
+Wenn Sie Shopify nicht verwenden, können Sie sich an Ihren Account Manager:in wenden, um die Feldzuordnung zu aktivieren. Damit können Sie jeden Katalog mit Produkt-Blöcken verbinden und seine Felder den Feldern `product_title`, `product_url` und `variant_image_url` zuordnen.
 {% endalert %}
 
 ## Produkt-Blöcke erstellen {#creating-product-blocks}
@@ -128,7 +128,7 @@ Diese Anleitung führt Sie durch die Schritte zum Erstellen, Testen und Sicherst
 #### Dynamischer Produkt-Block
 
 {% alert note %}
-Dynamische Produkt-Blöcke erfordern [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) und können nur innerhalb von [Canvases]({{site.baseurl}}/ecommerce_use_cases) verwendet werden. Für Braze-Shopify-Nutzer:innen sind diese Ereignisse automatisch als Teil der Integration enthalten. Für Nicht-Shopify-Nutzer:innen müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um diese Ereignisse an Braze zu übergeben und sicherzustellen, dass der primäre Produktbezeichner innerhalb der Ereignisse als Katalog-Artikel-ID hinzugefügt wird.
+Dynamische Produkt-Blöcke erfordern [empfohlene E-Commerce-Ereignisse]({{site.baseurl}}/ecommerce_events) und können nur innerhalb von [Canvase]({{site.baseurl}}/ecommerce_use_cases) verwendet werden. Für Braze-Shopify-Nutzer:innen sind diese Ereignisse automatisch als Teil der Integration enthalten. Für Nicht-Shopify-Nutzer:innen müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um diese Ereignisse an Braze zu übergeben und sicherzustellen, dass der primäre Produktbezeichner innerhalb der Ereignisse als Katalog-Artikel-ID hinzugefügt wird.
 {% endalert %}
 
 Erstellen Sie ein neues Canvas, das eines der verfügbaren Braze-Templates für Ihren spezifischen Anwendungsfall verwendet:
@@ -137,7 +137,7 @@ Erstellen Sie ein neues Canvas, das eines der verfügbaren Braze-Templates für 
 - Abgebrochener Checkout
 - Bestellbestätigungen
 
-Detaillierte Anweisungen zum Erstellen Ihrer E-Commerce-Canvases finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases).
+Detaillierte Anweisungen zum Erstellen Ihrer E-Commerce-Canvase finden Sie unter [E-Commerce-Anwendungsfälle]({{site.baseurl}}/ecommerce_use_cases).
 
 #### Statischer Produkt-Block
 

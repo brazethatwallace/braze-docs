@@ -9,7 +9,7 @@ alias: /partners/okendo/
 
 # Okendo
 
-> [Okendo](https://okendo.io/) es una plataforma unificada de marketing del cliente que proporciona herramientas para cultivar la promoción, ampliar el boca a boca y maximizar el valor de duración del ciclo de vida para movilizar a tus clientes y conseguir un crecimiento más rápido y eficiente.
+> [Okendo](https://okendo.io/) es una plataforma unificada de marketing del cliente que proporciona herramientas para cultivar la promoción, ampliar el boca a boca y maximizar el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida para movilizar a tus clientes y conseguir un crecimiento más rápido y eficiente.
 
 *Esta integración está mantenida por Okendo.*
 
@@ -22,15 +22,15 @@ La integración de Braze con Okendo funciona en múltiples productos de la plata
 | Requisito | Descripción |
 |------------------------|-----------------------------------------------------------------------------|
 | Cuenta de Okendo | Se necesita una cuenta de Okendo para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Configurar el conector de Braze en Okendo {#step-1-set-up-braze-connector-in-okendo}
 
-1. En Okendo, ve a **Settings** > **Integrations** > **Email & SMS** > **Braze**.
+1. En Okendo, ve a **Settings** > **Integrations** > **Email & servicio de mensajes cortos** > **Braze**.
 2. Añade el punto de conexión de la API y la clave de API a la configuración de **Integration**.
 
 ### Paso 2: Configura tu identificador {#step-2-configure-your-identifier}

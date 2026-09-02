@@ -14,9 +14,9 @@ O relatório de performance da campanha agora listará os detalhes da campanha p
 
 ![Detalhes da campanha]({% image_buster /assets/img/campaign_details_update.png %})
 
-## Novos endpoints da API do bloco de conteúdo de e-mail
+## Novos endpoints da API or interface de programação do aplicativo (API) do bloco de conteúdo de e-mail
 
-Agora você pode gerenciar[(criar]({{site.baseurl}}/api/endpoints/email_templates/#create-content-block), [listar disponíveis]({{site.baseurl}}/api/endpoints/email_templates/#list-available-content-blocks), [obter informações]({{site.baseurl}}/api/endpoints/email_templates/#see-content-block-information)) seus blocos de conteúdo de e-mail via API!
+Agora você pode gerenciar[(criar]({{site.baseurl}}/api/endpoints/email_templates/#create-content-block), [listar disponíveis]({{site.baseurl}}/api/endpoints/email_templates/#list-available-content-blocks), [obter informações]({{site.baseurl}}/api/endpoints/email_templates/#see-content-block-information)) seus blocos de conteúdo de e-mail via API or interface de programação do aplicativo (API)!
 
 {% alert update %}
 Esse recurso está temporariamente com disponibilidade limitada. Entre em contato com seu gerente de conta Braze para saber mais.
@@ -26,7 +26,7 @@ Esse recurso está temporariamente com disponibilidade limitada. Entre em contat
 
 A [página padrão de cancelamento de inscrição de e-mail personalizado]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#custom-unsubscribe-landing-page) foi atualizada com um visual mais moderno e elegante.
 
-## SDK do iOS: Melhoria do suporte telefônico para "notched"
+## SDK or kit de desenvolvimento de software do iOS: Melhoria do suporte telefônico para "notched"
 
 Suporte aprimorado para mensagens no app em dispositivos "notched" (por exemplo, iPhone X, Pixel 3XL). As mensagens em tela cheia agora se expandem para preencher a tela inteira de qualquer telefone, cobrindo a barra de status.
 

@@ -11,14 +11,14 @@ search_tag: Partner
 
 > [O Zapier](https://zapier.com/) é uma ferramenta da web de automação que permite compartilhar dados entre apps da web e, em seguida, usar essas informações para automatizar ações.
 
-A parceria entre a Braze e o Zapier alavanca a API e os [webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook) da Braze para se conectar a aplicativos de terceiros, como Google Workplace, Slack, Salesforce, WordPress etc., para automatizar várias ações.
+A parceria entre a Braze e o Zapier alavanca a API or interface de programação do aplicativo (API) e os [webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook) da Braze para se conectar a aplicativos de terceiros, como Google Workplace, Slack, Salesforce, WordPress etc., para automatizar várias ações.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisitos | Descrição |
 |---|---|
 | Conta Zapier | É necessário ter uma conta do Zapier para usar essa parceria. |
-| Endpoint REST da Braze | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#api-definitions). |
+| Endpoint REST or transferir estado representacional da Braze | Sua URL de endpoint REST or transferir estado representacional. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#api-definitions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -45,7 +45,7 @@ Continuando com nosso exemplo, queremos enviar uma solicitação POST como JSON 
 
 ### Etapa 3: Configurar o POST da Braze {#step-3-set-up-braze-post}
 
-Ao configurar seu webhook, use as seguintes configurações e forneça seu endpoint REST da Braze na URL do webhook. Quando terminar, selecione **Publish**.
+Ao configurar seu webhook, use as seguintes configurações e forneça seu endpoint REST or transferir estado representacional da Braze na URL do webhook. Quando terminar, selecione **Publish**.
 
 - **Method**: POST
 - **Webhook URL**: `https://rest.iad-01.braze.com/canvas/trigger/send`
@@ -53,7 +53,7 @@ Ao configurar seu webhook, use as seguintes configurações e forneça seu endpo
 - **Unflatten**: No
 - **Request Header**:
   - **Content-Type**: application/json
-  - **Authorization**: Bearer YOUR-API-KEY
+  - **Authorization**: Bearer YOUR-API or interface de programação do aplicativo (API)-KEY
 - **Data**:
 
 ```json
@@ -83,10 +83,10 @@ Para enviar dados ao endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/us
 
 1. No Zapier, escolha seu gatilho (por exemplo, **New or Updated Spreadsheet Row** no Google Sheets).
 2. Para a ação, selecione **Webhooks by Zapier** e escolha **Custom Request** (não POST).
-3. Defina **Method** como POST, insira a URL do endpoint REST da Braze (por exemplo, `https://rest.iad-01.braze.com/users/track`) e formate o corpo da solicitação com aspas duplas ao redor de cada elemento, como faria em uma chamada no Postman ou na API. Mapeie os campos do seu gatilho (por exemplo, colunas da planilha) no corpo JSON conforme apropriado.
+3. Defina **Method** como POST, insira a URL do endpoint REST or transferir estado representacional da Braze (por exemplo, `https://rest.iad-01.braze.com/users/track`) e formate o corpo da solicitação com aspas duplas ao redor de cada elemento, como faria em uma chamada no Postman ou na API or interface de programação do aplicativo (API). Mapeie os campos do seu gatilho (por exemplo, colunas da planilha) no corpo JSON conforme apropriado.
 4. Adicione os cabeçalhos obrigatórios:
    - **Content-Type**: `application/json`
-   - **Authorization**: `Bearer YOUR-REST-API-KEY` (use sua chave da API REST da Braze sem colchetes ou aspas)
+   - **Authorization**: `Bearer YOUR-REST-API-KEY` (use sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze sem colchetes ou aspas)
 5. Teste a etapa e ative seu zap.
 
 [5]: {% image_buster /assets/img_archive/zapier1.png %}

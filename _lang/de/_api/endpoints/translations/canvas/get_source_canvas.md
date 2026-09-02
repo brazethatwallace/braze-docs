@@ -12,7 +12,7 @@ description: "Dieser Artikel enthält detaillierte Informationen zum Canvas-Übe
 {% api %}
 # Standardquellwerte für die Übersetzungstags eines Canvas anzeigen {#view-default-source-values-for-a-canvass-translation-tags}
 {% apimethod get %}
-/canvas/translations/source
+/Canvas/translations/source
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um alle Standardübersetzungsquellen für die Übersetzungstags eines Canvas anzuzeigen. Dies sind die Werte mit dem {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).

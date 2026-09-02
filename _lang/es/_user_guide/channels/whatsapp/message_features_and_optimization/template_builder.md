@@ -10,7 +10,7 @@ channel:
 
 # Creador de plantillas de WhatsApp {#whatsapp-template-builder}
 
-> El creador de plantillas de WhatsApp te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y Meta Business Manager. Una vez que Meta apruebe tu plantilla, úsala en tantas Campaigns y Canvas como quieras.
+> El creador de plantillas de WhatsApp te permite crear y enviar plantillas de mensajes de WhatsApp directamente en Braze, sin necesidad de alternar entre Braze y Meta Business Administrador. Una vez que Meta apruebe tu plantilla, úsala en tantas Campaigns y Canvas como quieras.
 
 ## Requisitos previos {#prerequisites}
 
@@ -43,7 +43,7 @@ Las plantillas de marketing son para mensajes promocionales y de participación 
 | **Personalizado** | Un mensaje de WhatsApp estándar que construyes desde cero. Este es el diseño cubierto en [Construir tu plantilla](#step-4-build-your-template). |
 | **Carrusel** | Un mensaje con tarjetas desplazables horizontalmente. Para más información, consulta [Plantillas de carrusel]({{site.baseurl}}/whatsapp_carousel_templates). |
 | **Oferta por tiempo limitado** | Una oferta promocional con tiempo limitado. Para más información, consulta [Plantillas de oferta por tiempo limitado]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates). |
-| **Flujo** | Una plantilla que abre un flujo de WhatsApp (por ejemplo, cuestionarios o reservas de citas). Crea y administra el flujo en el WhatsApp Manager de Meta, y luego selecciónalo cuando construyas la plantilla. Para más información, consulta [Flujos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+| **Flujo** | Una plantilla que abre un flujo de WhatsApp (por ejemplo, cuestionarios o reservas de citas). Crea y administra el flujo en el WhatsApp Administrador de Meta, y luego selecciónalo cuando construyas la plantilla. Para más información, consulta [Flujos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de plantillas de marketing" }
 
 #### Utilidad {#utility}
@@ -53,7 +53,7 @@ Las plantillas de utilidad son para mensajes no promocionales (por ejemplo, conf
 | Tipo | Descripción |
 | --- | --- |
 | **Personalizado** | Un mensaje de utilidad estándar que construyes desde cero. Sigue los mismos pasos de composición que en [Construir tu plantilla](#step-4-build-your-template). |
-| **Flujo** | Una plantilla de flujo de utilidad (por ejemplo, recordatorios, comentarios o gestión de pedidos). Crea y administra el flujo en el WhatsApp Manager de Meta, y luego selecciónalo cuando construyas la plantilla. Para más información, consulta [Flujos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
+| **Flujo** | Una plantilla de flujo de utilidad (por ejemplo, recordatorios, comentarios o gestión de pedidos). Crea y administra el flujo en el WhatsApp Administrador de Meta, y luego selecciónalo cuando construyas la plantilla. Para más información, consulta [Flujos de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de plantillas de utilidad" }
 
 {% alert note %}
@@ -165,11 +165,11 @@ Las revisiones suelen completarse en cinco minutos, pero pueden tardar hasta 24 
 
 ### ¿Puedo editar una plantilla después de que ha sido aprobada? {#can-i-edit-a-template-after-its-been-approved}
 
-Puedes actualizar el contenido variable y la personalización al crear una Campaign o un Canvas. Los cambios en el contenido bloqueado (texto del cuerpo, disposición de botones u otros campos controlados por Meta) requieren crear una nueva plantilla en el constructor de plantillas o editar la plantilla en el WhatsApp Manager de Meta y esperar la re-aprobación de Meta. Si usas [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking), consulta ese artículo antes de editar plantillas creadas en Braze en el WhatsApp Manager de Meta.
+Puedes actualizar el contenido variable y la personalización al crear una Campaign o un Canvas. Los cambios en el contenido bloqueado (texto del cuerpo, disposición de botones u otros campos controlados por Meta) requieren crear una nueva plantilla en el constructor de plantillas o editar la plantilla en el WhatsApp Administrador de Meta y esperar la re-aprobación de Meta. Si usas [seguimiento de clics]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking), consulta ese artículo antes de editar plantillas creadas en Braze en el WhatsApp Administrador de Meta.
 
 ### ¿Qué pasa con las plantillas que envié antes de que el constructor de plantillas estuviera disponible? {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
-Las plantillas creadas en Meta Business Manager siguen disponibles para su uso en Braze. El constructor de plantillas es una forma adicional de crear y gestionar plantillas sin salir del panel de Braze.
+Las plantillas creadas en Meta Business Administrador siguen disponibles para su uso en Braze. El constructor de plantillas es una forma adicional de crear y gestionar plantillas sin salir del panel de Braze.
 
 ### ¿Por qué no puedo añadir personalización a todos los campos? {#why-cant-i-add-personalization-to-every-field}
 

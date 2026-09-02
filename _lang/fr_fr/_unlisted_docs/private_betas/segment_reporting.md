@@ -12,7 +12,7 @@ page_type: reference
 
 > Cet article explique comment utiliser les Segments comme dimension de rapport dans le générateur de rapports, y compris comment créer des rapports sur les Segments, ventiler par Segment et quelles combinaisons sont prises en charge.
 
-{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='customer success manager' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Segment reporting' contact='CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients or gestionnaire de la satisfaction client or gestionnaire du succès des clients' %}
 
 Le générateur de rapports prend en charge les **Segments** dans les lignes et comme option de ventilation, afin que vous puissiez voir les performances de vos Segments et ventiler les performances des Campaigns ou des Canvas par appartenance à un Segment. Si **Segments** n'apparaît pas dans vos menus déroulants **Rows** ou **Drilldown**, cette fonctionnalité n'a pas été activée pour votre compte.
 

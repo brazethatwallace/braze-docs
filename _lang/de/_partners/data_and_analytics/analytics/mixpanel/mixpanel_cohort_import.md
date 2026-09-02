@@ -1,7 +1,7 @@
 ---
 nav_title: Mixpanel
 article_title: Mixpanel-Kohortenimport
-description: "Dieser Referenzartikel beschreibt die Kohortenimport-Funktionalität von Mixpanel, einer Business-Analytics-Plattform, mit der Sie Mixpanel-Kohorten in Braze importieren können, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können."
+description: "Dieser Referenzartikel beschreibt die Kohortenimport-Funktionalität von Mixpanel, einer Business-Analytics-Plattform, mit der Sie Mixpanel-Kohorten in Braze importieren können, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvase verwendet werden können."
 page_type: partner
 search_tag: Partner
 ---
@@ -16,7 +16,7 @@ Wenn Sie eine Kohorte von Mixpanel mit Braze synchronisieren, empfängt Braze Ak
 
 Die Kohortensynchronisierung importiert keine Mixpanel-Ereignisse, Mixpanel-Nutzer:inneneigenschaften oder angepasste Attribute in Braze. Das Konnektor-Verhalten, einschließlich der Synchronisierungsfrequenz, wird in Mixpanel gesteuert. Einzelheiten zur Einrichtung finden Sie in der [Mixpanel-Dokumentation zur Braze-Kohortensynchronisierung](https://docs.mixpanel.com/docs/cohort-sync/integrations/braze). Informationen zu den Anforderungen für den Nutzer:innen-Abgleich finden Sie unter [Nutzer:innen-Abgleich](#user-matching).
 
-Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
+Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager:in diese beantworten.
 
 {% alert important %}
 In Übereinstimmung mit den Richtlinien von Mixpanel zur Datenaufbewahrung werden Ereignisse, die vor dem 1. Januar 2010 gesendet wurden, beim Import entfernt.
@@ -24,15 +24,15 @@ In Übereinstimmung mit den Richtlinien von Mixpanel zur Datenaufbewahrung werde
 
 ### Schritt 1: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
 
-Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Mixpanel** aus. Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Mixpanel** aus. Hier finden Sie den Representational State Transfer-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
 
-Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Mixpanel einrichten.<br><br>![Braze-Mixpanel-Technologie-Partnerseite mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
+Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden ungültig machen. Der Datenimport-Schlüssel und der Representational State Transfer-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Mixpanel einrichten.<br><br>![Braze-Mixpanel-Technologie-Partnerseite mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img_archive/currents-mixpanel-edit.png %})
 
 ### Schritt 2: Braze-Integration in Mixpanel einrichten {#step-2-set-up-the-braze-integration-in-mixpanel}
 
 1. Navigieren Sie in Mixpanel zu **Data Management > Integrations.**
 2. Wählen Sie den Tab für die Braze-Integration aus und klicken Sie auf **Connect**.
-3. Geben Sie in der daraufhin angezeigten Aufforderung den Braze-Datenimport-Schlüssel und den REST-Endpunkt an.
+3. Geben Sie in der daraufhin angezeigten Aufforderung den Braze-Datenimport-Schlüssel und den Representational State Transfer-Endpunkt an.
 4. Klicken Sie auf **Continue**.
 
 ![Mixpanel-Braze-Integrations-Setup-Modal mit Schlüssel- und Endpunkt-Feldern.]({% image_buster /assets/img_archive/mixpanel2.png %}){: style="max-width:50%;"}
@@ -53,7 +53,7 @@ Um in Braze ein Segment für diese Nutzer:innen zu erstellen, gehen Sie zu **Zie
 
 ![Im Braze-Segment-Builder ist der Nutzer:innen-Attribut-Filter „Mixpanel cohorts“ auf „enthält“ und „Braze cohort“ eingestellt.]({% image_buster /assets/img_archive/mixpanel1.png %})
 
-Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvases oder Campaigns im Schritt „Zielgruppe zusammenstellen“ referenzieren.
+Nach dem Speichern können Sie dieses Segment bei der Erstellung von Canvase oder Campaigns im Schritt „Zielgruppe zusammenstellen“ referenzieren.
 
 ## Nutzer:innen-Abgleich {#user-matching}
 

@@ -7,7 +7,7 @@ page_order: 1
 
 # Configurações de estilo de mensagens no app {#in-app-message-style-settings}
 
-> A experiência de edição de arrastar e soltar é dividida em duas seções: **Build** e **Preview & Test**. Este artigo aborda o que você precisa saber para trabalhar na guia **Build** do editor e pressupõe que você já [criou uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
+> A experiência de edição de arrastar e soltar é dividida em duas seções: **Build** e **prévia & Test**. Este artigo aborda o que você precisa saber para trabalhar na guia **Build** do editor e pressupõe que você já [criou uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 ![Guia "Message styles".]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -82,7 +82,7 @@ Você pode adicionar uma imagem de fundo a uma linha no painel **Propriedades da
 
 ### Blocos {#blocks}
 
-Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um segmento de linha existente, e ele se ajustará automaticamente à largura da célula.
+Blocos representam diferentes tipos de conteúdo que você pode usar na sua mensagem. Arraste um para dentro de um Segment or segmento or segmento de linha existente, e ele se ajustará automaticamente à largura da célula.
 
 {% alert tip %}
 Antes de adicionar blocos, configure os [estilos no nível da mensagem](#set-message-level-styles) para o contêiner da mensagem, fonte, cores e qualquer outra coisa que você queira personalizar. Depois, você pode personalizar blocos individuais conforme necessário. O **Botão Fechar** permanecerá na seção superior da sua mensagem para que os usuários sempre tenham a opção de dispensar a mensagem.

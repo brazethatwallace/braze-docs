@@ -87,7 +87,7 @@ guide_menu_list3:
 
 ## Basis-URL und Authentifizierung {#base-url-and-authentication}
 
-Verwenden Sie Ihren Workspace-REST-Endpunkt und senden Sie `Authorization: Bearer YOUR_REST_API_KEY`. Dieser Abschnitt erklärt, wo die Datenobjekt-Endpunkte gehostet werden und wie Anfragen authentifiziert werden.
+Verwenden Sie Ihren Workspace-Representational State Transfer-Endpunkt und senden Sie `Authorization: Bearer YOUR_REST_API_KEY`. Dieser Abschnitt erklärt, wo die Datenobjekt-Endpunkte gehostet werden und wie Anfragen authentifiziert werden.
 
 - Informationen zu Endpunkt-Hosts finden Sie in der [Braze-API-Übersicht]({{site.baseurl}}/api/basics#endpoints).
 - Alle Anfrage- und Antwort-Payloads sind JSON.
@@ -102,14 +102,14 @@ Dieser Abschnitt ordnet jedem Endpunkt die erforderliche Berechtigung zu, damit 
 |---|---|
 | `data_objects.read` | Lese-Zugriff auf Typen und Objekte sowie auf Objektbeziehungen |
 | `data_objects.create` | Objekt erstellen |
-| `data_objects.update` | Objekt ersetzen und aktualisieren |
+| `data_objects.update` | Objekt ersetzen und Update or aktualisieren or aktualisieren |
 | `data_objects.delete` | Objekt löschen |
 | `data_objects.user_relationships.read` | Lese-Zugriff auf Nutzer:innenbeziehungen |
 | `data_objects.user_relationships.create` | Nutzer:innenbeziehung erstellen |
-| `data_objects.user_relationships.update` | Nutzer:innenbeziehung ersetzen und aktualisieren |
+| `data_objects.user_relationships.update` | Nutzer:innenbeziehung ersetzen und Update or aktualisieren or aktualisieren |
 | `data_objects.user_relationships.delete` | Nutzer:innenbeziehung löschen |
 | `data_objects.object_relationships.create` | Objektbeziehung erstellen |
-| `data_objects.object_relationships.update` | Objektbeziehung ersetzen und aktualisieren |
+| `data_objects.object_relationships.update` | Objektbeziehung ersetzen und Update or aktualisieren or aktualisieren |
 | `data_objects.object_relationships.delete` | Objektbeziehung löschen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Datenobjekt-Berechtigungsgruppen" }
 

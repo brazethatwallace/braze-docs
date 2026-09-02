@@ -140,7 +140,7 @@ Apenas consultas somente leitura são suportadas, incluindo cláusulas `JOIN`. P
 
 ### Etapa 4: Visualizar e validar sua consulta {#step-4-preview-and-validate-your-query}
 
-Selecione **Preview and validate** para executar sua consulta.
+Selecione **prévia and validate** para executar sua consulta.
 
 A prévia:
 
@@ -279,11 +279,11 @@ Esta seção inclui erros comuns e orientações sobre como solucioná-los.
 
 ### Sem pré-visualização disponível {#no-preview-available}
 
-Quando você vê "No preview available", um dos seguintes tipos de erro pode estar causando isso.
+Quando você vê "No prévia available", um dos seguintes tipos de erro pode estar causando isso.
 
 | Tipo de erro | Etapas para resolver |
 |---|---|
-| "No preview available" | Leia o banner de erro para obter dicas. |
+| "No prévia available" | Leia o banner de erro para obter dicas. |
 | "Unable to connect to the source" | Verifique o nome de usuário configurado, o localizador de conta e a configuração de autenticação por par de chaves RSA.<br>Verifique se o warehouse está em execução.<br>Confirme o acesso à rede. |
 | "SQL syntax error" | Verifique a sintaxe do seu SQL. |
 | "Object does not exist or not authorized" | Verifique se a role tem acesso `SELECT` à tabela.<br>Confirme as permissões de banco de dados e schema.<br>Verifique erros de digitação no nome da tabela. |

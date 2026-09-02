@@ -15,7 +15,7 @@ _Diese Integration wird von NiftyImages gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die NiftyImages-Integration für Braze hilft Ihnen, personalisierte, dynamische Visuals mithilfe von Braze-Kontaktdaten zu erstellen. Teams können Assets wie personalisierte Bilder, Countdown-Timer, Karten, Kalender, Loyalty-Visuals und mehr erstellen und sie anschließend als wiederverwendbare Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) für den Einsatz in Kampagnen und Canvases veröffentlichen. Das spart Zeit, reduziert Fehler und vereinfacht die Verwaltung personalisierter Inhalte.
+Die NiftyImages-Integration für Braze hilft Ihnen, personalisierte, dynamische Visuals mithilfe von Braze-Kontaktdaten zu erstellen. Teams können Assets wie personalisierte Bilder, Countdown-Timer, Karten, Kalender, Loyalty-Visuals und mehr erstellen und sie anschließend als wiederverwendbare Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) für den Einsatz in Kampagnen und Canvase veröffentlichen. Das spart Zeit, reduziert Fehler und vereinfacht die Verwaltung personalisierter Inhalte.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -38,9 +38,9 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 | Anforderung | Beschreibung |
 | ------------ | ----------- |
 | NiftyImages-Konto | Ein [NiftyImages-Konto](https://niftyimages.com/Signup) ist erforderlich, um personalisierte Bilder, Timer, Karten, Kalender, Rubbellose, Charts und andere dynamische Visuals zu erstellen und zu verwalten. |
-| Braze-Konto | Ein Braze-Konto ist erforderlich, um NiftyImages in Braze Campaigns, Canvases, E-Mail-Templates und Messaging-Kanälen zu verwenden. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `custom_attributes.get` und `content_blocks.create`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner** erstellt werden. |
-| Braze REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
+| Braze-Konto | Ein Braze-Konto ist erforderlich, um NiftyImages in Braze Campaigns, Canvase, E-Mail-Templates und Messaging-Kanälen zu verwenden. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit den Berechtigungen `custom_attributes.get` und `content_blocks.create`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **APIs und Bezeichner** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -53,19 +53,19 @@ Verbinden Sie Ihr Braze-Konto in NiftyImages, um Kontakteigenschaften zu synchro
 2. Wählen Sie **Braze** aus.
 3. Wählen Sie **Connect Braze** aus.
 
-### 2. Schritt: Ihren Braze REST-API-Schlüssel erstellen {#step-2-create-your-braze-rest-api-key}
+### 2. Schritt: Ihren Braze Representational State Transfer-API-Schlüssel erstellen {#step-2-create-your-braze-rest-api-key}
 
 1. Gehen Sie in Braze zu **Einstellungen** > **APIs und Bezeichner**.
-2. Erstellen oder wählen Sie einen REST-API-Schlüssel für die NiftyImages-Integration aus.
-3. Wählen Sie unter **Custom Attributes** die Option `custom_attributes.get` aus.
+2. Erstellen oder wählen Sie einen Representational State Transfer-API-Schlüssel für die NiftyImages-Integration aus.
+3. Wählen Sie unter **angepasste Attribute** die Option `custom_attributes.get` aus.
 4. Wählen Sie unter **Content Blocks** die Option `content_blocks.create` aus.
-5. Speichern Sie den API-Schlüssel und kopieren Sie dann den REST-API-Schlüssel und Ihren [REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints).
+5. Speichern Sie den API-Schlüssel und kopieren Sie dann den Representational State Transfer-API-Schlüssel und Ihren [Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics#endpoints).
 
 ### 3. Schritt: Ihr Braze-Konto in NiftyImages verbinden {#step-3-connect-your-braze-account-in-niftyimages}
 
 1. Kehren Sie zum Braze-Integrationsbildschirm in NiftyImages zurück.
-2. Fügen Sie den Braze REST-API-Schlüssel ein.
-3. Geben Sie Ihren Braze REST-Endpunkt ein.
+2. Fügen Sie den Braze Representational State Transfer-API-Schlüssel ein.
+3. Geben Sie Ihren Braze Representational State Transfer-Endpunkt ein.
 4. Bestätigen Sie die Verbindung.
 5. Überprüfen Sie, ob Ihr Braze-Konto unter **Connected Braze accounts** mit dem Status **Active** oder **Connected** angezeigt wird.
 
@@ -94,7 +94,7 @@ Gespeicherte Bilder, die Braze-Variablen verwenden, enthalten diese Personalisie
 
 ## NiftyImages in Braze verwenden {#use-niftyimages-in-braze}
 
-Verwenden Sie veröffentlichte Content Blocks in Braze E-Mail-Templates, Kampagnen und Canvases.
+Verwenden Sie veröffentlichte Content Blocks in Braze E-Mail-Templates, Kampagnen und Canvase.
 
 ### Ein NiftyImages-Asset zu einer Braze-E-Mail hinzufügen {#add-a-niftyimages-asset-to-a-braze-email}
 
@@ -106,7 +106,7 @@ Verwenden Sie veröffentlichte Content Blocks in Braze E-Mail-Templates, Kampagn
 
 1. Verwenden Sie den veröffentlichten Content Block in Marketing-E-Mails, E-Mail-Templates, Kampagnen, gemeinsamen Marken-Assets und automatisierten Flows.
 2. Wenn ein NiftyImages-Asset dynamische Variablen verwendet, übergibt Braze die Kontaktwerte basierend auf der Nachricht und dem Kanal.
-3. Aktualisieren Sie das Quell-Asset in NiftyImages, wenn Sie kreative Änderungen benötigen.
+3. Update or aktualisieren or aktualisieren Sie das Quell-Asset in NiftyImages, wenn Sie kreative Änderungen benötigen.
 
 ### Ein Braze-Konto trennen {#disconnect-a-braze-account}
 
@@ -117,7 +117,7 @@ Verwenden Sie veröffentlichte Content Blocks in Braze E-Mail-Templates, Kampagn
 
 ## Hinweise {#considerations}
 
-- **REST-API-Berechtigungen:** Der Braze REST-API-Schlüssel muss `custom_attributes.get` für die Synchronisierung von Kontakteigenschaften und `content_blocks.create` für die Veröffentlichung von Assets in Braze Content Blocks enthalten.
+- **Representational State Transfer-API-Berechtigungen:** Der Braze Representational State Transfer-API-Schlüssel muss `custom_attributes.get` für die Synchronisierung von Kontakteigenschaften und `content_blocks.create` für die Veröffentlichung von Assets in Braze Content Blocks enthalten.
 - **Verfügbarkeit von Kontakteigenschaften:** Nur Kontakteigenschaften, die dem verbundenen Braze-Konto zur Verfügung stehen, können in NiftyImages synchronisiert werden.
 - **Fallback-Werte:** Verwenden Sie Fallback-Werte beim Erstellen personalisierter Visuals, damit jede Kund:in ein ansprechendes Bild sieht, auch wenn eine Kontakteigenschaft fehlt.
 - **Wiederverwendbare Content Blocks:** Die Veröffentlichung in Braze Content Blocks hilft Teams, manuelles Kopieren und Einfügen von HTML zu vermeiden, Merge-Tag-Fehler zu reduzieren und Assets in Kampagnen und Templates wiederzuverwenden.
@@ -130,8 +130,8 @@ Sehen Sie sich die folgende Tabelle an, wenn bei der NiftyImages-Integration Pro
 
 | Problem | Lösung |
 | ----- | ---------- |
-| Braze-Konto lässt sich nicht verbinden | Stellen Sie sicher, dass der REST-API-Schlüssel gültig ist, der REST-Endpunkt korrekt ist und der Schlüssel die erforderlichen Berechtigungen enthält. |
-| Braze-Kontakteigenschaften werden in NiftyImages nicht angezeigt | Stellen Sie sicher, dass der API-Schlüssel `custom_attributes.get` enthält. Aktualisieren Sie dann die Braze-Verbindung in NiftyImages. |
+| Braze-Konto lässt sich nicht verbinden | Stellen Sie sicher, dass der Representational State Transfer-API-Schlüssel gültig ist, der Representational State Transfer-Endpunkt korrekt ist und der Schlüssel die erforderlichen Berechtigungen enthält. |
+| Braze-Kontakteigenschaften werden in NiftyImages nicht angezeigt | Stellen Sie sicher, dass der API-Schlüssel `custom_attributes.get` enthält. Update or aktualisieren or aktualisieren Sie dann die Braze-Verbindung in NiftyImages. |
 | Das Asset wird nicht in Braze Content Blocks veröffentlicht | Stellen Sie sicher, dass der API-Schlüssel `content_blocks.create` enthält und dass das verbundene Braze-Konto die Erstellung von Content Blocks erlaubt. |
 | Personalisierung wird nicht korrekt angezeigt | Überprüfen Sie, ob die ausgewählte Braze-Kontakteigenschaft einen Wert für die Testnutzer:in enthält. Fügen Sie bei Bedarf Fallback-Werte in NiftyImages hinzu. |
 | Das Bild wird in Braze nicht gerendert | Stellen Sie sicher, dass das NiftyImages-Asset gespeichert, aktiv und korrekt veröffentlicht ist. Senden Sie eine Braze-Testnachricht, um das Bild im vorgesehenen Kanal zu überprüfen. |

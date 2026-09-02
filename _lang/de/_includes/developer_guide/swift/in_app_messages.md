@@ -30,6 +30,6 @@ AppDelegate.braze.inAppMessagePresenter = [[BrazeInAppMessageUI alloc] init];
 {% endtab %}
 {% endtabs %}
 
-### Schritt 2: Behandeln Sie keine passenden Trigger
+### Schritt 2: Behandeln Sie keine passenden Trigger or triggern
 
-Implementieren Sie [`BrazeDelegate.(_:noMatchingTriggerForEvent)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:nomatchingtriggerforevent:)-8rt7y/) innerhalb der entsprechenden `BrazeDelegate` Klasse. Wenn Braze keinen passenden Trigger für ein bestimmtes Ereignis findet, ruft es diese Methode automatisch auf.
+Implementieren Sie [`BrazeDelegate.(_:noMatchingTriggerForEvent)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazedelegate/braze(_:nomatchingtriggerforevent:)-8rt7y/) innerhalb der entsprechenden `BrazeDelegate` Klasse. Wenn Braze keinen passenden Trigger or triggern für ein bestimmtes Ereignis findet, ruft es diese Methode automatisch auf.

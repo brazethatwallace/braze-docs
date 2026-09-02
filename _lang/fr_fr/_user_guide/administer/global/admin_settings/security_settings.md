@@ -39,11 +39,11 @@ Utilisez ce champ pour définir quand vous souhaitez que les utilisateurs de vot
 
 Utilisez ce champ pour définir la durée pendant laquelle Braze maintient votre session active. Lorsque Braze considère votre session comme inactive (aucune activité pendant le nombre de minutes défini), Braze déconnecte l'utilisateur. Le nombre maximal de minutes que vous pouvez saisir est de 10 080 (soit une semaine) si l'authentification à deux facteurs est imposée pour votre entreprise ; sinon, la durée maximale de session est de 1 440 minutes (soit 24 heures).
 
-### Authentification unique (SSO) {#single-sign-on-sso-authentication}
+### Authentification unique (authentification unique) {#single-sign-on-sso-authentication}
 
-Vous pouvez empêcher vos utilisateurs de se connecter à l'aide d'un mot de passe ou de l'authentification unique (SSO).
+Vous pouvez empêcher vos utilisateurs de se connecter à l'aide d'un mot de passe ou de l'authentification unique (authentification unique).
 
-Pour l'[authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), les clients doivent configurer leurs paramètres SAML avant d'imposer cette méthode. Si les clients utilisent l'authentification unique Google, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
+Pour l'[authentification unique (authentification unique) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), les clients doivent configurer leurs paramètres SAML avant d'imposer cette méthode. Si les clients utilisent l'authentification unique Google, ils n'ont qu'à appliquer les paramètres de la page de sécurité sans configuration supplémentaire.
 
 ## Mise en liste autorisée des adresses IP du tableau de bord {#dashboard-ip-allowlisting}
 
@@ -95,7 +95,7 @@ Si la 2FA n'est pas imposée au niveau de l'entreprise, les utilisateurs individ
 Si la 2FA est imposée au niveau de l'entreprise, les utilisateurs qui ne la configurent pas sur leur propre compte lors de la connexion seront verrouillés hors du tableau de bord. Les utilisateurs doivent terminer la configuration de la 2FA pour conserver leur accès.
 
 {% alert important %}
-La 2FA est requise pour tous les utilisateurs de l'entreprise uniquement si l'authentification unique (SSO) n'est pas activée. Si le SSO est utilisé, il n'est pas nécessaire d'imposer la 2FA au niveau de l'entreprise.
+La 2FA est requise pour tous les utilisateurs de l'entreprise uniquement si l'authentification unique (authentification unique) n'est pas activée. Si le authentification unique est utilisé, il n'est pas nécessaire d'imposer la 2FA au niveau de l'entreprise.
 {% endalert %}
 
 ## Configurer manuellement l'authentification à deux facteurs {#manually-set-up-2fa}
@@ -365,5 +365,5 @@ Si les problèmes persistent, supprimez l'ancien profil dans l'application Authy
 
 Pour en savoir plus sur l'authentification et l'accès, consultez :
 
-- [Authentification unique (SSO) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) pour configurer l'authentification unique avec votre fournisseur d'identité.
+- [Authentification unique (authentification unique) SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) pour configurer l'authentification unique avec votre fournisseur d'identité.
 - [Autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) pour contrôler les actions que les utilisateurs peuvent effectuer dans le tableau de bord.

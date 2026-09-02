@@ -27,7 +27,7 @@ Antes de criar uma notificação Rich por push para Android, observe os seguinte
   - **Grande:** 2048x1024
 - Atualmente, as notificações Rich para Android só permitem imagens estáticas, incluindo os formatos JPEG e PNG. GIF e outros formatos de imagem ainda não são compatíveis.
 - Adicionar botões de ação à sua notificação por push pode afetar a área da imagem que é exibida. Teste com a prévia do dashboard e em dispositivos reais para confirmar que os resultados estão conforme o esperado.
-- O SDK da Braze para Android deve estar ativado para que a imagem seja renderizada.
+- O SDK or kit de desenvolvimento de software da Braze para Android deve estar ativado para que a imagem seja renderizada.
 
 {% alert note %}
 Embora a Braze forneça instruções sobre como configurar notificações Rich por push, a renderização real dessas notificações pode variar dependendo de fatores externos, como proporção de tela do dispositivo, versão do Android, restrições específicas do fabricante (OEM), entre outros. Recomendamos fazer um envio de teste para vários dispositivos Android para garantir que suas notificações Rich por push apareçam como você deseja.

@@ -4,12 +4,12 @@ article_title: Was Sie mit Operator tun können
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Dieser Referenzartikel behandelt, was BrazeAI Operator™ im gesamten Dashboard leisten kann – einschließlich der Erstellung von Campaigns, Canvases, Segmenten, Berichten, Dashboards und Agents, der Generierung von Texten, Nachrichten, Liquid und Bildern, der Datentransformation, der Überprüfung der Inhaltsqualität und der Informationssuche."
+description: "Dieser Referenzartikel behandelt, was BrazeAI Operator™ im gesamten Dashboard leisten kann – einschließlich der Erstellung von Campaigns, Canvase, Segmenten, Berichten, Dashboards und Agents, der Generierung von Texten, Nachrichten, Liquid und Bildern, der Datentransformation, der Überprüfung der Inhaltsqualität und der Informationssuche."
 ---
 
 # Was Sie mit Operator tun können {#operator-capabilities}
 
-> [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) ist ein KI-Assistent, der in das Braze-Dashboard integriert ist. Er beantwortet Fragen, verfasst Nachrichten und agiert auf unterstützten Seiten – beschreiben Sie in natürlicher Sprache, was Sie möchten, und Operator erledigt es im Kontext.
+> [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) ist ein KI or künstliche Intelligenz-Assistent, der in das Braze-Dashboard integriert ist. Er beantwortet Fragen, verfasst Nachrichten und agiert auf unterstützten Seiten – beschreiben Sie in natürlicher Sprache, was Sie möchten, und Operator erledigt es im Kontext.
 
 Da Operator Ihren Workspace versteht – angepasste Attribute, Connected-Content, die Seite, an der Sie arbeiten, und alle Markenrichtlinien, die Sie als Kontext hinzufügen – ist die Ausgabe kontextbewusster als das, was eigenständige Assistenten liefern können. Wenn Operator eine Änderung an einer Campaign, einem Canvas, einem Segment oder einem anderen Objekt vorschlägt, zeigt es die Änderung als visuellen Diff in einer [Aktionskarte]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) an, die Sie überprüfen und genehmigen, bevor etwas gespeichert wird.
 
@@ -32,7 +32,7 @@ Standardmäßig bittet Operator Sie, eine vorgeschlagene Navigation zu genehmige
 Über die Generierung von Texten und Liquid hinaus kann Operator Ihnen beim Erstellen verschiedener anderer Objekte im gesamten Dashboard helfen, einschließlich, aber nicht beschränkt auf:
 
 - Campaigns
-- Canvases
+- Canvase
 - Content Blocks
 - Angepasste Agents
 - Angepasste Attribute und angepasste Events
@@ -56,17 +56,17 @@ Um zu beginnen, suchen Sie nach der Option **Mit Operator erstellen**, wenn Sie 
 
 ![Die Menüs „Campaign erstellen“ und „Segment erstellen“, die jeweils die Option „Mit Operator erstellen“ anzeigen.]({% image_buster /assets/img/operator/operator_create_with_operator.png %}){:style="max-width:90%"}
 
-- **Campaigns erstellen und bearbeiten:** Wenn Sie eine Campaign starten, kann Operator Ihnen helfen, sie End-to-End aus einem einzigen Briefing in natürlicher Sprache zu entwerfen. Dies umfasst Zielgruppe, Inhalt und Zustellungseinstellungen. Sie können Operator auch bitten, Ihnen beim Bearbeiten einer bestehenden Campaign zu helfen, z. B. beim Anpassen des Targetings oder beim Aktualisieren des Nachrichteninhalts.
+- **Campaigns erstellen und bearbeiten:** Wenn Sie eine Campaign starten, kann Operator Ihnen helfen, sie End-to-End aus einem einzigen Briefing in natürlicher Sprache zu entwerfen. Dies umfasst Zielgruppe, Inhalt und Zustellungseinstellungen. Sie können Operator auch bitten, Ihnen beim Bearbeiten einer bestehenden Campaign zu helfen, z. B. beim Anpassen des Targetings oder beim Update or aktualisieren or aktualisieren des Nachrichteninhalts.
 - **Vom Briefing zur Campaign:** Beschreiben Sie ein vollständiges Campaign-Briefing, und Operator hilft Ihnen, einen Entwurf zu erstellen, der Text, Bilder, Personalisierung, Targeting und Empfehlungen für den Sendezeitpunkt enthält. Überprüfen Sie den Entwurf im Campaign-Editor und verfeinern Sie ihn mit Folgeprompts, bevor Sie ihn starten.
 - **Segmente erstellen und bearbeiten:** Wenn Sie ein Segment starten, beschreiben Sie die gewünschte Zielgruppe, und Operator hilft Ihnen, die Filterlogik aufzubauen – einschließlich Attributbedingungen, Event-Verlauf und Katalogabfragen. Operator kann Ihnen auch helfen, die Filter eines bestehenden Segments zu bearbeiten, wenn sich Ihre Targeting-Strategie ändert.
 - **Segmenterweiterungen erstellen:** Operator kann Ihnen helfen, eine SQL-definierte [Segmenterweiterung]({{site.baseurl}}/user_guide/audience/segments/segment_extension) zu erstellen, indem es die Abfrage schreibt, die sie definiert. Beschreiben Sie die gewünschte Zielgruppenlogik, und Operator entwirft die Abfrage, die Sie überprüfen, bevor Sie sie speichern. Sie können Operator auch über die Übersicht der Segmenterweiterungen um Hilfe bitten. Weitere Informationen zu Operator und SQL finden Sie unter [SQL-Abfragen schreiben](#write-sql-queries).
 - **Nutzer:innen importieren und verwalten:** Auf unterstützten Zielgruppenseiten kann Operator Ihnen helfen, [Nutzer:innen zu importieren]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [Nutzer:innen zu löschen]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) und [doppelte Profile zusammenzuführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Überprüfen Sie jede vorgeschlagene Aktion, bevor sie gespeichert wird.
 
-## Canvases {#canvases}
+## Canvase {#canvases}
 
 Operator kann Ihnen helfen, von einer Journey-Idee zu einem entworfenen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) zu gelangen und ein bestehendes Canvas zu verfeinern. Alle Änderungen, die Operator vorschlägt, erscheinen als Aktionskarte, die Sie überprüfen, bevor sie gespeichert werden.
 
-Beschreiben Sie die Journey in natürlicher Sprache. Operator erstellt einen Entwurf, der Eintrittskriterien, Schritte, Verzögerungen und Nachrichten enthalten kann. Sie können Operator auch bitten, ein bestehendes Canvas zu bearbeiten, z. B. einen Schritt hinzuzufügen oder Nachrichteninhalte zu aktualisieren. Überprüfen Sie den Entwurf im Canvas-Builder und verfeinern Sie ihn mit Folgeanweisungen, bevor Sie ihn starten.
+Beschreiben Sie die Journey in natürlicher Sprache. Operator erstellt einen Entwurf, der Eintrittskriterien, Schritte, Verzögerungen und Nachrichten enthalten kann. Sie können Operator auch bitten, ein bestehendes Canvas zu bearbeiten, z. B. einen Schritt hinzuzufügen oder Nachrichteninhalte zu Update or aktualisieren or aktualisieren. Überprüfen Sie den Entwurf im Canvas-Builder und verfeinern Sie ihn mit Folgeanweisungen, bevor Sie ihn starten.
 
 Bitten Sie Operator beispielsweise, eine Warenkorb-Abbruch-Journey zu erstellen, die eine Stunde nach dem Warenkorb-Abbruch wartet, eine E-Mail-Erinnerung sendet und dann nach 24 Stunden einen Push sendet, wenn die Nutzer:innen noch nicht gekauft haben.
 
@@ -84,7 +84,7 @@ Operator kann Ihnen helfen, Agents in der [Agent Console]({{site.baseurl}}/user_
 
 ## Inhalt und Kreatives {#content-and-creative}
 
-Operator kann den Inhalt Ihrer Nachrichten generieren und überprüfen – einschließlich Text, Nachrichten-HTML, Liquid und Bilder – und alle Markenrichtlinien anwenden, die Sie als Kontext hinzufügen. Sie können Operator auch über die Template-Bibliothek und Übersichtsseiten um Hilfe bitten. So können Sie beispielsweise [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) oder Content Blocks über deren Listenseiten erstellen oder aktualisieren, Arbeit im [Content-Kalender]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar) planen, [Farbprofil-Templates für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) erstellen oder [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements) konfigurieren.
+Operator kann den Inhalt Ihrer Nachrichten generieren und überprüfen – einschließlich Text, Nachrichten-HTML, Liquid und Bilder – und alle Markenrichtlinien anwenden, die Sie als Kontext hinzufügen. Sie können Operator auch über die Template-Bibliothek und Übersichtsseiten um Hilfe bitten. So können Sie beispielsweise [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates) oder Content Blocks über deren Listenseiten erstellen oder Update or aktualisieren or aktualisieren, Arbeit im [Content-Kalender]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/campaign_calendar) planen, [Farbprofil-Templates für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles) erstellen oder [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements) konfigurieren.
 
 ### Markenrichtlinien anwenden {#apply-brand-guidelines}
 
@@ -110,7 +110,7 @@ Die Tonalität des generierten Textes wird durch Ihren Prompt bestimmt. Beschrei
 Operator kann ein vollständiges Nachrichtendesign für jeden Kanal oder Editor mit einem HTML-Modus generieren, einschließlich, aber nicht beschränkt auf:
 
 - E-Mail
-- SMS/MMS/RCS
+- Kurzmitteilungsdienst or SMS/MMS/RCS
 - In-App-Nachricht
 - Content-Card
 - Banner
@@ -145,7 +145,7 @@ Kontext hilft Operator, das Gesamtbild Ihres Projekts zu verstehen. Es ist hilfr
 
 - Ihren Unternehmensnamen und Ihre Branche
 - Eine Campaign, an der Sie arbeiten, wie Black Friday oder Feiertagsverkäufe
-- Ihr Ziel, wie die Steigerung Ihrer Click-through-Rate
+- Ihr Ziel, wie die Steigerung Ihrer Klick, der or klicken-through-Rate
 - Bestimmte angepasste Attribute, die Sie in Ihre Nachricht aufnehmen möchten
 
 Das Einbeziehen von Kontext in Ihren Prompt hilft Operator, seine Antworten besser auf Ihre Bedürfnisse abzustimmen. Sie können auch Details aus Ihrer Campaign, Ihrem Nachrichten-Briefing oder Ihrem Brainstorming-Dokument einfügen, um Operator auf den neuesten Stand zu bringen.
@@ -167,7 +167,7 @@ Probieren Sie verschiedene Prompts aus, um zu sehen, wie Operator Ihr Messaging 
 
 ### Bilder generieren {#generate-images}
 
-Operator generiert Bilder mit [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), einem KI-System von OpenAI und einem Drittanbieter von Braze. Damit können Sie realistische Bilder und Kunst aus einer Beschreibung in natürlicher Sprache erstellen.
+Operator generiert Bilder mit [GPT Image 2.0](https://openai.com/index/introducing-chatgpt-images-2-0/), einem KI or künstliche Intelligenz-System von OpenAI und einem Drittanbieter von Braze. Damit können Sie realistische Bilder und Kunst aus einer Beschreibung in natürlicher Sprache erstellen.
 
 Wählen Sie in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) im Panel **Upload Assets** die Option **Generate with Operator** aus. Beschreiben Sie das gewünschte Bild, und Operator generiert es und speichert es direkt in Ihrer Medienbibliothek.
 
@@ -179,7 +179,7 @@ Wählen Sie in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/desi
 
 ### Inhaltsqualität überprüfen {#review-content-quality}
 
-Wählen Sie auf dem **Test**-Tab für SMS, Android-Push, iOS-Push und traditionelle In-App-Nachrichten **Review with Operator** aus, um Ihre Inhalte vor dem Senden zu überprüfen. Standardmäßig prüft Operator Ihre Campaign auf Rechtschreib- und Grammatikfehler, markenfremden oder unangemessenen Ton, anstößige Sprache sowie fehlerhaften Code, Testinhalte oder nicht gerendertes Liquid und empfiehlt, wie gefundene Probleme behoben werden können. Sie können Operator auch direkt in Ihrem Prompt bitten, die Überprüfung Ihrer Inhalte anzupassen.
+Wählen Sie auf dem **Test**-Tab für Kurzmitteilungsdienst or SMS, Android-Push, iOS-Push und traditionelle In-App-Nachrichten **Review with Operator** aus, um Ihre Inhalte vor dem Senden zu überprüfen. Standardmäßig prüft Operator Ihre Campaign auf Rechtschreib- und Grammatikfehler, markenfremden oder unangemessenen Ton, anstößige Sprache sowie fehlerhaften Code, Testinhalte oder nicht gerendertes Liquid und empfiehlt, wie gefundene Probleme behoben werden können. Sie können Operator auch direkt in Ihrem Prompt bitten, die Überprüfung Ihrer Inhalte anzupassen.
 
 Über die Standardüberprüfung hinaus können Sie Operator auf bestimmte Prüfungen ausrichten. Erwägen Sie, es auf Folgendes prüfen zu lassen:
 
@@ -193,8 +193,8 @@ Wählen Sie auf dem **Test**-Tab für SMS, Android-Push, iOS-Push und traditione
 
 Beachten Sie Folgendes, um die Inhaltsüberprüfung optimal zu nutzen:
 
-- **Lesen Sie Ihre Nachricht Korrektur:** Obwohl die Inhaltsüberprüfung helfen kann, Fehler zu identifizieren, ist es weiterhin wichtig, Ihre Inhalte manuell Korrektur zu lesen. Nutzen Sie die KI-generierten Vorschläge als hilfreiche Orientierung, aber verlassen Sie sich auf Ihr eigenes Urteil, um die Genauigkeit sicherzustellen.
-- **Verstehen Sie die Tonalitätsanalyse:** Die Ergebnisse der Tonalitätsanalyse sind subjektiv und basieren auf dem Verständnis des KI-Modells. Obwohl sie nützliche Insights liefern können, berücksichtigen Sie Ihre beabsichtigte Tonalität und den Gesprächskontext, um angemessene Anpassungen vorzunehmen.
+- **Lesen Sie Ihre Nachricht Korrektur:** Obwohl die Inhaltsüberprüfung helfen kann, Fehler zu identifizieren, ist es weiterhin wichtig, Ihre Inhalte manuell Korrektur zu lesen. Nutzen Sie die KI or künstliche Intelligenz-generierten Vorschläge als hilfreiche Orientierung, aber verlassen Sie sich auf Ihr eigenes Urteil, um die Genauigkeit sicherzustellen.
+- **Verstehen Sie die Tonalitätsanalyse:** Die Ergebnisse der Tonalitätsanalyse sind subjektiv und basieren auf dem Verständnis des KI or künstliche Intelligenz-Modells. Obwohl sie nützliche Insights liefern können, berücksichtigen Sie Ihre beabsichtigte Tonalität und den Gesprächskontext, um angemessene Anpassungen vorzunehmen.
 - **Überprüfen Sie markierte anstößige Sprache:** Die Erkennung anstößiger Sprache ist darauf ausgelegt, robust zu sein, kann aber gelegentlich falsch-positive Ergebnisse liefern. Überprüfen Sie markierte Abschnitte sorgfältig und nehmen Sie bei Bedarf entsprechende Änderungen vor.
 
 ## Datenautomatisierung und -suche {#data-automation-and-lookup}
@@ -220,17 +220,17 @@ Fragen Sie Operator direkt, wenn Sie nicht sicher sind, ob es eine bestimmte Inf
 
 ### Performance-Daten analysieren {#analyze-performance-data}
 
-Stellen Sie Operator Fragen in natürlicher Sprache zur Performance Ihrer Campaigns und Canvases, und es liefert Charts, Vergleiche und kurze Insights auf Basis Ihrer Workspace-Daten. Im Gegensatz zu den seitenabhängigen Features von Operator, die Kontext von der aktuellen Seite benötigen, beantwortet „Analyze“ Fragen von überall im Dashboard. Weitere Informationen finden Sie unter [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
+Stellen Sie Operator Fragen in natürlicher Sprache zur Performance Ihrer Campaigns und Canvase, und es liefert Charts, Vergleiche und kurze Insights auf Basis Ihrer Workspace-Daten. Im Gegensatz zu den seitenabhängigen Features von Operator, die Kontext von der aktuellen Seite benötigen, beantwortet „Analyze“ Fragen von überall im Dashboard. Weitere Informationen finden Sie unter [Operator Analyze]({{site.baseurl}}/user_guide/brazeai/operator/analyze).
 
 ### Berichte und Dashboards erstellen {#build-reports-and-dashboards}
 
 Operator kann Ihnen helfen, [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder)-Berichte und [Dashboard-Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)-Dashboards auf Basis einer Beschreibung in natürlicher Sprache zu erstellen. Beschreiben Sie die gewünschten Metriken, Kanäle und den Zeitraum, und Operator entwirft den Bericht oder das Dashboard, das Sie überprüfen, bevor Sie es speichern.
 
-Fragen Sie zum Beispiel: „Erstelle mir einen Bericht, der das SMS-Engagement meines Workspace der letzten 30 Tage zeigt.“
+Fragen Sie zum Beispiel: „Erstelle mir einen Bericht, der das Kurzmitteilungsdienst or SMS-Engagement meines Workspace der letzten 30 Tage zeigt.“
 
 ### Prognosen erstellen {#create-predictions}
 
-Operator kann Ihnen helfen, [Predictive-Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
+Operator kann Ihnen helfen, [Predictive-Abwanderung or Abwanderung, Churn or Abwanderung, churnen]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)-Prognosen und [KI or künstliche Intelligenz-Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai) anzuzeigen und zu erstellen. Beschreiben Sie das gewünschte Ergebnis, und Operator schlägt die Prognose oder Empfehlung vor, die Sie überprüfen können.
 
 ### SQL-Anfragen schreiben {#write-sql-queries}
 
@@ -242,7 +242,7 @@ Wählen Sie im [Datentransformations]({{site.baseurl}}/user_guide/data/unificati
 
 ## Workspace-Einstellungen {#workspace-settings}
 
-Operator kann Einstellungen auf mehreren Workspace-Konfigurationsseiten überprüfen und aktualisieren. Beschreiben Sie die gewünschte Änderung, und Operator schlägt sie als Aktionskarte vor, die Sie überprüfen, bevor sie gespeichert wird. Unterstützte Einstellungsseiten umfassen unter anderem:
+Operator kann Einstellungen auf mehreren Workspace-Konfigurationsseiten überprüfen und Update or aktualisieren or aktualisieren. Beschreiben Sie die gewünschte Änderung, und Operator schlägt sie als Aktionskarte vor, die Sie überprüfen, bevor sie gespeichert wird. Unterstützte Einstellungsseiten umfassen unter anderem:
 
 - [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
 - [Push-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
@@ -267,7 +267,7 @@ Die Abdeckung von Operator ändert sich häufig. Wenn Sie nicht sicher sind, ob 
 
 Die Dashboard-Unterstützung von Operator ist umfassend, hat aber Grenzen.
 
-- **Canvases:** Operator kann [Canvases erstellen und bearbeiten](#canvases) – im aktuellen Canvas-Editor. Der [ursprüngliche Canvas-Editor]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), das Starten eines Canvas von der Template-Auswahlseite oder die Verwendung von **Vorschau als Nutzer:in** beim Erstellen von Canvases werden nicht unterstützt. Operator kann dennoch die Konfiguration eines bestehenden Canvas referenzieren – wie Targeting- und Zustellungseinstellungen –, um Fragen zu beantworten und seine Ausgabe zu fundieren.
+- **Canvase:** Operator kann [Canvase erstellen und bearbeiten](#canvases) – im aktuellen Canvas-Editor. Der [ursprüngliche Canvas-Editor]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), das Starten eines Canvas von der Template-Auswahlseite oder die Verwendung von **Vorschau als Nutzer:in** beim Erstellen von Canvase werden nicht unterstützt. Operator kann dennoch die Konfiguration eines bestehenden Canvas referenzieren – wie Targeting- und Zustellungseinstellungen –, um Fragen zu beantworten und seine Ausgabe zu fundieren.
 - **Campaign-Duplizierung:** Operator kann keine bestehende Campaign aus der Campaign-Listenansicht duplizieren. Um eine ähnliche Campaign zu erstellen, bitten Sie Operator, eine neue von Grund auf zu erstellen, oder duplizieren Sie die Campaign manuell über das Menü **Weitere Aktionen** in der Listenansicht.
 - **Drag-and-Drop-Editoren:** Operator kann kein Nachrichtendesign direkt in einem Drag-and-Drop-Editor generieren oder einfügen, wie z. B. in den Editoren für [E-Mail]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) und [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Wechseln Sie zum entsprechenden HTML-Editor, um Operator zu verwenden, oder bitten Sie Operator, Inhalte wie Texte zu generieren, die Sie manuell einfügen können. Siehe [Nachrichten generieren](#generate-messages) für unterstützte Kanäle und Editoren.
 - **Bildschirmsichtbarkeit:** Operator nutzt seitenbezogenen Kontext, um zu verstehen, was Sie betrachten, einschließlich Inhalten in unterstützten Vorschauen und Editoren. Wenn ein Teil einer Seite außerhalb dessen liegt, was Operator lesen kann, teilt es Ihnen dies mit, anstatt zu raten, sodass Sie wissen, dass Sie diesen Inhalt selbst beschreiben müssen.
@@ -275,7 +275,7 @@ Die Dashboard-Unterstützung von Operator ist umfassend, hat aber Grenzen.
 
 ## Frühere Assistenten {#legacy-assistants}
 
-Vor Operator waren mehrere KI-Features als eigenständige Assistenten verfügbar: der AI Copywriter, der AI Liquid Assistant, der AI Image Generator, der AI SQL Generator, der Data Transformations AI Copilot und die Inhaltsüberprüfung. Alle ihre Einstiegspunkte bleiben erhalten und leiten zu Operator weiter, sodass Ihre bestehenden Workflows nicht beeinträchtigt werden. Was diese heute leisten, erfahren Sie unter [Inhalt und Kreatives](#content-and-creative) und [Datenautomatisierung und -suche](#data-automation-and-lookup).
+Vor Operator waren mehrere KI or künstliche Intelligenz-Features als eigenständige Assistenten verfügbar: der KI or künstliche Intelligenz Copywriter, der KI or künstliche Intelligenz Liquid Assistant, der KI or künstliche Intelligenz Image Generator, der KI or künstliche Intelligenz SQL Generator, der Data Transformations KI or künstliche Intelligenz Copilot und die Inhaltsüberprüfung. Alle ihre Einstiegspunkte bleiben erhalten und leiten zu Operator weiter, sodass Ihre bestehenden Workflows nicht beeinträchtigt werden. Was diese heute leisten, erfahren Sie unter [Inhalt und Kreatives](#content-and-creative) und [Datenautomatisierung und -suche](#data-automation-and-lookup).
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 

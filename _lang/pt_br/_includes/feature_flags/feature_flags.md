@@ -8,7 +8,7 @@ Quando estiver pronto para criar suas próprias Feature Flags, consulte [Criar F
 
 ## Pré-requisitos {#prerequisites}
 
-Estas são as versões mínimas do SDK necessárias para começar a usar Feature Flags:
+Estas são as versões mínimas do SDK or kit de desenvolvimento de software necessárias para começar a usar Feature Flags:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -113,7 +113,7 @@ if (liveChatEnabled) {
 {% tab Swift %}
 
 {% alert note %}
-Acessar `braze.featureFlags.featureFlags` ou `braze.featureFlags.featureFlag(id:)` bloqueia a thread que faz a chamada até que o SDK conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)).
+Acessar `braze.featureFlags.featureFlags` ou `braze.featureFlags.featureFlag(id:)` bloqueia a thread que faz a chamada até que o SDK or kit de desenvolvimento de software conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)).
 
 ```swift
 // Non-blocking — completion handler always delivers on the main thread.
@@ -249,15 +249,15 @@ Use Feature Flags para sincronizar o lançamento de um recurso e o envio de mens
 
 Por exemplo, digamos que estamos lançando um novo programa de recompensas de fidelidade para nossos usuários. Pode ser difícil para as equipes de marketing e produto coordenar perfeitamente o timing das mensagens promocionais com o lançamento de um recurso. No entanto, com as Feature Flags no Canvas, nossa equipe de produto pode aplicar uma lógica sofisticada para ativar um recurso para um público específico, enquanto nossa equipe de marketing controla as mensagens relacionadas para esses mesmos usuários.
 
-Para coordenar efetivamente o lançamento do recurso e as mensagens, vamos criar uma nova Feature Flag chamada `show_loyalty_program`. Para nosso lançamento em fases inicial, vamos deixar o Canvas controlar quando e para quem a Feature Flag será ativada. Por enquanto, vamos manter a porcentagem de lançamento em 0% e não selecionar nenhum Segment de destino.
+Para coordenar efetivamente o lançamento do recurso e as mensagens, vamos criar uma nova Feature Flag chamada `show_loyalty_program`. Para nosso lançamento em fases inicial, vamos deixar o Canvas controlar quando e para quem a Feature Flag será ativada. Por enquanto, vamos manter a porcentagem de lançamento em 0% e não selecionar nenhum Segment or segmento de destino.
 
 ![Uma Feature Flag com o nome Loyalty Rewards Program. O ID é show_loyalty_program, e a descrição indica que este recurso mostra o novo programa de recompensas de fidelidade na tela inicial e na página de perfil.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-Em seguida, no Canvas, vamos criar uma [etapa Feature Flag]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags) que ativa a Feature Flag `show_loyalty_program` para nosso Segment "Clientes de alto valor":
+Em seguida, no Canvas, vamos criar uma [etapa Feature Flag]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags) que ativa a Feature Flag `show_loyalty_program` para nosso Segment or segmento "Clientes de alto valor":
 
 ![Um exemplo de Canvas com uma etapa de divisão de público em que o Segment de clientes de alto valor ativa a Feature Flag show_loyalty_program.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
-Agora, os usuários nesse Segment começam a ver o novo programa de fidelidade e, após a ativação, um e-mail e uma pesquisa são enviados automaticamente para ajudar nossas equipes a coletar feedback.
+Agora, os usuários nesse Segment or segmento começam a ver o novo programa de fidelidade e, após a ativação, um e-mail e uma pesquisa são enviados automaticamente para ajudar nossas equipes a coletar feedback.
 
 ### Experimentação de recursos {#feature-experimentation}
 
@@ -340,18 +340,18 @@ Depois de determinarmos o vencedor, podemos encerrar essa Campaign e aumentar a 
 
 ### Segmentação {#segmentation}
 
-Use o filtro **Feature Flag** para criar um Segment ou direcionar mensagens para usuários com base em se eles têm uma Feature Flag ativada. Por exemplo, digamos que você tem uma Feature Flag que controla conteúdo premium no seu app. Você poderia criar um Segment que filtra os usuários que não têm a Feature Flag ativada e, em seguida, enviar a esse Segment uma mensagem incentivando-os a fazer upgrade de suas contas para visualizar o conteúdo premium.
+Use o filtro **Feature Flag** para criar um Segment or segmento ou direcionar mensagens para usuários com base em se eles têm uma Feature Flag ativada. Por exemplo, digamos que você tem uma Feature Flag que controla conteúdo premium no seu app. Você poderia criar um Segment or segmento que filtra os usuários que não têm a Feature Flag ativada e, em seguida, enviar a esse Segment or segmento uma mensagem incentivando-os a fazer upgrade de suas contas para visualizar o conteúdo premium.
 
-1. Abra seu Segment ou público da mensagem.
+1. Abra seu Segment or segmento ou público da mensagem.
 2. Adicione o filtro **Feature Flag**.
 3. Selecione a Feature Flag.
 4. Defina o comparador como **is** para incluir usuários que têm a Feature Flag ativada, ou **is not** para incluir usuários que não têm.
 ![Criador de Segments da Braze usando um filtro de valor ativado de Feature Flag.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
 
-Para saber mais sobre filtragem em Segments, consulte [Criando um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+Para saber mais sobre filtragem em Segments, consulte [Criando um Segment or segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 {% alert note %}
-Para evitar Segments recursivos, não é possível criar um Segment que faça referência a outras Feature Flags.
+Para evitar Segments recursivos, não é possível criar um Segment or segmento que faça referência a outras Feature Flags.
 {% endalert %}
 
 ## Limitações do plano {#plan-limitations}

@@ -2,7 +2,7 @@
 
 ## Ativando o deep linking por push
 
-Por padrão, o SDK Braze Cordova não lida automaticamente com o deep linking por push a partir de notificações. Para ativar o deep linking por push, adicione as seguintes preferências ao elemento `platform` no arquivo `config.xml` do seu projeto.
+Por padrão, o SDK or kit de desenvolvimento de software Braze Cordova não lida automaticamente com o deep linking por push a partir de notificações. Para ativar o deep linking por push, adicione as seguintes preferências ao elemento `platform` no arquivo `config.xml` do seu projeto.
 
 {% tabs %}
 {% tab ios %}

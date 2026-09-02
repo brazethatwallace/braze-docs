@@ -69,7 +69,7 @@ Você tem a opção de incluir uma instrução `{% else %}` na sua lógica condi
 
 #### `case` e `when` {#case-and-when}
 
-`{% case %}`, `{% when %}` e `{% endcase %}` funcionam como uma instrução switch: você define uma expressão após `case`, e cada ramificação `when` é executada quando essa expressão é igual ao valor listado (o Liquid usa igualdade nos bastidores, semelhante a encadear `if` e `elsif` com `==`). Você pode listar vários valores em uma tag `when` separando-os com vírgula ou `or`. Use `{% else %}` como fallback quando nada corresponder e, em seguida, feche com `{% endcase %}`.
+`{% case %}`, `{% when %}` e `{% endcase %}` funcionam como uma instrução switch: você define uma expressão após `case`, e cada Branch or ramificação or ramificação `when` é executada quando essa expressão é igual ao valor listado (o Liquid usa igualdade nos bastidores, semelhante a encadear `if` e `elsif` com `==`). Você pode listar vários valores em uma tag `when` separando-os com vírgula ou `or`. Use `{% else %}` como fallback quando nada corresponder e, em seguida, feche com `{% endcase %}`.
 
 Certifique-se de que o formato dos valores `when` corresponda ao tipo de dados. Para texto (como um código de idioma), use aspas: `{% when 'es' %}`. Para números, omita as aspas: `{% when 2 %}`.
 
@@ -92,7 +92,7 @@ Você pode usar o mesmo padrão com tags de personalização da Braze ou outras 
 A tag `{% endif %}` sinaliza que você terminou um bloco `if`. Você deve incluir a tag `{% endif %}` em qualquer mensagem que use `if`, `elsif`, `unless` ou `else` nessa cadeia. Se você não incluir uma tag `{% endif %}`, receberá um erro, pois a Braze não conseguirá processar sua mensagem. Se você usar `{% case %}`, feche o bloco com `{% endcase %}`, não com `{% endif %}`.
 
 {% alert note %}
-Nas tags `if`, `elsif` e `unless`, você pode usar operadores, mas não filtros. Nas tags `case` e `when`, cada ramificação corresponde quando a expressão `case` é igual a um valor `when`; filtros também não são suportados nessas expressões. Para avaliar um valor filtrado, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável na sua cláusula `case` ou `when`. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Nas tags `if`, `elsif` e `unless`, você pode usar operadores, mas não filtros. Nas tags `case` e `when`, cada Branch or ramificação or ramificação corresponde quando a expressão `case` é igual a um valor `when`; filtros também não são suportados nessas expressões. Para avaliar um valor filtrado, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável na sua cláusula `case` ou `when`. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ### Tutorial: entregar conteúdo baseado em localização {#tutorial-deliver-location-based-content}

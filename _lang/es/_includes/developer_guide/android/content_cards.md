@@ -1,6 +1,6 @@
 ## Requisitos previos {#prerequisites}
 
-Antes de poder usar las Content Cards de Braze, deberás integrar el [SDK de Braze para Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android) en tu aplicación. Sin embargo, no es necesario realizar ninguna configuración adicional.
+Antes de poder usar las Content Cards de Braze, deberás integrar el [SDK or kit de desarrollo de software de Braze para Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android) en tu aplicación. Sin embargo, no es necesario realizar ninguna configuración adicional.
 
 ## Fragmentos de Google {#google-fragments}
 
@@ -10,7 +10,7 @@ Para aprender a añadir un fragmento a una actividad, consulta [la documentació
 
 ## Tipos y propiedades de las tarjetas {#card-types-and-properties}
 
-El modelo de datos de Content Cards está disponible en el SDK de Android y ofrece los siguientes tipos de Content Cards únicos. Cada tipo comparte un modelo base, lo que les permite heredar propiedades comunes del modelo base, además de tener sus propias propiedades únicas. Para obtener la documentación de referencia completa, consulta [`com.braze.models.cards`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html).
+El modelo de datos de Content Cards está disponible en el SDK or kit de desarrollo de software de Android y ofrece los siguientes tipos de Content Cards únicos. Cada tipo comparte un modelo base, lo que les permite heredar propiedades comunes del modelo base, además de tener sus propias propiedades únicas. Para obtener la documentación de referencia completa, consulta [`com.braze.models.cards`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html).
 
 ### Modelo de tarjeta base {#base-card-for-android}
 

@@ -59,7 +59,7 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros amp
 - [Blings]({{site.baseurl}}/partners/message_personalization/dynamic_content/visual_and_interactive_content/blings)
 - [BlueConic]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/blueconic)
 - [Bluedot]({{site.baseurl}}/partners/message_personalization/location/bluedot)
-- [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
+- [Branch or ramificação]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)
 - [Bynder]({{site.baseurl}}/partners/message_orchestration/cms_dam/bynder)
 
 </div>
@@ -110,7 +110,7 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros amp
 ## E
 
 - [Eagle Eye]({{site.baseurl}}/partners/data_and_analytics/loyalty/eagleeye)
-- [eduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
+- [EduMe]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/learning/edume)
 - [Email Love]({{site.baseurl}}/partners/message_orchestration/templates/email_love)
 - [EmailShepherd]({{site.baseurl}}/partners/message_orchestration/templates/emailshepherd)
 - [Eppo]({{site.baseurl}}/partners/data_and_analytics/ab_testing/eppo)
@@ -140,7 +140,7 @@ Braze Alloys é o programa de parceiros de tecnologia da Braze. Os parceiros amp
 
 ## G
 
-- [Google Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
+- [Google Audience or público do Google Sync]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync)
 - [Google Cloud Storage]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/google_cloud_storage_for_currents)
 - [Google Gemini]({{site.baseurl}}/partners/ai_model_providers/google_gemini)
 - [GRAVTY®]({{site.baseurl}}/partners/data_and_analytics/loyalty/lji)
@@ -416,6 +416,6 @@ Se a integração requer configuração no lado da Braze, faça login no seu das
 Integrações totalmente gerenciadas pelo parceiro podem não estar listadas aqui. Consulte a documentação específica do parceiro para verificar a propriedade da integração e as etapas de configuração.
 {% endalert %}
 
-Se você vir **Credenciais inválidas** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro.
+Se você vir **Credenciais inválidas** para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de tecnologia e confirme as chaves de API or interface de programação do aplicativo (API), tokens OAuth e permissões no lado do parceiro.
 
 Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de Parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão que a Braze utiliza para sincronização e envio.

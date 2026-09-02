@@ -8,11 +8,11 @@ page_type: reference
 description: "Este artigo descreve detalhes sobre o endpoint da Braze para atualização de mensagens agendadas."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Atualizar mensagens agendadas {#update-scheduled-messages}
 
 {% apimethod post core_endpoint|/docs/core_endpoints %}
-/messages/schedule/update
+/messages/agendar/cronograma/update
 {% endapimethod %}
 
 > Use esse endpoint para atualizar mensagens agendadas.
@@ -23,7 +23,7 @@ Esse endpoint aceita atualizações do parâmetro `schedule` ou `messages` ou de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `messages.schedule.update`.
 
 ## Limite de frequência {#rate-limit}
 

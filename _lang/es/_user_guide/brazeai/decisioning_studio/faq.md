@@ -16,7 +16,7 @@ Un agente de decisión es una configuración personalizada para BrazeAI Decision
 
 ### ¿Qué métricas puedo optimizar? {#what-metrics-can-i-optimize-for}
 
-Puedes optimizar cualquier métrica empresarial que se ajuste a tus objetivos, como los ingresos, las conversiones, los ingresos medios por usuario (ARPU), el valor de duración del ciclo de vida del cliente (CLV), la ganancia, las renovaciones de contratos o cualquier otro KPI empresarial.
+Puedes optimizar cualquier métrica empresarial que se ajuste a tus objetivos, como los ingresos, las conversiones, los ingresos medios por usuario (ARPU), el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida del cliente (valor del ciclo de vida del cliente), la ganancia, las renovaciones de contratos o cualquier otro indicador clave de rendimiento empresarial.
 
 ### ¿Qué son las dimensiones en Decisioning Studio? {#what-are-dimensions-in-decisioning-studio}
 

@@ -2,7 +2,7 @@
 nav_title: AccuWeather
 article_title: AccuWeather
 alias: /partners/accuweather/
-description: "Este artigo de referência descreve a parceria entre a Braze e a AccuWeather, uma API de meteorologia que você pode usar para personalizar suas campanhas de marketing."
+description: "Este artigo de referência descreve a parceria entre a Braze e a AccuWeather, uma API or interface de programação do aplicativo (API) de meteorologia que você pode usar para personalizar suas campanhas de marketing."
 page_type: partner
 search_tag: Partner
 
@@ -18,16 +18,16 @@ _Essa integração é mantida pela AccuWeather._
 
 | Requisito | Descrição |
 |---|---|
-| Chave de API da AccuWeather | Entre em contato com o gerente da sua conta AccuWeather para obter as chaves de API compatíveis a serem usadas nos URLs de solicitação.<br><br>Mais instruções podem ser encontradas na página da [API AccuWeather Enterprise](https://apidev.accuweather.com/developers/). |
+| Chave de API or interface de programação do aplicativo (API) da AccuWeather | Entre em contato com o gerente da sua conta AccuWeather para obter as chaves de API or interface de programação do aplicativo (API) compatíveis a serem usadas nos URLs de solicitação.<br><br>Mais instruções podem ser encontradas na página da [API or interface de programação do aplicativo (API) AccuWeather Enterprise](https://apidev.accuweather.com/developers/). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## APIs AccuWeather disponíveis {#available-accuweather-apis}
 
 A seguir, confira as APIs da AccuWeather que você pode consultar nas suas Campaigns e Canvas da Braze.
 
-| API | Descrição |
+| API or interface de programação do aplicativo (API) | Descrição |
 |---|---|
-| [Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | Obtenha uma chave de localização para o local desejado. Use a chave de local para recuperar dados meteorológicos da API de previsão ou condições atuais. |
+| [Locations](https://apidev.accuweather.com/developers/locationsAPIguide) | Obtenha uma chave de localização para o local desejado. Use a chave de local para recuperar dados meteorológicos da API or interface de programação do aplicativo (API) de previsão ou condições atuais. |
 | [Forecast](https://apidev.accuweather.com/developers/forecastsAPIguide) | Obtenha informações de previsão para um local específico. |
 | [Current Conditions](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) | Obtenha dados de condições atuais para um local específico. |
 | [Indices](https://apidev.accuweather.com/developers/indicesApiGuide) | Obtenha valores de índice diários para um local específico. A disponibilidade do índice varia de acordo com o local. |
@@ -40,7 +40,7 @@ A seguir, confira as APIs da AccuWeather que você pode consultar nas suas Campa
 
 ## Exemplo de Conteúdo conectado {#connected-content-example}
 
-O exemplo a seguir mostra uma chamada de Conteúdo conectado exibindo dois tipos diferentes de mensagens com base nas condições atuais do código postal de um usuário nos EUA. São usados os endpoints da API de locais e condições atuais da AccuWeather.
+O exemplo a seguir mostra uma chamada de Conteúdo conectado exibindo dois tipos diferentes de mensagens com base nas condições atuais do código postal de um usuário nos EUA. São usados os endpoints da API or interface de programação do aplicativo (API) de locais e condições atuais da AccuWeather.
 {% raw %}
 
 ```liquid
@@ -64,10 +64,10 @@ Um detalhamento das duas chamadas de Conteúdo conectado está disponível nos e
 
 {% tabs %}
 {% tab Locations %}
-### Exemplo de API de locais {#locations-api-example}
+### Exemplo de API or interface de programação do aplicativo (API) de locais {#locations-api-example}
 
 {% raw %}
-Na primeira tag `connected_content`, é feita uma solicitação GET para a [API de locais](https://apidev.accuweather.com/developers/locationsAPIguide). Para este exemplo, você também pode alavancar o `{{${city}}}` do usuário se não tiver um atributo personalizado de código postal.
+Na primeira tag `connected_content`, é feita uma solicitação GET para a [API or interface de programação do aplicativo (API) de locais](https://apidev.accuweather.com/developers/locationsAPIguide). Para este exemplo, você também pode alavancar o `{{${city}}}` do usuário se não tiver um atributo personalizado de código postal.
 
 ```
 {% connected_content http://dataservice.accuweather.com/locations/v1/postalcodes/{{${country}}}/search?q={{custom_attribute.${Zip Code}}}&apikey={your API key} :save location_info %}
@@ -157,9 +157,9 @@ Esse objeto JSON pode ser armazenado em uma variável local `location_info` espe
 {% endtab %}
 {% tab Condições atuais %}
 
-### Exemplo de API de condições atuais {#current-conditions-api-example}
+### Exemplo de API or interface de programação do aplicativo (API) de condições atuais {#current-conditions-api-example}
 
-Para a segunda tag `connected_content`, é feita uma solicitação GET à [API de condições atuais](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). A **chave do local** precisará ser adicionada ao URL da solicitação. Aqui está o exemplo da tag `connected_content`:
+Para a segunda tag `connected_content`, é feita uma solicitação GET à [API or interface de programação do aplicativo (API) de condições atuais](https://apidev.accuweather.com/developers/currentConditionsAPIGuide). A **chave do local** precisará ser adicionada ao URL da solicitação. Aqui está o exemplo da tag `connected_content`:
 
 {% raw %}
 ```
@@ -198,7 +198,7 @@ Como visto na tag `connected_content`, o objeto JSON é armazenado em uma variá
 
 Você pode testar qual deve ser a saída do [WeatherText](https://apidev.accuweather.com/developers/currentConditionsAPIGuide) fazendo referência a `{{local_weather[0].WeatherText}}`.
 
-Se a chamada da API responder com `{{local_weather[0].WeatherText}}` retornando `Rain`, o usuário receberá o push.
+Se a chamada da API or interface de programação do aplicativo (API) responder com `{{local_weather[0].WeatherText}}` retornando `Rain`, o usuário receberá o push.
 
 {% endraw %}
 {% endtab %}

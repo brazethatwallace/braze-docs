@@ -22,9 +22,9 @@ A integração entre a Antavo e a Braze permite que você use dados relacionados
 | Requisito | Descrição |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Conta Antavo | Para aproveitar essa parceria, é necessário ter uma conta [Antavo](https://antavo.com/) com a integração Braze ativada. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `events.list`, `events.data_series` e `events.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
-| Identificador do app Braze | A chave do identificador do seu app. <br><br>Para localizar essa chave no dashboard da Braze, acesse **Configurações** > **Chaves de API** e encontre a seção **Identification**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões: `users.track`, `events.list`, `events.data_series` e `events.get`.<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint dependerá da URL da Braze para sua instância. |
+| Identificador do app Braze | A chave do identificador do seu app. <br><br>Para localizar essa chave no dashboard da Braze, acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)** e encontre a seção **Identification**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -35,8 +35,8 @@ Na Antavo, acesse **Modules** > **Braze** e clique em **Configure**. Ao navegar 
 
 Forneça as seguintes credenciais:
 
-- **Instance URL:** O endpoint REST da Braze da instância para a qual você está provisionado.
-- **API Token (Identifier):** A chave da API REST da Braze que a Antavo deve usar ao enviar solicitações para a Braze.
+- **Instance URL:** O endpoint REST or transferir estado representacional da Braze da instância para a qual você está provisionado.
+- **API or interface de programação do aplicativo (API) Token (Identifier):** A chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze que a Antavo deve usar ao enviar solicitações para a Braze.
 - **App Identifier:** O identificador do app Braze.
 
 Depois de inserir as credenciais, clique em **Connect**.

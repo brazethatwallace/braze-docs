@@ -25,8 +25,8 @@ La integración de Braze y Komo te permite recopilar datos first-party y zero-pa
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Komo | Necesitarás una cuenta activa de Komo para aprovechar esta integración. Visita [Komo](https://komo.tech/) para iniciar una prueba ahora. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia.<br><br>Por ejemplo, debería verse algo como: https://rest.iad-03.braze.com |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia.<br><br>Por ejemplo, debería verse algo como: https://rest.iad-03.braze.com |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}

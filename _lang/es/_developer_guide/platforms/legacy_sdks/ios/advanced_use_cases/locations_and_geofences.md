@@ -17,7 +17,7 @@ noindex: true
 Para habilitar geovallas en iOS:
 
 1. Tu integración debe admitir notificaciones push en segundo plano.
-2. Las geovallas de Braze [deben habilitarse]({{site.baseurl}}/developer_guide/geofences?sdktab=swift) a través del SDK, ya sea habilitando implícitamente la recopilación de ubicaciones o habilitando explícitamente la recopilación de geovallas. No están habilitadas de forma predeterminada.
+2. Las geovallas de Braze [deben habilitarse]({{site.baseurl}}/developer_guide/geofences?sdktab=swift) a través del SDK or kit de desarrollo de software, ya sea habilitando implícitamente la recopilación de ubicaciones o habilitando explícitamente la recopilación de geovallas. No están habilitadas de forma predeterminada.
 
 {% alert important %}
 A partir de iOS 14, las geovallas no funcionan de forma fiable para los usuarios que deciden dar permiso de ubicación aproximada.
@@ -29,7 +29,7 @@ Para utilizar completamente nuestra estrategia de sincronización de geovallas, 
 
 ## Paso 2: Habilitar geovallas {#step-2-enable-geofences}
 
-De forma predeterminada, las geovallas se habilitan en función de si la recopilación automática de ubicación está habilitada. Puedes habilitar las geovallas utilizando el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `EnableGeofences` y establece el valor en `YES`. Ten en cuenta que antes de la versión v4.0.2 del SDK de Braze para iOS, se debe utilizar la clave de diccionario `Appboy` en lugar de `Braze`.
+De forma predeterminada, las geovallas se habilitan en función de si la recopilación automática de ubicación está habilitada. Puedes habilitar las geovallas utilizando el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `EnableGeofences` y establece el valor en `YES`. Ten en cuenta que antes de la versión v4.0.2 del SDK or kit de desarrollo de software de Braze para iOS, se debe utilizar la clave de diccionario `Appboy` en lugar de `Braze`.
 
 También puedes habilitar las geovallas en el momento de inicio de la aplicación utilizando el método [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). En el diccionario `appboyOptions`, establece `ABKEnableGeofencesKey` en `YES`. Por ejemplo:
 
@@ -106,7 +106,7 @@ Para que las ubicaciones funcionen correctamente, también debes confirmar que t
 
 ## Desactivar las solicitudes automáticas de geovallas {#disabling-automatic-geofence-requests}
 
-A partir de la versión 3.21.3 del SDK para iOS, puedes desactivar la solicitud automática de geovallas. Puedes hacerlo utilizando el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `DisableAutomaticGeofenceRequests` y establece el valor en `YES`.
+A partir de la versión 3.21.3 del SDK or kit de desarrollo de software para iOS, puedes desactivar la solicitud automática de geovallas. Puedes hacerlo utilizando el archivo `Info.plist`. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada booleana `DisableAutomaticGeofenceRequests` y establece el valor en `YES`.
 
 También puedes desactivar las solicitudes automáticas de geovallas en el momento del inicio de la aplicación a través del método [`startWithApiKey:inApplication:withLaunchOptions:withAppboyOptions`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aa9f1bd9e4a5c082133dd9cc344108b24). En el diccionario `appboyOptions`, establece `ABKDisableAutomaticGeofenceRequestsKey` en `YES`. Por ejemplo:
 
@@ -137,9 +137,9 @@ Si eliges utilizar esta opción, tendrás que solicitar manualmente las geovalla
 
 ## Solicitar geovallas manualmente {#manually-requesting-geofences}
 
-Cuando el SDK de Braze solicita geovallas para monitorear desde el backend, informa la ubicación actual del usuario y recibe las geovallas que se consideran óptimamente relevantes según la ubicación reportada. Existe un límite de velocidad de una actualización de geovallas por sesión.
+Cuando el SDK or kit de desarrollo de software de Braze solicita geovallas para monitorear desde el backend, informa la ubicación actual del usuario y recibe las geovallas que se consideran óptimamente relevantes según la ubicación reportada. Existe un límite de velocidad de una actualización de geovallas por sesión.
 
-Para controlar la ubicación que el SDK informa con el fin de recibir las geovallas más relevantes, a partir de la versión 3.21.3 del SDK para iOS, puedes solicitar geovallas manualmente proporcionando la latitud y longitud de una ubicación. Se recomienda desactivar las solicitudes automáticas de geovallas cuando utilices este método. Para hacerlo, usa el siguiente código:
+Para controlar la ubicación que el SDK or kit de desarrollo de software informa con el fin de recibir las geovallas más relevantes, a partir de la versión 3.21.3 del SDK or kit de desarrollo de software para iOS, puedes solicitar geovallas manualmente proporcionando la latitud y longitud de una ubicación. Se recomienda desactivar las solicitudes automáticas de geovallas cuando utilices este método. Para hacerlo, usa el siguiente código:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

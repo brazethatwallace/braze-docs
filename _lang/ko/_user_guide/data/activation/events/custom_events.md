@@ -137,7 +137,7 @@ Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막�
 
 ![대시보드의 커스텀 이벤트 페이지에서 커스텀 이벤트의 추세를 보여주는 커스텀 이벤트 횟수 그래프]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-**필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 핵심 성과 지표(KPI) 수식별로 커스텀 이벤트를 분류할 수도 있습니다.
+**필터**를 사용하여 시간별, 월간 활성 사용자(MAU), Segments 또는 KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or KPI or 핵심 성과 지표(KPI) or 핵심 성과 지표(KPI or 핵심 성과 지표(KPI)) 수식별로 커스텀 이벤트를 분류할 수도 있습니다.
 
 ![커스텀 이벤트 그래프 필터]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 

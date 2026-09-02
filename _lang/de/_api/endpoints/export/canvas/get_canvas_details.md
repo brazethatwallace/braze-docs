@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Canva
 {% api %}
 # Canvas-Details exportieren {#export-canvas-details}
 {% apimethod get %}
-/canvas/details
+/Canvas/details
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um Metadaten zu einem Canvas zu exportieren, z. B. den Namen, den Erstellungszeitpunkt, den aktuellen Status und mehr.
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
 | `canvas_id` | Erforderlich | String | Siehe [Canvas-API-Bezeichner]({{site.baseurl}}/api/identifier_types) |
-| `post_launch_draft_version` | Optional | Boolescher Wert | Für Canvases mit einem Entwurf nach dem Start werden bei der Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardwert ist `false`. |
+| `post_launch_draft_version` | Optional | Boolescher Wert | Für Canvase mit einem Entwurf nach dem Start werden bei der Einstellung `true` alle verfügbaren Entwurfsänderungen angezeigt. Standardwert ist `false`. |
 | `include_has_translatable_content` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, enthält die API-Antwort ein `has_translatable_content`-Feld für jede Nachricht. Standardwert ist `false`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
@@ -106,7 +106,7 @@ Alle Canvas-Schritte verfügen über ein `next_paths`-Feld, bei dem es sich um e
 
 ### Nachrichten nach Kanal {#messages-by-channel}
 
-Im Folgenden finden Sie eine Beispielantwort mit Canvas-Nachrichten, die über verschiedene Kanäle (E-Mail, Push, SMS und In-App-Nachrichten) gesendet wurden:
+Im Folgenden finden Sie eine Beispielantwort mit Canvas-Nachrichten, die über verschiedene Kanäle (E-Mail, Push, Kurzmitteilungsdienst or SMS und In-App-Nachrichten) gesendet wurden:
 
 ```json
 {

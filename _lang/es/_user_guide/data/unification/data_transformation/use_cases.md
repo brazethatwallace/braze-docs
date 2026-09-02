@@ -29,7 +29,7 @@ Braze tiene una integración con [Iterate]({{site.baseurl}}/partners/additional_
 
 ## Sincronizar atributos de contacto de HubSpot {#sync-hubspot-contact-attributes}
 
-Si usas HubSpot como tu CRM y Braze para mensajería, puedes usar Transformación de datos para convertir las cargas útiles de webhooks de HubSpot en actualizaciones de `/users/track` de Braze.
+Si usas HubSpot como tu CRM or administración de las relaciones con el cliente y Braze para mensajería, puedes usar Transformación de datos para convertir las cargas útiles de webhooks de HubSpot en actualizaciones de `/users/track` de Braze.
 
 Este ejemplo comprueba si existe un `external_id`, copia el objeto de usuario entrante y envía todos los campos incluidos a Braze como atributos personalizados.
 

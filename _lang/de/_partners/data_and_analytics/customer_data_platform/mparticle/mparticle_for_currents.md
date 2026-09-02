@@ -11,7 +11,7 @@ search_tag: Partner
 
 # mParticle für Currents {#mparticle-for-currents}
 
-> [mParticle](https://www.mparticle.com) ist eine Customer Data Platform (CDP), die Daten aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Ziele in Ihrem Marketing Stack weiterleitet.
+> [mParticle](https://www.mparticle.com) ist eine Customer Data Platform (Customer Data Platform (CDP)), die Daten aus verschiedenen Quellen sammelt und an eine Vielzahl anderer Ziele in Ihrem Marketing Stack weiterleitet.
 
 Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss zwischen den beiden Systemen nahtlos zu steuern. Mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) können Sie auch Daten mit mParticle verbinden, um sie über den gesamten Growth Stack hinweg nutzbar zu machen.
 
@@ -59,7 +59,7 @@ Navigieren Sie in Braze zu **Currents > + Create Current > Create mParticle Expo
 Es ist wichtig, Ihren mParticle-API-Schlüssel und Ihr mParticle-Geheimnis aktuell zu halten. Wenn die Zugangsdaten Ihres Konnektors ablaufen, stellt der Konnektor das Senden von Events ein. Wenn dies länger als **5 Tage** andauert, werden die Events des Konnektors verworfen und Daten gehen dauerhaft verloren.
 {% endalert %}
 
-Alle an mParticle gesendeten Events enthalten die `external_user_id` der Nutzer:innen als `customerid`. Derzeit sendet Braze keine Event-Daten für Nutzer:innen, deren `external_user_id` nicht festgelegt ist. Wenn Sie die `external_user_id` einer anderen ID in mParticle zuordnen möchten, die nicht die Standard-`customerid` ist, wenden Sie sich bitte an Ihren Braze-CSM.
+Alle an mParticle gesendeten Events enthalten die `external_user_id` der Nutzer:innen als `customerid`. Derzeit sendet Braze keine Event-Daten für Nutzer:innen, deren `external_user_id` nicht festgelegt ist. Wenn Sie die `external_user_id` einer anderen ID in mParticle zuordnen möchten, die nicht die Standard-`customerid` ist, wenden Sie sich bitte an Ihren Braze-CSM or Customer-Success-Manager.
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 

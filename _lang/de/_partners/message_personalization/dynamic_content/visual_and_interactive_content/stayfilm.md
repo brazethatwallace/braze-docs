@@ -9,9 +9,9 @@ search_tag: Partner
 
 # Stayfilm
 
-> [Stayfilm](https://www.stayfilm.com/) ist eine REST API für die automatisierte, personalisierte Videoproduktion in großem Umfang. Die Plattform integriert Daten, Bilder, Text, Soundtracks, Narration und visuelle Effekte, um angepasste Videoinhalte für E-Commerce, Marktplätze, CRM-Workflows und Marketing-Campaigns zu generieren.
+> [Stayfilm](https://www.stayfilm.com/) ist eine Representational State Transfer API für die automatisierte, personalisierte Videoproduktion in großem Umfang. Die Plattform integriert Daten, Bilder, Text, Soundtracks, Narration und visuelle Effekte, um angepasste Videoinhalte für E-Commerce, Marktplätze, CRM or Customer-Relationship-Management [-System] (CRM)-Workflows und Marketing-Campaigns zu generieren.
 >
-> Diese Integration sendet Render-Jobs von Braze an die Stayfilm-API, empfängt Callbacks, wenn Videos bereit sind, und speichert Video-URLs und Status in Nutzerprofilen zur Verwendung in Campaigns und Canvases.
+> Diese Integration sendet Render-Jobs von Braze an die Stayfilm-API, empfängt Callbacks, wenn Videos bereit sind, und speichert Video-URLs und Status in Nutzerprofilen zur Verwendung in Campaigns und Canvase.
 
 _Diese Integration wird von Stayfilm gepflegt._
 
@@ -23,7 +23,7 @@ Stayfilm unterstützt die personalisierte Videozustellung über den gesamten Kun
 - **Produkt- und Marktplatzinhalte:** Generieren Sie produktbezogene Videos aus Katalogen oder von Nutzer:innen bereitgestellten Medien
 - **Konversion und Aktivierung:** Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
 - **Kundenbindung und Upselling:** Heben Sie personalisierte Angebote oder Nutzungsmeilensteine im Videoformat hervor
-- **Rückgewinnung und Churn-Prävention:** Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Videoinhalten
+- **Rückgewinnung und Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prävention:** Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Videoinhalten
 
 ## Voraussetzungen {#prerequisites}
 
@@ -42,7 +42,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 Diese Integration verwendet einen bidirektionalen Webhook-Ablauf:
 
 1. **Ausgehend:** Eine Braze-[Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks) sendet einen Render-Auftrag an den Stayfilm-Endpunkt `POST /Job`. Die Anfrage enthält Nutzermedien, die Template-Konfiguration und `CallbackRelayData`, das auf die `external_id` der/des Braze-Nutzer:in gesetzt ist.
-2. **Eingehend:** Wenn Stayfilm das Rendering abgeschlossen hat, sendet es einen Callback an Ihre Braze-Datentransformations-Webhook-URL. Die Transformation bildet die Antwort auf [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und angepasste Events im entsprechenden Nutzerprofil ab.
+2. **Eingehend:** Wenn Stayfilm das Rendering abgeschlossen hat, sendet es einen Callback an Ihre Braze-Datentransformations-Webhook-URL. Die Transformation bildet die Antwort auf [angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) und angepasste Events im entsprechenden Kundenprofil or Nutzerprofil ab.
 3. **Zustellung:** Verwenden Sie das gespeicherte Attribut `stayfilm_video_url` in Messaging-Kanälen, z. B. in einer [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_messages) mit benutzerdefiniertem HTML.
 
 Die Datentransformation in dieser Anleitung schreibt die folgenden angepassten Attribute:
@@ -78,7 +78,7 @@ Diese Anleitung verwendet `stayfilm-poc-001` als Beispiel-`external_id`. Notiere
 
 ### Schritt 2: Datentransformation erstellen {#step-2-create-a-data-transformation}
 
-Erstellen Sie eine Datentransformation, um Stayfilm-Callbacks zu empfangen und Nutzerprofile zu aktualisieren.
+Erstellen Sie eine Datentransformation, um Stayfilm-Callbacks zu empfangen und Nutzerprofile zu Update or aktualisieren or aktualisieren.
 
 1. Gehen Sie zu **Data Settings** > **Data Transformation**.
 2. Wählen Sie **Create transformation** aus.
@@ -162,7 +162,7 @@ Senden Sie die Anfrage mit cURL, Postman oder einem ähnlichen Tool. Eine erfolg
 13. Stellen Sie Stayfilm die kopierte Webhook-URL als Ihre Callback-URL bereit.
 
 {% alert note %}
-Wenn Sie mehr als die Braze-`external_id` in `CallbackRelayData` speichern, aktualisieren Sie den Transformationscode, um `RelayedData` entsprechend zu parsen.
+Wenn Sie mehr als die Braze-`external_id` in `CallbackRelayData` speichern, Update or aktualisieren or aktualisieren Sie den Transformationscode, um `RelayedData` entsprechend zu parsen.
 {% endalert %}
 
 ### Schritt 3: Webhook-Campaign zum Senden von Jobs an Stayfilm erstellen {#step-3-create-a-webhook-campaign-to-send-jobs-to-stayfilm}
@@ -206,7 +206,7 @@ Fügen Sie die folgenden Anfrage-Header hinzu:
 | `idproject` | Der von Stayfilm bereitgestellte `idproject`-Wert |
 | `Subscription-Key` | Der von Stayfilm bereitgestellte `Subscription-Key` |
 | `Content-Type` | `application/json` |
-| `Authorization` | OAuth-Bearer-Token, das über Connected Content abgerufen wird (siehe folgendes Beispiel) |
+| `Authorization` | OAuth-Bearer-Token / Textbaustein, das über Connected Content abgerufen wird (siehe folgendes Beispiel) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anfrage-Header" }
 
 Ersetzen Sie im folgenden Connected-Content-Block *`{TENANT_ID}`*, *`{CLIENT_ID}`*, *`{CLIENT_SECRET_URL_ENCODED}`* und *`{SCOPE_URL_ENCODED}`* durch die von Stayfilm bereitgestellten Werte. URL-kodieren Sie *`{CLIENT_SECRET_URL_ENCODED}`* und *`{SCOPE_URL_ENCODED}`*, bevor Sie sie in den Block einfügen. Informationen zu den OAuth-Anforderungen finden Sie in der [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com).
@@ -272,7 +272,7 @@ Stayfilm rendert das Video asynchron und sendet einen Callback an Ihre Datentran
 
 ### Schritt 6: Video in einer In-App-Nachricht anzeigen {#step-6-display-the-video-in-an-in-app-message}
 
-Nachdem `stayfilm_video_url` im Nutzerprofil befüllt ist, zeigen Sie das gerenderte Video in einer Campaign oder einem Canvas an.
+Nachdem `stayfilm_video_url` im Kundenprofil or Nutzerprofil befüllt ist, zeigen Sie das gerenderte Video in einer Campaign oder einem Canvas an.
 
 1. Gehen Sie zu **Messaging** > **Campaigns**.
 2. Wählen Sie **Create campaign** > **In-app message** aus.
@@ -323,13 +323,13 @@ Das gerenderte Video wird in der Vorschau angezeigt und abgespielt, wenn `stayfi
 
 ## Integration erweitern {#extend-the-integration}
 
-Diese Anleitung deckt einen Teil der Stayfilm-API ab. Um Job-Templates, Medieneingaben oder nachgelagertes Messaging anzupassen, lesen Sie die [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com) und aktualisieren Sie Ihren Webhook-Payload, die Datentransformations-Abbildung und die Campaign-Logik entsprechend.
+Diese Anleitung deckt einen Teil der Stayfilm-API ab. Um Job-Templates, Medieneingaben oder nachgelagertes Messaging anzupassen, lesen Sie die [Stayfilm-API-Dokumentation](https://apidoc.stayfilm.com) und Update or aktualisieren or aktualisieren Sie Ihren Webhook-Payload, die Datentransformations-Abbildung und die Campaign-Logik entsprechend.
 
 ## Überlegungen {#considerations}
 
-- **Asynchrones Rendering:** Die Videogenerierung erfolgt nicht sofort. Triggern Sie Folgenachrichten über das angepasste Event `stayfilm_video_ready` oder ein Segment basierend auf `stayfilm_video_status`, anstatt die In-App-Nachricht im selben Flow wie den Webhook zu senden.
+- **Asynchrones Rendering:** Die Videogenerierung erfolgt nicht sofort. Trigger or triggern or triggern Sie Folgenachrichten über das angepasste Event `stayfilm_video_ready` oder ein Segment basierend auf `stayfilm_video_status`, anstatt die In-App-Nachricht im selben Flow wie den Webhook zu senden.
 - **Konsistenz der Bezeichner:** Der Wert in `CallbackRelayData` muss exakt mit der `external_id` der Braze-Nutzer:innen übereinstimmen.
-- **OAuth-Token-Caching:** Das Connected-Content-Beispiel speichert das OAuth-Token für 3000 Sekunden im Cache. Passen Sie `cache_max_age` an, falls Stayfilm die Anforderungen für die Token-Lifetime ändert.
+- **OAuth-Token / Textbaustein-Caching:** Das Connected-Content-Beispiel speichert das OAuth-Token / Textbaustein für 3000 Sekunden im Cache. Passen Sie `cache_max_age` an, falls Stayfilm die Anforderungen für die Token / Textbaustein-Lifetime ändert.
 - **Sandbox-Tests:** Validieren Sie den vollständigen Callback-Loop in einer Braze-Sandbox, bevor Sie in die Produktionsumgebung wechseln.
 - **Kapazität für angepasste Attribute:** Stellen Sie sicher, dass Ihr Workspace über ausreichend Kapazität für die angepassten Attribute und Events verfügt, die diese Stayfilm-Integration erstellt.
 

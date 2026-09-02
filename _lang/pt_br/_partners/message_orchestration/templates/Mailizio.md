@@ -31,16 +31,16 @@ A integração entre a Mailizio e a Braze permite que você crie modelos dinâmi
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Mailizio | É necessário ter uma conta Mailizio para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**.<br><br>Você pode criar uma chave da API REST da Braze no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Templates**.<br><br>Você pode criar uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Integração {#integration}
 
-Forneça sua chave da API REST da Braze e a instância do cluster para o gerente de sucesso do cliente da Mailizio. A equipe da Mailizio configura a integração inicial para você.
+Forneça sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze e a instância do cluster para o gerente de sucesso do cliente da Mailizio. A equipe da Mailizio configura a integração inicial para você.
 
 {% alert important %}
-Essa é uma configuração única, e todas as exportações futuras utilizarão automaticamente essa chave de API.
+Essa é uma configuração única, e todas as exportações futuras utilizarão automaticamente essa chave de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ### Etapa 1: Criar um e-mail na Mailizio {#step-1-create-an-email-in-mailizio}

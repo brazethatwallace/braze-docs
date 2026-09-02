@@ -2,7 +2,7 @@
 nav_title: Visão geral da personalização
 article_title: Visão geral da personalização
 page_order: 10
-description: "Este artigo de referência aborda os conceitos essenciais de personalização e extensão dos canais de envio de mensagens do SDK."
+description: "Este artigo de referência aborda os conceitos essenciais de personalização e extensão dos canais de envio de mensagens do SDK or kit de desenvolvimento de software."
 hidden: true
 layout: redirect
 redirect_to: /docs/developer_guide/getting_started/
@@ -13,7 +13,7 @@ redirect_to: /docs/developer_guide/getting_started/
 > Quase tudo na Braze é totalmente personalizável! Os artigos deste Guia de Personalização mostram como refinar sua experiência na Braze por meio de uma combinação de configuração e personalização. Durante esse processo, as equipes de marketing e engenharia devem trabalhar em conjunto para coordenar exatamente como personalizar os canais de envio de mensagens da Braze.
 
 {% alert note %}
-O Braze SDK é um kit de ferramentas avançado, mas, em um nível mais alto, ele oferece duas funcionalidades importantes: ajuda a coletar e sincronizar dados de usuários entre plataformas em um perfil de usuário consolidado e também lida com canais de envio de mensagens, como mensagens no app, notificações por push e Content Cards. Os artigos do Guia de Personalização pressupõem que você já tenha passado pelo [processo de implementação do SDK]({{site.baseurl}}/developer_guide/home).
+O Braze SDK or kit de desenvolvimento de software é um kit de ferramentas avançado, mas, em um nível mais alto, ele oferece duas funcionalidades importantes: ajuda a coletar e sincronizar dados de usuários entre plataformas em um perfil de usuário consolidado e também lida com canais de envio de mensagens, como mensagens no app, notificações por push e Content Cards. Os artigos do Guia de Personalização pressupõem que você já tenha passado pelo [processo de implementação do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/home).
 {% endalert %}
 
 Todos os componentes da Braze são desenvolvidos para serem acessíveis, adaptáveis e personalizáveis. Por isso, recomendamos começar com os componentes padrão do `BrazeUI` e personalizá-los para atender às necessidades da sua marca e ao caso de uso. Na Braze, dividimos a personalização em três abordagens diferentes com base no esforço associado e no nível de flexibilidade fornecido. Essas abordagens são chamadas de "engatinhar", "caminhar" ou "correr".
@@ -130,7 +130,7 @@ Os profissionais de marketing ainda mantêm o controle do público, do conteúdo
 
 Com a abordagem Run, os desenvolvedores assumem o controle total da experiência do usuário. O código personalizado determina a aparência das mensagens, como elas se comportam e como interagem com outros canais de envio de mensagens (por exemplo, disparando um Content Card com base em uma notificação por push).
 
-Quando você cria conteúdo personalizado completamente novo, como novos tipos de Content Cards ou mensagens no app com interface personalizada, o Braze SDK não [rastreia automaticamente a análise de dados]({{site.baseurl}}/developer_guide/analytics). Você deve lidar com a análise de dados de forma programática para que os profissionais de marketing continuem a ter acesso a métricas como impressões, cliques e dispensas no dashboard da Braze. Chame os métodos de análise de dados do Braze SDK para que ele retorne esses dados para a Braze. Cada canal de envio de mensagens tem um artigo de análise de dados para ajudar a facilitar isso.
+Quando você cria conteúdo personalizado completamente novo, como novos tipos de Content Cards ou mensagens no app com interface personalizada, o Braze SDK or kit de desenvolvimento de software não [rastreia automaticamente a análise de dados]({{site.baseurl}}/developer_guide/analytics). Você deve lidar com a análise de dados de forma programática para que os profissionais de marketing continuem a ter acesso a métricas como impressões, cliques e dispensas no dashboard da Braze. Chame os métodos de análise de dados do Braze SDK or kit de desenvolvimento de software para que ele retorne esses dados para a Braze. Cada canal de envio de mensagens tem um artigo de análise de dados para ajudar a facilitar isso.
 
 <table aria-label="Visão geral da personalização">
   <caption>Visão geral da personalização</caption>

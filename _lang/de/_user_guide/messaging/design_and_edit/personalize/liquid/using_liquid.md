@@ -193,7 +193,7 @@ Welcome to the VIP lounge!
 
 {% raw %}
 
-Wenn Sie den folgenden Text in Ihre Nachricht einfügen: `{{${first_name}}}`, wird der Vorname der Nutzer:in (aus dem Nutzerprofil abgerufen) beim Senden der Nachricht eingesetzt. Sie können dasselbe Format mit anderen Standardattributen verwenden.
+Wenn Sie den folgenden Text in Ihre Nachricht einfügen: `{{${first_name}}}`, wird der Vorname der Nutzer:in (aus dem Kundenprofil or Nutzerprofil abgerufen) beim Senden der Nachricht eingesetzt. Sie können dasselbe Format mit anderen Standardattributen verwenden.
 
 Wenn Sie den Wert eines angepassten Attributs verwenden möchten, müssen Sie den Namespace „custom_attribute“ zur Variablen hinzufügen. Um beispielsweise ein angepasstes Attribut namens „zip code“ zu verwenden, würden Sie `{{custom_attribute.${zip code}}}` in Ihre Nachricht einfügen.
 

@@ -16,7 +16,7 @@ noindex: true
 
 ## Solicitar recuentos de tarjetas de contenido no leídas
 
-Si quieres mostrar el número de tarjetas de contenido no leídas que tiene tu usuario, te sugerimos que solicites un recuento de tarjetas y lo representes con una Señal. Las señales son una forma estupenda de llamar la atención sobre los nuevos contenidos que esperan a tus usuarios en las tarjetas de contenido. Si quieres añadir una señal a tus tarjetas de contenido, el SDK de Braze proporciona métodos para consultar lo siguiente:
+Si quieres mostrar el número de tarjetas de contenido no leídas que tiene tu usuario, te sugerimos que solicites un recuento de tarjetas y lo representes con una Señal. Las señales son una forma estupenda de llamar la atención sobre los nuevos contenidos que esperan a tus usuarios en las tarjetas de contenido. Si quieres añadir una señal a tus tarjetas de contenido, el SDK or kit de desarrollo de software de Braze proporciona métodos para consultar lo siguiente:
 
 - Tarjetas de contenido sin ver para el usuario actual
 - Total de tarjetas de contenido visible para el usuario actual

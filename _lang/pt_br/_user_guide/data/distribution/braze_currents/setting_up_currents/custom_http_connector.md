@@ -13,7 +13,7 @@ description: "Este artigo de referência descreve como configurar uma exportaç�
 > Saiba como integrar um conector Currents personalizado para receber dados de eventos da Braze em tempo real, possibilitando análises, relatórios e automações mais personalizados.
 
 {% alert note %}
-Esse recurso também é chamado de Custom HTTP Connector na documentação técnica e nas referências de API.
+Esse recurso também é chamado de Custom HTTP Connector na documentação técnica e nas referências de API or interface de programação do aplicativo (API).
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -81,7 +81,7 @@ Haverá um objeto JSON de nível superior com a chave `"events"` que mapeia para
 | `"properties"` | Contém atributos de um evento, como o `app/campaign/canvas/platform` ao qual ele se aplica. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Se um endpoint downstream receber uma carga útil com zero eventos ou um corpo de requisição vazio, o resultado deve ser considerado um no-op, ou seja, nenhum efeito downstream deve ocorrer a partir dessa chamada. No entanto, você ainda deve verificar o cabeçalho `Authorization` (assim como faria em uma chamada de API normal) e retornar uma resposta HTTP apropriada para [credenciais inválidas](#authentication), como `401` ou `403`. Isso permite que a Braze saiba que as credenciais do conector são válidas.
+Se um endpoint downstream receber uma carga útil com zero eventos ou um corpo de requisição vazio, o resultado deve ser considerado um no-op, ou seja, nenhum efeito downstream deve ocorrer a partir dessa chamada. No entanto, você ainda deve verificar o cabeçalho `Authorization` (assim como faria em uma chamada de API or interface de programação do aplicativo (API) normal) e retornar uma resposta HTTP apropriada para [credenciais inválidas](#authentication), como `401` ou `403`. Isso permite que a Braze saiba que as credenciais do conector são válidas.
 
 ## Autenticação {#authentication}
 

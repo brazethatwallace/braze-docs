@@ -134,7 +134,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie Sie die
 | `404` | URL-Objekt, verknüpftes Objekt, URL-Typ oder verknüpfter Typ nicht gefunden | Bestätigen Sie, dass beide Objekte und beide Typnamen im Workspace vorhanden sind. |
 | `409` | Doppelte Kante (`duplicate-object-relationship`) | Verwenden Sie `PUT`, um die vorhandene Beziehung zu ersetzen, oder löschen Sie sie, bevor Sie sie erneut erstellen. |
 | `422` | Beziehungslimit pro Objekt erreicht (`data-object-relationship-limit-exceeded`) | Reduzieren Sie die Anzahl der Beziehungen für das Objekt oder kontaktieren Sie den Braze-Support bezüglich der Workspace-Limits. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Allowlist blockiert | Bestätigen Sie, dass der Schlüssel die Berechtigung `data_objects.object_relationships.create` hat und dass Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler bei Objektbeziehung erstellen" }

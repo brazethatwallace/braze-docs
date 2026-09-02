@@ -9,7 +9,7 @@ search_tag: Partner
 
 # EmailShepherd
 
-> [EmailShepherd](https://emailshepherd.com/) ist eine agentenbasierte E-Mail-Erstellungsplattform, die auf Ihrem E-Mail-Design-System aufbaut und es Ihrem gesamten Marketing-Team – und KI-Agenten – ermöglicht, markenkonforme, produktionsreife E-Mails ohne Engpässe zu erstellen. Die Braze-Integration veröffentlicht genehmigte E-Mails direkt in Ihrem Braze-Workspace, sodass Marketer die E-Mail-Produktion in Braze skalieren können, ohne die Markenkonsistenz zu beeinträchtigen.
+> [EmailShepherd](https://emailshepherd.com/) ist eine agentenbasierte E-Mail-Erstellungsplattform, die auf Ihrem E-Mail-Design-System aufbaut und es Ihrem gesamten Marketing-Team – und KI or künstliche Intelligenz-Agenten – ermöglicht, markenkonforme, produktionsreife E-Mails ohne Engpässe zu erstellen. Die Braze-Integration veröffentlicht genehmigte E-Mails direkt in Ihrem Braze-Workspace, sodass Marketer die E-Mail-Produktion in Braze skalieren können, ohne die Markenkonsistenz zu beeinträchtigen.
 
 _Diese Integration wird von EmailShepherd gepflegt._
 
@@ -24,8 +24,8 @@ Folgendes ist für die Nutzung dieser Integration erforderlich:
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | EmailShepherd-Konto | Ein EmailShepherd-Konto ist erforderlich, um diese Integration zu nutzen. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit vollständigen „Templates“-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) entspricht Ihrem Braze-Dashboard und REST-Endpunkt. |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit vollständigen „Templates“-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-Instanz | Ihre Braze-[Cluster-Instanz]({{site.baseurl}}/api/basics/#endpoints) entspricht Ihrem Braze-Dashboard und Representational State Transfer-Endpunkt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -34,7 +34,7 @@ EmailShepherd ist für Teams konzipiert, die die E-Mail-Produktion skalieren und
 
 - **Markenkonsistenz im großen Maßstab sicherstellen:** Ihr E-Mail-Design-System definiert die genehmigten Komponenten, Farben und Layouts. Jede in Braze veröffentlichte E-Mail ist konstruktionsbedingt markenkonform.
 - **E-Mail-Produktion für Ihr gesamtes Team öffnen:** Ein Drag-and-Drop-Builder, der auf Ihrem E-Mail-Design-System basiert, ermöglicht es jedem, produktionsreife E-Mails zu erstellen.
-- **Agentenbasierte Campaign-Erstellung nutzen:** KI-Agenten arbeiten innerhalb der Leitplanken Ihres E-Mail-Design-Systems, sodass die von ihnen erstellten Campaigns markenkonform und versandbereit sind.
+- **Agentenbasierte Campaign-Erstellung nutzen:** KI or künstliche Intelligenz-Agenten arbeiten innerhalb der Leitplanken Ihres E-Mail-Design-Systems, sodass die von ihnen erstellten Campaigns markenkonform und versandbereit sind.
 
 ## Integration
 
@@ -68,7 +68,7 @@ Suchen Sie in EmailShepherd eine E-Mail, die Sie nach Braze exportieren möchten
 
 ## Die Integration verwenden {#use-the-integration}
 
-Finden Sie Ihre exportierten E-Mails in Braze unter **Content** > **Email**. Sie können diese Templates in Braze-Campaigns und Canvases verwenden.
+Finden Sie Ihre exportierten E-Mails in Braze unter **Content** > **Email**. Sie können diese Templates in Braze-Campaigns und Canvase verwenden.
 
 ## Support
 

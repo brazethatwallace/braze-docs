@@ -28,9 +28,9 @@ A integração da Braze e da Amperity oferece uma visão unificada de seus clien
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Amperity | É necessário ter uma [conta Amperity](https://amperity.com/request-a-demo) para aproveitar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br> Ela pode ser criada no dashboard da Braze em **Console de desenvolvedor** > **Chave da API REST** > **Criar nova chave de API**. |
-| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints). |
-| Endpoint REST da Braze | A URL do seu endpoint da Braze. Seu endpoint dependerá da sua instância da Braze. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br> Ela pode ser criada no dashboard da Braze em **Console de desenvolvedor** > **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional** > **Criar nova chave de API or interface de programação do aplicativo (API)**. |
+| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#endpoints). |
+| Endpoint REST or transferir estado representacional da Braze | A URL do seu endpoint da Braze. Seu endpoint dependerá da sua instância da Braze. |
 | Conector Currents (opcional) | O conector S3 Currents. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -94,8 +94,8 @@ A Amperity mantém o controle do que muda entre as sincronizações com a Braze 
 
 ### Etapa 1: Capturar detalhes de configuração para a Braze {#step-1-capture-configuration-details-for-braze}
 
-1. Crie uma chave da API REST da Braze para seu espaço de trabalho da Braze com as permissões `users.track` em **Dados do usuário**. O endpoint `users.track` sincroniza o público da Amperity com a Braze como um atributo personalizado.
-2. Determine o [endpoint da API REST]({{site.baseurl}}/api/basics#endpoints) para sua instância da Braze. Por exemplo, se a URL da Braze for `https://dashboard-03.braze.com`, o endpoint da API REST será `https://rest.iad-03.braze.com`, e sua instância será "US-03".
+1. Crie uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze para seu espaço de trabalho da Braze com as permissões `users.track` em **Dados do usuário**. O endpoint `users.track` sincroniza o público da Amperity com a Braze como um atributo personalizado.
+2. Determine o [endpoint da API or interface de programação do aplicativo (API) REST or transferir estado representacional]({{site.baseurl}}/api/basics#endpoints) para sua instância da Braze. Por exemplo, se a URL da Braze for `https://dashboard-03.braze.com`, o endpoint da API REST será `https://rest.iad-03.braze.com`, e sua instância será "US-03".
 3. Determine uma lista de [campos de perfil de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) e [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que podem ser enviados para a Braze pela Amperity.
 
 ### Etapa 2: Configure a Braze como destino — operador de DataGrid {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
@@ -164,9 +164,9 @@ Execute a orquestração para executar a consulta e enviar os resultados para a 
 
 Os usuários do AmpIQ podem criar segmentos na Amperity por meio de uma interface não SQL e sincronizá-los com destinos downstream, como a Braze. Os usuários podem selecionar destinos e, em seguida, configurar uma lista de atributos a serem enviados para cada destino.
 
-##### Etapa 1: Criar um segmento na Amperity {#step-1-create-a-segment-in-amperity}
+##### Etapa 1: Criar um Segment or segmento or segmento na Amperity {#step-1-create-a-segment-in-amperity}
 
-Crie um segmento na Amperity que retorne uma lista de clientes. Esse segmento deve estar associado aos atributos personalizados que você deseja atualizar na Braze.
+Crie um Segment or segmento or segmento na Amperity que retorne uma lista de clientes. Esse Segment or segmento or segmento deve estar associado aos atributos personalizados que você deseja atualizar na Braze.
 
 {% alert note %}
 Consulte a documentação da Amperity para obter exemplos de diferentes tipos de segmentos que você pode querer enviar para a Braze.
@@ -184,7 +184,7 @@ Consulte a documentação da Amperity para obter exemplos de diferentes tipos de
 
 ##### Etapa 3: Executar a campanha {#step-3-run-the-campaign}
 
-Execute a campanha para enviar o segmento para a Braze. Isso pode ser feito manualmente ou com base na programação que você definiu nas configurações da campanha.
+Execute a campanha para enviar o Segment or segmento or segmento para a Braze. Isso pode ser feito manualmente ou com base na programação que você definiu nas configurações da campanha.
 
 
 ### Como usar a Amperity com o Braze Currents {#using-amperity-with-braze-currents}

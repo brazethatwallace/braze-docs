@@ -23,9 +23,9 @@ A integração entre a Braze e a Inkit permite gerar documentos e enviá-los por
 | Requisito | Descrição |
 | --- | --- |
 | Conta da Inkit | É necessário ter uma [conta Inkit](https://www.inkit.com/) para aproveitar essa parceria. |
-| Chave de API da Inkit<br><br>`<INKIT_API_TOKEN>` | Essa chave pode ser encontrada no [dashboard da Inkit](https://app.inkit.io/#/account/integrations), na guia **Development**, e permitirá a conexão das contas da Braze e da Inkit. |
+| Chave de API or interface de programação do aplicativo (API) da Inkit<br><br>`<INKIT_API_TOKEN>` | Essa chave pode ser encontrada no [dashboard da Inkit](https://app.inkit.io/#/account/integrations), na guia **Development**, e permitirá a conexão das contas da Braze e da Inkit. |
 | ID de modelo da Inkit<br><br>`<INKIT_TEMPLATE_ID>` | Depois de criar um modelo, você pode copiar o ID do modelo na guia **Templates** para usá-lo em seu modelo na Braze.<br><br>Por exemplo, você pode criar um modelo chamado `invoice_template` no ambiente da Inkit com o ID de modelo: `tmpl_3bDScFl9cwr3OAVR1RSdEC`. |
-| Cabeçalho HTTP | O cabeçalho HTTP faz parte da solicitação de API que você envia da Braze para a Inkit. Nele, você incluirá sua chave de API da Inkit para autenticar e autorizar chamadas para a API da Inkit. |
+| Cabeçalho HTTP | O cabeçalho HTTP faz parte da solicitação de API or interface de programação do aplicativo (API) que você envia da Braze para a Inkit. Nele, você incluirá sua chave de API or interface de programação do aplicativo (API) da Inkit para autenticar e autorizar chamadas para a API or interface de programação do aplicativo (API) da Inkit. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
@@ -52,7 +52,7 @@ No campo Webhook URL, [crie](https://docs.inkit.com/docs/set-up-a-webhook-to-an-
 
 #### Cabeçalhos de solicitação e método {#request-headers-and-method}
 
-A Inkit requer um `HTTP Header` para autorização que inclua sua chave de API da Inkit codificada em base 64. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Settings**, você deve substituir o `<INKIT_API_TOKEN>` pela sua chave de API da Inkit.
+A Inkit requer um `HTTP Header` para autorização que inclua sua chave de API or interface de programação do aplicativo (API) da Inkit codificada em base 64. O seguinte já estará incluído no modelo como um par chave-valor, mas na guia **Settings**, você deve substituir o `<INKIT_API_TOKEN>` pela sua chave de API or interface de programação do aplicativo (API) da Inkit.
 
 {% raw %}
 - **HTTP Method**: POST
@@ -88,7 +88,7 @@ Certifique-se de que seu Liquid corresponda aos atributos personalizados adequad
 
 Seu texto bruto será automaticamente destacado se for uma tag Braze aplicável. Os campos `street`, `unit`, `state` e `zip` devem ser configurados como [atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attributes) para enviar esse webhook.
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio usuário para testar o webhook.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

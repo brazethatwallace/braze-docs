@@ -22,7 +22,7 @@ Con Intelligent Timing, Marvin puede entregar pasos de mensaje cuando cada perso
 
 Este recorrido describe cómo Marvin:
 
-- Construye un Canvas con push, correo electrónico y SMS en pasos de mensaje
+- Construye un Canvas con push, correo electrónico y servicio de mensajes cortos en pasos de mensaje
 - Utiliza Intelligent Timing en esos pasos para que la entrega se alinee con los patrones de interacción inferidos por usuario y canal
 
 ## Paso 1: Define la métrica de éxito y construye el Canvas {#step-1-define-the-success-metric-and-build-the-canvas}
@@ -46,10 +46,10 @@ Selecciona **la hora más popular para usar la aplicación entre todos los usuar
 
 Para los pasos de mensaje que usan Intelligent Timing, Marvin sigue las directrices de Canvas: coloca un paso de retraso de al menos dos días naturales entre la entrada (o un paso anterior) y el paso de mensaje con Intelligent Timing. Prefiere días naturales para los retrasos cuando usa Intelligent Timing, de modo que la entrega ocurra en el día previsto a la hora óptima de cada usuario.
 
-En cada paso de mensaje de notificación push, correo electrónico y SMS, abre **Delivery Settings** y elige **Using Intelligent Timing**. Establece una hora alternativa para los usuarios que no tienen suficiente historial de interacción para determinar una hora óptima. Observa que los pasos de mensaje con múltiples canales pueden enviar o intentar enviar a diferentes horas por canal, reflejando cómo algunos clientes interactúan más con el correo electrónico por la mañana y con push por la noche.
+En cada paso de mensaje de notificación push, correo electrónico y servicio de mensajes cortos, abre **Delivery Settings** y elige **Using Intelligent Timing**. Establece una hora alternativa para los usuarios que no tienen suficiente historial de interacción para determinar una hora óptima. Observa que los pasos de mensaje con múltiples canales pueden enviar o intentar enviar a diferentes horas por canal, reflejando cómo algunos clientes interactúan más con el correo electrónico por la mañana y con push por la noche.
 
 ## Paso 4: Monitorea y optimiza {#step-4-monitor-and-optimize}
 
-Marvin coordina los activos promocionales del Super Sub en push, correo electrónico y SMS en los pasos de mensaje (y cualquier paso posterior que utilicen sus variantes) y lanza el Canvas.
+Marvin coordina los activos promocionales del Super Sub en push, correo electrónico y servicio de mensajes cortos en los pasos de mensaje (y cualquier paso posterior que utilicen sus variantes) y lanza el Canvas.
 
 Después del lanzamiento, observa los análisis del Canvas y los recuentos de conversión, y concluye que Intelligent Timing sigue optimizando cuándo se activa cada canal para cada usuario en función de los patrones de interacción en curso. Como resultado, Marvin ayudó con éxito a SandwichEmperor a conectar el rendimiento de las ofertas por tiempo limitado con cuándo y qué recorrido funciona, en lugar de solo qué mensaje promocional puntual ganó la última vez.

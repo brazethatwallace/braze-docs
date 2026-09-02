@@ -8,13 +8,13 @@ description: "Este artículo ofrece un resumen del dashboard de uso de la API."
 
 # Dashboard de uso de la API {#api-usage-dashboard}
 
-> El dashboard de uso de la API te permite monitorizar el tráfico entrante de la REST API hacia Braze para comprender las tendencias en tu uso de nuestras REST API y solucionar posibles problemas.
+> El dashboard de uso de la API te permite monitorizar el tráfico entrante de la REST or transferencia de estado representacional API hacia Braze para comprender las tendencias en tu uso de nuestras REST or transferencia de estado representacional API y solucionar posibles problemas.
 
 ## Acerca del dashboard de uso de la API {#about-the-api-usage-dashboard}
 
 Para ver tu dashboard de uso de la API, ve a **Configuración** > **API e identificadores** y selecciona **Dashboard**.
 
-El dashboard predeterminado muestra todas las solicitudes entrantes de la REST API para tu espacio de trabajo durante el último día (24 horas). Según tu caso de uso, puedes ajustar los controles del dashboard para filtrar o agrupar el tráfico y también configurar el intervalo de tiempo del dashboard.
+El dashboard predeterminado muestra todas las solicitudes entrantes de la REST or transferencia de estado representacional API para tu espacio de trabajo durante el último día (24 horas). Según tu caso de uso, puedes ajustar los controles del dashboard para filtrar o agrupar el tráfico y también configurar el intervalo de tiempo del dashboard.
 
 ![Dashboard de uso de la API con 130 solicitudes totales, con una tasa de éxito del 70 por ciento y una tasa de error del 30 por ciento.]({% image_buster /assets/img/api_usage_dashboard/api_usage_dashboard.png %})
 
@@ -35,7 +35,7 @@ El dashboard de uso de la API incluye las siguientes estadísticas:
 
 ### Filtros {#filters}
 
-Selecciona **Filtros** para aplicar filtros que limiten la vista del tráfico de la REST API de tu espacio de trabajo, incluyendo:
+Selecciona **Filtros** para aplicar filtros que limiten la vista del tráfico de la REST or transferencia de estado representacional API de tu espacio de trabajo, incluyendo:
 
 - Clave de API
 - Punto de conexión
@@ -72,7 +72,7 @@ Las opciones **Últimas 3 horas** y **Últimas 6 horas** mostrarán el tráfico 
 
 ## Consideraciones {#considerations}
 
-El dashboard de uso de la API incluye todas las solicitudes de la REST API que Braze recibió y para las que devolvió una respuesta `2XX`, `4XX` o `5XX`. Esto incluye las salidas de Transformación de datos y las sincronizaciones de Ingesta de datos de Cloud. El tráfico del SDK y los pasos de Actualización de usuario no se incluyen en este dashboard.
+El dashboard de uso de la API incluye todas las solicitudes de la REST or transferencia de estado representacional API que Braze recibió y para las que devolvió una respuesta `2XX`, `4XX` o `5XX`. Esto incluye las salidas de Transformación de datos y las sincronizaciones de Ingesta de datos de Cloud. El tráfico del SDK or kit de desarrollo de software y los pasos de Actualización de usuario no se incluyen en este dashboard.
 
 Los datos mostrados en el dashboard pueden tener un breve retraso a la hora de reflejar el tráfico reciente. Durante períodos de alto uso, puedes actualizar el dashboard hasta 4 veces por minuto. Es posible que debas esperar unos minutos antes de volver a actualizar el dashboard.
 

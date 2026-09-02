@@ -33,7 +33,7 @@ El objeto de destinatarios te permite combinar el [objeto de alias de usuario]({
 
 Cuando `send_to_existing_only` es `true`, Braze solo envía el mensaje a usuarios existentes. Sin embargo, no puedes usar este indicador con alias de usuario.
 
-Cuando `send_to_existing_only` es `false`, debes incluir un objeto `attributes` en el mismo destinatario. El indicador no reemplaza a `attributes`. Braze utiliza `attributes` para la creación o actualización del perfil previa al envío (por ejemplo, agregar campos de `email` o teléfono para la entrega por correo electrónico o SMS, o actualizar grupos de suscripción). Sin ese objeto, no obtienes el comportamiento combinado esperado para usuarios nuevos en [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
+Cuando `send_to_existing_only` es `false`, debes incluir un objeto `attributes` en el mismo destinatario. El indicador no reemplaza a `attributes`. Braze utiliza `attributes` para la creación o actualización del perfil previa al envío (por ejemplo, agregar campos de `email` o teléfono para la entrega por correo electrónico o servicio de mensajes cortos, o actualizar grupos de suscripción). Sin ese objeto, no obtienes el comportamiento combinado esperado para usuarios nuevos en [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) o [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 
 Ese perfil aún debe cumplir con las reglas de audiencia y elegibilidad de canal del mensaje antes de que Braze lo envíe.
 

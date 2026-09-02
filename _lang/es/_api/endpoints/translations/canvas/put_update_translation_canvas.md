@@ -12,7 +12,7 @@ description: "En este artículo se describen los detalles del endpoint Actualiza
 {% api %}
 # Actualizar traducción en un Canvas {#update-translation-in-a-canvas}
 {% apimethod put %}
-/canvas/translations
+/Canvas/translations
 {% endapimethod %}
 
 > Usa este endpoint para actualizar múltiples traducciones de un Canvas. Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de localización.

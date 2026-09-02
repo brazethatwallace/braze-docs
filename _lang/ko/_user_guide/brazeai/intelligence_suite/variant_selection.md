@@ -22,7 +22,7 @@ toc_headers: h2
 
 ## 최적화 켜기 {#turn-on-optimization}
 
-**타겟 오디언스** 단계에서 **A/B Testing**으로 이동한 다음, **Optimize with BrazeAI<sup>TM</sup>**를 켜세요.
+**타겟 오디언스** 단계에서 **A/B 테스트**으로 이동한 다음, **Optimize with BrazeAI<sup>TM</sup>**를 켜세요.
 
 ## 단일 발송 Campaign {#single-send-campaigns}
 
@@ -42,7 +42,7 @@ toc_headers: h2
 |---|---|
 | 푸시 알림 | *열람* |
 | 이메일 | *고유 클릭* |
-| SMS, MMS, RCS, WhatsApp | *클릭* |
+| 단문 메시지 서비스, MMS, RCS, WhatsApp | *클릭* |
 | 기타 지원 채널 | *주요 전환 이벤트 - A* |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="채널별 기본 최적화 목표" }
 

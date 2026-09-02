@@ -1,6 +1,6 @@
 ---
-nav_title: "POST: Nutzer:innen erstellen und aktualisieren (Bulk)"
-article_title: "POST: Nutzer:innen erstellen und aktualisieren (Bulk)"
+nav_title: "POST: Nutzer:innen erstellen und Update or aktualisieren or aktualisieren (Bulk)"
+article_title: "POST: Nutzer:innen erstellen und Update or aktualisieren or aktualisieren (Bulk)"
 search_tag: Endpoint
 page_order: 4.25
 layout: api_page
@@ -11,20 +11,20 @@ alias:
 description: "Dieser Artikel beschreibt Details zum Bulk-Endpunkt „Nutzer:innen tracken“."
 ---
 {% api %}
-# Nutzer:innen erstellen und aktualisieren (Bulk) {#create-and-update-users-bulk}
+# Nutzer:innen erstellen und Update or aktualisieren or aktualisieren (Bulk) {#create-and-update-users-bulk}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
-Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute in großen Mengen (Bulk) zu aktualisieren.
+Verwenden Sie diesen Endpunkt, um angepasste Events und Käufe aufzuzeichnen und Nutzerprofilattribute in großen Mengen (Bulk) zu Update or aktualisieren or aktualisieren.
 
 {% alert important %}
-Dieser Endpunkt befindet sich derzeit in einer **eingeschränkten Beta-Phase**. Obwohl wir derzeit keine neuen Kund:innen zur Beta hinzufügen, lassen Sie Ihren Braze Account Manager wissen, wenn Sie glauben, dass dieses Feature für Ihre Braze-Integration nützlich sein könnte.
+Dieser Endpunkt befindet sich derzeit in einer **eingeschränkten Beta-Phase**. Obwohl wir derzeit keine neuen Kund:innen zur Beta hinzufügen, lassen Sie Ihren Braze Account Manager:in wissen, wenn Sie glauben, dass dieses Feature für Ihre Braze-Integration nützlich sein könnte.
 {% endalert %}
 
 ## Wann Sie diesen Endpunkt verwenden sollten {#when-to-use-this-endpoint}
 
-Wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) können Sie diesen Endpunkt verwenden, um Nutzerprofile zu aktualisieren. Dieser Endpunkt ist besser für Bulk-Updates geeignet:
+Wie der [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) können Sie diesen Endpunkt verwenden, um Nutzerprofile zu Update or aktualisieren or aktualisieren. Dieser Endpunkt ist besser für Bulk-Updates geeignet:
 
 - **Größere Anfragen:** Senden Sie bis zu 1.000 Nutzer:innen pro Anfrage, sodass Sie bei großen Backfills und Synchronisierungen weniger Anfragen stellen müssen.
 - **Priorisierung:** Bei Spitzenverkehr werden Anfragen an `/users/track` gegenüber Anfragen an `/users/track/bulk` priorisiert.
@@ -39,7 +39,7 @@ Die Limits für Anfrageobjekte des `/users/track`-Endpunkts variieren je nach Pr
 
 Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics) mit der Berechtigung `users.track.bulk`.
 
-Wenn Sie Server-zu-Server-Aufrufe hinter einer Firewall durchführen, müssen Sie möglicherweise Ihren Braze-REST-Endpunkt auf die Zulassungsliste setzen (zum Beispiel `rest.iad-01.braze.com`). Weitere Informationen finden Sie unter [API-Endpunkte]({{site.baseurl}}/api/basics#api-definitions).
+Wenn Sie Server-zu-Server-Aufrufe hinter einer Firewall durchführen, müssen Sie möglicherweise Ihren Braze-Representational State Transfer-Endpunkt auf die Zulassungsliste setzen (zum Beispiel `rest.iad-01.braze.com`). Weitere Informationen finden Sie unter [API-Endpunkte]({{site.baseurl}}/api/basics#api-definitions).
 
 ## Rate-Limit
 
@@ -51,7 +51,7 @@ Kund:innen mit neueren Verträgen haben stattdessen möglicherweise Burst- (pro 
 
 Jede `/users/track/bulk`-Anfrage hat ein Payload-Limit von 2 MB und kann insgesamt bis zu 1.000 Objekte über Attribute, Events und Käufe hinweg enthalten, abhängig von der Bulk-Rate-Limit-Richtlinie Ihres Kontos.
 
-Jedes Objekt kann eine:n Nutzer:in aktualisieren, sodass eine einzelne Anfrage bis zum Anfrageobjekt-Limit Ihres Kontos verschiedene Nutzer:innen aktualisieren kann. Zusätzlich kann jede Anfrage maximal 100 Objekte pro Nutzerprofil über Attribute, Events und Käufe hinweg enthalten.
+Jedes Objekt kann eine:n Nutzer:in Update or aktualisieren or aktualisieren, sodass eine einzelne Anfrage bis zum Anfrageobjekt-Limit Ihres Kontos verschiedene Nutzer:innen Update or aktualisieren or aktualisieren kann. Zusätzlich kann jede Anfrage maximal 100 Objekte pro Kundenprofil or Nutzerprofil über Attribute, Events und Käufe hinweg enthalten.
 
 ## Anfrage-Body {#request-body}
 
@@ -83,9 +83,9 @@ Für jedes Anfrageobjekt müssen Sie eines der folgenden Felder angeben: `extern
 
 ## Beispielanfragen {#example-requests}
 
-### Nutzerprofile per Bulk in einer Anfrage aktualisieren {#bulk-update-user-profiles-in-one-request}
+### Nutzerprofile per Bulk in einer Anfrage Update or aktualisieren or aktualisieren {#bulk-update-user-profiles-in-one-request}
 
-Aktualisieren Sie bis zum Anfrageobjekt-Limit Ihres Kontos Nutzerprofile in einer einzigen Anfrage.
+Update or aktualisieren or aktualisieren Sie bis zum Anfrageobjekt-Limit Ihres Kontos Nutzerprofile in einer einzigen Anfrage.
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' \

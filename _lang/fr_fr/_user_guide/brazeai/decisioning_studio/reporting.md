@@ -14,7 +14,7 @@ page_order: 6
 Avant de pouvoir consulter les rapports de Decisioning Studio dans Braze, vous devez :
 
 - Disposer d'un contrat actif pour Braze et BrazeAI Decisioning Studio™.
-- Contacter votre CSM pour qu'il active BrazeAI Decisioning Studio™ pour vous.
+- Contacter votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients pour qu'il active BrazeAI Decisioning Studio™ pour vous.
 - Disposer d'un agent BrazeAI Decisioning Studio™ actif.
 
 ## Afficher les rapports {#view}

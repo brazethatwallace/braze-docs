@@ -12,7 +12,7 @@ noindex: true
 
 # Seguimiento de sesión para iOS
 
-El SDK de Braze informa de los datos de sesión utilizados por el panel de Braze para calcular la participación de los usuarios y otros análisis esenciales para comprender a tus usuarios. Nuestro SDK genera puntos de datos de "inicio de sesión" y "cierre de sesión" que tienen en cuenta la duración de la sesión y el recuento de sesiones visibles dentro del panel Braze, basándose en la siguiente semántica de sesión.
+El SDK or kit de desarrollo de software de Braze informa de los datos de sesión utilizados por el panel de Braze para calcular la participación de los usuarios y otros análisis esenciales para comprender a tus usuarios. Nuestro SDK or kit de desarrollo de software genera puntos de datos de "inicio de sesión" y "cierre de sesión" que tienen en cuenta la duración de la sesión y el recuento de sesiones visibles dentro del panel Braze, basándose en la siguiente semántica de sesión.
 
 ## Ciclo de vida de la sesión
 
@@ -24,7 +24,7 @@ Si necesitas forzar una nueva sesión, puedes hacerlo cambiando de usuario.
 
 ## Personalizar el tiempo de espera de la sesión
 
-A partir de Braze iOS SDK v3.14.1, puedes configurar el tiempo de espera de la sesión utilizando el archivo Info.plist. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada número `SessionTimeout` y establece el valor de tu tiempo de espera de sesión personalizado. Ten en cuenta que, antes de la versión 4.0.2 del SDK de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
+A partir de Braze iOS SDK or kit de desarrollo de software v3.14.1, puedes configurar el tiempo de espera de la sesión utilizando el archivo Info.plist. Añade el diccionario `Braze` a tu archivo `Info.plist`. Dentro del diccionario `Braze`, añade la subentrada número `SessionTimeout` y establece el valor de tu tiempo de espera de sesión personalizado. Ten en cuenta que, antes de la versión 4.0.2 del SDK or kit de desarrollo de software de iOS de Braze, debe usarse la clave de diccionario `Appboy` en lugar de `Braze`.
 
 Alternativamente, puedes establecer la clave `ABKSessionTimeoutKey` al valor entero deseado en tu objeto `appboyOptions` pasado a [`startWithApiKey`](https://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#afd911d60dfe7e5361afbfb364f5d20f9).
 

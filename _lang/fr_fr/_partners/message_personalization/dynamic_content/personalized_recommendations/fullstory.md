@@ -34,7 +34,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 {% alert important %}
-Braze Agents, Canvas Context et les jetons d'autorisation de contenu connecté sont tous en accès anticipé. Si vous souhaitez tirer parti de cette solution, contactez votre CSM Braze pour activer ces outils.
+Braze Agents, Canvas Context et les jetons d'autorisation de contenu connecté sont tous en accès anticipé. Si vous souhaitez tirer parti de cette solution, contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Braze pour activer ces outils.
 {% endalert %}
 
 ## Intégrer Fullstory {#integrate-fullstory}

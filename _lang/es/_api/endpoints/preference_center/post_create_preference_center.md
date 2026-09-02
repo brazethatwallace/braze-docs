@@ -23,7 +23,7 @@ Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/ba
 
 ## Límite de velocidad {#rate-limit}
 
-{% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
+{% multi_lang_include rate_limits.md endpoint='post or put centro de preferencias' %}
 
 ## Cuerpo de la solicitud {#request-body}
 
@@ -59,7 +59,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `name` | Obligatorio | Cadena | El nombre del centro de preferencias que cumple los siguientes requisitos: <br>- Solo contiene letras, números, guiones y guiones bajos <br>- No tiene espacios |
-| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será predeterminado a "Preference Center". |
+| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será predeterminado a "centro de preferencias". |
 | `preference_center_page_html` | Obligatorio | Cadena | El HTML de la página del centro de preferencias. |
 | `confirmation_page_html` | Obligatorio | Cadena | El HTML de la página de confirmación. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |

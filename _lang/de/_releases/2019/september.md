@@ -10,14 +10,14 @@ description: "Dieser Artikel enthält Versionshinweise für September 2019."
 
 ## Braze App innerhalb von OneLogin {#braze-app-within-onelogin}
 
-Kund:innen können innerhalb von [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin) einfach Braze für SP- oder IdP-initiierte Anmeldungen suchen und auswählen. Das bedeutet, dass Kund:innen keine angepasste Anwendung in OneLogin hinzufügen müssen. Dies sollte dazu führen, dass bestimmte Einstellungen wie Attribute, die seit der Einführung von SAML SSO aufgetaucht sind, vorausgefüllt werden.
+Kund:innen können innerhalb von [OneLogin]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/onelogin) einfach Braze für SP- oder IdP-initiierte Anmeldungen suchen und auswählen. Das bedeutet, dass Kund:innen keine angepasste Anwendung in OneLogin hinzufügen müssen. Dies sollte dazu führen, dass bestimmte Einstellungen wie Attribute, die seit der Einführung von SAML Single Sign-on aufgetaucht sind, vorausgefüllt werden.
 
 ## Rokt Calendar-Partnerschaft {#rokt-calendar-partnership}
 
 [Rokt Calendar]({{site.baseurl}}/partners/home) bietet Braze-Kund:innen die Möglichkeit, ihre personalisierten Marketing-Initiativen aufeinander abzustimmen und personalisierte Inhalte auf den Kalender der Endnutzer:innen auszuweiten. So wird das Erlebnis für die Endnutzer:innen nahtloser und die Kundenbindung an die Dienste unserer Kund:innen wird weiter ausgebaut. Kund:innen werden in der Lage sein, …
 
 - eine Kalendereinladung über die Braze-Plattform zu senden, um ein Datum vorzumerken und die Kommunikation zu erweitern,
-- eine bestehende Einladung zu aktualisieren, wenn sich der Inhalt des Ereignisses geändert hat.
+- eine bestehende Einladung zu Update or aktualisieren or aktualisieren, wenn sich der Inhalt des Ereignisses geändert hat.
 
 ## Passkit-Partnerschaft {#passkit-partnership}
 

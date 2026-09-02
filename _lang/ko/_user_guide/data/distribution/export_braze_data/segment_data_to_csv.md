@@ -89,7 +89,7 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 | user_aliases                | 사용자 별칭(있는 경우)                                   |
 | windows_ad_ids              | Windows 광고 ID                                          |
 | Custom events               | 내보내기 시 선택 항목에 따라 결정                        |
-| Custom attributes           | 내보내기 시 선택 항목에 따라 결정                        |
+| 커스텀 속성           | 내보내기 시 선택 항목에 따라 결정                        |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV 내보내기 사용자 데이터" }
 
 {% alert note %}

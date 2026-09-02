@@ -82,7 +82,7 @@ Diese Schritte sind aus der Apple-Entwicklerdokumentation adaptiert. Weitere Inf
 [Ab Xcode 13](https://developer.apple.com/help/account/reference/provisioning-with-managed-capabilities/) kann Xcode die Berechtigungsbereitstellung automatisch für Sie übernehmen. Sie können voraussichtlich direkt zu [Schritt&nbsp;1c](#step-1c) springen und bei Problemen auf diese Anleitung zurückkommen.
 {% endalert %}
 
-#### Schritt 1a: App registrieren {#step-1a}
+#### Schritt 1a: App Registrierung or registrieren {#step-1a}
 
 1. Rufen Sie developer.apple.com auf und melden Sie sich an.
 2. Klicken Sie auf **Certificates, Identifiers & Profiles**.
@@ -111,7 +111,7 @@ Stellen Sie vor dem Fortfahren sicher, dass in Ihrem Xcode-Projekt dasselbe Team
 Wenn der Fehler „An App ID with Identifier 'your-app-id' is not available. Please enter a different string“ angezeigt wird, gehen Sie wie folgt vor:
 
 1. Überprüfen Sie, ob das richtige Team ausgewählt ist.
-2. Stellen Sie sicher, dass die Bundle ID ([Schritt 1a](#step-1a)) Ihres Xcode-Projekts mit der beim Registrieren des App Identifiers verwendeten übereinstimmt.
+2. Stellen Sie sicher, dass die Bundle ID ([Schritt 1a](#step-1a)) Ihres Xcode-Projekts mit der beim Registrierung or registrieren des App Identifiers verwendeten übereinstimmt.
 
 #### Schritt 1d: Domain-Berechtigung hinzufügen {#step-1d-add-the-domain-entitlement}
 
@@ -127,7 +127,7 @@ Xcode sollte dies automatisch erledigen.
 
 ### Schritt 2: Ihre Website für das Hosting der AASA-Datei konfigurieren {#step-2-configure-your-website-to-host-the-aasa-file}
 
-Um Ihre Website-Domain mit Ihrer nativen App unter iOS zu verknüpfen, müssen Sie die Apple App Site Association (AASA)-Datei auf Ihrer Website hosten. Diese Datei dient als sichere Methode zur Überprüfung des Domain-Eigentums gegenüber iOS. Vor iOS 9 konnten Entwickler:innen jedes beliebige URI-Schema registrieren, um ihre Apps zu öffnen – ohne jegliche Überprüfung. Mit AASA ist dieser Prozess jedoch deutlich sicherer und zuverlässiger geworden.
+Um Ihre Website-Domain mit Ihrer nativen App unter iOS zu verknüpfen, müssen Sie die Apple App Site Association (AASA)-Datei auf Ihrer Website hosten. Diese Datei dient als sichere Methode zur Überprüfung des Domain-Eigentums gegenüber iOS. Vor iOS 9 konnten Entwickler:innen jedes beliebige URI-Schema Registrierung or registrieren, um ihre Apps zu öffnen – ohne jegliche Überprüfung. Mit AASA ist dieser Prozess jedoch deutlich sicherer und zuverlässiger geworden.
 
 Die AASA-Datei enthält ein JSON-Objekt mit einer Liste von Apps und den URL-Pfaden auf der Domain, die als Universal Links ein- oder ausgeschlossen werden sollen. Hier ist eine Beispiel-AASA-Datei:
 
@@ -177,7 +177,7 @@ Wenn Nutzer:innen auf einem iOS-Gerät auf einen Universal Link tippen, startet 
 Um Universal Links in Ihrer App zu unterstützen, führen Sie die folgenden Schritte aus:
 
 1. Fügen Sie eine Berechtigung hinzu, die die von Ihrer App unterstützten Domains angibt.
-2. Aktualisieren Sie Ihren App Delegate, damit er angemessen reagiert, wenn er das NSUserActivity-Objekt empfängt.
+2. Update or aktualisieren or aktualisieren Sie Ihren App Delegate, damit er angemessen reagiert, wenn er das NSUserActivity-Objekt empfängt.
 
 Öffnen Sie in Xcode den Abschnitt **Associated Domains** im Tab **Capabilities** und fügen Sie für jede Domain, die Ihre App unterstützt, einen Eintrag mit dem Präfix `applinks:` hinzu. Zum Beispiel: `applinks:www.mywebsite.com`.
 
@@ -208,7 +208,7 @@ Zunächst müssen Sie Deeplinks für Ihre Android-App erstellen. Dies kann durch
 
 Sie müssen Ihre App mit Ihrer Website verknüpfen. Dies kann durch das Erstellen einer Digital Asset Links-Datei erfolgen. Diese Datei sollte im JSON-Format vorliegen und Details zu den Android-Apps enthalten, die Links zu Ihrer Website öffnen dürfen. Sie sollte im Verzeichnis `.well-known` Ihrer Website abgelegt werden.
 
-### Schritt 3: App-Manifest-Datei aktualisieren {#step-3-update-your-app-manifest-file}
+### Schritt 3: App-Manifest-Datei Update or aktualisieren or aktualisieren {#step-3-update-your-app-manifest-file}
 
 Fügen Sie in Ihrer `AndroidManifest.xml`-Datei ein Meta-Data-Element innerhalb des Application-Elements hinzu. Das Meta-Data-Element sollte ein `android:name`-Attribut mit dem Wert „asset_statements“ und ein `android:resource`-Attribut haben, das auf eine Ressourcendatei mit einem String-Array verweist, das die URL Ihrer Website enthält.
 
@@ -226,7 +226,7 @@ Abschließend können Sie Ihre Deeplinks testen. Senden Sie sich selbst einen Li
 ## Universal Links, App Links und Klick-Tracking {#universal-links-app-links-and-click-tracking}
 
 {% alert note %}
-Klick-Tracking-Links werden in der Regel im Rahmen Ihres Onboardings für E-Mail eingerichtet. Wenn dies während des Onboardings nicht abgeschlossen wurde, wenden Sie sich an Ihren Account Manager, um Hilfe zu erhalten.
+Klick-Tracking-Links werden in der Regel im Rahmen Ihres Onboardings für E-Mail eingerichtet. Wenn dies während des Onboardings nicht abgeschlossen wurde, wenden Sie sich an Ihren Account Manager:in, um Hilfe zu erhalten.
 {% endalert %}
 
 Unsere E-Mail-Versandpartner verwenden Klick-Tracking-Domains, um alle Links zu umschließen und URL-Parameter für das Klick-Tracking in Braze-E-Mails einzufügen.
@@ -246,7 +246,7 @@ So behandeln Sie einen SendGrid-Klick-Tracking-Link als Universal Link:
 2. Fügen Sie das Attribut `universal="true"` zum Anker-Tag (`<a>`) Ihres Links hinzu. Dadurch wird der URL-Pfad des umschlossenen Links so geändert, dass er `/uni/` enthält.
 
 {% alert note %}
-Für AMP-E-Mails sollte dieses Attribut data-universal="true" lauten.
+Für AMP or Accelerated Mobile Pages-E-Mails sollte dieses Attribut data-universal="true" lauten.
 {% endalert %}
 
 Zum Beispiel:
@@ -256,7 +256,7 @@ Zum Beispiel:
 ```
 
 {:start="3"}
-3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid Click Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
+3. Stellen Sie sicher, dass Ihre App so eingerichtet ist, dass sie die umschlossenen Links korrekt verarbeitet. Lesen Sie den SendGrid-Artikel [Resolving SendGrid Klick, der or klicken Tracking Links](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) und folgen Sie den Schritten für Ihr Betriebssystem. Dieser Artikel enthält Beispielcode für [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) und [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android).
 
 Mit dieser Konfiguration funktionieren Links mit `/uni/` im URL-Pfad als Universal Links, während alle anderen Links als Web-Links funktionieren.
 
@@ -273,7 +273,7 @@ Zum Beispiel:
 <a href=”https://www.example.com” data-msys-sublink="open-in-app">
 ```
 
-Stellen Sie dann sicher, dass Ihre App so eingerichtet ist, dass sie den angepassten Pfad korrekt verarbeitet. Lesen Sie den SparkPost-Artikel [Using SparkPost click tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Dieser Artikel enthält Beispielcode für [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) und [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
+Stellen Sie dann sicher, dass Ihre App so eingerichtet ist, dass sie den angepassten Pfad korrekt verarbeitet. Lesen Sie den SparkPost-Artikel [Using SparkPost Klick, der or klicken tracking on deep links](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#preferred-solution-using-sparkpost-click-tracking-on-deep-links). Dieser Artikel enthält Beispielcode für [iOS](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#ios-swift-forwarding-clicks-to-sparkpost) und [Android](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#forwarding-clicks-from-android-to-sparkpost).
 
 {% endtab %}
 {% tab Amazon SES %}
@@ -455,10 +455,10 @@ Beschränken Sie diese Muster auf die URLs, die die App öffnen sollen. Für Sen
 
 #### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}
 
-In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von ESP-Einschränkungen oder Infrastruktur-Beschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
+In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von E-Mail-Anbieter or ESP-Einschränkungen oder Infrastruktur-Beschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
 
 - **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Sie können das Klick-Tracking für bestimmte Universal Links deaktivieren, damit sie direkt zu Ihrer Hauptdomain führen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass bei dieser Methode die Klick-Analyse für diese bestimmten Links verloren gehen kann. Anleitungen finden Sie unter [Klick-Tracking pro Link deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
-- **Tracking-Subdomain mit einem CDN vorschalten:** Wenn Sie vollständiges Klick-Tracking und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über sowohl Klick-Tracking als auch Universal Links.
+- **Tracking-Subdomain mit einem CDN vorschalten:** Wenn Sie vollständiges Klick-Tracking und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren E-Mail-Anbieter or ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über sowohl Klick-Tracking als auch Universal Links.
 
 #### Links funktionieren in einem Workspace, aber nicht in einem anderen {#links-working-in-one-workspace-but-not-another}
 

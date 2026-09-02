@@ -23,15 +23,15 @@ Geben Sie Ihren lokalen Teams die Werkzeuge an die Hand, die sie für ein intell
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Sageflo Radiate-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Sageflo Radiate-Konto. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit vollständigen `templates`- und `campaigns`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr API-Endpunkt entspricht der Dashboard-URL für Ihre Braze-Instanz. <br><br> Wenn Ihre Dashboard-URL zum Beispiel `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit vollständigen `templates`- und `campaigns`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt | [Ihre URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr API-Endpunkt entspricht der Dashboard-URL für Ihre Braze-Instanz. <br><br> Wenn Ihre Dashboard-URL zum Beispiel `https://dashboard-03.braze.com` lautet, ist Ihr Endpunkt `dashboard-03`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
 Radiate ist ideal für Franchise- und Einzelhandelsunternehmen, die ihr Marketing ausbauen möchten, indem sie verteilten Teams die Möglichkeit geben, über Braze E-Mails an ihre lokalen Zielgruppen zu senden.
 
-* Befähigen Sie verteilte Teams zum einfachen Versand von Marketing-E-Mails und SMS
+* Befähigen Sie verteilte Teams zum einfachen Versand von Marketing-E-Mails und Kurzmitteilungsdienst or SMS
 * Bauen Sie Community-bezogene Verbindungen zu Kund:innen auf
 * Bewahren Sie die Markenkonsistenz mit integrierten Leitplanken
 * Nehmen Sie Ihrem nationalen Marketing-Team die Last ab

@@ -28,7 +28,7 @@ Prenez connaissance des éléments suivants avant de procéder à l'intégration
 
 | Condition | Description |
 | --- | --- |
-| Compte Meta Business Manager | Un compte Meta Business est requis pour tirer parti de ce canal de communication. |
+| Compte Meta Business gestionnaire | Un compte Meta Business est requis pour tirer parti de ce canal de communication. |
 | Compte WhatsApp Business | Un compte WhatsApp Business est requis pour tirer parti de ce canal de communication. |
 | Numéro de téléphone WhatsApp | Vous devez disposer d'un numéro de téléphone conforme aux exigences de WhatsApp pour l'[API Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) ou l'[API On-Premises](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) afin d'utiliser le canal de communication. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
@@ -60,10 +60,10 @@ Une fois la configuration terminée, un [groupe d'abonnement WhatsApp]({{site.ba
 
 ### Étape 3 : Créer des modèles WhatsApp {#step-3-create-whatsapp-templates}
 
-Seuls les modèles de messages WhatsApp approuvés peuvent être utilisés pour initier des conversations avec les clients. Les modèles WhatsApp peuvent être créés dans le [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Pour obtenir la liste des fonctionnalités de messagerie WhatsApp prises en charge par Braze, consultez [Fonctionnalités WhatsApp prises en charge]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
+Seuls les modèles de messages WhatsApp approuvés peuvent être utilisés pour initier des conversations avec les clients. Les modèles WhatsApp peuvent être créés dans le [Meta Business gestionnaire](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Pour obtenir la liste des fonctionnalités de messagerie WhatsApp prises en charge par Braze, consultez [Fonctionnalités WhatsApp prises en charge]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
 
 1. **Accédez au [gestionnaire de modèles](https://business.facebook.com/wa/manage/message-templates)**<br>
-Dans le Meta Business Manager, sous **Account Tools**, sélectionnez **Message Templates**.
+Dans le Meta Business gestionnaire, sous **Account Tools**, sélectionnez **Message Templates**.
 Ensuite, sélectionnez **Create Templates**.<br><br>![Gestionnaire WhatsApp avec une liste de modèles de messages.]({% image_buster /assets/img/whatsapp/whatsapp2.png %}){: style="max-width:100%;"}<br><br>
 2. **Paramètres du message**<br>
 Dans le nouveau compositeur de modèles de messages, sélectionnez la catégorie de votre message, nommez votre modèle et choisissez les langues que vous souhaitez prendre en charge. Vous pouvez supprimer ou ajouter des langues ultérieurement.<br><br>
@@ -79,7 +79,7 @@ Une fois votre modèle terminé, appuyez sur **Submit**.
 
 #### Délai d'approbation des modèles {#template-approval-time}
 
-Vous pouvez vérifier le statut d'approbation de votre modèle de message soit dans la page **Message Template** du Meta Business Manager, soit lors de la création d'une campagne ou d'un Canvas dans Braze. De plus, vous pouvez être notifié par e-mail par l'équipe WhatsApp en fonction de vos autorisations de notification.
+Vous pouvez vérifier le statut d'approbation de votre modèle de message soit dans la page **Message Template** du Meta Business gestionnaire, soit lors de la création d'une campagne ou d'un Canvas dans Braze. De plus, vous pouvez être notifié par e-mail par l'équipe WhatsApp en fonction de vos autorisations de notification.
 
 {% alert note %}
 Les modèles approuvés peuvent être utilisés dans autant de Campaigns et de Canvas que vous le souhaitez. Ils peuvent également être envoyés à autant d'utilisateurs abonnés que vous le souhaitez. Cela reste vrai tant que la qualité du modèle ne diminue pas.
@@ -97,7 +97,7 @@ Une fois votre compte WhatsApp Business créé, Meta déterminera votre limite d
 
 Après avoir terminé l'intégration, nous vous recommandons de compléter les deux processus Meta suivants :
 - [Vérification de l'entreprise](https://www.facebook.com/business/help/2058515294227817?id=180505742745347)
-	- Vous disposez peut-être déjà de la vérification de l'entreprise si vous avez utilisé un Meta Business Manager existant.
+	- Vous disposez peut-être déjà de la vérification de l'entreprise si vous avez utilisé un Meta Business gestionnaire existant.
 - [Compte professionnel officiel](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
 Nous vous recommandons également de consulter la documentation sur les [numéros de téléphone des utilisateurs]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) et d'ajouter tous les utilisateurs qui auront besoin d'un accès pour créer des [modèles de messages au sein de votre organisation](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).

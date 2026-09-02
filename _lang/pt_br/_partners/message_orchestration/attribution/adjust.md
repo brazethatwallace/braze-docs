@@ -24,7 +24,7 @@ A integração da Braze e da Adjust permite importar dados de atribuição de in
 |---|---|
 | Conta Adjust | É necessário ter uma conta Adjust para aproveitar essa parceria. |
 | App para iOS ou Android | Essa integração é compatível com apps para iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. Consulte os detalhes sobre esses requisitos na etapa 1 do processo de integração. |
-| SDK da Adjust | Além do SDK da Braze obrigatório, você deve instalar o [SDK da Adjust](https://dev.adjust.com/en/sdk). |
+| SDK or kit de desenvolvimento de software da Adjust | Além do SDK or kit de desenvolvimento de software da Braze obrigatório, você deve instalar o [SDK or kit de desenvolvimento de software da Adjust](https://dev.adjust.com/en/sdk). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -33,7 +33,7 @@ A integração da Braze e da Adjust permite importar dados de atribuição de in
 
 #### Android
 
-Se você tiver um app Android, deve passar um ID de dispositivo Braze único para a Adjust. Esse ID pode ser definido no método `addGlobalPartnerParameter()` do SDK da Adjust. O snippet de código a seguir deve ser incluído antes da inicialização do SDK em `Adjust.initSdk.`
+Se você tiver um app Android, deve passar um ID de dispositivo Braze único para a Adjust. Esse ID pode ser definido no método `addGlobalPartnerParameter()` do SDK or kit de desenvolvimento de software da Adjust. O snippet de código a seguir deve ser incluído antes da inicialização do SDK or kit de desenvolvimento de software em `Adjust.initSdk.`
 
 ```
 Adjust.addGlobalPartnerParameter("braze_device_id", Braze.getInstance(getApplicationContext()).getDeviceId()););
@@ -46,7 +46,7 @@ Adjust.addGlobalPartnerParameter("braze_device_id", Braze.getInstance(getApplica
 Prior to February 2023, our Adjust attribution integration used the Identifier for Vendor (IDFV) as the primary identifier to match iOS attribution data. Braze customers don't need to use Objective-C to fetch the Braze `device_id` and send it to Adjust upon installation because there is no service disruption.
 {% endalert%}
 
-For those using the Swift SDK v5.7.0+, if you wish to continue using IDFV as the mutual identifier, you must ensure that the `useUUIDAsDeviceId` field is set to `false` so there is no disruption of the integration.
+For those using the Swift SDK or kit de desenvolvimento de software v5.7.0+, if you wish to continue using IDFV as the mutual identifier, you must ensure that the `useUUIDAsDeviceId` field is set to `false` so there is no disruption of the integration.
 
 If set to `true`, you must implement the iOS device ID mapping for Swift to pass the Braze `device_id` to Adjust upon app installation in order for Braze to match iOS attributions appropriately.
 --->
@@ -67,7 +67,7 @@ Se você tiver um app para iOS, poderá aceitar a coleta de IDFV definindo o cam
 {% endtabs %}
 
 {% alert note %}
-Se estiver planejando enviar eventos pós-instalação da Adjust para a Braze, será necessário: <br><br>1) Anexar `external_id` como um parâmetro de sessão e evento no SDK da Adjust. Para o encaminhamento de eventos de receita, você também precisará configurar `product_id` como um parâmetro para eventos. Visite a [documentação da Adjust](https://github.com/adjust/sdks) para saber mais sobre a definição de parâmetros de parceiros para encaminhamento de eventos.<br><br>2) Gerar uma nova chave de API para inserir na Adjust. Isso pode ser feito selecionando o botão **Generate API Key** encontrado na página de parceiro da Adjust no dashboard da Braze.
+Se estiver planejando enviar eventos pós-instalação da Adjust para a Braze, será necessário: <br><br>1) Anexar `external_id` como um parâmetro de sessão e evento no SDK or kit de desenvolvimento de software da Adjust. Para o encaminhamento de eventos de receita, você também precisará configurar `product_id` como um parâmetro para eventos. Visite a [documentação da Adjust](https://github.com/adjust/sdks) para saber mais sobre a definição de parâmetros de parceiros para encaminhamento de eventos.<br><br>2) Gerar uma nova chave de API or interface de programação do aplicativo (API) para inserir na Adjust. Isso pode ser feito selecionando o botão **Generate API or interface de programação do aplicativo (API) Key** encontrado na página de parceiro da Adjust no dashboard da Braze.
 {% endalert %}
 
 ### Etapa 2: Obter a chave de importação de dados da Braze {#step-2-get-the-braze-data-import-key}
@@ -79,7 +79,7 @@ Aqui você encontra o endpoint REST e gera sua chave de importação de dados da
 ### Etapa 3: Configurar a Braze na Adjust {#step-3-configure-braze-in-adjust}
 
 1. No dashboard da Adjust, navegue até **App Settings** e depois até **Partner Setup** e, em seguida, **Add Partners**.
-2. Selecione **Braze (formerly Appboy)** e forneça a chave de importação de dados e o endpoint REST da Braze.
+2. Selecione **Braze (formerly Appboy)** e forneça a chave de importação de dados e o endpoint REST or transferir estado representacional da Braze.
 3. Clique em **Save & Close**.
 
 ### Etapa 4: Confirmar a integração {#step-4-confirm-the-integration}
@@ -90,9 +90,9 @@ Esse status é alterado somente depois que a Braze recebe dados sobre uma atribu
 
 ## Campos de dados disponíveis {#available-data-fields}
 
-Supondo que você configure sua integração conforme sugerido, a Braze mapeará os dados da Adjust para os filtros de segmento, conforme descrito na tabela a seguir.
+Supondo que você configure sua integração conforme sugerido, a Braze mapeará os dados da Adjust para os filtros de Segment or segmento or segmento, conforme descrito na tabela a seguir.
 
-| Campo de dados da Adjust | Filtro de segmento da Braze |
+| Campo de dados da Adjust | Filtro de Segment or segmento or segmento da Braze |
 | --- | --- |
 | `{network_name}` | Attributed Source |
 | `{campaign_name}` | Attributed Campaign |
@@ -106,13 +106,13 @@ Os dados de atribuição para campanhas do Facebook e do X (antigo Twitter) não
 
 ## URLs de rastreamento de cliques da Adjust na Braze (opcional) {#adjust-click-tracking-urls-in-braze-optional}
 
-O uso de links de rastreamento de cliques em suas campanhas da Braze permitirá que você veja facilmente quais campanhas estão gerando instalações de apps e reengajamento. Como resultado, você poderá medir seus esforços de marketing de forma mais eficaz e tomar decisões baseadas em dados sobre onde investir mais recursos para obter o máximo de ROI.
+O uso de links de rastreamento de cliques em suas campanhas da Braze permitirá que você veja facilmente quais campanhas estão gerando instalações de apps e reengajamento. Como resultado, você poderá medir seus esforços de marketing de forma mais eficaz e tomar decisões baseadas em dados sobre onde investir mais recursos para obter o máximo de ROI or retorno sobre o investimento (ROI).
 
 Para começar a usar os links de rastreamento de cliques da Adjust, visite a [documentação](https://help.adjust.com/tracking/attribution/tracker-urls). Você pode inserir os links de rastreamento de cliques da Adjust diretamente em suas campanhas da Braze. A Adjust usará então suas [metodologias de atribuição probabilística](https://www.adjust.com/blog/attribution-compatible-with-ios14/) para atribuir o usuário que clicou no link. Recomendamos anexar seus links de rastreamento da Adjust com um identificador de dispositivo para melhorar a precisão das atribuições de suas campanhas na Braze. Isso atribuirá de forma determinística o usuário que clicou no link.
 
 {% tabs local %}
 {% tab Android %}
-Para Android, a Braze permite que os clientes façam opt-in da [coleta do ID de publicidade do Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration/#google-advertising-id). O GAID também é coletado nativamente pela integração do SDK da Adjust. Você pode incluir o GAID nos seus links de rastreamento de cliques da Adjust utilizando a seguinte lógica Liquid:
+Para Android, a Braze permite que os clientes façam opt-in da [coleta do ID de publicidade do Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration/#google-advertising-id). O GAID também é coletado nativamente pela integração do SDK or kit de desenvolvimento de software da Adjust. Você pode incluir o GAID nos seus links de rastreamento de cliques da Adjust utilizando a seguinte lógica Liquid:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -123,7 +123,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Para iOS, tanto a Braze quanto a Adjust coletam automaticamente o IDFV de forma nativa por meio de nossas integrações de SDK. Isso pode ser usado como identificador do dispositivo. É possível incluir o IDFV em seus links de rastreamento de cliques da Adjust utilizando a seguinte lógica Liquid:
+Para iOS, tanto a Braze quanto a Adjust coletam automaticamente o IDFV de forma nativa por meio de nossas integrações de SDK or kit de desenvolvimento de software. Isso pode ser usado como identificador do dispositivo. É possível incluir o IDFV em seus links de rastreamento de cliques da Adjust utilizando a seguinte lógica Liquid:
 
 {% raw %}
 ```

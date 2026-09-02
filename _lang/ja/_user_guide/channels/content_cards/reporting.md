@@ -35,4 +35,4 @@ tool:
 
 配信タイプや**カード作成**設定に関係なく、コンテンツカードキャンペーンは、ユーザーが実際にアプリでカードを閲覧した後にのみ、ユーザープロファイルの**受信済みキャンペーン**に表示されます。**最後にメッセージを受信した日時**および**最後にキャンペーンを受信した日時**のリターゲティングフィルターも、同じ理由で閲覧時に更新されます。
 
-{% multi_lang_include analytics/campaign_analytics.md channel="Content Card" %}
+{% multi_lang_include analytics/campaign_analytics.md channel="Content カード" %}

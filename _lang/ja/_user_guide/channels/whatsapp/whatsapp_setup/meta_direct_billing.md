@@ -22,7 +22,7 @@ Meta直接請求を設定する前に、以下の要件を満たしているこ�
 | 要件 | 説明 |
 | --- | --- |
 | Brazeワークスペースへのアクセス | 埋め込みサインアップフローを開始するには、Brazeで**パートナー連携** > **テクノロジーパートナー**にアクセスする必要があります。 |
-| Meta Business Managerアカウント | 請求はMeta Business Managerの**Billing & payments**で設定します。 |
+| Meta Business マネージャーアカウント | 請求はMeta Business マネージャーの**Billing & payments**で設定します。 |
 | デビットカードまたはクレジットカード | 設定を完了するには有効なカードが必要です。一部のアカウントでは月次請求がオプションとして表示される場合がありますが、保証されるものではありません。 |
 | 完全なビジネス情報 | ビジネス名、住所、通貨が入力済みで正確である必要があります。Metaはメッセージングを有効にする前にこの情報を審査します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
@@ -39,8 +39,8 @@ Meta直接請求を設定する前に、以下の要件を満たしているこ�
 
 Metaの埋め込みサインアップを完了した後、以下のいずれかを行います。
 
-- **Add payment method**を選択すると、Meta Business Managerに移動します。
-- Meta Business Managerで、**Billing & payments** > **Accounts**に移動し、WABAを選択します。
+- **Add payment method**を選択すると、Meta Business マネージャーに移動します。
+- Meta Business マネージャーで、**Billing & payments** > **Accounts**に移動し、WABAを選択します。
 
 ### ステップ3：支払い方法を追加する {#step-3-add-a-payment-method}
 
@@ -51,7 +51,7 @@ Metaの埋め込みサインアップを完了した後、以下のいずれか�
 ![支払い方法の選択ウィンドウ。デビットカードまたはクレジットカードが選択され、既存のInfobipおよびBrazeのクレジットラインは未選択のまま。]({% image_buster /assets/img/whatsapp/payment_methods.png %}){: style="max-width:40%;"}
 
 {: start="4"}
-4. **Add payment method**の下で、**Debit or credit card**を選択し、**Next**を選択します。
+4. **Add payment method**の下で、**Debit or credit カード**を選択し、**Next**を選択します。
 5. カード情報を入力し、**Save**を選択します。
 6. カードが**Payment methods**の下に表示され、**Default**としてマークされ、マスクされたカード番号と有効期限が表示されます。
 

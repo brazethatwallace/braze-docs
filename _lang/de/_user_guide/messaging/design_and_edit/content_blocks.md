@@ -3,7 +3,7 @@ nav_title: Content-Blöcke
 article_title: Content-Blöcke
 alias: "/dnd/content_blocks/"
 page_order: 4
-description: "Erfahren Sie, wie Sie wiederverwendbare Content-Blöcke in Ihren Braze Campaigns und Canvases erstellen, verwenden und verwalten."
+description: "Erfahren Sie, wie Sie wiederverwendbare Content-Blöcke in Ihren Braze Campaigns und Canvase erstellen, verwenden und verwalten."
 page_type: reference
 tool:
   - Templates
@@ -80,7 +80,7 @@ Fehlausrichtungen im Drag-and-drop-Editor können auftreten, wenn mehrere Conten
 
 So fügen Sie einen Content-Block mit Liquid ein:
 
-1. Kopieren Sie den **Content Block Liquid Tag** aus dem Abschnitt **Content Block Details**.
+1. Kopieren Sie den **Content Block Liquid-Tag** aus dem Abschnitt **Content Block Details**.
 2. Fügen Sie den Content-Block-Liquid-Tag in die Nachricht ein. Sie können auch beginnen, den Liquid-Code einzugeben, und der Tag wird automatisch vervollständigt.
 
 Im Drag-and-drop-Editor können Sie einen Content-Block auch über das Panel **Personalisierung** hinzufügen:
@@ -115,11 +115,11 @@ Nichts hindert Sie daran, eine dritte Ebene von Content Blocks zu verschachteln,
 
 Links innerhalb eines verschachtelten Content-Blocks zählen zur Gesamtanzahl der Links der übergeordneten Nachricht. Wenn Sie einen einzelnen Content-Block mit vielen bedingten Links verwenden, z. B. länderspezifische URLs für die Lokalisierung, kann die übergeordnete Nachricht eine große Anzahl von Links ansammeln, was das Speichern eines Canvas verlangsamen oder verhindern kann. Für groß angelegte Lokalisierung sind [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) besser geeignet als bedingte Links in einem einzelnen Content-Block.
 
-## Content Blocks aktualisieren und kopieren {#update-and-copy-content-blocks}
+## Content Blocks Update or aktualisieren or aktualisieren und kopieren {#update-and-copy-content-blocks}
 
-Wenn Sie einen Content-Block aktualisieren, wird er in allen Nachrichten aktualisiert, in denen der Content-Block über Liquid eingefügt wurde. Wenn der Content-Block über das **Content Blocks**-Dropdown unter **Zeilen** im Drag-and-Drop-Editor importiert wurde, wird er nicht in allen Nachrichten aktualisiert.
+Wenn Sie einen Content-Block Update or aktualisieren or aktualisieren, wird er in allen Nachrichten aktualisiert, in denen der Content-Block über Liquid eingefügt wurde. Wenn der Content-Block über das **Content Blocks**-Dropdown unter **Zeilen** im Drag-and-Drop-Editor importiert wurde, wird er nicht in allen Nachrichten aktualisiert.
 
-Wenn Sie einen Content-Block für eine einzelne Nachricht aktualisieren oder eine Kopie zur Verwendung in anderen Nachrichten erstellen möchten, können Sie entweder den HTML-Code aus der ursprünglichen Nachricht in Ihre neue kopieren oder den ursprünglichen Content-Block bearbeiten (er muss bereits in einer Nachricht verwendet worden sein) und speichern. Sie erhalten dann eine Aufforderung, die es Ihnen ermöglicht, ihn als neuen Content-Block zu speichern.
+Wenn Sie einen Content-Block für eine einzelne Nachricht Update or aktualisieren or aktualisieren oder eine Kopie zur Verwendung in anderen Nachrichten erstellen möchten, können Sie entweder den HTML-Code aus der ursprünglichen Nachricht in Ihre neue kopieren oder den ursprünglichen Content-Block bearbeiten (er muss bereits in einer Nachricht verwendet worden sein) und speichern. Sie erhalten dann eine Aufforderung, die es Ihnen ermöglicht, ihn als neuen Content-Block zu speichern.
 
 Nachdem Sie Änderungen an einem Content-Block vorgenommen haben, können Sie den aktualisierten Content-Block speichern und starten, indem Sie **Launch Content Block** auswählen. Alternativ können Sie **Mehr** > **Duplizieren** auswählen, um ein Duplikat Ihres Content-Blocks zu erstellen.
 
@@ -137,7 +137,7 @@ Content-Blöcke können nicht innerhalb einer E-Mail-Fußzeile verwendet werden,
 
 - Die Verwendung von HTML-Content-Blöcken in Drag-and-Drop-E-Mails oder von Drag-and-Drop-Content-Blöcken in HTML-E-Mails kann zu unerwarteten Darstellungsproblemen führen. Der Grund dafür ist, dass der Drag-and-Drop-Editor HTML und CSS generiert, die den Inhalt dynamisch rendern, während der HTML-Editor eher statisch arbeitet.
 - Wenn Sie einen Drag-and-Drop-Content-Block über Liquid einfügen, übernimmt Braze keine Styles aus dem HTML-`<head>` des Blocks. Responsive Styles, wie z. B. mobilspezifisches CSS, werden möglicherweise nicht wie erwartet dargestellt. Wenn der Block auf responsives CSS angewiesen ist, fügen Sie dieses CSS der Nachricht oder dem Template hinzu, das den Content-Block enthält.
-- Canvas-Entry-Eigenschaften werden nur in Canvases unterstützt. Wenn Sie in einer Campaign auf einen Content-Block mit Canvas-Entry-Eigenschaften verweisen, wird dieser nicht befüllt.
+- Canvas-Entry-Eigenschaften werden nur in Canvase unterstützt. Wenn Sie in einer Campaign auf einen Content-Block mit Canvas-Entry-Eigenschaften verweisen, wird dieser nicht befüllt.
 - Wenn eine Nachricht mit mehreren Content-Blöcken nicht wie erwartet dargestellt wird – beispielsweise wenn Liquid-Tags oder HTML als sichtbarer Text erscheinen, anstatt verarbeitet zu werden – ist häufig ein nicht geschlossener Tag oder ein anderer Fehler in einem der Content-Blöcke die Ursache. So identifizieren Sie die Quelle:
     1. Entfernen Sie die Content-Blöcke nacheinander aus der betroffenen Nachricht.
     2. Prüfen Sie nach jeder Entfernung, ob die Nachricht korrekt dargestellt wird.
@@ -153,8 +153,8 @@ Wenn Sie einen Content-Block nicht mehr benötigen, können Sie ihn auf der Seit
 
 ### Best Practices {#best-practices}
 
-- Wenn Ihr Block nur in wenigen E-Mails verwendet wird, empfehlen wir, den veralteten Block zu archivieren und Ihre aktiven Nachrichten mit einem neueren Block zu aktualisieren, der nicht archiviert wurde.
-- Wenn Ihr Block nur einen Tippfehler enthält oder eine kleine Änderung benötigt, empfehlen wir nicht, den Block zu archivieren. Aktualisieren Sie stattdessen den Block und senden Sie weiter!
+- Wenn Ihr Block nur in wenigen E-Mails verwendet wird, empfehlen wir, den veralteten Block zu archivieren und Ihre aktiven Nachrichten mit einem neueren Block zu Update or aktualisieren or aktualisieren, der nicht archiviert wurde.
+- Wenn Ihr Block nur einen Tippfehler enthält oder eine kleine Änderung benötigt, empfehlen wir nicht, den Block zu archivieren. Update or aktualisieren or aktualisieren Sie stattdessen den Block und senden Sie weiter!
 - Wenn Ihr Block in mehr Nachrichten verwendet wird, als Sie mit dem ersten Vorschlag in dieser Liste sinnvoll verwalten können, empfehlen wir, den gesamten Inhalt aus dem Block zu entfernen. So wird verhindert, dass veraltete Informationen in Nachrichten eingefügt werden.
 - Wenn Sie versehentlich einen Content-Block archiviert haben, können Sie die Archivierung wieder aufheben.
 

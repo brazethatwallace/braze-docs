@@ -32,15 +32,15 @@ Nunca subestime o poder do nome. A Braze foi criada para colaboração, então e
 
 *Quando um cliente vai encontrar essa campanha?*
 
-Os usuários podem entrar na sua campanha de três formas: em uma data e hora definidas (agendado), quando realizam uma ação específica (baseado em ação) ou quando fazem algo que dispara uma chamada de API (disparado por API).
+Os usuários podem entrar na sua campanha de três formas: em uma data e hora definidas (agendado), quando realizam uma ação específica (baseado em ação) ou quando fazem algo que dispara uma chamada de API or interface de programação do aplicativo (API) (disparado por API or interface de programação do aplicativo (API)).
 
-A entrega agendada envolve ajustar suas campanhas para envio em um horário específico e, opcionalmente, com uma cadência definida. Campanhas baseadas em ação respondem a comportamentos específicos do cliente em tempo real. Isso pode incluir fazer uma compra ou interagir com outra campanha. Campanhas disparadas por API podem ser configuradas para determinar ações-chave do cliente na sua plataforma que, quando realizadas, disparam uma chamada de API para a Braze e enviam suas campanhas.
+A entrega agendada envolve ajustar suas campanhas para envio em um horário específico e, opcionalmente, com uma cadência definida. Campanhas baseadas em ação respondem a comportamentos específicos do cliente em tempo real. Isso pode incluir fazer uma compra ou interagir com outra campanha. Campanhas disparadas por API or interface de programação do aplicativo (API) podem ser configuradas para determinar ações-chave do cliente na sua plataforma que, quando realizadas, disparam uma chamada de API or interface de programação do aplicativo (API) para a Braze e enviam suas campanhas.
 
 ### O "quem": selecione um público de entrada {#the-who-select-an-entry-audience}
 
 *Quem você está tentando alcançar?*
 
-Você pode usar [segmentos]({{site.baseurl}}/user_guide/audience/segments) predefinidos para direcionar usuários com base em suas características e ações demográficas, comportamentais ou técnicas. Adicione mais filtros ao criar sua campanha para refinar ainda mais seu segmento. Apenas os usuários que correspondem a esses critérios de público-alvo podem entrar na jornada. Confira esta tabela para um resumo rápido dos tipos de filtro disponíveis.
+Você pode usar [segmentos]({{site.baseurl}}/user_guide/audience/segments) predefinidos para direcionar usuários com base em suas características e ações demográficas, comportamentais ou técnicas. Adicione mais filtros ao criar sua campanha para refinar ainda mais seu Segment or segmento or segmento. Apenas os usuários que correspondem a esses critérios de público-alvo podem entrar na jornada. Confira esta tabela para um resumo rápido dos tipos de filtro disponíveis.
 
 | Filtro | Descrição |
 |---|---|

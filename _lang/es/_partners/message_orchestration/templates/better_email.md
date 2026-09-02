@@ -24,8 +24,8 @@ Cuando reexportas un correo electrónico, Better Email actualiza la plantilla ex
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Better Email | Una cuenta de Better Email con acceso de administrador para crear integraciones |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Plantillas**.<br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Usa el host REST, no la URL del dashboard; por ejemplo, `rest.fra-01.braze.eu`. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Plantillas**.<br><br>Se puede crear en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | [La URL de tu punto de conexión REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Usa el host REST or transferencia de estado representacional, no la URL del dashboard; por ejemplo, `rest.fra-01.braze.eu`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -43,8 +43,8 @@ Better Email está diseñado para equipos de marketing que desean administrar co
 
 En tu dashboard de Braze, recopila lo siguiente:
 
-- **Instance URL**: usa el host REST, no la URL del dashboard (por ejemplo, `rest.fra-01.braze.eu`).
-- **API key**: una clave de API REST con permisos completos de **Plantillas**, creada en **Configuración** > **Claves de API**.
+- **Instance URL**: usa el host REST or transferencia de estado representacional, no la URL del dashboard (por ejemplo, `rest.fra-01.braze.eu`).
+- **API key**: una clave de API REST or transferencia de estado representacional con permisos completos de **Plantillas**, creada en **Configuración** > **Claves de API**.
 
 ### Paso 2: Configura la integración en Better Email {#step-2-set-up-the-integration-in-better-email}
 
@@ -80,7 +80,7 @@ Better Email lee los atributos personalizados disponibles de Braze y los asigna 
 
 Si una exportación o sincronización falla, verifica lo siguiente:
 
-- La **Instance URL** es la URL REST, no la URL del dashboard.
+- La **Instance URL** es la URL REST or transferencia de estado representacional, no la URL del dashboard.
 - La clave de API sigue activa y tiene los permisos de **Plantillas** necesarios.
 - La integración está habilitada en Better Email.
 - Los usuarios o grupos que necesitan la integración tienen acceso en **Access**.

@@ -23,8 +23,8 @@ La integración de Braze y GrowthLoop te permite segmentar los datos de clientes
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta GrowthLoop Growth o Enterprise | Se necesita una cuenta GrowthLoop para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | La URL de tu endpoint REST. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos.<br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | La URL de tu endpoint REST or transferencia de estado representacional. Tu endpoint dependerá de la [URL de Braze de tu instancia]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}

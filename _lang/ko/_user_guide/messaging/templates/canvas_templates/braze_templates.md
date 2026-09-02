@@ -1,13 +1,13 @@
 ---
 nav_title: Braze 템플릿 사용
-article_title: Braze Canvas 템플릿 사용
+article_title: BRAZE 캔버스 템플릿 사용
 alias: "/canvas_templates/templates/"
 page_order: 2
 description: "이 참조 문서에서는 사용 가능한 Canvas 템플릿을 만드는 방법을 다룹니다."
 page_type: reference
 ---
 
-# Braze Canvas 템플릿 사용 {#use-braze-canvas-templates}
+# BRAZE 캔버스 템플릿 사용 {#use-braze-canvas-templates}
 
 > Braze에는 일반적인 사용 사례에 대한 모범 사례로 참조하고 사용할 수 있는 Canvas 템플릿이 준비되어 있습니다. 이러한 템플릿은 편집할 수 없지만, **콘텐츠** > **Canvas** > **Braze 템플릿**에서 확인하거나 Canvases에서 사용할 수 있습니다.
 
@@ -29,7 +29,7 @@ page_type: reference
 - 진입 스케줄은 API 트리거 방식입니다. 사용자가 장바구니를 유기했을 때 [`/canvas/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)를 사용하여 사용자를 진입시키거나, 설정에 맞는 경우 **커스텀 이벤트 수행** 또는 **장바구니 업데이트 이벤트 수행**과 같은 트리거를 사용하는 행동 기반 스케줄로 전환하세요.
 - 기본 전환은 **구매 완료(레거시)**를 추적합니다. 필요에 따라 전환 이벤트와 **구매 완료?** 행동 경로 단계를 특정 제품에 맞게 조정하세요.
 - **구매 완료?** 행동 경로 단계에서 구매를 완료하면 사용자가 Canvas에서 퇴장합니다. 이 템플릿은 별도의 구매 후 여정이 있다고 가정합니다.
-- Canvas에는 **항목별 리마인더** 이메일, 지연 단계, 이메일과 SMS를 위한 인텔리전트 채널 분할, Content Cards가 포함된 채널 메시지(이메일, SMS, 인앱 메시지), 그리고 오디언스 싱크 단계가 포함되어 있습니다. 파트너 및 오디언스와 함께 **광고 리타겟팅**을 구성하세요.
+- Canvas에는 **항목별 리마인더** 이메일, 지연 단계, 이메일과 단문 메시지 서비스를 위한 인텔리전트 채널 분할, Content Cards가 포함된 채널 메시지(이메일, 단문 메시지 서비스, 인앱 메시지), 그리고 오디언스 싱크 단계가 포함되어 있습니다. 파트너 및 오디언스와 함께 **광고 리타겟팅**을 구성하세요.
 
 단계별 안내는 [유기한 의도]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart)를 참조하세요.
 

@@ -2,7 +2,7 @@
 nav_title: BYO WhatsApp 커넥터
 article_title: Bring Your Own WhatsApp 커넥터
 page_order: 2
-description: "이 참조 문서에서는 Bring Your Own WhatsApp 커넥터를 설정하는 단계별 안내를 제공합니다. 이 커넥터를 통해 Braze가 Infobip WhatsApp Business Manager에 액세스할 수 있습니다."
+description: "이 참조 문서에서는 Bring Your Own WhatsApp 커넥터를 설정하는 단계별 안내를 제공합니다. 이 커넥터를 통해 Braze가 Infobip WhatsApp Business 매니저에 액세스할 수 있습니다."
 page_type: reference
 channel:
   - WhatsApp
@@ -10,7 +10,7 @@ channel:
 
 # Bring Your Own WhatsApp 커넥터 {#bring-your-own-whatsapp-connector}
 
-> Bring Your Own(BYO) WhatsApp 커넥터는 Braze와 Infobip 간의 파트너십을 제공하며, Braze가 Infobip WhatsApp Business Manager(WABA)에 액세스할 수 있도록 합니다. 이를 통해 Braze에서 세분화, 개인화, Campaign 오케스트레이션을 활용하면서 메시징 비용은 Infobip과 직접 관리하고 결제할 수 있습니다. Braze는 아웃바운드 메시지, 인바운드 메시지 처리, WhatsApp 플로우, 분석 등 WhatsApp 채널이 제공하는 모든 기존 기능을 유지합니다.
+> Bring Your Own(BYO) WhatsApp 커넥터는 Braze와 Infobip 간의 파트너십을 제공하며, Braze가 Infobip WhatsApp Business 매니저(WABA)에 액세스할 수 있도록 합니다. 이를 통해 Braze에서 세분화, 개인화, Campaign 오케스트레이션을 활용하면서 메시징 비용은 Infobip과 직접 관리하고 결제할 수 있습니다. Braze는 아웃바운드 메시지, 인바운드 메시지 처리, WhatsApp 플로우, 분석 등 WhatsApp 채널이 제공하는 모든 기존 기능을 유지합니다.
 
 {% alert note %}
 다른 Business Solution Provider(BSP)에서 Braze 통합으로 마이그레이션하려면 [다른 Business Solution Provider에서 마이그레이션]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number#migrate-from-another-business-solution-provider)을 참조하세요.
@@ -82,7 +82,7 @@ BYO WhatsApp 커넥터를 설정하기 전에, WhatsApp Business 계정의 이�
 - 기존 WABA를 선택하지 말고 새 WABA를 생성해야 합니다.
 
 {% alert note %}
-인증 코드를 받으려면 Infobip 대시보드 > **Analyze** > **Logs**로 이동하여 인바운드 SMS 메시지에서 코드를 확인하세요.
+인증 코드를 받으려면 Infobip 대시보드 > **Analyze** > **Logs**로 이동하여 인바운드 단문 메시지 서비스 메시지에서 코드를 확인하세요.
 {% endalert %}
 
 ![인증 코드가 포함된 인바운드 SMS 메시지를 보여주는 메시지 로그.]({% image_buster /assets/img/whatsapp/byo_connector/verification_code.png %})

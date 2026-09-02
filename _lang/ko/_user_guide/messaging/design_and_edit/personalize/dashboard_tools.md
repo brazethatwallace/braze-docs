@@ -15,7 +15,7 @@ Liquid 구문 규칙, 지원되는 태그 및 고급 패턴에 대해서는 [Liq
 
 **개인화 추가** 도구는 대시보드 전반의 템플릿 텍스트 필드 근처에 표시되며, 다음을 포함합니다:
 
-- 본문 또는 헤더에서 Liquid를 지원하는 채널의 **Campaign 및 캔버스 단계**(예: 이메일, 푸시, SMS, 인앱 메시지, Content Cards, 웹훅).
+- 본문 또는 헤더에서 Liquid를 지원하는 채널의 **Campaign 및 캔버스 단계**(예: 이메일, 푸시, 단문 메시지 서비스, 인앱 메시지, Content Cards, 웹훅).
 - **드래그 앤 드롭 편집기** — 컨트롤은 보통 블록 또는 편집기 도구 모음에 있습니다. 예를 들어, 드래그 앤 드롭 인앱 메시지에서 **개인화 추가**를 선택하고, 개인화 유형을 선택한 다음, 생성된 스니펫을 콘텐츠에 배치한 후 **미리보기 및 테스트**에서 미리 볼 수 있습니다. 채널별 참고 사항은 해당 채널의 드래그 앤 드롭 또는 작성기 문서를 참조하세요([인앱 메시지 스타일 설정]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#add-liquid) 또는 [드래그 앤 드롭으로 이메일 만들기]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) 등).
 - 개인화 선택기를 제공하는 **전문 작성기** — 예를 들어, [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/using_recommendations)에서는 동일한 스타일의 창 내에서 **아이템 추천**과 같은 **개인화 유형** 옵션을 사용합니다.
 - **랜딩 페이지** — 드래그 앤 드롭 편집기 또는 페이지 및 블록 설정에서 Liquid 개인화를 추가할 수 있습니다. 자세한 내용은 [랜딩 페이지 개인화]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages)를 참조하세요.

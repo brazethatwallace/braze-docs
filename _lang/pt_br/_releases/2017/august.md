@@ -10,7 +10,7 @@ description: "Este artigo contém notas de versão de agosto de 2017."
 
 ## Atualização dos botões de ação por push {#update-to-push-action-buttons}
 
-Adicionamos suporte a [botões de ação por push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_action_buttons/#how-to-use-action-buttons) aos nossos endpoints de envio de mensagens da REST API.
+Adicionamos suporte a [botões de ação por push]({{site.baseurl}}/user_guide/message_building_by_channel/push/push_action_buttons/#how-to-use-action-buttons) aos nossos endpoints de envio de mensagens da REST or transferir estado representacional API or interface de programação do aplicativo (API).
 
 ## Atualização do modelo Liquid {#update-to-liquid-templating}
 
@@ -23,17 +23,17 @@ Agora você pode [personalizar uma mensagem]({{site.baseurl}}/user_guide/messagi
 - SO e
 - Plataforma
 
-## Canvas disparado por API {#api-triggered-canvas}
+## Canvas disparado por API or interface de programação do aplicativo (API) {#api-triggered-canvas}
 
-Agora é possível disparar um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) por meio de endpoints da API (enviar, programar, atualizar, excluir) que correspondem aos existentes para Campaigns, o que permite automatizar e otimizar ainda mais o seu marketing.
+Agora é possível disparar um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) por meio de endpoints da API or interface de programação do aplicativo (API) (enviar, programar, atualizar, excluir) que correspondem aos existentes para Campaigns, o que permite automatizar e otimizar ainda mais o seu marketing.
 
 ## Botões de ação por push na web {#web-push-action-buttons}
 
-Adicionamos suporte para botões de ação por push no SDK da web para o Chrome, o que permite aumentar o engajamento oferecendo aos usuários opções contextuais que simplificam suas vidas ocupadas. Confira as [práticas recomendadas para notificações por push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+Adicionamos suporte para botões de ação por push no SDK or kit de desenvolvimento de software da web para o Chrome, o que permite aumentar o engajamento oferecendo aos usuários opções contextuais que simplificam suas vidas ocupadas. Confira as [práticas recomendadas para notificações por push]({{site.baseurl}}/user_guide/channels/push/best_practices/).
 
-## Novos endpoints da API {#new-api-endpoints}
+## Novos endpoints da API or interface de programação do aplicativo (API) {#new-api-endpoints}
 
-Disponibilizamos novos endpoints da API: /email/hard_bounces, que permite extrair hard bounces por endereço de e-mail ou em um determinado intervalo de datas, e /messages/scheduled_broadcasts, que permite consultar o próximo horário de início das Campaigns agendadas e dos Canvas de entrada agendada. Esses novos endpoints permitem a personalização e a otimização adicionais das suas Campaigns. Saiba mais sobre nossos [endpoints da API]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api).
+Disponibilizamos novos endpoints da API or interface de programação do aplicativo (API): /email/hard_bounces, que permite extrair hard bounces por endereço de e-mail ou em um determinado intervalo de datas, e /messages/scheduled_broadcasts, que permite consultar o próximo horário de início das Campaigns agendadas e dos Canvas de entrada agendada. Esses novos endpoints permitem a personalização e a otimização adicionais das suas Campaigns. Saiba mais sobre nossos [endpoints da API or interface de programação do aplicativo (API)]({{site.baseurl}}/developer_guide/rest_api/basics/#what-is-a-rest-api).
 
 ## Geofences
 

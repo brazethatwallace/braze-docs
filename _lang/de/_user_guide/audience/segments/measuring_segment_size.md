@@ -25,10 +25,10 @@ Es ist möglich, dass die Gesamtzahl der Nutzer:innen von der Anzahl der über d
 ![Eine Tabelle, die die insgesamt erreichbaren Nutzer:innen aufgeschlüsselt nach per E-Mail, iOS-Push, Android-Push, Web-Push und Kindle-Push erreichbaren Nutzer:innen zeigt.]({% image_buster /assets/img_archive/segmenter_reachable_users.png %})
 
 Damit ein:e Nutzer:in als über einen bestimmten Kanal erreichbar aufgeführt wird, muss er/sie beides haben:
-* Eine gültige E-Mail-Adresse oder ein gültiges Push-Token, das mit dem Profil verknüpft ist, und
+* Eine gültige E-Mail-Adresse oder ein gültiges Push-Token / Textbaustein, das mit dem Profil verknüpft ist, und
 * Ein Opt-in oder Abo für Ihre App.
 
-Ein:e einzelne:r Nutzer:in kann verschiedenen Gruppen erreichbarer Nutzer:innen angehören. Beispielsweise könnte ein:e Nutzer:in sowohl eine gültige E-Mail-Adresse als auch ein gültiges Android-Push-Token haben und für beides ein Opt-in erteilt haben, aber kein zugehöriges iOS-Push-Token besitzen. Die Differenz zwischen den insgesamt erreichbaren Nutzer:innen und der Summe der verschiedenen Kanäle ergibt die Anzahl der Nutzer:innen, die sich für das Segment qualifiziert haben, aber über diese Kommunikationskanäle nicht erreichbar sind.
+Ein:e einzelne:r Nutzer:in kann verschiedenen Gruppen erreichbarer Nutzer:innen angehören. Beispielsweise könnte ein:e Nutzer:in sowohl eine gültige E-Mail-Adresse als auch ein gültiges Android-Push-Token / Textbaustein haben und für beides ein Opt-in erteilt haben, aber kein zugehöriges iOS-Push-Token / Textbaustein besitzen. Die Differenz zwischen den insgesamt erreichbaren Nutzer:innen und der Summe der verschiedenen Kanäle ergibt die Anzahl der Nutzer:innen, die sich für das Segment qualifiziert haben, aber über diese Kommunikationskanäle nicht erreichbar sind.
 
 {% alert note %}
 **Insgesamt erreichbare Nutzer:innen** umfasst alle, die Ihren Segmentfiltern entsprechen, auch wenn sie einen Kanal nicht mehr abonniert haben. Kanalzeilen wie **iOS** zählen Nutzer:innen, die nur über diesen Kanal erreichbar sind, gemäß den Regeln unter [Erreichbare Nutzer:innen nach Kanal](#reachable-users-by-channel). Um Segmenttotale mit abonnierten Nutzer:innen abzugleichen, fügen Sie Filter wie **Push aktiviert für iOS** ist wahr (oder das Äquivalent für Ihren Kanal) hinzu.
@@ -72,14 +72,14 @@ Um die Anzahl der Nutzer:innen anzuzeigen, die über jeden Messaging-Kanal errei
 
 Die Kennzahl _Gesamt_ stellt eindeutige Nutzer:innen dar. Wenn beispielsweise eine Nutzerin oder ein Nutzer sowohl Android-Push als auch iOS-Push hat, wird sie oder er in beiden Zeilen gezählt, zählt aber nur als 1 Nutzer:in in der Zeile _Gesamt_.
 
-Es ist jedoch möglich, dass die Gesamtzahl der Nutzer:innen von der Summe der über jeden Kanal erreichbaren Nutzer:innen abweicht, da eine einzelne Nutzerin oder ein einzelner Nutzer zu verschiedenen Gruppen erreichbarer Nutzer:innen gehören kann. Beispielsweise könnte eine Nutzerin oder ein Nutzer sowohl eine gültige E-Mail-Adresse als auch ein gültiges Android-Push-Token haben und für beides angemeldet sein, aber kein zugehöriges iOS-Push-Token besitzen.
+Es ist jedoch möglich, dass die Gesamtzahl der Nutzer:innen von der Summe der über jeden Kanal erreichbaren Nutzer:innen abweicht, da eine einzelne Nutzerin oder ein einzelner Nutzer zu verschiedenen Gruppen erreichbarer Nutzer:innen gehören kann. Beispielsweise könnte eine Nutzerin oder ein Nutzer sowohl eine gültige E-Mail-Adresse als auch ein gültiges Android-Push-Token / Textbaustein haben und für beides angemeldet sein, aber kein zugehöriges iOS-Push-Token / Textbaustein besitzen.
 
 Beachten Sie, dass nicht alle Kanäle in der Tabelle **Erreichbare Nutzer:innen** aufgeführt sind (wie Content Cards, Webhooks und WhatsApp). Wenn Sie beispielsweise Nutzer:innen haben, die nur über WhatsApp erreichbar sind, werden diese in _Gesamt_ berücksichtigt, aber nicht in den kanalspezifischen Zeilen. Das bedeutet, dass die Gesamtzahl der erreichbaren Nutzer:innen von der Summe der Nutzer:innen für jeden angezeigten Kanal abweichen kann.
 
 In Fällen, in denen _Gesamt_ höher ist als die Summe der Kanäle, stellt die Differenz die Anzahl der Nutzer:innen dar, die sich für das Segment qualifiziert haben, aber über diese Kommunikationskanäle nicht erreichbar sind.
 
 Damit Nutzer:innen als über einen bestimmten Kanal erreichbar aufgeführt werden, müssen sie:
-- Eine gültige E-Mail-Adresse oder ein gültiges Push-Token haben, das mit ihrem Profil verknüpft ist, und
+- Eine gültige E-Mail-Adresse oder ein gültiges Push-Token / Textbaustein haben, das mit ihrem Profil verknüpft ist, und
 - Sich für Ihre App angemeldet oder ein Abo abgeschlossen haben.
 
 #### Angewendete Filter für kanalspezifisch erreichbare Nutzer:innen {#applied-filters-for-channel-specific-reachable-users}
@@ -90,14 +90,14 @@ Die folgenden Filter werden für jeden Kanal bei der Ermittlung erreichbarer Nut
 | --- | --- |
 | E-Mail | **Email Available** ist wahr. |
 | Push | **Foreground Push Enabled** ist wahr. |
-| SMS | **Subscription Group** ist eine beliebige SMS-Abo-Gruppe. **Invalid Phone Number** ist falsch. |
+| Kurzmitteilungsdienst or SMS | **Subscription Group** ist eine beliebige Kurzmitteilungsdienst or SMS-Abo-Gruppe. **Invalid Phone Number** ist falsch. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Angewendete Filter für kanalspezifisch erreichbare Nutzer:innen" }
 
 ## Exakte Statistiken berechnen {#calculating-exact-statistics}
 
 Um eine genaue Anzahl der Nutzer:innen in Ihrem Segment anzuzeigen, wählen Sie **Exakte Statistiken berechnen** im Bereich **Erreichbare Nutzer:innen** aus.
 
-Um die Statistiken für eine zuvor durchgeführte Berechnung zu aktualisieren, wählen Sie **Exakte Statistiken aktualisieren**. Das Datum der letzten Berechnung wird automatisch aktualisiert.
+Um die Statistiken für eine zuvor durchgeführte Berechnung zu Update or aktualisieren or aktualisieren, wählen Sie **Exakte Statistiken Update or aktualisieren or aktualisieren**. Das Datum der letzten Berechnung wird automatisch aktualisiert.
 
 Beachten Sie, dass die Genauigkeit einer Berechnung nur bei 99,999 % oder höher liegt. Bei großen Segmenten können daher leichte Abweichungen auftreten – auch bei der Berechnung exakter Statistiken –, was ein normales Verhalten ist. Darüber hinaus werden die Ergebnisse exakter Statistiken 24 Stunden lang zwischengespeichert, es sei denn, Sie nehmen Änderungen an Ihrem Segment vor. In diesem Fall können Sie die exakten Statistiken erneut berechnen.
 

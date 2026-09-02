@@ -1,14 +1,14 @@
 ---
-nav_title: "PATCH: Datenobjekt aktualisieren"
-article_title: "PATCH: Datenobjekt aktualisieren"
+nav_title: "PATCH: Datenobjekt Update or aktualisieren or aktualisieren"
+article_title: "PATCH: Datenobjekt Update or aktualisieren or aktualisieren"
 search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt den Endpunkt zum Aktualisieren von Datenobjekten."
+description: "Dieser Artikel beschreibt den Endpunkt zum Update or aktualisieren or aktualisieren von Datenobjekten."
 ---
 {% api %}
-# Datenobjekt aktualisieren {#update-data-object}
+# Datenobjekt Update or aktualisieren or aktualisieren {#update-data-object}
 {% apimethod patch %}
 /data_objects/objects/{type_name}/{external_id}
 {% endapimethod %}
@@ -35,7 +35,7 @@ Die folgende Tabelle listet und beschreibt die Pfadparameter für den Endpunkt `
 |---|---|---|---|
 | `type_name` | Erforderlich | String | Maschinenname des Datenobjekttyps |
 | `external_id` | Erforderlich | String | Objektbezeichner |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für Datenobjekt aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfadparameter für Datenobjekt Update or aktualisieren or aktualisieren" }
 
 ## Anfrageparameter {#request-parameters}
 
@@ -45,7 +45,7 @@ Die folgende Tabelle listet und beschreibt die JSON-Anfragekörperparameter für
 |---|---|---|---|
 | `attributes` | Erforderlich | Objekt | Felder der obersten Ebene, die zusammengeführt werden sollen |
 | `display_name` | Optional | String | Anzeigename für das Objekt. Wenn der Typ ein Quellfeld für den Anzeigenamen hat, hat der Wert dieses Feldes Vorrang. Wenn nicht angegeben, wird der bestehende Anzeigename beibehalten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für Datenobjekt aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter für Datenobjekt Update or aktualisieren or aktualisieren" }
 
 ## Beispielanfrage {#example-request}
 
@@ -100,7 +100,7 @@ Die folgende Tabelle listet und beschreibt die Felder einer erfolgreichen Antwor
 | `data_object.type_name` | Erforderlich | String | Maschinenname des Datenobjekttyps |
 | `data_object.external_id` | Erforderlich | String | Datenobjektbezeichner |
 | `data_object.attributes` | Erforderlich | Objekt | Objektattribute nach der Zusammenführung |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für Datenobjekt aktualisieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Antwortparameter für Datenobjekt Update or aktualisieren or aktualisieren" }
 
 ## Fehler {#errors}
 
@@ -110,8 +110,8 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und deren Beheb
 |---|---|---|
 | `400` | Validierungsfehler | Stellen Sie sicher, dass jedes Feld in `attributes` im Typ-Schema existiert und den korrekten Datentyp verwendet. |
 | `404` | Typ nicht gefunden oder Objekt nicht gefunden | Stellen Sie sicher, dass sowohl `type_name` als auch `external_id` im Workspace existieren. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch die Allowlist blockiert | Stellen Sie sicher, dass der Schlüssel über die Berechtigung `data_objects.update` verfügt und dass Ihre Quell-IP auf der Schlüssel-Allowlist steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Aktualisieren von Datenobjekten" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler beim Update or aktualisieren or aktualisieren von Datenobjekten" }
 {% endapi %}

@@ -3,7 +3,7 @@ nav_title: Tealium para Currents
 article_title: Tealium para Currents
 page_order: 3
 alias: /partners/tealium_for_currents/
-description: "Este artículo de referencia describe la asociación entre Braze Currents y Tealium, una plataforma de datos de los clientes que recopila y encamina información entre fuentes de tu stack de marketing."
+description: "Este artículo de referencia describe la asociación entre Braze Currents y Tealium, una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes que recopila y encamina información entre fuentes de tu stack de marketing."
 page_type: partner
 tool: Currents
 search_tag: Partner
@@ -12,7 +12,7 @@ search_tag: Partner
 
 # Tealium para Currents {#tealium-for-currents}
 
-> [Tealium](https://www.tealium.com) es una plataforma de datos de los clientes que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
+> [Tealium](https://www.tealium.com) es una CDP or plataforma de datos de los clientes or plataforma de datos de los clientes que recopila y encamina información de múltiples fuentes a una variedad de otras ubicaciones en tu stack de marketing.
 
 La integración de Braze y Tealium te permite controlar fácilmente el flujo de información entre los dos sistemas. Con Currents, también puedes conectar los datos a Tealium para que sean procesables en todo el stack de crecimiento.
 

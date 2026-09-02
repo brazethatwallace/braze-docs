@@ -25,8 +25,8 @@ A integração entre a Braze e o Rokt Calendar permite que os assinantes do Rokt
 | Conta Rokt Calendar | É necessário ter uma conta Rokt Calendar específica do cliente para aproveitar essa parceria. Entre em contato com [sales-calendar@rokt.com](mailto:sales-calendar@rokt.com) para falar com um gerente de contas  |
 | Configuração do Rokt Calendar | Seu gerente de conta do Rokt Calendar trabalhará com você para configurar o calendário da forma mais adequada às suas necessidades, incluindo configurações como:<br>- Flag de mesclagem<br>- Flag de fallback de SubscriberID<br>- Captura de e-mail, se necessário |
 | Credenciais OAuth do Rokt Calendar | Essa chave, fornecida pelo gerente da sua conta Rokt Calendar, permitirá conectar suas contas da Braze e do Rokt Calendar.<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **Connected Content**. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. Você precisará fornecer essa chave ao seu gerente de conta do Rokt Calendar.<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| [Endpoint REST da Braze]({{site.baseurl}}/api/basics/#endpoints) | A URL do seu endpoint REST. Seu endpoint dependerá da URL da Braze para a sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. Você precisará fornecer essa chave ao seu gerente de conta do Rokt Calendar.<br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
+| [Endpoint REST or transferir estado representacional da Braze]({{site.baseurl}}/api/basics/#endpoints) | A URL do seu endpoint REST or transferir estado representacional. Seu endpoint dependerá da URL da Braze para a sua instância. |
 | ID do assinante externo | Esse é o identificador usado pelo processo de inscrição do Rokt Calendar para fazer a correspondência entre o assinante do calendário e o usuário da Braze. Isso é algo que você passa para o Rokt Calendar.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -80,7 +80,7 @@ Para criar um público de assinantes, você precisará promover o calendário pa
 
 Na Braze, você pode configurar uma campanha de webhook ou um webhook dentro de um Canvas para:
 
-- Enviar um novo evento personalizado: permitir que novos eventos sejam adicionados aos calendários de um segmento de assinantes.
+- Enviar um novo evento personalizado: permitir que novos eventos sejam adicionados aos calendários de um Segment or segmento or segmento de assinantes.
 - Atualizar um evento personalizado: permitir que uma atualização seja feita em um evento existente nos calendários dos assinantes.
 
 Para criar um modelo de webhook do Rokt Calendar para usar em futuras Campaigns ou Canvas, navegue até **Templates** > **Webhook Templates** na plataforma Braze.
@@ -192,7 +192,7 @@ Para obter uma lista de fusos horários válidos, consulte [https://roktcalendar
 
 ### Etapa 3: pré-visualize sua solicitação {#step-3-preview-your-request}
 
-Pré-visualize a solicitação no painel **Preview** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
+Pré-visualize a solicitação no painel **prévia** ou navegue até a guia **Test**, onde é possível selecionar um usuário aleatório, um usuário existente ou personalizar o seu próprio para testar o webhook.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Saved Webhook Templates** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

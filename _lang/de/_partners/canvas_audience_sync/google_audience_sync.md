@@ -2,7 +2,7 @@
 nav_title: Google
 article_title: Canvas Audience Sync mit Google
 alias: /google_audience_sync/
-description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync für Google verwenden, um Anzeigen auf der Grundlage von verhaltensbezogenen Triggern, Segmentierung und mehr zuzustellen."
+description: "Dieser Referenzartikel beschreibt, wie Sie Braze Audience Sync für Google verwenden, um Anzeigen auf der Grundlage von verhaltensbezogenen Trigger or triggern or triggern, Segmentierung und mehr zuzustellen."
 tool:
   - Canvas
 page_order: 3
@@ -15,23 +15,23 @@ page_order: 3
 Google aktualisiert seine [EU-Richtlinie zur Einwilligung der Nutzer:innen](https://www.google.com/about/company/user-consent-policy/) als Reaktion auf die Änderungen des [Digital Markets Act (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), der ab dem 6. März 2024 in Kraft tritt. Diese neue Änderung erfordert, dass Werbetreibende bestimmte Informationen an ihre Endnutzer:innen im EWR, in Großbritannien und in der Schweiz weitergeben und die notwendige Zustimmung von ihnen einholen. Weitere Informationen finden Sie in der folgenden Dokumentation.
 {% endalert %}
 
-Die Braze Audience Sync to Google Integration ermöglicht es Marken, die Reichweite ihrer kanalübergreifenden Customer Journeys auf Google Search, Google Shopping, Gmail, YouTube und Google Display auszudehnen. Mithilfe Ihrer First-Party-Kundendaten können Sie Anzeigen auf der Grundlage von dynamischen Verhaltenstriggern, Segmentierung und mehr sicher zustellen. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (z. B. Push, E-Mail oder SMS) im Rahmen eines Braze-Canvas verwenden, kann verwendet werden, um eine Anzeige für diese Nutzer:innen über Googles [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) zu triggern.
+Die Braze Audience Sync to Google Integration ermöglicht es Marken, die Reichweite ihrer kanalübergreifenden Customer Journeys auf Google Search, Google Shopping, Gmail, YouTube und Google Display auszudehnen. Mithilfe Ihrer First-Party-Kundendaten können Sie Anzeigen auf der Grundlage von dynamischen Verhaltenstriggern, Segmentierung und mehr sicher zustellen. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (z. B. Push, E-Mail oder Kurzmitteilungsdienst or SMS) im Rahmen eines Braze-Canvas verwenden, kann verwendet werden, um eine Anzeige für diese Nutzer:innen über Googles [Customer Match](https://support.google.com/google-ads/answer/6379332?hl=en) zu Trigger or triggern or triggern.
 
 {% alert note %}
-Die Braze Audience Sync to Google Integration wird für Google Ads unterstützt, nicht für Google Ads Manager.
+Die Braze Audience Sync to Google Integration wird für Google Ads unterstützt, nicht für Google Ads Manager:in.
 {% endalert %}
 
 Google Ads generiert keine ähnlichen Zielgruppen, auch bekannt als „Lookalike Audiences“, mehr für Targeting und Reporting. Lesen Sie die [Dokumentation von Google Ads](https://support.google.com/google-ads/answer/12463119?), um mehr zu erfahren.
 
-## Google Data Manager API
+## Google Data Manager:in API
 
 {% alert important %}
-Die Unterstützung der Google Data Manager API für Audience Sync to Google befindet sich im Early Access. Wenden Sie sich an Ihren Braze Account Manager, um Informationen zur Berechtigung und zum Zeitplan für die Einführung zu erhalten.
+Die Unterstützung der Google Data Manager:in API für Audience Sync to Google befindet sich im Early Access. Wenden Sie sich an Ihren Braze Account Manager:in, um Informationen zur Berechtigung und zum Zeitplan für die Einführung zu erhalten.
 {% endalert %}
 
-Google konsolidiert Werbeintegrationen auf die Data Manager API. Im Early Access kann Braze Audience Sync to Google diese API nutzen, um laufende Änderungen an der Google-Werbe-API zu unterstützen.
+Google konsolidiert Werbeintegrationen auf die Data Manager:in API. Im Early Access kann Braze Audience Sync to Google diese API nutzen, um laufende Änderungen an der Google-Werbe-API zu unterstützen.
 
-Für neue und erneut verbundene Google Audience Sync-Verbindungen fordert Braze den erforderlichen Data-Manager-Bereich automatisch an. Bestehende Verbindungen werden weiterhin über den bisherigen Pfad synchronisiert, bis sie erneut verbunden werden.
+Für neue und erneut verbundene Google Audience Sync-Verbindungen fordert Braze den erforderlichen Data-Manager:in-Bereich automatisch an. Bestehende Verbindungen werden weiterhin über den bisherigen Pfad synchronisiert, bis sie erneut verbunden werden.
 
 Folgen Sie weiterhin dieser Anleitung für die Kontoverbindung, die Zielgruppen-Einrichtung und das Synchronisierungsverhalten.
 
@@ -54,7 +54,7 @@ Stellen Sie sicher, dass die folgenden Punkte erstellt und abgeschlossen sind, b
 | Google-Einwilligungssignale | [Google](https://support.google.com/google-ads/answer/14310715) | Wenn Sie Endnutzer:innen im EWR über den Customer-Match-Dienst von Google Werbung ausspielen möchten, müssen Sie Braze die folgenden angepassten Attribute (Boolean) im Rahmen der EU-Richtlinie zur Nutzereinwilligung von Google übergeben. Weitere Details finden Sie unter [Einwilligung für Endnutzer:innen im EWR, in Großbritannien und in der Schweiz einholen](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
-### Erforderliche SDK-Versionen {#required-sdk-versions}
+### Erforderliche SDK or Software-Development-Kit-Versionen {#required-sdk-versions}
 
 Wenn Sie Braze-SDKs verwenden, um Einwilligungssignale zu erfassen, stellen Sie sicher, dass Sie die folgenden Mindestversionen einsetzen:
 
@@ -189,7 +189,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen aus bestehenden Google-Kundenli
 
 ### Schritt 4: Canvas starten {#step-4-launch-canvas}
 
-Vervollständigen Sie den Rest Ihrer User Journey in Canvas und starten Sie dann! Wenn Sie sich für die Erstellung einer neuen Zielgruppe entschieden haben, erstellt Braze die Zielgruppe innerhalb von Google und fügt dann Nutzer:innen hinzu, wenn sie diesen Schritt in Ihrem Canvas erreichen. Wenn Sie ausgewählt haben, Nutzer:innen einer bestehenden Zielgruppe hinzuzufügen oder zu entfernen, wird Braze Nutzer:innen entweder hinzufügen oder entfernen, wenn sie diesen Schritt in ihrer User Journey erreichen.
+Vervollständigen Sie den Representational State Transfer Ihrer User Journey in Canvas und starten Sie dann! Wenn Sie sich für die Erstellung einer neuen Zielgruppe entschieden haben, erstellt Braze die Zielgruppe innerhalb von Google und fügt dann Nutzer:innen hinzu, wenn sie diesen Schritt in Ihrem Canvas erreichen. Wenn Sie ausgewählt haben, Nutzer:innen einer bestehenden Zielgruppe hinzuzufügen oder zu entfernen, wird Braze Nutzer:innen entweder hinzufügen oder entfernen, wenn sie diesen Schritt in ihrer User Journey erreichen.
 
 Die Nutzer:innen gehen dann zur nächsten Komponente des Canvas über, wenn es eine gibt, oder verlassen den Canvas, wenn es der letzte Schritt der User Journey ist.
 

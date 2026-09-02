@@ -338,7 +338,7 @@ Count
 Count, Percentage
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %} 이메일, 푸시, 웹훅의 경우 최초 발송 후부터 전환을 추적하기 시작합니다.
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 주요 전환 Event' %} 이메일, 푸시, 웹훅의 경우 최초 발송 후부터 전환을 추적하기 시작합니다.
 
 {::nomarkdown}
 <span class="calculation-line">

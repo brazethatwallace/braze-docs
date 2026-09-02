@@ -13,7 +13,7 @@ description: "Este artigo de referência aborda como implementar o pixel de rast
 
 ## Ativando o pixel de rastreamento de abertura ou o rastreamento de cliques {#turning-on-open-pixel-or-click-tracking}
 
-Ao importar ou atualizar um perfil de usuário por meio de [API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [Ingestão de Dados na Nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), dois campos estão disponíveis para modificação:
+Ao importar ou atualizar um perfil de usuário por meio de [API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [Ingestão de Dados na Nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), dois campos estão disponíveis para modificação:
 
 - `email_open_tracking_disabled`: Aceita `true` ou `false`. Defina como `false` para adicionar o pixel de rastreamento de abertura a todos os e-mails futuros enviados a esse usuário.
 - `email_click_tracking_disabled`: Aceita `true` ou `false`. Defina como `false` para adicionar rastreamento de cliques a todos os links em e-mails futuros enviados a esse usuário.

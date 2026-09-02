@@ -40,7 +40,7 @@ Todas las marcas de tiempo exportadas por Currents se envían en la zona horaria
 
 ### Latencia {#latency}
 
-Los eventos enviados a Braze a través del SDK o la API pueden incluir una marca de tiempo del pasado. El ejemplo más notable es cuando los datos del SDK se ponen en cola, como cuando no hay conectividad móvil. En ese caso, la marca de tiempo del evento reflejará cuándo se generó el evento. Esto significa que un porcentaje de eventos parecerá tener una latencia alta.
+Los eventos enviados a Braze a través del SDK or kit de desarrollo de software o la API pueden incluir una marca de tiempo del pasado. El ejemplo más notable es cuando los datos del SDK or kit de desarrollo de software se ponen en cola, como cuando no hay conectividad móvil. En ese caso, la marca de tiempo del evento reflejará cuándo se generó el evento. Esto significa que un porcentaje de eventos parecerá tener una latencia alta.
 
 ## Formato Apache Avro {#apache-avro-format}
 
@@ -104,15 +104,15 @@ De vez en cuando, Braze puede realizar cambios en el esquema de Avro cuando se a
 
 #### Cambios sin ruptura {#non-breaking-changes}
 
-Cuando se agrega un campo al esquema de Avro, lo consideramos un cambio sin ruptura. Los campos agregados siempre serán campos Avro "opcionales" (como con un valor predeterminado de `null`), por lo que "coincidirán" con esquemas más antiguos según la [especificación de resolución de esquemas de Avro](http://avro.apache.org/docs/current/spec.html#schema+resolution). Estas adiciones no deberían afectar los procesos existentes de extracción, transformación y carga (ETL), ya que el campo simplemente se ignorará hasta que se agregue a tu proceso ETL.
+Cuando se agrega un campo al esquema de Avro, lo consideramos un cambio sin ruptura. Los campos agregados siempre serán campos Avro "opcionales" (como con un valor predeterminado de `null`), por lo que "coincidirán" con esquemas más antiguos según la [especificación de resolución de esquemas de Avro](http://avro.apache.org/docs/current/spec.html#schema+resolution). Estas adiciones no deberían afectar los procesos existentes de extracción, transformación y carga (ETL or extraer, transformar, cargar), ya que el campo simplemente se ignorará hasta que se agregue a tu proceso ETL or extraer, transformar, cargar.
 
 {% alert important %}
-Recomendamos que tu configuración de ETL sea explícita sobre los campos que procesa para evitar interrupciones en el flujo cuando se agregan nuevos campos.
+Recomendamos que tu configuración de ETL or extraer, transformar, cargar sea explícita sobre los campos que procesa para evitar interrupciones en el flujo cuando se agregan nuevos campos.
 {% endalert %}
 
 #### Cambios con ruptura {#breaking-changes}
 
-Cuando se elimina o cambia un campo en el esquema de Avro, lo consideramos un cambio con ruptura. Los cambios con ruptura pueden requerir modificaciones en los procesos ETL existentes, ya que los campos que estaban en uso pueden dejar de registrarse como se esperaba.
+Cuando se elimina o cambia un campo en el esquema de Avro, lo consideramos un cambio con ruptura. Los cambios con ruptura pueden requerir modificaciones en los procesos ETL or extraer, transformar, cargar existentes, ya que los campos que estaban en uso pueden dejar de registrarse como se esperaba.
 
 Todos los cambios con ruptura se comunicarán con anticipación antes del lanzamiento.
 

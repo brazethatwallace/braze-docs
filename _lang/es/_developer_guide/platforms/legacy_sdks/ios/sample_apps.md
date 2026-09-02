@@ -12,10 +12,10 @@ noindex: true
 
 # Ejemplos de aplicaciones {#sample-apps}
 
-Para tu comodidad, los SDK de Braze incluyen aplicaciones de ejemplo en el repositorio. Cada una de estas aplicaciones es totalmente compilable, por lo que puedes probar las características de Braze a la vez que las implementas en tus propias aplicaciones. Probar el comportamiento dentro de tu propia aplicación en comparación con el comportamiento esperado y las rutas de código dentro de las aplicaciones de ejemplo es una forma excelente de depurar cualquier problema que puedas encontrarte.
+Para tu comodidad, los SDK or kit de desarrollo de software de Braze incluyen aplicaciones de ejemplo en el repositorio. Cada una de estas aplicaciones es totalmente compilable, por lo que puedes probar las características de Braze a la vez que las implementas en tus propias aplicaciones. Probar el comportamiento dentro de tu propia aplicación en comparación con el comportamiento esperado y las rutas de código dentro de las aplicaciones de ejemplo es una forma excelente de depurar cualquier problema que puedas encontrarte.
 
 ## Creación de aplicaciones de prueba {#building-test-applications}
-Hay varias aplicaciones de prueba disponibles en el [repositorio de GitHub del SDK para iOS](https://github.com/appboy/appboy-ios-sdk). Sigue estas instrucciones para compilar y ejecutar nuestras aplicaciones de prueba.
+Hay varias aplicaciones de prueba disponibles en el [repositorio de GitHub del SDK or kit de desarrollo de software para iOS](https://github.com/appboy/appboy-ios-sdk). Sigue estas instrucciones para compilar y ejecutar nuestras aplicaciones de prueba.
 
 1. Crea un nuevo [espacio de trabajo]({{site.baseurl}}/user_guide/get_started/workspaces) y anota la clave de API del identificador de la aplicación.
 2. Coloca tu clave de API en el campo correspondiente del archivo `AppDelegate.m`.

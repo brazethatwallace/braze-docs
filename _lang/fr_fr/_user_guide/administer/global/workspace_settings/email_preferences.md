@@ -91,23 +91,23 @@ Si vous utilisez un bloc de contenu pour renseigner le champ **Reply-To Address*
 {% endalert %}
 
 {% endtab %}
-{% tab Adresse CCI %}
+{% tab Adresse CCI or carte de contenu de type bannière %}
 
-Cette section vous permet de gérer les adresses CCI que vous pouvez ajouter aux messages e-mail sortants envoyés depuis Braze. L'ajout d'une adresse CCI à un message e-mail envoie une copie identique du message que votre utilisateur reçoit à votre boîte de réception CCI. C'est un outil utile pour conserver des copies des messages envoyés à vos utilisateurs à des fins de conformité ou de support client. Les e-mails CCI ne sont pas inclus dans les rapports et l'analyse des e-mails.
+Cette section vous permet de gérer les adresses CCI or carte de contenu de type bannière que vous pouvez ajouter aux messages e-mail sortants envoyés depuis Braze. L'ajout d'une adresse CCI or carte de contenu de type bannière à un message e-mail envoie une copie identique du message que votre utilisateur reçoit à votre boîte de réception CCI or carte de contenu de type bannière. C'est un outil utile pour conserver des copies des messages envoyés à vos utilisateurs à des fins de conformité ou de support client. Les e-mails CCI or carte de contenu de type bannière ne sont pas inclus dans les rapports et l'analyse des e-mails.
 
-Les adresses CCI sont disponibles pour Amazon SES, SendGrid et SparkPost. Comme alternative aux adresses CCI, nous recommandons d'utiliser l'[archivage des messages]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) pour enregistrer une copie des messages envoyés aux utilisateurs à des fins d'archivage ou de conformité.
+Les adresses CCI or carte de contenu de type bannière sont disponibles pour Amazon SES, SendGrid et SparkPost. Comme alternative aux adresses CCI or carte de contenu de type bannière, nous recommandons d'utiliser l'[archivage des messages]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) pour enregistrer une copie des messages envoyés aux utilisateurs à des fins d'archivage ou de conformité.
 
 {% multi_lang_include alerts/important_alerts.md alert='BCC address billable emails' %}
 
-Après avoir ajouté une adresse, celle-ci est disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Make Default** à côté d'une adresse pour la définir comme sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **No BCC** lors de la configuration de votre message.
+Après avoir ajouté une adresse, celle-ci est disponible à la sélection lors de la composition d'un e-mail dans des Campaigns ou des étapes Canvas. Sélectionnez **Make Default** à côté d'une adresse pour la définir comme sélectionnée par défaut lors du lancement d'une nouvelle campagne d'e-mail ou d'un composant Canvas. Pour remplacer ce paramètre au niveau du message, vous pouvez sélectionner **No CCI or carte de contenu de type bannière** lors de la configuration de votre message.
 
-Si vous exigez que tous les messages e-mail envoyés depuis Braze incluent une adresse CCI, vous pouvez activer le bouton bascule **Require a BCC address for all your email campaigns**. Cela vous oblige à sélectionner une adresse par défaut, qui est automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou les étapes Canvas. L'adresse par défaut est également ajoutée automatiquement à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
+Si vous exigez que tous les messages e-mail envoyés depuis Braze incluent une adresse CCI or carte de contenu de type bannière, vous pouvez activer le bouton bascule **Require a CCI or carte de contenu de type bannière address for all your email campaigns**. Cela vous oblige à sélectionner une adresse par défaut, qui est automatiquement sélectionnée pour les nouvelles campagnes d'e-mail ou les étapes Canvas. L'adresse par défaut est également ajoutée automatiquement à tous les messages déclenchés via notre REST API. Il n'est pas nécessaire de modifier la requête API existante pour inclure l'adresse.
 
-#### CCI dynamique {#dynamic-bcc}
+#### CCI or carte de contenu de type bannière dynamique {#dynamic-bcc}
 
-Avec la CCI dynamique, vous pouvez utiliser Liquid dans votre adresse CCI. Notez que cette fonctionnalité n'est disponible que dans les **Préférences des e-mails** et ne peut pas être définie sur la campagne elle-même. Une seule adresse CCI par destinataire d'e-mail est autorisée.
+Avec la CCI or carte de contenu de type bannière dynamique, vous pouvez utiliser Liquid dans votre adresse CCI or carte de contenu de type bannière. Notez que cette fonctionnalité n'est disponible que dans les **Préférences des e-mails** et ne peut pas être définie sur la campagne elle-même. Une seule adresse CCI or carte de contenu de type bannière par destinataire d'e-mail est autorisée.
 
-Par exemple, vous pouvez ajouter {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} comme adresse CCI pour les e-mails de votre équipe de support.
+Par exemple, vous pouvez ajouter {% raw %}`{{custom_attribute.${support_agent}}}`{% endraw %} comme adresse CCI or carte de contenu de type bannière pour les e-mails de votre équipe de support.
 
 ![Section d'adresse CCI de l'onglet des paramètres d'e-mail avec une adresse CCI utilisant Liquid.]({% image_buster /assets/img/email_settings/dynamic_bcc.png %}){: style="max-width:90%;" }
 
@@ -130,7 +130,7 @@ Pour réduire les comportements inattendus, gardez le Liquid à l'intérieur des
 
 ### Modifier l'emplacement {#update-the-placement}
 
-Braze prend actuellement en charge le remplacement de l'emplacement par défaut du pixel de suivi d'ouverture de l'ESP (la dernière balise dans le `<body>` d'un e-mail) pour le déplacer vers la première balise du `<body>`.
+Braze prend actuellement en charge le remplacement de l'emplacement par défaut du pixel de suivi d'ouverture de l'fournisseur de services d'e-mailing (la dernière balise dans le `<body>` d'un e-mail) pour le déplacer vers la première balise du `<body>`.
 
 ![Section « Pixel de suivi d'ouverture » avec les options de déplacement pour SendGrid, SparkPost ou Amazon SES.]({% image_buster /assets/img/open_pixel.png %}){: style="max-width:80%;" }
 
@@ -140,7 +140,7 @@ Pour modifier l'emplacement :
 2. Sélectionnez l'une des options suivantes : **Move for SendGrid**, **Move for SparkPost** ou **Move for Amazon SES**
 3. Sélectionnez **Enregistrer**.
 
-Après l'enregistrement, Braze envoie des instructions spéciales à l'ESP pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
+Après l'enregistrement, Braze envoie des instructions spéciales à l'fournisseur de services d'e-mailing pour placer le pixel de suivi d'ouverture en haut de tous les e-mails HTML.
 
 {% alert important %}
 L'activation du SSL encapsule l'URL du pixel de suivi avec HTTPS au lieu de HTTP. Si votre SSL est mal configuré, cela peut affecter l'efficacité du pixel de suivi.

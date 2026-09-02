@@ -2,7 +2,7 @@
 nav_title: Lokalisierung
 article_title: Lokalisierung
 page_order: 8
-description: "Dieser Referenzartikel behandelt die Grundlagen der Lokalisierung, listet die Vorteile verschiedener Orchestrierungsansätze für Campaigns und Canvases auf und beschreibt verschiedene Möglichkeiten, wie Nutzer:innen die Personalisierung in ihrem Messaging handhaben können."
+description: "Dieser Referenzartikel behandelt die Grundlagen der Lokalisierung, listet die Vorteile verschiedener Orchestrierungsansätze für Campaigns und Canvase auf und beschreibt verschiedene Möglichkeiten, wie Nutzer:innen die Personalisierung in ihrem Messaging handhaben können."
 tool:
     - Campaigns
     - Canvas
@@ -14,7 +14,7 @@ tool:
 
 ## Funktionsweise {#how-it-works}
 
-Locale-Informationen werden im Profil von Nutzer:innen gespeichert, basierend auf Daten, die Sie über ein [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration) (automatisch) oder die [REST API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track) erfassen. Das Locale enthält die Sprache und eine Regionskennung. Diese Informationen sind im Braze-Segmentierungs-Tool unter **Country** und **Language** verfügbar.
+Locale-Informationen werden im Profil von Nutzer:innen gespeichert, basierend auf Daten, die Sie über ein [Braze SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration) (automatisch) oder die [Representational State Transfer API]({{ site.baseurl }}/api/endpoints/user_data/post_user_track) erfassen. Das Locale enthält die Sprache und eine Regionskennung. Diese Informationen sind im Braze-Segmentierungs-Tool unter **Country** und **Language** verfügbar.
 
 {% alert tip %}
 Technische Details zur Erfassung des Locales durch unsere SDKs finden Sie in der offiziellen Dokumentation für [iOS](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html), [Android](http://developer.android.com/reference/java/util/Locale.html) und [Web](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language).
@@ -68,7 +68,7 @@ Bei diesem Ansatz bietet der [Canvas]({{site.baseurl}}/user_guide/messaging/canv
 
 Die Lokalisierung kann mit den folgenden Methoden erreicht werden:
 
-- Separate Canvases pro Land – so wird sichergestellt, dass die komplexen Nutzer:innen-Journeys am Anfang des Funnels mithilfe von Zielgruppenfiltern definiert werden
+- Separate Canvase pro Land – so wird sichergestellt, dass die komplexen Nutzer:innen-Journeys am Anfang des Funnels mithilfe von Zielgruppenfiltern definiert werden
 - Maßgeschneiderte Nutzer:innen-Journeys pro Land – die Implementierung von [Zielgruppenpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths), um Nutzer:innen intuitiv in großem Umfang für jede Journey zu segmentieren, indem separate Nachrichtenstränge für jedes Land in einem einzigen Canvas erstellt werden
 
 Nach dem Versand stellt das Dashboard dynamische Analytics pro Land bereit, und innerhalb der [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)-Ereignisse auf Nutzer:innenebene basierend auf dem aktuellen Standort der Kund:innen.
@@ -122,7 +122,7 @@ Wir empfehlen immer, eine {% raw %}`{% else %}`{% endraw %}-Anweisung in Ihre Na
 {% endtab %}
 
 {% tab Content Blocks %}
-Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) sind wiederverwendbare Inhaltsblöcke. Wenn ein Block geändert wird, ändern sich alle Referenzen auf diesen Block. Zum Beispiel werden Aktualisierungen an einem E-Mail-Header oder einer Fußzeile in allen E-Mails widergespiegelt oder können Übersetzungen beherbergen. Diese Blöcke können auch über die REST API [erstellt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) und [aktualisiert]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) werden, und Nutzer:innen können Übersetzungen programmatisch hochladen.
+Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) sind wiederverwendbare Inhaltsblöcke. Wenn ein Block geändert wird, ändern sich alle Referenzen auf diesen Block. Zum Beispiel werden Aktualisierungen an einem E-Mail-Header oder einer Fußzeile in allen E-Mails widergespiegelt oder können Übersetzungen beherbergen. Diese Blöcke können auch über die Representational State Transfer API [erstellt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) und [aktualisiert]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) werden, und Nutzer:innen können Übersetzungen programmatisch hochladen.
 
 Beim Erstellen einer Campaign im Dashboard können Content Blocks mit dem Tag {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %} referenziert werden. Diese Blöcke können alle Übersetzungen innerhalb bedingter Logik für jede Sprache enthalten, wie in Option 1 gezeigt, oder es kann ein separater Block für jede Sprache verwendet werden.
 
@@ -131,7 +131,7 @@ Content Blocks können auch als Übersetzungsmanagement-Prozess genutzt werden, 
 2. Ihr Dienst führt einen nächtlichen Abruf aller Content Blocks über den [`/content_blocks/list`-Endpunkt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_list_email_content_blocks) durch.
 3. Ihr Dienst ruft Details zu jedem Content-Block über den [`/content_blocks/info`-Endpunkt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/get_see_email_content_blocks_information) ab, um zu sehen, welche Blöcke zur Übersetzung markiert sind.
 4. Ihr Übersetzungsdienst übersetzt den Inhalt aller Content Blocks mit dem Tag „Needs Translation“.
-5. Ihr Dienst ruft den [`/content_block/update`-Endpunkt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) auf, um den übersetzten Inhalt zu aktualisieren und den Tag auf „Translation Complete“ zu ändern.
+5. Ihr Dienst ruft den [`/content_block/update`-Endpunkt]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) auf, um den übersetzten Inhalt zu Update or aktualisieren or aktualisieren und den Tag auf „Translation Complete“ zu ändern.
 {% endtab %}
 
 {% tab Kataloge %}
@@ -242,7 +242,7 @@ Diese Katalogartikel können dann über [Personalisierung]({{site.baseurl}}/user
 {% endtab %}
 
 {% tab Braze-Partner %}
-Viele Braze-Partner bieten Lokalisierungslösungen an, darunter [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) und [Crowdin](https://crowdin.com/). In der Regel nutzen Nutzer:innen die Plattform zusammen mit einem internen Team und einer Übersetzungsagentur. Diese Übersetzungen werden dort hochgeladen und sind dann über die REST API zugänglich. Diese Dienste nutzen häufig auch [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), sodass Nutzer:innen die Übersetzungen über die API abrufen können.
+Viele Braze-Partner bieten Lokalisierungslösungen an, darunter [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) und [Crowdin](https://crowdin.com/). In der Regel nutzen Nutzer:innen die Plattform zusammen mit einem internen Team und einer Übersetzungsagentur. Diese Übersetzungen werden dort hochgeladen und sind dann über die Representational State Transfer API zugänglich. Diese Dienste nutzen häufig auch [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), sodass Nutzer:innen die Übersetzungen über die API abrufen können.
 
 Zum Beispiel rufen die folgenden Connected-Content-Aufrufe Transifex und Crowdin auf, um eine Übersetzung abzurufen, wobei {% raw %}`{{${language}}}`{% endraw %} verwendet wird, um die richtige Übersetzung für bestimmte Nutzer:innen zu identifizieren. Diese Übersetzung wird dann im JSON-Block „strings“ gespeichert und referenziert.
 
@@ -340,7 +340,7 @@ Erstellen Sie die Google-Tabelle so, dass jede Zeile eine Sprache darstellt. Zum
 
 #### Schritt 2: Sheetlabs verwenden, um die Tabelle zu importieren und eine API zu erstellen {#step-2-use-sheetlabs-to-import-the-sheet-and-create-an-api}
 
-1. Registrieren Sie sich bei [Sheetlabs](https://sheetlabs.com).
+1. Registrierung or registrieren Sie sich bei [Sheetlabs](https://sheetlabs.com).
 2. Folgen Sie den Sheetlabs-Anweisungen, um Daten aus Google Sheets zu importieren.
 3. Wählen Sie die Tabellenkalkulation aus, die Sie in Schritt 1 erstellt haben.
 4. Wählen Sie **Create a matching API** aus.
@@ -349,8 +349,8 @@ Erstellen Sie die Google-Tabelle so, dass jede Zeile eine Sprache darstellt. Zum
 
 Wenn Ihre Sheetlabs-API öffentlich ist, überspringen Sie diesen Schritt. Wenn eine Authentifizierung erforderlich ist:
 
-1. Gehen Sie zur Seite **My Account** in Sheetlabs und kopieren Sie Ihren API-Token.
-2. Folgen Sie den Schritten unter [Braze-Authentifizierung mit Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication), um eine Basic-Authentication-Anmeldeinformation in Braze zu erstellen. Verwenden Sie Ihren Sheetlabs-Benutzernamen (E-Mail-Adresse) und den kopierten API-Token.
+1. Gehen Sie zur Seite **My Account** in Sheetlabs und kopieren Sie Ihren API-Token / Textbaustein.
+2. Folgen Sie den Schritten unter [Braze-Authentifizierung mit Basic Auth]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#using-basic-authentication), um eine Basic-Authentication-Anmeldeinformation in Braze zu erstellen. Verwenden Sie Ihren Sheetlabs-Benutzernamen (E-Mail-Adresse) und den kopierten API-Token / Textbaustein.
 3. Speichern Sie die Anmeldeinformation mit einem Namen wie `sheetlabs_creds`.
 
 #### Schritt 4: Sheetlabs-API über Connected Content aufrufen {#step-4-call-the-sheetlabs-api-from-connected-content}

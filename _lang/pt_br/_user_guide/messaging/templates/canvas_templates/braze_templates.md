@@ -26,7 +26,7 @@ Engaje os usuários em tempo real para incentivá-los a concluir suas compras.
 
 Considere o seguinte ao usar este modelo:
 
-- O cronograma de entrada é disparado por API. Use o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) para inserir usuários quando eles abandonarem um carrinho, ou mude para um cronograma baseado em ação com um gatilho como **Realizar evento personalizado** ou **Realizar evento de atualização de carrinho**, se isso se adequar à sua configuração.
+- O cronograma de entrada é disparado por API or interface de programação do aplicativo (API). Use o [endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) para inserir usuários quando eles abandonarem um carrinho, ou mude para um cronograma baseado em ação com um gatilho como **Realizar evento personalizado** ou **Realizar evento de atualização de carrinho**, se isso se adequar à sua configuração.
 - A conversão padrão rastreia **Realizar qualquer compra (Legado)**. Adapte os eventos de conversão e as etapas de jornadas de ação **Realizou compra?** para produtos específicos, se necessário.
 - Os usuários saem do Canvas quando realizam uma compra nas etapas de jornadas de ação **Realizou compra?**. Este modelo pressupõe que você tenha uma jornada pós-compra separada.
 - O Canvas inclui um e-mail para **Lembrete detalhado**, uma etapa de postergação, uma divisão de canal inteligente para e-mail e SMS, mensagens de canal com Content Cards (e-mail, SMS e mensagem no app) e uma etapa de Audience Sync. Configure o **Redirecionamento de anúncios** com seus parceiros e públicos.
@@ -41,7 +41,7 @@ Para um passo a passo detalhado, consulte [Intenção abandonada]({{site.baseurl
 Impulsione compras notificando seus usuários quando um item está de volta ao estoque com mensagens personalizadas. Considere o seguinte ao usar este modelo:
 
 - Em **Cronograma de entrada**, selecione um catálogo para usar. Isso permite que você acesse dados, como produtos, descontos e promoções, para direcionar ainda mais seus usuários.
-- Em **Público-alvo**, adicione um segmento para direcionar usuários que indicaram interesse em um determinado item.
+- Em **Público-alvo**, adicione um Segment or segmento or segmento para direcionar usuários que indicaram interesse em um determinado item.
 - Nas etapas de Mensagem ao longo do Canvas, atualize o Liquid para referenciar seu catálogo.
 
 {% endtab %}
@@ -74,7 +74,7 @@ Traga os usuários de volta ao seu app com incentivos baseados em seus engajamen
 
 Crie jornadas de integração que promovam uma adoção inicial sólida e incentivem relacionamentos duradouros com seus usuários. Considere o seguinte ao usar este modelo:
 
-- Na etapa de jornadas do público chamada "Divisão de público", considere personalizar as ações-chave para usuários engajados. No modelo, o filtro de segmento é "Clicou no e-mail da etapa E-mail de boas-vindas".
+- Na etapa de jornadas do público chamada "Divisão de público", considere personalizar as ações-chave para usuários engajados. No modelo, o filtro de Segment or segmento or segmento é "Clicou no e-mail da etapa E-mail de boas-vindas".
 
 {% endtab %}
 {% tab Post-Purchase Feedback %}

@@ -2,10 +2,10 @@
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie Content Cards verwenden können, müssen Sie [das Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) in Ihre App integrieren. Es ist jedoch keine zusätzliche Einrichtung erforderlich. Wenn Sie stattdessen eine eigene UI erstellen möchten, lesen Sie den [Leitfaden zur Anpassung von Content Cards]({{site.baseurl}}/developer_guide/content_cards).
+Bevor Sie Content Cards verwenden können, müssen Sie [das Braze Web SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web) in Ihre App integrieren. Es ist jedoch keine zusätzliche Einrichtung erforderlich. Wenn Sie stattdessen eine eigene UI erstellen möchten, lesen Sie den [Leitfaden zur Anpassung von Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 {% alert note %}
-Einige Werbeblocker und Browser-Datenschutzerweiterungen können das Braze Web SDK-Skript oder zugehörige Netzwerkanfragen blockieren, was dazu führen kann, dass Content Cards nicht geladen werden. Wenn Sie die CDN-Integrationsmethode verwenden, sollten Sie einen Wechsel zur [NPM-Integrationsmethode]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web) in Betracht ziehen, die SDK-Bibliotheken lokal auf Ihrer Website speichert und einige Probleme im Zusammenhang mit Werbeblockern vermeiden kann.
+Einige Werbeblocker und Browser-Datenschutzerweiterungen können das Braze Web SDK or Software-Development-Kit-Skript oder zugehörige Netzwerkanfragen blockieren, was dazu führen kann, dass Content Cards nicht geladen werden. Wenn Sie die CDN-Integrationsmethode verwenden, sollten Sie einen Wechsel zur [NPM-Integrationsmethode]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web) in Betracht ziehen, die SDK or Software-Development-Kit-Bibliotheken lokal auf Ihrer Website speichert und einige Probleme im Zusammenhang mit Werbeblockern vermeiden kann.
 {% endalert %}
 
 ## Standard-Feed-UI
@@ -53,14 +53,14 @@ Wenn Sie die Methoden `toggleContentCards(parentNode, filterFunction)` und `show
 | `filterFunction` | Eine Filter- oder Sortierfunktion für Karten, die in dieser Ansicht angezeigt werden. Wird mit dem Array von `Card`-Objekten aufgerufen, sortiert nach `{pinned, date}`. Erwartet die Rückgabe eines Arrays von sortierten `Card`-Objekten, die für diese:n Nutzer:in dargestellt werden sollen. Wenn Sie diese Option auslassen, werden alle Karten angezeigt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-Feed-UI" }
 
-In der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) finden Sie weitere Informationen zum Umschalten von Content Cards.
+In der [SDK or Software-Development-Kit-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) finden Sie weitere Informationen zum Umschalten von Content Cards.
 
 ## Content Cards im Web testen {#testing-content-cards-on-the-web}
 
 Sie können Ihre Content-Cards-Integration mit den Entwicklertools Ihres Browsers testen.
 
 1. Erstellen Sie eine Content-Card-Kampagne und richten Sie sie auf Ihre:n Testnutzer:in aus.
-2. Melden Sie sich auf der Website an, auf der Ihre Web-SDK-Integration eingerichtet ist.
+2. Melden Sie sich auf der Website an, auf der Ihre Web-SDK or Software-Development-Kit-Integration eingerichtet ist.
 3. Öffnen Sie die Browser-Konsole. In Chrome rechtsklicken Sie auf die Seite, wählen Sie **Untersuchen** und dann den Tab **Konsole**.
 4. Führen Sie diese Befehle in der Konsole aus:
    - `window.braze.getCachedContentCards()`
@@ -68,7 +68,7 @@ Sie können Ihre Content-Cards-Integration mit den Entwicklertools Ihres Browser
 
 ## Kartentypen und Eigenschaften {#card-types-and-properties}
 
-Das Content-Cards-Datenmodell ist im Web SDK verfügbar und bietet die folgenden Content-Card-Typen: [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) und [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). Jeder Typ erbt gemeinsame Eigenschaften von einem Basismodell [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) und hat die folgenden zusätzlichen Eigenschaften.
+Das Content-Cards-Datenmodell ist im Web SDK or Software-Development-Kit verfügbar und bietet die folgenden Content-Card-Typen: [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) und [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). Jeder Typ erbt gemeinsame Eigenschaften von einem Basismodell [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html) und hat die folgenden zusätzlichen Eigenschaften.
 
 {% alert tip %}
 Um Content-Card-Daten zu protokollieren, siehe [Analytics protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics).
@@ -149,7 +149,7 @@ Wenn Sie den standardmäßigen Content-Cards-Feed verwenden, werden Impressionen
 
 Wenn Sie eine angepasste Integration für Content Cards verwenden, müssen Sie [Impressionen protokollieren]({{site.baseurl}}/developer_guide/content_cards/logging_analytics), wenn eine Kontrollgruppen-Karte gesehen worden wäre. Achten Sie darauf, dass Sie bei der Protokollierung der Impressionen in einem A/B-Test auch die Kontrollgruppen-Karten berücksichtigen. Diese Karten sind leer, und obwohl sie von den Nutzer:innen nicht gesehen werden, sollten Sie dennoch Impressionen protokollieren, um zu vergleichen, wie sie im Vergleich zu Nicht-Kontrollkarten abschneiden.
 
-Um festzustellen, ob sich eine Content Card in der Kontrollgruppe für einen A/B-Test befindet, prüfen Sie die Eigenschaft `card.isControl` (Web SDK v4.5.0+) oder prüfen Sie, ob die Karte eine Instanz des Typs `ControlCard` ist (`card instanceof braze.ControlCard`).
+Um festzustellen, ob sich eine Content Card in der Kontrollgruppe für einen A/B-Test befindet, prüfen Sie die Eigenschaft `card.isControl` (Web SDK or Software-Development-Kit v4.5.0+) oder prüfen Sie, ob die Karte eine Instanz des Typs `ControlCard` ist (`card instanceof braze.ControlCard`).
 
 ## Karten-Methoden {#card-methods}
 
@@ -179,7 +179,7 @@ Verwenden Sie diese Methoden, wenn Sie Ihre eigene Content-Card-UI erstellen:
 | [`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard) | Schließt eine Karte programmatisch und entfernt sie aus dem Feed der:des Nutzer:in. Verwenden Sie dies, um Nutzer:innen das Schließen von Karten in Ihrer angepassten UI zu ermöglichen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Methoden für angepasste Feeds" }
 
-Weitere Einzelheiten finden Sie in der [SDK-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
+Weitere Einzelheiten finden Sie in der [SDK or Software-Development-Kit-Referenzdokumentation](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 ## Best Practices
 
@@ -278,15 +278,15 @@ Bei Verwendung einer angepassten UI werden Impressionen, Klicks und Schließunge
 Das an `logContentCardClick()` übergebene Argument muss ein originales Braze-`Card`-Objekt sein. Wenn Sie die Kartendaten transformieren oder rekonstruieren (z. B. durch Serialisierung und Deserialisierung), werden Klicks nicht protokolliert und Sie sehen den Fehler: „card must be a Card object.“
 {% endalert %}
 
-## Google Tag Manager verwenden {#using-google-tag-manager}
+## Google Tag Manager:in verwenden {#using-google-tag-manager}
 
-Google Tag Manager funktioniert, indem das [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (eine Version unseres Web SDK) direkt in den Code Ihrer Website eingespeist wird. Das bedeutet, dass alle SDK-Methoden genauso verfügbar sind, als hätten Sie das SDK ohne Google Tag Manager integriert – außer bei der Implementierung von Content Cards.
+Google Tag Manager:in funktioniert, indem das [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (eine Version unseres Web SDK or Software-Development-Kit) direkt in den Code Ihrer Website eingespeist wird. Das bedeutet, dass alle SDK or Software-Development-Kit-Methoden genauso verfügbar sind, als hätten Sie das SDK or Software-Development-Kit ohne Google Tag Manager:in integriert – außer bei der Implementierung von Content Cards.
 
 ### Content Cards einrichten {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab Google Tag Manager %}
-Für eine Standardintegration des Content-Card-Feeds können Sie ein **Custom HTML**-Tag im Google Tag Manager verwenden. Fügen Sie Ihrem Custom-HTML-Tag Folgendes hinzu, um den standardmäßigen Content-Card-Feed zu aktivieren:
+{% tab Google Tag Manager:in %}
+Für eine Standardintegration des Content-Card-Feeds können Sie ein **Custom HTML**-Tag im Google Tag Manager:in verwenden. Fügen Sie Ihrem Custom-HTML-Tag Folgendes hinzu, um den standardmäßigen Content-Card-Feed zu aktivieren:
 
 ```html
 <script>
@@ -306,7 +306,7 @@ Bei der Implementierung der [Standard-Feed-UI]({{site.baseurl}}/developer_guide/
 {% endsubtab %}
 
 {% subtab Angepasster Feed %}
-Für den Stil des [angepassten Feeds]({{site.baseurl}}/developer_guide/content_cards/creating_cards) sind die gleichen Schritte durchzuführen wie bei der Integration des SDK ohne GTM. Wenn Sie zum Beispiel die Breite des Content-Card-Feeds anpassen möchten, können Sie Folgendes in Ihre CSS-Datei einfügen:
+Für den Stil des [angepassten Feeds]({{site.baseurl}}/developer_guide/content_cards/creating_cards) sind die gleichen Schritte durchzuführen wie bei der Integration des SDK or Software-Development-Kit ohne GTM. Wenn Sie zum Beispiel die Breite des Content-Card-Feeds anpassen möchten, können Sie Folgendes in Ihre CSS-Datei einfügen:
 
 {% raw %}
 ```css
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### Templates upgraden {#upgrading}
 
-Um ein Upgrade auf die neueste Version des Braze Web SDK durchzuführen, führen Sie die folgenden drei Schritte im Google Tag Manager-Dashboard aus:
+Um ein Upgrade or upgraden auf die neueste Version des Braze Web SDK or Software-Development-Kit durchzuführen, führen Sie die folgenden drei Schritte im Google Tag Manager:in-Dashboard aus:
 
 1. **Tag-Template aktualisieren**<br>Rufen Sie die Seite **Templates** in Ihrem Workspace auf. Hier sollten Sie ein Symbol sehen, das anzeigt, dass ein Update verfügbar ist.<br><br>![Templates-Seite zeigt an, dass ein Update verfügbar ist]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Klicken Sie auf dieses Symbol und klicken Sie nach Überprüfung der Änderung auf **Accept Update**.<br><br>![Ein Bildschirm, der die alten und neuen Tag-Templates vergleicht, mit einem Button „Accept Update“]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **Versionsnummer aktualisieren**<br>Nachdem Sie das Tag-Template aktualisiert haben, bearbeiten Sie das Braze-Initialisierungs-Tag und aktualisieren die SDK-Version auf die neueste Version im Format `major.minor`. Wenn die neueste Version beispielsweise `4.1.2` ist, geben Sie `4.1` ein. Sie können eine Liste der SDK-Versionen in unserem [Changelog](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) einsehen.<br><br>![Braze-Initialisierungs-Template mit einem Eingabefeld zum Ändern der SDK-Version]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **QA und Veröffentlichung**<br>Vergewissern Sie sich, dass die neue SDK-Version funktioniert, indem Sie das [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager verwenden, bevor Sie ein Update für Ihren Tag-Container veröffentlichen.
+3. **QA und Veröffentlichung**<br>Vergewissern Sie sich, dass die neue SDK or Software-Development-Kit-Version funktioniert, indem Sie das [Debugging-Tool](https://support.google.com/tagmanager/answer/6107056?hl=en) von Google Tag Manager:in verwenden, bevor Sie ein Update or aktualisieren für Ihren Tag-Container veröffentlichen.
 
 ### Fehlerbehebung {#troubleshooting}
 
@@ -338,7 +338,7 @@ Jedes Braze-Tag-Template verfügt über ein optionales Kontrollkästchen **GTM T
 
 #### Debugging-Modus aufrufen {#enter-debug-mode}
 
-Eine weitere Möglichkeit, Ihre Google Tag Manager-Integration zu debuggen, ist die Verwendung der Google-Funktion [Vorschaumodus](https://support.google.com/tagmanager/answer/6107056).
+Eine weitere Möglichkeit, Ihre Google Tag Manager:in-Integration zu debuggen, ist die Verwendung der Google-Funktion [Vorschaumodus](https://support.google.com/tagmanager/answer/6107056).
 
 Auf diese Weise können Sie feststellen, welche Werte von der Datenebene Ihrer Webseite an die einzelnen ausgelösten Braze-Tags gesendet werden, und Sie erfahren, welche Tags ausgelöst wurden und welche nicht.
 
@@ -352,14 +352,14 @@ Wenn angepasste Events oder andere Aktionen nicht in Braze protokolliert werden,
 2. Wählen Sie unter **Advanced Settings** > **Tag Sequencing** die Option **A tag that fires before \[this tag\]**.
 3. Wählen Sie Ihr **Braze Initialization**-Tag als Setup-Tag.
 
-Dies stellt sicher, dass das SDK vollständig initialisiert ist, bevor Aktions-Tags versuchen, Daten an Braze zu senden.
+Dies stellt sicher, dass das SDK or Software-Development-Kit vollständig initialisiert ist, bevor Aktions-Tags versuchen, Daten an Braze zu senden.
 
 #### Ausführliche Protokollierung aktivieren {#enable-verbose-logging}
 
-Um detaillierte Protokolle für die Fehlerbehebung zu erfassen, können Sie die ausführliche Protokollierung in Ihrer Google Tag Manager-Integration aktivieren. Diese Protokolle erscheinen im Tab **Console** der [Entwicklertools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) Ihres Browsers.
+Um detaillierte Protokolle für die Fehlerbehebung zu erfassen, können Sie die ausführliche Protokollierung in Ihrer Google Tag Manager:in-Integration aktivieren. Diese Protokolle erscheinen im Tab **Console** der [Entwicklertools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) Ihres Browsers.
 
-Navigieren Sie in Ihrer Google Tag Manager-Integration zu Ihrem Braze-Initialisierungs-Tag und wählen Sie **Enable Web SDK Logging**.
+Navigieren Sie in Ihrer Google Tag Manager:in-Integration zu Ihrem Braze-Initialisierungs-Tag und wählen Sie **Enable Web SDK or Software-Development-Kit Logging**.
 
 ![Die Übersichtsseite des Braze-Initialisierungs-Tags mit der aktivierten Option „Enable Web SDK Logging“.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 
-[changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md
+[Changelog]: https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md

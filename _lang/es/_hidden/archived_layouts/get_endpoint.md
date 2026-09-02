@@ -15,7 +15,7 @@ noindex: true
 # Consulta o lista [Punto de conexión del elemento "Gets"] {#query-or-list-item-endpoint-gets}
 
 {% apimethod get %}
-/sms/invalid_phone_numbers
+/servicio de mensajes cortos/invalid_phone_numbers
 {% endapimethod %}
 
 <!--

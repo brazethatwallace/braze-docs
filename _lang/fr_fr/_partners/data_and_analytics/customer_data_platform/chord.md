@@ -97,7 +97,7 @@ Si un autre outil envoie déjà les mêmes événements à Braze, coordonnez-vou
 
 Si les événements n'apparaissent pas dans Braze :
 
-1. Dans le CDP Chord, confirmez que les événements en direct arrivent depuis vos sources.
+1. Dans le CDP Chord, confirmez que les événements en direct or en ligne/en production/instantané arrivent depuis vos sources.
 2. Vérifiez que la destination Braze utilise la bonne clé API, la bonne version du SDK (mode appareil) et le bon endpoint REST ou SDK pour votre instance.
 3. Confirmez que la destination est rattachée à la source attendue dans Chord.
 4. Dans Chord, consultez les logs de la destination API ou les logs de fonctions pour vérifier les appels réussis vers `/users/track` et `/users/identify`, puis vérifiez à nouveau dans Braze.

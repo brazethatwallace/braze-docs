@@ -23,12 +23,12 @@ La integración de Braze y Certona utiliza las recomendaciones de productos de a
 | Requisito | Descripción |
 | --- | --- |
 | [Cuenta Certona](https://manage.certona.com/) | Se necesita una cuenta Certona para beneficiarse de esta asociación. |
-| [Punto de conexión de la REST API de Certona](https://manage.certona.com/) | Este punto de conexión se utiliza directamente en tu mensaje de Campaign de Braze para extraer contenido recomendado basado en el ID de usuario. |
+| [Punto de conexión de la REST or transferencia de estado representacional API de Certona](https://manage.certona.com/) | Este punto de conexión se utiliza directamente en tu mensaje de Campaign de Braze para extraer contenido recomendado basado en el ID de usuario. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
-Utiliza la REST API de Certona para insertar contenido personalizado en tus mensajes. Para ello, añade la siguiente plantilla de Contenido conectado a tu creador de mensajes de Braze junto con tu punto de conexión de la REST API de Certona.
+Utiliza la REST or transferencia de estado representacional API de Certona para insertar contenido personalizado en tus mensajes. Para ello, añade la siguiente plantilla de Contenido conectado a tu creador de mensajes de Braze junto con tu punto de conexión de la REST or transferencia de estado representacional API de Certona.
 
 {% raw %}
 ```liquid

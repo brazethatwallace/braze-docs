@@ -42,7 +42,7 @@ Use os filtros para agrupar resultados pelos seguintes detalhes da campanha:
 - Quem criou a campanha
 - Quem fez a última edição da campanha
 - Cronograma de entrada
-- Segment alvo
+- Segment or segmento alvo
 - Equipes
 - Campanhas com dados de interação expirados
 

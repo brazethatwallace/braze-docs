@@ -178,7 +178,7 @@ Une fois que Currents diffuse les données vers votre stockage cloud, travaillez
 
 ### Étape 3 : Charger et transformer vos données {#step-3-load-and-transform-your-data}
 
-Créez un processus ETL (extraire, transformer, charger) pour :
+Créez un processus ETL (ETL or extraire, transformer, charger) pour :
 
 1. Charger les données Currents depuis votre stockage cloud dans les tables de votre entrepôt de données.
 2. Transformer les données au format requis par le service de résolution d'identité de LiveRamp.

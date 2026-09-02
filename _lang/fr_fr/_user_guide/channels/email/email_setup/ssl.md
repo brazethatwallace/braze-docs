@@ -67,7 +67,7 @@ Si vous ne pouvez pas ou ne souhaitez pas utiliser les CDN répertoriés pour le
 Pour la résolution des problèmes liés à la configuration de votre CDN, contactez votre fournisseur CDN ou consultez la section [Résolution des problèmes]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) pour des conseils généraux.
 {% endalert %}
 
-Consultez les ressources suivantes des partenaires fournisseurs de services d'e-mailing sur la configuration de certains CDN. Même si votre CDN spécifique n'est pas listé, vous devez vous assurer qu'il a la capacité d'appliquer des certificats SSL.
+Consultez les ressources suivantes des partenaires fournisseurs de services d'e-mail marketing or e-mailing sur la configuration de certains CDN. Même si votre CDN spécifique n'est pas listé, vous devez vous assurer qu'il a la capacité d'appliquer des certificats SSL.
 
 Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en-tête `X-Forwarded-Host` pour prévenir d'éventuels problèmes de sécurité tels que les attaques par en-tête d'hôte. Consultez la documentation de votre CDN ou votre équipe de support pour connaître la procédure.
 
@@ -91,7 +91,7 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 
 ### Amazon SES
 
-Si vous utilisez Amazon SES comme fournisseur de services d'e-mailing, consultez l'**Option 2 : Configurer un domaine HTTPS** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
+Si vous utilisez Amazon SES comme fournisseur de services d'e-mail marketing or e-mailing, consultez l'**Option 2 : Configurer un domaine HTTPS** dans la [documentation d'Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) et spécifiez le domaine de suivi AWS par région en fonction de votre cluster Braze :
 
 - **Clusters Braze US :** `r.us-east-1.awstrack.me`
 - **Clusters Braze EU :** `r.eu-central-1.awstrack.me`
@@ -102,19 +102,19 @@ Lorsque vous configurez le domaine de suivi des clics de votre CDN, activez l'en
 
 ## Modèles d'URL de suivi des clics et des ouvertures {#click-and-open-tracking-url-patterns}
 
-Votre fournisseur de services d'e-mailing (ESP) réécrit chaque lien suivi pour le faire pointer vers votre domaine de suivi des clics, puis ajoute un préfixe de chemin qui identifie la requête comme un clic ou une ouverture suivie. Braze ne construit pas ces chemins. C'est votre ESP qui les ajoute lorsqu'il réécrit le lien. Pour les règles CDN ou proxy, les listes d'autorisations de sécurité ou la gestion des liens dans les applications mobiles, consultez la documentation de votre ESP comme source de référence.
+Votre fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing) réécrit chaque lien suivi pour le faire pointer vers votre domaine de suivi des clics, puis ajoute un préfixe de chemin qui identifie la requête comme un clic ou une ouverture suivie. Braze ne construit pas ces chemins. C'est votre fournisseur de services d'e-mailing qui les ajoute lorsqu'il réécrit le lien. Pour les règles CDN ou proxy, les listes d'autorisations de sécurité ou la gestion des liens dans les applications mobiles, consultez la documentation de votre fournisseur de services d'e-mailing comme source de référence.
 
-| ESP | Modèles de chemins | Documentation de l'ESP |
+| fournisseur de services d'e-mailing | Modèles de chemins | Documentation de l'fournisseur de services d'e-mailing |
 | --- | --- | --- |
 | SendGrid | `/wf/click?upn=...` pour les clics suivis, et `/uni/wf/click?upn=...` pour les liens que vous marquez comme liens universels. Selon votre configuration, les liens personnalisés peuvent aussi utiliser `/ls/click` (signature longue) ou `/ss/` (raccourci). | [Liens universels](https://www.twilio.com/docs/sendgrid/ui/sending-email/universal-links) et [liens raccourcis](https://support.sendgrid.com/hc/en-us/articles/44375837088795-How-to-Know-if-my-Links-Are-Shortened-by-SendGrid) |
 | SparkPost | `/f/` pour les clics suivis et `/q/` pour les ouvertures suivies. Les liens qui définissent un chemin personnalisé `data-msys-sublink` suivent le modèle `/f/{custom_path}/`. | [Deep links](https://docs.sparkpost.com/docs/tech-resources/deep-links-self-serve) |
 | Amazon SES | `/CL0/{encodedUrl}/{index}/{messageId}/{hmac}` pour les clics suivis. Les liens qui définissent l'attribut `ses:custom-path` suivent le modèle `/CL1/{customPath}/{encodedUrl}/...`. | [Domaines personnalisés pour les ouvertures et les clics](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles d'URL de suivi des clics et des ouvertures par ESP" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modèles d'URL de suivi des clics et des ouvertures par fournisseur de services d'e-mailing" }
 
-Par exemple, si votre domaine de suivi des clics est `clicks.example.com` et que votre ESP est SparkPost, un clic suivi se résout en une URL commençant par `https://clicks.example.com/f/`.
+Par exemple, si votre domaine de suivi des clics est `clicks.example.com` et que votre fournisseur de services d'e-mailing est SparkPost, un clic suivi se résout en une URL commençant par `https://clicks.example.com/f/`.
 
 {% alert important %}
-Votre ESP est propriétaire de ces préfixes de chemins et peut les modifier ou en ajouter de nouveaux. Braze ne peut donc pas garantir une liste permanente ou exhaustive. Lorsque vos outils de sécurité le permettent, ajoutez l'intégralité de votre domaine de suivi des clics à la liste d'autorisations plutôt que des chemins individuels, et confirmez les modèles actuels dans la documentation de votre ESP.
+Votre fournisseur de services d'e-mailing est propriétaire de ces préfixes de chemins et peut les modifier ou en ajouter de nouveaux. Braze ne peut donc pas garantir une liste permanente ou exhaustive. Lorsque vos outils de sécurité le permettent, ajoutez l'intégralité de votre domaine de suivi des clics à la liste d'autorisations plutôt que des chemins individuels, et confirmez les modèles actuels dans la documentation de votre fournisseur de services d'e-mailing.
 {% endalert %}
 
 Pour gérer ces chemins dans votre application mobile, consultez la section [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).

@@ -28,7 +28,7 @@ Die Integration von LiftIgniter und Braze nutzt Connected-Content, um Ihnen inte
 
 ## Integration
 
-Verwenden Sie [die REST API von LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389), um personalisierte Inhalte in Ihre Nachrichten einzufügen. Nachdem Sie Ihr LiftIgniter-Konto eingerichtet haben und LiftIgniter in Ihre App integriert ist, fügen Sie das folgende Template in Ihren Nachrichten-Editor ein, um Inhalte in Ihre Nachrichten zu laden. Ersetzen Sie dabei die Informationen nach Bedarf (`x-api-key`, `theapikey` usw.).
+Verwenden Sie [die Representational State Transfer API von LiftIgniter](https://documenter.getpostman.com/view/2166502/liftigniter/7TFGvSV#9bdf75da-edd6-45ec-9c28-a0edefad1389), um personalisierte Inhalte in Ihre Nachrichten einzufügen. Nachdem Sie Ihr LiftIgniter-Konto eingerichtet haben und LiftIgniter in Ihre App integriert ist, fügen Sie das folgende Template in Ihren Nachrichten-Editor ein, um Inhalte in Ihre Nachrichten zu laden. Ersetzen Sie dabei die Informationen nach Bedarf (`x-api-key`, `theapikey` usw.).
 
 {% raw %}
 ```

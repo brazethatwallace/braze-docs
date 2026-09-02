@@ -9,7 +9,7 @@ description: "Este artigo apresenta uma lista de APIs disponíveis publicamente 
 
 > Há uma variedade de APIs disponíveis publicamente que podem ser usadas com Conteúdo conectado. APIs públicas permitem inserir dados personalizados em mensagens. Esta página reúne uma lista de APIs públicas que podem ser usadas com Conteúdo conectado. No entanto, existem muitas outras APIs por aí, oferecendo uma ampla variedade de usos potenciais para Conteúdo conectado.
 
-Fale com a gente em [success@braze.com](mailto:success@braze.com) para nos informar se você tem uma API para compartilhar!
+Fale com a gente em [success@braze.com](mailto:success@braze.com) para nos informar se você tem uma API or interface de programação do aplicativo (API) para compartilhar!
 
 {% alert note %}
 APIs públicas podem estar sujeitas a restrições de uso e limite de frequência. Leia a documentação das APIs e entre em contato com os provedores sobre o uso pretendido.
@@ -17,16 +17,16 @@ APIs públicas podem estar sujeitas a restrições de uso e limite de frequênci
 
 ## Notícias e informações {#news-and-information}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [OpenWeatherMap](http://openweathermap.org/api) | Fornece dados meteorológicos atuais, previsão de 5 e 16 dias e dados históricos. |
 | [NYT Article Search](https://developer.nytimes.com/docs/articlesearch-product/1/overview) | Fornece dados de artigos do NYT, incluindo título, tópico, URL, data, resumo, etc. |
-| [The Guardian API](http://open-platform.theguardian.com/documentation/) | Fornece dados de artigos do Guardian, incluindo título, tópico, URL, data, resumo, etc. |
+| [The Guardian API or interface de programação do aplicativo (API)](http://open-platform.theguardian.com/documentation/) | Fornece dados de artigos do Guardian, incluindo título, tópico, URL, data, resumo, etc. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Notícias e informações" }
 
 ## Eventos e criação de tickets {#events-and-ticketing}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [SeatGeek](http://platform.seatgeek.com/) | Fornece informações de ingressos para shows, esportes e eventos de teatro. |
 | [Eventbrite](http://developer.eventbrite.com/) | Fornece dados sobre uma variedade de eventos públicos. |
@@ -35,7 +35,7 @@ APIs públicas podem estar sujeitas a restrições de uso e limite de frequênci
 
 ## Finanças {#finance}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [Barchart OnDemand](https://www.barchartondemand.com/free) | Fornece uma variedade de dados sobre ações, futuros e câmbio. |
 | [CoinDesk](https://www.coindesk.com/api/) | Fornece uma variedade de dados sobre criptomoedas. |
@@ -43,7 +43,7 @@ APIs públicas podem estar sujeitas a restrições de uso e limite de frequênci
 
 ## Integridade {#health}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [AirVisual](https://airvisual.com/api) | Fornece dados sobre qualidade do ar e clima. |
 | [Nutritionix Worlds](https://developer.nutritionix.com/) | Fornece dados nutricionais verificados. |
@@ -52,7 +52,7 @@ APIs públicas podem estar sujeitas a restrições de uso e limite de frequênci
 
 ## Música {#music}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [Last.fm](http://www.last.fm/api) | Fornece uma variedade de dados musicais, incluindo informações sobre artistas, artistas recomendados e mais. |
 | [iTunes](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) | Fornece dados sobre uma variedade de itens nas lojas iTunes, App Store e iBooks. |
@@ -63,14 +63,14 @@ APIs públicas podem estar sujeitas a restrições de uso e limite de frequênci
 
 ## Informações de produtos {#product-information}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [eBay](http://developer.ebay.com/devzone/shopping/docs/concepts/shoppingapiguide.html) | Fornece dados do eBay em tempo real, incluindo dados de itens, pesquisas populares e mais. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Informações de produtos" }
 
 ## Diversos {#miscellaneous}
 
-|	 API 	| Descrição |
+|	 API or interface de programação do aplicativo (API) 	| Descrição |
 | --------- | --- |
 | [London Unified](http://api.tfl.gov.uk/#Line) e [NYC MTA](https://new.mta.info/developers) | Fornecem dados de transporte público em tempo real, incluindo status de linhas, horários de chegada, etc. |
 | [Sunrise and Sunset](https://sunrise-sunset.org/api) | Fornece horários de nascer e pôr do sol para uma determinada latitude e longitude. |

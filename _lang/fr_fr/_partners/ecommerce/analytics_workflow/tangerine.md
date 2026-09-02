@@ -1,7 +1,7 @@
 ---
 nav_title: Mandarine
 article_title: Mandarine
-description: "Cet article présente le partenariat entre Braze et Tangerine Store360, une plateforme omnicanale qui relie les magasins physiques aux boutiques en ligne afin d'offrir des expériences supérieures en magasin aux consommateurs et aux employés des magasins. Grâce à cette intégration, les données brutes de campagne et d'impression de Braze sont disponibles sur Store360 via le partage sécurisé de données Snowflake, et les marques peuvent mesurer l'impact de leurs campagnes sur l'engagement en magasin et le trafic en magasin."
+description: "Cet article présente le partenariat entre Braze et Tangerine Store360, une plateforme omnicanale qui relie les magasins physiques aux boutiques en ligne afin d'offrir des expériences supérieures en magasin aux consommateurs et aux employé or salariés des magasins. Grâce à cette intégration, les données brutes de campagne et d'impression de Braze sont disponibles sur Store360 via le partage sécurisé de données Snowflake, et les marques peuvent mesurer l'impact de leurs campagnes sur l'engagement en magasin et le trafic en magasin."
 alias: /partners/tangerine/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Tangerine Store360
 
-> Tangerine conçoit, crée et exploite une plateforme omnicanale appelée Store360. Store360 est une plateforme facilitatrice omnicanale connectant les magasins physiques aux boutiques en ligne afin d'améliorer l'expérience des consommateurs et des employés en magasin. Store360 suit et analyse le trafic des visites dans les magasins physiques, y compris les utilisateurs de l'application mobile des commerçants et leur engagement en magasin.
+> Tangerine conçoit, crée et exploite une plateforme omnicanale appelée Store360. Store360 est une plateforme facilitatrice omnicanale connectant les magasins physiques aux boutiques en ligne afin d'améliorer l'expérience des consommateurs et des employé or salariés en magasin. Store360 suit et analyse le trafic des visites dans les magasins physiques, y compris les utilisateurs de l'application mobile des commerçants et leur engagement en magasin.
 
 L'intégration de Braze et Tangerine vous permet d'intégrer les données brutes de campagne et d'impression de Braze dans Store360 grâce au partage sécurisé des données Snowflake. Les marques peuvent désormais mesurer l'impact de ces campagnes sur les visites en magasin physique et l'engagement en magasin.
 

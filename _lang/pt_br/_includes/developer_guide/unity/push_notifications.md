@@ -11,7 +11,7 @@
 Para começar, siga a documentação de configuração do [Firebase Unity](https://firebase.google.com/docs/unity/setup).
 
 {% alert note %}
-Integrar o Firebase Unity SDK pode fazer com que seu `AndroidManifest.xml` seja substituído. Se isso ocorrer, certifique-se de reverter para o original.
+Integrar o Firebase Unity SDK or kit de desenvolvimento de software pode fazer com que seu `AndroidManifest.xml` seja substituído. Se isso ocorrer, certifique-se de reverter para o original.
 {% endalert %}
 
 #### Etapa 1.2: Defina suas credenciais do Firebase {#step-12-set-your-firebase-credentials}
@@ -39,7 +39,7 @@ Nossa solução de notificação por push automática aproveita o recurso de aut
 #### Etapa 1.1: Ativar ADM {#step-11-enable-adm}
 
 1. Crie uma conta no [Portal do desenvolvedor de apps e jogos da Amazon](https://developer.amazon.com/public), caso ainda não tenha feito isso.
-2. Obtenha [as credenciais do OAuth (Client ID e Client Secret) e uma chave de API do ADM](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials).
+2. Obtenha [as credenciais do OAuth (Client ID e Client Secret) e uma chave de API or interface de programação do aplicativo (API) do ADM](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials).
 3. Ative **Automatic ADM Registration Enabled** na janela de configuração do Unity Braze.
   - Como alternativa, é possível adicionar a seguinte linha ao arquivo `res/values/braze.xml` para ativar o registro do ADM:
 
@@ -55,13 +55,13 @@ Nossa solução de notificação por push automática aproveita o recurso de aut
 {% tab Android %}
 #### Etapa 2.1: Configurar as definições de push {#unity_step-21-configure-push-settings}
 
-O SDK da Braze pode lidar automaticamente com o registro de push nos servidores do Firebase Cloud Messaging para que os dispositivos recebam notificações por push. No Unity, ative **Automate Unity Android Integration** e, em seguida, defina as seguintes configurações de **Push Notification**.
+O SDK or kit de desenvolvimento de software da Braze pode lidar automaticamente com o registro de push nos servidores do Firebase Cloud Messaging para que os dispositivos recebam notificações por push. No Unity, ative **Automate Unity Android Integration** e, em seguida, defina as seguintes configurações de **Push Notification**.
 
 | Configuração | Descrição |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatic Firebase Cloud Messaging Registration Enabled | Instrui o SDK da Braze a recuperar e enviar automaticamente um token por push FCM para um dispositivo. |
+| Automatic Firebase Cloud Messaging Registration Enabled | Instrui o SDK or kit de desenvolvimento de software da Braze a recuperar e enviar automaticamente um token por push FCM para um dispositivo. |
 | Firebase Cloud Messaging Sender ID | O Sender ID do seu console do Firebase. |
-| Handle Push Deeplinks Automatically | Se o SDK deve lidar com a abertura de deep links ou abrir o app quando notificações por push são clicadas. |
+| Handle Push Deeplinks Automatically | Se o SDK or kit de desenvolvimento de software deve lidar com a abertura de deep links ou abrir o app quando notificações por push são clicadas. |
 | Small Notification Icon Drawable | Referência de recurso drawable do Android para o ícone pequeno exibido quando uma notificação por push chega. Insira a referência completa incluindo o prefixo `@drawable/` (por exemplo, `@drawable/hourglass_icon`). A integração automatizada grava esse valor no `braze.xml` conforme inserido. Se você deixar em branco, a notificação usará o ícone do aplicativo como ícone pequeno. |
 | Large Notification Icon Drawable | Ícone grande opcional para notificações. Use o mesmo formato `@drawable/` do ícone pequeno (por exemplo, `@drawable/my_large_icon`). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
@@ -143,9 +143,9 @@ Se o seu app não tiver um `AndroidManifest.xml`, você poderá usar o seguinte 
 </manifest>
 ```
 
-#### Etapa 2.2: Armazene sua chave de API do ADM {#step-22-store-your-adm-api-key}
+#### Etapa 2.2: Armazene sua chave de API or interface de programação do aplicativo (API) do ADM {#step-22-store-your-adm-api-key}
 
-Primeiro, [gere uma chave de API do ADM para o seu app](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials), salve a chave em um arquivo chamado `api_key.txt` e adicione-o ao diretório [`Assets/`](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) do projeto.
+Primeiro, [gere uma chave de API or interface de programação do aplicativo (API) do ADM para o seu app](https://developer.amazon.com/public/apis/engage/device-messaging/tech-docs/02-obtaining-adm-credentials), salve a chave em um arquivo chamado `api_key.txt` e adicione-o ao diretório [`Assets/`](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) do projeto.
 
 {% alert important %}
 A Amazon não reconhecerá sua chave se `api_key.txt` contiver caracteres de espaço em branco, como uma quebra de linha à direita.

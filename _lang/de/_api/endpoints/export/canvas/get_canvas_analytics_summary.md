@@ -11,7 +11,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Exportieren der C
 {% api %}
 # Canvas-Daten-Zusammenfassung Analytics exportieren {#export-canvas-data-summary-analytics}
 {% apimethod get %}
-/canvas/data_summary
+/Canvas/data_summary
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um Rollups von Zeitreihendaten für ein Canvas zu exportieren und so eine prägnante Zusammenfassung der Canvas-Ergebnisse zu erhalten.

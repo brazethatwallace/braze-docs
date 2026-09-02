@@ -11,7 +11,7 @@ page_order: 1.2
 > Erfahren Sie, wie Sie Nutzer:innen für prognostizierte Events zusammenstellen können, nachdem Sie eine Event-Prognose erstellt haben.
 
 {% alert note %}
-Vorschau- und Demo-Vorhersagen erlauben es nicht, Benutzer für Nachrichten anzusprechen, und die Schaltflächen **Segment erstellen** und **Kampagne erstellen** sind deaktiviert. Um diese Funktionalität zu erwerben, wenden Sie sich an Ihren Account Manager.
+Vorschau- und Demo-Vorhersagen erlauben es nicht, Benutzer für Nachrichten anzusprechen, und die Schaltflächen **Segment erstellen** und **Kampagne erstellen** sind deaktiviert. Um diese Funktionalität zu erwerben, wenden Sie sich an Ihren Account Manager:in.
 {% endalert %}
 
 ## Filter implementieren {#filters}

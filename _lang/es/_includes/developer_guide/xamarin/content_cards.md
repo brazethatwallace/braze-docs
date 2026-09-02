@@ -1,12 +1,12 @@
 ## Acerca de las Content Cards de .NET MAUI {#about-net-maui-content-cards}
 
-El SDK de Braze .NET MAUI (antes Xamarin) incluye una fuente de tarjetas predeterminada para que puedas empezar a utilizar las Content Cards. La fuente predeterminada de tarjetas incluida en el SDK de Braze gestionará todos los análisis de seguimiento, descarte de tarjetas y representación de las Content Cards de un usuario.
+El SDK or kit de desarrollo de software de Braze .NET MAUI (antes Xamarin) incluye una fuente de tarjetas predeterminada para que puedas empezar a utilizar las Content Cards. La fuente predeterminada de tarjetas incluida en el SDK or kit de desarrollo de software de Braze gestionará todos los análisis de seguimiento, descarte de tarjetas y representación de las Content Cards de un usuario.
 
 {% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
 ## Tipos y propiedades de las tarjetas {#card-types-and-properties}
 
-El SDK de Braze .NET MAUI tiene tres tipos de tarjetas de contenido únicos que comparten un modelo base: [Banner](#xamarin_banner), [imagen con pie de foto](#xamarin_captioned-image) y [clásica](#xamarin_classic). Cada tipo hereda propiedades comunes de un modelo base y tiene las siguientes propiedades adicionales.
+El SDK or kit de desarrollo de software de Braze .NET MAUI tiene tres tipos de tarjetas de contenido únicos que comparten un modelo base: [Banner](#xamarin_banner), [imagen con pie de foto](#xamarin_captioned-image) y [clásica](#xamarin_classic). Cada tipo hereda propiedades comunes de un modelo base y tiene las siguientes propiedades adicionales.
 
 ### Modelo de tarjeta base {#base-card-model}
 
@@ -76,8 +76,8 @@ Puedes utilizar estos métodos adicionales para crear una fuente personalizada d
 
 | Método | Descripción |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `requestContentCardsRefresh()` | Solicita las últimas Content Cards al servidor del SDK de Braze. |
-| `getContentCards()` | Recupera Content Cards del SDK de Braze. Esto devolverá la última lista de tarjetas del servidor. |
+| `requestContentCardsRefresh()` | Solicita las últimas Content Cards al servidor del SDK or kit de desarrollo de software de Braze. |
+| `getContentCards()` | Recupera Content Cards del SDK or kit de desarrollo de software de Braze. Esto devolverá la última lista de tarjetas del servidor. |
 | `logContentCardClicked(cardId)` | Registra un clic para el ID de Content Card dado. Este método solo se utiliza para análisis. |
 | `logContentCardImpression(cardId)` | Registra una impresión para el ID de Content Card dado. |
 | `logContentCardDismissed(cardId)` | Registra un descarte para el ID de Content Card dado. |

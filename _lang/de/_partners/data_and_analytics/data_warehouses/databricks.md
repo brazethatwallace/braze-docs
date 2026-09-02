@@ -10,10 +10,10 @@ hidden: true
 
 # Databricks
 
-> [Databricks](https://www.databricks.com/) ist eine einheitliche, offene Analytics-Plattform zum Erstellen, Bereitstellen, Teilen und Pflegen von unternehmenstauglichen Daten-, Analytics- und KI-Lösungen im großen Maßstab. Die Databricks Data Intelligence Platform lässt sich in Cloud-Speicher und Sicherheitslösungen in Ihrem Cloud-Konto integrieren und verwaltet und stellt Cloud-Infrastruktur für Sie bereit.
+> [Databricks](https://www.databricks.com/) ist eine einheitliche, offene Analytics-Plattform zum Erstellen, Bereitstellen, Teilen und Pflegen von unternehmenstauglichen Daten-, Analytics- und KI or künstliche Intelligenz-Lösungen im großen Maßstab. Die Databricks Data Intelligence Platform lässt sich in Cloud-Speicher und Sicherheitslösungen in Ihrem Cloud-Konto integrieren und verwaltet und stellt Cloud-Infrastruktur für Sie bereit.
 
 {% alert important %}
-Databricks Delta Sharing mit Braze befindet sich in der **geschlossenen Beta**. Verfügbarkeit, unterstützte Regionen und Produktverhalten können sich ändern. Kontaktieren Sie Ihren Braze-Customer-Success-Manager, um teilzunehmen oder zu bestätigen, ob dieses Feature für Ihren Workspace aktiviert ist.
+Databricks Delta Sharing mit Braze befindet sich in der **geschlossenen Beta**. Verfügbarkeit, unterstützte Regionen und Produktverhalten können sich ändern. Kontaktieren Sie Ihren Braze-CSM or Customer-Success-Manager or Customer-Success-Manager:in, um teilzunehmen oder zu bestätigen, ob dieses Feature für Ihren Workspace aktiviert ist.
 {% endalert %}
 
 ## Delta Sharing (Braze zu Databricks) {#delta-sharing-braze-to-databricks}
@@ -36,7 +36,7 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, kontaktieren Sie Ihren Braze-Konto- oder Customer-Success-Manager. |
+| Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, kontaktieren Sie Ihren Braze-Konto- oder CSM or Customer-Success-Manager or Customer-Success-Manager:in. |
 | Databricks-Konto | Ein Databricks-Konto mit `admin`-Berechtigungen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 

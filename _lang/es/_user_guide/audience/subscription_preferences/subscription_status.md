@@ -3,7 +3,7 @@ nav_title: Estado de suscripción
 article_title: Estado de suscripción
 page_order: 0
 page_type: reference
-description: "Descubre cómo Braze rastrea el estado de suscripción en correo electrónico, LINE, SMS, RCS y WhatsApp, y cómo el estado controla la entrega de mensajes."
+description: "Descubre cómo Braze rastrea el estado de suscripción en correo electrónico, LINE, servicio de mensajes cortos, RCS y WhatsApp, y cómo el estado controla la entrega de mensajes."
 
 ---
 
@@ -20,15 +20,15 @@ Braze rastrea el estado de suscripción en dos niveles:
 | Nivel | Qué controla | Canales |
 | ----- | ------------ | ------- |
 | Estado de suscripción global | Si un usuario puede recibir mensajes en ese canal en general | Correo electrónico, push |
-| Estado del grupo de suscripción | Si un usuario ha optado por un grupo específico dentro de un canal | Correo electrónico, SMS, MMS, RCS, WhatsApp, LINE |
+| Estado del grupo de suscripción | Si un usuario ha optado por un grupo específico dentro de un canal | Correo electrónico, servicio de mensajes cortos, MMS, RCS, WhatsApp, LINE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Cómo funciona el estado de suscripción en Braze" }
 
-El estado global y el estado del grupo de suscripción funcionan juntos. Para el correo electrónico, un usuario que se ha dado de baja globalmente no recibirá correos electrónicos aunque esté suscrito a un grupo de suscripción. Para SMS, RCS, WhatsApp y LINE, los usuarios deben estar suscritos al grupo de suscripción correspondiente para recibir mensajes de ese grupo.
+El estado global y el estado del grupo de suscripción funcionan juntos. Para el correo electrónico, un usuario que se ha dado de baja globalmente no recibirá correos electrónicos aunque esté suscrito a un grupo de suscripción. Para servicio de mensajes cortos, RCS, WhatsApp y LINE, los usuarios deben estar suscritos al grupo de suscripción correspondiente para recibir mensajes de ese grupo.
 
-Puedes ver y actualizar el estado de suscripción en el perfil de un usuario en **Engagement** > **Contact settings**, a través de la REST API, el SDK, la importación de CSV, los centros de preferencias y los flujos de adhesión voluntaria específicos de cada canal. Braze no cuenta los cambios de estado de suscripción como puntos de datos.
+Puedes ver y actualizar el estado de suscripción en el perfil de un usuario en **Engagement** > **Contact settings**, a través de la REST or transferencia de estado representacional API, el SDK or kit de desarrollo de software, la importación de CSV, los centros de preferencias y los flujos de adhesión voluntaria específicos de cada canal. Braze no cuenta los cambios de estado de suscripción como puntos de datos.
 
 {% alert note %}
-Los grupos de suscripción añaden una adhesión voluntaria granular dentro de un canal (por ejemplo, SMS promocional frente a transaccional). El estado global de correo electrónico y la pertenencia al grupo de suscripción funcionan juntos a la hora de decidir a quién se puede contactar.
+Los grupos de suscripción añaden una adhesión voluntaria granular dentro de un canal (por ejemplo, servicio de mensajes cortos promocional frente a transaccional). El estado global de correo electrónico y la pertenencia al grupo de suscripción funcionan juntos a la hora de decidir a quién se puede contactar.
 {% endalert %}
 
 ## Correo electrónico {#email}
@@ -81,23 +81,23 @@ Cuando Braze recibe eventos de webhook de LINE para tu canal integrado:
 
 Para los pasos de configuración, la reconciliación de usuarios y los ejemplos, consulta [Configuración de LINE]({{site.baseurl}}/user_guide/channels/line/line_setup#user-setup) y [Grupos de suscripción de LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups).
 
-## SMS y RCS {#sms-and-rcs}
+## servicio de mensajes cortos y RCS {#sms-and-rcs}
 
-SMS y RCS utilizan el estado del grupo de suscripción, no un estado global de canal separado. Un usuario puede estar `subscribed` a un grupo transaccional y `unsubscribed` de un grupo promocional al mismo tiempo.
+servicio de mensajes cortos y RCS utilizan el estado del grupo de suscripción, no un estado global de canal separado. Un usuario puede estar `subscribed` a un grupo transaccional y `unsubscribed` de un grupo promocional al mismo tiempo.
 
 | Estado | Definición |
 | ------ | ---------- |
-| Suscrito | El usuario está suscrito para recibir SMS y RCS de un grupo de suscripción específico, ya sea a través de la API de suscripción de Braze, una palabra clave de adhesión voluntaria u otro método compatible. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está habilitada, los usuarios deben confirmar la adhesión voluntaria antes de que el estado se actualice a `Subscribed`. |
+| Suscrito | El usuario está suscrito para recibir servicio de mensajes cortos y RCS de un grupo de suscripción específico, ya sea a través de la API de suscripción de Braze, una palabra clave de adhesión voluntaria u otro método compatible. Cuando la [doble adhesión voluntaria]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) está habilitada, los usuarios deben confirmar la adhesión voluntaria antes de que el estado se actualice a `Subscribed`. |
 | Dado de baja | El usuario optó por salir de ese grupo de suscripción enviando una palabra clave de exclusión o a través de la [API de suscripción de Braze]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de suscripción de SMS y RCS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados de suscripción de servicio de mensajes cortos y RCS" }
 
-### Comportamiento específico de SMS y RCS {#sms-and-rcs-specific-behavior}
+### Comportamiento específico de servicio de mensajes cortos y RCS {#sms-and-rcs-specific-behavior}
 
 - **Herencia de número de teléfono:** Cuando se añade o actualiza un número de teléfono en un perfil, el número hereda el estado del grupo de suscripción del perfil o de cualquier perfil existente que ya utilice ese número.
 - **Gestión de palabras clave:** Los usuarios pueden optar por suscribirse o darse de baja enviando [palabras clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) predeterminadas o personalizadas. Braze actualiza el estado de suscripción automáticamente.
-- **Cumplimiento:** Braze nunca envía SMS o RCS a usuarios que no estén suscritos al grupo de suscripción seleccionado.
+- **Cumplimiento:** Braze nunca envía servicio de mensajes cortos o RCS a usuarios que no estén suscritos al grupo de suscripción seleccionado.
 
-Para la configuración, el envío y la gestión de grupos de suscripción, consulta [Grupos de suscripción de SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
+Para la configuración, el envío y la gestión de grupos de suscripción, consulta [Grupos de suscripción de servicio de mensajes cortos, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups).
 
 ## WhatsApp {#whatsapp}
 
@@ -111,7 +111,7 @@ WhatsApp también utiliza el estado del grupo de suscripción. Meta requiere un 
 
 ### Requisitos de adhesión voluntaria {#opt-in-requirements}
 
-Para enviar mensajes a los usuarios en WhatsApp, proporciona a Braze un `external_id`, un [número de teléfono]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y un estado de suscripción actualizado para cada usuario. Recopila las adhesiones voluntarias en tu sitio web, aplicación, SMS, In-App Messages, hilos de WhatsApp entrantes o mediante una importación de CSV de usuarios que ya optaron por la adhesión en otro lugar.
+Para enviar mensajes a los usuarios en WhatsApp, proporciona a Braze un `external_id`, un [número de teléfono]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y un estado de suscripción actualizado para cada usuario. Recopila las adhesiones voluntarias en tu sitio web, aplicación, servicio de mensajes cortos, In-App Messages, hilos de WhatsApp entrantes o mediante una importación de CSV de usuarios que ya optaron por la adhesión en otro lugar.
 
 ### Métodos de exclusión {#opt-out-methods}
 

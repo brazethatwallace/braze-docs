@@ -4,7 +4,7 @@
 
 ## Requisitos previos {#prerequisites}
 
-La disponibilidad de los Banners depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o administrador de éxito de cliente para empezar.
+La disponibilidad de los Banners depende de tu paquete de Braze. Ponte en contacto con tu director de cuentas o CSM or administrador de éxito de cliente or administrador de éxito de cliente para empezar.
 
 Antes de empezar, asegúrate de tener [ubicaciones de Banner]({{site.baseurl}}/developer_guide/banners/placements) creadas en tu aplicación o sitio web.
 
@@ -38,7 +38,7 @@ Las características de los Banners incluyen:
 
 ### ID de ubicación {#placement-id}
 
-Las ubicaciones de Banner son ubicaciones específicas de tu aplicación o sitio web [que creas con el SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements) y que designan dónde pueden aparecer los Banners.
+Las ubicaciones de Banner son ubicaciones específicas de tu aplicación o sitio web [que creas con el SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/banners/placements) y que designan dónde pueden aparecer los Banners.
 
 Las ubicaciones más habituales son la parte superior de la página de inicio, las páginas de detalles de los productos y los procesos de pago. Una vez creadas las ubicaciones, los Banners se pueden [asignar en tu campaña de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner).
 
@@ -70,7 +70,7 @@ Los iframes permiten actualizaciones de contenido dinámicas y personalizadas qu
 
 Esto es lo que debes saber sobre las dimensiones y el tamaño de los Banners:
 
-- Aunque el creador te permite previsualizar los Banners en diferentes dimensiones, esa información no se guarda ni se envía al SDK.
+- Aunque el creador te permite previsualizar los Banners en diferentes dimensiones, esa información no se guarda ni se envía al SDK or kit de desarrollo de software.
 - El HTML ocupa todo el ancho del contenedor en el que se representa.
 - Recomendamos crear un elemento de dimensiones fijas y probar esas dimensiones en el creador.
 

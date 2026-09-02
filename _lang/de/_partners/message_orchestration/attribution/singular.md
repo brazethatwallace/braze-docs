@@ -24,7 +24,7 @@ Die Integration von Braze und Singular erlaubt es Ihnen, Daten zur bezahlten Ins
 |---|---|
 | Singular-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Singular-Konto. |
 | iOS- oder Android-App | Diese Integration unterstützt iOS- und Android-Apps. Je nach Plattform können Code-Snippets in Ihrer Anwendung erforderlich sein. Einzelheiten zu diesen Anforderungen finden Sie in Schritt 1 des Integrationsprozesses. |
-| Singular SDK | Neben dem erforderlichen Braze SDK müssen Sie auch das [Singular SDK](https://support.singular.net/hc/en-us/articles/360037640172-Getting-Started-with-the-Singular-SDK-S2S) installieren. |
+| Singular SDK or Software-Development-Kit | Neben dem erforderlichen Braze SDK or Software-Development-Kit müssen Sie auch das [Singular SDK or Software-Development-Kit](https://support.singular.net/hc/en-us/articles/360037640172-Getting-Started-with-the-Singular-SDK-S2S) installieren. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -46,7 +46,7 @@ SingularConfig config = new SingularConfig("SDK KEY", "SDK SECRET")
 Vor Februar 2023 verwendete unsere Singular-Attribution-Integration den Identifier for Vendors (IDFV) als primären Bezeichner, um iOS-Attribution-Daten abzugleichen. Für Braze-Kund:innen, die Objective-C verwenden, ist es nicht notwendig, die Braze `device_id` abzurufen und sie bei der Installation an Singular zu senden, da es keine Unterbrechung des Dienstes gibt.
 {% endalert%}
 
-Wenn Sie das Swift SDK v5.7.0+ verwenden und weiterhin IDFV als gegenseitigen Bezeichner verwenden möchten, müssen Sie sicherstellen, dass das Feld `useUUIDAsDeviceId` auf `false` gesetzt ist, damit die Integration nicht unterbrochen wird.
+Wenn Sie das Swift SDK or Software-Development-Kit v5.7.0+ verwenden und weiterhin IDFV als gegenseitigen Bezeichner verwenden möchten, müssen Sie sicherstellen, dass das Feld `useUUIDAsDeviceId` auf `false` gesetzt ist, damit die Integration nicht unterbrochen wird.
 
 Wenn Sie diese Option auf `true` setzen, müssen Sie die Abbildung der iOS-Geräte-ID für Swift implementieren, um die Braze `device_id` bei der Installation der App an Singular zu übergeben, damit Braze die iOS-Attributionen richtig zuordnen kann.
 
@@ -76,7 +76,7 @@ config.setGlobalProperty("brazeDeviceId", withValue: brazeDeviceId, overrideExis
 
 Navigieren Sie in Braze zu **Partner Integrations** > **Technology Partners** und wählen Sie **Singular** aus.
 
-Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen.
+Hier finden Sie den Representational State Transfer-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren. Nachdem der Schlüssel generiert wurde, können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen.
 
 Sie müssen den Datenimport-Schlüssel und den REST-Endpunkt an Ihren Singular Account Manager weitergeben, um die Integration abzuschließen.<br><br>![Dieses Bild zeigt das Feld „Datenimport für Install-Attribution“ auf der Singular-Technologieseite. In diesem Feld werden Ihnen der Datenimport-Schlüssel und der REST-Endpunkt angezeigt.]({% image_buster /assets/img/attribution/singular.png %}){: style="max-width:90%;"}
 
@@ -90,15 +90,15 @@ Dieser Status ändert sich erst, wenn Braze Daten über eine attributierte Insta
 
 Attribution-Daten für Facebook- und X-Kampagnen (ehemals Twitter) sind nicht über unsere Partner verfügbar. Diese Medienquellen erlauben ihren Partnern nicht, Attribution-Daten an Dritte weiterzugeben, und daher können unsere Partner diese Daten nicht an Braze senden.
 
-## Singular-Click-Tracking-URLs in Braze (optional)
+## Singular-Klick, der or klicken-Tracking-URLs in Braze (optional)
 
-Wenn Sie Click-Tracking-Links in Ihren Braze-Kampagnen verwenden, können Sie leicht erkennen, welche Kampagnen zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen ROI investieren sollten.
+Wenn Sie Klick, der or klicken-Tracking-Links in Ihren Braze-Kampagnen verwenden, können Sie leicht erkennen, welche Kampagnen zu App-Installationen und erneuter Interaktion führen. So können Sie Ihre Marketing-Bemühungen effektiver messen und datengestützte Entscheidungen darüber treffen, wo Sie mehr Ressourcen für einen maximalen Kapitalrendite or ROI investieren sollten.
 
-Um mit Singular-Click-Tracking-Links zu beginnen, besuchen Sie deren [Dokumentation](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true). Sie können die Singular-Click-Tracking-Links direkt in Ihre Braze-Kampagnen einfügen. Singular verwendet dann seine [probabilistischen Attributionsmethoden](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true), um die Nutzer:innen zuzuordnen, die auf den Link geklickt haben. Wir empfehlen, Ihre Singular-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Kampagnen zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
+Um mit Singular-Klick, der or klicken-Tracking-Links zu beginnen, besuchen Sie deren [Dokumentation](https://support.singular.net/hc/en-us/articles/360030934212-Singular-Links-FAQ?navigation_side_bar=true). Sie können die Singular-Klick, der or klicken-Tracking-Links direkt in Ihre Braze-Kampagnen einfügen. Singular verwendet dann seine [probabilistischen Attributionsmethoden](https://support.singular.net/hc/en-us/articles/115000526963-Understanding-Singular-Mobile-App-Attribution?navigation_side_bar=true), um die Nutzer:innen zuzuordnen, die auf den Link geklickt haben. Wir empfehlen, Ihre Singular-Tracking-Links mit einem Geräte-Bezeichner zu versehen, um die Genauigkeit der Attributionen Ihrer Braze-Kampagnen zu verbessern. Dadurch werden die Nutzer:innen, die auf den Link geklickt haben, deterministisch attributiert.
 
 {% tabs local %}
 {% tab Android %}
-Für Android erlaubt Braze den Kund:innen, sich für die [Sammlung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Singular-SDK-Integration erfasst. Sie können die GAID in Ihre Singular-Click-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für Android erlaubt Braze den Kund:innen, sich für die [Sammlung der Google Advertising ID (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id) zu entscheiden. Die GAID wird auch nativ über die Singular-SDK or Software-Development-Kit-Integration erfasst. Sie können die GAID in Ihre Singular-Klick, der or klicken-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}
@@ -109,7 +109,7 @@ aifa={{most_recently_used_device.${google_ad_id}}}
 {% endtab %}
 
 {% tab iOS %}
-Für iOS erfassen sowohl Braze als auch Singular den IDFV automatisch und nativ über unsere SDK-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den IDFV in Ihre Singular-Click-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
+Für iOS erfassen sowohl Braze als auch Singular den IDFV automatisch und nativ über unsere SDK or Software-Development-Kit-Integrationen. Dies kann als Geräte-Bezeichner verwendet werden. Sie können den IDFV in Ihre Singular-Klick, der or klicken-Tracking-Links einfügen, indem Sie die folgende Liquid-Logik verwenden:
 
 {% raw %}
 ```
@@ -123,5 +123,5 @@ idfv={{most_recently_used_device.${id}}}
 
 {% alert note %}
 **Diese Empfehlung ist rein optional**<br>
-Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Click-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Singular dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
+Wenn Sie derzeit keine Geräte-Bezeichner – wie IDFV oder GAID – in Ihren Klick, der or klicken-Tracking-Links verwenden oder dies in Zukunft nicht vorhaben, ist Singular dennoch in der Lage, diese Klicks durch seine probabilistische Modellierung zu attributieren.
 {% endalert %}

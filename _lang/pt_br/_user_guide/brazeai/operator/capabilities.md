@@ -11,7 +11,7 @@ description: "Este artigo de referência aborda o que o BrazeAI Operator™ pode
 
 > O [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator) é um assistente de IA integrado ao dashboard da Braze. Ele responde perguntas, compõe mensagens e atua nas páginas compatíveis — descreva o que você quer em linguagem natural e o Operator cuida disso no contexto.
 
-Como o Operator entende seu espaço de trabalho — atributos personalizados, Connected Content, a página em que você está trabalhando e quaisquer diretrizes da marca que você adicionar como contexto — o resultado é mais contextualizado do que o que assistentes independentes conseguem produzir. Quando o Operator propõe uma alteração em uma Campaign, um Canvas, um Segment ou outro objeto, ele exibe a alteração como um diff visual em um [cartão de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que você revisa e aprova antes que qualquer coisa seja salva.
+Como o Operator entende seu espaço de trabalho — atributos personalizados, Connected Content, a página em que você está trabalhando e quaisquer diretrizes da marca que você adicionar como contexto — o resultado é mais contextualizado do que o que assistentes independentes conseguem produzir. Quando o Operator propõe uma alteração em uma Campaign, um Canvas, um Segment or segmento ou outro objeto, ele exibe a alteração como um diff visual em um [cartão de ação]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que você revisa e aprova antes que qualquer coisa seja salva.
 
 Você pode manter o fluxo da conversa com acompanhamentos. O Operator lembra das mensagens anteriores até que você limpe o histórico do chat.
 
@@ -42,7 +42,7 @@ Além de gerar textos e Liquid, o Operator pode ajudar você a criar vários out
 - Previsões
 - Relatórios
 - Segments
-- Extensões de segmento
+- Extensões de Segment or segmento or segmento
 
 {% alert note %}
 As funcionalidades do Operator no dashboard são expandidas regularmente. **Pergunte diretamente ao Operator** para obter a resposta mais atualizada sobre o que ele pode fazer.
@@ -50,16 +50,16 @@ As funcionalidades do Operator no dashboard são expandidas regularmente. **Perg
 
 ## Campaigns e públicos {#campaigns-and-audiences}
 
-O Operator pode ajudar você a ir de uma ideia a uma Campaign ou público rascunhado, e refinar qualquer um deles depois de criado. Quaisquer alterações que o Operator propõe a uma Campaign ou Segment aparecem como um cartão de ação que você revisa antes de serem salvas.
+O Operator pode ajudar você a ir de uma ideia a uma Campaign ou público rascunhado, e refinar qualquer um deles depois de criado. Quaisquer alterações que o Operator propõe a uma Campaign ou Segment or segmento aparecem como um cartão de ação que você revisa antes de serem salvas.
 
-Para começar, procure a opção **Create with Operator** ao criar uma Campaign ou Segment.
+Para começar, procure a opção **Create with Operator** ao criar uma Campaign ou Segment or segmento.
 
 ![Os menus Criar Campaign e Criar Segment, cada um mostrando a opção Create with Operator.]({% image_buster /assets/img/operator/operator_create_with_operator.png %}){:style="max-width:90%"}
 
 - **Criar e editar Campaigns:** ao iniciar uma Campaign, o Operator pode ajudar você a rascunhá-la de ponta a ponta a partir de um único briefing em linguagem natural. Isso inclui público, conteúdo e configurações de entrega. Você também pode pedir ao Operator para ajudar a editar uma Campaign existente, como ajustar o direcionamento ou atualizar o conteúdo da mensagem.
 - **Do briefing à Campaign:** descreva um briefing completo de Campaign, e o Operator ajuda você a criar um rascunho que inclui texto, imagens, personalização, direcionamento e recomendações de horário de envio. Revise o rascunho no criador de Campaign e refine com prompts de acompanhamento antes de lançar.
-- **Criar e editar Segments:** ao iniciar um Segment, descreva o público que você quer e o Operator ajuda a construir a lógica de filtros, incluindo condições de atributos, histórico de eventos e consultas de catálogo. O Operator também pode ajudar a editar os filtros de um Segment existente quando sua estratégia de direcionamento precisa de alterações.
-- **Criar extensões de segmento:** o Operator pode ajudar você a criar uma [extensão de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL, escrevendo a consulta que a define. Descreva a lógica de público que você quer, e o Operator rascunha a consulta para você revisar antes de salvar. Você também pode pedir ajuda ao Operator a partir da visão geral de extensões de segmento. Para saber mais sobre o Operator e SQL, consulte [Escrever consultas de SQL](#write-sql-queries).
+- **Criar e editar Segments:** ao iniciar um Segment or segmento, descreva o público que você quer e o Operator ajuda a construir a lógica de filtros, incluindo condições de atributos, histórico de eventos e consultas de catálogo. O Operator também pode ajudar a editar os filtros de um Segment or segmento existente quando sua estratégia de direcionamento precisa de alterações.
+- **Criar extensões de Segment or segmento or segmento:** o Operator pode ajudar você a criar uma [extensão de Segment or segmento or segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) definida por SQL, escrevendo a consulta que a define. Descreva a lógica de público que você quer, e o Operator rascunha a consulta para você revisar antes de salvar. Você também pode pedir ajuda ao Operator a partir da visão geral de extensões de Segment or segmento or segmento. Para saber mais sobre o Operator e SQL, consulte [Escrever consultas de SQL](#write-sql-queries).
 - **Importar e gerenciar usuários:** em páginas de público compatíveis, o Operator pode ajudar você a [importar usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users), [excluir usuários]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/delete_users) e [mesclar perfis duplicados]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users). Revise cada ação proposta antes de ela ser salva.
 
 ## Canvas {#canvases}
@@ -125,7 +125,7 @@ Você obtém os melhores resultados quando usa o Operator no criador em que est�
 
 O Operator pode ajudar você a criar [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), as peças reutilizáveis de conteúdo que você insere em diferentes mensagens. Descreva o bloco que você quer, e o Operator rascunha o conteúdo para você revisar antes de salvar. Como os Content Blocks são compartilhados, atualizar um atualiza todas as mensagens que o referenciam.
 
-O Operator cria Content Blocks um de cada vez no dashboard. Para criar Content Blocks em massa, use o endpoint [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) com uma chave de API que tenha a permissão `content_blocks.create`.
+O Operator cria Content Blocks um de cada vez no dashboard. Para criar Content Blocks em massa, use o endpoint [Create Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) com uma chave de API or interface de programação do aplicativo (API) que tenha a permissão `content_blocks.create`.
 
 ### Criar modelos de mensagem {#create-message-templates}
 
@@ -157,7 +157,7 @@ O Operator pode fazer perguntas de acompanhamento, mas fornecer detalhes antecip
 - Quaisquer preferências ou requisitos conhecidos para a mensagem
 - Instruções sobre como lidar com situações, como falta de respostas do destinatário da mensagem ou opções de mensagem de fallback
 - Valores exatos ou semelhantes para os atributos personalizados que você quer usar, que ajudam o Operator a gerar e testar lógica mais precisa
-- Ao pedir Liquid que usa Connected Content, documentação do endpoint da API, uma resposta de API de exemplo, ou ambos
+- Ao pedir Liquid que usa Connected Content, documentação do endpoint da API or interface de programação do aplicativo (API), uma resposta de API or interface de programação do aplicativo (API) de exemplo, ou ambos
 
 #### Seja criativo {#generate-liquid-get-creative}
 
@@ -234,11 +234,11 @@ O Operator pode ajudar você a visualizar e criar previsões de [Churn Preditivo
 
 ### Escrever consultas de SQL {#write-sql-queries}
 
-O Operator pode ajudar você a escrever SQL para [extensões de segmento](#campaigns-and-audiences) e para [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) do Query Builder. Descreva a consulta que você quer em linguagem natural, e o Operator gera o SQL para você revisar antes de executar.
+O Operator pode ajudar você a escrever SQL para [extensões de Segment or segmento or segmento](#campaigns-and-audiences) e para [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) do Query Builder. Descreva a consulta que você quer em linguagem natural, e o Operator gera o SQL para você revisar antes de executar.
 
 ### Gerar código de transformação de dados {#generate-data-transformation-code}
 
-No editor de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecione **Insert Code** para gerar código de transformação que converte uma carga útil de webhook recebida em solicitações válidas da API da Braze. Para instruções passo a passo sobre como criar uma transformação, consulte [Criar uma transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+No editor de [Transformação de dados]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecione **Insert Code** para gerar código de transformação que converte uma carga útil de webhook recebida em solicitações válidas da API or interface de programação do aplicativo (API) da Braze. Para instruções passo a passo sobre como criar uma transformação, consulte [Criar uma transformação]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 
 ## Configurações do espaço de trabalho {#workspace-settings}
 
@@ -248,7 +248,7 @@ O Operator pode revisar e atualizar configurações em várias páginas de confi
 - [Configurações de push]({{site.baseurl}}/user_guide/administer/global/workspace_settings/push_settings)
 - [Limites de frequência de envio de mensagens]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits)
 - [Fluxos de aprovação]({{site.baseurl}}/user_guide/messaging/governance/approvals), incluindo [regras de envio de mensagens]({{site.baseurl}}/user_guide/messaging/governance/approvals/messaging_rules) e aprovação sempre ativa
-- [APIs e identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), incluindo [outros identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers), limites de API e [alertas de uso de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
+- [APIs e identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers), incluindo [outros identificadores]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers#other-identifiers), limites de API or interface de programação do aplicativo (API) e [alertas de uso de API or interface de programação do aplicativo (API)]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)
 - [Informações de contato das configurações de administrador]({{site.baseurl}}/user_guide/administer/global/admin_settings/contact_information)
 - [Configurações de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings) e [provisionamento SCIM]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning)
 - [Funções]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role) e [conjuntos de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set)
@@ -267,7 +267,7 @@ A cobertura do Operator muda com frequência. Se você não tem certeza se uma t
 
 O suporte do Operator no dashboard é amplo, mas tem limites.
 
-- **Canvas:** o Operator pode [criar e editar Canvas](#canvases) no editor de Canvas atual. Ele não é compatível com o [editor de Canvas original]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), com iniciar um Canvas a partir da página de seleção de modelos ou com o uso de **Preview as User** durante a criação de Canvas. O Operator ainda pode referenciar a configuração de um Canvas existente, como direcionamento e configurações de entrega, para responder perguntas e fundamentar seu resultado.
+- **Canvas:** o Operator pode [criar e editar Canvas](#canvases) no editor de Canvas atual. Ele não é compatível com o [editor de Canvas original]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), com iniciar um Canvas a partir da página de seleção de modelos ou com o uso de **prévia as User** durante a criação de Canvas. O Operator ainda pode referenciar a configuração de um Canvas existente, como direcionamento e configurações de entrega, para responder perguntas e fundamentar seu resultado.
 - **Duplicação de Campaign:** o Operator não pode duplicar uma Campaign existente a partir da visualização de lista de Campaigns. Para criar uma Campaign semelhante, peça ao Operator para criar uma nova do zero, ou duplique a Campaign manualmente pelo menu **More Actions** da visualização de lista.
 - **Editores de arrastar e soltar:** o Operator não pode gerar ou inserir um design de mensagem diretamente em um editor de arrastar e soltar, como os de [e-mail]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner) e [mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Mude para o editor de HTML correspondente para usar o Operator, ou peça ao Operator para gerar conteúdo, como texto, que você pode colar manualmente. Consulte [Gerar mensagens](#generate-messages) para os canais e editores compatíveis.
 - **Visibilidade da tela:** o Operator usa contexto da página para entender o que você está vendo, incluindo conteúdo dentro de prévias e editores compatíveis. Quando parte de uma página está fora do que o Operator pode ler, ele avisa em vez de adivinhar, para que você saiba descrever esse conteúdo por conta própria.

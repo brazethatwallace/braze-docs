@@ -24,8 +24,8 @@ Antes de começar, você precisará do seguinte:
 | Pré-requisito          | Descrição                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Swym  | Os apps Swym Wishlist Plus, Back in Stock ou ambos devem estar instalados em sua plataforma de comércio eletrônico (Shopify ou BigCommerce), e você deve estar no plano Enterprise.       |
-| Uma chave da API REST da Braze  | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-| Um endpoint REST da Braze | [Seu URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
+| Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze  | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API or interface de programação do aplicativo (API) Keys**. |
+| Um endpoint REST or transferir estado representacional da Braze | [Seu URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint dependerá do URL da Braze para sua instância.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 ## Casos de uso {#use-cases}
@@ -38,18 +38,18 @@ Ao conectar os apps Wishlist Plus e Back in Stock Alerts da Swym com a Braze, vo
 
 Atualmente, a integração da Braze com a Swym é uma integração gerenciada e não é de autoatendimento. Para começar, entre em contato com a equipe de suporte da Swym em [support@getswym.com](mailto:support@getswym.com) e forneça as seguintes informações para que a Swym possa configurar a integração em seu nome:
 
-1. Gere uma [chave da API REST]({{site.baseurl}}/api/basics/#about-rest-api-keys) no dashboard da Braze com a permissão `users.track`.
+1. Gere uma [chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional]({{site.baseurl}}/api/basics/#about-rest-api-keys) no dashboard da Braze com a permissão `users.track`.
 
 ![Gerando uma chave de API na Braze.]({% image_buster /assets/img/swym/braze-api-key.png %})
 
 {% alert important %}
-Para proteger suas chaves de API, a Swym recomenda que você compartilhe credenciais com segurança usando uma ferramenta de link único e autodestrutivo (por exemplo, [OneTimeSecret](https://onetimesecret.com/)).
+Para proteger suas chaves de API or interface de programação do aplicativo (API), a Swym recomenda que você compartilhe credenciais com segurança usando uma ferramenta de link único e autodestrutivo (por exemplo, [OneTimeSecret](https://onetimesecret.com/)).
 {% endalert %}
 
 {: start="2"}
-2. A Braze gerencia várias instâncias para seu dashboard e endpoints REST. Forneça o [endpoint REST]({{site.baseurl}}/api/basics/#endpoints) para a instância que está sendo provisionada.
+2. A Braze gerencia várias instâncias para seu dashboard e endpoints REST or transferir estado representacional. Forneça o [endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics/#endpoints) para a instância que está sendo provisionada.
 
-3. Depois que a chave de API e o URL da instância forem compartilhados com a equipe de suporte da Swym, eles configurarão a integração para você e responderão com uma confirmação.
+3. Depois que a chave de API or interface de programação do aplicativo (API) e o URL da instância forem compartilhados com a equipe de suporte da Swym, eles configurarão a integração para você e responderão com uma confirmação.
 
 4. Após a conclusão da configuração, os eventos personalizados da Swym serão registrados automaticamente na Braze. Você pode visualizar a lista de eventos Swym registrados no dashboard da Braze acessando **Configurações de dados** > **Eventos personalizados**.
 

@@ -220,11 +220,11 @@ Braze는 외부 ID JSON을 반환하는 `200` 상태 코드를 기대합니다:
 
 {% multi_lang_include partners/shopify/external_id_generation_notes.md %}
 
-### 4.4단계: Shopify에서 이메일 또는 SMS 옵트인 수집(선택 사항) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
+### 4.4단계: Shopify에서 이메일 또는 단문 메시지 서비스 옵트인 수집(선택 사항) {#step-44-collect-your-email-or-sms-opt-ins-from-shopify-optional}
 
-Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이 있습니다.
+Shopify에서 이메일 또는 단문 메시지 서비스 마케팅 옵트인을 수집하는 옵션이 있습니다.
 
-이메일 또는 SMS 채널을 사용하는 경우 이메일 및 SMS 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 지정해야 합니다.
+이메일 또는 단문 메시지 서비스 채널을 사용하는 경우 이메일 및 단문 메시지 서비스 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 지정해야 합니다.
 
 ![이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이 있는 "구독자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 

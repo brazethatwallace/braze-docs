@@ -218,7 +218,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>
-    description: Mettre à jour une activité en direct iOS.
+    description: Mettre à jour une activité en direct or en ligne/en production/instantané iOS.
     tags:
       - Live Activity
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status'>/subscription/status/set</a>

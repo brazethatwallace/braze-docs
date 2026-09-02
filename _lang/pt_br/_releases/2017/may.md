@@ -14,7 +14,7 @@ Adicionamos uma nova funcionalidade aos grupos internos para grupos de teste, fa
 
 ## Atualização das tags {#update-to-tags}
 
-Agora você pode aninhar suas tags de Segment para ajudar a organizar melhor seu dashboard. Saiba mais sobre as [tags de Segment]({{site.baseurl}}/user_guide/administrative/app_settings/tags#campaign-segment-and-news-feed-card-tags).
+Agora você pode aninhar suas tags de Segment or segmento para ajudar a organizar melhor seu dashboard. Saiba mais sobre as [tags de Segment or segmento]({{site.baseurl}}/user_guide/administrative/app_settings/tags#campaign-segment-and-news-feed-card-tags).
 
 ## Atualização da configuração de mensagens no app {#update-to-in-app-messages-configuration}
 

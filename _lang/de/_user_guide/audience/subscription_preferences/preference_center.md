@@ -26,7 +26,7 @@ guide_featured_list:
 
 ### Was ist ein E-Mail-Präferenzzentrum? {#what-is-an-email-preference-center}
 
-Ein E-Mail-Präferenzzentrum ist eine gehostete Seite, auf der Nutzer:innen ihren E-Mail-Abo-Status aktualisieren und Nachrichtenkategorien auswählen können. Braze unterstützt API-basierte und Drag-and-Drop-Präferenzzentren.
+Ein E-Mail-Präferenzzentrum ist eine gehostete Seite, auf der Nutzer:innen ihren E-Mail-Abo-Status Update or aktualisieren or aktualisieren und Nachrichtenkategorien auswählen können. Braze unterstützt API-basierte und Drag-and-Drop-Präferenzzentren.
 
 ### Sollte ich die Präferenzzentrum-API oder den Drag-and-Drop-Editor verwenden? {#should-i-use-the-preference-center-api-or-the-drag-and-drop-editor}
 

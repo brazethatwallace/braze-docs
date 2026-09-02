@@ -21,7 +21,7 @@ Os links universais da Apple e os Android App Links são mecanismos criados para
 
 Links universais (iOS) e App Links (Android) são links da web padrão (`http://mydomain.com`) que apontam tanto para uma página da web quanto para um conteúdo dentro de um app.
 
-Quando um link universal ou App Link é aberto, o sistema operacional verifica se algum app instalado está registrado para aquele domínio. Se um app for encontrado, ele é aberto imediatamente, sem nunca carregar a página da web. Se nenhum app for encontrado, a URL da web é carregada no navegador web padrão do usuário, que também pode estar configurado para redirecionar para a App Store ou Google Play Store, respectivamente.
+Quando um link universal ou App Link é aberto, o sistema operacional verifica se algum app instalado está registrado para aquele domínio. Se um app for encontrado, ele é aberto imediatamente, sem nunca carregar a página da web. Se nenhum app for encontrado, a URL da web é carregada no navegador de internet or navegador web padrão do usuário, que também pode estar configurado para redirecionar para a App Store ou Google Play Store, respectivamente.
 
 Em termos simples, os links universais permitem que um website associe suas páginas da web a telas específicas do app. Então, quando um usuário clica em um link para uma página da web que corresponde a uma tela do app, o app pode ser aberto diretamente (se estiver instalado no momento).
 
@@ -147,7 +147,7 @@ O arquivo AASA contém um objeto JSON com uma lista de apps e os caminhos de URL
 }
 ```
 
-- `appID`: Construído combinando o **Team ID** do seu app (acesse `https://developer.apple.com/account/#/membership/` para obter o Team ID) e o **Bundle Identifier**. Neste exemplo, "JHGFJHHYX" é o Team ID e "com.facebook.ios" é o Bundle ID.
+- `appID`: Construído combinando o **Team ID** do seu app (acesse `https://developer.apple.com/account/#/membership/` para obter o Team ID) e o **Bundle Identifier**. Neste exemplo, "JHGFJHHYX" é o Team ID e "com.Facebook.ios" é o Bundle ID.
 - `paths`: Array de strings que especificam quais caminhos são incluídos ou excluídos da associação. Você pode usar `NOT` antes do caminho para desativar caminhos. Neste exemplo, todos os links nesse caminho irão para a web em vez de abrir o app. Você pode usar `*` como caractere curinga para ativar todos os caminhos em um diretório e `?` para corresponder a um único caractere (como /archives/201?/ para corresponder a todos os números de 2010 a 2019).
 
 {% alert note %}
@@ -306,7 +306,7 @@ Certifique-se de que os seus caminhos personalizados seguem estes requisitos:
 - **Sensibilidade a maiúsculas e minúsculas:** Os caminhos diferenciam maiúsculas de minúsculas para atender aos requisitos do sistema operacional móvel
 
 {:start="2"}
-2. Confirme que as suas URLs de rastreamento envolvidas incluem o segmento de caminho personalizado. Sem o atributo, links rastreados usam `track.yourstore.com/CL0/{encodedUrl}/...`. Com o atributo, eles seguem este formato: `track.yourstore.com/CL1/{customPath}/{encodedUrl}/...`
+2. Confirme que as suas URLs de rastreamento envolvidas incluem o Segment or segmento or segmento de caminho personalizado. Sem o atributo, links rastreados usam `track.yourstore.com/CL0/{encodedUrl}/...`. Com o atributo, eles seguem este formato: `track.yourstore.com/CL1/{customPath}/{encodedUrl}/...`
 
 Por exemplo:
 

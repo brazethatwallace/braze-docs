@@ -361,12 +361,12 @@ Configura `BrazeInAppMessageUI.DisplayChoice` para devolver uno de los siguiente
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizar el momento de visualización" }
 
 {% alert tip %}
-Para ver un ejemplo de `InAppMessageUI`, consulta nuestro [repositorio del SDK de Braze en Swift](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) y en [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
+Para ver un ejemplo de `InAppMessageUI`, consulta nuestro [repositorio del SDK or kit de desarrollo de software de Braze en Swift](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) y en [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
 {% endalert %}
 
 ## Ocultar la barra de estado {#hiding-the-status-bar}
 
-Para los mensajes dentro de la aplicación `Full`, `FullImage` y `HTML`, el SDK oculta la barra de estado de forma predeterminada. Para otros tipos de mensajes dentro de la aplicación, la barra de estado se deja sin modificar. Para configurar este comportamiento, utiliza el [método de delegado](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` para establecer la propiedad `statusBarHideBehavior` en el `PresentationContext`. Este campo acepta uno de los siguientes valores:
+Para los mensajes dentro de la aplicación `Full`, `FullImage` y `HTML`, el SDK or kit de desarrollo de software oculta la barra de estado de forma predeterminada. Para otros tipos de mensajes dentro de la aplicación, la barra de estado se deja sin modificar. Para configurar este comportamiento, utiliza el [método de delegado](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)` para establecer la propiedad `statusBarHideBehavior` en el `PresentationContext`. Este campo acepta uno de los siguientes valores:
 
 | Comportamiento de ocultación de la barra de estado | Descripción                                                                           |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------- |

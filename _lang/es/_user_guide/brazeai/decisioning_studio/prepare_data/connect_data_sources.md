@@ -31,10 +31,10 @@ Los siguientes activos de datos de clientes ayudan a los agentes a personalizar 
 
 | Tipo de dato | Descripción | Ejemplos |
 |-----------|-------------|----------|
-| **Perfil de cliente** | Atributos estáticos y de cambio lento | Años como cliente, geografía, canal de adquisición, nivel de satisfacción, estimación del valor de duración del ciclo de vida |
+| **Perfil de cliente** | Atributos estáticos y de cambio lento | Años como cliente, geografía, canal de adquisición, nivel de satisfacción, estimación del LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida |
 | **Comportamiento del cliente** | Patrones de actividad y participación | Inicios de sesión en la cuenta, tipo de dispositivo, interacciones con atención al cliente, uso del producto |
 | **Historial de transacciones** | Datos de compras y conversiones | Productos comprados, importes de transacciones, métodos de pago, canales de compra |
-| **Participación en marketing** | Respuestas a las comunicaciones | Aperturas/clics de correo electrónico, participación en SMS, actividad web y móvil, respuestas a cuestionarios |
+| **Participación en marketing** | Respuestas a las comunicaciones | Aperturas/clics de correo electrónico, participación en servicio de mensajes cortos, actividad web y móvil, respuestas a cuestionarios |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de datos de clientes" }
 
 {% alert tip %}
@@ -61,8 +61,8 @@ Para agilizar este proceso, crea una lista de atributos del perfil de usuario de
 
 Otras opciones para enviar datos incluyen:
 
-- Enviar eventos personalizados de Braze a través del SDK
-- Enviar eventos usando el endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
+- Enviar eventos personalizados de Braze a través del SDK or kit de desarrollo de software
+- Enviar eventos usando el endpoint REST or transferencia de estado representacional ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
 Estos patrones requieren más esfuerzo de ingeniería, pero a veces son preferibles dependiendo de tu configuración actual de Braze. Contacta con el equipo de servicios de AI Decisioning para obtener más información.
 

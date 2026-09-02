@@ -33,7 +33,7 @@ _Esta integración está mantenida por Worthy._
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta [Worthy](https://worthy.ai/) | Se requiere una cuenta Worthy para beneficiarse de esta asociación. |
-| SDK de Braze | Tendrás que configurar el SDK de Braze en tu aplicación móvil para enviar mensajes enriquecidos dentro de la aplicación. |
+| SDK or kit de desarrollo de software de Braze | Tendrás que configurar el SDK or kit de desarrollo de software de Braze en tu aplicación móvil para enviar mensajes enriquecidos dentro de la aplicación. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}

@@ -85,11 +85,11 @@ Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Da
 ### Personalisierte Push-Benachrichtigungen {#personalized-push-notifications}
 ![Zwei iPhones werden nebeneinander angezeigt. Das erste iPhone zeigt die nicht erweiterte Ansicht der Push-Nachricht. Das zweite iPhone zeigt die erweiterte Version der Push-Nachricht mit einer Fortschrittsanzeige, die angibt, wie weit sie in einem Kurs fortgeschritten sind, wann die nächste Sitzung stattfindet und wann die nächste Sitzung fällig ist.]({% image_buster /assets/img/push_implementation_guide/push6.png %}){: style="float:right;max-width:40%;margin-left:15px;border:0"}
 
-Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
+Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. Das Beispiel zeigt eine Push-Benachrichtigung, nachdem Nutzer:innen eine bestimmte Aufgabe (Braze-Lernkurs) abgeschlossen haben und nun aufgefordert werden, diese Benachrichtigung zu erweitern, um ihren Fortschritt zu überprüfen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger or triggern ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
 
 #### Dashboard-Konfiguration
 
-Um einen personalisierten Push im Dashboard einzurichten, müssen Sie die spezifische Kategorie registrieren, die angezeigt werden soll, und dann innerhalb der Schlüssel-Wert-Paare mit Hilfe von Standard-Liquid die entsprechenden Nutzerattribute einstellen, die in der Nachricht angezeigt werden sollen. Diese Ansichten können auf der Grundlage bestimmter Nutzerattribute eines bestimmten Nutzerprofils personalisiert werden.
+Um einen personalisierten Push im Dashboard einzurichten, müssen Sie die spezifische Kategorie Registrierung or registrieren, die angezeigt werden soll, und dann innerhalb der Schlüssel-Wert-Paare mit Hilfe von Standard-Liquid die entsprechenden Nutzerattribute einstellen, die in der Nachricht angezeigt werden sollen. Diese Ansichten können auf der Grundlage bestimmter Nutzerattribute eines bestimmten Nutzerprofils personalisiert werden.
 
 ![Vier Sätze von Schlüssel-Wert-Paaren, wobei „next_session_name“ und „next_session_complete_date“ als API-Trigger-Eigenschaft mit Liquid festgelegt sind und „completed_session count“ und „total_session_count“ als angepasstes Nutzerattribut mit Liquid festgelegt sind.]({% image_buster /assets/img/push_implementation_guide/push5.png %}){: style="max-width:60%;"}
 
@@ -143,15 +143,15 @@ Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserwei
 
 1. Nutzer:innen erhalten eine Push-Benachrichtigung.
 2. Der Push wird geöffnet und fordert Nutzer:innen zur Eingabe von Informationen auf.
-3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Registrieren“ angezeigt.
+3. Die Informationen werden eingegeben und wenn sie gültig sind, wird der Button „Registrierung or registrieren“ angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
 
-Beachten Sie, dass es sich bei den hier angeforderten Informationen um eine Vielzahl von Dingen handeln kann, wie z. B. die Erfassung von SMS-Nummern – sie müssen nicht unbedingt auf E-Mails bezogen sein.
+Beachten Sie, dass es sich bei den hier angeforderten Informationen um eine Vielzahl von Dingen handeln kann, wie z. B. die Erfassung von Kurzmitteilungsdienst or SMS-Nummern – sie müssen nicht unbedingt auf E-Mails bezogen sein.
 
 #### Dashboard-Konfiguration
 
-Um einen Push für die Informationserfassung im Dashboard einzurichten, müssen Sie Ihre angepasste Kategorie registrieren und einstellen und die benötigten Schlüssel-Wert-Paare bereitstellen. Wie im Beispiel gezeigt, können Sie auch ein Bild in Ihren Push einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich Notification einstellen und ein Rich-Push-Bild einfügen.
+Um einen Push für die Informationserfassung im Dashboard einzurichten, müssen Sie Ihre angepasste Kategorie Registrierung or registrieren und einstellen und die benötigten Schlüssel-Wert-Paare bereitstellen. Wie im Beispiel gezeigt, können Sie auch ein Bild in Ihren Push einfügen. Dazu müssen Sie [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications) integrieren, den Benachrichtigungsstil in Ihrer Campaign auf Rich Notification einstellen und ein Rich-Push-Bild einfügen.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push9.png %})
 
@@ -196,7 +196,7 @@ Push-Benachrichtigungen können durch Drücken eines Aktions-Buttons automatisch
 
 #### Andere Anwendungsfälle
 
-Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Nutzerprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
+Das Anfordern von Nutzereingaben über Push-Benachrichtigungen ist eine spannende Möglichkeit, die viele Unternehmen nicht nutzen. In diesen Push-Nachrichten können Sie nicht nur grundlegende Informationen wie Name, E-Mail oder Telefonnummer abfragen, sondern Nutzer:innen auch auffordern, ein Kundenprofil or Nutzerprofil zu vervollständigen, falls es noch nicht abgeschlossen ist, oder sogar Feedback zu übermitteln.
 
 ##### Sind Sie bereit für die Protokollierung von Analytics?
 Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Datenfluss aussehen sollte.
@@ -205,7 +205,7 @@ Im [folgenden Abschnitt](#logging-analytics) wird näher beschrieben, wie der Da
 
 ### Protokollierung mit der Braze-API (empfohlen) {#logging-with-the-braze-api-recommended}
 
-Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Nutzerprofil zu identifizieren.
+Das Protokollieren von Analytics kann nur in Realtime erfolgen, wenn der Server der Kund:innen unseren [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) aufruft. Zum Protokollieren von Analytics übermitteln Sie den Wert `braze_id` im Feld für Schlüssel-Wert-Paare (wie im folgenden Screenshot gezeigt), um das zu aktualisierende Kundenprofil or Nutzerprofil zu identifizieren.
 
 ![Eine Push-Nachricht mit drei Gruppen von Schlüssel-Wert-Paaren. 1. „Braze_id“ als Liquid-Aufruf zum Abrufen der Braze-ID festgelegt. 2. „cert_title“ als „Braze Marketer Certification“ festgelegt. 3. „Cert_description“ als „Certified Braze marketers drive...“ festgelegt.]({% image_buster /assets/img/push_implementation_guide/push18.png %}){: style="max-width:80%;"}
 
@@ -283,7 +283,7 @@ func saveCustomEvent(with properties: [String: Any]? = nil) {
 
 ##### Senden von angepassten Events an Braze {#sending-custom-events-to-braze}
 
-Nach der Initialisierung des SDK ist der beste Zeitpunkt, um alle gespeicherten Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren. Dazu durchlaufen Sie alle ausstehenden Events, suchen nach dem Schlüssel „Event Name“, setzen die entsprechenden Werte in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
+Nach der Initialisierung des SDK or Software-Development-Kit ist der beste Zeitpunkt, um alle gespeicherten Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren. Dazu durchlaufen Sie alle ausstehenden Events, suchen nach dem Schlüssel „Event Name“, setzen die entsprechenden Werte in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
 
 1. Array der ausstehenden Events mit einer Schleife durchlaufen
 2. Jedes Schlüssel-Wert-Paar im Wörterbuch `pendingEvents` mit einer Schleife durchlaufen
@@ -424,7 +424,7 @@ func saveCustomAttribute() {
 
 ##### Senden von angepassten Attributen an Braze {#sending-custom-attributes-to-braze}
 
-Nach der Initialisierung des SDK ist der beste Zeitpunkt, um alle gespeicherten Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
+Nach der Initialisierung des SDK or Software-Development-Kit ist der beste Zeitpunkt, um alle gespeicherten Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
 
 1. Array der ausstehenden Attribute mit einer Schleife durchlaufen
 2. Jedes Schlüssel-Wert-Paar im Wörterbuch `pendingAttributes` mit einer Schleife durchlaufen
@@ -547,7 +547,7 @@ func saveUserAttribute() {
 
 ##### Senden von Nutzerattributen an Braze {#sending-user-attributes-to-braze}
 
-Nach der Initialisierung des SDK ist der beste Zeitpunkt, um alle gespeicherten Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
+Nach der Initialisierung des SDK or Software-Development-Kit ist der beste Zeitpunkt, um alle gespeicherten Analytics von einer App-Erweiterung für Benachrichtigungsinhalte zu protokollieren. Dazu durchlaufen Sie die ausstehenden Attribute, setzen das entsprechende angepasste Attribut in Braze und löschen dann den Speicher für das nächste Mal, wenn diese Funktion benötigt wird.
 
 1. Array der `pendingAttributes`-Daten mit einer Schleife durchlaufen
 2. Initialisieren Sie ein kodiertes `UserAttribute`-Objekt aus Attributdaten

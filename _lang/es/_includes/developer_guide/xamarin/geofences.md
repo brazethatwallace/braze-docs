@@ -2,7 +2,7 @@
 
 ## Requisitos previos {#prerequisites}
 
-Estas son las versiones mínimas del SDK necesarias para empezar a utilizar geovallas:
+Estas son las versiones mínimas del SDK or kit de desarrollo de software necesarias para empezar a utilizar geovallas:
 
 {% sdk_min_versions xamarin:9.0.0 %}
 
@@ -82,7 +82,7 @@ Braze.GetInstance(this).RequestGeofences(latitude, longitude);
 ```
 
 {% alert important %}
-Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK o manualmente con este método.
+Las geovallas solo pueden solicitarse una vez por sesión, ya sea automáticamente por el SDK or kit de desarrollo de software o manualmente con este método.
 {% endalert %}
 {% endtab %}
 {% tab iOS %}
@@ -161,7 +161,7 @@ locationManager.RequestAlwaysAuthorization();
 ```
 
 {% alert important %}
-Sin la autorización `Always`, iOS restringe el funcionamiento de los servicios de ubicación mientras la aplicación no está en uso. Esto lo impone el sistema operativo y el SDK de Braze no puede eludirlo.
+Sin la autorización `Always`, iOS restringe el funcionamiento de los servicios de ubicación mientras la aplicación no está en uso. Esto lo impone el sistema operativo y el SDK or kit de desarrollo de software de Braze no puede eludirlo.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

@@ -149,7 +149,7 @@ Ao importar atributos padrão, os cabeçalhos de coluna utilizados devem corresp
 {% endalert %}
 
 {% alert tip %}
-Para a lista completa de atributos padrão que a Braze reconhece (via SDK, API, CSV e ingestão de dados na nuvem), consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). A tabela a seguir cobre apenas o subconjunto que pode ser definido por meio de importação via CSV.
+Para a lista completa de atributos padrão que a Braze reconhece (via SDK or kit de desenvolvimento de software, API or interface de programação do aplicativo (API), CSV e ingestão de dados na nuvem), consulte [Atributos padrão]({{site.baseurl}}/user_guide/data/activation/attributes/standard_attributes). A tabela a seguir cobre apenas o subconjunto que pode ser definido por meio de importação via CSV.
 {% endalert %}
 
 Os seguintes atributos padrão estão disponíveis para importação de usuários.
@@ -340,12 +340,12 @@ Não é possível prosseguir além da etapa de mapeamento até que um identifica
 
 ### Etapa 6: Escolher preferências de direcionamento {#targeting-preferences}
 
-Após o mapeamento, você pode escolher entre as seguintes preferências de direcionamento na página de configurações de importação. Se não precisar criar um novo filtro de direcionamento ou Segment a partir da sua importação, selecione **Não disponibilizar esta lista como filtro de direcionamento**.
+Após o mapeamento, você pode escolher entre as seguintes preferências de direcionamento na página de configurações de importação. Se não precisar criar um novo filtro de direcionamento ou Segment or segmento a partir da sua importação, selecione **Não disponibilizar esta lista como filtro de direcionamento**.
 
 | Opção | Descrição |
 |---|---|
 | Filtro de direcionamento | Para converter seu arquivo CSV em uma opção de redirecionamento ao criar Segments de usuário, escolha seu arquivo no menu suspenso **Atualizado/Importado via CSV** e, em seguida, selecione **Criar filtro de direcionamento**. |
-| Novos Segments | Para também criar um novo Segment a partir do seu novo filtro de direcionamento, selecione **Criar filtro de direcionamento e adicionar a novo Segment**. |
+| Novos Segments | Para também criar um novo Segment or segmento a partir do seu novo filtro de direcionamento, selecione **Criar filtro de direcionamento e adicionar a novo Segment or segmento**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 6: Escolher preferências de direcionamento #targeting-preferences" }
 
 ![Um grupo de filtros com o filtro "Atualizado/Importado via CSV" incluindo um arquivo CSV intitulado "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
@@ -424,7 +424,7 @@ Cada informação de cliente importada de um arquivo CSV sobrescreve o valor exi
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações sobre pontos de dados" }
 
 {% alert important %}
-Definir `language` ou `country` em um usuário por meio de importação via CSV ou API impede que a Braze capture automaticamente essas informações pelo SDK.
+Definir `language` ou `country` em um usuário por meio de importação via CSV ou API or interface de programação do aplicativo (API) impede que a Braze capture automaticamente essas informações pelo SDK or kit de desenvolvimento de software.
 {% endalert %}
 
 ## Solução de problemas {#troubleshooting}
@@ -452,9 +452,9 @@ A Braze não recomenda usar um endereço de e-mail como `external_id`. Se você 
 
 Se uma célula `external_id` contiver aspas duplas, faça o escape dobrando o caractere (`""`), conforme descrito em [Aspas duplas sem escape ou desbalanceadas](#missing-row). A importação de CSV não usa escape com barra invertida.
 
-### Importação de CSV não está disponível como filtro de Segment {#csv-import-isnt-available-as-a-segment-filter}
+### Importação de CSV não está disponível como filtro de Segment or segmento {#csv-import-isnt-available-as-a-segment-filter}
 
-Você só pode usar uma importação de CSV como filtro de Segment se tiver ativado uma preferência de direcionamento durante o upload.
+Você só pode usar uma importação de CSV como filtro de Segment or segmento se tiver ativado uma preferência de direcionamento durante o upload.
 
 Para verificar se a disponibilidade de direcionamento está ativada para uma importação existente:
 
@@ -463,9 +463,9 @@ Para verificar se a disponibilidade de direcionamento está ativada para uma imp
 3. Se **Go to Segment** aparecer, seu CSV está disponível no filtro de Segment `Updated/Imported from CSV`.
 4. Se **Go to Segment** não aparecer, a disponibilidade de direcionamento não foi ativada para essa importação.
 
-Não é possível ativar a disponibilidade de direcionamento após a conclusão de um upload de CSV. Para usar esse CSV como filtro de Segment, reenvie o arquivo e, na [Etapa 6: Escolha as preferências de direcionamento](#step-6-choose-targeting-preferences), selecione **Create targeting filter** ou **Create targeting filter and add to new segment**.
+Não é possível ativar a disponibilidade de direcionamento após a conclusão de um upload de CSV. Para usar esse CSV como filtro de Segment or segmento, reenvie o arquivo e, na [Etapa 6: Escolha as preferências de direcionamento](#step-6-choose-targeting-preferences), selecione **Create targeting filter** ou **Create targeting filter and add to new Segment or segmento**.
 
-Se seu objetivo é criar um Segment sem atualizar os dados do perfil, faça upload de um CSV que inclua apenas colunas de identificadores (por exemplo, `external_id` ou colunas de identificadores de alias) e selecione **Create targeting filter and add to new segment**.
+Se seu objetivo é criar um Segment or segmento sem atualizar os dados do perfil, faça upload de um CSV que inclua apenas colunas de identificadores (por exemplo, `external_id` ou colunas de identificadores de alias) e selecione **Create targeting filter and add to new Segment or segmento**.
 
 ### Problemas de formatação de arquivo {#file-formatting-issues}
 

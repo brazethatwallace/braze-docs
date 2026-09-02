@@ -9,7 +9,7 @@ Private Browserfenster unterstützen keinen Web-Push.
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Wenn Sie Ihrer Campaign oder Ihrem Canvas eine BCC-Adresse hinzufügen, verdoppelt sich die Anzahl der abrechnungsfähigen E-Mails für die Campaign oder die Canvas-Komponente, da Braze eine Nachricht an Ihre Nutzer:innen und eine an Ihre BCC-Adresse sendet.
+Wenn Sie Ihrer Campaign oder Ihrem Canvas eine BCC or Banner-Content-Card-Adresse hinzufügen, verdoppelt sich die Anzahl der abrechnungsfähigen E-Mails für die Campaign oder die Canvas-Komponente, da Braze eine Nachricht an Ihre Nutzer:innen und eine an Ihre BCC or Banner-Content-Card-Adresse sendet.
 {% endalert %}
 
 {% endif %}
@@ -25,11 +25,11 @@ Die Einstellung „Priorität der Benachrichtigungsanzeige“ wird auf Geräten 
 {% if include.alert == "Email via SMS" %}
 
 {% alert important %}
-Senden Sie keine gesetzlich vorgeschriebenen Transaktions-E-Mails an SMS-Gateways, da die Wahrscheinlichkeit groß ist, dass diese E-Mails nicht zugestellt werden.
+Senden Sie keine gesetzlich vorgeschriebenen Transaktions-E-Mails an Kurzmitteilungsdienst or SMS-Gateways, da die Wahrscheinlichkeit groß ist, dass diese E-Mails nicht zugestellt werden.
 <br><br>
-Obwohl E-Mails, die Sie unter Verwendung einer Telefonnummer und der Gateway-Domain des Anbieters (bekannt als MM3) versenden, dazu führen können, dass die E-Mail als SMS empfangen wird, unterstützen einige unserer E-Mail-Anbieter dieses Verhalten nicht. Wenn Sie beispielsweise eine E-Mail an eine T-Mobile-Telefonnummer (wie „9999999999@tmomail.net“) senden, wird Ihre SMS-Nachricht an die Person gesendet, die diese Telefonnummer im T-Mobile-Netz besitzt.
+Obwohl E-Mails, die Sie unter Verwendung einer Telefonnummer und der Gateway-Domain des Anbieters (bekannt als MM3) versenden, dazu führen können, dass die E-Mail als Kurzmitteilungsdienst or SMS empfangen wird, unterstützen einige unserer E-Mail-Anbieter dieses Verhalten nicht. Wenn Sie beispielsweise eine E-Mail an eine T-Mobile-Telefonnummer (wie „9999999999@tmomail.net“) senden, wird Ihre Kurzmitteilungsdienst or SMS-Nachricht an die Person gesendet, die diese Telefonnummer im T-Mobile-Netz besitzt.
 <br><br>
-Beachten Sie, dass diese E-Mails, auch wenn sie nicht an das SMS-Gateway zugestellt werden, dennoch für Ihre E-Mail-Abrechnung berücksichtigt werden. Um den Versand von E-Mails an nicht unterstützte Gateways zu vermeiden, sehen Sie sich die [Liste der nicht unterstützten Gateway-Domainnamen](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads) an.
+Beachten Sie, dass diese E-Mails, auch wenn sie nicht an das Kurzmitteilungsdienst or SMS-Gateway zugestellt werden, dennoch für Ihre E-Mail-Abrechnung berücksichtigt werden. Um den Versand von E-Mails an nicht unterstützte Gateways zu vermeiden, sehen Sie sich die [Liste der nicht unterstützten Gateway-Domainnamen](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads) an.
 {% endalert %}
 
 {% endif %}
@@ -37,7 +37,7 @@ Beachten Sie, dass diese E-Mails, auch wenn sie nicht an das SMS-Gateway zugeste
 {% if include.alert == 'SDK auth' %}
 
 {% alert important %}
-Für zusätzliche Sicherheit empfehlen wir, unser Feature zur [SDK-Authentifizierung]({{site.baseurl}}/developer_guide/authentication) hinzuzufügen, um einen Identitätswechsel von Nutzer:innen zu verhindern.
+Für zusätzliche Sicherheit empfehlen wir, unser Feature zur [SDK or Software-Development-Kit-Authentifizierung]({{site.baseurl}}/developer_guide/authentication) hinzuzufügen, um einen Identitätswechsel von Nutzer:innen zu verhindern.
 {% endalert %}
 
 {% endif %}
@@ -77,7 +77,7 @@ In S3-Buckets gespeicherte Exportdateien werden automatisch gelöscht, sobald de
 {% if include.alert == 'Shopify customer create' %}
 
 {% alert important %}
-Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Aktualisierung von Kund:innen, die sich in Ihren Datenkonfigurationseinstellungen befinden. Wenn ein Nutzerprofil in Shopify erstellt oder aktualisiert wird, wird ein entsprechendes Nutzerprofil in Braze erstellt oder aktualisiert. <br><br>Diese Aktionen triggern keine angepassten Events in Braze und dienen ausschließlich dazu, [Shopify-Nutzerdaten mit Braze zu synchronisieren]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works). Die synchronisierten Daten umfassen [angepasste Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes), [Standardattribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes) und, sofern in Ihrer Konfiguration aktiviert, [den Status von Abo-Gruppen]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
+Die Shopify-Integration unterstützt Shopify-Webhooks für die Erstellung und Aktualisierung von Kund:innen, die sich in Ihren Datenkonfigurationseinstellungen befinden. Wenn ein Kundenprofil or Nutzerprofil in Shopify erstellt oder aktualisiert wird, wird ein entsprechendes Kundenprofil or Nutzerprofil in Braze erstellt oder aktualisiert. <br><br>Diese Aktionen Trigger or triggern or triggern keine angepassten Events in Braze und dienen ausschließlich dazu, [Shopify-Nutzerdaten mit Braze zu synchronisieren]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#how-the-integration-works). Die synchronisierten Daten umfassen [angepasste Attribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-custom-attributes), [Standardattribute]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#supported-shopify-standard-attributes) und, sofern in Ihrer Konfiguration aktiviert, [den Status von Abo-Gruppen]({{site.baseurl}}/partners/ecommerce/shopify/shopify_overview#syncing-shopify-email-and-sms-marketing-opt-ins).
 {% endalert %}
 
 {% endif %}
@@ -93,7 +93,7 @@ Canvas-Entry-Eigenschaften sind Teil der Canvas-Kontextvariablen. Das bedeutet, 
 {% if include.alert == 'Braze Agents' %}
 
 {% alert important %}
-Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren Customer-Success-Manager.
+Dieser Partner wird auf Ihrer Seite **Technologie-Partner** nur angezeigt, wenn Sie [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) aktiviert haben. Für Unterstützung beim Einstieg wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 {% endif %}
@@ -138,7 +138,7 @@ Meta hat ein bekanntes Problem, das dazu führen kann, dass einige MP4-Videos au
 {% if include.alert == 'Shopify cart token alias' %}
 
 {% alert important %}
-Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, damit Braze Webhooks dem richtigen Nutzerprofil zuordnen kann:<br><br>
+Für diese Integration muss der Nutzer-Alias das folgende Format verwenden, damit Braze Webhooks dem richtigen Kundenprofil or Nutzerprofil zuordnen kann:<br><br>
 - `alias_label`: `shopify_cart_${cartToken}`
 - `alias_name`: `shopify_cart_token`
 {% endalert %}

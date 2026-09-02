@@ -1,9 +1,9 @@
 ## Voraussetzungen
 
-Bevor Sie Content-Cards verwenden können, müssen Sie das [Braze Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) in Ihre App integrieren. Dann müssen Sie die Schritte zur Einrichtung Ihrer tvOS App ausführen.
+Bevor Sie Content-Cards verwenden können, müssen Sie das [Braze Swift SDK or Software-Development-Kit]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) in Ihre App integrieren. Dann müssen Sie die Schritte zur Einrichtung Ihrer tvOS App ausführen.
 
 {% alert important %}
-Denken Sie daran, dass Sie Ihre eigene angepasste UI implementieren müssen, da Content-Cards über Headless UI mit dem Swift SDK unterstützt werden, das keine Standard-UI oder Standard-Ansichten für tvOS enthält.
+Denken Sie daran, dass Sie Ihre eigene angepasste UI implementieren müssen, da Content-Cards über Headless UI mit dem Swift SDK or Software-Development-Kit unterstützt werden, das keine Standard-UI oder Standard-Ansichten für tvOS enthält.
 {% endalert %}
 
 ## Einrichten Ihrer tvOS-App
@@ -26,8 +26,8 @@ Wählen Sie in Ihren App-Einstellungen Ihre neue tvOS-App aus und notieren Sie s
 
 ### Schritt 3: BrazeKit integrieren
 
-Verwenden Sie den API-Schlüssel Ihrer App, um das [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) in Ihr tvOS-Projekt in Xcode zu integrieren. Sie müssen nur BrazeKit über das Braze Swift SDK integrieren.
+Verwenden Sie den API-Schlüssel Ihrer App, um das [Braze Swift SDK or Software-Development-Kit](https://github.com/braze-inc/braze-swift-sdk) in Ihr tvOS-Projekt in Xcode zu integrieren. Sie müssen nur BrazeKit über das Braze Swift SDK or Software-Development-Kit integrieren.
 
 ### Schritt 4: Angepasste UI erstellen
 
-Da Braze unter tvOS keine Standard-UI für Content-Cards bietet, müssen Sie diese selbst anpassen. Eine ausführliche Anleitung finden Sie in unserem Schritt-für-Schritt-Tutorial: [Anpassen von Content-Cards für tvOS](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/content-cards-customization/). Ein Beispielprojekt finden Sie unter [Braze Swift SDK Beispiele](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#contentcards-custom-ui).
+Da Braze unter tvOS keine Standard-UI für Content-Cards bietet, müssen Sie diese selbst anpassen. Eine ausführliche Anleitung finden Sie in unserem Schritt-für-Schritt-Tutorial: [Anpassen von Content-Cards für tvOS](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/content-cards-customization/). Ein Beispielprojekt finden Sie unter [Braze Swift SDK or Software-Development-Kit Beispiele](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#contentcards-custom-ui).

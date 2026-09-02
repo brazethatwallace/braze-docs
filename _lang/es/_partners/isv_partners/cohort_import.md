@@ -12,7 +12,7 @@ hidden: true
 
 Braze aloja nuestra aplicación en varios clústeres repartidos por todo el mundo. La URL de los puntos de conexión de importación depende del clúster en el que esté alojada la instancia de la empresa del cliente:
 
-| INSTANCIA | PUNTO DE CONEXIÓN REST |
+| INSTANCIA | PUNTO DE CONEXIÓN REST or transferencia de estado representacional |
 | ----- | ------------------------------- |
 | US-01 | `https://rest.iad-01.braze.com` |
 | US-02 | `https://rest.iad-02.braze.com` |

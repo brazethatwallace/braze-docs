@@ -1,12 +1,12 @@
 # Actualización a Android 13 {#upgrading-to-android-13}
 
-> En esta guía se describen los cambios relevantes introducidos en Android 13 (2022) y los pasos de actualización necesarios para tu integración del SDK para Android de Braze.
+> En esta guía se describen los cambios relevantes introducidos en Android 13 (2022) y los pasos de actualización necesarios para tu integración del SDK or kit de desarrollo de software para Android de Braze.
 
 Consulta la [documentación para desarrolladores de Android](https://developer.android.com/about/versions/13) 13 para obtener una guía completa de migración.
 
-## SDK para Android 13 de Braze {#android-13-braze-sdk}
+## SDK or kit de desarrollo de software para Android 13 de Braze {#android-13-braze-sdk}
 
-Para prepararte para Android 13, actualiza tu SDK de Braze a la [última versión (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Si lo haces, tendrás acceso a nuestra nueva [característica push primer "sin código"]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
+Para prepararte para Android 13, actualiza tu SDK or kit de desarrollo de software de Braze a la [última versión (v21.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300). Si lo haces, tendrás acceso a nuestra nueva [característica push primer "sin código"]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Cambios en Android 13 {#changes-in-android-13}
 
@@ -35,7 +35,7 @@ Para más detalles, consulta la documentación para desarrolladores de Android s
 Si tu aplicación aún no está dirigida a Android 13, cuando un nuevo usuario con Android 13 instale tu aplicación, verá automáticamente una solicitud de permiso push cuando tu aplicación cree su primer canal de notificación (a través de `notificationManager.createNotificationChannel`). Los usuarios que ya tienen tu aplicación instalada y luego actualizan a Android 13 nunca verán una solicitud y se les otorgará automáticamente el permiso push.
 
 {% alert note %}
-El SDK de Braze v23.0.0 crea automáticamente un canal de notificación predeterminado si no existe uno cuando se recibe una notificación push. Si no tienes tu aplicación dirigida a Android 13, esto provocará que se muestre la solicitud de permiso push, que es necesaria para mostrar la notificación.
+El SDK or kit de desarrollo de software de Braze v23.0.0 crea automáticamente un canal de notificación predeterminado si no existe uno cuando se recibe una notificación push. Si no tienes tu aplicación dirigida a Android 13, esto provocará que se muestre la solicitud de permiso push, que es necesaria para mostrar la notificación.
 {% endalert %}
 
 ## Preparación para Android 13 {#next-steps}
@@ -44,4 +44,4 @@ Se recomienda encarecidamente que tu aplicación se dirija a Android 13 para con
 
 Esto te permitirá optimizar tus [tasas de adhesión voluntaria push](https://www.braze.com/resources/articles/android-13-developer-preview-push-opt-ins-arrive-for-android-apps) al solicitar permiso a los usuarios en momentos más apropiados y mejorará la experiencia del usuario en cuanto a cómo y cuándo tu aplicación solicita permiso push.
 
-Para empezar a utilizar nuestra nueva [característica push primer "sin código"]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), actualiza tu SDK de Android a la [última versión (v23.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300).
+Para empezar a utilizar nuestra nueva [característica push primer "sin código"]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages), actualiza tu SDK or kit de desarrollo de software de Android a la [última versión (v23.0.0+)](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2300).

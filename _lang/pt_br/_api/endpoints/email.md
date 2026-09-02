@@ -9,7 +9,7 @@ description: "Essa landing page explica e lista os endpoints de listas e endere�
 page_type: landing
 
 guide_top_header: "Endpoints de listas e endereços de e-mail"
-guide_top_text: "Usando esse conjunto de endpoints, você pode atualizar o status da inscrição de e-mail de um usuário e usar a API da Braze para configurar a sincronização bidirecional entre a Braze e outros sistemas de e-mail ou seu próprio banco de dados."
+guide_top_text: "Usando esse conjunto de endpoints, você pode atualizar o status da inscrição de e-mail de um usuário e usar a API or interface de programação do aplicativo (API) da Braze para configurar a sincronização bidirecional entre a Braze e outros sistemas de e-mail ou seu próprio banco de dados."
 
 guide_featured_title: ""
 guide_featured_list:

@@ -26,7 +26,7 @@ La siguiente guía ofrece una integración personalizada opcional para desarroll
 
 ### Subclases de ABKInAppMessage {#abkinappmessage-subclasses}
 
-El siguiente fragmento de código es un método delegado de interfaz de usuario del SDK de Braze que determina con qué vista de subclase quieres rellenar tu mensaje dentro de la aplicación. En esta guía cubrimos una implementación básica y mostramos cómo las subclases de pantalla completa, deslizamiento hacia arriba y modal pueden implementarse de forma cautivadora. Ten en cuenta que si quieres configurar tu controlador de vista personalizado, debes configurar todas las demás subclases de mensajes dentro de la aplicación. Una vez que tengas una sólida comprensión de los conceptos que hay detrás de las subclases, consulta nuestros [casos de uso](#sample-use-cases) para empezar a implementar subclases de mensajería dentro de la aplicación.
+El siguiente fragmento de código es un método delegado de interfaz de usuario del SDK or kit de desarrollo de software de Braze que determina con qué vista de subclase quieres rellenar tu mensaje dentro de la aplicación. En esta guía cubrimos una implementación básica y mostramos cómo las subclases de pantalla completa, deslizamiento hacia arriba y modal pueden implementarse de forma cautivadora. Ten en cuenta que si quieres configurar tu controlador de vista personalizado, debes configurar todas las demás subclases de mensajes dentro de la aplicación. Una vez que tengas una sólida comprensión de los conceptos que hay detrás de las subclases, consulta nuestros [casos de uso](#sample-use-cases) para empezar a implementar subclases de mensajería dentro de la aplicación.
 
 {% tabs %}
 {% tab Swift %}

@@ -110,7 +110,7 @@ Para crear una recomendación, debes indicarle a Braze qué campo de tu evento d
 
 Selecciona este campo para el **Nombre de propiedad**.
 
-El campo **Nombre de propiedad** se completa previamente con una lista de campos enviados a Braze a través del SDK. Si se proporcionan datos suficientes, estas propiedades también se clasifican en orden de probabilidad de ser la propiedad correcta. Selecciona la que corresponda al campo `id` del catálogo.
+El campo **Nombre de propiedad** se completa previamente con una lista de campos enviados a Braze a través del SDK or kit de desarrollo de software. Si se proporcionan datos suficientes, estas propiedades también se clasifican en orden de probabilidad de ser la propiedad correcta. Selecciona la que corresponda al campo `id` del catálogo.
 
 ![El nombre de propiedad "purchase_item" seleccionado que corresponde a los ID de artículos en el catálogo.]({% image_buster /assets/img/item_recs_4.png %})
 

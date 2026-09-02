@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [Seen](https://seen.io) ermöglicht es Marken, personalisierte Video-Erlebnisse in großem Umfang zu erstellen und zuzustellen. Mit Seen können Sie ein Video rund um Ihre Daten entwerfen, es in großem Umfang in der Cloud personalisieren und dann dort verteilen, wo es am besten funktioniert.
 >
-> Diese Integration sendet Nutzerdaten von Braze an Seen, generiert personalisierte Videos und gibt Assets – wie eine eindeutige Player-URL und ein Vorschaubild – zur Verwendung in Campaigns und Canvases an Braze zurück.
+> Diese Integration sendet Nutzerdaten von Braze an Seen, generiert personalisierte Videos und gibt Assets – wie eine eindeutige Player-URL und ein Vorschaubild – zur Verwendung in Campaigns und Canvase an Braze zurück.
 
 
 ## Anwendungsfälle {#use-cases}
@@ -21,7 +21,7 @@ Seen unterstützt die automatisierte, personalisierte Zustellung von Videos übe
 - **Onboarding**: Begrüßen Sie neue Nutzer:innen mit Videos, die auf ihr Profil oder ihren Anmeldekontext personalisiert sind
 - **Conversion und Aktivierung**: Verstärken Sie wichtige Aktionen mit kontextuellem Video-Messaging
 - **Loyalität und Upselling**: Heben Sie personalisierte Angebote oder Nutzungs-Meilensteine hervor
-- **Rückgewinnung und Churn-Prävention**: Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Video-Inhalten
+- **Rückgewinnung und Abwanderung or Abwanderung, Churn or Abwanderung, churnen-Prävention**: Reaktivieren Sie inaktive Nutzer:innen mit maßgeschneiderten Video-Inhalten
 
 
 ## Voraussetzungen {#prerequisites}
@@ -30,7 +30,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über die Zugänge und Daten in
 
 | Voraussetzung | Beschreibung |
 |--------------|-------------|
-| Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform mit einem veröffentlichten Projekt oder eine aktive Seen-Kampagne. Außerdem benötigen Sie Zugriff auf Ihr Projekt, um den Projekt-Endpunkt abzurufen und ein API-Token zu generieren. |
+| Zugang zur Seen-Plattform | Sie benötigen ein Abo der Seen-Plattform mit einem veröffentlichten Projekt oder eine aktive Seen-Kampagne. Außerdem benötigen Sie Zugriff auf Ihr Projekt, um den Projekt-Endpunkt abzurufen und ein API-Token / Textbaustein zu generieren. |
 | Braze-Datentransformation-Webhook-URL | Verwenden Sie die Braze-Datentransformation, um die von Seen eingehenden Daten so umzuformatieren, dass sie vom Braze-[`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) akzeptiert werden können. |
 | Braze-Nutzerdaten | Für die Video-Personalisierung sind Daten auf Nutzer:innen-Ebene erforderlich. Stellen Sie sicher, dass die relevanten Attribute in Braze verfügbar sind, und übergeben Sie **`braze_id`** als eindeutigen Bezeichner. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -100,7 +100,7 @@ Konfigurieren Sie den Webhook wie folgt:
   - `Authorization`: Bearer `{Seen_API_TOKEN}`
   - `Content-Type`: `application/json`
 
-  Generieren Sie ein [API-Token](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen Customer-Success-Manager, wenn Sie Unterstützung benötigen.
+  Generieren Sie ein [API-Token / Textbaustein](https://docs.seen.io/authorization) auf dem Run-Tab Ihres Seen-Plattform-Projekts. Kontaktieren Sie Ihren Seen CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie Unterstützung benötigen.
 
 - Testen Sie den Webhook mit einer/einem Nutzer:in auf dem **Test**-Tab.
 - Schließen Sie nach einem erfolgreichen Test die Webhook-Einrichtung ab.
@@ -108,7 +108,7 @@ Konfigurieren Sie den Webhook wie folgt:
 
 ### 2. Schritt: Konfigurieren Sie ein Projekt in der Seen-Plattform {#step-2-configure-a-project-in-the-seen-platform}
 
-Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu registrieren. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
+Verwenden Sie in Ihrem Seen-Projekt den [Run](https://docs.seen.io/run)-Tab, um Ihr Video zu veröffentlichen und den ausgehenden Webhook zu Registrierung or registrieren. Eine konzeptionelle Übersicht über den Run-Tab finden Sie unter [Wie Seen-Projekte funktionieren](#how-seen-projects-work).
 
 1. Erstellen Sie in der Seen-Plattform ein Projekt, erstellen Sie Ihr Video und wählen Sie dann **Publish**. Videos werden aus eingehenden Daten generiert, sobald das Projekt veröffentlicht ist.
 2. Wählen Sie auf dem Run-Tab **Add a webhook**.
@@ -129,7 +129,7 @@ Wenn Sie zusätzliche Attribute benötigen, fügen Sie diese zur Antwort hinzu u
 
 ### 3. Schritt: Erstellen Sie eine Datentransformation, um Daten von Seen zu empfangen {#step-3-create-a-data-transformation-to-receive-data-from-seen}
 
-Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Nutzerprofil zu speichern.
+Verwenden Sie Braze-Datentransformationen, um die Seen-Antwort zu verarbeiten und Video-Assets im Kundenprofil or Nutzerprofil zu speichern.
 
 1. Erstellen Sie die folgenden [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in Braze:
    - `player_url`

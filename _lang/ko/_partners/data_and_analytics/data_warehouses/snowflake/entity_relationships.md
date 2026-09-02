@@ -2115,7 +2115,7 @@ erDiagram
 
 {% endsdktab %}
 
-{% sdktab SMS %}
+{% sdktab 단문 메시지 서비스 %}
 ## 관계 다이어그램
 
 ```mermaid

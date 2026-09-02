@@ -278,15 +278,15 @@ Lorsque vous utilisez une IU personnalisée, les impressions, les clics et les r
 L'argument passé à `logContentCardClick()` doit être un objet `Card` Braze original. Si vous transformez ou reconstruisez les données de la carte (par exemple, en sérialisant et désérialisant), les clics ne seront pas enregistrés et vous verrez l'erreur : « card must be a Card object. »
 {% endalert %}
 
-## Utilisation de Google Tag Manager {#using-google-tag-manager}
+## Utilisation de Google Tag gestionnaire {#using-google-tag-manager}
 
-Google Tag Manager fonctionne en injectant le [CDN de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (une version de notre SDK Web) directement dans le code de votre site web, ce qui signifie que toutes les méthodes du SDK sont disponibles comme si vous aviez intégré le SDK sans Google Tag Manager, sauf lors de l'implémentation des Content Cards.
+Google Tag gestionnaire fonctionne en injectant le [CDN de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn) (une version de notre SDK Web) directement dans le code de votre site web, ce qui signifie que toutes les méthodes du SDK sont disponibles comme si vous aviez intégré le SDK sans Google Tag gestionnaire, sauf lors de l'implémentation des Content Cards.
 
 ### Mise en place des Content Cards {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab Google Tag Manager %}
-Pour une intégration standard du flux de Content Cards, vous pouvez utiliser une balise **Custom HTML** dans Google Tag Manager. Ajoutez ce qui suit à votre balise Custom HTML, ce qui activera le flux standard de Content Cards :
+{% tab Google Tag gestionnaire %}
+Pour une intégration standard du flux de Content Cards, vous pouvez utiliser une balise **Custom HTML** dans Google Tag gestionnaire. Ajoutez ce qui suit à votre balise Custom HTML, ce qui activera le flux standard de Content Cards :
 
 ```html
 <script>
@@ -322,11 +322,11 @@ body .ab-feed {
 
 ### Mise à jour des modèles {#upgrading}
 
-Pour obtenir la dernière version du SDK Web de Braze, effectuez les trois étapes suivantes dans votre tableau de bord Google Tag Manager :
+Pour obtenir la dernière version du SDK Web de Braze, effectuez les trois étapes suivantes dans votre tableau de bord Google Tag gestionnaire :
 
 1. **Mise à jour du modèle de balise**<br>Accédez à la page **Templates** de votre espace de travail. Vous devriez y voir une icône indiquant qu'une mise à jour est disponible.<br><br>![Page des modèles indiquant qu'une mise à jour est disponible]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>Cliquez sur cette icône et, après avoir examiné la modification, cliquez sur **Accept Update**.<br><br>![Un écran comparant l'ancien et le nouveau modèle de balise avec un bouton « Accept Update »]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **Mise à jour du numéro de version**<br>Une fois votre modèle de balise mis à jour, modifiez la balise d'initialisation Braze et mettez à jour la version du SDK avec la version `major.minor` la plus récente. Par exemple, si la dernière version est `4.1.2`, saisissez `4.1`. Vous pouvez consulter la liste des versions du SDK dans notre [journal des modifications](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md).<br><br>![Modèle d'initialisation Braze avec un champ de saisie permettant de modifier la version du SDK]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
-3. **AQ et publication**<br>Vérifiez que la nouvelle version du SDK fonctionne à l'aide de l'[outil de débogage](https://support.google.com/tagmanager/answer/6107056?hl=en) de Google Tag Manager avant de publier une mise à jour de votre conteneur de balises.
+3. **AQ et publication**<br>Vérifiez que la nouvelle version du SDK fonctionne à l'aide de l'[outil de débogage](https://support.google.com/tagmanager/answer/6107056?hl=en) de Google Tag gestionnaire avant de publier une mise à jour de votre conteneur de balises.
 
 ### Résolution des problèmes {#troubleshooting}
 
@@ -338,7 +338,7 @@ Chaque modèle de balise Braze dispose d'une case à cocher facultative **GTM Ta
 
 #### Passer en mode débogage {#enter-debug-mode}
 
-Un autre moyen de déboguer votre intégration Google Tag Manager est d'utiliser la fonctionnalité de [prévisualisation](https://support.google.com/tagmanager/answer/6107056) de Google.
+Un autre moyen de déboguer votre intégration Google Tag gestionnaire est d'utiliser la fonctionnalité de [prévisualisation](https://support.google.com/tagmanager/answer/6107056) de Google.
 
 Cela permet d'identifier les valeurs envoyées par la couche de données de votre page web à chaque balise Braze déclenchée et d'expliquer quelles balises ont été déclenchées ou non.
 
@@ -356,9 +356,9 @@ Cela garantit que le SDK est entièrement initialisé avant que les balises d'ac
 
 #### Activer la journalisation détaillée {#enable-verbose-logging}
 
-Pour capturer des journaux détaillés à des fins de résolution des problèmes, vous pouvez activer la journalisation détaillée sur votre intégration Google Tag Manager. Ces journaux apparaîtront dans l'onglet **Console** des [outils de développement](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) de votre navigateur.
+Pour capturer des journaux détaillés à des fins de résolution des problèmes, vous pouvez activer la journalisation détaillée sur votre intégration Google Tag gestionnaire. Ces journaux apparaîtront dans l'onglet **Console** des [outils de développement](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) de votre navigateur.
 
-Dans votre intégration Google Tag Manager, accédez à votre balise d'initialisation Braze et sélectionnez **Enable Web SDK Logging**.
+Dans votre intégration Google Tag gestionnaire, accédez à votre balise d'initialisation Braze et sélectionnez **Enable Web SDK Logging**.
 
 ![La page de résumé de la balise d'initialisation Braze avec l'option Enable Web SDK Logging activée.]({% image_buster /assets/img/web-gtm/gtm_verbose_logging.png %})
 

@@ -59,7 +59,7 @@ Pour placer un lien vers le centre de préférences dans vos e-mails, utilisez l
 ```
 {%endraw%}
 
-Vous pouvez également utiliser une combinaison de HTML incluant du Liquid. Par exemple, vous pouvez coller ce qui suit comme URL dans l'éditeur HTML ou l'éditeur par glisser-déposer. Cela affiche la mise en page de base du centre de préférences qui répertorie automatiquement tous les groupes d'abonnement e-mail. Si vous utilisez l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing), ajoutez un point d'interrogation (`?`) après l'étiquette Liquid afin que Braze puisse ajouter les paramètres de suivi.
+Vous pouvez également utiliser une combinaison de HTML incluant du Liquid. Par exemple, vous pouvez coller ce qui suit comme URL dans l'éditeur HTML ou l'éditeur par glisser-déposer. Cela affiche la mise en page de base du centre de préférences qui répertorie automatiquement tous les groupes d'abonnement e-mail. Si vous utilisez l'[aliasage de lien or aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing), ajoutez un point d'interrogation (`?`) après l'étiquette Liquid afin que Braze puisse ajouter les paramètres de suivi.
 
 {% raw %}
 ```html

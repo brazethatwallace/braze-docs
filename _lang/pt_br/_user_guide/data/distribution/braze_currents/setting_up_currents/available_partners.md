@@ -12,7 +12,7 @@ tool: Currents
 > Esta página lista os parceiros de dados com os quais você pode se integrar ao Braze Currents e descreve seus casos de uso.
 
 {% alert note %}
-As convenções de nomenclatura para eventos que fluem de um parceiro a partir da Braze podem não corresponder às de outros parceiros. Por exemplo, o evento de abertura de e-mail do Currents no Segment é `Email Opened`, enquanto no Mixpanel é `Email Open`.
+As convenções de nomenclatura para eventos que fluem de um parceiro a partir da Braze podem não corresponder às de outros parceiros. Por exemplo, o evento de abertura de e-mail do Currents no Segment or segmento é `Email Opened`, enquanto no Mixpanel é `Email Open`.
 {% endalert %}
 
 ## Armazenamento em data warehouse {#data-warehouse-storage}

@@ -23,7 +23,7 @@ Braze와 Zapier 파트너십은 Braze API 및 Braze [웹훅]({{site.baseurl}}/us
 
 ## 통합 {#integration}
 
-다음 Zapier 예제에서는 POST 웹훅을 사용하여 WordPress에서 Braze로 정보를 전송합니다. 이 정보를 사용하여 Braze Canvas를 생성할 수 있습니다.
+다음 Zapier 예제에서는 POST 웹훅을 사용하여 WordPress에서 Braze로 정보를 전송합니다. 이 정보를 사용하여 BRAZE 캔버스를 생성할 수 있습니다.
 
 ### 1단계: Zapier 트리거 생성 {#step-1-create-a-zapier-trigger}
 

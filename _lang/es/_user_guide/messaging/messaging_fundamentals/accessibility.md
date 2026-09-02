@@ -443,7 +443,7 @@ No rellenes el texto alternativo con términos SEO o llamadas a la acción que n
   <tbody>
     <tr>
       <td>"Computadora portátil mostrando el gráfico de análisis del panel de Braze"</td>
-      <td>"¡Impulsa las conversiones y dispara el ROI con la mejor plataforma del mundo!" (Añade lenguaje de marketing innecesario)</td>
+      <td>"¡Impulsa las conversiones y dispara el ROI or retorno de la inversión con la mejor plataforma del mundo!" (Añade lenguaje de marketing innecesario)</td>
     </tr>
     <tr>
       <td>"Conjunto de patio trasero con cuatro sillas y una mesa de vidrio"</td>

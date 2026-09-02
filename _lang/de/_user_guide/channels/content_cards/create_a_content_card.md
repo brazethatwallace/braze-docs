@@ -2,7 +2,7 @@
 nav_title: Content-Card erstellen
 article_title: Content-Card erstellen
 page_order: 1
-description: "Dieser Referenzartikel beschreibt, wie Sie Content Cards mit Braze-Kampagnen und Canvases erstellen, verfassen, konfigurieren und versenden."
+description: "Dieser Referenzartikel beschreibt, wie Sie Content Cards mit Braze-Kampagnen und Canvase erstellen, verfassen, konfigurieren und versenden."
 tool:
   - Canvas
   - Campaigns
@@ -14,11 +14,11 @@ search_rank: 3.9
 
 # Content-Card erstellen {#create-a-content-card}
 
-> Dieser Artikel beschreibt, wie Sie eine Content-Card in Braze erstellen, wenn Sie Kampagnen und Canvases aufbauen. Hier führen wir Sie durch die Auswahl eines Nachrichtentyps, das Verfassen Ihrer Karte und die Planung Ihrer Nachrichtenzustellung.
+> Dieser Artikel beschreibt, wie Sie eine Content-Card in Braze erstellen, wenn Sie Kampagnen und Canvase aufbauen. Hier führen wir Sie durch die Auswahl eines Nachrichtentyps, das Verfassen Ihrer Karte und die Planung Ihrer Nachrichtenzustellung.
 
 ## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
-Verwenden Sie Campaigns für einfache, einzelne Nachrichten (z. B. um Nutzer:innen mit einer einzigen Nachricht über ein Produkt zu informieren). Verwenden Sie Canvases für mehrstufige Nutzer:innen-Journeys (z. B. um maßgeschneiderte Produktvorschläge basierend auf dem Nutzer:innenverhalten im Laufe der Zeit zu senden).
+Verwenden Sie Campaigns für einfache, einzelne Nachrichten (z. B. um Nutzer:innen mit einer einzigen Nachricht über ein Produkt zu informieren). Verwenden Sie Canvase für mehrstufige Nutzer:innen-Journeys (z. B. um maßgeschneiderte Produktvorschläge basierend auf dem Nutzer:innenverhalten im Laufe der Zeit zu senden).
 
 {% tabs %}
 {% tab Campaign %}
@@ -100,7 +100,7 @@ Braze zeigt eine gepinnte Karte am Anfang des Feeds einer Nutzer:in an, und die 
 
 #### Klickverhalten {#on-click-behavior}
 
-Wenn Ihre Kund:innen auf einen angezeigten Link in der Karte klicken, kann der Link sie entweder tiefer in Ihre App oder zu einer anderen Website führen. Wenn Sie ein Klickverhalten für Ihre Content Card festlegen, denken Sie daran, Ihren **Linktext** entsprechend zu aktualisieren.
+Wenn Ihre Kund:innen auf einen angezeigten Link in der Karte klicken, kann der Link sie entweder tiefer in Ihre App oder zu einer anderen Website führen. Wenn Sie ein Klickverhalten für Ihre Content Card festlegen, denken Sie daran, Ihren **Linktext** entsprechend zu Update or aktualisieren or aktualisieren.
 
 Die folgenden Aktionen sind für Content-Card-Links verfügbar:
 
@@ -112,7 +112,7 @@ Die folgenden Aktionen sind für Content-Card-Links verfügbar:
 | Angepasstes Attribut protokollieren | Wählen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), das für die aktuelle Nutzer:in gesetzt werden soll. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
-Die Optionen **Angepasstes Event protokollieren** und **Angepasstes Attribut protokollieren** erfordern die folgende SDK-Versionskompatibilität:
+Die Optionen **Angepasstes Event protokollieren** und **Angepasstes Attribut protokollieren** erfordern die folgende SDK or Software-Development-Kit-Versionskompatibilität:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
@@ -122,16 +122,16 @@ Sie können [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design
 
 Um Schlüssel-Wert-Paare zu Ihrer Nachricht hinzuzufügen, gehen Sie zum Tab **Einstellungen** und wählen Sie **Neues Paar hinzufügen** aus.
 
-## Schritt 5: Erstellen Sie den Rest Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 5: Erstellen Sie den Representational State Transfer Ihrer Campaign oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
-Erstellen Sie den Rest Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie unsere Tools optimal für die Erstellung von Content Cards nutzen können.
+Erstellen Sie den Representational State Transfer Ihrer Campaign. In den folgenden Abschnitten erfahren Sie, wie Sie unsere Tools optimal für die Erstellung von Content Cards nutzen können.
 
-### Wählen Sie einen Zustellungszeitplan oder Trigger {#choose-a-delivery-schedule-or-trigger}
+### Wählen Sie einen Zustellungszeitplan oder Trigger or triggern {#choose-a-delivery-schedule-or-trigger}
 
-Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
+Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger or triggern zugestellt werden. Weitere Informationen finden Sie unter [Ihre Campaign planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
 Sie können auch die Dauer der Campaign und die [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen sowie das Ablaufdatum der Content Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – maximal 30 Tage. Alle Varianten müssen dasselbe Ablaufdatum verwenden (Dauer oder bestimmter Zeitpunkt).
 
@@ -144,7 +144,7 @@ Wenn beispielsweise eine aktionsbasierte Content Card heute um 14 Uhr gesendet w
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
-Bei aktionsbasierter Zustellung gibt es eine erwartete kurze Verzögerung, bevor die Content Card erscheint. Details dazu, warum dies geschieht und wie Sie die Verzögerung minimieren können, finden Sie unter [Warum erscheinen Content Cards nicht sofort nach einem Trigger-Event?]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event).
+Bei aktionsbasierter Zustellung gibt es eine erwartete kurze Verzögerung, bevor die Content Card erscheint. Details dazu, warum dies geschieht und wie Sie die Verzögerung minimieren können, finden Sie unter [Warum erscheinen Content Cards nicht sofort nach einem Trigger or triggern-Event?]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event).
 
 #### Geplante Zustellung {#scheduled-delivery}
 
@@ -178,7 +178,7 @@ Content Cards erfordern im Produktivbetrieb zwar keine Push-Benachrichtigungen, 
 {% endalert %}
 
 {% alert warning %}
-Nachdem eine Content Card gestartet wurde, kann sie nicht mehr bearbeitet werden. Sie kann lediglich daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Lesen Sie [Gesendete Karten aktualisieren]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards), um zu erfahren, wie Sie mit diesem Szenario umgehen können.
+Nachdem eine Content Card gestartet wurde, kann sie nicht mehr bearbeitet werden. Sie kann lediglich daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Lesen Sie [Gesendete Karten Update or aktualisieren or aktualisieren]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards), um zu erfahren, wie Sie mit diesem Szenario umgehen können.
 {% endalert %}
 
 Sehen Sie sich als Nächstes [Content-Card-Reporting]({{site.baseurl}}/user_guide/channels/content_cards/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Content-Card-Kampagnen zugreifen können.
@@ -344,7 +344,7 @@ Wenn eine Karte den Anschein erwecken soll, immer verfügbar zu sein, können Si
 
 ### Synchronisierung und Refresh von Content Cards {#content-card-sync-and-refresh}
 
-Content Cards werden nach einem Zeitplan und beim Refresh des Feeds durch Ihre App synchronisiert. Das Synchronisierungsverhalten unterscheidet sich zwischen vollständiger und teilweiser Synchronisierung, und Ihre SDK-Integration beeinflusst, wann Karten beim Sitzungsstart aktualisiert werden. Für Implementierungsdetails siehe [Content-Card-Feed anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) und [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
+Content Cards werden nach einem Zeitplan und beim Refresh des Feeds durch Ihre App synchronisiert. Das Synchronisierungsverhalten unterscheidet sich zwischen vollständiger und teilweiser Synchronisierung, und Ihre SDK or Software-Development-Kit-Integration beeinflusst, wann Karten beim Sitzungsstart aktualisiert werden. Für Implementierungsdetails siehe [Content-Card-Feed anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) und [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Auswirkungen des Stoppens von Content-Card-Campaigns {#impact-of-stopping-content-cards-campaigns}
 
@@ -352,23 +352,23 @@ Wenn Sie eine Campaign stoppen und **Remove card after the next sync** auswähle
 
 ## Fehlerbehebung {#troubleshooting}
 
-### Warum erscheinen Content Cards nicht sofort nach einem Trigger-Event? {#why-dont-content-cards-appear-immediately-after-a-trigger-event}
+### Warum erscheinen Content Cards nicht sofort nach einem Trigger or triggern-Event? {#why-dont-content-cards-appear-immediately-after-a-trigger-event}
 
-Bei Campaigns mit aktionsbasierter Zustellung (z. B. Sitzungsstart) gibt es eine erwartete kurze Verzögerung zwischen dem Trigger-Event und der Verfügbarkeit der Karte. Diese Verzögerung entsteht, weil:
+Bei Campaigns mit aktionsbasierter Zustellung (z. B. Sitzungsstart) gibt es eine erwartete kurze Verzögerung zwischen dem Trigger or triggern-Event und der Verfügbarkeit der Karte. Diese Verzögerung entsteht, weil:
 
-- Das Trigger-Event an die Braze-Server gesendet wird
+- Das Trigger or triggern-Event an die Braze-Server gesendet wird
 - Die Campaign ausgelöst und die Zielgruppeneignung der Nutzer:innen erfasst wird
 - Die Content Card in der Datenbank für diese Nutzer:innen erstellt wird
-- Das SDK synchronisiert und alle verfügbaren Karten auf das Gerät lädt
+- Das SDK or Software-Development-Kit synchronisiert und alle verfügbaren Karten auf das Gerät lädt
 
-Wenn die SDK-Synchronisierung erfolgt, bevor die Zielgruppeneignung der Nutzer:innen erfasst wurde, erhalten die Nutzer:innen die Karte nicht.
+Wenn die SDK or Software-Development-Kit-Synchronisierung erfolgt, bevor die Zielgruppeneignung der Nutzer:innen erfasst wurde, erhalten die Nutzer:innen die Karte nicht.
 
 Für neue Nutzer:innen in ihrer ersten Sitzung ist diese Verzögerung unvermeidbar. Für bestehende Nutzer:innen, die sofortige Verfügbarkeit benötigen, sollten Sie stattdessen eine geplante Zustellung in Betracht ziehen.
 
 Wenn Sie die Verzögerung sowohl für neue als auch bestehende Nutzer:innen minimieren möchten, können Sie zwei Campaigns erstellen:
 
 - **Bestehende Nutzer:innen mit einer Sitzungsanzahl größer als 0:** Verwenden Sie eine Campaign mit geplanter Zustellung. Karten werden vorab erstellt und sind sofort verfügbar.
-- **Neue Nutzer:innen mit einer Sitzungsanzahl gleich 0:** Verwenden Sie eine aktionsgetriggerte Campaign. Karten werden nach dem ersten Sitzungs-Trigger erstellt.
+- **Neue Nutzer:innen mit einer Sitzungsanzahl gleich 0:** Verwenden Sie eine aktionsgetriggerte Campaign. Karten werden nach dem ersten Sitzungs-Trigger or triggern erstellt.
 
 Dieser Ansatz stellt sicher, dass bestehende Nutzer:innen Karten sofort sehen, während neue Nutzer:innen nach einer kurzen Verzögerung in ihrer ersten Sitzung ebenfalls erreicht werden. Weitere Strategien zur Verbesserung der Latenz finden Sie unter [Niedrige Latenz für Content Cards verbessern]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
 
@@ -385,4 +385,4 @@ Weitere Informationen zu Content-Card-Metriken finden Sie unter [Content-Card-Be
 
 ### Fehler „All expiration values for a campaign must match“ {#all-expiration-values-for-a-campaign-must-match-error}
 
-Dieser Fehler tritt auf, wenn eine Content-Card-Campaign mit mehreren Varianten unterschiedliche Ablaufeinstellungen für die einzelnen Varianten verwendet. Legen Sie für jede Variante denselben Ablauf (Dauer oder bestimmten Zeitpunkt) fest, oder reduzieren Sie die Campaign auf eine einzelne Variante, und speichern Sie erneut. Informationen zum Festlegen des Ablaufs beim Erstellen einer Campaign finden Sie unter [Zustellungszeitplan oder Trigger auswählen](#choose-a-delivery-schedule-or-trigger).
+Dieser Fehler tritt auf, wenn eine Content-Card-Campaign mit mehreren Varianten unterschiedliche Ablaufeinstellungen für die einzelnen Varianten verwendet. Legen Sie für jede Variante denselben Ablauf (Dauer oder bestimmten Zeitpunkt) fest, oder reduzieren Sie die Campaign auf eine einzelne Variante, und speichern Sie erneut. Informationen zum Festlegen des Ablaufs beim Erstellen einer Campaign finden Sie unter [Zustellungszeitplan oder Trigger or triggern auswählen](#choose-a-delivery-schedule-or-trigger).

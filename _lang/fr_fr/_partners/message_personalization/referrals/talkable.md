@@ -58,7 +58,7 @@ Avant de commencer, vous avez besoin des éléments suivants :
 
 1. Dans l'application Braze de Talkable, ouvrez l'action **Email opt-in**.
 2. (Facultatif) Saisissez un identifiant de groupe d'abonnement Braze, ajoutez des attributs personnalisés et/ou configurez un alias d'utilisateur. Pour en savoir plus, consultez [Personnaliser Talkable](#customizing-talkable).
-3. Sélectionnez **Save**. Laissez l'action désactivée afin de pouvoir vérifier la configuration avec un payload de test avant que les événements d'abonnement en direct ne commencent à se synchroniser.
+3. Sélectionnez **Save**. Laissez l'action désactivée afin de pouvoir vérifier la configuration avec un payload de test avant que les événements d'abonnement en direct or en ligne/en production/instantané ne commencent à se synchroniser.
 
 ### Étape 3 : Tester avec un payload d'exemple {#step-3-test-with-a-sample-payload}
 
@@ -66,7 +66,7 @@ Avant de commencer, vous avez besoin des éléments suivants :
 2. Dans Braze, accédez à **Audience** > **Recherche d'utilisateurs** et effectuez une recherche avec l'adresse e-mail de test.
 3. Confirmez que le profil existe avec **Email Subscribe** défini sur **Opted In** et que tous les attributs personnalisés, l'inscription au groupe d'abonnement ou l'alias d'utilisateur que vous avez configurés apparaissent comme prévu.
 
-### Étape 4 : Activer l'action pour le trafic en direct {#step-4-enable-the-action-for-live-traffic}
+### Étape 4 : Activer l'action pour le trafic en direct or en ligne/en production/instantané {#step-4-enable-the-action-for-live-traffic}
 
 Lorsque le profil de test est correct dans Braze, retournez dans Talkable et activez l'action **Email opt-in**.
 

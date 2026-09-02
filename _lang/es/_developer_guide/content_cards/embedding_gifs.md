@@ -2,7 +2,7 @@
 nav_title: Incrustar GIF
 article_title: Incrustar GIF en tarjetas de contenido
 page_order: 5
-description: "Aprende a incrustar GIF en tarjetas de contenido utilizando el SDK de Braze."
+description: "Aprende a incrustar GIF en tarjetas de contenido utilizando el SDK or kit de desarrollo de software de Braze."
 channel:
   - content cards
 platform:
@@ -14,15 +14,15 @@ platform:
 
 # Incrustar GIF en tarjetas de contenido
 
-> Aprende a incrustar GIF en tarjetas de contenido utilizando el SDK de Braze.
+> Aprende a incrustar GIF en tarjetas de contenido utilizando el SDK or kit de desarrollo de software de Braze.
 
 {% alert note %}
-Para los SDK de envoltura que no aparecen en la lista, utiliza el método nativo de Android o SWIFT correspondiente. Ten en cuenta que los SDK de Android y Swift Braze no admiten GIF animados de forma nativa, por lo que deberás implementar los GIF de las tarjetas de contenido utilizando herramientas de terceros.
+Para los SDK or kit de desarrollo de software de envoltura que no aparecen en la lista, utiliza el método nativo de Android o SWIFT correspondiente. Ten en cuenta que los SDK or kit de desarrollo de software de Android y Swift Braze no admiten GIF animados de forma nativa, por lo que deberás implementar los GIF de las tarjetas de contenido utilizando herramientas de terceros.
 {% endalert %}
 
 {% sdktabs %}
 {% sdktab web %}
-La compatibilidad con GIF está incluida por defecto en la integración del SDK Web.
+La compatibilidad con GIF está incluida por defecto en la integración del SDK or kit de desarrollo de software Web.
 {% endsdktab %}
 
 {% sdktab android %}

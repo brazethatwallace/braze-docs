@@ -39,12 +39,12 @@ Im Falle eines Gleichstands wählt Braze den Pfad aus, der zuerst erscheint.
 ![„Continue sending all future users the mix of paths“ ist ausgewählt als Aktion für den Fall, dass das Testergebnis nicht statistisch signifikant ist.]({% image_buster /assets/img/experiment_step/experiment_winning_statistical.png %})
 
 {% alert note %}
-Eine Verzögerungsgruppe erscheint in Ihrer Pfadverteilung nur, wenn Ihr Canvas für den einmaligen Eintritt eingerichtet ist und Ihr Experimentschritt drei oder weniger Pfade hat. Wiederkehrende und getriggerte Canvases haben keine Verzögerungsgruppe, wenn Winning Path aktiviert ist.
+Eine Verzögerungsgruppe erscheint in Ihrer Pfadverteilung nur, wenn Ihr Canvas für den einmaligen Eintritt eingerichtet ist und Ihr Experimentschritt drei oder weniger Pfade hat. Wiederkehrende und getriggerte Canvase haben keine Verzögerungsgruppe, wenn Winning Path aktiviert ist.
 {% endalert %}
 
 ### Schritt 4: Pfade hinzufügen und Canvas starten {#step-4-add-your-paths-and-launch-the-canvas}
 
-Eine einzelne Experimentpfad-Komponente kann bis zu vier Pfade enthalten. Wenn Ihr Canvas jedoch für [einmaligen Eintritt](#one-time-entry) eingerichtet ist, muss ein Pfad für die Verzögerungsgruppe reserviert werden, die Braze automatisch hinzufügt, wenn Winning Path aktiviert ist. Das bedeutet, dass Sie bei Canvases mit einmaligem Eintritt bis zu drei Pfade zu Ihrem Experiment hinzufügen können.
+Eine einzelne Experimentpfad-Komponente kann bis zu vier Pfade enthalten. Wenn Ihr Canvas jedoch für [einmaligen Eintritt](#one-time-entry) eingerichtet ist, muss ein Pfad für die Verzögerungsgruppe reserviert werden, die Braze automatisch hinzufügt, wenn Winning Path aktiviert ist. Das bedeutet, dass Sie bei Canvase mit einmaligem Eintritt bis zu drei Pfade zu Ihrem Experiment hinzufügen können.
 
 Schließen Sie die Einrichtung Ihres Canvas nach Bedarf ab und starten Sie ihn dann. Sobald die erste Person das Experiment betreten hat, können Sie den Canvas überprüfen, um die eingehende Analytics zu verfolgen und die [Performance Ihres Experiments zu tracken]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#tracking-performance).
 
@@ -71,7 +71,7 @@ Wenn der Test abgeschlossen ist und ein Winning Path ermittelt wurde, werden die
 
 ### Zustellung zur Ortszeit {#local-time-delivery}
 
-Wir empfehlen nicht, die Zustellung zur Ortszeit in Canvases mit Winning Paths zu verwenden. Der Grund dafür ist, dass Experimentfenster beginnen, sobald die erste Nutzer:in den Schritt durchläuft. Nutzer:innen in sehr frühen Zeitzonen können den Schritt betreten und den Beginn des Experimentfensters viel früher auslösen, als Sie erwarten. Dies kann dazu führen, dass das Experiment endet, bevor der Großteil Ihrer Nutzer:innen in üblicheren Zeitzonen genügend Zeit hatte, den Canvas zu betreten oder zu konvertieren – oder beides.
+Wir empfehlen nicht, die Zustellung zur Ortszeit in Canvase mit Winning Paths zu verwenden. Der Grund dafür ist, dass Experimentfenster beginnen, sobald die erste Nutzer:in den Schritt durchläuft. Nutzer:innen in sehr frühen Zeitzonen können den Schritt betreten und den Beginn des Experimentfensters viel früher auslösen, als Sie erwarten. Dies kann dazu führen, dass das Experiment endet, bevor der Großteil Ihrer Nutzer:innen in üblicheren Zeitzonen genügend Zeit hatte, den Canvas zu betreten oder zu konvertieren – oder beides.
 
 Wenn Sie dennoch die Zustellung zur Ortszeit nutzen möchten, verwenden Sie alternativ ein Experimentfenster von 24–48 oder mehr Stunden. Auf diese Weise betreten Nutzer:innen in frühen Zeitzonen den Canvas und lösen den Start des Experiments aus, aber es verbleibt noch ausreichend Zeit im Experimentfenster. Nutzer:innen in späteren Zeitzonen haben dann immer noch genügend Zeit, den Canvas und den Experimentschritt mit Winning Paths zu betreten und möglicherweise zu konvertieren, bevor das Experimentfenster abläuft.
 

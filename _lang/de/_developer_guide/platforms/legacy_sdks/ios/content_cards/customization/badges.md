@@ -16,7 +16,7 @@ noindex: true
 
 ## Abfrage der Anzahl ungelesener Inhaltskarten
 
-Wenn Sie die Anzahl der ungelesenen Inhaltskarten Ihres Benutzers anzeigen möchten, empfehlen wir Ihnen, die Anzahl der Karten abzufragen und diese mit einem Badge darzustellen. Badges sind eine großartige Möglichkeit, um Ihre Nutzer auf neue Inhalte in den Content-Cards aufmerksam zu machen. Wenn Sie Ihren Content-Cards ein Badge hinzufügen möchten, bietet das Braze SDK Methoden zur Abfrage der folgenden Informationen:
+Wenn Sie die Anzahl der ungelesenen Inhaltskarten Ihres Benutzers anzeigen möchten, empfehlen wir Ihnen, die Anzahl der Karten abzufragen und diese mit einem Badge darzustellen. Badges sind eine großartige Möglichkeit, um Ihre Nutzer auf neue Inhalte in den Content-Cards aufmerksam zu machen. Wenn Sie Ihren Content-Cards ein Badge hinzufügen möchten, bietet das Braze SDK or Software-Development-Kit Methoden zur Abfrage der folgenden Informationen:
 
 - Ungelesene Inhaltskarten für den aktuellen Benutzer
 - Gesamtzahl der sichtbaren Inhaltskarten für den aktuellen Benutzer
@@ -40,7 +40,7 @@ This method returns the total number of currently active Content Cards. Cards ar
 
 ## Anzeige der Anzahl der ungesehenen Inhaltskarten auf der App-Badge-Anzeige
 
-Badges dienen nicht nur als Push-Benachrichtigung für eine App, sondern können auch verwendet werden, um ungesehene Elemente im Content Cards Feed des Benutzers zu kennzeichnen. Das Aktualisieren des Badge-Zählers auf der Basis von nicht aufgerufenen Content-Card-Updates kann dazu beitragen, Nutzer wieder auf Ihre App aufmerksam zu machen und die Anzahl der Sitzungen zu erhöhen.
+Badges dienen nicht nur als Push-Benachrichtigung für eine App, sondern können auch verwendet werden, um ungesehene Elemente im Content Cards Feed des Benutzers zu kennzeichnen. Das Update or aktualisieren or aktualisieren des Badge-Zählers auf der Basis von nicht aufgerufenen Content-Card-Updates kann dazu beitragen, Nutzer wieder auf Ihre App aufmerksam zu machen und die Anzahl der Sitzungen zu erhöhen.
 
 Diese Methode erfasst den Badge-Zähler, nach dem die App geschlossen und die Sitzung beendet wurde:
 

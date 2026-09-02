@@ -11,7 +11,7 @@ channel:
 
 guide_top_header: "Personalização de mensagens no app do iOS"
 guide_top_text: "Todos os tipos de mensagens no app da Braze são altamente personalizáveis em termos de mensagens, imagens, ícones <a href='http://fortawesome.github.io/Font-Awesome/'>Font Awesome</a>, ações de clique, análise de dados, estilo editável, opções de exibição personalizadas e opções de entrega personalizadas. Várias opções podem ser configuradas por mensagem no app a partir do <a href='/docs/user_guide/message_building_by_channel/in-app_messages/create'>dashboard</a>. Além disso, a Braze oferece vários níveis de personalização avançada para uma série de casos de uso e necessidades."
-description: "Esta landing page aborda as opções de personalização de mensagens no app do Braze iOS SDK, como a definição de delegados, a personalização da orientação, o tratamento de exibição personalizada e muito mais."
+description: "Esta landing page aborda as opções de personalização de mensagens no app do Braze iOS SDK or kit de desenvolvimento de software, como a definição de delegados, a personalização da orientação, o tratamento de exibição personalizada e muito mais."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

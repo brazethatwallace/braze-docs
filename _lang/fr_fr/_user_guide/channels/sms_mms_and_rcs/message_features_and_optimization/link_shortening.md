@@ -145,7 +145,7 @@ Oui. Lorsque le **suivi avancé** est activé, vous pouvez recibler les utilisat
 
 ### Le raccourcissement de liens fonctionne-t-il avec les deep links ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
-Le raccourcissement de liens ne fonctionne pas avec les deep links. Vous pouvez toutefois raccourcir les liens universels provenant de fournisseurs tiers tels que Branch ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
+Le raccourcissement de liens ne fonctionne pas avec les deep links. Vous pouvez toutefois raccourcir les liens universels provenant de fournisseurs tiers tels que Branch or branche ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
 
 {% alert note %}
 Testez l'expérience utilisateur avant de mettre en œuvre le raccourcissement de liens avec des liens universels pour confirmer qu'il répond à vos attentes.

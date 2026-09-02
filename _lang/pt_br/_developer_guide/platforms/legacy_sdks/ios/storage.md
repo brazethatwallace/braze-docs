@@ -4,7 +4,7 @@ article_title: Armazenamento para iOS
 platform: iOS
 page_order: 8.9
 page_type: reference
-description: "Este artigo de referência descreve as propriedades no nível de dispositivo capturadas pelo SDK da Braze para iOS."
+description: "Este artigo de referência descreve as propriedades no nível de dispositivo capturadas pelo SDK or kit de desenvolvimento de software da Braze para iOS."
 
 noindex: true
 ---
@@ -13,7 +13,7 @@ noindex: true
 
 # Armazenamento {#storage}
 
-Este artigo descreve as diferentes propriedades no nível de dispositivo capturadas ao usar o SDK da Braze para iOS.
+Este artigo descreve as diferentes propriedades no nível de dispositivo capturadas ao usar o SDK or kit de desenvolvimento de software da Braze para iOS.
 
 ## Propriedades do dispositivo {#device-properties}
 
@@ -24,14 +24,14 @@ Por padrão, a Braze coletará as seguintes [propriedades no nível do dispositi
 * Localidade do dispositivo
 * Modelo do dispositivo
 * Versão do sistema operacional do dispositivo
-* IDFV (opcional com [iOS SDK v5.7.0+](https://github.com/braze-inc/braze-swift-sdk))
+* IDFV (opcional com [iOS SDK or kit de desenvolvimento de software v5.7.0+](https://github.com/braze-inc/braze-swift-sdk))
 * Push ativado
 * Fuso horário do dispositivo
 * Status da autorização push
 * Rastreamento de anúncios ativado
 
 {% alert note %}
-O SDK da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente, passar o IDFA para a Braze implementando nosso protocolo `ABKIDFADelegate`. Os apps devem obter a aceitação explícita do usuário final para rastreamento por meio do framework de transparência de rastreamento de apps antes de passar o IDFA para a Braze.
+O SDK or kit de desenvolvimento de software da Braze não coleta o IDFA automaticamente. Os apps podem, opcionalmente, passar o IDFA para a Braze implementando nosso protocolo `ABKIDFADelegate`. Os apps devem obter a aceitação explícita do usuário final para rastreamento por meio do framework de transparência de rastreamento de apps antes de passar o IDFA para a Braze.
 {% endalert %}
 
 Os campos configuráveis do dispositivo são definidos no enum [`ABKDeviceOptions`](https://github.com/Appboy/appboy-ios-sdk/blob/4390e9eac8401bccdb81b053fa54eb87b1f6fcaa/Appboy-tvOS-SDK/AppboyTVOSKit.framework/Headers/Appboy.h#L179). Para desativar ou especificar o campo do dispositivo que você gostaria de incluir na lista de permissões, atribua o bitwise `OR` dos campos desejados a [`ABKDeviceAllowlistKey`](https://github.com/Appboy/appboy-ios-sdk/blob/fed071000722673754da288cace15c1ff8aca432/AppboyKit/include/Appboy.h#L148) no `appboyOptions` de `startWithApiKey:inApplication:withAppboyOptions:`.
@@ -43,4 +43,4 @@ appboyOptions[ABKDeviceAllowlistKey] = @(ABKDeviceOptionTimezone | ABKDeviceOpti
 
 Por padrão, todos os campos estão ativados. Observe que, sem algumas propriedades, nem todos os recursos funcionarão corretamente. Por exemplo, a entrega no horário local não funcionará sem o fuso horário.
 
-Para saber mais sobre as propriedades do dispositivo coletadas automaticamente, visite nossa [coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Para saber mais sobre as propriedades do dispositivo coletadas automaticamente, visite nossa [coleta de dados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).

@@ -20,7 +20,7 @@ Los Segments de Braze te ofrecen herramientas de segmentación potentes para cre
 Por ejemplo, la segmentación predeterminada de Braze encontrará usuarios que cumplan criterios específicos que definas, como identificar a un usuario que recientemente compró uno de tus productos. Las extensiones de segmento te permiten ir más allá, como identificar usuarios que compraron un color particular de un producto específico al menos dos veces entre 18 y 24 meses atrás. Las extensiones de segmento son una mejora, no un requisito. Si necesitas filtros más avanzados o una ventana de retrospectiva más larga, son una gran herramienta para ayudarte mientras mantienes tu uso de datos optimizado.
 
 {% alert note %}
-Hay una asignación predeterminada de 50 extensiones de segmento activas por espacio de trabajo en un momento determinado. Si necesitas aumentar este límite, ponte en contacto con tu administrador de éxito de cliente de Braze para discutir tu caso de uso.
+Hay una asignación predeterminada de 50 extensiones de segmento activas por espacio de trabajo en un momento determinado. Si necesitas aumentar este límite, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze para discutir tu caso de uso.
 {% endalert %}
 
 ## Crear una extensión de segmento {#creating-a-segment-extension}

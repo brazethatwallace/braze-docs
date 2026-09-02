@@ -10,7 +10,7 @@ channel:
 
 # WhatsApp テンプレートビルダー {#whatsapp-template-builder}
 
-> WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business Managerを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のキャンペーンやキャンバスで使用できます。
+> WhatsApp テンプレートビルダーを使用すると、BrazeとMeta Business マネージャーを切り替えることなく、Braze内で直接WhatsAppメッセージテンプレートを作成して送信できます。Metaがテンプレートを承認した後は、必要な数のキャンペーンやキャンバスで使用できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -43,7 +43,7 @@ Metaは[カテゴリーガイドライン](https://developers.facebook.com/docum
 | **カスタム** | ゼロから構築する標準的なWhatsAppメッセージです。このレイアウトは[テンプレートを構築する](#step-4-build-your-template)で説明しています。 |
 | **カルーセル** | 水平にスクロール可能なカードを含むメッセージです。詳細については、[カルーセルテンプレート]({{site.baseurl}}/whatsapp_carousel_templates)を参照してください。 |
 | **期間限定オファー** | 期限付きのプロモーションオファーです。詳細については、[期間限定オファーテンプレート]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#limited-time-offer-templates)を参照してください。 |
-| **フロー** | WhatsAppフロー（アンケートや予約など）を開くテンプレートです。MetaのWhatsApp Managerでフローを作成・管理し、テンプレート構築時に選択します。詳細については、[WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)を参照してください。 |
+| **フロー** | WhatsAppフロー（アンケートや予約など）を開くテンプレートです。MetaのWhatsApp マネージャーでフローを作成・管理し、テンプレート構築時に選択します。詳細については、[WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="マーケティングテンプレートタイプ" }
 
 #### ユーティリティ {#utility}
@@ -53,7 +53,7 @@ Metaは[カテゴリーガイドライン](https://developers.facebook.com/docum
 | タイプ | 説明 |
 | --- | --- |
 | **カスタム** | ゼロから構築する標準的なユーティリティメッセージです。[テンプレートを構築する](#step-4-build-your-template)と同じ作成手順に従ってください。 |
-| **フロー** | ユーティリティフローテンプレート（リマインダー、フィードバック、注文管理など）です。MetaのWhatsApp Managerでフローを作成・管理し、テンプレート構築時に選択します。詳細については、[WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)を参照してください。 |
+| **フロー** | ユーティリティフローテンプレート（リマインダー、フィードバック、注文管理など）です。MetaのWhatsApp マネージャーでフローを作成・管理し、テンプレート構築時に選択します。詳細については、[WhatsApp Flows]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/whatsapp_flows)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="ユーティリティテンプレートタイプ" }
 
 {% alert note %}
@@ -165,11 +165,11 @@ WhatsApp キャンペーンの作成について詳しくは、[WhatsApp メッ�
 
 ### 承認後にテンプレートを編集できますか？ {#can-i-edit-a-template-after-its-been-approved}
 
-キャンペーンやキャンバスを作成する際に、変数コンテンツやパーソナライゼーションを更新できます。ロックされたコンテンツ（本文コピー、ボタンレイアウト、その他の Meta が管理するフィールド）を変更するには、テンプレートビルダーで新しいテンプレートを作成するか、Meta の WhatsApp Manager でテンプレートを編集し、Meta の再承認を待つ必要があります。[クリックトラッキング]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking)を使用している場合は、Braze で作成したテンプレートを Meta の WhatsApp Manager で編集する前にその記事を参照してください。
+キャンペーンやキャンバスを作成する際に、変数コンテンツやパーソナライゼーションを更新できます。ロックされたコンテンツ（本文コピー、ボタンレイアウト、その他の Meta が管理するフィールド）を変更するには、テンプレートビルダーで新しいテンプレートを作成するか、Meta の WhatsApp マネージャー でテンプレートを編集し、Meta の再承認を待つ必要があります。[クリックトラッキング]({{site.baseurl}}/user_guide/channels/whatsapp/message_features_and_optimization/click_tracking)を使用している場合は、Braze で作成したテンプレートを Meta の WhatsApp マネージャー で編集する前にその記事を参照してください。
 
 ### テンプレートビルダーが利用可能になる前に送信したテンプレートはどうなりますか？ {#what-happens-to-templates-i-submitted-before-the-template-builder-was-available}
 
-Meta Business Manager で作成されたテンプレートは、引き続き Braze で使用できます。テンプレートビルダーは、Braze ダッシュボードから離れることなくテンプレートを作成・管理するための追加の方法です。
+Meta Business マネージャー で作成されたテンプレートは、引き続き Braze で使用できます。テンプレートビルダーは、Braze ダッシュボードから離れることなくテンプレートを作成・管理するための追加の方法です。
 
 ### すべてのフィールドにパーソナライゼーションを追加できないのはなぜですか？ {#why-cant-i-add-personalization-to-every-field}
 

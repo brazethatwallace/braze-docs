@@ -1,8 +1,8 @@
 ---
-nav_title: Canvases testen
-article_title: Canvases testen
+nav_title: Canvase testen
+article_title: Canvase testen
 layout: dev_guide
-guide_top_header: "Canvases testen"
+guide_top_header: "Canvase testen"
 guide_top_text: "Nachdem Sie Ihren Canvas gesendet haben, sollten Sie sich immer die Ergebnisse ansehen, um sicherzustellen, dass Ihr Canvas erfolgreich war und sich positiv auf Ihr zukünftiges Messaging auswirkt.<br><br> Hier finden Sie Ressourcen zu Canvas-Analytics und anderen Berichten, die Ihnen helfen, die Effektivität Ihres Messagings für Ihre Nutzer:innen zu messen."
 page_order: 5
 
@@ -10,7 +10,7 @@ tool:
   - Canvas
   - Reports
 page_type: landing
-description: "Diese Landing-Page enthält Ressourcen zum Testen von Canvases, einschließlich Artikeln zum Senden von Test-Canvases, Canvas-Analytics, Bindungsberichten und Funnel-Berichten."
+description: "Diese Landing-Page enthält Ressourcen zum Testen von Canvase, einschließlich Artikeln zum Senden von Test-Canvase, Canvas-Analytics, Bindungsberichten und Funnel-Berichten."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:

@@ -1,17 +1,17 @@
 ---
 page_order: 10
 nav_title: Gestión de versiones
-article_title: Acerca de la gestión de versiones para el SDK de Braze
-description: "Más información sobre la gestión de versiones para el SDK de Braze."
+article_title: Acerca de la gestión de versiones para el SDK or kit de desarrollo de software de Braze
+description: "Más información sobre la gestión de versiones para el SDK or kit de desarrollo de software de Braze."
 ---
 
 # Acerca de la gestión de versiones {#about-version-management}
 
-> Obtén información sobre la gestión de versiones del SDK de Braze para que tu aplicación esté siempre actualizada con las últimas características y mejoras de calidad. Dado que es posible que las versiones anteriores del SDK no reciban los últimos parches, correcciones de errores o soporte, te recomendamos que lo mantengas siempre actualizado como parte de tu ciclo de desarrollo continuo.
+> Obtén información sobre la gestión de versiones del SDK or kit de desarrollo de software de Braze para que tu aplicación esté siempre actualizada con las últimas características y mejoras de calidad. Dado que es posible que las versiones anteriores del SDK or kit de desarrollo de software no reciban los últimos parches, correcciones de errores o soporte, te recomendamos que lo mantengas siempre actualizado como parte de tu ciclo de desarrollo continuo.
 
 ## Recomendaciones sobre versiones {#versioning-recommendations}
 
-Todos los SDK de Braze cumplen con la [especificación de versionado semántico (SemVer)](https://semver.org/), por lo que, dado un número de versión `MAJOR.MINOR.PATCH`, recomendamos lo siguiente:
+Todos los SDK or kit de desarrollo de software de Braze cumplen con la [especificación de versionado semántico (SemVer)](https://semver.org/), por lo que, dado un número de versión `MAJOR.MINOR.PATCH`, recomendamos lo siguiente:
 
 | Versión | Acerca de esta versión | Recomendación |
 |-------|------------------|--------------|
@@ -21,21 +21,21 @@ Todos los SDK de Braze cumplen con la [especificación de versionado semántico 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recomendaciones sobre versiones" }
 
 {% alert note %}
-A veces, las nuevas actualizaciones del sistema operativo Android o Apple requieren cambios en el SDK de Braze. Para garantizar que tu aplicación sea compatible con los teléfonos más nuevos, es importante que mantengas tu SDK actualizado.
+A veces, las nuevas actualizaciones del sistema operativo Android o Apple requieren cambios en el SDK or kit de desarrollo de software de Braze. Para garantizar que tu aplicación sea compatible con los teléfonos más nuevos, es importante que mantengas tu SDK or kit de desarrollo de software actualizado.
 {% endalert %}
 
 ## Recibir notificaciones de nuevas versiones {#getting-notified-of-new-releases}
 
-Para recibir notificaciones automáticas cuando se publique una nueva versión del SDK, puedes seguir el repositorio de GitHub de cualquier SDK de Braze:
+Para recibir notificaciones automáticas cuando se publique una nueva versión del SDK or kit de desarrollo de software, puedes seguir el repositorio de GitHub de cualquier SDK or kit de desarrollo de software de Braze:
 
-1. Ve al repositorio de GitHub del SDK (por ejemplo, [braze-android-sdk](https://github.com/braze-inc/braze-android-sdk), [braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk) o [braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)).
+1. Ve al repositorio de GitHub del SDK or kit de desarrollo de software (por ejemplo, [braze-android-SDK or kit de desarrollo de software](https://github.com/braze-inc/braze-android-sdk), [braze-swift-SDK or kit de desarrollo de software](https://github.com/braze-inc/braze-swift-sdk) o [braze-web-SDK or kit de desarrollo de software](https://github.com/braze-inc/braze-web-sdk)).
 2. Haz clic en **Watch** en la parte superior de la página.
 3. Haz clic en **Custom**, selecciona **Releases** y haz clic en **Apply**.
 
-Recibirás una notificación de GitHub (y un correo electrónico, dependiendo de tu [configuración de notificaciones](https://github.com/settings/notifications)) cada vez que se publique una nueva versión. Para consultar la lista completa de repositorios del SDK, visita [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references).
+Recibirás una notificación de GitHub (y un correo electrónico, dependiendo de tu [configuración de notificaciones](https://github.com/settings/notifications)) cada vez que se publique una nueva versión. Para consultar la lista completa de repositorios del SDK or kit de desarrollo de software, visita [Referencias, repositorios y aplicaciones de ejemplo]({{site.baseurl}}/developer_guide/references).
 
 ## Acerca de los problemas conocidos {#about-known-issues}
 
 Para garantizar que nuestros cambios no afecten a tus procesos de compilación, **nunca modificaremos ni eliminaremos una versión después de que se haya publicado en un sistema de distribución**&#8212;incluso si esa versión en concreto tiene problemas conocidos.
 
-En estos casos, documentaremos el problema en el [registro de cambios del SDK de Braze]({{site.baseurl}}/developer_guide/changelogs) y, a continuación, lanzaremos un nuevo parche para las versiones principales o secundarias afectadas lo antes posible.
+En estos casos, documentaremos el problema en el [registro de cambios del SDK or kit de desarrollo de software de Braze]({{site.baseurl}}/developer_guide/changelogs) y, a continuación, lanzaremos un nuevo parche para las versiones principales o secundarias afectadas lo antes posible.

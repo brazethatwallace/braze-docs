@@ -12,11 +12,11 @@ description: "Dieser Referenzartikel behandelt die Nachrichtenarchivierung, ein 
 
 > Mit der Nachrichtenarchivierung können Sie eine Kopie der an Nutzer:innen gesendeten Nachrichten zu Archivierungs- oder Compliance-Zwecken in Ihrem AWS S3-Bucket, Azure Blob Storage-Container oder Google Cloud Storage-Bucket speichern. <br><br> Dieser Artikel behandelt die Einrichtung der Nachrichtenarchivierung, JSON-Payload-Referenzen und häufig gestellte Fragen.
 
-Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-Customer-Success-Manager.
+Die Nachrichtenarchivierung ist als zusätzliches Feature verfügbar. Um mit der Nachrichtenarchivierung zu beginnen, wenden Sie sich bitte an Ihren Braze-CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 
 ## Funktionsweise {#how-it-works}
 
-Wenn dieses Feature eingeschaltet ist, schreibt Braze für jede Nachricht, die über die von Ihnen ausgewählten Kanäle (E-Mail, SMS/MMS oder Push) an eine:n Nutzer:in gesendet wird, eine gzipped JSON-Datei. Braze schreibt diese Dateien in Ihr Standard-Datenexportziel. Dazu gehören alle Campaign-Typen für jeden Kanal, wie z. B. Transaktions-E-Mail-Campaigns, die über die [Transaktions-E-Mail-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) gesendet werden.
+Wenn dieses Feature eingeschaltet ist, schreibt Braze für jede Nachricht, die über die von Ihnen ausgewählten Kanäle (E-Mail, Kurzmitteilungsdienst or SMS/MMS oder Push) an eine:n Nutzer:in gesendet wird, eine gzipped JSON-Datei. Braze schreibt diese Dateien in Ihr Standard-Datenexportziel. Dazu gehören alle Campaign-Typen für jeden Kanal, wie z. B. Transaktions-E-Mail-Campaigns, die über die [Transaktions-E-Mail-API]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email) gesendet werden.
 
 Diese Datei enthält die unter [Dateireferenzen](#file-references) definierten Felder und spiegelt die endgültigen, als Template gerenderten Nachrichten wider, die an die Nutzer:innen gesendet wurden. Alle in Ihrer Campaign definierten Template-Werte (z. B. {% raw %}`{{${first_name}}}`{% endraw %}) zeigen den endgültigen Wert an, den die Nutzer:innen auf der Grundlage ihrer Profilinformationen erhalten haben. Auf diese Weise können Sie eine Kopie der gesendeten Nachricht aufbewahren, um den Anforderungen der Compliance, der Rechnungsprüfung oder des Kundensupports gerecht zu werden.
 
@@ -35,12 +35,12 @@ Eine Beispieldatei könnte wie folgt aussehen:
 `sent_messages/email/819baa08d8d7e77e19d4666f5fc6050b/ee965cb2-8934-4b0a-acf1-91c899c2f915/651fd10b282850b39e1169c13975234b.json.gz`
 
 {% alert note %}
-Der MD5-Digest kann nur mit einer bekannten, kleingeschriebenen E-Mail-Adresse, einem Push-Token oder einer E.164-Telefonnummer berechnet werden. Ein bekannter MD5-Digest kann nicht umgekehrt werden, um die kleingeschriebene E-Mail-Adresse, das Push-Token oder die E.164-Telefonnummer zu erhalten.
+Der MD5-Digest kann nur mit einer bekannten, kleingeschriebenen E-Mail-Adresse, einem Push-Token / Textbaustein oder einer E.164-Telefonnummer berechnet werden. Ein bekannter MD5-Digest kann nicht umgekehrt werden, um die kleingeschriebene E-Mail-Adresse, das Push-Token / Textbaustein oder die E.164-Telefonnummer zu erhalten.
 {% endalert %}
 
 {% alert tip %}
-**Haben Sie Probleme, Ihre Push-Token in Ihren Buckets zu finden?**<br>
-Braze wandelt Ihre Push-Token in Kleinbuchstaben um, bevor sie gehasht werden. Dies führt dazu, dass das Push-Token `Test_Push_Token12345` im Schlüsselpfad als `test_push_token12345` mit dem Hash `32b802170652af2b5624b695f34de089` erscheint.
+**Haben Sie Probleme, Ihre Push-Token / Textbaustein in Ihren Buckets zu finden?**<br>
+Braze wandelt Ihre Push-Token / Textbaustein in Kleinbuchstaben um, bevor sie gehasht werden. Dies führt dazu, dass das Push-Token / Textbaustein `Test_Push_Token12345` im Schlüsselpfad als `test_push_token12345` mit dem Hash `32b802170652af2b5624b695f34de089` erscheint.
 {% endalert %}
 
 ## Einrichten der Nachrichtenarchivierung {#setting-up-message-archiving}
@@ -117,7 +117,7 @@ Das Feld `extras` enthält die Schlüssel-Wert-Paare, die beim Verfassen einer E
 ![Abschnitt „E-Mail-Extras“ im E-Mail-Composer mit Schlüssel- und Wertfeldern sowie der Option „Neues Extra hinzufügen“.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
 {% endtab %}
-{% tab SMS/MMS %}
+{% tab Kurzmitteilungsdienst or SMS/MMS %}
 
 ```json
 {
@@ -175,7 +175,7 @@ Das oberste Feld `payload` in Push-Benachrichtigungsarchiven enthält die gesamt
 
 Die Nachrichtenarchivierung erfasst die Nachrichten-Payload selbst, jedoch nicht die Zustellungs-Metadaten, die an FCM oder APNs gesendet werden. Zustellungs-Metadaten umfassen:
 
-- Geräte-Token
+- Geräte-Token / Textbaustein
 - Prioritätseinstellungen
 - Time-to-Live (TTL)
 - Collapse-IDs
@@ -205,7 +205,7 @@ Das JSON-Payload-Format kann zwischen Nachrichten variieren und sich im Laufe de
 
 ### Was sind Nachrichten unter dem Wert „unassociated“ im Campaign-Pfad? {#what-are-messages-under-the-unassociated-value-in-the-campaign-path}
 
-Wenn eine Nachricht außerhalb einer Campaign oder eines Canvas gesendet wird, lautet die Campaign-ID im Dateinamen „unassociated“. Dies geschieht, wenn Sie Testnachrichten über das Dashboard senden, wenn Braze automatische SMS/MMS-Antworten sendet oder wenn über die API gesendete Nachrichten keine Campaign-ID enthalten.
+Wenn eine Nachricht außerhalb einer Campaign oder eines Canvas gesendet wird, lautet die Campaign-ID im Dateinamen „unassociated“. Dies geschieht, wenn Sie Testnachrichten über das Dashboard senden, wenn Braze automatische Kurzmitteilungsdienst or SMS/MMS-Antworten sendet oder wenn über die API gesendete Nachrichten keine Campaign-ID enthalten.
 
 ### Wie finde ich weitere Informationen zu diesem Versand? {#how-do-i-find-more-information-about-this-send}
 

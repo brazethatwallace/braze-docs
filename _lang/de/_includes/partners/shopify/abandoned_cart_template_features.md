@@ -1,3 +1,3 @@
-- Ein neuer Trigger basierend auf der Aktion „Performed cart updated“
+- Ein neuer Trigger or triggern basierend auf der Aktion „Performed cart updated“
 - Vordefinierte Exit-Kriterien, um Kund:innen zu entfernen, die in ihrer Purchasing-Journey weitergegangen sind
 - Ein neuer Warenkorb-Liquid-Tag zur Unterstützung der Produkt-Personalisierung

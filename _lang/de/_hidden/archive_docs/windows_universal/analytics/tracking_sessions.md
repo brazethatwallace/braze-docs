@@ -12,7 +12,7 @@ hidden: true
 
 ## Session-Tracking
 
-Das Braze SDK meldet Sitzungsdaten, die vom Braze-Dashboard verwendet werden, um das Engagement der Nutzer:innen und andere Analysen zu berechnen, die für das Verständnis Ihrer Nutzer:innen unerlässlich sind. Basierend auf der folgenden Sitzungssemantik generiert unser SDK Datenpunkte für "Sitzungsbeginn" und "Sitzungsende", die die Sitzungsdauer und die Anzahl der Sitzungen berücksichtigen, die im Braze-Dashboard angezeigt werden.
+Das Braze SDK or Software-Development-Kit meldet Sitzungsdaten, die vom Braze-Dashboard verwendet werden, um das Engagement der Nutzer:innen und andere Analysen zu berechnen, die für das Verständnis Ihrer Nutzer:innen unerlässlich sind. Basierend auf der folgenden Sitzungssemantik generiert unser SDK or Software-Development-Kit Datenpunkte für "Sitzungsbeginn" und "Sitzungsende", die die Sitzungsdauer und die Anzahl der Sitzungen berücksichtigen, die im Braze-Dashboard angezeigt werden.
 
 ### Lebenszyklus einer Sitzung
 
@@ -20,8 +20,8 @@ Unsere Windows Integration protokolliert die Öffnung der Sitzung, wenn die App 
 
 ### Testen des Sitzungs-Trackings
 
-Um Sitzungen über Ihren Nutzer:innen zu erkennen, suchen Sie Ihren Nutzer auf dem Dashboard und navigieren Sie im Nutzerprofil zu "App-Nutzung". Sie können sich vergewissern, dass das Session Tracking funktioniert, indem Sie überprüfen, ob die Metrik "Sessions" in dem Maße ansteigt, wie Sie es erwarten.
+Um Sitzungen über Ihren Nutzer:innen zu erkennen, suchen Sie Ihren Nutzer auf dem Dashboard und navigieren Sie im Kundenprofil or Nutzerprofil zu "App-Nutzung". Sie können sich vergewissern, dass das Session Tracking funktioniert, indem Sie überprüfen, ob die Metrik "Sessions" in dem Maße ansteigt, wie Sie es erwarten.
 
-![Ein Nutzerprofil, das die App-Nutzung mit 25 Sitzungen anzeigt, die letzte Nutzung vor zwei Stunden und die erste Nutzung vor zwanzig Tagen]({% image_buster /assets/img_archive/test_session.png %})
+![Ein Kundenprofil or Nutzerprofil, das die App-Nutzung mit 25 Sitzungen anzeigt, die letzte Nutzung vor zwei Stunden und die erste Nutzung vor zwanzig Tagen]({% image_buster /assets/img_archive/test_session.png %})
 
 

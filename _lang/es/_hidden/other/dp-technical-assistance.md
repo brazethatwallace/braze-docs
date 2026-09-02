@@ -65,7 +65,7 @@ Según las leyes de protección de datos, los interesados pueden tener derecho a
 
 ### Recomendación de Braze
 
-Para proporcionar datos personales de Braze en un formato legible por máquina en respuesta a una solicitud de acceso de un interesado, puedes exportar su perfil de usuario final realizando una llamada a la API a las [REST API]({{site.baseurl}}/api/endpoints/export) de Braze con su identificador de usuario (definido por ti como el `external_id` proporcionado a Braze) y/o su identificador de dispositivo.
+Para proporcionar datos personales de Braze en un formato legible por máquina en respuesta a una solicitud de acceso de un interesado, puedes exportar su perfil de usuario final realizando una llamada a la API a las [REST or transferencia de estado representacional API]({{site.baseurl}}/api/endpoints/export) de Braze con su identificador de usuario (definido por ti como el `external_id` proporcionado a Braze) y/o su identificador de dispositivo.
 
 #### BrazeAI Decisioning Studio™
 
@@ -77,7 +77,7 @@ Las personas tienen derecho a que sus datos personales se corrijan si son inexac
 
 ### Recomendación de Braze
 
-En caso de que un interesado te solicite rectificar inexactitudes en los datos personales que estés tratando tú o Braze en tu nombre, puedes utilizar los SDK de Braze o las [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para corregir dichos datos personales.
+En caso de que un interesado te solicite rectificar inexactitudes en los datos personales que estés tratando tú o Braze en tu nombre, puedes utilizar los SDK or kit de desarrollo de software de Braze o las [REST or transferencia de estado representacional API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze para corregir dichos datos personales.
 
 ## El derecho de supresión {#the-right-to-erasure}
 
@@ -87,10 +87,10 @@ El derecho de supresión también se conoce como "el derecho al olvido" o "derec
 
 #### Eliminación estándar {#standard-deletion}
 
-Una vez que hayas detenido la recopilación de datos, puedes utilizar el [endpoint de la REST API de eliminación de usuarios de Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) para eliminar a un usuario final, lo que eliminará todos los registros de dicho usuario final de los servicios de Braze:
+Una vez que hayas detenido la recopilación de datos, puedes utilizar el [endpoint de la REST or transferencia de estado representacional API de eliminación de usuarios de Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) para eliminar a un usuario final, lo que eliminará todos los registros de dicho usuario final de los servicios de Braze:
 
 - Para los usuarios finales que tienen un external_id dentro de los servicios de Braze, puedes utilizar ese ID para eliminar los datos de dicho usuario final.
-- Para los usuarios finales anónimos que no tienen un external_id dentro de los servicios de Braze, puedes recuperar el identificador de dispositivo de ese usuario final utilizando el SDK de Braze y puedes utilizar el identificador de dispositivo para encontrar el perfil de usuario final asociado a ese dispositivo. A continuación, puedes utilizar la API de eliminación de usuarios para eliminar el perfil asociado a ese usuario final.
+- Para los usuarios finales anónimos que no tienen un external_id dentro de los servicios de Braze, puedes recuperar el identificador de dispositivo de ese usuario final utilizando el SDK or kit de desarrollo de software de Braze y puedes utilizar el identificador de dispositivo para encontrar el perfil de usuario final asociado a ese dispositivo. A continuación, puedes utilizar la API de eliminación de usuarios para eliminar el perfil asociado a ese usuario final.
 
 Eliminar a un usuario final de los servicios de Braze eliminará permanentemente el perfil de usuario centralizado de Braze para ese usuario final, según lo definido por el `external_id` proporcionado. Esto incluye la información de perfil estructurada que Braze recopiló de forma predeterminada o que configuraste para que los servicios de Braze recopilaran, como la información del dispositivo, el país, el idioma y la dirección de correo electrónico.
 
@@ -115,7 +115,7 @@ Para cumplir con una solicitud de derecho de supresión en relación con datos p
 <tbody>
   <tr>
     <td>
-        <p>Los clientes pueden crear campos personalizados para propiedades del evento y extras de mensaje. Estos campos no están destinados a datos personales, por lo que no se incluyen en el proceso de eliminación predeterminado descrito anteriormente. Sin embargo, si utilizas Braze para ingresar o recopilar datos personales a través de propiedades del evento y extras de mensaje, puedes configurar el proceso de eliminación activado por el endpoint de la REST API de eliminación de usuarios para que también incluya estos campos, de modo que los datos contenidos en estos campos también se eliminen.</p>
+        <p>Los clientes pueden crear campos personalizados para propiedades del evento y extras de mensaje. Estos campos no están destinados a datos personales, por lo que no se incluyen en el proceso de eliminación predeterminado descrito anteriormente. Sin embargo, si utilizas Braze para ingresar o recopilar datos personales a través de propiedades del evento y extras de mensaje, puedes configurar el proceso de eliminación activado por el endpoint de la REST or transferencia de estado representacional API de eliminación de usuarios para que también incluya estos campos, de modo que los datos contenidos en estos campos también se eliminen.</p>
         <p>La configuración predeterminada se aplica a nivel de empresa, pero puedes optar por eliminar los siguientes campos cuando se ejecute el proceso de eliminación, a nivel de grupo de aplicaciones/espacio de trabajo:</p>
     <ul>
         <li>PROPERTIES para USERS_BEHAVIORS_CUSTOMEVENT</li>
@@ -133,7 +133,7 @@ Para cumplir con una solicitud de derecho de supresión en relación con datos p
         </li>
     </ul>
     <p>La configuración para esto se puede acceder a través de <b>Configuración de la empresa</b> > <b>Configuración de administrador</b> > <b>Configuración de seguridad</b>. Las preferencias de eliminación de datos se establecen por tipo de evento o categoría. Solo un usuario con permisos de administrador puede realizar cambios en esta configuración. Alternativamente, un administrador puede delegar estos permisos a otro usuario.</p>
-    <p>Si un tipo de evento o extra de mensaje se configura para incluirse en el proceso de eliminación, los datos de este campo se eliminarán en adelante para los usuarios para los que estés ejecutando el endpoint de la REST API de eliminación de usuarios. Además, cuando selecciones esta preferencia de eliminación, en el siguiente trabajo de eliminación programado, los datos de estos campos se eliminarán de cualquier conjunto de datos anonimizado existente que contenga estos campos. No será posible restaurar los campos de datos eliminados.</p>
+    <p>Si un tipo de evento o extra de mensaje se configura para incluirse en el proceso de eliminación, los datos de este campo se eliminarán en adelante para los usuarios para los que estés ejecutando el endpoint de la REST or transferencia de estado representacional API de eliminación de usuarios. Además, cuando selecciones esta preferencia de eliminación, en el siguiente trabajo de eliminación programado, los datos de estos campos se eliminarán de cualquier conjunto de datos anonimizado existente que contenga estos campos. No será posible restaurar los campos de datos eliminados.</p>
     </td>
   </tr>
 </tbody>
@@ -155,7 +155,7 @@ Los interesados pueden tener derecho a "bloquear" o suprimir el tratamiento de s
 
 ### Recomendación de Braze
 
-Los servicios de Braze no admiten la restricción del tratamiento de categorías individuales de datos personales. Si un interesado te ha solicitado restringir el tratamiento de determinados subconjuntos de sus datos personales, debes utilizar las [API de Braze]({{site.baseurl}}/api/home) para exportar el perfil o perfiles completos de ese usuario final y luego [eliminarlo]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) de Braze. Las API de Braze se pueden utilizar para volver a importar estos datos en caso de que el usuario final te permita posteriormente tratar esos subconjuntos específicos de sus datos personales. Además, debes recomendar a tu usuario final que desinstale o cierre sesión en todas y cada una de tus aplicaciones que utilicen el SDK de Braze para dejar de recopilar cualquier dato adicional sobre el interesado.
+Los servicios de Braze no admiten la restricción del tratamiento de categorías individuales de datos personales. Si un interesado te ha solicitado restringir el tratamiento de determinados subconjuntos de sus datos personales, debes utilizar las [API de Braze]({{site.baseurl}}/api/home) para exportar el perfil o perfiles completos de ese usuario final y luego [eliminarlo]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) de Braze. Las API de Braze se pueden utilizar para volver a importar estos datos en caso de que el usuario final te permita posteriormente tratar esos subconjuntos específicos de sus datos personales. Además, debes recomendar a tu usuario final que desinstale o cierre sesión en todas y cada una de tus aplicaciones que utilicen el SDK or kit de desarrollo de software de Braze para dejar de recopilar cualquier dato adicional sobre el interesado.
 
 Para los clientes que solo utilizan BrazeAI Decisioning Studio™, ya no debes enviar datos a Decisioning Studio.
 
@@ -165,7 +165,7 @@ El derecho a la portabilidad de los datos permite a los interesados obtener y re
 
 ### Recomendación de Braze
 
-De forma similar al derecho de acceso, puedes usar la [REST API]({{site.baseurl}}/api/endpoints/export) de Braze para exportar los datos personales de un usuario final y proporcionárselos al interesado conforme a su solicitud. Además, habla con tu director de cuentas con los `customer_id`(s) y/o correo(s) electrónico(s) pertinentes para solicitar una copia de cualquier dato personal almacenado en BrazeAI Decisioning Studio.
+De forma similar al derecho de acceso, puedes usar la [REST or transferencia de estado representacional API]({{site.baseurl}}/api/endpoints/export) de Braze para exportar los datos personales de un usuario final y proporcionárselos al interesado conforme a su solicitud. Además, habla con tu director de cuentas con los `customer_id`(s) y/o correo(s) electrónico(s) pertinentes para solicitar una copia de cualquier dato personal almacenado en BrazeAI Decisioning Studio.
 
 ## El derecho de oposición {#the-right-to-object}
 
@@ -177,7 +177,7 @@ Las personas pueden tener derecho a oponerse a:
 
 ### Recomendación de Braze
 
-Braze ofrece la posibilidad de marcar un perfil de usuario como dado de baja de SMS, correos electrónicos o notificaciones push tanto a través de nuestras [REST API]({{site.baseurl}}/api/home) como a través de los SDK de [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) y [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web). Si recibes objeciones de los interesados para recibir dichos mensajes, puedes utilizar las API de Braze para cancelar la suscripción de esos usuarios finales.
+Braze ofrece la posibilidad de marcar un perfil de usuario como dado de baja de servicio de mensajes cortos, correos electrónicos o notificaciones push tanto a través de nuestras [REST or transferencia de estado representacional API]({{site.baseurl}}/api/home) como a través de los SDK or kit de desarrollo de software de [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android) y [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web). Si recibes objeciones de los interesados para recibir dichos mensajes, puedes utilizar las API de Braze para cancelar la suscripción de esos usuarios finales.
 
 Si eso no es suficiente, para evitar el tratamiento de datos personales del usuario final por parte de Braze, el perfil del usuario final debe eliminarse de la misma manera que se especifica en el apartado «Derecho de supresión».
 

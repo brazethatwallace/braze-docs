@@ -89,7 +89,7 @@ Braze는 사용자가 메시지를 수신할 자격이 되는 시점으로부터
 
 - `canvas_entry_properties`
 - `connected_content`
-- {% raw %}`{sms.${*}}`{% endraw %}과 같은 SMS 변수
+- {% raw %}`{sms.${*}}`{% endraw %}과 같은 단문 메시지 서비스 변수
 - `catalog_items`
 - `catalog_selection_items`
 - `event_properties`

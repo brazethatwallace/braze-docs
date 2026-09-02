@@ -39,7 +39,7 @@ Antes de testar mensagens de Banner na Braze, você precisa criar uma campanha d
 Depois de criar sua mensagem de Banner, você pode visualizar o Banner ou enviar uma mensagem de teste.
 
 1. Elabore sua mensagem de Banner.
-2. Selecione **Preview** para visualizar seu Banner ou enviar uma mensagem de teste.
+2. Selecione **prévia** para visualizar seu Banner ou enviar uma mensagem de teste.
 3. Para enviar uma mensagem de teste, adicione um grupo de teste de conteúdo ou um ou mais usuários individuais como **Test Recipients** e selecione **Send Test**.
 
 Você poderá visualizar sua mensagem de teste no dispositivo por até 5 minutos.
@@ -65,7 +65,7 @@ Lembre-se de que sua prévia pode não ser idêntica à renderização final no 
 Para enviar um teste para [grupos de teste de conteúdo]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou usuários individuais, o push deve estar ativado nos seus dispositivos de teste com tokens por push válidos registrados para o usuário teste antes do envio. Para usuários iOS, é necessário tocar na notificação por push enviada pela Braze para visualizar o Content Card de teste. Esse comportamento se aplica apenas a Content Cards de teste.
 {% endalert %}
 
-Content Cards de teste são entregues por meio de uma notificação por push. O cartão é empacotado na carga útil do push, e o SDK o extrai e armazena em cache localmente quando o push é recebido.
+Content Cards de teste são entregues por meio de uma notificação por push. O cartão é empacotado na carga útil do push, e o SDK or kit de desenvolvimento de software o extrai e armazena em cache localmente quando o push é recebido.
 
 Esse processo ignora o sistema normal de entrega de cartões, por isso o push deve estar ativado mesmo que você esteja testando um Content Card.
 
@@ -81,10 +81,10 @@ Depois de criar seu Content Card, você pode enviar um Content Card de teste par
 
 ### Prévia {#preview}
 
-Você pode visualizar seu cartão enquanto o compõe na guia **Preview**. Isso deve ajudar a entender como sua mensagem final ficará na perspectiva do usuário.
+Você pode visualizar seu cartão enquanto o compõe na guia **prévia**. Isso deve ajudar a entender como sua mensagem final ficará na perspectiva do usuário.
 
 {% alert note %}
-Na guia **Preview** do seu criador, a visualização da sua mensagem pode não ser idêntica à renderização real no dispositivo do usuário. Recomendamos sempre enviar uma mensagem de teste para um dispositivo para garantir que suas mídias, textos, personalização e atributos personalizados sejam gerados corretamente.
+Na guia **prévia** do seu criador, a visualização da sua mensagem pode não ser idêntica à renderização real no dispositivo do usuário. Recomendamos sempre enviar uma mensagem de teste para um dispositivo para garantir que suas mídias, textos, personalização e atributos personalizados sejam gerados corretamente.
 {% endalert %}
 
 ### Checklist de teste
@@ -109,10 +109,10 @@ Se uma imagem de Content Card não está sendo renderizada ou aparece com falha:
 
 Depois que seus Content Cards forem enviados, você pode detalhar ou depurar quaisquer problemas a partir do [registro de usuários de eventos]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) no console de desenvolvedor.
 
-Um caso de uso comum é tentar depurar por que um usuário não consegue ver um Content Card específico. Para isso, você pode consultar os **Event User Logs** para os Content Cards entregues ao SDK no início da sessão, mas antes de uma impressão, e rastrear esses dados até uma campanha específica:
+Um caso de uso comum é tentar depurar por que um usuário não consegue ver um Content Card específico. Para isso, você pode consultar os **Event User Logs** para os Content Cards entregues ao SDK or kit de desenvolvimento de software no início da sessão, mas antes de uma impressão, e rastrear esses dados até uma campanha específica:
 
 1. Acesse **Settings** > **Event User Log**.
-2. Localize e expanda a solicitação do SDK para o seu usuário teste.
+2. Localize e expanda a solicitação do SDK or kit de desenvolvimento de software para o seu usuário teste.
 3. Clique em **Raw Data**.
 4. Encontre o `id` da sua sessão. A seguir, um trecho de exemplo:
 
@@ -150,13 +150,13 @@ A partir daí, você pode revisar as configurações e o conteúdo da mensagem p
 {% tab Email %}
 
 1. Elabore sua mensagem de e-mail.
-2. Selecione **Preview and Test**.
+2. Selecione **prévia and Test**.
 3. Selecione a guia **Test Send** e adicione seu endereço de e-mail ou ID de usuário no campo **Add individual users**.
 4. Selecione **Send Test** para enviar seu e-mail elaborado para sua caixa de entrada.
 
 ![Teste de e-mail]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
-Se o seu e-mail inclui um link de [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), os envios de teste não geram um link funcional nem permitem salvar preferências. Para testar a Central de Preferências, envie a mensagem para um usuário teste ou um pequeno segmento interno. Para mais detalhes, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
+Se o seu e-mail inclui um link de [Central de Preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center), os envios de teste não geram um link funcional nem permitem salvar preferências. Para testar a Central de Preferências, envie a mensagem para um usuário teste ou um pequeno Segment or segmento or segmento interno. Para mais detalhes, consulte [Testando centrais de preferências]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center#testing-preference-centers).
 
 Se sua campanha de e-mail contém uma imagem grande e não está sendo exibida como esperado no Outlook, considere reduzir as dimensões reais do arquivo da imagem com uma ferramenta de edição ou redimensionamento de imagem, em vez de apenas redimensioná-la com CSS ou HTML.
 
@@ -184,7 +184,7 @@ Clicar diretamente e abrir a mensagem push levará você ao seu app, onde poder�
 
 ### Prévia
 
-Você pode visualizar sua mensagem no app enquanto a compõe na guia **Preview**. Isso deve ajudar a entender como sua mensagem final ficará na perspectiva do usuário. Você pode visualizar como sua mensagem ficará para um usuário aleatório, um usuário específico ou um usuário personalizado. Também é possível visualizar mensagens para dispositivos móveis ou tablets.
+Você pode visualizar sua mensagem no app enquanto a compõe na guia **prévia**. Isso deve ajudar a entender como sua mensagem final ficará na perspectiva do usuário. Você pode visualizar como sua mensagem ficará para um usuário aleatório, um usuário específico ou um usuário personalizado. Também é possível visualizar mensagens para dispositivos móveis ou tablets.
 
 ![Guia de composição ao criar uma mensagem no app mostrando a prévia de como a mensagem ficará. Nenhum usuário está selecionado, então o Liquid adicionado na seção do corpo é exibido como está.]({% image_buster /assets/img/in-app-message-preview.png %})
 
@@ -193,7 +193,7 @@ A Braze tem três gerações de mensagens no app disponíveis. Você pode ajusta
 ![Alternando entre gerações ao visualizar uma mensagem no app.]({% image_buster /assets/img/iam-generations.gif %}){: height="50%" width="50%"}
 
 {% alert warning %}
-Em **Preview**, a visualização da sua mensagem pode não ser idêntica à renderização real no dispositivo do usuário. Recomendamos sempre enviar uma mensagem de teste para um dispositivo para garantir que suas mídias, textos, personalização e atributos personalizados sejam gerados corretamente.
+Em **prévia**, a visualização da sua mensagem pode não ser idêntica à renderização real no dispositivo do usuário. Recomendamos sempre enviar uma mensagem de teste para um dispositivo para garantir que suas mídias, textos, personalização e atributos personalizados sejam gerados corretamente.
 {% endalert %}
 
 ### Checklist de teste
@@ -252,7 +252,7 @@ Se você vir um erro informando que nenhum dos usuários selecionados possui tok
 1. Crie seu web push.
 2. Selecione a guia **Test**.
 3. Selecione **Send Test to Myself**.
-4. Selecione **Send Test** para enviar seu web push ao seu navegador web.
+4. Selecione **Send Test** para enviar seu web push ao seu navegador de internet or navegador web.
 
 ![Teste de web push]({% image_buster /assets/img_archive/testwebpush.png %})
 
@@ -317,7 +317,7 @@ Se estiver visualizando como um usuário personalizado, insira texto nos diverso
 
 Você pode editar campos individuais de um usuário aleatório ou existente para ajudar a testar o conteúdo dinâmico dentro da sua mensagem. Selecione **Edit** para converter o usuário selecionado em um usuário personalizado que você pode modificar.
 
-![A guia "Preview as a User" com um botão "Edit".]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
+![A guia "prévia as a User" com um botão "Edit".]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 
 ### Testando campaigns personalizadas com propriedades de eventos personalizados {#testing-campaigns-personalized-with-custom-event-properties}
 
@@ -377,7 +377,7 @@ Como alternativa, se você estiver salvando IDs de usuário personalizados, tamb
 Você pode testar propriedades de eventos personalizados inserindo valores manualmente com Liquid.
 
 1. No editor de mensagens, insira valores para suas propriedades de eventos personalizados.
-2. Selecione a guia **Preview as a User** para verificar se a mensagem correta é exibida.
+2. Selecione a guia **prévia as a User** para verificar se a mensagem correta é exibida.
 
 {% endtab %}
 {% endtabs %}
@@ -399,7 +399,7 @@ Existem algumas situações em que as mensagens de teste não se comportam da me
 Se a campanha de mensagem no app não for disparada por uma campanha de push, verifique a segmentação da campanha de mensagem no app para confirmar que o usuário atende ao público-alvo **antes** de receber a mensagem de push.
 
 Para envios de teste no Android e iOS, as mensagens no app que usam o comportamento ao clicar **Solicitar permissão de push** podem não ser exibidas em alguns dispositivos. Como alternativa:
-- **Android:** Os dispositivos precisam estar no Android 13 e na versão 21.0.0 ou superior do nosso SDK para Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já tenha uma solicitação no nível do sistema. Pode ser que você tenha selecionado **Não perguntar novamente**, então talvez seja necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
+- **Android:** Os dispositivos precisam estar no Android 13 e na versão 21.0.0 ou superior do nosso SDK or kit de desenvolvimento de software para Android. Outro motivo pode ser que o dispositivo no qual a mensagem no app é exibida já tenha uma solicitação no nível do sistema. Pode ser que você tenha selecionado **Não perguntar novamente**, então talvez seja necessário reinstalar o app para redefinir as permissões de notificação antes de testar novamente.
 - **iOS:** Recomendamos que sua equipe de desenvolvimento revise a implementação das notificações por push do seu app e remova manualmente qualquer código que solicite permissões de push. Para saber mais, consulte [Mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
-Para que uma campanha de mensagem no app baseada em ação seja entregue, você precisa registrar eventos personalizados por meio do SDK da Braze, e não por REST APIs, para que os usuários possam receber mensagens no app elegíveis diretamente no dispositivo. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.
+Para que uma campanha de mensagem no app baseada em ação seja entregue, você precisa registrar eventos personalizados por meio do SDK or kit de desenvolvimento de software da Braze, e não por REST or transferir estado representacional APIs, para que os usuários possam receber mensagens no app elegíveis diretamente no dispositivo. Os usuários recebem a mensagem no app se realizarem o evento durante a sessão.

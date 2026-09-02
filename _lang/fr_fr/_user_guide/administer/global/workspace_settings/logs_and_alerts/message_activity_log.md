@@ -33,7 +33,7 @@ Vous pouvez filtrer par les contenus suivants enregistrés dans le **Journal d'a
 - Erreurs de test A/B
 - Erreurs SMS/MMS
 - Erreurs WhatsApp
-- Erreurs de Live Activity
+- Erreurs de en direct or en ligne/en production/instantané Activity
 - Erreurs de déclencheur utilisateur incorrect
 - Erreurs de [limite d'invocations quotidiennes]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#monitor-your-agent) de Braze Agents
 - Erreurs de [modèle]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) indisponible de Braze Agents
@@ -103,9 +103,9 @@ Le nombre de journaux enregistrés est influencé par plusieurs conditions. Par 
     - Payload invalide
     - Erreur inattendue
 - Jusqu'à 100 journaux d'erreurs du même type d'erreur sont enregistrés pour la même application au cours d'une heure fixe pour les types d'erreurs suivants :
-    - Erreur Live Activity (aucun identifiant push)
-    - Erreur Live Activity (identifiant push invalide)
-    - Autres erreurs Live Activity
+    - Erreur en direct or en ligne/en production/instantané Activity (aucun identifiant push)
+    - Erreur en direct or en ligne/en production/instantané Activity (identifiant push invalide)
+    - Autres erreurs en direct or en ligne/en production/instantané Activity
     - Erreurs de jeton supprimé par retour APNS
 - Jusqu'à 100 journaux d'erreurs du même type d'erreur sont enregistrés pour la même Campaign ou étape du Canvas au cours d'une heure fixe pour les types d'erreurs suivants :
     - Erreurs d'échec provisoire d'envoi d'e-mail

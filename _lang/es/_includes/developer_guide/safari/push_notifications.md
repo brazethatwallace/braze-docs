@@ -1,4 +1,4 @@
-{% multi_lang_include developer_guide/prerequisites/web.md %} También tendrás que [configurar las notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) para el SDK Web. Ten en cuenta que solo puedes enviar notificaciones push a usuarios de iOS y iPadOS que utilicen [Safari v16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes) o posterior.
+{% multi_lang_include developer_guide/prerequisites/web.md %} También tendrás que [configurar las notificaciones push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web) para el SDK or kit de desarrollo de software Web. Ten en cuenta que solo puedes enviar notificaciones push a usuarios de iOS y iPadOS que utilicen [Safari v16.4](https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes) o posterior.
 
 ## Configurar push de Safari para dispositivos móviles {#setting-up-safari-push-for-mobile}
 
@@ -6,7 +6,7 @@
 
 Un [manifiesto de aplicación web](https://developer.mozilla.org/en-US/docs/Web/Manifest) es un archivo JSON que controla cómo se presenta tu sitio web cuando se instala en la pantalla de inicio del usuario.
 
-Por ejemplo, puedes configurar el color del tema de fondo y el icono que usa el [selector de aplicaciones](https://support.apple.com/en-us/HT202070), si se renderiza a pantalla completa para parecerse a una aplicación nativa, o si la aplicación debe abrirse en modo horizontal o vertical.
+Por ejemplo, puedes configurar el color del tema de fondo y el icono que usa el [SELECTOR de aplicaciones](https://support.apple.com/en-us/HT202070), si se renderiza a pantalla completa para parecerse a una aplicación nativa, o si la aplicación debe abrirse en modo horizontal o vertical.
 
 Crea un nuevo archivo `manifest.json` en el directorio raíz de tu sitio web, con los siguientes campos obligatorios.
 

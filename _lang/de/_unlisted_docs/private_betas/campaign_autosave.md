@@ -12,7 +12,7 @@ page_type: reference
 > Wenn Sie Ihre Campaigns in Braze erstellen, werden Ihre Änderungen jetzt automatisch gespeichert. So können Sie sich darauf konzentrieren, Ihre Campaign-Details zu optimieren – mit der Gewissheit, dass Ihr Fortschritt erhalten bleibt.
 
 {% alert important %}
-Das automatische Speichern befindet sich derzeit in der Betaphase und ist nur für Campaigns verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an dieser Beta teilnehmen möchten.
+Das automatische Speichern befindet sich derzeit in der Betaphase und ist nur für Campaigns verfügbar. Kontaktieren Sie Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in, wenn Sie an dieser Beta teilnehmen möchten.
 {% endalert %}
 
 {% alert warning %}
@@ -27,6 +27,6 @@ Ihre Campaigns werden automatisch und regelmäßig gespeichert, während Sie im 
 
 Änderungen werden sowohl für Entwürfe als auch für aktive Campaigns als Entwurf gespeichert. Bei gestoppten Campaigns werden Ihre Änderungen gespeichert, die Campaign bleibt jedoch gestoppt.
 
-Wenn Sie und eine andere Person gleichzeitig Änderungen an einer Campaign vornehmen, wird der erste Satz von Änderungen gespeichert. Wenn Sie die zweite Person sind, die Änderungen speichert, müssen Sie die Seite aktualisieren, um die neuesten Änderungen an der Campaign zu sehen.
+Wenn Sie und eine andere Person gleichzeitig Änderungen an einer Campaign vornehmen, wird der erste Satz von Änderungen gespeichert. Wenn Sie die zweite Person sind, die Änderungen speichert, müssen Sie die Seite Update or aktualisieren or aktualisieren, um die neuesten Änderungen an der Campaign zu sehen.
 
 [1]: {% image_buster /assets/unlisted_docs/img/campaign_autosave.png %}

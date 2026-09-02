@@ -28,7 +28,7 @@ Ten en cuenta lo siguiente antes de proceder con la integración:
 
 | Requisito| Descripción|
 | ---| --- |
-| Cuenta de Meta Business Manager | Se requiere una cuenta de Meta Business para aprovechar este canal de mensajería. |
+| Cuenta de Meta Business Administrador | Se requiere una cuenta de Meta Business para aprovechar este canal de mensajería. |
 | Cuenta de WhatsApp Business | Se requiere una cuenta de WhatsApp Business para aprovechar este canal de mensajería. |
 | Número de teléfono de WhatsApp | Debes adquirir un número de teléfono que cumpla con los requisitos de WhatsApp para la [API en la nube](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) o la [API local](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) para el uso del canal de mensajería. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -60,10 +60,10 @@ Una vez completada la configuración, se crea un [grupo de suscripción de Whats
 
 ### Paso 3: Crear plantillas de WhatsApp {#step-3-create-whatsapp-templates}
 
-Solo las plantillas de mensajes de WhatsApp aprobadas se pueden usar para iniciar conversaciones con los clientes. Las plantillas de WhatsApp se pueden crear en el [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Para ver una lista de las características de mensajería de WhatsApp compatibles con Braze, consulta [Características compatibles de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
+Solo las plantillas de mensajes de WhatsApp aprobadas se pueden usar para iniciar conversaciones con los clientes. Las plantillas de WhatsApp se pueden crear en el [Meta Business Administrador](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343). Para ver una lista de las características de mensajería de WhatsApp compatibles con Braze, consulta [Características compatibles de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
 
 1. **Navega al [administrador de plantillas](https://business.facebook.com/wa/manage/message-templates)**<br>
-En el Meta Business Manager, en **Account Tools**, selecciona **Message Templates**.
+En el Meta Business Administrador, en **Account Tools**, selecciona **Message Templates**.
 A continuación, selecciona **Create Templates**.<br><br>![Administrador de WhatsApp con una lista de plantillas de mensajes.]({% image_buster /assets/img/whatsapp/whatsapp2.png %}){: style="max-width:100%;"}<br><br>
 2. **Configuración de mensajes**<br>
 En el nuevo creador de plantillas de mensajes, selecciona la categoría de tu mensaje, nombra tu plantilla y elige los idiomas que deseas admitir. Puedes eliminar o añadir más idiomas después.<br><br>
@@ -79,7 +79,7 @@ Una vez que hayas completado tu plantilla, presiona **Submit**.
 
 #### Tiempo de aprobación de plantilla {#template-approval-time}
 
-Puedes verificar el estado de aprobación de tu plantilla de mensaje en la página **Message Template** del Meta Business Manager, o al crear una campaña o Canvas en Braze. Además, puedes recibir una notificación por correo electrónico del equipo de WhatsApp dependiendo de tus permisos de notificación.
+Puedes verificar el estado de aprobación de tu plantilla de mensaje en la página **Message Template** del Meta Business Administrador, o al crear una campaña o Canvas en Braze. Además, puedes recibir una notificación por correo electrónico del equipo de WhatsApp dependiendo de tus permisos de notificación.
 
 {% alert note %}
 Las plantillas aprobadas se pueden usar en tantas campañas y Canvas como desees. También se pueden enviar a tantos usuarios con adhesión voluntaria como quieras. Esto aplica siempre que la calidad de la plantilla no disminuya.
@@ -97,7 +97,7 @@ Después de que se cree tu cuenta de WhatsApp Business, Meta determinará tu lí
 
 Después de completar la integración, te recomendamos completar los dos siguientes procesos de Meta:
 - [Verificación de empresa](https://www.facebook.com/business/help/2058515294227817?id=180505742745347)
-	- Puede que ya tengas la verificación de empresa si has utilizado un Meta Business Manager existente.
+	- Puede que ya tengas la verificación de empresa si has utilizado un Meta Business Administrador existente.
 - [Cuenta de empresa oficial](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
 También te recomendamos leer sobre [números de teléfono de usuario]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) y añadir a cualquier usuario que necesite acceso para crear [plantillas de mensaje en tu organización](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143).

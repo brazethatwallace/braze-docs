@@ -26,7 +26,7 @@ O guia a seguir oferece uma integração de desenvolvedor personalizada opcional
 
 ### Subclasses de ABKInAppMessage {#abkinappmessage-subclasses}
 
-O trecho de código a seguir é um método delegado de interface do usuário do SDK da Braze que determina com qual visualização de subclasse você deseja preencher sua mensagem no app. Neste guia, abordamos uma implementação básica e mostramos como as subclasses completa, deslizante e modal podem ser implementadas de maneiras cativantes. Observe que, se quiser configurar seu view controller personalizado, você deverá configurar todas as outras subclasses de mensagens no app. Depois que você tiver uma sólida compreensão dos conceitos por trás da subclasse, confira nossos [casos de uso](#sample-use-cases) para começar a implementar subclasses de mensagens no app.
+O trecho de código a seguir é um método delegado de interface do usuário do SDK or kit de desenvolvimento de software da Braze que determina com qual visualização de subclasse você deseja preencher sua mensagem no app. Neste guia, abordamos uma implementação básica e mostramos como as subclasses completa, deslizante e modal podem ser implementadas de maneiras cativantes. Observe que, se quiser configurar seu view controller personalizado, você deverá configurar todas as outras subclasses de mensagens no app. Depois que você tiver uma sólida compreensão dos conceitos por trás da subclasse, confira nossos [casos de uso](#sample-use-cases) para começar a implementar subclasses de mensagens no app.
 
 {% tabs %}
 {% tab Swift %}

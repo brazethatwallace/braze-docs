@@ -7,7 +7,7 @@ guide_top_text: ""
 page_order: 0
 search_rank: 2
 page_type: landing
-description: "Dieser Abschnitt bietet eine Einführung in Decisioning Studio und zeigt, wie Sie damit KI-Entscheidungsagenten entwerfen und bereitstellen können, die jede beliebige Geschäftsmetrik optimieren."
+description: "Dieser Abschnitt bietet eine Einführung in Decisioning Studio und zeigt, wie Sie damit KI or künstliche Intelligenz-Entscheidungsagenten entwerfen und bereitstellen können, die jede beliebige Geschäftsmetrik optimieren."
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
@@ -34,17 +34,17 @@ guide_menu_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-BrazeAI Decisioning Studio™ ermöglicht es Ihnen, KI-Entscheidungsagenten zu entwerfen und bereitzustellen, die jede beliebige Geschäftsmetrik optimieren.
+BrazeAI Decisioning Studio™ ermöglicht es Ihnen, KI or künstliche Intelligenz-Entscheidungsagenten zu entwerfen und bereitzustellen, die jede beliebige Geschäftsmetrik optimieren.
 
 Diese Referenz gibt einen Überblick über die Schritte zur Einrichtung von Decisioning Studio, einschließlich des Entwurfs Ihres Agenten, der Konfiguration und Anbindung von Datenquellen, der Einrichtung der Orchestrierung und der Bewertung der Performance.
 
 ## Wichtige Designentscheidungen {#key-design-decisions}
 
-Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Entscheidungen zu treffen:
+Arbeiten Sie mit dem KI or künstliche Intelligenz Decisioning Services-Team zusammen, um die folgenden Entscheidungen zu treffen:
 
 | Entscheidung | Beschreibung | Beispiele |
 |----------|-------------|----------|
-| **Erfolgsmetrik** | Das Geschäftsergebnis, das der Agent bei der Personalisierung des Customer-Engagements maximiert. | Umsatz, LTV, ARPU, Conversions, Bindung |
+| **Erfolgsmetrik** | Das Geschäftsergebnis, das der Agent bei der Personalisierung des Customer-Engagements maximiert. | Umsatz, LTV or Lifetime-Value, ARPU, Conversions, Bindung |
 | **Zielgruppe** | Die Kund:innen, für die der Decisioning-Studio-Agent Engagement-Entscheidungen trifft. | Alle Kund:innen, Mitglieder von Treueprogrammen, gefährdete Abonnent:innen |
 | **Experimentgruppen** | Wie sollen die randomisierten kontrollierten Studien von Decisioning Studio strukturiert sein? | Decisioning Studio, Random Control, BAU, Holdout |
 | **Dimensionen** | Die Engagement-Entscheidungen, die der Agent für jede:n Kund:in personalisiert. | Tageszeit, Betreffzeile, Häufigkeit, Angebote, Kanal |
@@ -52,7 +52,7 @@ Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Ent
 | **Einschränkungen** | Die Geschäftsregeln und Limits, die die Entscheidungen des Agenten einschränken. | Geografische Beschränkungen, Budgetlimits, Berechtigungsregeln |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wichtige Designentscheidungen" }
 
-Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Uplift der Agent generieren kann und wie schnell. Unser AI Decisioning Services-Team arbeitet mit Ihnen zusammen, um einen Agenten zu entwerfen, der maximalen Mehrwert generiert und gleichzeitig alle Ihre Geschäftsregeln einhält.
+Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Uplift der Agent generieren kann und wie schnell. Unser KI or künstliche Intelligenz Decisioning Services-Team arbeitet mit Ihnen zusammen, um einen Agenten zu entwerfen, der maximalen Mehrwert generiert und gleichzeitig alle Ihre Geschäftsregeln einhält.
 
 ![Diagramm, das zeigt, wie Erfolgsmetriken, Zielgruppe, Experimentgruppen, Dimensionen, Optionen und Einschränkungen in das Design eines Decisioning-Studio-Agenten einfließen]({% image_buster /assets/img/decisioning_studio/decisioning_studio_pro_agent_design.png %})
 
@@ -60,10 +60,10 @@ Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Upli
 
 | Funktion | Details |
 |------------|---------|
-| **Jede Erfolgsmetrik** | Optimierung für Umsatz, Conversions, ARPU, LTV oder jeden beliebigen Geschäfts-KPI |
+| **Jede Erfolgsmetrik** | Optimierung für Umsatz, Conversions, ARPU, LTV or Lifetime-Value oder jeden beliebigen Geschäfts-KPI or Leistungskennzahl or Leistungskennzahlen |
 | **Unbegrenzte Dimensionen** | Personalisierung über Angebote, Kanäle, Timing, Häufigkeit, Kreativmaterial und mehr |
 | **Jede CEP** | Native Integrationen mit Braze, Salesforce Marketing Cloud oder angepasste Integrationen für jede Plattform |
-| **AI Decisioning Services** | Dedizierter Support durch das Data-Science-Team von Braze |
+| **KI or künstliche Intelligenz Decisioning Services** | Dedizierter Support durch das Data-Science-Team von Braze |
 | **Erweitertes Experimentdesign** | Vollständig anpassbare Behandlungsgruppen und Holdouts |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Funktionen von Decisioning Studio" }
 

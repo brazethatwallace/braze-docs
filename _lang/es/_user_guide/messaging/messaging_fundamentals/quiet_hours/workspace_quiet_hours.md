@@ -10,7 +10,7 @@ description: "Este artículo de referencia cubre las horas tranquilas del espaci
 
 > Las horas tranquilas del espacio de trabajo te permiten establecer una ventana de horas tranquilas predeterminada para un canal de mensajería en todo tu espacio de trabajo. Cada Campaign y Canvas que envía en ese canal respeta automáticamente la ventana, por lo que no necesitas configurar las horas tranquilas en cada Campaign o Canvas de forma individual.
 
-Las horas tranquilas del espacio de trabajo son independientes de las horas tranquilas a nivel de Campaign y Canvas, que siguen aplicándose cuando las configuras. Usa las horas tranquilas del espacio de trabajo para el caso predeterminado (por ejemplo, un requisito de cumplimiento en todos los envíos de SMS). Mantén las horas tranquilas a nivel de Campaign y Canvas para las excepciones.
+Las horas tranquilas del espacio de trabajo son independientes de las horas tranquilas a nivel de Campaign y Canvas, que siguen aplicándose cuando las configuras. Usa las horas tranquilas del espacio de trabajo para el caso predeterminado (por ejemplo, un requisito de cumplimiento en todos los envíos de servicio de mensajes cortos). Mantén las horas tranquilas a nivel de Campaign y Canvas para las excepciones.
 
 {% alert important %}
 Las horas tranquilas del espacio de trabajo están actualmente disponibles en acceso anticipado. Las opciones de configuración pueden cambiar antes de la disponibilidad general. Contacta a tu equipo de cuenta de Braze para solicitar acceso.
@@ -33,7 +33,7 @@ Puedes configurar una ventana de horas tranquilas del espacio de trabajo para cu
 - LINE
 - Push
    - Esto cubre todas las plataformas push en tu espacio de trabajo. No hay opción para configurar horas tranquilas diferentes para plataformas individuales (por ejemplo, iOS frente a Android).
-- SMS/MMS/RCS
+- servicio de mensajes cortos/MMS/RCS
 - Webhook
 - WhatsApp
 
@@ -117,7 +117,7 @@ Las Campaigns de API no pueden usar horas tranquilas a nivel de Campaign. Solo s
 Los siguientes elementos nunca son retenidos por las horas tranquilas del espacio de trabajo, independientemente del canal:
 
 - Mensajes de correo transaccional
-- Respuestas automáticas de SMS (por ejemplo, respuestas a las palabras clave `STOP` o `HELP`)
+- Respuestas automáticas de servicio de mensajes cortos (por ejemplo, respuestas a las palabras clave `STOP` o `HELP`)
 - Envíos de prueba y envíos de grupo semilla
 
 ## Otras consideraciones {#other-considerations}

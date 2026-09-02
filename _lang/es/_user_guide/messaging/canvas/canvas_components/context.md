@@ -79,7 +79,7 @@ Para definir una variable de contexto:
 1. Dale un **nombre** a tu variable de contexto.
 2. Selecciona un [tipo de datos]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types).
 3. Escribe una expresión Liquid manualmente o usa **Add Personalization** para crear un fragmento de código Liquid a partir de atributos preexistentes.
-4. Selecciona **Preview** para comprobar el valor de tu variable de contexto.
+4. Selecciona **vista previa** para comprobar el valor de tu variable de contexto.
 5. (Opcional) Para añadir variables adicionales, selecciona **Add Context variable** y repite los pasos 1-4.
 6. Cuando hayas terminado, selecciona **Done**.
 
@@ -106,7 +106,7 @@ Para la configuración de filtros, lógica de comparación y ejemplos avanzados,
 Recomendamos probar y [previsualizar tus rutas de usuario]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) para asegurarte de que tus mensajes se envían a la audiencia correcta y que las variables de contexto se evalúan con los resultados esperados.
 
 {% alert note %}
-Si estás previsualizando tu Canvas en la sección **Preview & Test Send** del editor, la marca de tiempo en la vista previa del mensaje de prueba **no** se estandariza a UTC porque este panel genera las vistas previas como cadenas. Esto significa que si un Canvas está configurado para aceptar un objeto `time`, la vista previa del mensaje no refleja con precisión lo que ocurre cuando el Canvas está en vivo. Para probar tu Canvas con la mayor precisión, recomendamos previsualizar las rutas de usuario en su lugar.
+Si estás previsualizando tu Canvas en la sección **vista previa & Test Send** del editor, la marca de tiempo en la vista previa del mensaje de prueba **no** se estandariza a UTC porque este panel genera las vistas previas como cadenas. Esto significa que si un Canvas está configurado para aceptar un objeto `time`, la vista previa del mensaje no refleja con precisión lo que ocurre cuando el Canvas está en vivo. Para probar tu Canvas con la mayor precisión, recomendamos previsualizar las rutas de usuario en su lugar.
 {% endalert %}
 
 Asegúrate de observar cualquier escenario común que cree variables de contexto no válidas. Al previsualizar tu ruta de usuario, puedes ver los resultados de los pasos de retraso personalizados que usan variables de contexto, y cualquier comparación de pasos de audiencia o decisión que coincida con usuarios según variables de contexto.

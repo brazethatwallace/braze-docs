@@ -11,7 +11,7 @@ channel:
 
 # Intégrer Braze et WhatsApp avec un système externe d'IA ou de communication {#integrate-braze-and-whatsapp-with-an-external-ai-or-communication-system}
 
-> Tirez parti de la puissance des chatbots IA et des transferts vers des agents en direct sur le canal WhatsApp pour rationaliser vos opérations de support client. En automatisant les demandes courantes et en passant de façon fluide à des agents humains lorsque nécessaire, vous pouvez améliorer considérablement les temps de réponse et enrichir l'expérience client globale.
+> Tirez parti de la puissance des chatbots IA et des transferts vers des agents en direct or en ligne/en production/instantané sur le canal WhatsApp pour rationaliser vos opérations de support client. En automatisant les demandes courantes et en passant de façon fluide à des agents humains lorsque nécessaire, vous pouvez améliorer considérablement les temps de réponse et enrichir l'expérience client globale.
 
 ## Conditions préalables {#prerequisites}
 

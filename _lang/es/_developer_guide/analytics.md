@@ -1,8 +1,8 @@
 ---
 nav_title: Análisis
-article_title: Acerca del análisis del SDK de Braze
+article_title: Acerca del análisis del SDK or kit de desarrollo de software de Braze
 page_order: 2.6
-description: "Obtén información sobre el análisis del SDK de Braze para comprender mejor qué datos recopila Braze, la diferencia entre eventos personalizados y atributos personalizados, y las prácticas recomendadas para gestionar los análisis."
+description: "Obtén información sobre el análisis del SDK or kit de desarrollo de software de Braze para comprender mejor qué datos recopila Braze, la diferencia entre eventos personalizados y atributos personalizados, y las prácticas recomendadas para gestionar los análisis."
 platform:
   - Android
   - Swift
@@ -18,17 +18,17 @@ platform:
 
 # Análisis {#analytics}
 
-> Obtén información sobre el análisis del SDK de Braze para comprender mejor qué datos recopila Braze, la diferencia entre eventos personalizados y atributos personalizados, y las prácticas recomendadas para gestionar los análisis.
+> Obtén información sobre el análisis del SDK or kit de desarrollo de software de Braze para comprender mejor qué datos recopila Braze, la diferencia entre eventos personalizados y atributos personalizados, y las prácticas recomendadas para gestionar los análisis.
 
 {% alert tip %}
-Durante la implementación de Braze, asegúrate de hablar sobre los objetivos de marketing con tu equipo, para que puedas decidir mejor qué datos deseas rastrear y cómo deseas rastrearlos con Braze. Para ver un ejemplo, consulta nuestro caso de estudio [sobre aplicaciones de taxi/transporte compartido](#example-case) al final de esta guía.
+Durante la implementación de Braze, asegúrate de hablar sobre los objetivos de marketing con tu equipo, para que puedas decidir mejor qué datos deseas rastrear y cómo deseas rastrearlos con Braze. Para ver un ejemplo, consulta nuestro caso de estudio [sobre aplicaciones de Taxi for Email/transporte compartido](#example-case) al final de esta guía.
 {% endalert %}
 
 ## Datos recopilados automáticamente {#automatically-collected-data}
 
-Ciertos datos de usuario son recopilados automáticamente por nuestro SDK; por ejemplo, primera vez que se usó la aplicación, última vez que se usó la aplicación, recuento total de sesiones, SO del dispositivo, etc. Si sigues nuestras guías de integración para implementar nuestros SDK, podrás aprovechar esta [recopilación de datos predeterminada]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Revisar esta lista puede ayudarte a evitar almacenar la misma información sobre los usuarios más de una vez. Con la excepción del inicio y fin de sesión, todos los demás datos rastreados automáticamente no cuentan para tu uso de puntos de datos.
+Ciertos datos de usuario son recopilados automáticamente por nuestro SDK or kit de desarrollo de software; por ejemplo, primera vez que se usó la aplicación, última vez que se usó la aplicación, recuento total de sesiones, SO del dispositivo, etc. Si sigues nuestras guías de integración para implementar nuestros SDK or kit de desarrollo de software, podrás aprovechar esta [recopilación de datos predeterminada]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection). Revisar esta lista puede ayudarte a evitar almacenar la misma información sobre los usuarios más de una vez. Con la excepción del inicio y fin de sesión, todos los demás datos rastreados automáticamente no cuentan para tu uso de puntos de datos.
 
-Consulta nuestro artículo [Introducción al SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) para incluir en la lista de permitidos los procesos que bloquean la recopilación predeterminada de ciertos elementos de datos.
+Consulta nuestro artículo [Introducción al SDK or kit de desarrollo de software]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) para incluir en la lista de permitidos los procesos que bloquean la recopilación predeterminada de ciertos elementos de datos.
 
 ## Eventos personalizados {#custom-events}
 
@@ -82,7 +82,7 @@ Talk to villagers for essential tips on how to beat levels!
 ```
 {% endraw %}
 
-Las propiedades de eventos personalizados están diseñadas para ayudarte a personalizar tus mensajes o crear campañas de entrega basada en acciones con mayor detalle. Si deseas crear segmentos basados en la antigüedad y frecuencia de las propiedades de eventos, ponte en contacto con tu administrador de éxito de cliente o con nuestro equipo de soporte.
+Las propiedades de eventos personalizados están diseñadas para ayudarte a personalizar tus mensajes o crear campañas de entrega basada en acciones con mayor detalle. Si deseas crear segmentos basados en la antigüedad y frecuencia de las propiedades de eventos, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente o con nuestro equipo de soporte.
 
 ## Atributos personalizados {#custom-attributes}
 
@@ -131,7 +131,7 @@ Los atributos de array son útiles para almacenar listas relacionadas de informa
 
 Los arrays de atributos personalizados son conjuntos unidimensionales; no se admiten arrays multidimensionales. **Añadir un elemento a un array de atributos personalizados lo agrega al final del array, a menos que ya esté presente, en cuyo caso se mueve de su posición actual al final del array.** Por ejemplo, si se importa un array `['hotdog','hotdog','hotdog','pizza']`, aparecerá en el atributo de array como `['hotdog', 'pizza']` porque solo se admiten valores únicos.
 
-Si el array contiene la cantidad máxima de elementos, el primer elemento se descartará y el nuevo se añadirá al final. El siguiente código de ejemplo muestra el comportamiento del array en el SDK web:
+Si el array contiene la cantidad máxima de elementos, el primer elemento se descartará y el nuevo se añadirá al final. El siguiente código de ejemplo muestra el comportamiento del array en el SDK or kit de desarrollo de software web:
 
 ```js
 var abUser = appboy.getUser();
@@ -222,7 +222,7 @@ La siguiente tabla describe las opciones de segmentación disponibles para atrib
 
 ## Eventos de compra / seguimiento de ingresos {#purchase-events-revenue-tracking}
 
-El uso de nuestros métodos de compra para registrar compras dentro de la aplicación establece el valor del ciclo de vida (LTV) para cada perfil de usuario individual. Estos datos se pueden ver en nuestra página de ingresos en gráficos de series temporales.
+El uso de nuestros métodos de compra para registrar compras dentro de la aplicación establece el valor del ciclo de vida (LTV or valor de duración del ciclo de vida) para cada perfil de usuario individual. Estos datos se pueden ver en nuestra página de ingresos en gráficos de series temporales.
 
 La siguiente tabla describe las opciones de segmentación disponibles para los eventos de compra.
 
@@ -244,7 +244,7 @@ La siguiente tabla describe las opciones de segmentación disponibles para los e
 Si deseas segmentar por el número de veces que se ha realizado una compra específica, también deberías registrar esa compra individualmente como un [atributo personalizado incremental](#integers).
 {% endalert %}
 
-## Caso de uso de aplicación de taxi/transporte compartido {#example-case}
+## Caso de uso de aplicación de Taxi for Email/transporte compartido {#example-case}
 
 Para este ejemplo, consideremos una aplicación de transporte compartido que quiere decidir qué datos de usuario recopilar. Las siguientes preguntas y el proceso de lluvia de ideas son un gran modelo a seguir por los equipos de marketing y desarrollo. Al final de este ejercicio, ambos equipos deberían tener una comprensión sólida de qué eventos y atributos personalizados tiene sentido recopilar para ayudar a cumplir su objetivo.
 
@@ -255,23 +255,23 @@ Su objetivo es sencillo: quieren que los usuarios pidan taxis a través de su ap
 **Pregunta del caso nº 2: ¿Cuáles son los pasos intermedios en el camino hacia ese objetivo desde la instalación de la aplicación?**
 
 1. Necesitan que los usuarios inicien el proceso de registro y rellenen sus datos personales.
-2. Necesitan que los usuarios completen y verifiquen el proceso de registro introduciendo un código en la aplicación que reciben por SMS.
-3. Tienen que intentar pedir un taxi.
-4. Para pedir un taxi, debe haber uno disponible cuando lo busquen.
+2. Necesitan que los usuarios completen y verifiquen el proceso de registro introduciendo un código en la aplicación que reciben por servicio de mensajes cortos.
+3. Tienen que intentar pedir un Taxi for Email.
+4. Para pedir un Taxi for Email, debe haber uno disponible cuando lo busquen.
 
 Estas acciones podrían entonces etiquetarse como los siguientes eventos personalizados:
 
 - Inicio del registro
 - Registro completado
-- Solicitudes de taxi exitosas
-- Solicitudes de taxi fallidas
+- Solicitudes de Taxi for Email exitosas
+- Solicitudes de Taxi for Email fallidas
 
 Después de implementar los eventos, ahora puedes ejecutar las siguientes campañas:
 
 1. Envía mensajes a los usuarios que iniciaron el registro, pero no desencadenaron el evento de registro completado en un plazo de tiempo determinado.
 2. Envía mensajes de felicitación a los usuarios que completen el registro.
-3. Envía disculpas y crédito promocional a los usuarios que hayan tenido solicitudes de taxi fallidas que no hayan ido seguidas de una solicitud de taxi exitosa en un plazo de tiempo determinado.
-4. Envía promociones a usuarios avanzados con muchas solicitudes de taxi exitosas para agradecerles su fidelización.
+3. Envía disculpas y crédito promocional a los usuarios que hayan tenido solicitudes de Taxi for Email fallidas que no hayan ido seguidas de una solicitud de Taxi for Email exitosa en un plazo de tiempo determinado.
+4. Envía promociones a usuarios avanzados con muchas solicitudes de Taxi for Email exitosas para agradecerles su fidelización.
 
 ¡Y muchas más!
 

@@ -27,8 +27,8 @@ A integração entre a Braze e a StackAdapt permite que você sincronize dados d
 | Requisito | Descrição |
 | ----------- | ------------------- |
 | **Conta StackAdapt** | Você precisa de uma conta StackAdapt ativa com permissões para gerenciar integrações do Data Hub. |
-| **Chave da API REST da Braze** | Uma chave da API REST da Braze com as seguintes permissões: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| **Endpoint REST da Braze** | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| **Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze** | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com as seguintes permissões: <br>- users.export.ids<br>- users.export.Segment or segmento<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| **Endpoint REST or transferir estado representacional da Braze** | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Como funciona {#how-it-works}
@@ -37,7 +37,7 @@ O StackAdapt Data Hub se conecta diretamente à sua conta da Braze para extrair 
 
 ### Fluxo de dados {#data-flow}
 
-1. A StackAdapt inicia uma conexão segura com sua instância da Braze usando as credenciais de API fornecidas.
+1. A StackAdapt inicia uma conexão segura com sua instância da Braze usando as credenciais de API or interface de programação do aplicativo (API) fornecidas.
 2. A StackAdapt recupera dados de perfil de usuário e especificamente as propriedades que você selecionou e mapeou.
 3. Os dados são normalizados e ingeridos no seu StackAdapt Data Hub, tornando-se disponíveis para segmentação e uso em suas campanhas.
 4. A integração permite sincronizações de dados programadas (por exemplo, diárias) para manter seus públicos da StackAdapt atualizados com os dados de perfil mais recentes da Braze.
@@ -89,10 +89,10 @@ Siga estas etapas para importar seus perfis de usuário da Braze:
 1. Faça login na sua conta da StackAdapt.
 2. No menu de navegação, selecione **Data Hub**.
 3. Selecione **Import Profiles** e, em seguida, selecione **Braze** na lista de integrações disponíveis.
-4. Insira suas credenciais de API da Braze quando solicitado.
-- **Braze REST API Key:** Localizada na Braze em **Configurações** > **Chaves de API**. Como melhor prática de segurança, recomendamos criar uma chave de API dedicada para sua integração com a StackAdapt.
-- **Braze App Key:** Localizada na Braze em **Configurações** > **Chaves de API** ou **Manage Apps**.
-- **Braze REST Endpoint URL:** A URL base para sua instância da Braze (por exemplo, `https://rest.iad-01.braze.com`).
+4. Insira suas credenciais de API or interface de programação do aplicativo (API) da Braze quando solicitado.
+- **Braze REST or transferir estado representacional API or interface de programação do aplicativo (API) Key:** Localizada na Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. Como melhor prática de segurança, recomendamos criar uma chave de API or interface de programação do aplicativo (API) dedicada para sua integração com a StackAdapt.
+- **Braze App Key:** Localizada na Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)** ou **Manage Apps**.
+- **Braze REST or transferir estado representacional Endpoint URL:** A URL base para sua instância da Braze (por exemplo, `https://rest.iad-01.braze.com`).
 5. Selecione **Connect** para verificar as credenciais.
 
 ![Conexão da Braze na StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_braze_connection_settings.png %})

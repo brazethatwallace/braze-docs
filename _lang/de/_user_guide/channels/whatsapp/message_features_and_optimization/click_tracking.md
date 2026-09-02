@@ -39,9 +39,9 @@ Alle statischen URLs, die mit `http://` oder `https://` beginnen, werden gekürz
 
 ### Template-Nachrichten {#template-messages}
 
-Wir empfehlen, Klick-Tracking für Template-Nachrichten über den **WhatsApp Template Builder** in Braze zu aktivieren. Diese Aktivierungsmethode übernimmt automatisch die URL-Formatierungsanforderungen, sodass Sie nichts manuell im WhatsApp Business Manager konfigurieren müssen.
+Wir empfehlen, Klick-Tracking für Template-Nachrichten über den **WhatsApp Template Builder** in Braze zu aktivieren. Diese Aktivierungsmethode übernimmt automatisch die URL-Formatierungsanforderungen, sodass Sie nichts manuell im WhatsApp Business Manager:in konfigurieren müssen.
 
-Wenn Sie Templates stattdessen direkt im WhatsApp Business Manager erstellen, lesen Sie [Klick-Tracking über den WhatsApp Business Manager konfigurieren](#configuring-click-tracking-from-whatsapp-business-manager).
+Wenn Sie Templates stattdessen direkt im WhatsApp Business Manager:in erstellen, lesen Sie [Klick-Tracking über den WhatsApp Business Manager:in konfigurieren](#configuring-click-tracking-from-whatsapp-business-manager).
 
 #### Template Builder verwenden {#use-the-template-builder}
 
@@ -49,7 +49,7 @@ Beim Erstellen eines Templates im Template Builder wird Klick-Tracking im Tab **
 
 ##### Schritt 1: Klick-Tracking aktivieren {#step-1-enable-click-tracking}
 
-Gehen Sie im Template Builder zum Tab **Settings**. Aktivieren Sie unter **Link options** das Kontrollkästchen **Click tracking**. Wenn aktiviert, werden alle Links in Ihrem Template (sowohl im Nachrichtentext als auch in CTA-Website-Buttons) gekürzt und getrackt.
+Gehen Sie im Template Builder zum Tab **Settings**. Aktivieren Sie unter **Link options** das Kontrollkästchen **Klick, der or klicken tracking**. Wenn aktiviert, werden alle Links in Ihrem Template (sowohl im Nachrichtentext als auch in CTA-Website-Buttons) gekürzt und getrackt.
 
 ![Tab „Settings“ im Template Builder mit dem Abschnitt „Link options“ und aktiviertem Kontrollkästchen „Click tracking“ sowie einem Dropdown für benutzerdefinierte Domains.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_settings.png %})
 
@@ -67,24 +67,24 @@ Nachdem ein Template zur Genehmigung an Meta übermittelt wurde, kann die Tracki
 
 Gehen Sie zurück zum Tab **Compose** und fügen Sie Ihren Nachrichteninhalt hinzu.
 
-- **Für CTA-Website-Buttons:** Geben Sie die Ziel-URL im Feld **Click tracking URL** ein. Braze speichert Ihre Ziel-URL und formatiert die Website-URL des Buttons automatisch mit der Tracking-Domain und einem Variablen-Platzhalter {% raw %}(z. B. `https://brz.ai/{{1}}`){% endraw %}. Dieser Platzhalter wird an Meta übermittelt. Zum Sendezeitpunkt generiert Braze die vollständige getrackte URL für jede:n Nutzer:in und befüllt die Variable.
+- **Für CTA-Website-Buttons:** Geben Sie die Ziel-URL im Feld **Klick, der or klicken tracking URL** ein. Braze speichert Ihre Ziel-URL und formatiert die Website-URL des Buttons automatisch mit der Tracking-Domain und einem Variablen-Platzhalter {% raw %}(z. B. `https://brz.ai/{{1}}`){% endraw %}. Dieser Platzhalter wird an Meta übermittelt. Zum Sendezeitpunkt generiert Braze die vollständige getrackte URL für jede:n Nutzer:in und befüllt die Variable.
 - **Für Links im Textkörper:** Geben Sie URLs direkt im Textkörper ein.
 
 Sie können das Format der getrackten URL für jeden Button direkt im Feld **Website URL** in der Vorschau anzeigen (z. B. `https://brz.ai/XXXXXXXX`).
 
 ![Abschnitt „Call to Action buttons“ mit einem „Visit website“-Button, dessen Website-URL im getrackten Format vorausgefüllt ist, und einem Feld für die Click tracking URL für das Ziel.]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
 
-##### Ziel-URLs nach der Einreichung aktualisieren {#update-destination-urls-after-submission}
+##### Ziel-URLs nach der Einreichung Update or aktualisieren or aktualisieren {#update-destination-urls-after-submission}
 
-Nachdem ein Template an Meta übermittelt wurde, ist die Tracking-Domain gesperrt, aber die Ziel-URL kann jederzeit bearbeitet werden. Um zu ändern, wohin ein Link verweist, bearbeiten Sie das Feld **Click tracking URL** für diesen Button. Das Format der getrackten URL bleibt gleich; Braze leitet Nutzer:innen zum Sendezeitpunkt an das neue Ziel weiter.
+Nachdem ein Template an Meta übermittelt wurde, ist die Tracking-Domain gesperrt, aber die Ziel-URL kann jederzeit bearbeitet werden. Um zu ändern, wohin ein Link verweist, bearbeiten Sie das Feld **Klick, der or klicken tracking URL** für diesen Button. Das Format der getrackten URL bleibt gleich; Braze leitet Nutzer:innen zum Sendezeitpunkt an das neue Ziel weiter.
 
-#### Klick-Tracking über den WhatsApp Business Manager konfigurieren {#configuring-click-tracking-from-whatsapp-business-manager}
+#### Klick-Tracking über den WhatsApp Business Manager:in konfigurieren {#configuring-click-tracking-from-whatsapp-business-manager}
 
-Wenn Sie Templates im WhatsApp Business Manager statt im Template Builder erstellen, befolgen Sie diese Schritte, damit Klick-Tracking korrekt funktioniert, wenn das Template in Braze verwendet wird.
+Wenn Sie Templates im WhatsApp Business Manager:in statt im Template Builder erstellen, befolgen Sie diese Schritte, damit Klick-Tracking korrekt funktioniert, wenn das Template in Braze verwendet wird.
 
-##### Schritt 1: Ein Klick-Tracking-fähiges Template im WhatsApp Business Manager erstellen {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+##### Schritt 1: Ein Klick-Tracking-fähiges Template im WhatsApp Business Manager:in erstellen {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
 
-1. Erstellen Sie in Ihrem WhatsApp Business Manager eine Basis-URL, die entweder Ihre benutzerdefinierte Domain oder `brz.ai` ist.
+1. Erstellen Sie in Ihrem WhatsApp Business Manager:in eine Basis-URL, die entweder Ihre benutzerdefinierte Domain oder `brz.ai` ist.
 2. Stellen Sie sicher, dass die im Template enthaltenen Links mit Klick-Tracking kompatibel sind.
 3. Ändern Sie die Template-Variablen nicht, nachdem es als Campaign in Braze eingerichtet wurde; nachträgliche Änderungen können nicht übernommen werden.
 4. Wählen Sie für CTA-Button-Links **Dynamic** und geben Sie dann die Basis-URL (`brz.ai` oder Ihre benutzerdefinierte Domain) an.
@@ -92,7 +92,7 @@ Wenn Sie Templates im WhatsApp Business Manager statt im Template Builder erstel
 ![Abschnitt zum Erstellen eines Call-to-Action.]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
 
 {: start="5"}
-5. Entfernen Sie bei Links im Textkörper beim Schreiben des Templates in Ihrem WhatsApp Business Manager alle eingefügten Leerzeichen für Links im Textkörper, die Sie tracken möchten.
+5. Entfernen Sie bei Links im Textkörper beim Schreiben des Templates in Ihrem WhatsApp Business Manager:in alle eingefügten Leerzeichen für Links im Textkörper, die Sie tracken möchten.
 
 ![Textfeld zur Eingabe des Textkörpers für den Call-to-Action.]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
 
@@ -111,9 +111,9 @@ Die Ziel-URL muss für jeden Link angegeben werden, dessen Basis-URL entweder `b
 ![Abschnitt „Buttons“ mit Feldern für einen Button-Namen, eine Website-URL und eine Klick-Tracking-URL.]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**Senden von Template-Nachrichten über die API**: WhatsApp-Klick-Tracking (mit `brz.ai` oder einer benutzerdefinierten Tracking-Domain und dem Feld **Click tracking URL** im Nachrichten-Editor) wird beim Senden von WhatsApp-Template-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) nicht unterstützt.
+**Senden von Template-Nachrichten über die API**: WhatsApp-Klick-Tracking (mit `brz.ai` oder einer benutzerdefinierten Tracking-Domain und dem Feld **Klick, der or klicken tracking URL** im Nachrichten-Editor) wird beim Senden von WhatsApp-Template-Nachrichten über den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) nicht unterstützt.
 
-Wenn Sie eine Template-Nachricht über die API senden, können Sie CTA-URL-Variablen (mit `button_variables`) befüllen, aber Braze generiert im API-Anfrage-Flow keine Klick-Tracking-URL und keinen Weiterleitungslink. Um Klick-Tracking zu nutzen, senden Sie das Template über das Braze-Dashboard oder über einen Braze-Campaign-Trigger.
+Wenn Sie eine Template-Nachricht über die API senden, können Sie CTA-URL-Variablen (mit `button_variables`) befüllen, aber Braze generiert im API-Anfrage-Flow keine Klick-Tracking-URL und keinen Weiterleitungslink. Um Klick-Tracking zu nutzen, senden Sie das Template über das Braze-Dashboard oder über einen Braze-Campaign-Trigger or triggern.
 {% endalert %}
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
@@ -140,7 +140,7 @@ https://example.com/{{url_var}}
 
 ## Von Liquid-Variablen gerenderte URLs kürzen {#shorten-urls-rendered-by-liquid-variables}
 
-Braze kürzt URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, wird diese URL vor dem Senden der WhatsApp-Nachricht gekürzt und getrackt.
+Braze kürzt URLs, die von Liquid gerendert werden, auch solche, die in API-Trigger or triggern-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, wird diese URL vor dem Senden der WhatsApp-Nachricht gekürzt und getrackt.
 
 ## Testen {#testing}
 

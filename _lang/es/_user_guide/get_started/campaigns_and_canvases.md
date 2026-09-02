@@ -69,7 +69,7 @@ La siguiente tabla describe nuestros canales compatibles.
 | [Push móvil]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)                   | Entrega mensajes directamente a los dispositivos móviles de los usuarios como notificaciones.                                                                                   |
 | [Push web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)                         | Entrega notificaciones a los navegadores web de los usuarios, incluso cuando no están activamente en tu sitio web.                                                         |
 | [In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages)    | Muestra mensajes dentro de tu aplicación móvil mientras los usuarios la están usando activamente.                                                                             |
-| [SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)*                   | Envía mensajes de texto a los teléfonos móviles de los usuarios.                                                                                                            |
+| [servicio de mensajes cortos, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)*                   | Envía mensajes de texto a los teléfonos móviles de los usuarios.                                                                                                            |
 | [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)*              | Envía mensajes a través de la popular plataforma de mensajería WhatsApp para llegar a tus usuarios e interactuar con ellos.                                                   |
 | [Banner]({{site.baseurl}}/user_guide/channels/banners)*       | Inserta mensajes directamente en tu aplicación o sitio web. |
 | [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)*       | Ofrece un buzón de entrada dentro de tu aplicación o sitio web donde los usuarios pueden recibir e interactuar con mensajes, o muestra mensajes en un carrusel, como banner, y más. |
@@ -81,5 +81,5 @@ La siguiente tabla describe nuestros canales compatibles.
 <sup>Disponible como característica adicional.</sup>
 
 {% alert tip %}
-Para mensajes cortos y urgentes que se pueden comunicar a través de la mayoría de los canales (correo electrónico, SMS, push), aprovecha el filtro de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) para enviar automáticamente el mensaje a través del mejor canal para cada usuario.
+Para mensajes cortos y urgentes que se pueden comunicar a través de la mayoría de los canales (correo electrónico, servicio de mensajes cortos, push), aprovecha el filtro de [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) para enviar automáticamente el mensaje a través del mejor canal para cada usuario.
 {% endalert %}

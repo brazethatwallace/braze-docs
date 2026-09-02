@@ -28,7 +28,7 @@ Selecciona el rango de fechas para tu informe de ingresos y, si lo deseas, una a
 El gráfico **Performance Over Time** muestra los datos de diferentes parámetros, que se pueden seleccionar en el desplegable **Statistics for**. Opcionalmente, puedes desglosar los datos de ciertos parámetros en el desplegable **Breakdown**.
 
 Puedes ver los siguientes datos en el gráfico **Performance Over Time**:
-- Fórmulas de KPI
+- Fórmulas de indicador clave de rendimiento
 - Compras
     - (Opcional) Compras por producto
 - Ingresos
@@ -64,8 +64,8 @@ Cuando registras ingresos en una moneda sin tipo de cambio, Braze los registra c
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">Lifetime Value Per User</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida Per User</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">Average Daily Revenue</a></td>

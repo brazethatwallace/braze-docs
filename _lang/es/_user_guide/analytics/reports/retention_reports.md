@@ -52,7 +52,7 @@ Después de haber seleccionado un evento de retención, selecciona **Run Report*
 
 Esta consulta puede tardar unos minutos en ejecutarse, dependiendo de la cantidad de datos que necesiten recuperarse para generar los resultados. Si tarda demasiado, verás una notificación pidiéndote que intentes cargar el informe de nuevo. Es posible que debas esperar hasta cinco minutos antes de que el informe se cargue.
 
-Una vez generado el informe, no se puede volver a ejecutar con el mismo evento de retención durante 24 horas. Siempre verás una marca de tiempo de cuándo se generó el informe por última vez y una opción para regenerarlo si ha pasado más de un día. Sin embargo, puedes cambiar el evento de retención y volver a ejecutar el informe para analizar el impacto de la Campaign en diferentes KPI.
+Una vez generado el informe, no se puede volver a ejecutar con el mismo evento de retención durante 24 horas. Siempre verás una marca de tiempo de cuándo se generó el informe por última vez y una opción para regenerarlo si ha pasado más de un día. Sin embargo, puedes cambiar el evento de retención y volver a ejecutar el informe para analizar el impacto de la Campaign en diferentes indicador clave de rendimiento.
 
 El informe solo mostrará los días en los que la Campaign o Canvas estuvo enviando mensajes. Para algunas Campaigns y Canvas, eso puede significar que el informe solo muestre un día si solo se envió una vez. Si es recurrente o se desencadena automáticamente, es posible que veas múltiples días en la tabla.
 

@@ -34,16 +34,16 @@ Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.
 
 ### Etapa 1: Obter credenciais do Mixpanel {#step-1-get-mixpanel-credentials}
 
-No seu dashboard do Mixpanel, clique em **Project Settings** em um projeto novo ou existente. Lá você encontrará o API secret e o Token do Mixpanel. Essas credenciais serão usadas na próxima etapa para criar sua conexão com o Currents.
+No seu dashboard do Mixpanel, clique em **Project Settings** em um projeto novo ou existente. Lá você encontrará o API or interface de programação do aplicativo (API) secret e o Token do Mixpanel. Essas credenciais serão usadas na próxima etapa para criar sua conexão com o Currents.
 
 ### Etapa 2: Criar o Braze Current {#step-2-create-braze-current}
 
 1. Na Braze, acesse **Currents** > **+ Create Current** > **Create Mixpanel Export**.
-2. Forneça o nome da integração, o e-mail de contato, o API secret do Mixpanel e o token do Mixpanel nos campos indicados.
+2. Forneça o nome da integração, o e-mail de contato, o API or interface de programação do aplicativo (API) secret do Mixpanel e o token do Mixpanel nos campos indicados.
 3. Selecione os eventos que deseja rastrear; uma lista de eventos disponíveis é fornecida.
 4. Selecione **Launch Current**.
 
-![A página do Braze Mixpanel Currents. Esta página inclui campos para nome da integração, e-mail de contato, API secret e token de exportação do Mixpanel. A metade inferior da página de Currents lista os eventos de Currents disponíveis que você pode enviar.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
+![A página do Braze Mixpanel Currents. Esta página inclui campos para nome da integração, e-mail de contato, API or interface de programação do aplicativo (API) secret e token de exportação do Mixpanel. A metade inferior da página de Currents lista os eventos de Currents disponíveis que você pode enviar.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
 {% tab note %}
 Confira a [documentação de integração](https://help.mixpanel.com/hc/en-us/articles/360001243663) do Mixpanel para saber mais.
@@ -60,9 +60,9 @@ Para a estrutura da carga útil de cada evento, selecione a guia **Mixpanel** no
 
 ## Solução de problemas {#troubleshooting}
 
-### Verificar a chave de API do Mixpanel e o ID externo da Braze {#verify-mixpanel-api-key-and-braze-external-id}
+### Verificar a chave de API or interface de programação do aplicativo (API) do Mixpanel e o ID externo da Braze {#verify-mixpanel-api-key-and-braze-external-id}
 
-Confirme se a chave de API do Mixpanel e os valores de `braze_external_id` correspondem ao esperado na Braze e no Mixpanel. A API de sincronização de coortes compartilha grupos de usuários entre os produtos, e a sincronização não funcionará corretamente se o `external_id` na Braze e o identificador enviado pelo Mixpanel não estiverem alinhados. As sincronizações de coortes do Mixpanel são executadas conforme o cronograma do Mixpanel — por exemplo, uma vez ou aproximadamente a cada duas horas — então aguarde um intervalo entre as verificações.
+Confirme se a chave de API or interface de programação do aplicativo (API) do Mixpanel e os valores de `braze_external_id` correspondem ao esperado na Braze e no Mixpanel. A API or interface de programação do aplicativo (API) de sincronização de coortes compartilha grupos de usuários entre os produtos, e a sincronização não funcionará corretamente se o `external_id` na Braze e o identificador enviado pelo Mixpanel não estiverem alinhados. As sincronizações de coortes do Mixpanel são executadas conforme o cronograma do Mixpanel — por exemplo, uma vez ou aproximadamente a cada duas horas — então aguarde um intervalo entre as verificações.
 
 ### Verificar o status da implementação {#check-implementation-status}
 
@@ -74,7 +74,7 @@ Para reduzir ambiguidades, defina `braze_external_id` diretamente no Mixpanel.
 
 ### Configuração automática de propriedade (SDKs) {#automatic-property-setting-sdks}
 
-O SDK do Mixpanel pode definir `braze_external_id` automaticamente quando o SDK da Braze está integrado no mesmo aplicativo. Se você implementar o Mixpanel e a Braze juntos, normalmente não será necessária nenhuma configuração adicional além da instalação de ambos os SDKs.
+O SDK or kit de desenvolvimento de software do Mixpanel pode definir `braze_external_id` automaticamente quando o SDK or kit de desenvolvimento de software da Braze está integrado no mesmo aplicativo. Se você implementar o Mixpanel e a Braze juntos, normalmente não será necessária nenhuma configuração adicional além da instalação de ambos os SDKs.
 
 {% alert note %}
 `braze_external_id` não é definido quando `changeUser()` é chamado na Braze; ele é definido quando o Mixpanel inicializa ou inicia uma sessão (durante o "init" ou "start session").

@@ -276,7 +276,7 @@ Pares clave-valor para un cupón de nuevo suscriptor:
 
 {% details Información adicional para Android %}
 
-En los SDK de Android y FireOS, la lógica del centro de mensajes se basa en el valor de `class_type` proporcionado por los pares clave-valor de Braze. Usando el método [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards), puedes filtrar e identificar estos tipos de clase.
+En los SDK or kit de desarrollo de software de Android y FireOS, la lógica del centro de mensajes se basa en el valor de `class_type` proporcionado por los pares clave-valor de Braze. Usando el método [`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards), puedes filtrar e identificar estos tipos de clase.
 
 {% tabs local %}
 {% tab Kotlin %}

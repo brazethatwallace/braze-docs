@@ -18,7 +18,7 @@ platform:
 
 ## Einen angepassten Stil erstellen {#creating-a-custom-style}
 
-Die Standard-UI für Content Cards wird aus der UI-Schicht des Braze SDK importiert. Von dort aus können Sie bestimmte Aspekte des Card-Stylings, die Reihenfolge der angezeigten Karten und die Art und Weise, wie der Feed Ihren Nutzer:innen angezeigt wird, anpassen.
+Die Standard-UI für Content Cards wird aus der UI-Schicht des Braze SDK or Software-Development-Kit importiert. Von dort aus können Sie bestimmte Aspekte des Card-Stylings, die Reihenfolge der angezeigten Karten und die Art und Weise, wie der Feed Ihren Nutzer:innen angezeigt wird, anpassen.
 
 ![Zwei Content Cards, eine mit der Standardschriftart und eckigen Ecken und eine mit abgerundeten Ecken und einer geschwungenen Schriftart]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
@@ -30,7 +30,7 @@ Content-Card-Eigenschaften wie `title`, `cardDescription`, `imageUrl` usw. könn
 {% tabs %}
 {% tab web %}
 
-Die Standardstile von Braze sind in CSS innerhalb des Braze SDK definiert. Indem Sie ausgewählte Stile in Ihrer Anwendung überschreiben, können Sie unseren Standard-Feed mit Ihren eigenen Hintergrundbildern, Schriftfamilien, Stilen, Größen, Animationen und mehr anpassen. Das folgende Beispiel zeigt etwa eine Überschreibung, die Content Cards mit einer Breite von 800 px darstellt:
+Die Standardstile von Braze sind in CSS innerhalb des Braze SDK or Software-Development-Kit definiert. Indem Sie ausgewählte Stile in Ihrer Anwendung überschreiben, können Sie unseren Standard-Feed mit Ihren eigenen Hintergrundbildern, Schriftfamilien, Stilen, Größen, Animationen und mehr anpassen. Das folgende Beispiel zeigt etwa eine Überschreibung, die Content Cards mit einer Breite von 800 px darstellt:
 
 ``` css
 body .ab-feed {
@@ -38,12 +38,12 @@ body .ab-feed {
 }
 ```
 
-Eine vollständige Liste der Eigenschaften, die Sie ändern können, finden Sie in den [SDK-Konfigurationsoptionen von Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
+Eine vollständige Liste der Eigenschaften, die Sie ändern können, finden Sie in den [SDK or Software-Development-Kit-Konfigurationsoptionen von Braze](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html).
 
 {% endtab %}
 {% tab android %}
 
-Standardmäßig entsprechen die Content Cards des Android- und FireOS-SDK den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten. Diese Standardstile finden Sie in der Datei [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) in der Braze-SDK-Distribution:
+Standardmäßig entsprechen die Content Cards des Android- und FireOS-SDK or Software-Development-Kit den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten. Diese Standardstile finden Sie in der Datei [`res/values/styles.xml`](https://github.com/braze-inc/braze-android-sdk/blob/master/android-sdk-ui/src/main/res/values/styles.xml) in der Braze-SDK or Software-Development-Kit-Distribution:
 
 ```xml
   <style name="Braze.ContentCards.CaptionedImage.Description">
@@ -91,7 +91,7 @@ Um das Styling Ihrer Content Cards anzupassen, überschreiben Sie diesen Standar
 {% endtab %}
 {% tab Jetpack Compose %}
 
-Standardmäßig entsprechen die Content Cards des Android- und FireOS-SDK den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten.
+Standardmäßig entsprechen die Content Cards des Android- und FireOS-SDK or Software-Development-Kit den Standard-Android-UI-Richtlinien, um ein nahtloses Erlebnis zu bieten.
 
 Sie können Styling auf zwei Arten anwenden. Die erste Möglichkeit ist, ein [`ContentCardListStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html) und [`ContentCardStyling`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html) an [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html) zu übergeben, wie im folgenden Beispiel:
 
@@ -169,7 +169,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 
 **Zellen durch Subclassing anpassen**
 
-Alternativ können Sie benutzerdefinierte Schnittstellen erstellen, indem Sie für jeden gewünschten Kartentyp eigene Klassen registrieren. Um Ihre Subklasse anstelle der Standardzelle zu verwenden, ändern Sie die Eigenschaft [`cells`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/cells) im `Attributes`-Struct. Beispiel:
+Alternativ können Sie benutzerdefinierte Schnittstellen erstellen, indem Sie für jeden gewünschten Kartentyp eigene Klassen Registrierung or registrieren. Um Ihre Subklasse anstelle der Standardzelle zu verwenden, ändern Sie die Eigenschaft [`cells`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcardui/viewcontroller/attributes-swift.struct/cells) im `Attributes`-Struct. Beispiel:
 
 ```swift
 var attributes = BrazeContentCardUI.ViewController.Attributes.defaults
@@ -236,7 +236,7 @@ Wie bei jedem anderen Web-Element können Sie das Erscheinungsbild von Content C
 
 Um die Standardschriftart programmatisch zu ändern, legen Sie einen Style für Karten fest und verwenden Sie das Attribut `fontFamily`, um Braze anzuweisen, Ihre benutzerdefinierte Schriftfamilie zu verwenden.
 
-Um beispielsweise die Schriftart aller Titel für Bildkarten mit Beschriftung zu aktualisieren, überschreiben Sie den Style `Braze.ContentCards.CaptionedImage.Title` und referenzieren Sie Ihre benutzerdefinierte Schriftfamilie. Der Attributwert sollte auf eine Schriftfamilie in Ihrem Verzeichnis `res/font` verweisen.
+Um beispielsweise die Schriftart aller Titel für Bildkarten mit Beschriftung zu Update or aktualisieren or aktualisieren, überschreiben Sie den Style `Braze.ContentCards.CaptionedImage.Title` und referenzieren Sie Ihre benutzerdefinierte Schriftfamilie. Der Attributwert sollte auf eine Schriftfamilie in Ihrem Verzeichnis `res/font` verweisen.
 
 Hier ist ein gekürztes Beispiel mit einer benutzerdefinierten Schriftfamilie, `my_custom_font_family`, die in der letzten Zeile referenziert wird:
 

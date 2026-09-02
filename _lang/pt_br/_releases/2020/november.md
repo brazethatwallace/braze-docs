@@ -22,4 +22,4 @@ Adotando uma estratégia técnica centrada no desenvolvedor, a Braze lançou seu
 
 ## Swift Package Manager
 
-O [Swift Package Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) está integrado ao sistema de compilação do Swift e baixa, compila e vincula automaticamente as dependências. A instalação do SDK do iOS por meio do Swift Package Manager automatizará a maior parte do processo de instalação para você.
+O [Swift Package Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) está integrado ao sistema de compilação do Swift e baixa, compila e vincula automaticamente as dependências. A instalação do SDK or kit de desenvolvimento de software do iOS por meio do Swift Package Manager automatizará a maior parte do processo de instalação para você.

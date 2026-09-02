@@ -12,7 +12,7 @@ tool:
 
 # Audience Sync to Pinterest
 
-Mit Braze Audience Sync to Pinterest können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu Pinterest Audiences hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Triggern einer Nachricht (Push, E-Mail, SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt zum Triggern einer Anzeige für diese Nutzer:innen in Ihren Pinterest Audiences verwendet werden.
+Mit Braze Audience Sync to Pinterest können Marken wahlweise Nutzerdaten aus ihrer eigenen Braze-Integration zu Pinterest Audiences hinzufügen, um Anzeigen auf der Grundlage von Verhaltenstriggern, Segmentierung und mehr auszuliefern. Jedes Kriterium, das Sie normalerweise zum Trigger or triggern or triggern einer Nachricht (Push, E-Mail, Kurzmitteilungsdienst or SMS, Webhook usw.) in einem Braze-Canvas auf der Grundlage Ihrer Nutzerdaten verwenden, kann jetzt zum Trigger or triggern or triggern einer Anzeige für diese Nutzer:innen in Ihren Pinterest Audiences verwendet werden.
 
 **Zu den üblichen Anwendungsfällen für die Zielgruppensynchronisierung gehören:**
 
@@ -22,7 +22,7 @@ Mit diesem Feature können Marken kontrollieren, welche spezifischen First-Party
 
 {% alert important %}
 **Audience Sync Pro – Haftungsausschluss**<br>
-Braze Audience Sync to Pinterest ist eine Audience Sync Pro-Integration. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager.
+Braze Audience Sync to Pinterest ist eine Audience Sync Pro-Integration. Für weitere Informationen zu dieser Integration wenden Sie sich bitte an Ihren Braze Account Manager:in.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -57,7 +57,7 @@ Wenn die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite z
 
 ![Eine aktualisierte Version der Pinterest-Technologiepartnerseite, auf der die erfolgreich verbundenen Anzeigenkonten angezeigt werden.]({% image_buster /assets/img/pinterest/pinterest3.png %}){: style="max-width:80%;"}
 
-Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre Pinterest-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr Pinterest-Administrator Sie aus Ihrem Pinterest Business Hub oder dem Zugriff auf die verbundenen Pinterest-Konten entfernt, erkennt Braze ein ungültiges Token / Textbaustein. Infolgedessen werden Ihre aktiven Canvase, die Pinterest Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
 ### Schritt 2: Einen Audience Sync-Schritt mit Pinterest hinzufügen {#step-2-add-an-audience-sync-step-with-pinterest}
 
@@ -102,7 +102,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden Pinterest-Zielgr
 
 Sobald Sie Ihre Audience Sync to Pinterest konfiguriert haben, starten Sie das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf Pinterest übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
-Sie können die Zielgruppe auf Pinterest einsehen, indem Sie sich in Ihrem Ads-Manager-Konto anmelden und im Ads-Dropdown **Audiences** auswählen. Auf der Audience-Seite sehen Sie die Größe jeder Zielgruppe, sobald sie ~100 erreicht hat.
+Sie können die Zielgruppe auf Pinterest einsehen, indem Sie sich in Ihrem Ads-Manager:in-Konto anmelden und im Ads-Dropdown **Audiences** auswählen. Auf der Audience-Seite sehen Sie die Größe jeder Zielgruppe, sobald sie ~100 erreicht hat.
 
 ![Zielgruppendetails für eine bestimmte Pinterest-Zielgruppe, einschließlich Zielgruppenname, Zielgruppen-ID, Zielgruppentyp und Zielgruppengröße.]({% image_buster /assets/img/pinterest/pinterest11.png %})
 
@@ -123,7 +123,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die erfolgreich mit Pinterest synchronisiert wurden. |
 | Nicht synchronisierte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund fehlender Abgleichsfelder nicht synchronisiert wurden. |
 | Ausstehende Nutzer:innen | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Pinterest verarbeitet werden. |
-| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Pinterest synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Pinterest-Token oder eine auf Pinterest gelöschte Zielgruppe sein. |
+| Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Pinterest synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Pinterest-Token / Textbaustein oder eine auf Pinterest gelöschte Zielgruppe sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience-Sync-Komponente ist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
@@ -135,7 +135,7 @@ Beachten Sie, dass es bei der Berichterstattung zu Verzögerungen bei synchronis
 
 ### Wie lange dauert es, bis meine Zielgruppen in Pinterest befüllt sind? {#how-long-will-it-take-for-my-audiences-to-populate-in-pinterest}
 
-Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Seite **Audiences** im Ads Manager von Pinterest aktualisiert.
+Die Zielgruppengröße wird innerhalb von 24–48 Stunden auf der Seite **Audiences** im Ads Manager:in von Pinterest aktualisiert.
 
 ### Wie erfahre ich, ob Nutzer:innen nach der Übergabe an Pinterest zugeordnet wurden? {#how-do-i-know-if-users-have-matched-after-passing-users-to-pinterest}
 
@@ -151,4 +151,4 @@ Stellen Sie sicher, dass Ihr Pinterest-Konto auf der Pinterest-Partnerseite erfo
 
 ### Warum kann ich mein Werbekonto für meinen Audience-Sync-Schritt nicht auswählen? {#why-cant-i-select-my-ad-account-for-my-audience-sync-step}
 
-Überprüfen Sie, ob Ihr Token mit den richtigen Kontoberechtigungen generiert wurde. Beachten Sie, dass bei zu vielen Zielgruppen in Ihrem Pinterest-Werbekonto das Dropdown zur Auswahl Ihres Werbekontos möglicherweise eine Zeitüberschreitung verursacht. In diesem Fall empfehlen wir, die Anzahl der Zielgruppen in Ihrem Werbekonto zu reduzieren.
+Überprüfen Sie, ob Ihr Token / Textbaustein mit den richtigen Kontoberechtigungen generiert wurde. Beachten Sie, dass bei zu vielen Zielgruppen in Ihrem Pinterest-Werbekonto das Dropdown zur Auswahl Ihres Werbekontos möglicherweise eine Zeitüberschreitung verursacht. In diesem Fall empfehlen wir, die Anzahl der Zielgruppen in Ihrem Werbekonto zu reduzieren.

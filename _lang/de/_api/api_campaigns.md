@@ -23,7 +23,7 @@ Nachdem die Kampagne begonnen hat, können Sie die Ergebnisse im Dashboard einse
 Da API-Kampagnen immer eine `campaign_id` enthalten, werden ihre Sendungen in den Dashboard-Statistiken berücksichtigt. Wenn Sie [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) ohne eine `campaign_id` aufrufen, erhöht Braze diese Metriken nicht – die Sendungen erscheinen weiterhin im [Nachrichtenaktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log), aber nicht in den E-Mail-Performance-Metriken im Dashboard.
 
 {% alert warning %}
-Da API-Kampagnen in der Regel transaktionsbezogen sind, kommen alle Nutzer:innen für API-Kampagnen in Frage, auch diejenigen in Ihrer globalen Kontrollgruppe. Eine [Ein-Klick-Listenabmeldung]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)-Kopfzeile wird diesen Sendungen standardmäßig nicht hinzugefügt. Informationen zum Hinzufügen einer Ein-Klick-Listenabmeldung-Kopfzeile zu einer API-Kampagne finden Sie unter [Ein-Klick-Listenabmeldung zu API-Kampagnen hinzufügen](#add-one-click-list-unsubscribe-to-api-campaigns). Wenn Sie allen API-Kampagnen eine Ein-Klick-Listenabmeldung-Kopfzeile hinzufügen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
+Da API-Kampagnen in der Regel transaktionsbezogen sind, kommen alle Nutzer:innen für API-Kampagnen in Frage, auch diejenigen in Ihrer globalen Kontrollgruppe. Eine [Ein-Klick-Listenabmeldung]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)-Kopfzeile wird diesen Sendungen standardmäßig nicht hinzugefügt. Informationen zum Hinzufügen einer Ein-Klick-Listenabmeldung-Kopfzeile zu einer API-Kampagne finden Sie unter [Ein-Klick-Listenabmeldung zu API-Kampagnen hinzufügen](#add-one-click-list-unsubscribe-to-api-campaigns). Wenn Sie allen API-Kampagnen eine Ein-Klick-Listenabmeldung-Kopfzeile hinzufügen möchten, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in.
 {% endalert %}
 
 ## Neue Campaign erstellen {#create-a-new-campaign}
@@ -46,7 +46,7 @@ Um Ihre Campaign zu konfigurieren, führen Sie die folgenden Schritte aus:
 Nachdem Sie Ihre API-Campaign gespeichert haben, fügen Sie Folgendes in Ihre API-Anfrage ein:
 
 - Die generierten `campaign_id`-Felder in Ihrer API-Anfrage an den entsprechenden Stellen in den [Endpunkten zum Senden von Nachrichten]({{site.baseurl}}/api/endpoints/messaging).
-- Ein [Nachrichtenobjekt]({{site.baseurl}}/api/objects_filters#messaging-objects) für jede in der Campaign enthaltene Plattform. Geben Sie im Nachrichtenobjekt die ID der Nachrichtenvariante an. Dadurch wird festgelegt, dass Statistiken unter dieser Variante erfasst und angezeigt werden. Die folgenden Nachrichtenobjekte werden unterstützt: Android, Content Cards, E-Mail, iOS, Kindle, SMS/MMS, Web-Push und Webhook.
+- Ein [Nachrichtenobjekt]({{site.baseurl}}/api/objects_filters#messaging-objects) für jede in der Campaign enthaltene Plattform. Geben Sie im Nachrichtenobjekt die ID der Nachrichtenvariante an. Dadurch wird festgelegt, dass Statistiken unter dieser Variante erfasst und angezeigt werden. Die folgenden Nachrichtenobjekte werden unterstützt: Android, Content Cards, E-Mail, iOS, Kindle, Kurzmitteilungsdienst or SMS/MMS, Web-Push und Webhook.
 
 ## Ein-Klick-Abmeldung per Liste zu API-Campaigns hinzufügen {#add-one-click-list-unsubscribe-to-api-campaigns}
 

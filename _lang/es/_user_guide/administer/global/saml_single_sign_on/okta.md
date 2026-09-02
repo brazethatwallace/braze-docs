@@ -29,11 +29,11 @@ La aplicación preconfigurada de Braze en el marketplace de Okta utiliza el Enti
 
 ### Paso 1a: Navega a Configuración de seguridad en Braze {#step-1a-navigate-to-security-settings-in-braze}
 
-Después de que tu director de cuentas haya habilitado SAML SSO para tu cuenta, ve a **Configuración** > **Configuración de administrador** > **Configuración de seguridad** y activa la sección de SAML SSO a **ON**.
+Después de que tu director de cuentas haya habilitado SAML inicio de sesión único para tu cuenta, ve a **Configuración** > **Configuración de administrador** > **Configuración de seguridad** y activa la sección de SAML inicio de sesión único a **ON**.
 
 ![SAML SSO de Okta habilitado en la página de Configuración de seguridad.]({% image_buster/assets/img/Okta/okta1.png %})
 
-### Paso 1b: Editar la configuración de SAML SSO {#step-1b-edit-saml-sso-settings}
+### Paso 1b: Editar la configuración de SAML inicio de sesión único {#step-1b-edit-saml-sso-settings}
 
 Desde el panel de administración de Okta, Okta te proporciona una URL de destino (URL de inicio de sesión) y un certificado `x.509`, que debes introducir en la página **Configuración de seguridad** de tu cuenta de Braze.
 
@@ -44,7 +44,7 @@ Desde el panel de administración de Okta, Okta te proporciona una URL de destin
 | `SAML Name` | Aparecerá como el texto del botón en la pantalla de inicio de sesión. Normalmente es el nombre de tu proveedor de identidad, por ejemplo, "Okta". |
 | `Target URL` | Esta es la URL de inicio de sesión proporcionada por el panel de administración de Okta. Encuéntrala yendo a **Applications** > tu aplicación > pestaña **General** > **App Embed Link** > **Embed Link**. |
 | `Certificate` | El certificado `x.509` codificado en PEM es proporcionado por tu proveedor de identidad. Debes copiarlo y pegarlo en este campo. Recupéralo en Okta yendo a **SAML Signing Certificates** y seleccionando **Actions** > **Download certificate**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1b: Editar la configuración de SAML SSO" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 1b: Editar la configuración de SAML inicio de sesión único" }
 
 Selecciona **Save Changes** en la parte inferior de la página cuando hayas terminado.
 
@@ -59,7 +59,7 @@ A continuación, introduce la clave de API RelayState con el permiso `sso.saml.l
 Asegúrate de guardar esta nueva configuración.
 
 {% alert tip %}
-Si quieres que los usuarios de tu cuenta de Braze solo inicien sesión con SAML SSO, puedes [restringir la autenticación de inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) desde la página **Configuración de la empresa**.
+Si quieres que los usuarios de tu cuenta de Braze solo inicien sesión con SAML inicio de sesión único, puedes [restringir la autenticación de inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) desde la página **Configuración de la empresa**.
 {% endalert %}
 
 ## Paso 3: Iniciar sesión {#step-3-log-in}

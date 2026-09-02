@@ -26,7 +26,7 @@ Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss 
 | mParticle-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [mParticle-Konto](https://app.mparticle.com/login). |
 | Braze-Instanz | Ihre Braze-Instanz finden Sie auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints) (z. B. `US-01` oder `US-02`). |
 | Braze-App-Bezeichner-Schlüssel | Ihr App-Bezeichner-Schlüssel. <br><br>Diesen finden Sie im Braze-Dashboard unter **Einstellungen verwalten** > **API-Schlüssel**. |
-| Workspace-REST-API-Schlüssel | (Server-zu-Server) Ein Braze-REST-API-Schlüssel<br><br>Dieser kann im Braze-Dashboard unter **Entwicklungskonsole** > **API-Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Workspace-Representational State Transfer-API-Schlüssel | (Server-zu-Server) Ein Braze-Representational State Transfer-API-Schlüssel<br><br>Dieser kann im Braze-Dashboard unter **Entwicklungskonsole** > **API-Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -35,7 +35,7 @@ Die Integration von Braze und mParticle erlaubt es Ihnen, den Informationsfluss 
 
 Nutzen Sie die Partnerschaft von Braze und mParticle, um Ihre Integration zu konfigurieren und mParticle-Zielgruppen direkt in Braze für Retargeting zu importieren – so entsteht ein vollständiger Datenkreislauf zwischen den beiden Systemen.
 
-Jede Integration, die Sie einrichten, wird Datenpunkte protokollieren. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze Account Manager diese beantworten.
+Jede Integration, die Sie einrichten, wird Datenpunkte protokollieren. Bei Fragen zu den Details der Braze-Datenpunkte kann Ihr Braze Account Manager:in diese beantworten.
 
 #### Weiterleitung von Zielgruppen {#forwarding-audiences}
 
@@ -58,7 +58,7 @@ Wenn beispielsweise eine mParticle-Zielgruppe „Ibiza dreamers“ die Zielgrupp
 Obwohl dies die Standardoption in mParticle ist, entscheiden sich die meisten Unternehmensnutzer:innen für [einzelne Array-Attribute](#array), da diese beim Erstellen von Segmenten in Braze ein besseres Filtererlebnis bieten.
 
 {% alert important %}
-Diese Lösung wird nicht empfohlen, wenn Sie mehr als einige wenige Zielgruppen haben, da angepasste Attribute bis zu 255 Zeichen lang sein können. Sie können mit dieser Methode also nicht Dutzende oder Hunderte von Zielgruppen in einem Nutzerprofil speichern. Wenn Sie eine große Anzahl von Kohorten pro Nutzer:in haben, empfehlen wir dringend die Konfiguration „Ein Attribut pro Segment“.
+Diese Lösung wird nicht empfohlen, wenn Sie mehr als einige wenige Zielgruppen haben, da angepasste Attribute bis zu 255 Zeichen lang sein können. Sie können mit dieser Methode also nicht Dutzende oder Hunderte von Zielgruppen in einem Kundenprofil or Nutzerprofil speichern. Wenn Sie eine große Anzahl von Kohorten pro Nutzer:in haben, empfehlen wir dringend die Konfiguration „Ein Attribut pro Segment“.
 {% endalert %}
 
 ![mParticle-Segmentmitgliedschaft]({% image_buster /assets/img_archive/mparticle1.png %})
@@ -70,7 +70,7 @@ mParticle erstellt in Braze für jede:n Nutzer:in ein einzelnes angepasstes Arra
 Wenn ein:e Nutzer:in beispielsweise Mitglied von drei mParticle-Zielgruppen mit den Zielgruppen-IDs „13053“, „13052“ und „13051“ ist, können Sie Nutzer:innen, die einer dieser Zielgruppen angehören, mit dem Filter `SegmentMembershipArray` — `includes value` — `13051` segmentieren.
 
 {% alert note %}
-Braze-Array-Attribute haben eine standardmäßige Maximallänge von 500. Wenn Nutzer:innen Mitglied von mehr als 500 Zielgruppen sind, kürzt Braze deren Mitgliedschaftsinformationen. Wenden Sie sich für eine Lösung an Ihren Braze Account Manager, um den Schwellenwert für die maximale Array-Länge zu erhöhen.
+Braze-Array-Attribute haben eine standardmäßige Maximallänge von 500. Wenn Nutzer:innen Mitglied von mehr als 500 Zielgruppen sind, kürzt Braze deren Mitgliedschaftsinformationen. Wenden Sie sich für eine Lösung an Ihren Braze Account Manager:in, um den Schwellenwert für die maximale Array-Länge zu erhöhen.
 {% endalert %}
 
 ##### Ein Attribut pro Segment {#per-segment}
@@ -105,9 +105,9 @@ So erstellen Sie eine Zielgruppe in mParticle:
 | Feldname | Beschreibung |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API key | Zu finden im Braze-Dashboard unter **Settings** > **API Keys**. |
-| API key operating system | Wählen Sie aus, welchem Betriebssystem Ihr Braze-API-Schlüssel entspricht. Diese Auswahl begrenzt die Arten von Push-Token, die bei einem Zielgruppen-Update weitergeleitet werden. |
+| API key operating system | Wählen Sie aus, welchem Betriebssystem Ihr Braze-API-Schlüssel entspricht. Diese Auswahl begrenzt die Arten von Push-Token / Textbaustein, die bei einem Zielgruppen-Update or aktualisieren weitergeleitet werden. |
 | Send segments as | Die Methode zum Senden von Zielgruppen an Braze. Weitere Details finden Sie im Abschnitt [Weiterleitung von Zielgruppen](#forwarding-audiences). |
-| Workspace REST API key | Braze-REST-API-Schlüssel mit vollständigen Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
+| Workspace Representational State Transfer API key | Braze-Representational State Transfer-API-Schlüssel mit vollständigen Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | External identity type | Der mParticle-Nutzeridentitätstyp, der als externe ID an Braze weitergeleitet wird. Wir empfehlen, den Standardwert „Customer ID“ beizubehalten. |
 | Email identity type | Der mParticle-Nutzeridentitätstyp, der als E-Mail an Braze weitergeleitet wird. |
 | Braze instance | Geben Sie an, an welchen Cluster Ihre Braze-Daten weitergeleitet werden sollen. |
@@ -156,14 +156,14 @@ Navigieren Sie in mParticle zu **Setup > Outputs > Add Outputs** und wählen Sie
 
 ### Embedded-Kit-Integration {#embedded-kit-integration}
 
-Über die Embedded-Kit-Integration werden die mParticle- und Braze-SDKs in Ihrer Anwendung vorhanden sein. Im Gegensatz zu einer direkten Braze-Integration übernimmt mParticle jedoch den Aufruf der meisten Braze-SDK-Methoden für Sie. Die mParticle-Methoden, die Sie zum Tracking von Nutzerdaten verwenden, werden automatisch den Braze-SDK-Methoden zugeordnet.
+Über die Embedded-Kit-Integration werden die mParticle- und Braze-SDKs in Ihrer Anwendung vorhanden sein. Im Gegensatz zu einer direkten Braze-Integration übernimmt mParticle jedoch den Aufruf der meisten Braze-SDK or Software-Development-Kit-Methoden für Sie. Die mParticle-Methoden, die Sie zum Tracking von Nutzerdaten verwenden, werden automatisch den Braze-SDK or Software-Development-Kit-Methoden zugeordnet.
 
 Diese Zuordnungen des mParticle-SDKs für [Android](https://github.com/mparticle-integrations/mparticle-android-integration-appboy), [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-appboy) und [Internet](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) sind Open Source und auf der [GitHub-Seite von mParticle](https://github.com/mparticle-integrations) zu finden.
 
-Die Embedded-Kit-SDK-Integration ermöglicht es Ihnen, unsere vollständige Feature-Suite zu nutzen (Push, In-App-Nachrichten und alle relevanten Nachrichtenanalysen).
+Die Embedded-Kit-SDK or Software-Development-Kit-Integration ermöglicht es Ihnen, unsere vollständige Feature-Suite zu nutzen (Push, In-App-Nachrichten und alle relevanten Nachrichtenanalysen).
 
 {% alert note %}
-Für Content Cards und angepasste In-App-Nachricht-Integrationen rufen Sie die Braze-SDK-Methoden direkt auf.
+Für Content Cards und angepasste In-App-Nachricht-Integrationen rufen Sie die Braze-SDK or Software-Development-Kit-Methoden direkt auf.
 {% endalert %}
 
 #### Schritt 1: mParticle-SDKs integrieren {#step-1-integrate-the-mparticle-sdks}
@@ -176,7 +176,7 @@ Integrieren Sie die entsprechenden mParticle-SDKs in Ihre App basierend auf Ihre
 
 #### Schritt 2: mParticle-Braze-Event-Kit-Integration abschließen {#step-2-complete-mparticles-braze-event-kit-integration}
 
-Obwohl das Braze-SDK für diese mParticle-Integration nicht direkt in Ihre Website oder App eingebunden werden muss, muss das folgende mParticle-Appboy-Kit installiert werden, um Daten von Ihrer App an Braze weiterzuleiten.
+Obwohl das Braze-SDK or Software-Development-Kit für diese mParticle-Integration nicht direkt in Ihre Website oder App eingebunden werden muss, muss das folgende mParticle-Appboy-Kit installiert werden, um Daten von Ihrer App an Braze weiterzuleiten.
 
 Die [Braze-Event-Kit-Integrationsanleitung](https://docs.mparticle.com/integrations/braze/event/#kit-integration) von mParticle führt Sie durch die angepassten mParticle- und Braze-Ausrichtungsanweisungen basierend auf Ihren Messaging-Anforderungen (Push, Standort-Tracking usw.).
 
@@ -271,10 +271,10 @@ Es gibt einige Punkte, die beim Deaktivieren von **Include Enriched User Attribu
 ### Fehlerbehebung bei iOS-Push-Benachrichtigungen mit dem Braze-Event-Kit {#troubleshooting-ios-push-notifications-with-the-braze-event-kit}
 
 Wenn Push-Benachrichtigungen bei Verwendung des Braze-Event-Kits (Embedded-Kit-Integration) unter iOS nicht funktionieren, überprüfen Sie Folgendes:
-1. **Push-Token-Weiterleitung:** Bestätigen Sie, dass mParticle Push-Token an Braze weiterleitet. Überprüfen Sie in Ihrem mParticle-Dashboard, dass bei der Braze-Kit-Verbindung Push aktiviert ist und dass die korrekte Apple-Push-Berechtigung im Braze-Dashboard konfiguriert ist.
-2. **Kit-Initialisierungsreihenfolge:** Das Braze-Kit muss initialisiert werden, bevor Ihre App Push-Berechtigungen anfordert. Wenn Push-Berechtigungen angefordert werden, bevor das Kit aktiv ist, wird der Push-Token möglicherweise nicht an Braze weitergeleitet. Stellen Sie sicher, dass das mParticle SDK frühzeitig im App-Lebenszyklus gestartet wird.
-3. **Method Swizzling:** Das mParticle Apple Kit verwendet Method Swizzling, um Push-Token automatisch weiterzuleiten und Push-Benachrichtigungs-Events zu verarbeiten. Wenn Sie Swizzling deaktiviert haben oder ein anderes SDK Konflikte verursacht, erreichen die Push-Token Braze möglicherweise nicht. Überprüfen Sie, dass Swizzling in Ihrer mParticle-Konfiguration aktiviert ist.
-4. **Manuelle Token-Verarbeitung:** Wenn Sie Push-Token manuell verwalten (z. B. durch Implementierung von `application:didRegisterForRemoteNotificationsWithDeviceToken:`), stellen Sie sicher, dass Sie den Token an mParticle übergeben, indem Sie ihn der Push-Benachrichtigungs-Token-Eigenschaft zuweisen, zum Beispiel: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. Das Kit leitet ihn dann an Braze weiter.
+1. **Push-Token / Textbaustein-Weiterleitung:** Bestätigen Sie, dass mParticle Push-Token / Textbaustein an Braze weiterleitet. Überprüfen Sie in Ihrem mParticle-Dashboard, dass bei der Braze-Kit-Verbindung Push aktiviert ist und dass die korrekte Apple-Push-Berechtigung im Braze-Dashboard konfiguriert ist.
+2. **Kit-Initialisierungsreihenfolge:** Das Braze-Kit muss initialisiert werden, bevor Ihre App Push-Berechtigungen anfordert. Wenn Push-Berechtigungen angefordert werden, bevor das Kit aktiv ist, wird der Push-Token / Textbaustein möglicherweise nicht an Braze weitergeleitet. Stellen Sie sicher, dass das mParticle SDK or Software-Development-Kit frühzeitig im App-Lebenszyklus gestartet wird.
+3. **Method Swizzling:** Das mParticle Apple Kit verwendet Method Swizzling, um Push-Token / Textbaustein automatisch weiterzuleiten und Push-Benachrichtigungs-Events zu verarbeiten. Wenn Sie Swizzling deaktiviert haben oder ein anderes SDK or Software-Development-Kit Konflikte verursacht, erreichen die Push-Token / Textbaustein Braze möglicherweise nicht. Überprüfen Sie, dass Swizzling in Ihrer mParticle-Konfiguration aktiviert ist.
+4. **Manuelle Token / Textbaustein-Verarbeitung:** Wenn Sie Push-Token / Textbaustein manuell verwalten (z. B. durch Implementierung von `application:didRegisterForRemoteNotificationsWithDeviceToken:`), stellen Sie sicher, dass Sie den Token / Textbaustein an mParticle übergeben, indem Sie ihn der Push-Benachrichtigungs-Token / Textbaustein-Eigenschaft zuweisen, zum Beispiel: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. Das Kit leitet ihn dann an Braze weiter.
 5. **Umgebungsdiskrepanz:** Bestätigen Sie, dass die APNs-Berechtigungsumgebung (Entwicklung vs. Produktion) mit dem Build Ihrer App übereinstimmt. Weitere Details finden Sie unter [Fehlerbehebung bei iOS-Push]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
 6. **Zeitpunkt der Kit-Initialisierung:** Wenn Sie in `didFinishLaunchingWithOptions` auf die Braze-Instanz zugreifen, ist das mParticle-Kit möglicherweise noch nicht bereit, wenn eine Push-Benachrichtigung eintrifft. Initialisieren Sie die Push-Verarbeitung in [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (oder dem entsprechenden Benachrichtigungsantwort-Delegate), damit das Braze-Kit aktiv ist, wenn Nutzer:innen eine Benachrichtigung öffnen.
 
@@ -285,7 +285,7 @@ Braze zählt jedes Mal einen Datenpunkt, wenn ein Attribut an Braze übergeben w
 
 Wenn mParticle-Events oder -Attribute in Braze fehlen, liegt das Problem häufig an einer Fehlkonfiguration in Ihrer mParticle-Verbindung oder im Event-Mapping – nicht an einem Braze-Ausfall. Überprüfen Sie Folgendes:
 
-- **Verbindungsausgabe:** Bestätigen Sie, dass Braze als Ausgabe für die betreffende Verbindung aktiviert ist und dass die korrekte Braze-Instanz, der App-Bezeichner und der REST-API-Schlüssel konfiguriert sind.
+- **Verbindungsausgabe:** Bestätigen Sie, dass Braze als Ausgabe für die betreffende Verbindung aktiviert ist und dass die korrekte Braze-Instanz, der App-Bezeichner und der Representational State Transfer-API-Schlüssel konfiguriert sind.
 - **Identity-Mapping:** Server-zu-Server- und Zielgruppen-Synchronisierungen erfordern eine `external_id`. Anonyme Nutzer:innen werden nicht weitergeleitet.
 - **Event-Mapping:** Überprüfen Sie, ob Events an die Braze-Ausgabe geleitet werden und ob nicht unterstützte Datentypen (verschachtelte Objekte, Arrays in Event-Eigenschaften) verworfen werden.
 

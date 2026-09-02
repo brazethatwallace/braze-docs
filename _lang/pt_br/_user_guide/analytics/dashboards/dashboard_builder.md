@@ -145,12 +145,12 @@ As interações incluem _Email Click_ (clique em link), _Content Card Click_, _I
 
 | Métrica | Definição |
 |---|---|
-| Métricas semanais de e-mail (taxas) | Taxas de engajamento de e-mail (entrega, bounce, abertura, clique, cancelamento de inscrição) agrupadas por segmento e exibidas como série temporal semanal. |
-| Métricas semanais de e-mail (contagens) | Contagens de engajamento de e-mail (enviados, entregues, bounces, aberturas, cliques, cancelamentos de inscrição) agrupadas por segmento e exibidas como série temporal semanal. |
-| Métricas semanais de compra (taxas) | Taxas de conversão de compra (receita por destinatário) a partir de aberturas e cliques de e-mail, agrupadas por segmento e exibidas como série temporal semanal. |
-| Métricas semanais de compra (contagens) | Contagens de compras e totais de receita a partir de aberturas e cliques de e-mail, agrupados por segmento e exibidos como série temporal semanal. |
-| Engajamento de e-mail por segmento | Tabela resumida mostrando métricas totais de engajamento de e-mail (enviados, entregues, bounces, aberturas, cliques, cancelamentos de inscrição e suas taxas) agregadas por segmento. |
-| Compras e receita por segmento | Tabela resumida mostrando métricas totais de compra (compras, receita e receita por destinatário) a partir de aberturas e cliques de e-mail, agregadas por segmento. |
+| Métricas semanais de e-mail (taxas) | Taxas de engajamento de e-mail (entrega, bounce, abertura, clique, cancelamento de inscrição) agrupadas por Segment or segmento or segmento e exibidas como série temporal semanal. |
+| Métricas semanais de e-mail (contagens) | Contagens de engajamento de e-mail (enviados, entregues, bounces, aberturas, cliques, cancelamentos de inscrição) agrupadas por Segment or segmento or segmento e exibidas como série temporal semanal. |
+| Métricas semanais de compra (taxas) | Taxas de conversão de compra (receita por destinatário) a partir de aberturas e cliques de e-mail, agrupadas por Segment or segmento or segmento e exibidas como série temporal semanal. |
+| Métricas semanais de compra (contagens) | Contagens de compras e totais de receita a partir de aberturas e cliques de e-mail, agrupados por Segment or segmento or segmento e exibidos como série temporal semanal. |
+| Engajamento de e-mail por Segment or segmento or segmento | Tabela resumida mostrando métricas totais de engajamento de e-mail (enviados, entregues, bounces, aberturas, cliques, cancelamentos de inscrição e suas taxas) agregadas por Segment or segmento or segmento. |
+| Compras e receita por Segment or segmento or segmento | Tabela resumida mostrando métricas totais de compra (compras, receita e receita por destinatário) a partir de aberturas e cliques de e-mail, agregadas por Segment or segmento or segmento. |
 | Top 10 Campaigns por métricas de engajamento | Lista classificada de Campaigns com as maiores métricas de engajamento de e-mail (métrica configurável para classificação). |
 | 10 piores Campaigns por métricas de engajamento | Lista classificada de Campaigns com as menores métricas de engajamento de e-mail (métrica configurável para classificação). |
 | Top 10 Canvas por métricas de engajamento | Lista classificada de Canvas com as maiores métricas de engajamento de e-mail (métrica configurável para classificação). |

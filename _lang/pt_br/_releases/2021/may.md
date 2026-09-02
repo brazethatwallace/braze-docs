@@ -22,7 +22,7 @@ Não sabe por onde começar a analisar suas Campaigns ou Canvas? A [Visão geral
 
 ## Novo cluster US-05 {#new-us-05-cluster}
 
-A Braze oferece suporte a um novo cluster dos EUA, o US-05. Consulte nossa lista de [endpoints]({{site.baseurl}}/api/basics/#endpoints) do dashboard e REST para saber mais.
+A Braze oferece suporte a um novo cluster dos EUA, o US-05. Consulte nossa lista de [endpoints]({{site.baseurl}}/api/basics/#endpoints) do dashboard e REST or transferir estado representacional para saber mais.
 
 ## Atualizações da interface do usuário da Braze {#braze-ui-updates}
 

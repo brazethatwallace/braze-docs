@@ -223,10 +223,10 @@ Al incluir campos como marcas de tiempo en un conjunto de objetos, usa el format
 Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
-## Ejemplo de SDK {#sdk-example}
+## Ejemplo de SDK or kit de desarrollo de software {#sdk-example}
 
 {% tabs local %}
-{% tab Android SDK %}
+{% tab Android SDK or kit de desarrollo de software %}
 {% subtabs %}
 {% subtab Crear %}
 ```kotlin
@@ -329,7 +329,7 @@ braze.getCurrentUser { user ->
 {% endsubtabs %}
 {% endtab %}
 
-{% tab Swift SDK %}
+{% tab Swift SDK or kit de desarrollo de software %}
 {% subtabs %}
 {% subtab Crear %}
 ```swift
@@ -435,7 +435,7 @@ Los atributos personalizados anidados no son compatibles con AppboyKit.
 {% endalert %}
 {% endtab %}
 
-{% tab Web SDK %}
+{% tab Web SDK or kit de desarrollo de software %}
 {% subtabs local %}
 {% subtab Crear %}
 ```javascript

@@ -14,7 +14,7 @@ E-mails de transação são aqueles enviados para facilitar uma transação acor
 
 ## Suporte a objetos aninhados para propriedades de eventos {#nested-object-support-for-event-properties}
 
-A Braze agora oferece suporte a [objetos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) para eventos personalizados e eventos de compra. Os objetos aninhados permitem que você envie arrays de dados como propriedades de eventos personalizados e compras. Esses dados aninhados podem ser usados para criar templates com informações personalizadas em mensagens disparadas por API por meio do uso de Liquid e notação de ponto.
+A Braze agora oferece suporte a [objetos aninhados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects) para eventos personalizados e eventos de compra. Os objetos aninhados permitem que você envie arrays de dados como propriedades de eventos personalizados e compras. Esses dados aninhados podem ser usados para criar templates com informações personalizadas em mensagens disparadas por API or interface de programação do aplicativo (API) por meio do uso de Liquid e notação de ponto.
 
 ## Novos filtros Liquid HMAC {#new-hmac-liquid-filters}
 
@@ -30,9 +30,9 @@ Quer saber mais sobre os detalhes dos eventos de compra na Braze? Visite nosso a
 
 A [Nexla]({{site.baseurl}}/partners/nexla) é líder em operações unificadas de dados e foi reconhecida como Gartner Cool Vendor em 2021. Clientes que usam Currents para enviar dados a data warehouses podem alavancar a Nexla para extrair, transformar e carregar esses dados para outros locais, tornando os dados facilmente acessíveis em todo o seu ecossistema. A Nexla permite que você use o Braze Currents para obter dados em um formato personalizado e entregá-los ao destino de sua escolha com um simples apontar e clicar.
 
-### Amperity - Plataforma de dados do cliente {#amperity-customer-data-platform}
+### Amperity - CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente {#amperity-customer-data-platform}
 
-A [Amperity]({{site.baseurl}}/partners/amperity) é uma plataforma de dados do cliente empresarial abrangente, que ajuda marcas a conhecer seus clientes, tomar decisões estratégicas e agir de forma consistente para atender melhor seus consumidores. A Amperity oferece suporte à plataforma da Braze fornecendo uma visão unificada dos seus clientes em sua CDP e na Braze, permitindo que você envie dados valiosos da Amperity para a Braze.
+A [Amperity]({{site.baseurl}}/partners/amperity) é uma CDP or plataforma de dados do cliente or CDP or plataforma de dados do cliente or plataforma de dados do cliente empresarial abrangente, que ajuda marcas a conhecer seus clientes, tomar decisões estratégicas e agir de forma consistente para atender melhor seus consumidores. A Amperity oferece suporte à plataforma da Braze fornecendo uma visão unificada dos seus clientes em sua CDP or plataforma de dados do cliente e na Braze, permitindo que você envie dados valiosos da Amperity para a Braze.
 
 ### Digioh - Pesquisas {#digioh-surveys}
 

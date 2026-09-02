@@ -55,7 +55,7 @@ Lo siguiente se incluye en tu exportación dependiendo de tu selección.
 | Appboy ID                   | ID interno (no se puede cambiar)                          |
 | country                     | País                                                     |
 | created_at                  | Fecha y hora en que se creó el perfil de usuario          |
-| created_from                | Método utilizado para crear el perfil de usuario (por ejemplo, REST API, SDK o importación CSV) |
+| created_from                | Método utilizado para crear el perfil de usuario (por ejemplo, REST or transferencia de estado representacional API, SDK or kit de desarrollo de software o importación CSV) |
 | devices                     | Información del dispositivo                              |
 | date_of_birth               | Fecha de nacimiento                                      |
 | email                       | Dirección de correo electrónico                          |

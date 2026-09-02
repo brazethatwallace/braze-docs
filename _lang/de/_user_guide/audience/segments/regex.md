@@ -29,7 +29,7 @@ Im verlinkten Braze-Lernkurs zeigen wir Ihnen, wie reguläre Ausdrücke auf [Reg
 {% alert important %}
 Dieses Tool dient nur als Referenz und garantiert nicht, dass der reguläre Ausdruck zu 100 % mit der Braze-Plattform übereinstimmt. Reguläre Ausdrücke in Braze für Segmentierung und Filter fügen automatisch den `/gi`-Modifikator hinzu. Der [gi-Modifikator](https://w3schools.sinsixx.com/jsref/jsref_regexp_modifier_gi.asp.htm) wird verwendet, um eine Suche ohne Berücksichtigung der Groß-/Kleinschreibung nach allen Vorkommen eines regulären Ausdrucks in einem String durchzuführen.
 <br>
-Reguläre Ausdrücke für Eigenschaften von angepassten Event-Triggern und Trigger-Filter verwenden den `/g`-Modifikator (Groß-/Kleinschreibung wird berücksichtigt, siehe [g-Modifikator](https://www.w3schools.com/jsref/jsref_regexp_g.asp)) und verwenden nicht den `/i`-Modifikator. Für die Nichtberücksichtigung der Groß-/Kleinschreibung bei Eigenschaften von angepassten Event-Triggern und Trigger-Filtern verwenden Sie stattdessen `(?i)`. Zum Beispiel erfasst `Matches regex (?i)STOP(?-i)` jede Verwendung von „STOP“ in beliebiger Schreibweise (wie „stop“, „please stop“ und „never stop sending me messages“).
+Reguläre Ausdrücke für Eigenschaften von angepassten Event-Trigger or triggern or triggern und Trigger or triggern-Filter verwenden den `/g`-Modifikator (Groß-/Kleinschreibung wird berücksichtigt, siehe [g-Modifikator](https://www.w3schools.com/jsref/jsref_regexp_g.asp)) und verwenden nicht den `/i`-Modifikator. Für die Nichtberücksichtigung der Groß-/Kleinschreibung bei Eigenschaften von angepassten Event-Trigger or triggern or triggern und Trigger or triggern-Filtern verwenden Sie stattdessen `(?i)`. Zum Beispiel erfasst `Matches regex (?i)STOP(?-i)` jede Verwendung von „STOP“ in beliebiger Schreibweise (wie „stop“, „please stop“ und „never stop sending me messages“).
 {% endalert %}
 
 {% tabs %}
@@ -222,10 +222,10 @@ Angenommen, Sie möchten Nutzer:innen nach Telefonnummer für eine bestimmte Vor
 
 ![Filter für eine Telefonnummer, die dem Regex „^1?718\d\d\d\d\d\d\d“ entspricht.]({% image_buster /assets/img/regex/regeximg3.png %})
 
-### Wie unterscheidet sich der Regex-Abgleich zwischen Segmenten und benutzerdefinierten Event-Trigger-Eigenschaften? {#how-does-regex-matching-differ-between-segments-and-custom-event-trigger-properties}
+### Wie unterscheidet sich der Regex-Abgleich zwischen Segmenten und benutzerdefinierten Event-Trigger or triggern-Eigenschaften? {#how-does-regex-matching-differ-between-segments-and-custom-event-trigger-properties}
 
-Segment-Filter wenden automatisch einen Abgleich ohne Berücksichtigung der Groß-/Kleinschreibung an (entspricht dem `/gi`-Modifikator). Benutzerdefinierte Event-Trigger-Eigenschaften und Trigger-Filter verwenden einen Abgleich mit Berücksichtigung der Groß-/Kleinschreibung (entspricht nur `/g`).
+Segment-Filter wenden automatisch einen Abgleich ohne Berücksichtigung der Groß-/Kleinschreibung an (entspricht dem `/gi`-Modifikator). Benutzerdefinierte Event-Trigger or triggern-Eigenschaften und Trigger or triggern-Filter verwenden einen Abgleich mit Berücksichtigung der Groß-/Kleinschreibung (entspricht nur `/g`).
 
-Wenn Sie bei einer Trigger-Eigenschaft einen Abgleich ohne Berücksichtigung der Groß-/Kleinschreibung benötigen, verwenden Sie Inline-Flags in Ihrem Muster – zum Beispiel `(?i)STOP(?-i)`, um `stop`, `STOP` oder `Stop` abzugleichen.
+Wenn Sie bei einer Trigger or triggern-Eigenschaft einen Abgleich ohne Berücksichtigung der Groß-/Kleinschreibung benötigen, verwenden Sie Inline-Flags in Ihrem Muster – zum Beispiel `(?i)STOP(?-i)`, um `stop`, `STOP` oder `Stop` abzugleichen.
 
 Weitere Beispiele finden Sie im Hinweis im Abschnitt [Regex-Debugger](#regex-debugger).

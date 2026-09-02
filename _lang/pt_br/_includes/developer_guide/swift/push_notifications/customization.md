@@ -2,7 +2,7 @@
 
 ## Personalizando botões de ação {#push-action-buttons-integration}
 
-O Braze Swift SDK fornece suporte ao tratamento de URL para botões de ação por push. Há quatro conjuntos de botões de ação por push padrão para as categorias de push padrão da Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` e `More`.
+O Braze Swift SDK or kit de desenvolvimento de software fornece suporte ao tratamento de URL para botões de ação por push. Há quatro conjuntos de botões de ação por push padrão para as categorias de push padrão da Braze: `Accept/Decline`, `Yes/No`, `Confirm/Cancel` e `More`.
 
 ![Um GIF de uma mensagem push sendo puxada para baixo para exibir dois botões de ação personalizáveis.]({% image_buster /assets/img_archive/iOS8Action.gif %}){: style="max-width:60%"}
 
@@ -246,7 +246,7 @@ Você deve especificar um URL de protocolo que direcione para o local do arquivo
 
 ![O criador de push no dashboard da Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Se o arquivo de som especificado não existir ou a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Além do nosso dashboard, o som também pode ser configurado por meio da nossa [API de envio de mensagens][12].
+Se o arquivo de som especificado não existir ou a palavra-chave "default" for inserida, a Braze usará o som de alerta padrão do dispositivo. Além do nosso dashboard, o som também pode ser configurado por meio da nossa [API or interface de programação do aplicativo (API) de envio de mensagens][12].
 
 Consulte a documentação para desenvolvedores da Apple sobre [preparação de sons de alerta personalizados](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html) para mais informações.
 
@@ -258,7 +258,7 @@ Ao criar uma campanha de push pelo dashboard, clique na guia **Settings** na eta
 
 ### Pares chave-valor {#key-value-pairs}
 
-A Braze permite que você envie pares chave-valor de strings personalizadas, conhecidos como `extras`, junto com uma notificação por push para o seu app. Os extras podem ser definidos pelo dashboard ou pela API e estarão disponíveis como pares chave-valor dentro do dicionário `notification` passado para as implementações do seu delegate de push.
+A Braze permite que você envie pares chave-valor de strings personalizadas, conhecidos como `extras`, junto com uma notificação por push para o seu app. Os extras podem ser definidos pelo dashboard ou pela API or interface de programação do aplicativo (API) e estarão disponíveis como pares chave-valor dentro do dicionário `notification` passado para as implementações do seu delegate de push.
 
 ### Opções de alerta {#alert-options}
 

@@ -361,12 +361,12 @@ Konfigurieren Sie `BrazeInAppMessageUI.DisplayChoice` so, dass einer der folgend
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anzeigezeitpunkt anpassen" }
 
 {% alert tip %}
-Ein Beispiel für `InAppMessageUI` finden Sie in unserem [Swift-Braze-SDK-Repository](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) und [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
+Ein Beispiel für `InAppMessageUI` finden Sie in unserem [Swift-Braze-SDK or Software-Development-Kit-Repository](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/Swift/Sources/InAppMessageUI) und [Objective-C](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples/ObjC/Sources/InAppMessageUI).
 {% endalert %}
 
 ## Statusleiste ausblenden {#hiding-the-status-bar}
 
-Für In-App-Nachrichten vom Typ `Full`, `FullImage` und `HTML` blendet das SDK die Statusleiste standardmäßig aus. Bei anderen Typen von In-App-Nachrichten bleibt die Statusleiste unverändert. Um dieses Verhalten zu konfigurieren, verwenden Sie die [Delegate-Methode](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)`, um die Eigenschaft `statusBarHideBehavior` im `PresentationContext` festzulegen. Dieses Feld akzeptiert einen der folgenden Werte:
+Für In-App-Nachrichten vom Typ `Full`, `FullImage` und `HTML` blendet das SDK or Software-Development-Kit die Statusleiste standardmäßig aus. Bei anderen Typen von In-App-Nachrichten bleibt die Statusleiste unverändert. Um dieses Verhalten zu konfigurieren, verwenden Sie die [Delegate-Methode](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) `inAppMessage(_:prepareWith:)`, um die Eigenschaft `statusBarHideBehavior` im `PresentationContext` festzulegen. Dieses Feld akzeptiert einen der folgenden Werte:
 
 | Verhalten zum Ausblenden der Statusleiste | Beschreibung                                                                          |
 | ----------------------------------------- | ------------------------------------------------------------------------------------- |

@@ -17,7 +17,7 @@ search_tag: Partner
 Se estiver alternando entre provedores de armazenamento em nuvem, entre em contato com o gerente de sucesso do cliente da Braze para obter mais assistência na configuração e validação da nova integração.
 {% endalert %}
 
-A integração da Braze com o Microsoft Azure Blob Storage permite exportar dados de volta para o Azure e transmitir dados do Currents. Depois, você pode usar um processo ETL (Extract, Transform, Load) para transferir seus dados para outros locais.
+A integração da Braze com o Microsoft Azure Blob Storage permite exportar dados de volta para o Azure e transmitir dados do Currents. Depois, você pode usar um processo ETL (ETL) para transferir seus dados para outros locais.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -79,8 +79,8 @@ Por fim, role até o final da página e selecione quais eventos de engajamento c
 ### Etapa 5: Configurar a exportação de dados do Azure {#step-5-set-up-azure-data-export}
 
 A seguir, são configuradas as credenciais usadas para:
-1. Exportações de Segment pela API
-2. Exportações em CSV (exportação de dados de usuários de Campaign, Segment e Canvas pelo dashboard)
+1. Exportações de Segment or segmento pela API or interface de programação do aplicativo (API)
+2. Exportações em CSV (exportação de dados de usuários de Campaign, Segment or segmento e Canvas pelo dashboard)
 3. Relatórios de engajamento
 
 Na Braze, navegue até **Partner Integrations** > **Technology Partners** > **Microsoft Azure** e forneça sua string de conexão, o nome do contêiner de armazenamento do Azure e o prefixo de armazenamento do Azure.
@@ -231,11 +231,11 @@ Para atualizar as credenciais — ou alternar entre os métodos **Connection Str
 
 Usuários que integraram uma solução de armazenamento de dados em nuvem e estão tentando exportar APIs, relatórios do dashboard ou relatórios CSV terão a seguinte experiência:
 
-- Todas as exportações de API não retornarão uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
+- Todas as exportações de API or interface de programação do aplicativo (API) não retornarão uma URL de download no corpo da resposta e devem ser recuperadas por meio do armazenamento de dados.
 - Todos os relatórios do dashboard e relatórios CSV serão enviados para o e-mail do usuário para download (sem necessidade de permissões de armazenamento) e terão backup no armazenamento de dados.
 
 {% alert important %}
-**Requisito de formato JSON**: Para exportações JSON, a Braze usa o formato [JSONL](https://jsonlines.org/) (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato difere do JSON padrão, que é um único array ou objeto JSON. Cada linha no arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON. <br><br> As exportações do Currents usam o formato [Apache Avro](https://avro.apache.org/) (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica a exportações de dados do dashboard e exportações de API que usam formato JSON.
+**Requisito de formato JSON**: Para exportações JSON, a Braze usa o formato [JSONL](https://jsonlines.org/) (JSON delimitado por nova linha), em que cada linha contém um objeto JSON separado. Esse formato difere do JSON padrão, que é um único array ou objeto JSON. Cada linha no arquivo exportado é um objeto JSON válido, mas o arquivo como um todo não é um único documento JSON válido. Ao processar esses arquivos, analise cada linha individualmente como um objeto JSON separado, em vez de tentar analisar o arquivo inteiro como um único documento JSON. <br><br> As exportações do Currents usam o formato [Apache Avro](https://avro.apache.org/) (arquivos `.avro`), não JSON. Esse requisito de formato JSON se aplica a exportações de dados do dashboard e exportações de API or interface de programação do aplicativo (API) que usam formato JSON.
 {% endalert %}
 
 ## Perguntas frequentes {#faq}

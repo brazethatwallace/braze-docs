@@ -1,6 +1,6 @@
 ## Sobre os Content Cards no React Native {#about-react-native-content-cards}
 
-Os SDKs da Braze incluem um feed de cartão padrão para que você comece a usar os Content Cards. Para mostrar o feed do cartão, você pode usar o método `Braze.launchContentCards()`. O feed de cartão padrão incluído com o SDK da Braze lidará com toda a análise de dados, rastreamento, dispensas e renderização dos Content Cards de um usuário.
+Os SDKs da Braze incluem um feed de cartão padrão para que você comece a usar os Content Cards. Para mostrar o feed do cartão, você pode usar o método `Braze.launchContentCards()`. O feed de cartão padrão incluído com o SDK or kit de desenvolvimento de software da Braze lidará com toda a análise de dados, rastreamento, dispensas e renderização dos Content Cards de um usuário.
 
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
@@ -31,7 +31,7 @@ Você pode usar esses métodos adicionais para criar um feed de Content Cards pe
 | Método                                   | Descrição                                                                                            |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Inicia o elemento da interface do usuário dos Content Cards.                                                                 |
-| `requestContentCardsRefresh()`           | Solicita os Content Cards mais recentes do servidor do SDK da Braze. A lista de cartões resultante é passada para cada um dos [ouvintes de eventos de cartão de conteúdo](#reactnative_cards-methods) registrados anteriormente. |
+| `requestContentCardsRefresh()`           | Solicita os Content Cards mais recentes do servidor do SDK or kit de desenvolvimento de software da Braze. A lista de cartões resultante é passada para cada um dos [ouvintes de eventos de cartão de conteúdo](#reactnative_cards-methods) registrados anteriormente. |
 | `getCachedContentCards()`                | Retorna a matriz de Content Cards mais recente do cache.                                            |
 | `logContentCardClicked(cardId)`          | Registra um clique para o ID do cartão de conteúdo fornecido. Esse método é usado apenas para análise de dados. Para executar a ação de clique, chame também `processContentCardClickAction(cardId)`.                                                        |
 | `logContentCardImpression(cardId)`       | Registra uma impressão para o ID do cartão de conteúdo fornecido.                                                      |
@@ -41,7 +41,7 @@ Você pode usar esses métodos adicionais para criar um feed de Content Cards pe
 
 ## Tipos e propriedades do cartão {#card-types-and-properties}
 
-O modelo de dados dos Content Cards está disponível no React Native SDK e oferece os seguintes tipos de cartões de conteúdo: [Somente imagem](#image-only), [Imagem com legenda](#captioned-image) e [Clássico](#classic). Há também um tipo especial de cartão [Controle](#control), que é retornado aos usuários que estão no grupo de controle de um determinado cartão. Cada tipo herda propriedades comuns de um modelo básico, além de suas próprias propriedades exclusivas.
+O modelo de dados dos Content Cards está disponível no React Native SDK or kit de desenvolvimento de software e oferece os seguintes tipos de cartões de conteúdo: [Somente imagem](#image-only), [Imagem com legenda](#captioned-image) e [Clássico](#classic). Há também um tipo especial de cartão [Controle](#control), que é retornado aos usuários que estão no grupo de controle de um determinado cartão. Cada tipo herda propriedades comuns de um modelo básico, além de suas próprias propriedades exclusivas.
 
 {% alert tip %}
 Para uma referência completa do modelo de dados do Content Card, consulte a documentação para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html) e para [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard).

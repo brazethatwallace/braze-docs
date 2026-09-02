@@ -20,13 +20,13 @@ Vielleicht denken Sie: „Meine Entwickler:innen sind großartig! Sie können al
 
 Was tun sie also, wenn sie Braze in Ihre App oder Website integrieren? Schön, dass Sie fragen!
 
-### Schritt 1: Sie implementieren das Braze SDK {#step-1-they-implement-the-braze-sdk}
+### Schritt 1: Sie implementieren das Braze SDK or Software-Development-Kit {#step-1-they-implement-the-braze-sdk}
 
-Das Braze SDK (Software-Development-Kit) ist die Methode, mit der wir Informationen an Ihre App oder Website senden und von dort empfangen. Ihre Entwickler:innen verbinden im Wesentlichen unsere Apps miteinander. Dafür benötigen sie einige wichtige Informationen:
+Das Braze SDK or Software-Development-Kit (SDK or Software-Development-Kit or Software-Development-Kit) ist die Methode, mit der wir Informationen an Ihre App oder Website senden und von dort empfangen. Ihre Entwickler:innen verbinden im Wesentlichen unsere Apps miteinander. Dafür benötigen sie einige wichtige Informationen:
 
 * Ihre [API-Schlüssel]({{site.baseurl}}/api/basics)
-* Ihren [SDK-Endpunkt]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
-  * Braze stellt keine angepassten Endpunkte mehr bereit, verwenden Sie daher die vordefinierten SDK-Endpunkte. Falls Sie einen bereits bestehenden angepassten Endpunkt erhalten haben, finden Sie hier die Einrichtungsschritte für die Integration mit [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) und [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk).
+* Ihren [SDK or Software-Development-Kit-Endpunkt]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)
+  * Braze stellt keine angepassten Endpunkte mehr bereit, verwenden Sie daher die vordefinierten SDK or Software-Development-Kit-Endpunkte. Falls Sie einen bereits bestehenden angepassten Endpunkt erhalten haben, finden Sie hier die Einrichtungsschritte für die Integration mit [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration#step-5-optional-custom-endpoint-setup), [iOS]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift) und [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#initializing-the-sdk).
 
 Sie können diese Informationen entweder direkt weitergeben oder ihnen Zugang zu Braze gewähren, indem Sie ein Konto für sie erstellen.
 
@@ -42,12 +42,12 @@ Teilen Sie Ihren Entwickler:innen unbedingt mit, welche Kanäle Sie nutzen möch
 
 | Kanal | Details |
 |---|---|
-| In-App-Nachrichten | Erfordert die SDK-Implementierung sowie diese kanalspezifischen Schritte. |
-| Push | Erfordert die SDK-Implementierung für den ordnungsgemäßen Umgang mit Messaging-Zugangsdaten und Push-Token. |
+| In-App-Nachrichten | Erfordert die SDK or Software-Development-Kit-Implementierung sowie diese kanalspezifischen Schritte. |
+| Push | Erfordert die SDK or Software-Development-Kit-Implementierung für den ordnungsgemäßen Umgang mit Messaging-Zugangsdaten und Push-Token / Textbaustein. |
 | E-Mail | Dies ist ein völlig anderer Prozess. Weitere Informationen zur Integration finden Sie im Abschnitt [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup). |
-| Content Cards | Um mit [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) zu beginnen, wenden Sie sich an Ihren Braze Customer-Success-Manager. |
-| SMS & MMS | Weitere Informationen zur Integration finden Sie im Abschnitt [SMS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending). |
-| Webhooks | Erfordert die SDK-Implementierung sowie kanalspezifische Schritte. |
+| Content Cards | Um mit [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) zu beginnen, wenden Sie sich an Ihren Braze CSM or Customer-Success-Manager or Customer-Success-Manager:in. |
+| Kurzmitteilungsdienst or SMS & MMS | Weitere Informationen zur Integration finden Sie im Abschnitt [Kurzmitteilungsdienst or SMS-Einrichtung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_sending). |
+| Webhooks | Erfordert die SDK or Software-Development-Kit-Implementierung sowie kanalspezifische Schritte. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Sie implementieren Ihre gewünschten Messaging-Kanäle" }
 
 {% alert tip %}
@@ -62,7 +62,7 @@ Was müssen Sie also tun, um ihnen diese Informationen bereitzustellen?
 
 1. Arbeiten Sie mit Ihrem Marketing-Team zusammen, um Campaigns, Ziele, Attribute und Events zu definieren, die Sie verfolgen möchten. Definieren Sie diese Anwendungsfälle und teilen Sie sie mit Ihren Teams.
 2. Definieren Sie Ihre Anforderungen an angepasste Daten ([angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), [angepasste Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) usw.).
-3. Besprechen Sie anschließend, wie diese Daten getrackt werden sollen (z. B. über das SDK ausgelöst).
+3. Besprechen Sie anschließend, wie diese Daten getrackt werden sollen (z. B. über das SDK or Software-Development-Kit ausgelöst).
 4. Legen Sie fest, wie viele [Workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces) Sie benötigen. Ihre Entwickler:innen müssen wissen, wie sie diese Workspaces [testen und konfigurieren]({{site.baseurl}}/user_guide/get_started/workspaces) können.
 
 Sobald Sie all diese Informationen zusammengetragen haben, teilen Sie sie mit Ihren Entwickler:innen. Sie werden diese Informationen nutzen und Ihre [angepassten Daten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) implementieren. Möglicherweise müssen Sie auch [einige Nutzer:innen importieren]({{site.baseurl}}/user_guide/audience/manage_audience/import_users). Darüber hinaus sollten Sie sich mit den [Event-Namenskonventionen]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions) vertraut machen.

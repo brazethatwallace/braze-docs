@@ -18,25 +18,25 @@ tool: Reports
 
 {% api %}
 
-## AMP 클릭 수 {#amp-clicks}
+## 가속 모바일 페이지 클릭 수 {#amp-clicks}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}
+{% multi_lang_include analytics/metrics.md metric='가속 모바일 페이지 Clicks' %}
 
 {% endapi %}
 
 {% api %}
 
-## AMP 열람 수 {#amp-opens}
+## 가속 모바일 페이지 열람 수 {#amp-opens}
 
 {% apitags %}
 Email
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}
+{% multi_lang_include analytics/metrics.md metric='가속 모바일 페이지 Opens' %}
 
 {% endapi %}
 
@@ -178,13 +178,13 @@ Email
 
 {% api %}
 
-## RCS 확인된 전달 또는 SMS 확인된 전달 {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
+## RCS 확인된 전달 또는 단문 메시지 서비스 확인된 전달 {#rcs-confirmed-deliveries-or-sms-confirmed-deliveries}
 
 {% apitags %}
-SMS/MMS, RCS
+단문 메시지 서비스/MMS, RCS
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %} Braze 고객의 경우, 전달은 SMS 할당량에 대해 과금됩니다.
+{% multi_lang_include analytics/metrics.md metric='Confirmed Deliveries' %} Braze 고객의 경우, 전달은 단문 메시지 서비스 할당량에 대해 과금됩니다.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -203,7 +203,7 @@ SMS/MMS, RCS
 ## 신뢰도 {#confidence}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Confidence' %}
@@ -239,7 +239,7 @@ In-App Message
 ## 전환 (B, C, D) {#conversions-b-c-d}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Conversions (B, C, D)' %} 이 정의된 이벤트는 Campaign을 구축할 때 사용자가 결정합니다.
@@ -286,7 +286,7 @@ In-App Message
 ## 전환율 {#conversion-rate}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
@@ -349,10 +349,10 @@ Email, Web Push, iOS Push, Android Push, WhatsApp
 
 {% api %}
 
-## RCS 전달 실패 또는 SMS 전달 실패 {#rcs-delivery-failures-or-sms-delivery-failures}
+## RCS 전달 실패 또는 단문 메시지 서비스 전달 실패 {#rcs-delivery-failures-or-sms-delivery-failures}
 
 {% apitags %}
-SMS/MMS
+단문 메시지 서비스/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
@@ -384,7 +384,7 @@ RCS
 ## 전달 실패율 {#failed-delivery-rate}
 
 {% apitags %}
-SMS/MMS
+단문 메시지 서비스/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
@@ -492,7 +492,7 @@ Email
 ## 도움말 {#help}
 
 {% apitags %}
-SMS/MMS, RCS
+단문 메시지 서비스/MMS, RCS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Help' %} 사용자 응답은 메시지를 수신한 후 4시간 이내에 인바운드 메시지를 보낼 때마다 측정됩니다.
@@ -518,7 +518,7 @@ iOS Push, Android Push
 ## 생애주기 매출 {#lifetime-revenue}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}
@@ -527,13 +527,13 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 {% api %}
 
-## 사용자당 생애주기 가치 {#lifetime-value-per-user}
+## 사용자당 LTV or 생애주기 가치 {#lifetime-value-per-user}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}
+{% multi_lang_include analytics/metrics.md metric='LTV or LTV or 생애주기 가치 Per User' %}
 
 {% endapi %}
 
@@ -542,7 +542,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 ## 일평균 매출 {#average-daily-revenue}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Average Daily Revenue' %}
@@ -554,7 +554,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 ## 일일 구매 수 {#daily-purchases}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Daily Purchases' %}
@@ -566,7 +566,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 ## 사용자당 일일 매출 {#daily-revenue-per-user}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Daily Revenue Per User' %}
@@ -602,7 +602,7 @@ Web Push, iOS Push, Android Push
 ## 수신 거부 {#opt-out}
 
 {% apitags %}
-SMS/MMS, RCS
+단문 메시지 서비스/MMS, RCS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Opt-Out' %} 사용자 응답은 메시지를 수신한 후 4시간 이내에 인바운드 메시지를 보낼 때마다 측정됩니다.
@@ -638,10 +638,10 @@ Email
 ## 주요 전환 (A) 또는 주요 전환 이벤트 {#primary-conversions-a-or-primary-conversion-event}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, WhatsApp
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or Primary Conversion Event' %}
+{% multi_lang_include analytics/metrics.md metric='Primary Conversions (A) or 주요 전환 Event' %}
 
 | 채널 | 추가 정보 |
 |-------|-----------------------|
@@ -692,7 +692,7 @@ WhatsApp
 ## 수신 {#received}
 
 {% apitags %}
-Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS, WhatsApp
+Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, 단문 메시지 서비스/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Received' %}
@@ -702,7 +702,7 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 | Content Cards | 사용자가 앱에서 카드를 조회할 때 수신됩니다.|
 | 푸시 | Braze 서버에서 푸시 제공업체로 메시지가 전송될 때 수신됩니다.|
 | 이메일 | Braze 서버에서 이메일 서비스 제공업체로 메시지가 전송될 때 수신됩니다.|
-| SMS/MMS | SMS 제공업체가 상위 통신사 및 대상 기기로부터 확인을 받은 후 "전달됨"으로 처리됩니다.|
+| 단문 메시지 서비스/MMS | 단문 메시지 서비스 제공업체가 상위 통신사 및 대상 기기로부터 확인을 받은 후 "전달됨"으로 처리됩니다.|
 | 인앱 메시지 | 정의된 트리거 동작에 따라 표시 시점에 수신됩니다.|
 | WhatsApp | 정의된 트리거 동작에 따라 표시 시점에 수신됩니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="수신" }
@@ -711,13 +711,13 @@ Email, Content Cards, In-App Message, Web Push, iOS Push, Android Push, SMS/MMS,
 
 {% api %}
 
-## RCS 거부 또는 SMS 거부 {#rcs-rejections-or-sms-rejections}
+## RCS 거부 또는 단문 메시지 서비스 거부 {#rcs-rejections-or-sms-rejections}
 
 {% apitags %}
-SMS/MMS, RCS
+단문 메시지 서비스/MMS, RCS
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Rejections' %} Braze 고객의 경우, 거부는 SMS 할당량에 대해 과금됩니다.
+{% multi_lang_include analytics/metrics.md metric='Rejections' %} Braze 고객의 경우, 거부는 단문 메시지 서비스 할당량에 대해 과금됩니다.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -748,7 +748,7 @@ Email
 ## 발송됨 {#sent}
 
 {% apitags %}
-SMS/MMS
+단문 메시지 서비스/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Sent' %}
@@ -762,7 +762,7 @@ SMS/MMS
 ## 발송 {#sends}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Sends' %} 이 측정기준은 Braze에서 제공합니다. 예약된 Campaign을 시작하면 이 측정기준에는 사용량 제한으로 인해 아직 발송되지 않은 메시지를 포함하여 발송된 모든 메시지가 포함됩니다.
@@ -783,7 +783,7 @@ Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/us
 ## 발송된 메시지 {#messages-sent}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp, LINE
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Messages Sent' %} 이 측정기준은 Braze에서 제공합니다. 예약된 Campaign을 시작하면 이 측정기준에는 사용량 제한으로 인해 아직 발송되지 않은 메시지를 포함하여 발송된 모든 메시지가 포함됩니다.
@@ -804,7 +804,7 @@ Content Cards의 경우, 이 측정기준은 [카드 생성]({{site.baseurl}}/us
 ## 통신사 전송 {#sends-to-carrier}
 
 {% apitags %}
-SMS/MMS
+단문 메시지 서비스/MMS
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Sends to Carrier' %}
@@ -892,14 +892,14 @@ In-App Message
 ## 총 클릭 수 {#total-clicks}
 
 {% apitags %}
-Email, Content Cards, SMS/MMS, LINE
+Email, Content Cards, 단문 메시지 서비스/MMS, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Total Clicks' %}
 
 | 채널 | 추가 정보 |
 |-------|-------|
-| LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다. AMP 이메일에는 HTML 및 일반 텍스트 버전 모두에서 기록된 클릭이 포함됩니다. 이 수치는 스팸 방지 도구에 의해 인위적으로 부풀려질 수 있습니다.|
+| LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다. 가속 모바일 페이지 이메일에는 HTML 및 일반 텍스트 버전 모두에서 기록된 클릭이 포함됩니다. 이 수치는 스팸 방지 도구에 의해 인위적으로 부풀려질 수 있습니다.|
 | 배너 | 동일한 사용자가 여러 번 클릭했는지 여부와 관계없이, 전달된 메시지 내에서 클릭한 총 사용자 수(및 비율)입니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="총 클릭 수" }
 
@@ -909,7 +909,7 @@ Email, Content Cards, SMS/MMS, LINE
     <ul>
         <li><b>이메일:</b> (총 클릭 수) / (전달)</li>
         <li><b>Content Cards:</b> (총 클릭 수) / (총 노출 횟수)</li>
-        <li><b>SMS:</b> (클릭 열람) / (전달)</li>
+        <li><b>단문 메시지 서비스:</b> (클릭 열람) / (전달)</li>
     </ul>
 </span>
 {:/}
@@ -971,7 +971,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 | 채널 | 추가 정보 |
 |-------|-----------------------|
 | LINE | 하루 최소 20개 메시지 임계값에 도달한 후 추적됩니다.|
-| AMP 이메일 | HTML 및 일반 텍스트 버전의 총 열람 수입니다.|
+| 가속 모바일 페이지 이메일 | HTML 및 일반 텍스트 버전의 총 열람 수입니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="총 열람 수" }
 
 {::nomarkdown}
@@ -995,7 +995,7 @@ Email, iOS Push, Android Push, Web Push, LINE
 ## 총 매출 {#total-revenue}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Total Revenue' %} 이 측정기준은 <a href='/docs/user_guide/analytics/reports/report_builder'>보고서 빌더</a> 를 통한 Campaign 비교 보고서에서만 사용할 수 있습니다.
@@ -1116,7 +1116,7 @@ Email, LINE
 ## 고유 수신자 수 {#unique-recipients}
 
 {% apitags %}
-Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, WhatsApp, LINE
+Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, RCS, WhatsApp, LINE
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
@@ -1170,7 +1170,7 @@ Email
 ## 배리언트 {#variation}
 
 {% apitags %}
-Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, WhatsApp
+Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, 단문 메시지 서비스/MMS, WhatsApp
 {% endapitags %}
 
 {% multi_lang_include analytics/metrics.md metric='Variation' %}

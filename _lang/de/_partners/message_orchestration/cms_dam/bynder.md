@@ -1,7 +1,7 @@
 ---
 nav_title: Bynder
 article_title: Bynder
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Bynder, einer Digital-Asset-Management-Plattform (DAM), mit der Sie über die Universal Compact View Chrome-Erweiterung genehmigte Asset-URLs in Braze Campaigns und Canvases suchen und einfügen können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Bynder, einer Digital-Asset-Management-Plattform (DAM), mit der Sie über die Universal Compact View Chrome-Erweiterung genehmigte Asset-URLs in Braze Campaigns und Canvase suchen und einfügen können."
 alias: /partners/bynder/
 page_type: partner
 search_tag: Partner
@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Bynder
 
-> [Bynder](https://www.bynder.com) ist eine Digital-Asset-Management-Plattform (DAM), die Kund:innen dabei unterstützt, genehmigte digitale Assets (Bilder, Videos und andere Kreativmaterialien) aus einer einzigen zentralen Quelle zu erstellen, zu verwalten, zu finden und zu verteilen. Durch die Integration mit Braze können Marketer über die Universal Compact View (UCV) Google-Chrome-Erweiterung von Bynder nach Bynder-Assets suchen und diese auswählen, ohne das Braze-Dashboard zu verlassen. Fügen Sie Links zu diesen Assets direkt in Campaigns und Canvases ein.
+> [Bynder](https://www.bynder.com) ist eine Digital-Asset-Management-Plattform (DAM), die Kund:innen dabei unterstützt, genehmigte digitale Assets (Bilder, Videos und andere Kreativmaterialien) aus einer einzigen zentralen Quelle zu erstellen, zu verwalten, zu finden und zu verteilen. Durch die Integration mit Braze können Marketer über die Universal Compact View (UCV) Google-Chrome-Erweiterung von Bynder nach Bynder-Assets suchen und diese auswählen, ohne das Braze-Dashboard zu verlassen. Fügen Sie Links zu diesen Assets direkt in Campaigns und Canvase ein.
 
 _Diese Integration wird von Bynder gepflegt._
 
@@ -22,7 +22,7 @@ So bleiben Braze Campaigns mit Bynders zentraler Quelle der Wahrheit abgestimmt:
 ## Anwendungsfälle {#use-cases}
 
 - Marketer, die eine E-Mail, In-App-Nachricht oder einen Content Block in Braze erstellen, können Hero-Bilder, Banner oder Links zu Werbevideos direkt aus Bynder einfügen, sodass Campaigns die neueste genehmigte Version eines Assets verwenden.
-- Campaign-Manager:innen können die Such- und Filterleiste der Universal Compact View nutzen, um genehmigte regionale oder lokalisierte Kreativmaterialien für ein bestimmtes Zielgruppen-Segment zu finden, bevor sie diese einem Canvas-Schritt hinzufügen.
+- Campaign-Manager:in:innen können die Such- und Filterleiste der Universal Compact View nutzen, um genehmigte regionale oder lokalisierte Kreativmaterialien für ein bestimmtes Zielgruppen-Segment zu finden, bevor sie diese einem Canvas-Schritt hinzufügen.
 - Kreativteams können Bynders Dynamic Asset Transformation verwenden, um ein Asset für einen bestimmten Kanal in der Größe anzupassen oder umzuformatieren, bevor der Link in Braze kopiert wird. Verwenden Sie beispielsweise einen kompakten Zuschnitt für eine Push-Benachrichtigung oder ein Banner in voller Größe für E-Mails.
 
 ## Voraussetzungen {#prerequisites}
@@ -82,7 +82,7 @@ Jede Transformation oder jedes Derivat erzeugt eine eigene eindeutige URL. Gener
 
 Da ein eingefügter Link auf ein bestimmtes Asset und Derivat in Bynder verweist, kann dasselbe URL-Format in E-Mails, Content Blocks, In-App-Nachrichten und Canvas-Schritten wiederverwendet werden. So bleibt das Kreativmaterial überall dort konsistent, wo es in einer Campaign verwendet wird.
 
-### Das Quell-Asset aktualisieren, ohne Ihre Campaigns zu bearbeiten {#update-the-source-asset-without-editing-your-campaigns}
+### Das Quell-Asset Update or aktualisieren or aktualisieren, ohne Ihre Campaigns zu bearbeiten {#update-the-source-asset-without-editing-your-campaigns}
 
 Wenn die zugrunde liegende Datei in Bynder ersetzt wird und dabei die gleichen öffentlichen Asset- und Derivat-Einstellungen beibehalten werden, spiegelt jede aktive Braze-Nachricht, die auf diese URL verweist, die Aktualisierung automatisch wider. Sie müssen die Campaign selbst nicht bearbeiten.
 

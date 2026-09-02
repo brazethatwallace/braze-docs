@@ -122,7 +122,7 @@ Die folgende Tabelle listet häufige Fehler für diesen Endpunkt und wie Sie die
 | Status | Ursache | Hinweis |
 |---|---|---|
 | `404` | Typ nicht gefunden (`data-object-type-not-found`) | Bestätigen Sie, dass `type_name` im Workspace existiert und exakt mit dem Maschinennamen übereinstimmt. |
-| `401` | Fehlender oder ungültiger REST-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
+| `401` | Fehlender oder ungültiger Representational State Transfer-API-Schlüssel | Überprüfen Sie, ob der `Authorization`-Header `Bearer YOUR_REST_API_KEY` verwendet und ob der Schlüssel aktiv ist. |
 | `403` | API-Schlüssel hat keine Berechtigung oder die Anfrage wird durch eine Zulassungsliste blockiert | Bestätigen Sie, dass der Schlüssel über `data_objects.read` verfügt und dass Ihre Quell-IP auf der Zulassungsliste des Schlüssels steht, falls konfiguriert. |
 | `429` | Rate-Limit überschritten | Versuchen Sie es nach `X-RateLimit-Reset` erneut und reduzieren Sie die Anfragehäufigkeit. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fehler bei Datenobjekte auflisten" }

@@ -5,7 +5,7 @@ Esto puede ocurrir por varias razones:
 
 - Cuando un grupo de control global se aplica a una Campaign o Canvas, los usuarios de ese grupo de control global quedan excluidos del recuento de usuarios alcanzables.
 - El tamaño de la población objetivo en una Campaign o Canvas excluye a los usuarios con los que no se puede contactar a través de varios canales de mensajería; el comportamiento difiere de un canal a otro. Por ejemplo, la audiencia alcanzable para una Campaign o Canvas excluye a los usuarios que han cancelado su suscripción, han sido marcados como correo no deseado (en el caso de los correos electrónicos) o han tenido un rebote duro (en el caso de los correos electrónicos). El segmento en sí, sin embargo, solo excluye las cancelaciones de suscripción cuando muestra el número estimado de usuarios alcanzables por correo electrónico.
-- Braze solo envía mensajes SMS a usuarios dentro del grupo de suscripción seleccionado, por lo que la población objetivo de SMS para una Campaign o Canvas también excluirá a cualquier usuario que no forme parte de tu grupo de suscripción seleccionado.
+- Braze solo envía mensajes servicio de mensajes cortos a usuarios dentro del grupo de suscripción seleccionado, por lo que la población objetivo de servicio de mensajes cortos para una Campaign o Canvas también excluirá a cualquier usuario que no forme parte de tu grupo de suscripción seleccionado.
 
 {% endif %}
 
@@ -72,7 +72,7 @@ Cuando estés listo para utilizar una extensión de segmento obsoleta, revisa la
 
 {% if include.section == "same channel identifier" %}
 
-Cuando un mensaje se recibe, se abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para SMS o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no formaban parte originalmente de la Campaign o no recibieron el mensaje directamente.
+Cuando un mensaje se recibe, se abre o se hace clic en él, Braze actualiza los datos de todos los perfiles que comparten el mismo identificador de canal que el perfil que registró la interacción (por ejemplo, la misma dirección de correo electrónico para correo electrónico, o el mismo número de teléfono para servicio de mensajes cortos o WhatsApp). Los usuarios que comparten un identificador con alguien que recibió, abrió o hizo clic en el mensaje pueden coincidir con este filtro incluso si no formaban parte originalmente de la Campaign o no recibieron el mensaje directamente.
 
 {% endif %}
 

@@ -7,7 +7,7 @@ layout: api_page
 page_type: reference
 description: "Este artigo descreve os detalhes do endpoint Criar objeto de dados."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Criar objeto de dados {#create-data-object}
 {% apimethod post %}
 /data_objects/objects/{type_name}
@@ -16,12 +16,12 @@ description: "Este artigo descreve os detalhes do endpoint Criar objeto de dados
 > Use este endpoint para criar um objeto de dados para um tipo.
 
 {% alert important %}
-Objetos de dados está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API de objetos de dados apareçam em **Configurações** > **Chaves de API**.
+Objetos de dados está atualmente em acesso antecipado. Seu espaço de trabalho precisa estar ativado antes que as permissões de chave de API or interface de programação do aplicativo (API) de objetos de dados apareçam em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisa de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.create`.
+Para usar este endpoint, você precisa de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `data_objects.create`.
 
 ## Limite de frequência {#rate-limit}
 
@@ -120,8 +120,8 @@ A tabela a seguir lista os erros comuns para este endpoint e como resolvê-los.
 | `404` | Tipo não encontrado (`data-object-type-not-found`) | Confirme se `type_name` existe no espaço de trabalho e corresponde exatamente ao nome de máquina. |
 | `409` | Objeto duplicado (`duplicate-data-object`) | Use um `external_id` diferente ou use `PUT` para substituir o objeto existente. |
 | `422` | Limite de registros atingido (`data-object-record-limit-exceeded`) | Reduza a quantidade de objetos para o tipo ou entre em contato com o suporte da Braze sobre os limites do seu espaço de trabalho. |
-| `401` | Chave da API REST ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
-| `403` | A chave de API não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave tem `data_objects.create` e se o IP de origem está na lista de permissões da chave, caso configurada. |
+| `401` | Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional ausente ou inválida | Verifique se o cabeçalho `Authorization` usa `Bearer YOUR_REST_API_KEY` e se a chave está ativa. |
+| `403` | A chave de API or interface de programação do aplicativo (API) não tem permissão ou a solicitação está bloqueada pela lista de permissões | Confirme se a chave tem `data_objects.create` e se o IP de origem está na lista de permissões da chave, caso configurada. |
 | `429` | Limite de frequência excedido | Tente novamente após `X-RateLimit-Reset` e reduza a frequência de solicitações. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Erros ao criar objeto de dados" }
 {% endapi %}

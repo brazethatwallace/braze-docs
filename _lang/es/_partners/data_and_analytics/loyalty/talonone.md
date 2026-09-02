@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Talon.One
 
-> [Talon.One](https://talon.one/) proporciona incentivos personalizados para tu CRM de marketing móvil y te permite lanzar campañas contextuales 1 a 1 de cupones, referidos, descuentos y fidelización de forma rápida y eficaz.
+> [Talon.One](https://talon.one/) proporciona incentivos personalizados para tu CRM or administración de las relaciones con el cliente de marketing móvil y te permite lanzar campañas contextuales 1 a 1 de cupones, referidos, descuentos y fidelización de forma rápida y eficaz.
 
 _Esta integración está mantenida por Talon.One._
 

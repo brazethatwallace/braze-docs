@@ -1,1 +1,1 @@
-{% multi_lang_include in-app_messages/troubleshooting.md sdk="Android" %}
+{% multi_lang_include in-app_messages/troubleshooting.md SDK or kit de desarrollo de software="Android" %}

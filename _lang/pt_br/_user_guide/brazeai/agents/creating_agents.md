@@ -107,7 +107,7 @@ Quando você usa um [esquema de saída avançado]({{site.baseurl}}/user_guide/br
 
 #### Configurar valores de fallback {#configure-fallback-values}
 
-Os valores de fallback estão disponíveis apenas para Canvas Step Agents. Na seção **Output** de um Canvas Step Agent, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira o tempo limite ou retorna um erro de chave de API inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
+Os valores de fallback estão disponíveis apenas para Canvas Step Agents. Na seção **Output** de um Canvas Step Agent, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira o tempo limite ou retorna um erro de chave de API or interface de programação do aplicativo (API) inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
 
 Catalog Agents não permitem configurar valores de fallback no Agent Console.
 
@@ -130,7 +130,7 @@ Para o comportamento em tempo de execução, consulte [Tratamento de erros e com
 
 ### Etapa 6: Teste o agente {#step-6-test-the-agent}
 
-O painel **Preview** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto o cria ou faz atualizações, experimentando-o de forma semelhante aos usuários finais. Essa etapa ajuda a confirmar que ele está se comportando como esperado e oferece a chance de fazer ajustes finos antes de colocá-lo em produção.
+O painel **prévia** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto o cria ou faz atualizações, experimentando-o de forma semelhante aos usuários finais. Essa etapa ajuda a confirmar que ele está se comportando como esperado e oferece a chance de fazer ajustes finos antes de colocá-lo em produção.
 
 1. No campo **Test your agent**, insira dados de exemplo do cliente ou respostas do cliente — qualquer coisa que reflita cenários reais que seu agente irá lidar.
 2. Visualize a resposta do agente para um usuário aleatório, um usuário existente ou um usuário personalizado.
@@ -167,7 +167,7 @@ O Operator pode pré-configurar instruções, campos de saída e contexto para o
 | Modelo | Descrição | Exemplo de saída |
 | --- | --- | --- |
 | Redator personalizado | Gera textos de mensagem específicos para o canal a partir de atributos do usuário, contexto do Canvas e diretrizes da marca | Linha de assunto e pré-cabeçalho de e-mail; título e corpo de push |
-| Analista de feedback | Analisa feedback aberto de pesquisas ou suporte em campos estruturados para ramificação no Canvas | Sentimento, tópico, próxima ação recomendada |
+| Analista de feedback | Analisa feedback aberto de pesquisas ou suporte em campos estruturados para Branch or ramificação or ramificação no Canvas | Sentimento, tópico, próxima ação recomendada |
 | Roteador de jornada | Direciona cada usuário para a jornada do Canvas mais relevante com base no perfil e no contexto da jornada | Nome da jornada ou booleano para etapas de divisão de decisão |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de agente de etapa do Canvas" }
 

@@ -32,7 +32,7 @@ Durch die Verwendung von Liquid können Sie die Namen Ihrer Abo-Gruppen und den 
 | Anforderung | Beschreibung |
 |---|---|
 | Aktiviertes Präferenzzentrum | Ihr Braze-Dashboard verfügt über die Berechtigungen zur Nutzung des Präferenzzentrum-Features. |
-| Gültiger Workspace mit einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe | Ein funktionierender Workspace mit gültigen Nutzer:innen und einer E-Mail-, SMS- oder WhatsApp-Abo-Gruppe. |
+| Gültiger Workspace mit einer E-Mail-, Kurzmitteilungsdienst or SMS- oder WhatsApp-Abo-Gruppe | Ein funktionierender Workspace mit gültigen Nutzer:innen und einer E-Mail-, Kurzmitteilungsdienst or SMS- oder WhatsApp-Abo-Gruppe. |
 | Gültige:r Nutzer:in | Eine Nutzerin oder ein Nutzer mit einer E-Mail-Adresse und einer externen ID. |
 | Generierter API-Schlüssel mit Präferenzzentrum-Berechtigungen | Gehen Sie im Braze-Dashboard zu **Einstellungen** > **API-Schlüssel**, um zu bestätigen, dass Sie Zugriff auf einen API-Schlüssel mit Präferenzzentrum-Berechtigungen haben. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -73,7 +73,7 @@ Das Präferenzzentrum verfügt über ein Kontrollkästchen, mit dem sich Ihre Nu
 
 #### Ein Präferenzzentrum bearbeiten {#edit-a-preference-center}
 
-Sie können Ihr Präferenzzentrum mithilfe des [Endpunkts „Präferenzzentrum aktualisieren“]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center) bearbeiten und aktualisieren.
+Sie können Ihr Präferenzzentrum mithilfe des [Endpunkts „Präferenzzentrum Update or aktualisieren or aktualisieren“]({{site.baseurl}}/api/endpoints/preference_center/put_update_preference_center) bearbeiten und Update or aktualisieren or aktualisieren.
 
 #### Präferenzzentren und Details identifizieren {#identify-preference-centers-and-details}
 
@@ -100,9 +100,9 @@ My encoded string is: {{my_string}}
 {% endraw %}
 {% endalert %}
 
-### Option 2: Authentifizierung mit JSON Web Token {#option-2-authenticate-with-json-web-token}
+### Option 2: Authentifizierung mit JSON Web Token / Textbaustein {#option-2-authenticate-with-json-web-token}
 
-Verwenden Sie ein [JSON Web Token](https://auth0.com/learn/json-web-tokens/), um Nutzer:innen für einen Bereich Ihres Webservers zu authentifizieren (zum Beispiel Kontoeinstellungen), der normalerweise hinter einer Authentifizierungsschicht wie Nutzername und Passwort geschützt ist.
+Verwenden Sie ein [JSON Web Token / Textbaustein](https://auth0.com/learn/json-web-tokens/), um Nutzer:innen für einen Bereich Ihres Webservers zu authentifizieren (zum Beispiel Kontoeinstellungen), der normalerweise hinter einer Authentifizierungsschicht wie Nutzername und Passwort geschützt ist.
 
 Dieser Ansatz erfordert keine in die URL eingebetteten Abfragestring-Wert-Paare, da diese im Payload des JSON Web Tokens übergeben werden können, zum Beispiel:
 
@@ -151,7 +151,7 @@ Nein. Wenn beim Erstellen einer E-Mail-Campaign die Meldung „Your Email Body d
 
 ### Wie aktualisiere ich das Standard-Browsersymbol? {#how-do-i-update-the-default-browser-icon}
 
-Standardmäßig verwendet das Symbol neben dem Browser-Tab-Namen (Favicon) das Braze-Logo. Um ein benutzerdefiniertes Favicon hinzuzufügen, legen Sie es über das Attribut `links-tags` in Ihrem API-Aufruf zum Erstellen oder Aktualisieren des [Präferenzzentrums]({{site.baseurl}}/api/endpoints/preference_center) fest. Braze speist dann den {% raw %}`<link rel="icon" ...>`{% endraw %}-Tag in die gehostete Seite für Sie ein.
+Standardmäßig verwendet das Symbol neben dem Browser-Tab-Namen (Favicon) das Braze-Logo. Um ein benutzerdefiniertes Favicon hinzuzufügen, legen Sie es über das Attribut `links-tags` in Ihrem API-Aufruf zum Erstellen oder Update or aktualisieren or aktualisieren des [Präferenzzentrums]({{site.baseurl}}/api/endpoints/preference_center) fest. Braze speist dann den {% raw %}`<link rel="icon" ...>`{% endraw %}-Tag in die gehostete Seite für Sie ein.
 
 {% raw %}
 ```

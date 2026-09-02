@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Antavo Loyalty Cloud
 
-> [Antavo](https://antavo.com/) ist ein Anbieter von SaaS-Technologien zur Kundenbindung auf Unternehmensebene, der umfassende Kundenbindungs-Programme entwickelt, um die Markenliebe zu fördern und das Kundenverhalten zu verändern.
+> [Antavo](https://antavo.com/) ist ein Anbieter von SaaS or Software-as-a-Service-Technologien zur Kundenbindung auf Unternehmensebene, der umfassende Kundenbindungs-Programme entwickelt, um die Markenliebe zu fördern und das Kundenverhalten zu verändern.
 
 _Diese Integration wird von Antavo gepflegt._
 
@@ -22,8 +22,8 @@ Die Integration von Antavo und Braze ermöglicht es Ihnen, Daten aus Kundenbindu
 | Anforderung          | Beschreibung                                                                                                                                                                   |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------  |
 | Antavo-Konto       | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Antavo-Konto](https://antavo.com/) mit aktivierter Braze-Integration.                                                |
-| Braze REST-API-Schlüssel   | Ein Braze REST-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `events.list`, `events.data_series` und `events.get`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.  |
-| Braze REST-Endpunkt  | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                |
+| Braze Representational State Transfer-API-Schlüssel   | Ein Braze Representational State Transfer-API-Schlüssel mit den folgenden Berechtigungen: `users.track`, `events.list`, `events.data_series` und `events.get`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.  |
+| Braze Representational State Transfer-Endpunkt  | [Ihre Representational State Transfer-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                |
 | Braze-App-Bezeichner | Ihr App-Bezeichner-Schlüssel. <br><br>Um diesen Schlüssel im Braze-Dashboard zu finden, gehen Sie zu **Einstellungen** > **API-Schlüssel** und suchen Sie den Abschnitt **Identification**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -35,8 +35,8 @@ Gehen Sie in Antavo zu **Modules** > **Braze** und klicken Sie auf **Configure**
 
 Geben Sie die folgenden Zugangsdaten an:
 
-- **Instance URL:** Der Braze REST-Endpunkt der Instanz, für die Sie bereitgestellt werden.
-- **API Token (Identifier):** Der Braze REST-API-Schlüssel, den Antavo beim Senden von Anfragen an Braze verwenden soll.
+- **Instance URL:** Der Braze Representational State Transfer-Endpunkt der Instanz, für die Sie bereitgestellt werden.
+- **API Token / Textbaustein (Identifier):** Der Braze Representational State Transfer-API-Schlüssel, den Antavo beim Senden von Anfragen an Braze verwenden soll.
 - **App Identifier:** Der Braze-App-Bezeichner.
 
 Nachdem Sie die Zugangsdaten eingegeben haben, klicken Sie auf **Connect**.
@@ -78,7 +78,7 @@ Die Integration unterstützt alle [Datentypen]({{site.baseurl}}/user_guide/data_
 
 Die Datenfelder werden auf Grundlage der konfigurierten Feld-Abbildung ausgefüllt.
 
-## Trigger {#triggers}
+## Trigger or triggern {#triggers}
 
 Neben der Konfiguration der Feld-Abbildung bietet die Integration weitere Möglichkeiten durch Features, die in Antavos [Workflows](https://antavo.atlassian.net/wiki/spaces/AUM/pages/581402629)-Tool integriert sind. Alle [Datentypen]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-storage) für angepasste Braze-Attribute und [Datentypen für Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#event-property-data-types) angepasster Events können ebenfalls über Workflows synchronisiert werden.
 
@@ -90,6 +90,6 @@ Besuchen Sie die Schritt-für-Schritt-Anleitung, um zu erfahren, wie Sie die Syn
 
 ### Synchronisierung von Events des Kundenbindungs-Programms {#synchronizing-loyalty-program-events}
 
-Verwenden Sie von Antavo synchronisierte Events, um Treue-Mitglieder in aktionsbasierte Braze Canvases einzutragen. Die Integration kann alle Antavo-Events (einschließlich Kauf-Events) synchronisieren, die in Braze als angepasste Events erscheinen.
+Verwenden Sie von Antavo synchronisierte Events, um Treue-Mitglieder in aktionsbasierte Braze Canvase einzutragen. Die Integration kann alle Antavo-Events (einschließlich Kauf-Events) synchronisieren, die in Braze als angepasste Events erscheinen.
 
 Besuchen Sie die Schritt-für-Schritt-Anleitung, um zu erfahren, wie Sie die Synchronisierung des [Anmelde-Events für das Kundenbindungs-Programm](https://antavo.atlassian.net/wiki/spaces/AUM/pages/812056598/Braze#Use-case----Welcome-to-the-loyalty-program!) und die Synchronisierung des [Events für das Sammeln von Vorteilen im Kundenbindungs-Programm](https://antavo.atlassian.net/wiki/spaces/AUM/pages/812056598/Braze#Use-case----Welcome-to-the-loyalty-program!) konfigurieren.

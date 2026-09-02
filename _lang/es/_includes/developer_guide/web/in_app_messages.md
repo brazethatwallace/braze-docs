@@ -9,7 +9,7 @@ Cada tipo de mensaje dentro de la aplicación es personalizable en cuanto a cont
 {% tabs %}
 {% tab Deslizamiento hacia arriba %}
 
-Los mensajes dentro de la aplicación [`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) se llaman así porque, tradicionalmente en plataformas móviles, "se deslizan hacia arriba" o "se deslizan hacia abajo" desde la parte superior o inferior de la pantalla. En el SDK Web de Braze, estos mensajes se muestran más como una notificación de estilo Growl o Toast para alinearse con el paradigma dominante de la web. Cubren una pequeña parte de la pantalla y ofrecen una capacidad de mensajería eficaz y no intrusiva.
+Los mensajes dentro de la aplicación [`SlideUp`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.slideupmessage.html) se llaman así porque, tradicionalmente en plataformas móviles, "se deslizan hacia arriba" o "se deslizan hacia abajo" desde la parte superior o inferior de la pantalla. En el SDK or kit de desarrollo de software Web de Braze, estos mensajes se muestran más como una notificación de estilo Growl o Toast para alinearse con el paradigma dominante de la web. Cubren una pequeña parte de la pantalla y ofrecen una capacidad de mensajería eficaz y no intrusiva.
 
 ![Un mensaje dentro de la aplicación deslizándose desde la parte inferior de la pantalla de un teléfono que muestra "Humans are complicated. Custom engagement shouldn't be." En el fondo se muestra el mismo mensaje dentro de la aplicación en la esquina inferior de una página web.]({% image_buster /assets/img/slideup-behavior.gif %}){: style="border:0px;"}
 
@@ -30,10 +30,10 @@ Los mensajes dentro de la aplicación [`Full`](https://js.appboycdn.com/web-sdk/
 {% endtab %}
 {% tab HTML personalizado %}
 
-Los mensajes dentro de la aplicación [`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) son útiles para crear contenido de usuario totalmente personalizado. El HTML definido por el usuario se muestra en un iFrame y puede incluir contenido enriquecido, como imágenes, fuentes, videos y elementos interactivos, lo que permite un control total sobre la apariencia y la funcionalidad del mensaje. Estos admiten una interfaz JavaScript `brazeBridge` para llamar a métodos del SDK Web de Braze desde tu HTML; consulta nuestras [buenas prácticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para más detalles.
+Los mensajes dentro de la aplicación [`HTML`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.htmlmessage.html) son útiles para crear contenido de usuario totalmente personalizado. El HTML definido por el usuario se muestra en un iFrame y puede incluir contenido enriquecido, como imágenes, fuentes, videos y elementos interactivos, lo que permite un control total sobre la apariencia y la funcionalidad del mensaje. Estos admiten una interfaz JavaScript `brazeBridge` para llamar a métodos del SDK or kit de desarrollo de software Web de Braze desde tu HTML; consulta nuestras [buenas prácticas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para más detalles.
 
 {% alert important %}
-Para habilitar los mensajes dentro de la aplicación HTML a través del SDK Web, **debes** proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad. Los mensajes dentro de la aplicación HTML pueden ejecutar JavaScript, por lo que requerimos que un responsable del sitio los habilite.
+Para habilitar los mensajes dentro de la aplicación HTML a través del SDK or kit de desarrollo de software Web, **debes** proporcionar la opción de inicialización `allowUserSuppliedJavascript` a Braze, por ejemplo, `braze.initialize('YOUR-API_KEY', {allowUserSuppliedJavascript: true})`. Esto es por razones de seguridad. Los mensajes dentro de la aplicación HTML pueden ejecutar JavaScript, por lo que requerimos que un responsable del sitio los habilite.
 {% endalert %}
 
 El siguiente ejemplo muestra un mensaje dentro de la aplicación HTML paginado:

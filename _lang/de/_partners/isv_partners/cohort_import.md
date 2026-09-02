@@ -12,7 +12,7 @@ hidden: true
 
 Braze hostet unsere Anwendung auf mehreren Clustern weltweit. Die URL für die Import-Endpunkte hängt davon ab, auf welchem Cluster die Instanz des Unternehmens des Clients gehostet wird:
 
-| INSTANZ | REST-ENDPUNKT |
+| INSTANZ | Representational State Transfer-ENDPUNKT |
 | ----- | ------------------------------- |
 | US-01 | `https://rest.iad-01.braze.com` |
 | US-02 | `https://rest.iad-02.braze.com` |

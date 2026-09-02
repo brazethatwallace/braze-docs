@@ -22,16 +22,16 @@ Die Integration von Braze und Lexer erlaubt es Ihnen, Daten zwischen den beiden 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Partner-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Lexer-Konto. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit allen `user`-Berechtigungen (außer `user.delete`) und `segment.list`-Berechtigungen. Der Berechtigungssatz kann sich ändern, wenn Lexer die Unterstützung für weitere Braze-Objekte hinzufügt. Sie sollten also entweder jetzt mehr Berechtigungen erteilen oder ein Update dieser Berechtigungen in der Zukunft planen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | Ihre [URL für den REST-Endpunkt]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit allen `user`-Berechtigungen (außer `user.delete`) und `segment.list`-Berechtigungen. Der Berechtigungssatz kann sich ändern, wenn Lexer die Unterstützung für weitere Braze-Objekte hinzufügt. Sie sollten also entweder jetzt mehr Berechtigungen erteilen oder ein Update or aktualisieren dieser Berechtigungen in der Zukunft planen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt | Ihre [URL für den Representational State Transfer-Endpunkt]({{site.baseurl}}/api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Amazon AWS S3-Bucket und Zugangsdaten | Bevor Sie mit der Integration beginnen, müssen Sie über Zugangsdaten für einen AWS S3-Bucket verfügen, der mit Ihrem Lexer-Hub verbunden ist (dies kann ein Bucket sein, den Sie erstellen, oder einer, den Lexer für Sie erstellt und verwaltet). Besuchen Sie [Lexer](https://learn.lexer.io/docs/amazon-s3) für eine Anleitung zu dieser Anforderung. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 Navigieren Sie in Lexer zu **Manage > Integration**, wählen Sie die Kachel **Braze** aus und klicken Sie auf **Integrate Braze**. Geben Sie die folgenden Informationen an:
-- **Braze REST endpoint**
-- **Braze REST API key**
+- **Braze Representational State Transfer endpoint**
+- **Braze Representational State Transfer API key**
 - **AWS Credentials**
   - **AWS S3 bucket name**
   - **AWS S3 [bucket region](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html)**
@@ -46,7 +46,7 @@ Die Verwendung eines von Lexer verwalteten Buckets ist die bevorzugte Methode, u
 
 Wenn Sie bereits einen S3-Bucket mit Braze verbunden haben und ihn für andere Zwecke verwenden, müssen Sie stattdessen Lexer Zugriff auf diesen selbstverwalteten Bucket gewähren, indem Sie die vorangehenden Schritte ausführen.
 
-Diese Integration funktioniert, indem Sie Lexer Ihr bestehendes API-Token und Ihre Secrets zur Verfügung stellen, sodass Lexer diese Exporte in Ihrem Namen durchführen kann. Außerdem importiert sie Ihre Braze-Daten mit diesen Zugangsdaten und Ihrer S3-Konfiguration in Lexer, um Ihre Daten auf beiden Plattformen automatisch zu synchronisieren.
+Diese Integration funktioniert, indem Sie Lexer Ihr bestehendes API-Token / Textbaustein und Ihre Secrets zur Verfügung stellen, sodass Lexer diese Exporte in Ihrem Namen durchführen kann. Außerdem importiert sie Ihre Braze-Daten mit diesen Zugangsdaten und Ihrer S3-Konfiguration in Lexer, um Ihre Daten auf beiden Plattformen automatisch zu synchronisieren.
 
 ## Segmente an Braze senden {#sending-segments-to-braze}
 
@@ -57,8 +57,8 @@ Lexer Activate aktualisiert automatisch Ihre Braze-Profile und fügt Attribute h
 1. Klicken Sie in Lexer unter **Lexer Activations** auf **ACTIVATE NEW AUDIENCE**.
 2. Wählen Sie die entsprechende Braze-Aktivierung für diese Campaign aus.
 3. Fügen Sie Ihr Segment hinzu.
-4. Aktualisieren Sie den Namen Ihrer Zielgruppe; dieser wird in Braze zu Ihrem Attributwert.
-5. Dies ist das angepasste Attribut, das wir in Braze aktualisieren werden. Wenden Sie sich zum Update an den [Lexer-Support](mailto:support@lexer.io).
+4. Update or aktualisieren or aktualisieren Sie den Namen Ihrer Zielgruppe; dieser wird in Braze zu Ihrem Attributwert.
+5. Dies ist das angepasste Attribut, das wir in Braze Update or aktualisieren or aktualisieren werden. Wenden Sie sich zum Update or aktualisieren an den [Lexer-Support](mailto:support@lexer.io).
 6. Markieren Sie die entsprechende Listenaktion – in den meisten Fällen werden Sie Ihre Liste pflegen wollen.
 7. Überprüfen Sie die Bedingungen und klicken Sie auf **SEND AUDIENCE**.
 
@@ -74,4 +74,4 @@ In Braze sehen Sie, dass der Name Ihrer Zielgruppe in Lexer jetzt ein Wert in Ih
 
 Um Ihr Segment zu erstellen, navigieren Sie zu **Segments** > **+ Create Segment** und wählen Sie **Custom Attribute** als Filter. Wählen Sie als Nächstes `lexer_audience` als Attribut und den Namen der gewünschten Lexer-Zielgruppe aus. Wenn Sie fertig sind, **speichern** Sie Ihre Zielgruppe.
 
-Sie können dieses neu erstellte Segment nun zu zukünftigen Campaigns und Canvases in Braze hinzufügen, um diese Endnutzer:innen anzusprechen.
+Sie können dieses neu erstellte Segment nun zu zukünftigen Campaigns und Canvase in Braze hinzufügen, um diese Endnutzer:innen anzusprechen.

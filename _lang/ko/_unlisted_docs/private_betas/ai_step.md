@@ -114,7 +114,7 @@ Braze가 AI 단계의 출력을 폐기하고 고객을 다음 단계로 보내�
 
 ## 내 데이터는 어떻게 사용되고 OpenAI로 전송되나요? {#how-is-my-data-used-and-sent-to-openai}
 
-Braze가 OpenAI를 활용하는 것으로 식별한 Braze AI 기능을 통해 AI 출력("출력")을 생성하기 위해, Braze는 메시지 콘텐츠, 최종 사용자 감정, 브랜드 가이드라인, 과거 Campaign 데이터 또는 기타 해당 입력("입력")과 같은 프롬프트를 [OpenAI](https://openai.com/)로 전송합니다. AI 단계와 함께 Braze의 ChatGPT 통합을 사용할 때 개인 데이터가 OpenAI로 전송되는 경우, OpenAI는 귀하와 Braze 간의 DPA에 명시된 대로 Braze의 하위 처리자로서 역할을 합니다. AI 단계와 자체 대규모 언어 모델(LLM)을 통합하는 경우, 해당 LLM의 제공자는 서드파티 제공자로 간주되며, 개인 데이터의 처리는 귀하와 해당 서드파티 제공자 간의 약관에 따릅니다. [OpenAI의 API 플랫폼 약속](https://openai.com/enterprise-privacy/)에 따라, Braze를 통해 OpenAI의 API로 전송된 데이터는 OpenAI 모델을 학습하거나 개선하는 데 사용되지 않으며, OpenAI 시스템에서 30일 후에 삭제됩니다. 귀하와 Braze 사이에서 출력은 귀하의 지적 재산입니다. Braze는 해당 출력에 대한 저작권 소유권을 주장하지 않습니다. Braze는 출력을 포함한 AI 생성 콘텐츠 전반에 대해 어떠한 종류의 보증도 하지 않습니다.
+Braze가 OpenAI를 활용하는 것으로 식별한 Braze AI 기능을 통해 AI 출력("출력")을 생성하기 위해, Braze는 메시지 콘텐츠, 최종 사용자 감정, 브랜드 가이드라인, 과거 Campaign 데이터 또는 기타 해당 입력("입력")과 같은 프롬프트를 [OpenAI](https://openai.com/)로 전송합니다. AI 단계와 함께 Braze의 ChatGPT 통합을 사용할 때 개인 데이터가 OpenAI로 전송되는 경우, OpenAI는 귀하와 Braze 간의 데이터 보호 어드바이저에 명시된 대로 Braze의 하위 처리자로서 역할을 합니다. AI 단계와 자체 대규모 언어 모델(LLM)을 통합하는 경우, 해당 LLM의 제공자는 서드파티 제공자로 간주되며, 개인 데이터의 처리는 귀하와 해당 서드파티 제공자 간의 약관에 따릅니다. [OpenAI의 API 플랫폼 약속](https://openai.com/enterprise-privacy/)에 따라, Braze를 통해 OpenAI의 API로 전송된 데이터는 OpenAI 모델을 학습하거나 개선하는 데 사용되지 않으며, OpenAI 시스템에서 30일 후에 삭제됩니다. 귀하와 Braze 사이에서 출력은 귀하의 지적 재산입니다. Braze는 해당 출력에 대한 저작권 소유권을 주장하지 않습니다. Braze는 출력을 포함한 AI 생성 콘텐츠 전반에 대해 어떠한 종류의 보증도 하지 않습니다.
 
 [1]: {% image_buster /assets/unlisted_docs/img/ai_step1.png %}
 [2]: {% image_buster /assets/unlisted_docs/img/ai_step2.png %}

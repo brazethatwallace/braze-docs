@@ -40,21 +40,21 @@ Este desencadenante no se aplica cuando se crea un nuevo usuario con el estado g
 
 ## Actualizar estado del grupo de suscripción {#update-subscription-group-status}
 
-Usa el desencadenante `Update Subscription Group Status` para dirigirte a los usuarios cuando se actualice su estado del grupo de suscripción para correo electrónico, SMS o WhatsApp.
+Usa el desencadenante `Update Subscription Group Status` para dirigirte a los usuarios cuando se actualice su estado del grupo de suscripción para correo electrónico, servicio de mensajes cortos o WhatsApp.
 
-Por ejemplo, puedes dirigirte a los usuarios con un mensaje SMS de bienvenida cuando se suscriban a tu programa. También puedes especificar la fuente de la actualización para tener un control más preciso sobre cuándo se envía un mensaje.
+Por ejemplo, puedes dirigirte a los usuarios con un mensaje servicio de mensajes cortos de bienvenida cuando se suscriban a tu programa. También puedes especificar la fuente de la actualización para tener un control más preciso sobre cuándo se envía un mensaje.
 
 Las fuentes de actualización disponibles varían según el canal:
 - Paso de actualización de usuario de Canvas
 - Importar CSV
 - List-Unsubscribe
 - Centro de preferencias
-- REST API
-- SDK
-- Shopify (correo electrónico, SMS)
-- Mensaje de entrada (SMS)
+- REST or transferencia de estado representacional API
+- SDK or kit de desarrollo de software
+- Shopify (correo electrónico, servicio de mensajes cortos)
+- Mensaje de entrada (servicio de mensajes cortos)
 
-Por ejemplo, puede que solo quieras enviar tu SMS de bienvenida cuando la actualización proviene de la REST API y no de un mensaje de entrada, ya que Braze ya responde automáticamente a ciertos SMS de entrada.
+Por ejemplo, puede que solo quieras enviar tu servicio de mensajes cortos de bienvenida cuando la actualización proviene de la REST or transferencia de estado representacional API y no de un mensaje de entrada, ya que Braze ya responde automáticamente a ciertos servicio de mensajes cortos de entrada.
 
 ## Cambiar valor de atributo personalizado {#change-custom-attribute-value}
 

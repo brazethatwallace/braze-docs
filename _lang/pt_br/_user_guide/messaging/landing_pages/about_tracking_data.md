@@ -12,13 +12,13 @@ alias: /landing_pages/data_tracking/
 
 ## Métodos de rastreamento {#tracking-methods}
 
-### SDK para web {#web-sdk}
+### SDK or kit de desenvolvimento de software para web {#web-sdk}
 
-O SDK para web da Braze é inicializado quando um usuário envia um formulário em uma landing page. Antes do envio do formulário, nenhum dado pessoal é coletado e o SDK não rastreia ativamente os usuários. Após a conclusão da inicialização, o SDK não armazena nenhum dado no navegador (como cookies, armazenamento local ou outros).
+O SDK or kit de desenvolvimento de software para web da Braze é inicializado quando um usuário envia um formulário em uma landing page. Antes do envio do formulário, nenhum dado pessoal é coletado e o SDK or kit de desenvolvimento de software não rastreia ativamente os usuários. Após a conclusão da inicialização, o SDK or kit de desenvolvimento de software não armazena nenhum dado no navegador (como cookies, armazenamento local ou outros).
 
-O SDK para web da Braze é inicializado imediatamente quando um usuário navega até a landing page por meio de um link gerado por uma {% raw %}`{% landing_page_url %}`{% endraw %} Liquid tag em uma mensagem da Braze.
+O SDK or kit de desenvolvimento de software para web da Braze é inicializado imediatamente quando um usuário navega até a landing page por meio de um link gerado por uma {% raw %}`{% landing_page_url %}`{% endraw %} Liquid tag em uma mensagem da Braze.
 
-Quando um formulário é enviado, o SDK coleta os seguintes dados:
+Quando um formulário é enviado, o SDK or kit de desenvolvimento de software coleta os seguintes dados:
 
 - Evento de envio de formulário (nome do evento e horário do envio)
 - Dados especificados pela sua equipe no formulário (como nome, e-mail e número de telefone)

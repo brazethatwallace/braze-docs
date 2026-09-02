@@ -20,15 +20,15 @@ Para integrar notificações por push para .NET MAUI (anteriormente Xamarin), vo
 
 ### Etapa 2: Crie suas credenciais JSON
 
-1. No Google Cloud, ative a [API de envio de mensagens do Firebase Cloud](https://console.cloud.google.com/apis/library/fcm.googleapis.com).
+1. No Google Cloud, ative a [API or interface de programação do aplicativo (API) de envio de mensagens do Firebase Cloud](https://console.cloud.google.com/apis/library/fcm.googleapis.com).
 2. Selecione **Service Accounts (Contas de serviço** ) > your project (seu projeto) > **Create Service Account (criar conta de serviço**) e insira o nome, o ID e a descrição da conta de serviço. Quando terminar, selecione **Create (Criar) e continue**.
-3. No campo **Função**, localize e selecione **Firebase Cloud Messaging API Admin** na lista de funções.
+3. No campo **Função**, localize e selecione **Firebase Cloud Messaging API or interface de programação do aplicativo (API) Admin** na lista de funções.
 4. Em **Service Accounts (Contas de serviço)**, escolha seu projeto e selecione <i class="fa-solid fa-ellipsis-vertical"></i> **Actions (Ações)** > **Manage Keys (Gerenciar chaves)** > **Add Key (Adicionar chave)** > **Create new key (Criar nova chave)**. Escolha **JSON** e, em seguida, selecione **Create (Criar)**.
 
 ### Etapa 3: Faça upload de suas credenciais JSON
 
 1. Na Braze, selecione <i class="fa-solid fa-gear"></i> **Configurações** > **Configurações do app**. Nas **configurações de notificação por push** do seu app para Android, escolha **Firebase**, selecione **Upload JSON File** e faça upload das credenciais geradas anteriormente. Quando terminar, selecione **Salvar**.
-2. Ative o registro automático do token FCM, acessando o Firebase Console. Abra seu projeto e selecione <i class="fa-solid fa-gear"></i> **Settings** > **Project settings**. Selecione **Envio de mensagens na nuvem** e, em seguida, em **Firebase Cloud Messaging API (V1)**, copie o número no campo **Sender ID (ID do remetente** ).
+2. Ative o registro automático do token FCM, acessando o Firebase Console. Abra seu projeto e selecione <i class="fa-solid fa-gear"></i> **Settings** > **Project settings**. Selecione **Envio de mensagens na nuvem** e, em seguida, em **Firebase Cloud Messaging API or interface de programação do aplicativo (API) (V1)**, copie o número no campo **Sender ID (ID do remetente** ).
 3. Em seu projeto do Android Studio, coloque o seguinte em `braze.xml`.
 
   ```xml
@@ -48,7 +48,7 @@ Consulte as [instruções de integração do Swift]({{site.baseurl}}/developer_g
 
 ### Etapa 2: Solicitar permissão para notificações por push
 
-Nosso SDK .NET MAUI agora suporta configuração automática de push. Configure a automação e as permissões do push adicionando o seguinte código à configuração da instância do Braze:
+Nosso SDK or kit de desenvolvimento de software .NET MAUI agora suporta configuração automática de push. Configure a automação e as permissões do push adicionando o seguinte código à configuração da instância do Braze:
 
 ```csharp
 configuration.Push.Automation = new BRZConfigurationPushAutomation(true);

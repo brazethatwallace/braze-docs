@@ -46,7 +46,7 @@ Bevor Sie die Orchestrierung einrichten, sammeln Sie die folgenden Elemente basi
 
 | Anforderung | Beschreibung |
 |------|-------------|
-| **REST-API-Schlüssel** | Ein neuer API-Schlüssel mit Berechtigungen für Nutzerdaten, Nachrichten, Campaigns, Canvas, Segments und Templates. |
+| **Representational State Transfer-API-Schlüssel** | Ein neuer API-Schlüssel mit Berechtigungen für Nutzerdaten, Nachrichten, Campaigns, Canvas, Segments und Templates. |
 | **Braze-Dashboard-URL** | Die URL Ihrer Braze-Instanz (zum Beispiel `https://dashboard-01.braze.com`). |
 | **App-ID** | Der API-Schlüssel, der mit der App verknüpft ist, die Sie tracken möchten (zu finden unter **Einstellungen** > **App-Einstellungen**). |
 | **E-Mail-Anzeigename und -Adresse** | Die Absenderinformationen, die Sie für Ihre Campaigns verwenden möchten (zu finden unter **Einstellungen** > **E-Mail-Einstellungen**). |
@@ -59,7 +59,7 @@ Bevor Sie die Orchestrierung einrichten, sammeln Sie die folgenden Elemente basi
 
 | Anforderung | Beschreibung |
 |------|-------------|
-| **App-Paket-Zugangsdaten** | Client-ID, Client Secret, Authentication Base URI, REST Base URI und SOAP Base URI aus einem installierten Paket mit Server-zu-Server-API-Integration. |
+| **App-Paket-Zugangsdaten** | Client-ID, Client Secret, Authentication Base URI, Representational State Transfer Base URI und SOAP Base URI aus einem installierten Paket mit Server-zu-Server-API-Integration. |
 | **API-Berechtigungen** | Scopes für Kanäle, Assets, Automatisierungen, Journeys, Kontakte, Data Extensions und Tracking-Events. |
 | **Data Extensions** | Sie benötigen Data Extensions für Abonnent:innen-Daten, Engagement-Daten und Empfehlungen. |
 | **E-Mail-Templates** | Die Templates, die Decisioning Studio verwenden soll, mit Template-IDs für jedes einzelne. |
@@ -90,8 +90,8 @@ Bevor Sie die Orchestrierung einrichten, sollten Sie die folgenden Details berü
 Ein Basis-Template ist jedes Nachrichten-Template, das Ihr Decisioning-Agent möglicherweise verwendet. Beachten Sie:
 
 - **Wie viele Templates?** Ihr Agent kann mit einem oder mehreren Templates arbeiten. Bei mehreren kann der Agent personalisieren, welches Template jede:r Kund:in erhält.
-- **Welche Kanäle?** E-Mail, Push, SMS oder eine Kombination. Jeder Kanal kann separate Templates und Campaigns erfordern.
-- **Welche dynamischen Elemente?** Identifizieren Sie, welche Teile Ihrer Nachricht der Agent personalisiert (z. B. Betreffzeilen, CTAs, Angebote, Timing). Diese werden zu API-Trigger-Eigenschaften oder dynamischen Platzhaltern.
+- **Welche Kanäle?** E-Mail, Push, Kurzmitteilungsdienst or SMS oder eine Kombination. Jeder Kanal kann separate Templates und Campaigns erfordern.
+- **Welche dynamischen Elemente?** Identifizieren Sie, welche Teile Ihrer Nachricht der Agent personalisiert (z. B. Betreffzeilen, CTAs, Angebote, Timing). Diese werden zu API-Trigger or triggern-Eigenschaften oder dynamischen Platzhaltern.
 
 ### Einstellungen für erneute Berechtigung {#re-eligibility-settings}
 
@@ -104,17 +104,17 @@ Ihre Campaigns sollten es Nutzer:innen ermöglichen, Nachrichten mehrfach zu erh
 Während Sie die erneute Berechtigung für Tests einrichten, sind Decisioning Studio-Agents so konzipiert, dass sie Frequency Caps respektieren und dieselbe Campaign in der Produktion nicht mehr als einmal pro Tag an eine:n Nutzer:in senden.
 {% endalert %}
 
-### API-Trigger-Eigenschaften {#api-trigger-properties}
+### API-Trigger or triggern-Eigenschaften {#api-trigger-properties}
 
-Planen Sie für Braze-Integrationen, welche Dimensionen Ihr Agent optimiert. Diese werden zu API-Trigger-Eigenschaften, die dynamische Werte an Ihre Campaigns übergeben:
+Planen Sie für Braze-Integrationen, welche Dimensionen Ihr Agent optimiert. Diese werden zu API-Trigger or triggern-Eigenschaften, die dynamische Werte an Ihre Campaigns übergeben:
 
-| Beispieldimension | API-Trigger-Eigenschaft |
+| Beispieldimension | API-Trigger or triggern-Eigenschaft |
 |-------------------|---------------------|
 | Betreffzeile | {% raw %}`{{api_trigger_properties.${subject_line}}}`{% endraw %} |
 | Call-to-Action | {% raw %}`{{api_trigger_properties.${cta_message}}}`{% endraw %} |
 | Angebot | {% raw %}`{{api_trigger_properties.${offer_id}}}`{% endraw %} |
 | Rabattbetrag | {% raw %}`{{api_trigger_properties.${discount}}}`{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="API-Trigger-Eigenschaften" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="API-Trigger or triggern-Eigenschaften" }
 
 ## Einrichtung der Integration {#integration-setup}
 
@@ -135,7 +135,7 @@ Gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen neue
 
 ### Schritt 2: API-getriggerte Campaigns einrichten {#step-2-set-up-api-triggered-campaigns}
 
-Richten Sie eine API-getriggerte Campaign für jedes Basis-Template ein, mit API-Trigger-Eigenschaften für alle optimierten Dimensionen.
+Richten Sie eine API-getriggerte Campaign für jedes Basis-Template ein, mit API-Trigger or triggern-Eigenschaften für alle optimierten Dimensionen.
 
 Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann ein einzelnes Basis-Template oder mehrere haben – in diesem Fall ist die Auswahl des richtigen Basis-Templates für jede:n Kund:in eine der Entscheidungen, die der Agent personalisiert.
 
@@ -175,9 +175,9 @@ Das Ergebnis ist die folgende Nachricht:
 
 ![Decisioning Studio Push-Beispiel 3]({% image_buster /assets/img/decisioning_studio/decisioning_studio_push_example_3.png %})
 
-#### Beispiel 3: SMS-Campaign {#example-3-sms-campaign}
+#### Beispiel 3: Kurzmitteilungsdienst or SMS-Campaign {#example-3-sms-campaign}
 
-Angenommen, der Decisioning Studio Agent optimiert Felder in einer SMS-Campaign. Die Konfiguration könnte folgendermaßen aussehen:
+Angenommen, der Decisioning Studio Agent optimiert Felder in einer Kurzmitteilungsdienst or SMS-Campaign. Die Konfiguration könnte folgendermaßen aussehen:
 
 ![Decisioning Studio SMS-Beispiel 1]({% image_buster /assets/img/decisioning_studio/decisioning_studio_sms_example_1.png %})
 
@@ -203,7 +203,7 @@ Für Ihre Konfiguration müssen API-IDs in Großbuchstaben eingegeben werden. Di
 
 ## Andere CEP-Integrationen einrichten {#set-up-other-cep-integrations}
 
-Decisioning Studio kann mit jeder Customer-Engagement-Plattform integriert werden. Dies kann jedoch einige individuelle Entwicklungsarbeit von Ihrem Team erfordern, da Decisioning Studio Kommunikation nicht direkt triggern kann.
+Decisioning Studio kann mit jeder Customer-Engagement-Plattform integriert werden. Dies kann jedoch einige individuelle Entwicklungsarbeit von Ihrem Team erfordern, da Decisioning Studio Kommunikation nicht direkt Trigger or triggern or triggern kann.
 
 In diesem Szenario liefert der Agent eine „Empfehlungsdatei“. Diese Datei enthält Zeilen für jede:n Kund:in mit Spalten, die alle personalisierten Entscheidungen für diese:n Kund:in angeben.
 

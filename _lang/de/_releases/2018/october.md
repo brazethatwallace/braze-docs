@@ -31,7 +31,7 @@ Sie finden jetzt eine Liste Ihrer Integrationen auf der Braze-Plattform unter **
 
 ## Berechnungen der E-Mail-Analytics {#email-analytics-calculations}
 
-Braze berechnet jetzt alle E-Mail-Analytics anhand der Eventdaten unseres E-Mail-Versandpartners (ESP), um die Genauigkeit unserer E-Mail-Analytics erheblich zu verbessern. Diese Lösung nutzt Postgres, eine Open-Source-Datenbanklösung, um die Datenintegrität sicherzustellen.
+Braze berechnet jetzt alle E-Mail-Analytics anhand der Eventdaten unseres E-Mail-Versandpartners (E-Mail-Anbieter or ESP), um die Genauigkeit unserer E-Mail-Analytics erheblich zu verbessern. Diese Lösung nutzt Postgres, eine Open-Source-Datenbanklösung, um die Datenintegrität sicherzustellen.
 
 {% alert important %}
 Eindeutige Öffnungen und eindeutige Klicks sind derzeit noch von den aggregierten Daten unserer E-Mail-Versandpartner abhängig. Es wird derzeit daran gearbeitet, diese Eindeutigkeitsstatistiken mithilfe derselben Infrastruktur zu berechnen, die in diesem Release eingeführt wurde.

@@ -42,7 +42,7 @@ Braze는 확장 프로그램의 다음 영역에 포함될 수 있습니다.
 
 Braze SDK(`braze.min.js`)를 확장 프로그램과 함께 번들로 제공되는 로컬 파일로 통합할 때 `manifest.json`에 추가 권한이 필요하지 않습니다.
 
-그러나 [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)를 사용하거나 외부 URL에서 Braze SDK를 참조하거나 확장 프로그램에 대해 엄격한 콘텐츠 보안 정책을 설정한 경우 `manifest.json`에서 [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) 설정을 조정하여 원격 스크립트 소스를 허용해야 합니다.
+그러나 [Google Tag 매니저]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)를 사용하거나 외부 URL에서 Braze SDK를 참조하거나 확장 프로그램에 대해 엄격한 콘텐츠 보안 정책을 설정한 경우 `manifest.json`에서 [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) 설정을 조정하여 원격 스크립트 소스를 허용해야 합니다.
 
 ## 시작하기 {#getting-started}
 
@@ -52,13 +52,13 @@ Braze SDK(`braze.min.js`)를 확장 프로그램과 함께 번들로 제공되�
 
 Braze 웹 SDK를 통합하려면 먼저 최신 JavaScript 라이브러리 사본을 다운로드해야 합니다. NPM을 사용하거나 [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js)에서 직접 다운로드할 수 있습니다.
 
-또는 [Google Tag Manager]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)를 사용하거나 외부에서 호스팅된 Braze SDK 사본을 사용하는 경우, 외부 리소스를 로드하려면 `manifest.json`에서 [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) 설정을 조정해야 합니다.
+또는 [Google Tag 매니저]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)를 사용하거나 외부에서 호스팅된 Braze SDK 사본을 사용하는 경우, 외부 리소스를 로드하려면 `manifest.json`에서 [`content_security_policy`](https://developer.chrome.com/extensions/contentSecurityPolicy) 설정을 조정해야 합니다.
 
 다운로드가 완료되면 `braze.min.js` 파일을 확장 프로그램의 디렉토리에 복사합니다.
 
 ### 확장 프로그램 팝업 {#popup}
 
-확장 프로그램 팝업에 Braze를 추가하려면 일반 웹사이트에서와 마찬가지로 `popup.html`에서 로컬 JavaScript 파일을 참조합니다. Google Tag Manager를 사용하는 경우, 대신 [Google Tag Manager 템플릿]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)을 사용하여 Braze를 추가할 수 있습니다.
+확장 프로그램 팝업에 Braze를 추가하려면 일반 웹사이트에서와 마찬가지로 `popup.html`에서 로컬 JavaScript 파일을 참조합니다. Google Tag 매니저를 사용하는 경우, 대신 [Google Tag 매니저 템플릿]({{ site.baseurl }}/developer_guide/platform_integration_guides/web/google_tag_manager/)을 사용하여 Braze를 추가할 수 있습니다.
 
 ```html
 <html>

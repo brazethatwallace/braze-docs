@@ -8,7 +8,7 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Envio de e-mails para listas de bloqueio\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Envio de e-mails para listas de bloqueio {#blocklist-emails}
 {% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
@@ -20,7 +20,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Envio d
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.blacklist`.
+Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `email.blacklist`.
 
 ## Limite de frequência {#rate-limit}
 

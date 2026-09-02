@@ -2,7 +2,7 @@
 
 Bestehende SCIM-Integrationen und [ältere SCIM-API-Objekte]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) werden nach der Migration der granularen Berechtigungen Ende April weiterhin funktionieren.
 
-Es ist nicht erforderlich, dass Sie sofort Maßnahmen ergreifen. Wir empfehlen Ihnen jedoch, Ihre Integrationen auf Berechtigungen zu überprüfen, die granularisiert werden. Wenn Sie derzeit beispielsweise `basic_access` in der API senden, empfehlen wir Ihnen, Ihre Integration nach der Granularisierung zu aktualisieren, um die spezifischen Berechtigungen einzubeziehen (z. B. `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze wird auch nach der Migration der granularen Berechtigungen weiterhin ältere Strings wie `basic_access` akzeptieren, damit bestehende Integrationen weiterhin funktionieren.
+Es ist nicht erforderlich, dass Sie sofort Maßnahmen ergreifen. Wir empfehlen Ihnen jedoch, Ihre Integrationen auf Berechtigungen zu überprüfen, die granularisiert werden. Wenn Sie derzeit beispielsweise `basic_access` in der API senden, empfehlen wir Ihnen, Ihre Integration nach der Granularisierung zu Update or aktualisieren or aktualisieren, um die spezifischen Berechtigungen einzubeziehen (z. B. `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze wird auch nach der Migration der granularen Berechtigungen weiterhin ältere Strings wie `basic_access` akzeptieren, damit bestehende Integrationen weiterhin funktionieren.
 
 ## Berechtigungsobjekt {#permissions-object}
 
@@ -92,9 +92,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Campaigns anzeigen | `view_campaigns` |
 | Campaigns bearbeiten | `edit_campaigns` |
 | Campaigns archivieren | `archive_campaigns` |
-| Canvases anzeigen | `view_canvases` |
-| Canvases bearbeiten | `edit_canvases` |
-| Canvases archivieren | `archive_canvases` |
+| Canvase anzeigen | `view_canvases` |
+| Canvase bearbeiten | `edit_canvases` |
+| Canvase archivieren | `archive_canvases` |
 | Frequency-Capping-Regeln anzeigen | `view_frequency_caps` |
 | Frequency-Capping-Regeln bearbeiten | `edit_frequency_caps` |
 | Nachrichtenpriorisierung anzeigen | `view_message_prioritization` |
@@ -142,7 +142,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Decisioning-Studio-Konversions-Event anzeigen | `view_decisioning_studio_conversion_event` |
 | Decisioning-Studio-Leitlinien anzeigen | `view_decisioning_studio_guardrails` |
 | Campaigns starten | `launch_campaigns` |
-| Canvases starten | `launch_canvases` |
+| Canvase starten | `launch_canvases` |
 | Dashboard-Nutzer:innen bearbeiten | `edit_dashboard_users` |
 | Medienbibliothek-Assets bearbeiten | `edit_media_library_assets` |
 | Medienbibliothek-Assets löschen | `delete_media_library_assets` |
@@ -163,8 +163,8 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | API-Limits anzeigen | `view_api_limits` |
 | API-Nutzungsmeldungen anzeigen | `view_api_usage_alerts` |
 | API-Nutzungsmeldungen bearbeiten | `edit_api_usage_alerts` |
-| SDK-Debugger anzeigen | `view_sdk_debugger` |
-| SDK-Debugger bearbeiten | `edit_sdk_debugger` |
+| SDK or Software-Development-Kit-Debugger anzeigen | `view_sdk_debugger` |
+| SDK or Software-Development-Kit-Debugger bearbeiten | `edit_sdk_debugger` |
 | Content Blocks starten | `launch_content_blocks` |
 | Cloud-Datenaufnahme bearbeiten | `edit_cloud_data_ingestion` |
 | App-Einstellungen anzeigen | `view_app_settings` |
@@ -209,9 +209,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Campaigns anzeigen | `view_campaigns` |
 | Campaigns bearbeiten | `edit_campaigns` |
 | Campaigns archivieren | `archive_campaigns` |
-| Canvases anzeigen | `view_canvases` |
-| Canvases bearbeiten | `edit_canvases` |
-| Canvases archivieren | `archive_canvases` |
+| Canvase anzeigen | `view_canvases` |
+| Canvase bearbeiten | `edit_canvases` |
+| Canvase archivieren | `archive_canvases` |
 | Frequency-Capping-Regeln anzeigen | `view_frequency_caps` |
 | Frequency-Capping-Regeln bearbeiten | `edit_frequency_caps` |
 | Nachrichtenpriorisierung anzeigen | `view_message_prioritization` |
@@ -251,7 +251,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | BrazeAI Operator<sup>TM</sup> verwenden | `use_operator` |
 | Decisioning-Studio-Agenten anzeigen | `view_decisioning_studio_agents` |
 | Campaigns starten | `launch_campaigns` |
-| Canvases starten | `launch_canvases` |
+| Canvase starten | `launch_canvases` |
 | Dashboard-Nutzer:innen bearbeiten | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungsstrings #team" }
 

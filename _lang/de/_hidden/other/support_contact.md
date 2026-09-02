@@ -177,7 +177,7 @@ div#ticket_thankyou {
   }
   .gpt-res-buttons {
   display: flex;
-  justify-content: space-between; /* Back on left, rest on right */
+  justify-content: space-between; /* Back on left, Representational State Transfer on right */
   align-items: center;
   width: 100%;
   margin-top: 15px;
@@ -329,7 +329,7 @@ button.submit-btn {
   }
 
   /* Width matches the .main-border form container at this breakpoint.
-     Update both selectors together if the layout changes. */
+     Update or aktualisieren both selectors together if the layout changes. */
   .main-border,
   .operator-callout {
     width: 1314px;
@@ -1069,7 +1069,7 @@ a:hover {
 
                 <div class="flex-display">
                 <div class= "legal-disclaimer">
-                  <em>Haftungsausschluss: Diese Antwort wurde von einer KI generiert und dient nur zu Informationszwecken. Bitte überprüfen Sie die verlinkten Quellen in der Braze-Dokumentation.</em>
+                  <em>Haftungsausschluss: Diese Antwort wurde von einer KI or künstliche Intelligenz generiert und dient nur zu Informationszwecken. Bitte überprüfen Sie die verlinkten Quellen in der Braze-Dokumentation.</em>
                 </div>
                 <div class="gpt-res-buttons">
                 <button type="button" class="submit-btn" id="backToStep1" style="background-color:grey;">Zurück</button>
@@ -1176,7 +1176,7 @@ a:hover {
         <!-- Question (Full width) -->
         <div class="form-group">
           <label for="ticket_issue" class="required">Frage </label>
-          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Geben Sie Details an, z. B. Plattform, SDK-Version, REST API-Endpunkte, Schritte zur Reproduktion …"></textarea>
+          <textarea id="ticket_issue" name="ticket_issue" rows="7" class="form-control" placeholder="Geben Sie Details an, z. B. Plattform, SDK or Software-Development-Kit-Version, Representational State Transfer API-Endpunkte, Schritte zur Reproduktion …"></textarea>
         </div>
 
         <!-- Info text -->
@@ -1230,7 +1230,7 @@ subjectInput.addEventListener('keypress', function(e) {
 nextButton.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
-        nextButton.click();
+        nextButton.Klick, der or klicken();
     }
 });
 
@@ -1265,7 +1265,7 @@ String.prototype.mapReplace = function(map) {
 };
 
 var wordmap = {
-  'REST' : 'REST',
+  'Representational State Transfer' : 'Representational State Transfer',
   'API' : 'API',
   'APIs' : 'APIs',
   'iOS' : 'iOS',
@@ -1288,10 +1288,10 @@ var ticket_lookuptable = {
       'LinksTitle': ['Platform Features'],
       'Links' : ['{{site.baseurl}}/developer_guide/platform_wide/platform_features/'],
       'SelectOption' : {
-        'SDK Integrations' : {
+        'SDK or Software-Development-Kit Integrations' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['Self-Service SDK Debugging Tool','iOS: Initial SDK Setup','Android: Initial SDK Setup','Web: Initial SDK Setup','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+          'LinksTitle': ['Self-Service SDK or Software-Development-Kit Debugging Tool','iOS: Initial SDK or Software-Development-Kit Setup','Android: Initial SDK or Software-Development-Kit Setup','Web: Initial SDK or Software-Development-Kit Setup','Sending Test Messages','Braze Lernkurs: Technical Integration Checklist and Toolkits'],
           'Links': ['{{site.baseurl}}/developer_guide/sdk_integration/debugging','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overview','{{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/android_sdk_integration/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits'],
           'SelectOption' : {
             'Push' : {
@@ -1317,7 +1317,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK or Software-Development-Kit Changelog','Sending Test Messages','Braze Lernkurs: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1345,7 +1345,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK or Software-Development-Kit Changelog','Sending Test Messages','Braze Lernkurs: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1372,7 +1372,7 @@ var ticket_lookuptable = {
                 },
                 'Other' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Braze Developer Guide','SDK Changelog','Sending Test Messages','Braze Learning Course: Technical Integration Checklist and Toolkits'],
+                  'LinksTitle': ['Braze Developer Guide','SDK or Software-Development-Kit Changelog','Sending Test Messages','Braze Lernkurs: Technical Integration Checklist and Toolkits'],
                   'Links' : ['{{site.baseurl}}/developer_guide/home','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs','{{site.baseurl}}/developer_guide/platform_wide/sending_test_messages/','https://learning.braze.com/technical-integration-checklists-and-toolkits']
                 }
               }
@@ -1380,7 +1380,7 @@ var ticket_lookuptable = {
             'User Data' :{
               'ShowSubmit': false,
               'Label': 'Category *',
-              'LinksTitle': ['Automatically Collected Data','Event Naming Conventions','User Profile Lifecycle'],
+              'LinksTitle': ['Automatically Collected Data','Event Naming Conventions','Kundenprofil or Nutzerprofil Lifecycle'],
               'Links': ['{{site.baseurl}}/developer_guide/platform_wide/analytics_overview#automatically-collected-data','{{site.baseurl}}/user_guide/data_and_analytics/custom_data/event_naming_conventions/','{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-profile-lifecycle'],
                 'SelectOption' : {
                 'Custom Events, Purchase Event, and Properties' : {
@@ -1388,9 +1388,9 @@ var ticket_lookuptable = {
                   'LinksTitle': ['Custom Events','Purchase Events','Android: Tracking Custom Events','iOS: Tracking Custom Events','Web: Tracking Custom Events'],
                   'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/custom_data/events/','{{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/tracking_custom_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/tracking_custom_events/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/tracking_custom_events']
                 },
-                'Custom Attributes' : {
+                'angepasste Attribute' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Custom Attributes','Android: Setting Custom Attributes','iOS: Setting Custom Attributes','Web: Setting Custom Attributes'],
+                  'LinksTitle': ['angepasste Attribute','Android: Setting angepasste Attribute','iOS: Setting angepasste Attribute','Web: Setting angepasste Attribute'],
                   'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#custom-attributes','{{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/','{{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/','{{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/']
                 }
               }
@@ -1402,10 +1402,10 @@ var ticket_lookuptable = {
             }
           }
         },
-        'REST APIs' : {
+        'Representational State Transfer APIs' : {
           'Label': 'My question is about... *',
           'SelectDefault': 'Select a type...',
-          'LinksTitle': ['REST API: Endpoint Dictionary'],
+          'LinksTitle': ['Representational State Transfer API: Endpoint Dictionary'],
           'Links': ['{{site.baseurl}}/api/home'],
           'SelectOption' : {
             'Errors' : {
@@ -1415,17 +1415,17 @@ var ticket_lookuptable = {
             },
             'Importing Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['User Import', 'REST API: User Data Endpoints'],
+              'LinksTitle': ['User Import', 'Representational State Transfer API: User Data Endpoints'],
               'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/','{{site.baseurl}}/api/endpoints/user_data']
             },
             'Exporting Data' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Exporting Braze Data','REST API: Export Endpoints', 'Export Frequently Asked Questions'],
+              'LinksTitle': ['Exporting Braze Data','Representational State Transfer API: Export Endpoints', 'Export Frequently Asked Questions'],
               'Links' : ['{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data','{{site.baseurl}}/api/endpoints/export','{{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/faqs/']
             },
             'API Campaigns' : {
               'ShowSubmit': true,
-              'LinksTitle': ['API Campaign Overview','REST API: Send API-Triggered Campaign Endpoint','REST API: Schedule API-Triggered Campaign Endpoint'],
+              'LinksTitle': ['API Campaign Overview','Representational State Transfer API: Send API-Triggered Campaign Endpoint','Representational State Transfer API: Schedule API-Triggered Campaign Endpoint'],
               'Links' : ['{{site.baseurl}}/api/api_campaigns/','{{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/','{{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/']
             },
             'Rate Limits' : {
@@ -1463,7 +1463,7 @@ var ticket_lookuptable = {
             },
             'Deliverability' :{
               'ShowSubmit': true,
-              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Learning Course: Achieving High Email Deliverability'],
+              'LinksTitle': ['Deliverability Pitfalls and Spam Traps','IP Warming','Braze Lernkurs: Achieving High Email Deliverability'],
                'Links' : ['{{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps','{{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/#ip-warming','https://learning.braze.com/email-onboarding-for-pro-and-enterprise-achieving-high-deliverability']
             },
             'User Subscriptions' :{
@@ -1478,25 +1478,25 @@ var ticket_lookuptable = {
             },
             'Liquid' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Liquid Templating in Messages','Liquid Frequently Asked Questions','Braze Learning Course: Dynamic Personalization with Liquid'],
+              'LinksTitle': ['Liquid Templating in Messages','Liquid Frequently Asked Questions','Braze Lernkurs: Dynamic Personalization with Liquid'],
               'Links' : ['{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid#about-liquid','{{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/','https://learning.braze.com/dynamic-personalization-with-liquid']
             }
           }
         },
-        'SMS and MMS' :{
+        'Kurzmitteilungsdienst or SMS and MMS' :{
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
-          'LinksTitle': ['SMS Best Practices','SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze Learning Course: SMS Fundamentals'],
+          'LinksTitle': ['Kurzmitteilungsdienst or SMS Best Practices','Kurzmitteilungsdienst or SMS Frequently Asked Questions', 'MMS Frequently Asked Questions', 'Braze Lernkurs: Kurzmitteilungsdienst or SMS Fundamentals'],
           'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/best_practices','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/','{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/mms/faqs/','https://learning.braze.com/sms-fundamentals'],
           'SelectOption': {
             'Setup' : {
               'ShowSubmit': true,
-              'LinksTitle': ['SMS Onboarding Resources'],
+              'LinksTitle': ['Kurzmitteilungsdienst or SMS Onboarding Resources'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup']
             },
             'Subscription Groups' : {
               'ShowSubmit': true,
-              'LinksTitle': ['SMS Subscription Groups'],
+              'LinksTitle': ['Kurzmitteilungsdienst or SMS Subscription Groups'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sms_subscription_groups/']
             },
             'Short and Long Codes' : {
@@ -1506,7 +1506,7 @@ var ticket_lookuptable = {
             },
             'User Retargeting' : {
               'ShowSubmit': true,
-              'LinksTitle': ['SMS User Retargeting'],
+              'LinksTitle': ['Kurzmitteilungsdienst or SMS User Retargeting'],
               'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/campaign/retargeting/']
             }
           }
@@ -1538,7 +1538,7 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'LinksTitle': ['Campaign Frequently Asked Questions','Canvas Frequently Asked Questions'],
-          'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/canvas/faqs/'],
+          'Links' : ['{{site.baseurl}}/user_guide/messaging/campaigns/faq/','{{site.baseurl}}/user_guide/messaging/Canvas/faqs/'],
           'SelectOption': {
             'Messaging Personalization' : {
               'ShowSubmit': true,
@@ -1547,7 +1547,7 @@ var ticket_lookuptable = {
             },
             'Targeting and Segmentation' : {
               'ShowSubmit': true,
-              'LinksTitle': ['Segmentation','Segment Insights','Braze Learning Course: Segmentation',''],
+              'LinksTitle': ['Segmentation','Segment Insights','Braze Lernkurs: Segmentation',''],
               'Links' : ['{{site.baseurl}}/user_guide/audience/segments','{{site.baseurl}}/user_guide/audience/segments/segment_insights/','https://learning.braze.com/segmentation-course']
             },
             'Message Composition by Channel' : {
@@ -1563,17 +1563,17 @@ var ticket_lookuptable = {
                 },
                 'Push' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Push Campaign','Braze Learning Course: Push'],
+                  'LinksTitle': ['Create a Push Campaign','Braze Lernkurs: Push'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/push/creating_a_push_message#creating-a-push-message','https://learning.braze.com/messaging-channels-push']
                 },
                 'In-App Messages' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze Learning Course: In-App and In-Browser Messages'],
+                  'LinksTitle': ['In-App Message Drag-And-Drop Editor Campaign','In-App Message Traditional Editor Campaign','Braze Lernkurs: In-App and In-Browser Messages'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/in-app_messages/drag_and_drop/create/','{{site.baseurl}}/user_guide/channels/in-app_messages/traditional/create/','https://learning.braze.com/messaging-channels-in-app-in-browser']
                 },
                 'Content Cards' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create a Content Card Campaign','Braze Learning Course: Content Cards'],
+                  'LinksTitle': ['Create a Content Card Campaign','Braze Lernkurs: Content Cards'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/content_cards/create/','https://learning.braze.com/messaging-channels-content-cards']
                 },
                 'Webhooks' : {
@@ -1581,9 +1581,9 @@ var ticket_lookuptable = {
                   'LinksTitle': ['Create a Webhook Campaign'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/webhooks/creating_a_webhook/']
                 },
-                'SMS and MMS' : {
+                'Kurzmitteilungsdienst or SMS and MMS' : {
                   'ShowSubmit': true,
-                  'LinksTitle': ['Create an SMS, MMS, or RCS Message'],
+                  'LinksTitle': ['Create an Kurzmitteilungsdienst or SMS, MMS, or RCS Message'],
                   'Links' : ['{{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/']
                 },
                 'WhatsApp' : {
@@ -1662,7 +1662,7 @@ var ticket_lookuptable = {
           'SelectDefault': 'Select a type...',
           'Label': 'My question is about... *',
           'ShowSubmit': true,
-          'LinksTitle': ['System Status','SDK Changelogs'],
+          'LinksTitle': ['System Status','SDK or Software-Development-Kit Changelogs'],
           'Links' : ['https://braze.statuspage.io/','{{site.baseurl}}/developer_guide/platform_integration_guides/sdk_changelogs'],
         }
       }
@@ -1670,13 +1670,13 @@ var ticket_lookuptable = {
     'Strategy Assistance' : {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
-      'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Lernkurs: Create Customer Journeys with Canvas Flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/Canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
-          'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Learning Course: Customer Engagement Tools and Use Cases'],
-          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
+          'LinksTitle': ['Campaign Ideas and Strategies', 'Canvas Ideas and Strategies','Braze Lernkurs: Customer Engagement Tools and Use Cases'],
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/Canvas/ideas_and_strategies','https://learning.braze.com/braze-customer-engagement-tools-use-cases']
         },
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
@@ -1695,7 +1695,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'Links': [],
-      'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+      'ReferenceText': 'Your account Manager:in is a great resource for billing and contract related questions. ',
       'SelectOption' : {
         'Data Points' : {
           'ShowSubmit': true,
@@ -1709,7 +1709,7 @@ var ticket_lookuptable = {
         },
         'Other' :{
           'ShowSubmit': true,
-          'ReferenceText': 'Your account manager is a great resource for billing and contract related questions. ',
+          'ReferenceText': 'Your account Manager:in is a great resource for billing and contract related questions. ',
           'LinksTitle': [''],
           'Links':  ['']
         }
@@ -1757,7 +1757,7 @@ $( document ).ready(function() {
     $('#' + result_div).html('');
     /* if (!$("#submit_ticket").prop("checked")) {
       $("#submit_ticket").prop("checked", false);
-      $("#submit_ticket").trigger("change");
+      $("#submit_ticket").Trigger or triggern("change");
     }*/
   }
   function hide_page(ind){
@@ -1878,7 +1878,7 @@ $( document ).ready(function() {
         if (curquestion['ShowSubmit']) {
           if (!$("#submit_ticket").prop("checked")) {
             $("#submit_ticket").prop("checked", true);
-            $("#submit_ticket").trigger("change");
+            $("#submit_ticket").Trigger or triggern("change");
           }
         }
       }*/
@@ -2129,7 +2129,7 @@ $( document ).ready(function() {
     $('#ticket_mainform').hide();
 
     $('#ticket_thankyou').fadeIn("slow");
-    $('#ticket_thankyou_msg').html('<h3>Vielen Dank für Ihre Anfrage!</h3>Ein Mitglied unseres Support-Teams wird sich in Kürze bei Ihnen melden.<br />Falls Sie keine Bestätigungs-E-Mail erhalten haben, überprüfen Sie bitte die Add-ons Ihres Browsers, die Inhalts-/Datenschutzeinstellungen und Ihren Spam-Ordner.<br />Andernfalls wenden Sie sich an Ihren Success Manager (oder schreiben Sie uns an <a href="mailto:support@braze.com">support@braze.com</a>), um sicherzustellen, dass Ihr Ticket übermittelt wurde.');
+    $('#ticket_thankyou_msg').html('<h3>Vielen Dank für Ihre Anfrage!</h3>Ein Mitglied unseres Support-Teams wird sich in Kürze bei Ihnen melden.<br />Falls Sie keine Bestätigungs-E-Mail erhalten haben, überprüfen Sie bitte die Add-ons Ihres Browsers, die Inhalts-/Datenschutzeinstellungen und Ihren Spam-Ordner.<br />Andernfalls wenden Sie sich an Ihren Success Manager:in (oder schreiben Sie uns an <a href="mailto:support@braze.com">support@braze.com</a>), um sicherzustellen, dass Ihr Ticket übermittelt wurde.');
     $("html, body").animate({ scrollTop: 0 }, "slow");
   });
   $('#ticket_issue').popover();
@@ -2138,7 +2138,7 @@ $( document ).ready(function() {
     html: true
   });
 
-  $("#submit_ticket").trigger("change");
+  $("#submit_ticket").Trigger or triggern("change");
 
 
   function string_to_slug(str) {
@@ -2256,7 +2256,7 @@ async function getSearchResultByPost(subject, sid , language) {
         }
     }
 
-document.getElementById('toStep2').addEventListener('click', async function () {
+document.getElementById('toStep2').addEventListener('Klick, der or klicken', async function () {
     const subject = document.getElementById('subject').value.trim();
     const description = document.getElementById('description').value.trim();
     if (!subject || !description) {
@@ -2323,7 +2323,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                 "search-id": "22d6676b-80b1-4145-af19-6a422417e5d0",
                 "sid-session": sid,
                 "taid-device": taid,
-                "token": "9ad5ad4164aea64521fd3c00a19b76c8",
+                "Token / Textbaustein": "9ad5ad4164aea64521fd3c00a19b76c8",
                 "uid": "63590d8d-65fd-11f0-ada3-0242ac120007"
             },
             body: JSON.stringify(requestBody)
@@ -2491,7 +2491,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
                 }
             });
 
-            button.addEventListener('click', function () {
+            button.addEventListener('Klick, der or klicken', function () {
                 const url = this.getAttribute('data-url')?.split('_doc_doc_').pop() || '';
                 const citation_text = this.textContent;
                 const citation_num  = citation_text.trim().replace(/^\[+|\]+$/g, '').trim();
@@ -2559,7 +2559,7 @@ document.getElementById('toStep2').addEventListener('click', async function () {
 
 
     // Back to Step 1
-    document.getElementById('backToStep1').addEventListener('click', function () {
+    document.getElementById('backToStep1').addEventListener('Klick, der or klicken', function () {
         step2.style.display = 'none';
         step1.style.display = 'block';
         steps.forEach(s => s.classList.remove('active'));
@@ -2635,7 +2635,7 @@ function initCaseForm() {
 
 
 
-    document.getElementById('toStep3').addEventListener('click', function () {
+    document.getElementById('toStep3').addEventListener('Klick, der or klicken', function () {
         document.querySelector(".form-container").classList.add("hidden");
         document.querySelector(".form-container1").style.display = "block";
         steps[2].classList.add('active');
@@ -2659,7 +2659,7 @@ function initCaseForm() {
             let sid = getCookie("_gz_sid");
             if (!sid) {
                 sid = createNewSid();
-                document.cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
+                document.Cookie = `_gz_sid=${sid}; path=/; SameSite=None; Secure`;
                 sendSearchEvent(subject, sid);
             }
 

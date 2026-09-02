@@ -10,7 +10,7 @@ description: "Esta página explica como criar um formulário de inscrição por 
 
 > Use o modelo de mensagem no app de inscrição por e-mail com arrastar e soltar para coletar endereços de e-mail dos usuários e expandir seus grupos de inscrições.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
 
 ## Criando um formulário de inscrição por e-mail {#creating-an-email-sign-up-form}
 
@@ -34,7 +34,7 @@ Você pode personalizar o texto de placeholder e o texto do rótulo do elemento 
 
 #### Validação de e-mail {#email-validation}
 
-Se o usuário inserir um endereço de e-mail que inclua caracteres especiais não aceitos, ele verá um indicador de erro genérico e não conseguirá enviar o formulário. Essa mensagem de erro não é personalizável. Você pode visualizar o comportamento de erro na guia **Preview & Test** e no seu dispositivo de teste. Saiba mais sobre como a Braze formata endereços de e-mail em [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
+Se o usuário inserir um endereço de e-mail que inclua caracteres especiais não aceitos, ele verá um indicador de erro genérico e não conseguirá enviar o formulário. Essa mensagem de erro não é personalizável. Você pode visualizar o comportamento de erro na guia **prévia & Test** e no seu dispositivo de teste. Saiba mais sobre como a Braze formata endereços de e-mail em [Validação de e-mail]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 ### Etapa 4: Adicione um texto de aviso legal (opcional) {#step-4-add-disclaimer-language-optional}
 

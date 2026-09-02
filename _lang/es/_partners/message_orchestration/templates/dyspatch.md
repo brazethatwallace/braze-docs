@@ -23,7 +23,7 @@ La integración de Dyspatch y Braze te permite simplificar el ciclo de vida de c
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Dyspatch | Para beneficiarte de esta asociación, es necesario disponer de una [cuenta de Dyspatch](https://www.dyspatch.io/login/) con un [rol de propietario o administrador](https://docs.dyspatch.io/administration/dyspatch_roles/). |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Templates**. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integración {#integration}

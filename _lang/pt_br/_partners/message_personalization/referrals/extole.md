@@ -23,8 +23,8 @@ Com a integração entre a Braze e a Extole, você pode transferir eventos e atr
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Extole | É necessário ter uma conta da Extole para usar essa parceria. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com a permissão `users.track`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| URL da API da Braze | Seu URL da API da Braze é específico para sua [instância da Braze]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com a permissão `users.track`. Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| URL da API or interface de programação do aplicativo (API) da Braze | Seu URL da API or interface de programação do aplicativo (API) da Braze é específico para sua [instância da Braze]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -43,8 +43,8 @@ Conclua as etapas a seguir para colocar sua integração em funcionamento rapida
 
 1. Selecione a integração da Braze na página [Partners](https://my.extole.com/partners) da sua conta My Extole.
 2. Na integração da Braze, selecione **Install** para iniciar a conexão entre a Extole e a Braze.
-3. Preencha os campos obrigatórios, começando com sua chave da API REST da Braze.
-4. Digite seu URL da API da Braze. Esse URL depende da instância em que sua conta da Braze está provisionada.
+3. Preencha os campos obrigatórios, começando com sua chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze.
+4. Digite seu URL da API or interface de programação do aplicativo (API) da Braze. Esse URL depende da instância em que sua conta da Braze está provisionada.
 5. Adicione todos os eventos da Extole que você gostaria de enviar para a Braze. Os eventos padrão, as propriedades do evento e os atributos de usuário são descritos na [tabela de eventos da Extole](https://dev.extole.com/docs/braze#extole-program-events).
 6. Adicione quaisquer estados de recompensas que você gostaria de enviar para a Braze, além do estado `FULFILLED`. Consulte a [tabela de recompensas da Extole](https://dev.extole.com/docs/braze#extole-rewards) para obter descrições dos estados de recompensas disponíveis.
 7. Selecione o mapeamento da sua chave de ID externo da Braze. É assim que a Extole atualiza os perfis de usuário na Braze. Você pode mapear a chave de ID externo da Braze para `email_address` ou `partner_user_id` da Extole para o usuário. Recomendamos usar `external_id` em vez de `email_address`, pois é mais seguro.

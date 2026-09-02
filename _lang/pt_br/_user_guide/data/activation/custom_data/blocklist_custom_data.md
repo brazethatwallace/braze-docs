@@ -19,11 +19,11 @@ Para impedir que esses dados sejam enviados à Braze, você pode bloquear um obj
 ### Escolhendo entre bloqueio e exclusão {#choosing-blocklisting-or-deletion}
 
 - O **bloqueio** mantém os atributos personalizados, eventos ou compras existentes nos perfis de usuário, mas a Braze deixa de processar novos dados para esses objetos.
-- A **exclusão** remove esses dados dos perfis de usuário. Atributos personalizados e eventos excluídos são movidos para a **Lixeira** por sete dias, durante os quais você pode recuperá-los. Após sete dias, a Braze os exclui permanentemente. A exclusão não impede a chegada de novos dados, então confirme se o SDK, a API ou as importações de CSV já não enviam mais esses dados antes de excluir.
+- A **exclusão** remove esses dados dos perfis de usuário. Atributos personalizados e eventos excluídos são movidos para a **Lixeira** por sete dias, durante os quais você pode recuperá-los. Após sete dias, a Braze os exclui permanentemente. A exclusão não impede a chegada de novos dados, então confirme se o SDK or kit de desenvolvimento de software, a API or interface de programação do aplicativo (API) ou as importações de CSV já não enviam mais esses dados antes de excluir.
 
 O bloqueio envia as informações de bloqueio para o dispositivo de cada usuário, o que pode ser intensivo em dados. Bloquear um número muito grande de atributos, eventos ou compras (por exemplo, mais de 100) pode afetar a performance do app. Se você não planeja mais enviar esses dados à Braze, a exclusão geralmente é a melhor abordagem após interromper o envio pela integração.
 
-Independentemente de você optar pelo bloqueio ou pela exclusão, os atributos personalizados, eventos e compras em questão deixam de aparecer na página **Gerenciar espaço de trabalho** e são removidos como filtros de Segment. Se você excluir dados personalizados, a Braze remove esses dados de nível de usuário dos perfis de acordo com [Como a exclusão funciona](#how-deletion-works).
+Independentemente de você optar pelo bloqueio ou pela exclusão, os atributos personalizados, eventos e compras em questão deixam de aparecer na página **Gerenciar espaço de trabalho** e são removidos como filtros de Segment or segmento. Se você excluir dados personalizados, a Braze remove esses dados de nível de usuário dos perfis de acordo com [Como a exclusão funciona](#how-deletion-works).
 
 Para bloquear dados personalizados, você precisa das [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) listadas no menu suspenso a seguir para seu espaço de trabalho.
 
@@ -71,12 +71,12 @@ Para bloquear dados personalizados, você precisa das [permissões de usuário](
 
 {% enddetails %}
 
-Os dados bloqueados não são enviados pelo SDK, e o dashboard da Braze não processa dados bloqueados de outras fontes (por exemplo, a API). No entanto, o bloqueio não remove dados dos perfis de usuário nem diminui retroativamente a quantidade de pontos de dados incorridos por esse objeto de dados personalizado. Os dados bloqueados ficam ocultos, mas ainda podem ser usados em templates Liquid.
+Os dados bloqueados não são enviados pelo SDK or kit de desenvolvimento de software, e o dashboard da Braze não processa dados bloqueados de outras fontes (por exemplo, a API or interface de programação do aplicativo (API)). No entanto, o bloqueio não remove dados dos perfis de usuário nem diminui retroativamente a quantidade de pontos de dados incorridos por esse objeto de dados personalizado. Os dados bloqueados ficam ocultos, mas ainda podem ser usados em templates Liquid.
 
 ### Bloqueio de atributos personalizados, eventos personalizados e produtos {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-Quando um evento ou atributo é bloqueado, qualquer Segment, Campaign ou Canvas que utilize esse evento ou atributo é arquivado.
+Quando um evento ou atributo é bloqueado, qualquer Segment or segmento, Campaign ou Canvas que utilize esse evento ou atributo é arquivado.
 {% endalert %}
 
 Para parar de rastrear um atributo personalizado, evento ou produto específico, siga estas etapas:
@@ -87,7 +87,7 @@ Para parar de rastrear um atributo personalizado, evento ou produto específico,
 
 ![Vários atributos personalizados selecionados que estão bloqueados na página Custom Attributes.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-Você pode bloquear até 300 atributos personalizados e 300 eventos personalizados. Para evitar a coleta de determinados atributos de dispositivo, consulte nosso [guia do SDK]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
+Você pode bloquear até 300 atributos personalizados e 300 eventos personalizados. Para evitar a coleta de determinados atributos de dispositivo, consulte nosso [guia do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
 
 {% alert important %}
 Atributos personalizados ou eventos personalizados com status de **Lixeira** contam para o limite de bloqueio até que sejam excluídos.
@@ -107,7 +107,7 @@ Para isso, a Braze envia as informações de bloqueio para cada dispositivo. Ess
 
 Bloquear um número alto de eventos e atributos é possível, mas não recomendável. Isso ocorre porque, cada vez que um evento é executado ou um atributo é (potencialmente) enviado à Braze, esse evento ou atributo precisa ser verificado em toda a lista de bloqueio.
 
-Até 300 itens são enviados ao SDK para bloqueio. Se você bloquear mais de 300 itens, esses dados são enviados a partir do SDK. Se você não precisar usar o evento ou atributo no futuro, considere removê-lo do código do seu app na próxima versão. As alterações na lista de bloqueio podem levar alguns minutos para se propagar. Você pode reativar qualquer evento ou atributo bloqueado a qualquer momento.
+Até 300 itens são enviados ao SDK or kit de desenvolvimento de software para bloqueio. Se você bloquear mais de 300 itens, esses dados são enviados a partir do SDK or kit de desenvolvimento de software. Se você não precisar usar o evento ou atributo no futuro, considere removê-lo do código do seu app na próxima versão. As alterações na lista de bloqueio podem levar alguns minutos para se propagar. Você pode reativar qualquer evento ou atributo bloqueado a qualquer momento.
 
 ## Excluindo dados personalizados {#deleting-custom-data}
 

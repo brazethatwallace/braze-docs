@@ -15,12 +15,12 @@ description: "Envía correos electrónicos transaccionales para notificaciones c
 
 ## Requisitos previos {#prerequisites}
 
-El correo electrónico transaccional solo está disponible como parte de paquetes selectos de Braze. Ponte en contacto con tu administrador de éxito de cliente de Braze o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para más detalles.
+El correo electrónico transaccional solo está disponible como parte de paquetes selectos de Braze. Ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze o abre un [ticket de soporte]({{site.baseurl}}/user_guide/administer/personal/braze_support) para más detalles.
 
 Antes de empezar, asegúrate de tener lo siguiente:
 
 - [Configuración de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup) completada, incluyendo la configuración de IP y dominio, autenticación y calentamiento de IP
-- Una **clave de API REST de Braze** con el permiso `transactional.send`
+- Una **clave de API REST or transferencia de estado representacional de Braze** con el permiso `transactional.send`
 
 ## Ejemplos {#use-cases}
 

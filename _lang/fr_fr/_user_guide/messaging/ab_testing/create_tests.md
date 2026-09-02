@@ -81,7 +81,7 @@ Si votre expérience a déjà commencé à envoyer des messages et que vous modi
 
 ### Conseils pour différents canaux {#tips-different-channels}
 
-Selon le canal que vous sélectionnez, vous pouvez tester différents composants de votre message. Par exemple, vous pouvez essayer de composer des variantes en ayant une idée de ce que vous souhaitez tester et de ce que vous espérez prouver. Quels leviers pouvez-vous actionner et quels sont les effets souhaités ? Bien qu'il existe des millions de possibilités à explorer en utilisant un test multivariable et A/B, voici quelques suggestions pour vous aider à démarrer :
+Selon le canal que vous sélectionnez, vous pouvez tester différents composants de votre message. Par exemple, vous pouvez essayer de composer des variantes en ayant une idée de ce que vous souhaitez tester et de ce que vous fournisseur de services d'e-mailingérez prouver. Quels leviers pouvez-vous actionner et quels sont les effets souhaités ? Bien qu'il existe des millions de possibilités à explorer en utilisant un test multivariable et A/B, voici quelques suggestions pour vous aider à démarrer :
 
 | Canal | Aspects du message que vous pouvez modifier | Résultats à rechercher |
 | ---------------------| --------------- | ------------- |

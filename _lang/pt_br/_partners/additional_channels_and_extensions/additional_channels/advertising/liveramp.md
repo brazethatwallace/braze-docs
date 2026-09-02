@@ -178,7 +178,7 @@ Depois que o Currents estiver enviando dados para o armazenamento em nuvem, trab
 
 ### Etapa 3: Carregue e transforme seus dados {#step-3-load-and-transform-your-data}
 
-Crie um processo de ETL (Extract, Transform, Load) para:
+Crie um processo de ETL (ETL) para:
 
 1. Carregar os dados do Currents do armazenamento em nuvem nas tabelas do seu data warehouse.
 2. Transformar os dados no formato exigido pelo serviço de resolução de identidade da LiveRamp.

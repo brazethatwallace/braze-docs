@@ -33,11 +33,11 @@ Kataloge unterstützen bis zu 1.000 Felder pro Artikel und können Millionen von
 | Stufenbasierte Angebote | Aktionen mit der Mitgliedschaftsstufe oder dem Segment von Nutzer:innen abgleichen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Häufige Anwendungsfälle" }
 
-## Katalog-Trigger {#catalog-triggers}
+## Katalog-Trigger or triggern {#catalog-triggers}
 
-Kataloge ermöglichen auch automatisiertes Messaging über Katalog-Trigger. Richten Sie Wieder-verfügbar-Benachrichtigungen und Preissenkungsbenachrichtigungen ein, um Nutzer:innen automatisch zu benachrichtigen, wenn sich Katalogartikel ändern.
+Kataloge ermöglichen auch automatisiertes Messaging über Katalog-Trigger or triggern. Richten Sie Wieder-verfügbar-Benachrichtigungen und Preissenkungsbenachrichtigungen ein, um Nutzer:innen automatisch zu benachrichtigen, wenn sich Katalogartikel ändern.
 
-Weitere Informationen finden Sie unter [Katalog-Trigger]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers).
+Weitere Informationen finden Sie unter [Katalog-Trigger or triggern]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers).
 
 ## Auswahl {#selections}
 

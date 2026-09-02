@@ -1,7 +1,7 @@
 ---
 nav_title: Stylitics
 article_title: Stylitics
-description: "Este artículo de referencia describe la asociación entre Braze y Stylitics, una plataforma SaaS basada en la nube que te permite mejorar tus campañas de correo electrónico existentes con contenidos agrupados atractivos y relevantes, creando una experiencia del cliente personalizada."
+description: "Este artículo de referencia describe la asociación entre Braze y Stylitics, una plataforma software como servicio (SaaS) basada en la nube que te permite mejorar tus campañas de correo electrónico existentes con contenidos agrupados atractivos y relevantes, creando una experiencia del cliente personalizada."
 alias: /partners/stylitics/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Stylitics
 
-> [Stylitics](https://stylitics.com/) es una plataforma SaaS basada en la nube que permite a los minoristas automatizar y distribuir contenidos visuales a gran escala. Los paquetes de Stylitics inspiran contextualizando los productos, aumentando la confianza en la compra e incrementando la participación, lo que en última instancia conduce a un mayor valor medio de los pedidos y a mejores tasas de conversión.
+> [Stylitics](https://stylitics.com/) es una plataforma software como servicio (SaaS) basada en la nube que permite a los minoristas automatizar y distribuir contenidos visuales a gran escala. Los paquetes de Stylitics inspiran contextualizando los productos, aumentando la confianza en la compra e incrementando la participación, lo que en última instancia conduce a un mayor valor medio de los pedidos y a mejores tasas de conversión.
 
 _Esta integración está mantenida por Stylitics._
 

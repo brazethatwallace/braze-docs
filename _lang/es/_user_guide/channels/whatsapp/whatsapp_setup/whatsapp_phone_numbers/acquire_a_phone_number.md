@@ -20,7 +20,7 @@ Tu número de teléfono debe cumplir con estos requisitos de la API de WhatsApp:
 
 - Ser propiedad de tu empresa
 - Tener un código de país y de área (como los números fijos y móviles)
-- Poder recibir llamadas de voz o SMS
+- Poder recibir llamadas de voz o servicio de mensajes cortos
 - Ser accesible durante la configuración de la cuenta (para recibir códigos de verificación)
 - No ser un código abreviado
 - No haber sido utilizado previamente con la plataforma WhatsApp Business

@@ -16,8 +16,8 @@ Verwenden Sie das Dashboard **Datenpunkt-Nutzung gesamt**, um das Tempo Ihrer Da
 
 Ab dem 1. Februar 2022 wird die Einstellung zur täglichen Regeneration von Erweiterungen für ungenutzte [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) automatisch deaktiviert. Braze definiert ungenutzte Erweiterungen als solche, die die folgenden Kriterien erfüllen:
 
-- Keine Verwendung in aktiven Campaigns, Canvases oder Segmenten
-- Keine Verwendung in inaktiven (Entwurf, angehaltenen, archivierten) Campaigns, Canvases oder Segmenten
+- Keine Verwendung in aktiven Campaigns, Canvase oder Segmenten
+- Keine Verwendung in inaktiven (Entwurf, angehaltenen, archivierten) Campaigns, Canvase oder Segmenten
 - Keine Änderungen in den letzten 7 Tagen
 
 Braze benachrichtigt den Firmenkontakt und die erstellende Person der Erweiterung, wenn diese Einstellung deaktiviert wird. Die Option zur täglichen Regeneration von Erweiterungen kann jederzeit wieder aktiviert werden.
@@ -40,9 +40,9 @@ Dieser optionale und fortgeschrittene [Implementierungsleitfaden]({{site.baseurl
 
 ### Adobe – Customer Data Platform
 
-Die auf der Adobe Experience Platform basierende Realtime Customer Data Platform (Realtime CDP) von Adobe hilft Unternehmen, bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammenzuführen, um Kundenprofile zu erstellen, die für personalisierte Kundenerlebnisse über alle Kanäle und Geräte hinweg in Echtzeit genutzt werden können.
+Die auf der Adobe Experience Platform basierende Realtime Customer Data Platform (Realtime Customer Data Platform (CDP)) von Adobe hilft Unternehmen, bekannte und anonyme Daten aus verschiedenen Unternehmensquellen zusammenzuführen, um Kundenprofile zu erstellen, die für personalisierte Kundenerlebnisse über alle Kanäle und Geräte hinweg in Echtzeit genutzt werden können.
 
-Die Integration von Braze und [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) CDP ermöglicht es Marken, ihre Adobe-Daten (angepasste Attribute und Segmente) in Echtzeit mit Braze zu verbinden und abzubilden. Marken können dann auf Basis dieser Daten handeln und diesen Nutzer:innen personalisierte, zielgerichtete Erlebnisse bereitstellen.
+Die Integration von Braze und [Adobe]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/adobe) Customer Data Platform (CDP) ermöglicht es Marken, ihre Adobe-Daten (angepasste Attribute und Segmente) in Echtzeit mit Braze zu verbinden und abzubilden. Marken können dann auf Basis dieser Daten handeln und diesen Nutzer:innen personalisierte, zielgerichtete Erlebnisse bereitstellen.
 
 ### Shopify – E-Commerce {#shopify-ecommerce}
 

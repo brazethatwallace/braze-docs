@@ -49,7 +49,7 @@ Alguns países permitem que você escolha um número específico por uma taxa ad
 
 | Comprimento | Acesso | Capacidade | MMS ativado | Unidirecional vs. bidirecional |
 | --- | --- | --- | --- | --- |
-| 5 a 6 dígitos | Solicitação de 4 a 12 semanas | 100 mensagens por segundo ou mais | Sim | Bidirecional |
+| 5 a 6 dígitos | Solicitação de 4 a 12 semanas | 100 MPS or mensagens por segundo or mensagens por segundo ou mais | Sim | Bidirecional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes" }
 
 ##### Vantagens e desvantagens
@@ -78,7 +78,7 @@ Um long code é um número de telefone padrão usado para enviar e receber mensa
 
 | Comprimento | Acesso | Capacidade | MMS ativado | Unidirecional vs. bidirecional |
 | --- | --- | --- | --- | --- |
-| 10 dígitos | Solicitação de 4 a 6 semanas (pode ser menor ou maior para diferentes países) | Nos Estados Unidos, a capacidade de long code depende da sua pontuação de confiança 10DLC; em mercados internacionais, a capacidade pode variar ou aumentar em algumas circunstâncias, mas normalmente começa em torno de 10 segmentos de mensagem por segundo (MPS). | Sim | Bidirecional (dependendo de para onde você está enviando) |
+| 10 dígitos | Solicitação de 4 a 6 semanas (pode ser menor ou maior para diferentes países) | Nos Estados Unidos, a capacidade de long code depende da sua pontuação de confiança 10DLC; em mercados internacionais, a capacidade pode variar ou aumentar em algumas circunstâncias, mas normalmente começa em torno de 10 segmentos de mensagem por segundo (MPS or mensagens por segundo). | Sim | Bidirecional (dependendo de para onde você está enviando) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes" }
 
 ##### Vantagens e desvantagens
@@ -130,7 +130,7 @@ Números gratuitos possuem códigos de área de três dígitos distintos (por ex
 
 | Comprimento | Acesso | Capacidade | MMS ativado | Unidirecional vs. bidirecional |
 | --- | --- | --- | --- | --- |
-| 10 dígitos | Solicitação de 2 a 4 semanas | Começa em 3 MPS (segmentos por segundo), pode ser aumentado por taxas adicionais | Sim | Bidirecional |
+| 10 dígitos | Solicitação de 2 a 4 semanas | Começa em 3 MPS or mensagens por segundo (segmentos por segundo), pode ser aumentado por taxas adicionais | Sim | Bidirecional |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Detalhes" }
 
 ##### Vantagens e desvantagens

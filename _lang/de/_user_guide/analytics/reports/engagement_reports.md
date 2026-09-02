@@ -5,7 +5,7 @@ page_order: 5
 local_redirect:
   report-glossary: '/docs/user_guide/analytics/metrics_glossary'
 page_type: tutorial
-description: "Dieser Artikel erklärt, wie Sie Engagement-Berichte für Campaigns und Canvases erstellen, anpassen und planen."
+description: "Dieser Artikel erklärt, wie Sie Engagement-Berichte für Campaigns und Canvase erstellen, anpassen und planen."
 tool:
   - Campaigns
   - Canvas
@@ -14,15 +14,15 @@ tool:
 
 # Engagement-Berichte {#engagement-reports}
 
-> Mit Engagement-Berichten können Sie Engagement-Statistiken für bestimmte Nachrichten aus Campaigns und Canvases abrufen und zu einem von Ihnen gewählten Zeitpunkt per E-Mail erhalten.
+> Mit Engagement-Berichten können Sie Engagement-Statistiken für bestimmte Nachrichten aus Campaigns und Canvase abrufen und zu einem von Ihnen gewählten Zeitpunkt per E-Mail erhalten.
 
 {% alert note %}
 Sie benötigen die Berechtigung „Nutzerdaten exportieren“, um Engagement-Berichte auszuführen.
 {% endalert %}
 
-Mit Engagement-Berichten können Sie Campaigns und Canvases manuell auswählen, die in Ihren E-Mail-Bericht aufgenommen werden sollen, oder Regeln festlegen, um relevante Campaigns und Canvases automatisch auszuwählen.
+Mit Engagement-Berichten können Sie Campaigns und Canvase manuell auswählen, die in Ihren E-Mail-Bericht aufgenommen werden sollen, oder Regeln festlegen, um relevante Campaigns und Canvase automatisch auszuwählen.
 
-Unabhängig von der Anzahl der ausgewählten Campaigns oder Canvases werden bis zu zwei CSV-Dateien generiert – eine für alle Campaign-Daten und eine für alle Canvas-Daten. Sie können über den in Ihrer Berichts-E-Mail eingebetteten Link auf diese CSV-Dateien zugreifen. Engagement-Berichte werden nicht im Braze-Dashboard gespeichert.
+Unabhängig von der Anzahl der ausgewählten Campaigns oder Canvase werden bis zu zwei CSV-Dateien generiert – eine für alle Campaign-Daten und eine für alle Canvas-Daten. Sie können über den in Ihrer Berichts-E-Mail eingebetteten Link auf diese CSV-Dateien zugreifen. Engagement-Berichte werden nicht im Braze-Dashboard gespeichert.
 
 Bestimmte Daten werden auf Campaign- oder Canvas-Ebene aggregiert und nicht auf der Ebene einzelner Kampagnenvarianten oder Canvas-Schritte. Wenn Sie [einen Canvas-Schritt nach dem Start löschen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#canvas-details), werden die zugehörigen Daten ebenfalls aus den Engagement-Berichten entfernt.
 
@@ -40,30 +40,30 @@ Gehen Sie in Ihrem Dashboard-Konto zu **Analytics** > **Engagement-Berichte**. W
 
 Fügen Sie die Campaigns und Canvas-Nachrichten hinzu, die Sie in Ihrem Bericht zusammenstellen möchten. Sie können Ihre Nachrichten auf zwei Arten auswählen:
 
-- Campaigns und Canvases manuell auswählen
-- Campaigns und Canvases automatisch anhand bestimmter Regeln auswählen
+- Campaigns und Canvase manuell auswählen
+- Campaigns und Canvase automatisch anhand bestimmter Regeln auswählen
 
 ![Auswahl von Nachrichten für Engagement-Berichte]({% image_buster /assets/img_archive/engagement_report_add_messages.png %})
 
-#### Campaigns oder Canvases manuell auswählen {#manually-select-campaigns-or-canvases}
+#### Campaigns oder Canvase manuell auswählen {#manually-select-campaigns-or-canvases}
 
-Diese Option gibt Ihnen die Freiheit, beliebige Campaigns oder Canvases für diesen Bericht auszuwählen.
+Diese Option gibt Ihnen die Freiheit, beliebige Campaigns oder Canvase für diesen Bericht auszuwählen.
 
-#### Campaigns oder Canvases automatisch auswählen {#automatically-select-campaigns-or-canvases}
+#### Campaigns oder Canvase automatisch auswählen {#automatically-select-campaigns-or-canvases}
 
 Mit dieser Option können Sie automatisch alle Nachrichten einschließen, die einen bestimmten [Tag]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) enthalten. Sie können Nachrichten ansprechen, die einen oder alle der aufgelisteten Tags haben. Diese Option ist nützlich, wenn Sie wiederkehrende Berichte einrichten und Ihre Engagement-Nachrichten regelmäßig mit Tags versehen.
 
 {% alert important %}
-Die Tags müssen mit mindestens einer Campaign oder einem Canvas übereinstimmen, damit ein Bericht generiert werden kann. Wenn Sie **Campaigns und Canvases automatisch anhand bestimmter Regeln auswählen** verwenden und einen Fehler sehen, bestätigen Sie, dass mindestens eine Campaign oder ein Canvas mit Ihren Tags und anderen Filtern übereinstimmt (zum Beispiel, wenn Sie alle aufgelisteten Tags voraussetzen, muss jede übereinstimmende Nachricht jeden Tag haben).
+Die Tags müssen mit mindestens einer Campaign oder einem Canvas übereinstimmen, damit ein Bericht generiert werden kann. Wenn Sie **Campaigns und Canvase automatisch anhand bestimmter Regeln auswählen** verwenden und einen Fehler sehen, bestätigen Sie, dass mindestens eine Campaign oder ein Canvas mit Ihren Tags und anderen Filtern übereinstimmt (zum Beispiel, wenn Sie alle aufgelisteten Tags voraussetzen, muss jede übereinstimmende Nachricht jeden Tag haben).
 {% endalert %}
 
 ### Schritt 3: Statistiken hinzufügen {#add-statistics-to-your-reports}
 
-Der Schritt **Statistiken hinzufügen** zeigt Ihnen Statistiken für die Typen von Campaigns oder Canvases, die Sie ausgewählt haben. Wenn Sie beispielsweise E-Mail-Nachrichten ausgewählt haben, können Sie nur relevante E-Mail-Statistiken anzeigen. Wenn Sie eine Kombination aus E-Mail und Push gewählt haben, können Sie die Statistiken für diese beiden Kanäle anzeigen.
+Der Schritt **Statistiken hinzufügen** zeigt Ihnen Statistiken für die Typen von Campaigns oder Canvase, die Sie ausgewählt haben. Wenn Sie beispielsweise E-Mail-Nachrichten ausgewählt haben, können Sie nur relevante E-Mail-Statistiken anzeigen. Wenn Sie eine Kombination aus E-Mail und Push gewählt haben, können Sie die Statistiken für diese beiden Kanäle anzeigen.
 
 ![Statistiken zum Engagement-Bericht hinzufügen]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Workspace-Ebene. Um das gesamte Versand- oder Impressionen-Volumen über alle aktiven Campaigns und Canvases zu überwachen, wie z. B. kanalübergreifende Versendungen und Impressionen über einen gesamten Workspace, verwenden Sie den [Berichts-Builder]({{site.baseurl}}/report_builder).
+Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Workspace-Ebene. Um das gesamte Versand- oder Impressionen-Volumen über alle aktiven Campaigns und Canvase zu überwachen, wie z. B. kanalübergreifende Versendungen und Impressionen über einen gesamten Workspace, verwenden Sie den [Berichts-Builder]({{site.baseurl}}/report_builder).
 
 {% alert note %}
 *Sends to Carrier* ist veraltet, wird aber für Nutzer:innen, die es bereits haben, weiterhin unterstützt.
@@ -76,7 +76,7 @@ Engagement-Berichte aggregieren Daten pro Campaign oder Canvas, nicht auf Worksp
 | Web-Push | Versendungen, Öffnungen, Bounces, Body-Klicks |
 | In-App-Nachricht | Impressionen, Klicks, Klicks auf ersten Button, Klicks auf zweiten Button |
 | Webhook  |  Versendungen, Fehler |
-| SMS | Versendungen, Sends to Carrier, bestätigte Zustellungen, Zustellungsfehler, Ablehnungen |
+| Kurzmitteilungsdienst or SMS | Versendungen, Sends to Carrier, bestätigte Zustellungen, Zustellungsfehler, Ablehnungen |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 3: Statistiken hinzufügen" }
 
 ### Schritt 4: Berichtseinrichtung abschließen {#step-4-complete-report-setup}
@@ -89,7 +89,7 @@ Sie können aus den folgenden Komprimierungs- und Trennzeichenoptionen wählen:
 - **Trennzeichen:** Komma (`,`), Doppelpunkt (`:`), Semikolon (`;`) oder Pipe (`|`)
 
 {% alert note %}
-Statistiken werden nur für den vom Bericht angegebenen Zeitraum erfasst. Um genaue Öffnungs- und Klickraten-Statistiken zu erhalten, wählen Sie einen Zeitraum, der den Zeitpunkt einschließt, an dem die Versand-Ereignisse für Ihre Campaigns und Canvases durchgeführt wurden.
+Statistiken werden nur für den vom Bericht angegebenen Zeitraum erfasst. Um genaue Öffnungs- und Klickraten-Statistiken zu erhalten, wählen Sie einen Zeitraum, der den Zeitpunkt einschließt, an dem die Versand-Ereignisse für Ihre Campaigns und Canvase durchgeführt wurden.
 {% endalert %}
 
 #### Zeitraum auswählen {#select-time-frame}
@@ -108,7 +108,7 @@ Wenn Sie **Daten nach gesamter Campaign oder Canvas anzeigen** auswählen, aggre
 
 Wenn der Zeitraum mehr als einen Block umfasst, sehen Sie möglicherweise mehrere Zeilen für dieselbe Campaign oder dasselbe Canvas mit unterschiedlichen Daten in der Datumsspalte. Einige Zeilen können nur Metriken enthalten, die später im Zeitraum erfasst wurden (zum Beispiel Abmeldungen). Daten können auch Jahre vor dem Beginn Ihrer Versendungen im Workspace liegen, da sie Blockgrenzen im Export widerspiegeln, nicht nur Ihren ersten Versand.
 
-Um die Datumsspalte mit dem tatsächlichen Versandzeitpunkt Ihrer ausgewählten Campaigns und Canvases abzugleichen, setzen Sie das [Startdatum des Berichts unter **Zeitraum auswählen**](#select-time-frame) auf das früheste Datum, das Sie in der Datei haben möchten – typischerweise den Zeitpunkt, an dem diese Nachrichten mit dem Versand begonnen haben – anstatt den Standardbereich zu verwenden, der bis zur ältesten ausgewählten Nachricht zurückreicht.
+Um die Datumsspalte mit dem tatsächlichen Versandzeitpunkt Ihrer ausgewählten Campaigns und Canvase abzugleichen, setzen Sie das [Startdatum des Berichts unter **Zeitraum auswählen**](#select-time-frame) auf das früheste Datum, das Sie in der Datei haben möchten – typischerweise den Zeitpunkt, an dem diese Nachrichten mit dem Versand begonnen haben – anstatt den Standardbereich zu verwenden, der bis zur ältesten ausgewählten Nachricht zurückreicht.
 
 In der exportierten CSV-Datei ist die erste Spalte das Datum:
 
@@ -145,7 +145,7 @@ Wenn die Summen für dieselben Campaigns und denselben Zeitraum dennoch abweiche
 | Prüfpunkt | Warum es wichtig ist |
 | --- | --- |
 | Zeitraum und Zeitzone | Beide Oberflächen müssen dieselben Kalendertage in derselben Zeitzone abdecken. |
-| Campaign- oder Canvas-Auswahl | Das E-Mail-Performance-Dashboard aggregiert E-Mail-Aktivitäten über den gesamten Workspace. Ein Engagement-Bericht enthält nur die Campaigns oder Canvases, die Sie ausgewählt haben. |
+| Campaign- oder Canvas-Auswahl | Das E-Mail-Performance-Dashboard aggregiert E-Mail-Aktivitäten über den gesamten Workspace. Ein Engagement-Bericht enthält nur die Campaigns oder Canvase, die Sie ausgewählt haben. |
 | Tägliche Zeilen versus Berichtssummen | Wenn **Datenanzeige** den Export in tägliche Zeilen aufteilt, summieren Sie diese Zeilen, um sie mit den Dashboard-Summen für denselben Zeitraum zu vergleichen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prüfpunkte, wenn E-Mail-Metriken im Engagement-Bericht vom E-Mail-Performance-Dashboard abweichen" }
 

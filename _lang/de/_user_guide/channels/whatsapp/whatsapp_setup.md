@@ -28,7 +28,7 @@ Bitte beachten Sie Folgendes, bevor Sie mit der Integration fortfahren:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Meta Business Manager-Konto | Ein Meta Business-Konto ist erforderlich, um diesen Messaging-Kanal zu nutzen. |
+| Meta Business Manager:in-Konto | Ein Meta Business-Konto ist erforderlich, um diesen Messaging-Kanal zu nutzen. |
 | WhatsApp Business-Konto | Ein WhatsApp Business-Konto ist erforderlich, um diesen Messaging-Kanal zu nutzen. |
 | WhatsApp-Telefonnummer | Sie müssen eine Telefonnummer erwerben, die den WhatsApp-Anforderungen für die [Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers) oder die [On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers) entspricht, um den Messaging-Kanal nutzen zu können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -60,10 +60,10 @@ Nach Abschluss der Einrichtung wird eine eigene [WhatsApp-Abo-Gruppe]({{site.bas
 
 ### Schritt 3: WhatsApp-Templates erstellen {#step-3-create-whatsapp-templates}
 
-Nur genehmigte WhatsApp-Nachrichtentemplates können verwendet werden, um Gespräche mit Kund:innen zu initiieren. WhatsApp-Templates können im [Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343) erstellt werden. Eine Liste der von Braze unterstützten WhatsApp-Messaging-Features finden Sie unter [Unterstützte WhatsApp-Features]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
+Nur genehmigte WhatsApp-Nachrichtentemplates können verwendet werden, um Gespräche mit Kund:innen zu initiieren. WhatsApp-Templates können im [Meta Business Manager:in](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343) erstellt werden. Eine Liste der von Braze unterstützten WhatsApp-Messaging-Features finden Sie unter [Unterstützte WhatsApp-Features]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features).
 
-1. **Navigieren Sie zum [Template-Manager](https://business.facebook.com/wa/manage/message-templates)**<br>
-Wählen Sie im Meta Business Manager unter **Account Tools** die Option **Message Templates** aus.
+1. **Navigieren Sie zum [Template-Manager:in](https://business.facebook.com/wa/manage/message-templates)**<br>
+Wählen Sie im Meta Business Manager:in unter **Account Tools** die Option **Message Templates** aus.
 Wählen Sie anschließend **Create Templates** aus.<br><br>![WhatsApp-Manager mit einer Liste von Nachrichtentemplates.]({% image_buster /assets/img/whatsapp/whatsapp2.png %}){: style="max-width:100%;"}<br><br>
 2. **Nachrichteneinstellungen**<br>
 Wählen Sie im neuen Nachrichtentemplate-Composer die Kategorie Ihrer Nachricht aus, benennen Sie Ihr Template und wählen Sie die Sprachen aus, die Sie unterstützen möchten. Sie können Sprachen später löschen oder hinzufügen.<br><br>
@@ -79,10 +79,10 @@ Wenn Sie Ihr Template fertiggestellt haben, klicken Sie auf **Submit**.
 
 #### Genehmigungszeit für Templates {#template-approval-time}
 
-Sie können den Genehmigungsstatus Ihres Nachrichtentemplates entweder auf der Seite **Message Template** im Meta Business Manager oder beim Erstellen einer Campaign oder eines Canvas in Braze überprüfen. Zusätzlich können Sie je nach Ihren Benachrichtigungseinstellungen per E-Mail vom WhatsApp-Team benachrichtigt werden.
+Sie können den Genehmigungsstatus Ihres Nachrichtentemplates entweder auf der Seite **Message Template** im Meta Business Manager:in oder beim Erstellen einer Campaign oder eines Canvas in Braze überprüfen. Zusätzlich können Sie je nach Ihren Benachrichtigungseinstellungen per E-Mail vom WhatsApp-Team benachrichtigt werden.
 
 {% alert note %}
-Genehmigte Templates können in beliebig vielen Campaigns und Canvases verwendet werden. Sie können auch an beliebig viele Nutzer:innen mit Opt-in gesendet werden. Dies gilt, solange die Qualität des Templates nicht abnimmt.
+Genehmigte Templates können in beliebig vielen Campaigns und Canvase verwendet werden. Sie können auch an beliebig viele Nutzer:innen mit Opt-in gesendet werden. Dies gilt, solange die Qualität des Templates nicht abnimmt.
 {% endalert %}
 
 ### Schritt 4: Eine WhatsApp-Campaign erstellen {#step-4-create-a-whatsapp-campaign}
@@ -97,7 +97,7 @@ Nachdem Ihr WhatsApp-Geschäftskonto erstellt wurde, legt Meta Ihr anfängliches
 
 Nach Abschluss der Integration empfehlen wir, die folgenden beiden Meta-Prozesse durchzuführen:
 - [Unternehmensverifizierung](https://www.facebook.com/business/help/2058515294227817?id=180505742745347)
-	- Möglicherweise haben Sie bereits eine Unternehmensverifizierung, wenn Sie einen bestehenden Meta Business Manager verwendet haben.
+	- Möglicherweise haben Sie bereits eine Unternehmensverifizierung, wenn Sie einen bestehenden Meta Business Manager:in verwendet haben.
 - [Offizielles Geschäftskonto](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
 Wir empfehlen außerdem, sich über [Telefonnummern von Nutzer:innen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers) zu informieren und alle Nutzer:innen hinzuzufügen, die Zugriff zum Erstellen von Nachrichten-[Templates in Ihrer Organisation](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143) benötigen.

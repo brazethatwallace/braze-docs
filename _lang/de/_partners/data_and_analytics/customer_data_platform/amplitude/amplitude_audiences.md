@@ -14,7 +14,7 @@ search_tag: Partner
 
 > [Amplitude](https://amplitude.com/) ist eine Plattform für Produkt-Analytics und Business-Intelligence.
 
-Die bidirektionale Integration von Braze und Amplitude ermöglicht es Ihnen, [Ihre Amplitude-Kohorten]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import), Nutzermerkmale und Ereignisse in Braze zu importieren und Segmente zu erstellen, die Nutzer:innen in zukünftigen Campaigns oder Canvases ansprechen können. Sie können Braze-Currents auch nutzen, um [Ihre Braze-Ereignisse nach Amplitude zu exportieren]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents#data-export-integration) und so tiefere Analysen Ihrer Produkt- und Marketingdaten durchzuführen.
+Die bidirektionale Integration von Braze und Amplitude ermöglicht es Ihnen, [Ihre Amplitude-Kohorten]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_cohort_import), Nutzermerkmale und Ereignisse in Braze zu importieren und Segmente zu erstellen, die Nutzer:innen in zukünftigen Campaigns oder Canvase ansprechen können. Sie können Braze-Currents auch nutzen, um [Ihre Braze-Ereignisse nach Amplitude zu exportieren]({{site.baseurl}}/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents#data-export-integration) und so tiefere Analysen Ihrer Produkt- und Marketingdaten durchzuführen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -37,8 +37,8 @@ Amplitude und Braze bieten zwei verschiedene Integrationsmethoden. Lesen Sie die
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL][1]. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-Representational State Transfer-API-Schlüssel | Ein Braze-Representational State Transfer-API-Schlüssel mit allen Berechtigungen.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze-Representational State Transfer-Endpunkt | [Ihre Representational State Transfer-Endpunkt-URL][1]. Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 | Braze-App-Bezeichner | Der Bezeichner für die App, die Amplitude-Ereignisse empfangen soll. Diesen finden Sie im **Braze-Dashboard > Entwicklungskonsole > Einstellungen**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
@@ -46,7 +46,7 @@ Amplitude und Braze bieten zwei verschiedene Integrationsmethoden. Lesen Sie die
 
 1. Navigieren Sie in Amplitude zu **Data Destinations** und suchen Sie nach „Braze - Event Stream“.
 2. Geben Sie einen Sync-Namen ein und klicken Sie dann auf **Create Sync**.
-3. Klicken Sie auf **Edit** und geben Sie Ihren Braze-REST-API-Endpunkt, den REST-API-Schlüssel und den Braze-App-Bezeichner an.
+3. Klicken Sie auf **Edit** und geben Sie Ihren Braze-Representational State Transfer-API-Endpunkt, den Representational State Transfer-API-Schlüssel und den Braze-App-Bezeichner an.
 4. Verwenden Sie den Filter zum Senden von Ereignissen, um die zu sendenden Ereignisse auszuwählen. Sie können alle Ereignisse senden, aber Amplitude empfiehlt, die wichtigsten auszuwählen.
 5. Wenn Sie fertig sind, aktivieren Sie das Ziel und speichern Sie.
 
@@ -117,6 +117,6 @@ Wenn Sie diesen Fehler beim [Importieren einer Amplitude-Kohorte]({{site.baseurl
 2. **Generieren Sie Ihren Braze-API-Schlüssel neu.** Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** > **Amplitude** und wählen Sie **Generate New Key**. Versuchen Sie dann die Amplitude-Kohortensynchronisierung mit dem neuen API-Schlüssel erneut.
 3. **Bestätigen Sie, dass die Kohorte in Amplitude synchronisiert wurde.** Kontaktieren Sie den [Amplitude-Support](https://help.amplitude.com/), um zu bestätigen, dass die Kohorte auf Amplitude-Seite erfolgreich synchronisiert wurde, bevor Sie die Fehlerbehebung in Braze fortsetzen.
 
-## Amplitude-Nutzerprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}
+## Amplitude-Kundenprofil or Nutzerprofil-API-Endpunkte {#amplitude-user-profile-api-endpoints}
 
 Einige der gängigen Amplitude-API-Endpunkte, die mit Connected-Content verwendet werden können, finden Sie in unserer speziellen [Amplitude-API-Dokumentation]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_user_profile_api).

@@ -30,7 +30,7 @@ description: "이 랜딩 페이지에는 Braze API 호출에 사용되는 Braze 
   - [콘텐츠 카드 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/content_cards_object)
   - [이메일 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/email_object)
   - [Kindle 및 FireOS 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/kindle_and_fireos_object)
-  - [SMS 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/sms_object)
+  - [단문 메시지 서비스 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/sms_object)
   - [웹 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/web_objects)
   - [웹훅 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/webhook_object)
   - [WhatsApp 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object)

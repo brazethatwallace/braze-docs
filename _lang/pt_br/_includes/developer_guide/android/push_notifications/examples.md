@@ -8,7 +8,7 @@ As notificações da Braze são enviadas como [mensagens de dados](https://fireb
 O Android impõe algumas limitações sobre quais componentes podem ser usados para implementar visualizações de notificação personalizadas. Os layouts de visualização de notificação devem conter _apenas_ objetos View compatíveis com o framework [RemoteViews](https://developer.android.com/reference/android/widget/RemoteViews).
 {% endalert %}
 
-Você pode usar a interface [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para personalizar como as notificações por push da Braze são exibidas. Ao estender `BrazeNotificationFactory`, a Braze chamará o método `createNotification()` da sua factory antes que a notificação seja exibida ao usuário. Ele então passará uma carga útil contendo pares de chave-valor personalizados enviados pelo dashboard da Braze ou pela REST API.
+Você pode usar a interface [`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html) para personalizar como as notificações por push da Braze são exibidas. Ao estender `BrazeNotificationFactory`, a Braze chamará o método `createNotification()` da sua factory antes que a notificação seja exibida ao usuário. Ele então passará uma carga útil contendo pares de chave-valor personalizados enviados pelo dashboard da Braze ou pela REST or transferir estado representacional API or interface de programação do aplicativo (API).
 
 Nesta seção, você fará uma parceria com a Superb Owl, a apresentadora de um novo game show onde equipes de resgate de animais silvestres competem para ver quem consegue salvar mais corujas. Eles querem aproveitar notificações com atualização em tempo real no app Android, para exibir o status de uma partida em andamento e fazer atualizações dinâmicas na notificação em tempo real.
 
@@ -248,7 +248,7 @@ class MyApplication : Application() {
 
 ### Etapa 5: Enviar a atividade {#step-5-send-the-activity}
 
-Você pode usar o endpoint da REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar uma notificação por push para o dispositivo Android de um usuário.
+Você pode usar o endpoint da REST or transferir estado representacional API or interface de programação do aplicativo (API) [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar uma notificação por push para o dispositivo Android de um usuário.
 
 #### Exemplo de comando curl {#example-curl-command}
 
@@ -287,8 +287,8 @@ Embora comandos curl sejam úteis para testes, recomendamos tratar essa chamada 
 
 | Chave | Descrição |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `REST_API_KEY` | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| `BRAZE_REST_ENDPOINT` | A URL do seu endpoint REST. Seu endpoint depende da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| `REST_API_KEY` | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `messages.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| `BRAZE_REST_ENDPOINT` | A URL do seu endpoint REST or transferir estado representacional. Seu endpoint depende da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
 | `USER_ID` | O ID do usuário para o qual você está enviando a notificação. |
 | `messages.android_push.title` | O título da mensagem. Por padrão, ele não é usado para as notificações ao vivo da notification factory personalizada, mas pode ser usado como fallback. |
 | `messages.android_push.alert` | O corpo da mensagem. Por padrão, ele não é usado para as notificações ao vivo da notification factory personalizada, mas pode ser usado como fallback. |
@@ -302,7 +302,7 @@ Para atualizar a notificação RemoteView existente com novos dados, modifique o
 
 ## Notificações por push personalizadas {#personalized-push-notifications}
 
-As notificações por push podem exibir informações específicas do usuário dentro de uma hierarquia de visualização personalizada. No exemplo a seguir, um disparo por API é usado para enviar uma notificação por push personalizada a um usuário, para que ele possa acompanhar seu progresso atual após concluir uma tarefa específica no app.
+As notificações por push podem exibir informações específicas do usuário dentro de uma hierarquia de visualização personalizada. No exemplo a seguir, um disparo por API or interface de programação do aplicativo (API) é usado para enviar uma notificação por push personalizada a um usuário, para que ele possa acompanhar seu progresso atual após concluir uma tarefa específica no app.
 
 ![Exemplo de push personalizado no dashboard]({% image_buster /assets/img/push_implementation_guide/android_push_custom_layout.png %}){: style="max-width:65%;border:0"}
 

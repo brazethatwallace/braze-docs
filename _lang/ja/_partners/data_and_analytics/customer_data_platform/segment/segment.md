@@ -117,7 +117,7 @@ iOSデバイスモード統合のソースコードはBrazeが管理しており
 
 iOSソースのデバイスモード送信先としてBrazeを設定するには、**送信先フレームワーク**として**Actions**を選択し、**Save**を選択します。
 
-サイドバイサイド統合を完了するには、[Braze Swift送信先プラグイン](https://segment.com/docs/connections/sources/catalog/libraries/mobile/apple/destination-plugins/braze-swift/)をiOSアプリに追加する必要があります。このプラグインはセグメント SDKとBraze SDKをブリッジし、デバイスモードのデータをBrazeにフローさせます。セグメントのインストール手順に従って、プラグインの依存関係（Swift Package ManagerまたはCocoaPods経由）を追加し、セグメント analyticsインスタンスで初期化してください。
+サイドバイサイド統合を完了するには、[Braze Swift送信先プラグイン](https://segment.com/docs/connections/sources/catalog/libraries/mobile/apple/destination-plugins/braze-swift/)をiOSアプリに追加する必要があります。このプラグインはセグメント SDKとBraze SDKをブリッジし、デバイスモードのデータをBrazeにフローさせます。セグメントのインストール手順に従って、プラグインの依存関係（Swift Package マネージャーまたはCocoaPods経由）を追加し、セグメント analyticsインスタンスで初期化してください。
 
 [iOSデバイスモード](https://github.com/braze-inc/braze-segment-swift)統合のソースコードはBrazeが管理しており、新しいBraze SDKリリースを反映して定期的に更新されます。
 

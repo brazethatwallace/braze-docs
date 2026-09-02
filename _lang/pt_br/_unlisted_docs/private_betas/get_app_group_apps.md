@@ -8,7 +8,7 @@ permalink: /get_app_group_apps/
 platform: API
 description: "Este artigo descreve detalhes sobre o endpoint Listar apps do espaço de trabalho da Braze."
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Listar apps do espaço de trabalho {#list-workspace-apps}
 {% apimethod get %}
 /app_group/apps
@@ -57,7 +57,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `401: Unauthorized` | A chave de API não tem as permissões necessárias. Verifique se sua chave de API tem permissões de `apps.get`. |
+| `401: Unauthorized` | A chave de API or interface de programação do aplicativo (API) não tem as permissões necessárias. Verifique se sua chave de API or interface de programação do aplicativo (API) tem permissões de `apps.get`. |
 | `403: Forbidden` | O feature flipper não está ativado para esta empresa. Entre em contato com seu gerente de sucesso do cliente para obter assistência. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

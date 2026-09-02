@@ -20,7 +20,7 @@ Si vous avez des cas d'utilisation plus spécifiques et que vous souhaitez que B
 
 Le processus d'extraction, de chargement et de transformation (ELT) est un processus automatisé qui déplace les données dans [Snowflake](https://www.snowflake.com/), ce qui vous permettra d'utiliser les [blocs Looker de Braze](https://marketplace.looker.com/marketplace/directory) pour visualiser ces données dans Looker afin de générer des informations et des retours pour vos Campaigns, Canvas et Segments.
 
-Une fois que vous avez configuré une exportation Currents vers S3 et que vous recevez des données d'événements en temps réel, vous pouvez configurer votre pipeline ELT en direct dans Snowflake en configurant les composants suivants :
+Une fois que vous avez configuré une exportation Currents vers S3 et que vous recevez des données d'événements en temps réel, vous pouvez configurer votre pipeline ELT en direct or en ligne/en production/instantané dans Snowflake en configurant les composants suivants :
 
 -   [Files d'attente AWS SQS](#aws-sqs-queues)
 -   [Snowpipes à ingestion automatique](#auto-ingest-snowpipes)

@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Nift
 
-> [Nift](https://gonift.com/) ayuda a las empresas a captar, fidelizar y retener clientes. La plataforma de dos caras ayuda a los socios a dar las gracias a sus clientes con tarjetas regalo Nift. Dar las gracias a los clientes aumenta su valor de duración del ciclo de vida y genera ingresos incrementales.
+> [Nift](https://gonift.com/) ayuda a las empresas a captar, fidelizar y retener clientes. La plataforma de dos caras ayuda a los socios a dar las gracias a sus clientes con tarjetas regalo Nift. Dar las gracias a los clientes aumenta su LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida y genera ingresos incrementales.
 
 _Esta integración está mantenida por Nift._
 
@@ -23,8 +23,8 @@ La integración de Braze y Nift te permite desencadenar automáticamente "agrade
 | Requisito | Descripción |
 |---|---|
 | Cuenta Nift | Se necesita una cuenta Nift para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con todos los permisos de datos de usuario. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión REST. Tu punto de conexión dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con todos los permisos de datos de usuario. <br><br> Se puede crear en el panel de Braze desde **Settings** > **API Keys**. |
+| Punto de conexión REST or transferencia de estado representacional de Braze | La URL de tu punto de conexión REST or transferencia de estado representacional. Tu punto de conexión dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -35,7 +35,7 @@ Visita tu [panel de Nift](https://www.gonift.com/users/sign_in), ve a **Accounts
 
 ### Paso 2: Añade las credenciales de Braze {#step-2-add-braze-credentials}
 
-En la página **Link your Braze Account**, proporciona tu clave de API REST de Braze y selecciona tu punto de conexión de Braze, que dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints).
+En la página **Link your Braze Account**, proporciona tu clave de API REST or transferencia de estado representacional de Braze y selecciona tu punto de conexión de Braze, que dependerá de la URL de Braze de [tu instancia]({{site.baseurl}}/api/basics/#endpoints).
 
 Puedes cambiar el nombre del parámetro de ID de cliente en el enlace de referidos enviado a tus clientes. Nift lo utilizará para marcar a tus clientes como procesados en Braze cuando hayan seleccionado un regalo de una de nuestras marcas.
 

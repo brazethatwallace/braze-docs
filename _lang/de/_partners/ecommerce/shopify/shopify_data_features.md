@@ -448,7 +448,7 @@ Braze ist darauf angewiesen, dass Shopify die erforderlichen Event-Eigenschaften
 **Datenquelle**: Braze SDKs<br>
 **Anwendungsfall**: Warenkorb-Abbruch
 
-Für Canvases bei abgebrochenem Einkauf müssen Sie zunächst den initialen Warenkorb-Liquid-Tag hinzufügen, um den Kontext des Warenkorbs in Ihrer Nachricht zu erhalten.
+Für Canvase bei abgebrochenem Einkauf müssen Sie zunächst den initialen Warenkorb-Liquid-Tag hinzufügen, um den Kontext des Warenkorbs in Ihrer Nachricht zu erhalten.
 
 {% raw %}
 ```liquid
@@ -486,14 +486,14 @@ Weitere Informationen zum Erstellen einer Liquid-`for`-Schleife, um alle Produkt
 **Event**: `ecommerce.checkout_started`<br>
 **Typ**: Empfohlenes Event<br>
 **Ausgelöst**: Wenn eine Nutzer:in zur Checkout-Seite navigiert<br>
-**Datenquelle**: Braze REST API<br>
+**Datenquelle**: Braze Representational State Transfer API<br>
 **Anwendungsfall**: Checkout-Abbruch
 
 {% alert important %}
-Wenn eine Kund:in Shop Pay als beschleunigten Checkout nutzt, kann Shopify bestimmte Standard-Checkout-Events (wie den Shopify-Checkout-Started-Webhook) umgehen. Das bedeutet, dass Braze möglicherweise nicht die erforderlichen Daten erhält, um den Checkout-Token-Alias hinzuzufügen, was sich auf das Tracking von Checkout-Abbrüchen und die Nutzerprofilzuordnung auswirken kann.
+Wenn eine Kund:in Shop Pay als beschleunigten Checkout nutzt, kann Shopify bestimmte Standard-Checkout-Events (wie den Shopify-Checkout-Started-Webhook) umgehen. Das bedeutet, dass Braze möglicherweise nicht die erforderlichen Daten erhält, um den Checkout-Token / Textbaustein-Alias hinzuzufügen, was sich auf das Tracking von Checkout-Abbrüchen und die Nutzerprofilzuordnung auswirken kann.
 {% endalert %}
 
-Für Canvases bei abgebrochenem Checkout müssen Sie zunächst den folgenden Liquid-Tag verwenden:
+Für Canvase bei abgebrochenem Checkout müssen Sie zunächst den folgenden Liquid-Tag verwenden:
 
 {% raw %}
 ```liquid
@@ -528,7 +528,7 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 **Event**: `ecommerce.order_placed`<br>
 **Typ**: Empfohlenes Event<br>
 **Ausgelöst**: Wenn eine Nutzer:in den Checkout-Prozess erfolgreich abschließt und eine Bestellung aufgibt<br>
-**Datenquelle**: Braze REST API<br>
+**Datenquelle**: Braze Representational State Transfer API<br>
 **Anwendungsfall**: Bestellbestätigung, Retargeting nach dem Kauf, Upsells oder Cross-Sells
 
 {% raw %}
@@ -561,8 +561,8 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 **Event**: `shopify_fulfilled_order`<br>
 **Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Ausgelöst**: Wenn die Bestellung einer Nutzer:in erfüllt und versandbereit ist<br>
-**Datenquelle**: Braze REST API<br>
-**Anwendungsfall**: (Transaktional) Fulfillment-Update
+**Datenquelle**: Braze Representational State Transfer API<br>
+**Anwendungsfall**: (Transaktional) Fulfillment-Update or aktualisieren
 
 {% raw %}
 | Variable | Liquid-Vorlage |
@@ -612,8 +612,8 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 **Event**: `shopify_partially_fulfilled_order`<br>
 **Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Ausgelöst**: Wenn ein Teil der Bestellung einer Nutzer:in erfüllt und versandbereit ist<br>
-**Datenquelle**: Braze REST API<br>
-**Anwendungsfall**: (Transaktional) Fulfillment-Update
+**Datenquelle**: Braze Representational State Transfer API<br>
+**Anwendungsfall**: (Transaktional) Fulfillment-Update or aktualisieren
 
 {% raw %}
 | Variable | Liquid-Vorlage |
@@ -663,7 +663,7 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 **Event**: `shopify_paid_order`<br>
 **Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Ausgelöst**: Wenn die Bestellung einer Nutzer:in in Shopify als bezahlt markiert wird<br>
-**Datenquelle**: Braze REST API<br>
+**Datenquelle**: Braze Representational State Transfer API<br>
 **Anwendungsfall**: (Transaktional) Zahlungsbestätigung
 
 {% raw %}
@@ -697,7 +697,7 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 **Event**: `ecommerce.order_cancelled`<br>
 **Typ**: Empfohlenes Event<br>
 **Ausgelöst**: Wenn die Bestellung einer Nutzer:in storniert wird<br>
-**Datenquelle**: Braze REST API<br>
+**Datenquelle**: Braze Representational State Transfer API<br>
 **Anwendungsfall**: (Transaktional) Stornierungsbestätigung
 
 {% raw %}
@@ -733,7 +733,7 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 **Event**: `ecommerce.order_refunded`<br>
 **Typ**: Empfohlenes Event<br>
 **Ausgelöst**: Wenn die Bestellung einer Nutzer:in erstattet wird<br>
-**Datenquelle**: Braze REST API<br>
+**Datenquelle**: Braze Representational State Transfer API<br>
 **Anwendungsfall**: (Transaktional) Erstattungsbestätigung
 
 {% raw %}
@@ -760,7 +760,7 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 **Event**: `shopify_account_login`<br>
 **Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Ausgelöst**: Wenn sich eine Nutzer:in bei ihrem Konto anmeldet<br>
-**Datenquelle**: Braze REST API<br>
+**Datenquelle**: Braze Representational State Transfer API<br>
 **Anwendungsfall**: Willkommensserie
 
 {% raw %}
@@ -771,7 +771,7 @@ Der Checkout-Completed-Webhook von Shopify enthält keine Produkt-URLs oder Bild
 {% endraw %}
 
 {% alert note %}
-Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events). Daher sollten Kauffilter, Liquid-Tags, aktionsbasierte Trigger und Analytics das Event `ecommerce.order_placed` verwenden.
+Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf-Events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events). Daher sollten Kauffilter, Liquid-Tags, aktionsbasierte Trigger or triggern und Analytics das Event `ecommerce.order_placed` verwenden.
 {% endalert %}
 
 {% endsubtab %}
@@ -827,7 +827,7 @@ Diese Seite wird aktualisiert, sobald Shopify dieses Problem behoben hat.
 
 ### Liquid-Personalisierung {#liquid-personalization}
 
-Um Liquid-Personalisierung für Ihre angepassten Shopify-Attribute hinzuzufügen, wählen Sie **+ Personalisierung** aus. Wählen Sie dann **Custom Attributes** als Personalisierungstyp aus.
+Um Liquid-Personalisierung für Ihre angepassten Shopify-Attribute hinzuzufügen, wählen Sie **+ Personalisierung** aus. Wählen Sie dann **angepasste Attribute** als Personalisierungstyp aus.
 
 ![Der Bereich „Personalisierung hinzufügen“ mit geöffnetem Dropdown „Attribut“.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
@@ -849,12 +849,12 @@ Nachdem Sie Ihr angepasstes Attribut ausgewählt haben, geben Sie einen Standard
 - Land
 
 {% alert note %}
-Braze aktualisiert unterstützte angepasste Shopify-Attribute und Braze-Standardattribute nur dann, wenn die Daten vom bestehenden Nutzerprofil abweichen. Wenn die eingehenden Shopify-Daten beispielsweise den Vornamen Bob enthalten und Bob bereits als Vorname im Braze-Nutzerprofil existiert, löst Braze kein Update aus und es wird kein Datenpunkt berechnet.
+Braze aktualisiert unterstützte angepasste Shopify-Attribute und Braze-Standardattribute nur dann, wenn die Daten vom bestehenden Kundenprofil or Nutzerprofil abweichen. Wenn die eingehenden Shopify-Daten beispielsweise den Vornamen Bob enthalten und Bob bereits als Vorname im Braze-Kundenprofil or Nutzerprofil existiert, löst Braze kein Update or aktualisieren aus und es wird kein Datenpunkt berechnet.
 {% endalert %}
 
-## SDK-Datenerfassung {#sdk-data-collection}
+## SDK or Software-Development-Kit-Datenerfassung {#sdk-data-collection}
 
-Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, finden Sie unter [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
+Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, finden Sie unter [SDK or Software-Development-Kit-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Historischer Backfill {#historical-backfill}
 
@@ -865,7 +865,7 @@ Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, 
 Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen ausgewählt haben.
 
 {% alert note %}
-Wenn Sie bereits Braze-Kund:in mit aktiven Campaigns oder Canvases sind, prüfen Sie, wie importierte Kund:innen und Bestell-Events Ihre Segmente und Journeys beeinflussen, bevor Sie den historischen Backfill aktivieren.
+Wenn Sie bereits Braze-Kund:in mit aktiven Campaigns oder Canvase sind, prüfen Sie, wie importierte Kund:innen und Bestell-Events Ihre Segmente und Journeys beeinflussen, bevor Sie den historischen Backfill aktivieren.
 {% endalert %}
 
 {% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
@@ -890,5 +890,5 @@ Die folgende Tabelle fasst die Daten zusammen, die bei diesem ersten Import enth
 
 | Von Braze empfohlene Events | Angepasste Shopify-Events | Braze-Standardattribute | Braze-Abo-Status |
 | --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail</li><li>Vorname</li><li>Nachname</li><li>Telefon</li><li>Ort</li><li>Land</li><li>Gesamtumsatz</li><li>Gesamte Rückerstattungen</li><li>Gesamte Bestellungen</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li><li>SMS-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li></ul>{:/} |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail</li><li>Vorname</li><li>Nachname</li><li>Telefon</li><li>Ort</li><li>Land</li><li>Gesamtumsatz</li><li>Gesamte Rückerstattungen</li><li>Gesamte Bestellungen</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li><li>Kurzmitteilungsdienst or SMS-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Synchronisierte Daten" }

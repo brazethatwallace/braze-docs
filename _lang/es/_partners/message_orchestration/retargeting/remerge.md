@@ -26,7 +26,7 @@ La integración de Braze y Remerge te ayuda a desarrollar sólidas campañas de 
 | Clave de webhook de Remerge | Esta clave será proporcionada por Remerge. |
 | ID de la aplicación Android | Tu identificador único de aplicación Braze para Android (como "com.example"). |
 | ID de la aplicación iOS | Tu identificador único de aplicación Braze para iOS (como "012345678"). |
-| Habilitar la recopilación de IDFA en el SDK de Braze | La recopilación de IDFA es opcional dentro del SDK de Braze y está desactivada de forma predeterminada. |
+| Habilitar la recopilación de IDFA en el SDK or kit de desarrollo de software de Braze | La recopilación de IDFA es opcional dentro del SDK or kit de desarrollo de software de Braze y está desactivada de forma predeterminada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}

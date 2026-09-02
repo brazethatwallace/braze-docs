@@ -13,13 +13,13 @@ channel: email
 
 ## Cómo funciona {#how-it-works}
 
-Puedes usar el calentamiento de IP automatizado para aumentar gradualmente tu volumen de envío diario, lo que permite a los proveedores de buzón de entrada aprender y confiar en tus patrones de envío. Cuando agregas un dominio a tu espacio de trabajo, puedes seleccionar el mosaico **Automated IP Warming** en la sección **Pick up where you left off** de tu panel de inicio. Este mosaico permanece durante 60 días mientras tu espacio de trabajo se encuentra en la ventana de incorporación de nuevo remitente, y se oculta después de que completes al menos un plan.
+Puedes usar el calentamiento de IP automatizado para aumentar gradualmente tu volumen de envío diario, lo que permite a los proveedores de buzón de entrada aprender y confiar en tus patrones de envío. Cuando agregas un dominio a tu espacio de trabajo, puedes seleccionar el mosaico **Automated calentamiento de IP** en la sección **Pick up where you left off** de tu panel de inicio. Este mosaico permanece durante 60 días mientras tu espacio de trabajo se encuentra en la ventana de incorporación de nuevo remitente, y se oculta después de que completes al menos un plan.
 
 Cada plan de calentamiento de IP automatizado está vinculado a una dirección de remitente. Esa dirección de remitente se asocia a un subdominio de envío y a un grupo de IP. Si el grupo contiene múltiples IP dedicadas, Braze las calienta juntas en un solo plan.
 
 Braze envía primero a tus suscriptores con mayor participación, lo que permite que el volumen diario crezca a un ritmo que se ajusta a las mejores prácticas. Luego, Braze rastrea las señales de participación y capacidad de entrega. Si Braze detecta algún problema, el sistema ajusta tu programación automáticamente.
 
-Después de completar al menos un plan, puedes ver los planes completados en **Settings** > **Email Preferences** > **Automated IP warming**.
+Después de completar al menos un plan, puedes ver los planes completados en **Settings** > **Email Preferences** > **Automated calentamiento de IP**.
 
 ## Requisitos previos {#prerequisites}
 

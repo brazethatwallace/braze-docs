@@ -49,7 +49,7 @@ Cuando usas personalización con Liquid para establecer la duración de la caduc
 - La Content Card se sigue enviando al usuario con la caducidad limitada.
 - El usuario avanza al siguiente paso en el Canvas.
 
-Esta limitación garantiza que las tarjetas con caducidad personalizada se entreguen incluso cuando la duración resuelta supere el límite de la plataforma. El resultado del registro de procesamiento mostrará "Personalized expiration capped by max TTL" con detalles que indican `reason=capped_by_max_ttl` y `capped=true`.
+Esta limitación garantiza que las tarjetas con caducidad personalizada se entreguen incluso cuando la duración resuelta supere el límite de la plataforma. El resultado del registro de procesamiento mostrará "Personalized expiration capped by max TTL or tiempo de vida" con detalles que indican `reason=capped_by_max_ttl` y `capped=true`.
 
 ### Comportamiento de caducidad {#expiration-behavior}
 

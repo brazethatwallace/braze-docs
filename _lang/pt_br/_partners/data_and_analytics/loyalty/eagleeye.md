@@ -29,8 +29,8 @@ O Eagle Eye Connect é uma integração bidirecional entre a Braze e o AIR que p
 | Requisito | Descrição |
 |--------------------------|-------------|
 | Conta Eagle Eye AIR | Você precisa de uma conta ativa do Eagle Eye AIR para aproveitar essa parceria. Para começar, entre em contato com a equipe de Parcerias da Eagle Eye em [partnerships@eagleeye.com](mailto:partnerships@eagleeye.com). |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze em **Configurações > Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze em **Configurações > Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [Sua URL de endpoint REST or transferir estado representacional]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Saída vs. entrada {#outbound-vs-inbound}
@@ -54,7 +54,7 @@ As tabelas a seguir descrevem os dois tipos de integrações suportadas entre a 
     <tr>
       <td>Eagle Eye → Braze</td>
       <td>Eagle Eye</td>
-      <td>Para a API da Braze</td>
+      <td>Para a API or interface de programação do aplicativo (API) da Braze</td>
       <td>
         Envie dados de fidelidade para os perfis de usuários da Braze como atributos personalizados por meio de eventos personalizados. Na Braze, os dados ingeridos podem ser usados para:
         <ul>
@@ -90,7 +90,7 @@ As tabelas a seguir descrevem os dois tipos de integrações suportadas entre a 
     <tr>
       <td>Braze → Eagle Eye</td>
       <td>Braze</td>
-      <td>Para a API da Eagle Eye via webhook</td>
+      <td>Para a API or interface de programação do aplicativo (API) da Eagle Eye via webhook</td>
       <td>
         Quando um consumidor entra em um público na Braze a partir de qualquer fonte, a Braze pode disparar um webhook para o EE Connect, permitindo que a EE emita uma recompensa (cupom ou pontos).<br><br>
         Após a conclusão da ação no AIR, a Braze receberia um evento de saída do AIR.
@@ -115,7 +115,7 @@ Para saber mais sobre os dados personalizados que você pode enviar para a Braze
 
 ## Visão geral da integração {#integration-overview}
 
-Atualmente, os conectores de entrada e saída só podem ser configurados via API com suporte direto da equipe da Eagle Eye — no entanto, uma opção de autoatendimento dentro do dashboard do AIR está a caminho!
+Atualmente, os conectores de entrada e saída só podem ser configurados via API or interface de programação do aplicativo (API) com suporte direto da equipe da Eagle Eye — no entanto, uma opção de autoatendimento dentro do dashboard do AIR está a caminho!
 
 Ao trabalhar com a sua equipe Eagle Eye, você concluirá o seguinte:
 
@@ -125,7 +125,7 @@ Primeiro, você fornecerá os seguintes detalhes à sua equipe Eagle Eye:
 
 | Você fornece | Descrição |
 |------------------------|-------------|
-| Credenciais da API da Braze | Compartilhe seu endpoint REST da Braze, identificador de app e chave de API com segurança com seu contato na Eagle Eye. |
+| Credenciais da API or interface de programação do aplicativo (API) da Braze | Compartilhe seu endpoint REST or transferir estado representacional da Braze, identificador de app e chave de API or interface de programação do aplicativo (API) com segurança com seu contato na Eagle Eye. |
 | Correspondência de identificadores | Determine e compartilhe o identificador de usuário principal para atualizações de perfil que é comum no AIR e na Braze, como ID externo ou e-mail. |
 | Chave de autenticação | Determine e compartilhe uma chave de autenticação secreta para cada conector de entrada e saída. |
 | Código da moeda | Compartilhe o código de moeda de 3 dígitos para exibir valores monetários de compra (por exemplo, USD). |
@@ -133,7 +133,7 @@ Primeiro, você fornecerá os seguintes detalhes à sua equipe Eagle Eye:
 
 ### Etapa 2: Configurar o Eagle Eye Connect {#step-2-configure-eagle-eye-connect}
 
-Sua equipe Eagle Eye configurará o Eagle Eye Connect usando os detalhes fornecidos, juntamente com as credenciais exclusivas da API do AIR e os eventos de saída para os conectores.
+Sua equipe Eagle Eye configurará o Eagle Eye Connect usando os detalhes fornecidos, juntamente com as credenciais exclusivas da API or interface de programação do aplicativo (API) do AIR e os eventos de saída para os conectores.
 
 ### Etapa 3: Configurar ações de comportamento social no AIR {#step-3-configure-social-behavioral-actions-in-air}
 
@@ -148,7 +148,7 @@ Na Braze, você concluirá o seguinte:
 
 ### Etapa 5: Testar sua integração {#step-5-test-your-integration}
 
-Faça chamadas de API no AIR e observe o fluxo de dados de eventos no seu espaço de trabalho da Braze. Valide os dados recebidos do AIR e confirme se os atributos estão sendo atualizados conforme o esperado.
+Faça chamadas de API or interface de programação do aplicativo (API) no AIR e observe o fluxo de dados de eventos no seu espaço de trabalho da Braze. Valide os dados recebidos do AIR e confirme se os atributos estão sendo atualizados conforme o esperado.
 
 Além disso, adicione usuários aos públicos e confirme se as recompensas são emitidas no AIR.
 

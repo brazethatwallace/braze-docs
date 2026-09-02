@@ -22,7 +22,7 @@ El modelo **Auto** impulsado por Braze está optimizado para modelos cuyas capac
 Esta es la opción más sencilla, sin configuración adicional necesaria. Braze proporciona acceso a modelos de lenguaje grande (LLM) directamente. Para usar esta opción, selecciona **Auto**, que utiliza modelos Gemini.
 
 {% alert important %}
-Si no ves **Braze Auto** como opción en el menú desplegable **Modelo** al crear un agente, contacta a tu administrador de éxito de cliente para saber cómo ser elegible para usar el modelo Braze Auto.
+Si no ves **Braze Auto** como opción en el menú desplegable **Modelo** al crear un agente, contacta a tu CSM or administrador de éxito de cliente or administrador de éxito de cliente para saber cómo ser elegible para usar el modelo Braze Auto.
 {% endalert %}
 
 ### Opción 2: Trae tu propia clave de API {#option-2-bring-your-own-api-key}
@@ -39,7 +39,7 @@ Para configurar esto:
 
 Luego, puedes volver a tu agente y seleccionar tu modelo.
 
-Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (DPA) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
+Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (asesor sobre protección de datos) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
 
 #### Niveles de razonamiento {#thinking-levels}
 
@@ -58,7 +58,7 @@ Te recomendamos comenzar con **Mínimo** y probar las respuestas de tu agente. L
 Braze utiliza los mismos rangos de IP para las llamadas LLM salientes que para el contenido conectado. Los rangos están listados en la [lista de IPs permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si tu proveedor admite listas de IPs permitidas, puedes restringir la clave a esos rangos para que solo Braze pueda usarla.
 
 {% alert important %}
-Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (DPA) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
+Cuando utilizas un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subprocesadores de Braze, sujetos a los términos del Acuerdo de procesamiento de datos (asesor sobre protección de datos) entre tú y Braze. Si eliges traer tu propia clave de API, el proveedor de tu suscripción de LLM se considera un proveedor externo según el contrato entre tú y Braze.
 {% endalert %}
 
 #### Determinar qué modelo usar {#determine-which-model-to-use}
@@ -142,12 +142,12 @@ Para ejemplos completos de instrucciones que puedes copiar o adaptar, consulta l
 | Ejemplo | Categoría | Tipo de agente | Qué hace |
 | --- | --- | --- | --- |
 | [Redactar mensajes personalizados basados en el contexto del usuario]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Generación de contenido | Canvas Step Agent | Genera asuntos/preencabezados de correo electrónico y títulos/cuerpos de push coordinados para usuarios que buscaron pero no reservaron. |
-| [Analizar comentarios de usuarios para determinar los próximos pasos]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Estandarización de datos | Canvas Step Agent | Clasifica el sentimiento y el tema de encuestas posteriores al viaje, y luego recomienda un próximo paso en el CRM. |
+| [Analizar comentarios de usuarios para determinar los próximos pasos]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Estandarización de datos | Canvas Step Agent | Clasifica el sentimiento y el tema de encuestas posteriores al viaje, y luego recomienda un próximo paso en el CRM or administración de las relaciones con el cliente. |
 | [Categorizar usuarios en contenedores de interés a partir de atributos existentes]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Agente de afinidad | Canvas Step Agent | Clasifica usuarios en contenedores de interés a partir de atributos y señales de alta intención, y luego recomienda la mejor experiencia o artículo siguiente. |
 | [Dirigir usuarios a la ruta de Canvas más relevante a partir de comportamiento reciente]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Agente de afinidad | Canvas Step Agent | Infiere la motivación a partir del comportamiento reciente y devuelve la mejor clave de ruta para el siguiente paso en Canvas del usuario. |
 | [Asignar usuarios a categorías de interés a partir de acciones de alta intención en tiempo real]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Agente de afinidad | Canvas Step Agent | Asigna categorías de interés a partir de acciones de alta intención y recomienda la mejor experiencia o artículo siguiente. |
 | [Clasificar mensajes entrantes para detectar intención de cancelación]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Clasificación y enrutamiento | Canvas Step Agent | Devuelve un booleano estricto que indica si un mensaje es una solicitud de cancelación de suscripción. |
-| [Estandarizar mensajes entrantes en datos estructurados para automatización]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Estandarización de datos | Canvas Step Agent | Normaliza SMS entrantes o chat en intención estructurada, entidades y marcadores de cumplimiento para automatización posterior. |
+| [Estandarizar mensajes entrantes en datos estructurados para automatización]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Estandarización de datos | Canvas Step Agent | Normaliza servicio de mensajes cortos entrantes o chat en intención estructurada, entidades y marcadores de cumplimiento para automatización posterior. |
 | [Redactar descripciones de alta conversión alineadas con las directrices de marca]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Generación de contenido | Catalog Agent | Genera descripciones breves y alineadas con la marca para cada fila del catálogo. |
 | [Proporcionar traducciones basadas en el idioma utilizado por región]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Enriquecimiento de catálogo | Catalog Agent | Localiza cadenas de UI y marketing por configuración regional y límite de caracteres. |
 | [Enriquecer artículos del catálogo con descripciones, categorías y etiquetas]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Enriquecimiento de catálogo | Catalog Agent | Genera descripciones mejoradas, categorías y etiquetas a partir de datos existentes de artículos del catálogo. |
@@ -283,7 +283,7 @@ Puedes seleccionar hasta cinco Segments para que el agente verifique la pertenen
 
 ## Directrices de marca {#brand-guidelines}
 
-Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) para que tu agente las siga en sus respuestas. Por ejemplo, si quieres que tu agente genere textos de SMS para animar a los usuarios a suscribirse a una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz predefinida de tono audaz y motivacional.
+Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) para que tu agente las siga en sus respuestas. Por ejemplo, si quieres que tu agente genere textos de servicio de mensajes cortos para animar a los usuarios a suscribirse a una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz predefinida de tono audaz y motivacional.
 
 ## Historial de interacción específico del usuario {#user-history}
 

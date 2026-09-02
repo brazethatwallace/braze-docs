@@ -418,7 +418,7 @@ Nada de esto se ha sincronizado antes con Braze, así que añádelo todo a la ta
   </tbody>
 </table>
 
-Se ejecuta una sincronización y Braze registra que has sincronizado todos los datos disponibles hasta "2023-03-16 15:00:00". A continuación, en la mañana del día 2, se ejecuta un ETL y se actualizan algunos campos de la tabla de usuarios (marcados con *):
+Se ejecuta una sincronización y Braze registra que has sincronizado todos los datos disponibles hasta "2023-03-16 15:00:00". A continuación, en la mañana del día 2, se ejecuta un ETL or extraer, transformar, cargar y se actualizan algunos campos de la tabla de usuarios (marcados con *):
 
 <table aria-label="Ejemplo: administración de actualizaciones posteriores">
   <caption>Ejemplo: administración de actualizaciones posteriores. * indica un campo actualizado desde la última sincronización.</caption>
@@ -542,7 +542,7 @@ CDI solo sincronizará las nuevas filas, por lo que la próxima sincronización 
 
 Cada vez que se ejecuta una sincronización, Braze busca filas que no se hayan sincronizado previamente. Esto se verifica usando la columna `UPDATED_AT` en tu tabla o vista. Braze selecciona e importa cualquier fila donde `UPDATED_AT` sea posterior al último valor `UPDATED_AT` sincronizado, independientemente de si son iguales a lo que está actualmente en el perfil de usuario. Las filas en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Dado esto, recomendamos sincronizar solo los atributos que deseas añadir o actualizar.
 
-El uso de puntos de datos con CDI es idéntico al de otros métodos de ingesta como las REST API o los SDK, por lo que depende de ti asegurarte de que solo estás añadiendo atributos nuevos o actualizados a tus tablas de origen.
+El uso de puntos de datos con CDI es idéntico al de otros métodos de ingesta como las REST or transferencia de estado representacional API o los SDK or kit de desarrollo de software, por lo que depende de ti asegurarte de que solo estás añadiendo atributos nuevos o actualizados a tus tablas de origen.
 
 ### Separa `EXTERNAL_ID` de la columna `PAYLOAD` {#separate-external_id-from-payload-column}
 
@@ -710,7 +710,7 @@ Recomendamos que las consultas se completen en un máximo de una hora para un re
 | Limitación            | Descripción                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Número de integraciones | No hay límite en la cantidad de integraciones que puedes configurar. Sin embargo, solo podrás configurar una integración por tabla o vista.                                             |
-| Número de filas         | De forma predeterminada, cada ejecución puede sincronizar hasta 500 millones de filas. Braze detiene cualquier sincronización con más de 500 millones de filas nuevas. Si necesitas un límite mayor, ponte en contacto con tu administrador de éxito de cliente de Braze o con soporte de Braze. |
+| Número de filas         | De forma predeterminada, cada ejecución puede sincronizar hasta 500 millones de filas. Braze detiene cualquier sincronización con más de 500 millones de filas nuevas. Si necesitas un límite mayor, ponte en contacto con tu CSM or administrador de éxito de cliente or administrador de éxito de cliente de Braze o con soporte de Braze. |
 | Atributos por fila     | Cada fila debe contener un único ID de usuario y un objeto JSON con hasta 250 atributos. Cada clave en el objeto JSON cuenta como un atributo (es decir, una matriz cuenta como un atributo). |
 | Tamaño de la carga útil           | Cada fila puede contener una carga útil de hasta 1 MB. Braze rechaza las cargas útiles superiores a 1&nbsp;MB y registra el error "Payload was greater than 1MB" en el registro de sincronización junto con el ID externo asociado y la carga útil truncada. |
 | Tipo de datos              | Puedes sincronizar atributos de usuario, eventos y compras a través de la ingesta de datos en la nube.                                                                                                  |

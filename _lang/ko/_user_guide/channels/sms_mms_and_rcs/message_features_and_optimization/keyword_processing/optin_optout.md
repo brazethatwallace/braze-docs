@@ -1,8 +1,8 @@
 ---
 nav_title: 옵트인 및 옵트아웃 키워드
-article_title: SMS 옵트인 및 옵트아웃 키워드
+article_title: 단문 메시지 서비스 옵트인 및 옵트아웃 키워드
 page_order: 0
-description: "이 참조 문서에서는 Braze가 SMS 메시징에 대한 기본 옵트인 및 옵트아웃 키워드를 처리하는 방법을 다룹니다."
+description: "이 참조 문서에서는 Braze가 단문 메시지 서비스 메시징에 대한 기본 옵트인 및 옵트아웃 키워드를 처리하는 방법을 다룹니다."
 page_type: reference
 alias: /optin_optout/
 tool:
@@ -26,7 +26,7 @@ Braze는 다음 키워드를 자동으로 처리하고 모든 수신 요청에 �
 
 | 유형 | 키워드 | 변경 사항 |
 |-|-------|---|
-| 옵트인 | `START`<br> `YES`<br> `UNSTOP` | 이러한 `Opt-In` 키워드 중 하나가 포함된 수신 요청은 구독 그룹 상태가 `subscribed`로 변경됩니다. 또한 해당 구독 그룹에 연결된 발신자 풀이 해당 고객에게 SMS, MMS 또는 RCS 메시지를 보낼 수 있게 됩니다(발신자가 지원하는 메시징 유형에 따라 다름). <br><br>사용자는 정의된 옵트인 자동 응답을 수신합니다.  |
+| 옵트인 | `START`<br> `YES`<br> `UNSTOP` | 이러한 `Opt-In` 키워드 중 하나가 포함된 수신 요청은 구독 그룹 상태가 `subscribed`로 변경됩니다. 또한 해당 구독 그룹에 연결된 발신자 풀이 해당 고객에게 단문 메시지 서비스, MMS 또는 RCS 메시지를 보낼 수 있게 됩니다(발신자가 지원하는 메시징 유형에 따라 다름). <br><br>사용자는 정의된 옵트인 자동 응답을 수신합니다.  |
 | 옵트아웃 | `STOP`<br> `STOPALL`<br> `UNSUBSCRIBE`<br> `CANCEL`<br> `END`<br> `QUIT` | 이러한 `Opt-Out` 키워드 중 하나가 포함된 수신 요청은 구독 그룹 상태가 `unsubscribed`로 변경됩니다. 또한 해당 구독 그룹에 연결된 번호 풀이 더 이상 해당 고객에게 메시지를 보낼 수 없게 됩니다.<br><br>사용자는 정의된 옵트아웃 자동 응답을 수신합니다. |
 | 도움말 | `HELP`<br> `INFO` | 사용자는 정의된 도움말 자동 응답을 수신합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="기본 키워드" }

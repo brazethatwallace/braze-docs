@@ -66,7 +66,7 @@ search_tag: Partner
 
 1. Braze에서 새 Campaign을 생성하거나 기존 Campaign을 편집합니다.
 2. 연결된 콘텐츠 블록을 사용하여 Contentful에서 가져온 데이터를 삽입합니다. 구성 중에 정의한 데이터 경로를 사용하여 Campaign 콘텐츠를 동적으로 채웁니다.<br><br>
-- **응답 경로:** Braze Campaign 또는 Canvas에 콘텐츠 블록을 포함한 후, 메시지에 `{response}` 변수를 삽입하면 응답을 사용할 수 있습니다.<br><br>JSON 점 표기법을 사용하면 Contentful의 응답 본문에서 메시지에 포함할 부분을 지정할 수 있습니다. 이는 사용 사례에 따라 달라집니다. 예를 들어, Contentful의 Entry 엔드포인트에서 title 값({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %})을 사용하면 다음과 같은 응답을 받을 수 있습니다:
+- **응답 경로:** Braze Campaign 또는 Canvas에 콘텐츠 블록을 포함한 후, 메시지에 `{response}` 변수를 삽입하면 응답을 사용할 수 있습니다.<br><br>JSON 점 표기법을 사용하면 Contentful의 응답 본문에서 메시지에 포함할 부분을 지정할 수 있습니다. 이는 사용 사례에 따라 달라집니다. 예를 들어, Contentful의 항목 엔드포인트에서 title 값({% raw %}`liquid{{response.items[0].fields.title}}`{% endraw %})을 사용하면 다음과 같은 응답을 받을 수 있습니다:
 
 {% raw %}
 ```json

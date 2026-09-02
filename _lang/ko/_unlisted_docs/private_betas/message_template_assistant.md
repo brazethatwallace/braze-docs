@@ -13,7 +13,7 @@ page_type: reference
 {% alert important %}
 Operator를 사용한 HTML 이메일 템플릿 생성은 얼리 액세스 단계입니다. 이 얼리 액세스에 참여하려면 Braze 계정 매니저에게 문의하세요.
 
-이 기능은 HTML 편집기의 이메일 채널에서만 지원되며, 드래그 앤 드롭이나 AMP 등 다른 편집기에서는 지원되지 않습니다.
+이 기능은 HTML 편집기의 이메일 채널에서만 지원되며, 드래그 앤 드롭이나 가속 모바일 페이지 등 다른 편집기에서는 지원되지 않습니다.
 {% endalert %}
 
 {% multi_lang_include brazeai/generative_ai/unification_note.md %}

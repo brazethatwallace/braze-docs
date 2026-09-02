@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Algolia
 
-> [Algolia](https://www.algolia.com/) ist eine Such- und Discovery-Plattform, die Entwickler:innen dabei unterstützt, schnelle, relevante und skalierbare Sucherlebnisse zu erstellen. Mit einem leistungsstarken API-First-Ansatz kombiniert Algolia fortschrittliche Ranking-Algorithmen mit KI-gestützten Insights für nahtlose Website-Suche, Navigation und personalisierte Inhaltsentdeckung.
+> [Algolia](https://www.algolia.com/) ist eine Such- und Discovery-Plattform, die Entwickler:innen dabei unterstützt, schnelle, relevante und skalierbare Sucherlebnisse zu erstellen. Mit einem leistungsstarken API-First-Ansatz kombiniert Algolia fortschrittliche Ranking-Algorithmen mit KI or künstliche Intelligenz-gestützten Insights für nahtlose Website-Suche, Navigation und personalisierte Inhaltsentdeckung.
 
 Die Integration von Algolia und Braze nutzt [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), um Algolia-gestützte Suchergebnisse und Produktempfehlungen in Ihren Braze-Nachrichten bereitzustellen. Durch die Abfrage der Algolia-API zum Sendezeitpunkt können Sie personalisierte Inhalte liefern, die Nutzer:innen zu Produktdetail- oder Landing-Pages mit hoher Conversion führen.
 

@@ -23,7 +23,7 @@ Braze Learning también ofrece varios cursos dedicados a Canvas que cubren esque
 
 ## Incorporación {#onboarding}
 
-Supongamos que tu restaurante quiere ayudar a incorporar usuarios para que hagan su primera reserva. Como este Canvas es solo para incorporación, un momento ideal para lanzar el Canvas sería al inicio de sesión para todos los clientes nuevos. Para una forma rápida y efectiva de llegar a tu audiencia gastronómica, puedes usar el canal de mensajería SMS.
+Supongamos que tu restaurante quiere ayudar a incorporar usuarios para que hagan su primera reserva. Como este Canvas es solo para incorporación, un momento ideal para lanzar el Canvas sería al inicio de sesión para todos los clientes nuevos. Para una forma rápida y efectiva de llegar a tu audiencia gastronómica, puedes usar el canal de mensajería servicio de mensajes cortos.
 
 ![Captura de pantalla relacionada con la incorporación.]({% image_buster /assets/img_archive/canvas_outline_onboarding.png %}){: style="max-width:90%;"}
 

@@ -5,12 +5,12 @@ page_order: 7
 layout: dev_guide
 
 #Required
-description: "Auf dieser Landing-Page werden die Braze-Endpunkte für Abo-Gruppen für E-Mail und SMS erklärt und aufgelistet."
+description: "Auf dieser Landing-Page werden die Braze-Endpunkte für Abo-Gruppen für E-Mail und Kurzmitteilungsdienst or SMS erklärt und aufgelistet."
 page_type: landing
 search_tag: Endpoint
 
 guide_top_header: "Endpunkte für Abo-Gruppen"
-guide_top_text: "Verwenden Sie die REST APIs für Abo-Gruppen, um die in Ihrem Braze-Workspace gespeicherten Abo-Gruppen programmatisch zu verwalten. Dies gilt für E-Mail- und SMS-Abo-Gruppen.<br><br> Eine Anleitung zur Erstellung und Verwaltung von Gruppen im Dashboard finden Sie unter <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Abo-Gruppen</a>."
+guide_top_text: "Verwenden Sie die Representational State Transfer APIs für Abo-Gruppen, um die in Ihrem Braze-Workspace gespeicherten Abo-Gruppen programmatisch zu verwalten. Dies gilt für E-Mail- und Kurzmitteilungsdienst or SMS-Abo-Gruppen.<br><br> Eine Anleitung zur Erstellung und Verwaltung von Gruppen im Dashboard finden Sie unter <a href='/docs/user_guide/audience/subscription_preferences/subscription_groups'>Abo-Gruppen</a>."
 
 guide_featured_title: ""
 guide_featured_list:

@@ -16,19 +16,19 @@ _Diese Integration wird von Certona gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Die Integration von Braze und Certona nutzt die auf maschinellem Lernen basierenden Produktempfehlungen von Certona in Braze-Campaigns und Canvases über Connected-Content.
+Die Integration von Braze und Certona nutzt die auf maschinellem Lernen basierenden Produktempfehlungen von Certona in Braze-Campaigns und Canvase über Connected-Content.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | --- | --- |
 | [Certona-Konto](https://manage.certona.com/) | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Certona-Konto. |
-| [Certona-REST-API-Endpunkt](https://manage.certona.com/) | Dieser Endpunkt wird direkt in der Nachricht Ihrer Braze-Campaign verwendet, um empfohlene Inhalte auf der Grundlage der Nutzer-ID abzurufen. |
+| [Certona-Representational State Transfer-API-Endpunkt](https://manage.certona.com/) | Dieser Endpunkt wird direkt in der Nachricht Ihrer Braze-Campaign verwendet, um empfohlene Inhalte auf der Grundlage der Nutzer-ID abzurufen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-Nutzen Sie die REST API von Certona, um personalisierte Inhalte in Ihre Nachrichten einzufügen. Dazu fügen Sie die folgende Connected-Content-Vorlage in Ihren Braze-Nachrichten-Editor zusammen mit Ihrem Certona-REST-API-Endpunkt ein.
+Nutzen Sie die Representational State Transfer API von Certona, um personalisierte Inhalte in Ihre Nachrichten einzufügen. Dazu fügen Sie die folgende Connected-Content-Vorlage in Ihren Braze-Nachrichten-Editor zusammen mit Ihrem Certona-Representational State Transfer-API-Endpunkt ein.
 
 {% raw %}
 ```liquid

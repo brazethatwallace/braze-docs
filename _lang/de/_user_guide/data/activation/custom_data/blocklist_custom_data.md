@@ -19,7 +19,7 @@ Um zu verhindern, dass diese Daten an Braze gesendet werden, können Sie ein ang
 ### Blocklisting oder Löschen wählen {#choosing-blocklisting-or-deletion}
 
 - **Blocklisting** behält bestehende angepasste Attribute, Events oder Käufe in den Nutzerprofilen bei, aber Braze verarbeitet keine neuen Daten mehr für diese Objekte.
-- **Löschen** entfernt diese Daten aus den Nutzerprofilen. Gelöschte angepasste Attribute und Events werden für sieben Tage in den Status **Trashed** verschoben, in dem Sie sie wiederherstellen können. Nach sieben Tagen löscht Braze sie endgültig. Das Löschen stoppt nicht den Eingang neuer Daten – stellen Sie daher sicher, dass Ihr SDK, Ihre API oder Ihre CSV-Importe diese Daten nicht mehr senden, bevor Sie löschen.
+- **Löschen** entfernt diese Daten aus den Nutzerprofilen. Gelöschte angepasste Attribute und Events werden für sieben Tage in den Status **Trashed** verschoben, in dem Sie sie wiederherstellen können. Nach sieben Tagen löscht Braze sie endgültig. Das Löschen stoppt nicht den Eingang neuer Daten – stellen Sie daher sicher, dass Ihr SDK or Software-Development-Kit, Ihre API oder Ihre CSV-Importe diese Daten nicht mehr senden, bevor Sie löschen.
 
 Blocklisting überträgt die Blocklist-Informationen an das Gerät jeder Nutzerin und jedes Nutzers und kann datenintensiv sein. Das Blocklisting einer sehr großen Anzahl von Attributen, Events oder Käufen (z. B. mehr als 100) kann die App-Performance beeinträchtigen. Wenn Sie nicht vorhaben, diese Daten weiterhin an Braze zu senden, ist das Löschen oft der bessere Ansatz, nachdem Sie die Integration gestoppt haben.
 
@@ -32,9 +32,9 @@ Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Nutzerberec
 - Campaigns anzeigen
 - Campaigns bearbeiten
 - Campaigns archivieren
-- Canvases anzeigen
-- Canvases bearbeiten
-- Canvases archivieren
+- Canvase anzeigen
+- Canvase bearbeiten
+- Canvase archivieren
 - Frequency-Capping-Regeln anzeigen
 - Frequency-Capping-Regeln bearbeiten
 - Nachrichtenpriorisierung anzeigen
@@ -71,23 +71,23 @@ Um angepasste Daten auf die Blocklist zu setzen, benötigen Sie die [Nutzerberec
 
 {% enddetails %}
 
-Daten auf der Blocklist werden nicht vom SDK gesendet, und das Braze-Dashboard verarbeitet keine Daten auf der Blocklist aus anderen Quellen (z. B. der API). Das Blocklisting entfernt jedoch keine Daten aus Nutzerprofilen und reduziert rückwirkend nicht die Anzahl der Datenpunkte, die für dieses angepasste Datenobjekt angefallen sind. Daten auf der Blocklist sind ausgeblendet und können weiterhin für Liquid-Templating verwendet werden.
+Daten auf der Blocklist werden nicht vom SDK or Software-Development-Kit gesendet, und das Braze-Dashboard verarbeitet keine Daten auf der Blocklist aus anderen Quellen (z. B. der API). Das Blocklisting entfernt jedoch keine Daten aus Nutzerprofilen und reduziert rückwirkend nicht die Anzahl der Datenpunkte, die für dieses angepasste Datenobjekt angefallen sind. Daten auf der Blocklist sind ausgeblendet und können weiterhin für Liquid-Templating verwendet werden.
 
 ### Angepasste Attribute, angepasste Events und Produkte auf die Blocklist setzen {#blocklisting-custom-attributes-custom-events-and-products}
 
 {% alert important %}
-Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segmente, Campaigns oder Canvases, die dieses Event oder Attribut verwenden, archiviert.
+Wenn ein Event oder Attribut auf die Blocklist gesetzt wird, werden alle Segmente, Campaigns oder Canvase, die dieses Event oder Attribut verwenden, archiviert.
 {% endalert %}
 
 Um das Tracking eines bestimmten angepassten Attributs, Events oder Produkts zu stoppen, führen Sie die folgenden Schritte aus:
 
-1. Suchen Sie danach auf den Seiten **Custom Attributes**, **Custom Events** oder **Products**.
+1. Suchen Sie danach auf den Seiten **angepasste Attribute**, **Custom Events** oder **Products**.
 2. Wählen Sie das angepasste Attribut, Event oder Produkt aus. Bei angepassten Attributen und Events können Sie bis zu 100 gleichzeitig für das Blocklisting auswählen.
 3. Wählen Sie **Blocklist**.
 
-![Mehrere ausgewählte angepasste Attribute, die auf der Seite „Custom Attributes“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
+![Mehrere ausgewählte angepasste Attribute, die auf der Seite „angepasste Attribute“ auf die Blocklist gesetzt werden.]({% image_buster /assets/img_archive/blocklist_custom_attr.png %})
 
-Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK-Leitfaden]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
+Sie können bis zu 300 angepasste Attribute und 300 angepasste Events auf die Blocklist setzen. Um das Erfassen bestimmter Geräteattribute zu verhindern, lesen Sie unseren [SDK or Software-Development-Kit-Leitfaden]({{site.baseurl}}/developer_guide/getting_started/sdk_overview#blocking-data-collection).
 
 {% alert important %}
 Angepasste Attribute oder angepasste Events mit dem Status **Trashed** zählen zum Blocklisting-Limit, bis sie endgültig gelöscht werden.
@@ -98,7 +98,7 @@ Wenn ein angepasstes Event oder Attribut auf die Blocklist gesetzt wird, gilt Fo
 - An Braze gesendete Daten werden nicht verarbeitet, und Events und Attribute auf der Blocklist zählen nicht mehr als Datenpunkte
 - Vorhandene Daten sind nicht verfügbar, es sei denn, sie werden reaktiviert
 - Events und Attribute auf der Blocklist werden nicht in Filtern oder Diagrammen angezeigt
-- Verweise auf Daten der Blocklist in Entwürfen aktiver Canvases werden als ungültige Werte geladen, was zu Fehlern führen kann
+- Verweise auf Daten der Blocklist in Entwürfen aktiver Canvase werden als ungültige Werte geladen, was zu Fehlern führen kann
 - Alles, was das auf der Blocklist stehende Event oder Attribut verwendet, wird archiviert
 
 Um dies zu bewerkstelligen, sendet Braze die Blocklist-Informationen an jedes Gerät. Dies ist wichtig, wenn Sie eine sehr große Anzahl von Events und Attributen auf die Blocklist setzen möchten (Hunderttausende oder Millionen), da es sich um eine datenintensive Operation handelt.
@@ -107,7 +107,7 @@ Um dies zu bewerkstelligen, sendet Braze die Blocklist-Informationen an jedes Ge
 
 Das Blocklisting einer großen Anzahl von Events und Attributen ist möglich, aber nicht ratsam. Der Grund dafür ist, dass jedes Mal, wenn ein Event ausgeführt oder ein Attribut (potenziell) an Braze gesendet wird, dieses Event oder Attribut gegen die gesamte Blocklist geprüft werden muss.
 
-Bis zu 300 Einträge werden zur Blocklist-Prüfung an das SDK gesendet. Wenn Sie mehr als 300 Einträge auf die Blocklist setzen, werden diese Daten vom SDK gesendet. Wenn Sie das Event oder Attribut künftig nicht mehr benötigen, sollten Sie es bei Ihrem nächsten Release aus Ihrem App-Code entfernen. Änderungen an der Blocklist können einige Minuten benötigen, um propagiert zu werden. Sie können jedes auf der Blocklist stehende Event oder Attribut jederzeit wieder aktivieren.
+Bis zu 300 Einträge werden zur Blocklist-Prüfung an das SDK or Software-Development-Kit gesendet. Wenn Sie mehr als 300 Einträge auf die Blocklist setzen, werden diese Daten vom SDK or Software-Development-Kit gesendet. Wenn Sie das Event oder Attribut künftig nicht mehr benötigen, sollten Sie es bei Ihrem nächsten Release aus Ihrem App-Code entfernen. Änderungen an der Blocklist können einige Minuten benötigen, um propagiert zu werden. Sie können jedes auf der Blocklist stehende Event oder Attribut jederzeit wieder aktivieren.
 
 ## Angepasste Daten löschen {#deleting-custom-data}
 

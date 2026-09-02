@@ -34,7 +34,7 @@ Seu subdomínio de envio é o endereço a partir do qual seus e-mails são envia
 
 1. Na seção **Domains**, selecione **Add domain**.
 2. Adicione seu domínio de envio nos campos **Mail from** e **Sending domain** para o pool de IP.
-    - O endereço **Mail from** (envelope sender ou return path) é o que lida com bounces nos bastidores. Seus destinatários não veem isso em um e-mail. Por exemplo, você pode usar "bounce" como subdomínio, de modo que o e-mail personalizado de mail from seja "bounce.mail.example.com". Usar esse subdomínio é uma prática recomendada para alinhamento DMARC SPF.
+    - O endereço **Mail from** (envelope sender ou return jornada) é o que lida com bounces nos bastidores. Seus destinatários não veem isso em um e-mail. Por exemplo, você pode usar "bounce" como subdomínio, de modo que o e-mail personalizado de mail from seja "bounce.mail.example.com". Usar esse subdomínio é uma prática recomendada para alinhamento DMARC SPF.
     - O **Sending domain** é o domínio no endereço de remetente que os destinatários veem em sua caixa de entrada. Por exemplo, se o endereço de remetente for "hello@e.mail.example.com", então "e.mail.example.com" é o domínio de envio.
 {: start="3"}
 3. Selecione seu domínio verificado no menu suspenso.

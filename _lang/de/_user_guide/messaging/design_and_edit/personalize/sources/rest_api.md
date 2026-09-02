@@ -1,13 +1,13 @@
 ---
-nav_title: REST-API
-article_title: REST-API
+nav_title: Representational State Transfer-API
+article_title: Representational State Transfer-API
 page_order: 1
-description: "Erfahren Sie, wie Sie Connected-Content verwenden, um Daten aus REST APIs in Ihre Nachrichten zu übertragen und so eine Realtime-Personalisierung zu ermöglichen."
+description: "Erfahren Sie, wie Sie Connected-Content verwenden, um Daten aus Representational State Transfer APIs in Ihre Nachrichten zu übertragen und so eine Realtime-Personalisierung zu ermöglichen."
 ---
 
-# REST-API {#rest-api}
+# Representational State Transfer-API {#rest-api}
 
-> Rufen Sie Daten aus externen REST APIs zum Sendezeitpunkt direkt in Ihre Nachrichten ab – mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). So können Sie Nachrichten mit Realtime-Informationen von Ihren eigenen Servern, Drittanbieter-Diensten oder jedem öffentlich zugänglichen API-Endpunkt personalisieren.
+> Rufen Sie Daten aus externen Representational State Transfer APIs zum Sendezeitpunkt direkt in Ihre Nachrichten ab – mit [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). So können Sie Nachrichten mit Realtime-Informationen von Ihren eigenen Servern, Drittanbieter-Diensten oder jedem öffentlich zugänglichen API-Endpunkt personalisieren.
 
 ## So funktioniert es {#how-it-works}
 
@@ -35,7 +35,7 @@ Connected-Content unterstützt GET- und POST-Anfragen. Braze erwartet, dass der 
 
 ## Authentifizierung {#authentication}
 
-Braze unterstützt Basic-Authentifizierung, Token-Authentifizierung und OAuth für Connected-Content-Anfragen. Sie können Zugangsdaten sicher im Braze-Dashboard unter **Einstellungen** > **Connected Content** speichern und in Ihren API-Aufrufen referenzieren.
+Braze unterstützt Basic-Authentifizierung, Token / Textbaustein-Authentifizierung und OAuth für Connected-Content-Anfragen. Sie können Zugangsdaten sicher im Braze-Dashboard unter **Einstellungen** > **Connected Content** speichern und in Ihren API-Aufrufen referenzieren.
 
 Weitere Informationen finden Sie unter [Einen Connected-Content-API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#authentication-types).
 

@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie Sie Aktionen überprüfen und genehmigen können
 
 ## Funktionsweise von Aktionskarten {#how-action-cards-work}
 
-Wenn Operator Änderungen im Dashboard vorschlägt (z. B. das Ausfüllen von Formularfeldern, das Aktualisieren von Einstellungen oder das Generieren von Bildern), wird jede Änderung als Aktionskarte zur Überprüfung angezeigt.
+Wenn Operator Änderungen im Dashboard vorschlägt (z. B. das Ausfüllen von Formularfeldern, das Update or aktualisieren or aktualisieren von Einstellungen oder das Generieren von Bildern), wird jede Änderung als Aktionskarte zur Überprüfung angezeigt.
 
 1. **Operator fasst den Plan zusammen:** Operator erklärt, was es vorhat, bevor Aktionskarten angezeigt werden.
 2. **Einzelne Aktionskarten erscheinen:** Jede vorgeschlagene Änderung wird als separate Karte dargestellt, die zeigt, was Operator im Dashboard ändern oder tun möchte. Bei Änderungen an bestehenden Werten werden sowohl der vorherige als auch der vorgeschlagene Wert nebeneinander zum Vergleich angezeigt.
@@ -43,6 +43,6 @@ Der Umschalter **Aktionen automatisch genehmigen** befindet sich im Operator-Cha
 
 ![Der Umschalter für die automatische Genehmigung und das Bestätigungsmodal im Operator-Chat-Panel.]({% image_buster /assets/img/operator/auto-approval_toggle.png %}){: style="max-width:50%;"}
 
-Die automatische Genehmigung wird zurückgesetzt, wenn Sie die Seite aktualisieren, einen neuen Tab öffnen oder sich ab- und wieder anmelden. Das Wechseln zwischen Seiten im Dashboard setzt sie nicht zurück. Die automatische Genehmigung kann jederzeit deaktiviert werden.
+Die automatische Genehmigung wird zurückgesetzt, wenn Sie die Seite Update or aktualisieren or aktualisieren, einen neuen Tab öffnen oder sich ab- und wieder anmelden. Das Wechseln zwischen Seiten im Dashboard setzt sie nicht zurück. Die automatische Genehmigung kann jederzeit deaktiviert werden.
 
 Informationen zur Einschränkung des Operator-Zugriffs und zur Überprüfung der Team-Nutzung finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).

@@ -1,4 +1,4 @@
-## Integrando o SDK para Android {#integrating-the-android-sdk}
+## Integrando o SDK or kit de desenvolvimento de software para Android {#integrating-the-android-sdk}
 
 ### Etapa 1: Atualize a configuração do seu Gradle build {#step-1-update-your-gradle-build-configuration}
 
@@ -10,7 +10,7 @@ repositories {
 }
 ```
 
-Em seguida, adicione a Braze às suas dependências. Nos exemplos a seguir, substitua `SDK_VERSION` pela versão atual do seu SDK da Braze para Android. Para a lista completa de versões, consulte os [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
+Em seguida, adicione a Braze às suas dependências. Nos exemplos a seguir, substitua `SDK_VERSION` pela versão atual do seu SDK or kit de desenvolvimento de software da Braze para Android. Para a lista completa de versões, consulte os [Changelogs]({{site.baseurl}}/developer_guide/changelogs/?sdktab=android).
 
 {% alert note %}
 - Para Kotlin DSL (`build.gradle.kts`), use a sintaxe `implementation("...")`.
@@ -111,7 +111,7 @@ dependencies {
 ### Etapa 2: Configure seu `braze.xml` {#step-2-configure-your-brazexml}
 
 {% alert note %}
-A partir de dezembro de 2019, endpoints personalizados não são mais fornecidos. Se você já possui um endpoint personalizado pré-existente, pode continuar usando-o. Para saber mais, consulte nossa <a href="{{site.baseurl}}/api/basics/#endpoints">lista de endpoints disponíveis</a>.
+A partir de dezembro de 2019, endpoints personalizados não são mais fornecidos. Se você já possui um endpoint personalizado pré-existente, pode continuar usando-o. Para saber mais, consulte nossa <a href="{{site.baseurl}}/API or interface de programação do aplicativo (API)/basics/#endpoints">lista de endpoints disponíveis</a>.
 {% endalert %}
 
 Crie um arquivo `braze.xml` na pasta `res/values` do seu projeto. Se você está em um cluster de dados específico ou possui um endpoint personalizado pré-existente, também precisa especificar o endpoint no seu arquivo `braze.xml`.
@@ -141,12 +141,12 @@ Com o lançamento do Android M, o Android mudou de um modelo de permissões em t
 
 ### Etapa 4: Ative a inicialização atrasada (opcional) {#step-4-enable-delayed-initialization-optional}
 
-Para usar a inicialização atrasada, a versão mínima do SDK da Braze é necessária:
+Para usar a inicialização atrasada, a versão mínima do SDK or kit de desenvolvimento de software da Braze é necessária:
 
 {% sdk_min_versions android:38.0.0 %}
 
 {% alert note %}
-Enquanto a inicialização atrasada estiver ativada, todas as conexões de rede serão canceladas, impedindo que o SDK envie dados para os servidores da Braze.
+Enquanto a inicialização atrasada estiver ativada, todas as conexões de rede serão canceladas, impedindo que o SDK or kit de desenvolvimento de software envie dados para os servidores da Braze.
 {% endalert %}
 
 #### Etapa 4.1: Atualize seu `braze.xml` {#step-41-update-your-brazexml}
@@ -262,9 +262,9 @@ Braze.enableDelayedInitialization(context, DelayedInitializationAnalyticsBehavio
 {% endtab %}
 {% endtabs %}
 
-#### Etapa 4.3: Inicialize o SDK manualmente {#step-43-manually-initialize-the-sdk}
+#### Etapa 4.3: Inicialize o SDK or kit de desenvolvimento de software manualmente {#step-43-manually-initialize-the-sdk}
 
-Após o período de atraso escolhido, use o método [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) para inicializar o SDK manualmente.
+Após o período de atraso escolhido, use o método [`Braze.disableDelayedInitialization()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/disable-delayed-initialization.html) para inicializar o SDK or kit de desenvolvimento de software manualmente.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -322,7 +322,7 @@ Para a lista de parâmetros disponíveis, consulte [`BrazeActivityLifecycleCallb
 ## Testando o rastreamento de sessões {#testing-session-tracking}
 
 {% alert tip %}
-Você também pode usar o [depurador do SDK]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas do SDK.
+Você também pode usar o [depurador do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/debugging) para diagnosticar problemas do SDK or kit de desenvolvimento de software.
 {% endalert %}
 
 Se você tiver problemas durante os testes, ative o [registro detalhado](#android_enabling-logs) e use o logcat para detectar chamadas `openSession` e `closeSession` ausentes nas suas atividades.
@@ -380,7 +380,7 @@ Procurando outro exemplo? Confira nosso [app de exemplo Hello Braze](https://git
 
 O [Google Advertising ID (GAID)](https://support.google.com/googleplay/android-developer/answer/6048248/advertising-id?hl=en) é um ID opcional, anônimo, único e redefinível, específico do usuário, fornecido pelo Google Play Services para fins de publicidade. O GAID permite que os usuários redefinam seu identificador, desativem anúncios baseados em interesses em apps do Google Play, e oferece aos desenvolvedores um sistema simples e padronizado para continuar a monetizar seus apps.
 
-O Google Advertising ID não é coletado automaticamente pelo SDK da Braze e deve ser definido manualmente por meio do método [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
+O Google Advertising ID não é coletado automaticamente pelo SDK or kit de desenvolvimento de software da Braze e deve ser definido manualmente por meio do método [`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html).
 
 {% tabs local %}
 {% tab JAVA %}
@@ -438,16 +438,16 @@ Para ativar a coleta de localização da Braze, defina `com_braze_enable_locatio
 ```
 
 {% alert important %}
-A partir da versão 3.6.0 do SDK Android da Braze, a coleta de localização está desativada por padrão.
+A partir da versão 3.6.0 do SDK or kit de desenvolvimento de software Android da Braze, a coleta de localização está desativada por padrão.
 {% endalert %}
 
 ### Registro de logs {#logging}
 
-Por padrão, o nível de log do SDK Android da Braze é definido como `INFO`. Você pode [suprimir esses logs](#android_suppressing-logs) ou [definir um nível de log diferente](#android_enabling-logs), como `VERBOSE`, `DEBUG` ou `WARN`.
+Por padrão, o nível de log do SDK or kit de desenvolvimento de software Android da Braze é definido como `INFO`. Você pode [suprimir esses logs](#android_suppressing-logs) ou [definir um nível de log diferente](#android_enabling-logs), como `VERBOSE`, `DEBUG` ou `WARN`.
 
 #### Ativando logs {#enabling-logs}
 
-Para ajudar a solucionar problemas no seu app ou reduzir o tempo de resposta com o suporte da Braze, você pode ativar logs detalhados para o SDK. Ao enviar logs detalhados para o suporte da Braze, certifique-se de que eles comecem assim que você iniciar seu app e terminem bem depois de o problema ocorrer. Para uma visão geral centralizada, consulte [Registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender como interpretar a saída de logs, consulte [Leitura de logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
+Para ajudar a solucionar problemas no seu app ou reduzir o tempo de resposta com o suporte da Braze, você pode ativar logs detalhados para o SDK or kit de desenvolvimento de software. Ao enviar logs detalhados para o suporte da Braze, certifique-se de que eles comecem assim que você iniciar seu app e terminem bem depois de o problema ocorrer. Para uma visão geral centralizada, consulte [Registro detalhado]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Para aprender como interpretar a saída de logs, consulte [Leitura de logs detalhados]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
 Lembre-se de que logs detalhados são destinados apenas ao seu ambiente de desenvolvimento, então você deve desativá-los antes de publicar seu app.
 
@@ -539,7 +539,7 @@ Para verificar se seus logs estão definidos como `VERBOSE`, confira se `V/Braze
 
 #### Suprimindo logs {#suppressing-logs}
 
-Para suprimir todos os logs do SDK Android da Braze, defina o nível de log como `BrazeLogger.SUPPRESS` no método `onCreate()` da sua aplicação, _antes_ de qualquer outro método.
+Para suprimir todos os logs do SDK or kit de desenvolvimento de software Android da Braze, defina o nível de log como `BrazeLogger.SUPPRESS` no método `onCreate()` da sua aplicação, _antes_ de qualquer outro método.
 
 {% tabs local %}
 {% tab JAVA %}
@@ -555,13 +555,13 @@ BrazeLogger.setLogLevel(BrazeLogger.SUPPRESS)
 {% endtab %}
 {% endtabs %}
 
-### Múltiplas chaves de API {#multiple-api-keys}
+### Múltiplas chaves de API or interface de programação do aplicativo (API) {#multiple-api-keys}
 
-O caso de uso mais comum para múltiplas chaves de API é separar chaves de API para variantes de build de depuração e de release.
+O caso de uso mais comum para múltiplas chaves de API or interface de programação do aplicativo (API) é separar chaves de API or interface de programação do aplicativo (API) para variantes de build de depuração e de release.
 
-Para alternar facilmente entre múltiplas chaves de API em seus builds, recomendamos criar um arquivo `braze.xml` separado para cada [variante de build](https://developer.android.com/studio/build/build-variants.html) relevante. Uma variante de build é uma combinação de tipo de build e flavor de produto. Por padrão, novos projetos Android são configurados com [tipos de build `debug` e `release`](https://developer.android.com/reference/tools/gradle-api/8.3/null/com/android/build/api/dsl/BuildType) e sem flavors de produto.
+Para alternar facilmente entre múltiplas chaves de API or interface de programação do aplicativo (API) em seus builds, recomendamos criar um arquivo `braze.xml` separado para cada [variante de build](https://developer.android.com/studio/build/build-variants.html) relevante. Uma variante de build é uma combinação de tipo de build e flavor de produto. Por padrão, novos projetos Android são configurados com [tipos de build `debug` e `release`](https://developer.android.com/reference/tools/gradle-api/8.3/null/com/android/build/api/dsl/BuildType) e sem flavors de produto.
 
-Para cada variante de build relevante, crie um novo `braze.xml` no diretório `src/<build variant name>/res/values/`. Quando a variante de build for compilada, ela utilizará a nova chave de API.
+Para cada variante de build relevante, crie um novo `braze.xml` no diretório `src/<build variant name>/res/values/`. Quando a variante de build for compilada, ela utilizará a nova chave de API or interface de programação do aplicativo (API).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -571,12 +571,12 @@ Para cada variante de build relevante, crie um novo `braze.xml` no diretório `s
 ```
 
 {% alert tip %}
-Para saber como configurar a chave de API no seu código, consulte [Configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration).
+Para saber como configurar a chave de API or interface de programação do aplicativo (API) no seu código, consulte [Configuração em tempo de execução]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration).
 {% endalert %}
 
 ### TalkBack exclusivo para mensagens no app {#exclusive-in-app-message-talkback}
 
-Em conformidade com as [diretrizes de acessibilidade do Android](https://developer.android.com/guide/topics/ui/accessibility), o SDK Android da Braze oferece o Android TalkBack por padrão. Para garantir que apenas o conteúdo das mensagens no app seja lido em voz alta — sem incluir outros elementos da tela, como a barra de título do app ou a navegação — você pode ativar o modo exclusivo para o TalkBack.
+Em conformidade com as [diretrizes de acessibilidade do Android](https://developer.android.com/guide/topics/ui/accessibility), o SDK or kit de desenvolvimento de software Android da Braze oferece o Android TalkBack por padrão. Para garantir que apenas o conteúdo das mensagens no app seja lido em voz alta — sem incluir outros elementos da tela, como a barra de título do app ou a navegação — você pode ativar o modo exclusivo para o TalkBack.
 
 Para ativar o modo exclusivo para mensagens no app:
 

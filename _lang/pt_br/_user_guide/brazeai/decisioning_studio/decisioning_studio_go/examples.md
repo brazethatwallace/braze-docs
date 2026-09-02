@@ -72,7 +72,7 @@ Em todos os níveis de adequação, o agente aprende melhor quando seu público 
 | Tópico | Detalhes |
 |---|---|
 | Como é | Uma sequência de múltiplos e-mails — por exemplo, um tutorial de integração — em que os usuários precisam receber o e-mail A, depois o e-mail B e depois o e-mail C, nessa ordem. |
-| Por que não se encaixa | O agente seleciona o que enviar para cada usuário com base no que tem mais probabilidade de gerar um clique para aquele usuário. Ele não modela requisitos de sequência. Se você precisa impor uma ordem específica, é necessário orquestrar o público por conta própria (movendo usuários de Segment para Segment após cada e-mail), o que reduz a maior parte do benefício de usar o agente. O agente também não consegue confirmar de forma independente que o e-mail A foi bem-sucedido antes de enviar o e-mail B. |
+| Por que não se encaixa | O agente seleciona o que enviar para cada usuário com base no que tem mais probabilidade de gerar um clique para aquele usuário. Ele não modela requisitos de sequência. Se você precisa impor uma ordem específica, é necessário orquestrar o público por conta própria (movendo usuários de Segment or segmento para Segment or segmento após cada e-mail), o que reduz a maior parte do benefício de usar o agente. O agente também não consegue confirmar de forma independente que o e-mail A foi bem-sucedido antes de enviar o e-mail B. |
 | O que fazer em vez disso | Use o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) para orquestrar a sequência de gotejamento. Se você deseja otimização com IA dentro de uma sequência, converse com seu gerente de sucesso do cliente ou consultor de soluções sobre se o [Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) é uma opção mais adequada. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sequências de gotejamento (drip)" }
 
@@ -105,4 +105,4 @@ Entre em contato com seu gerente de sucesso do cliente ou consultor de soluçõe
 - O público é grande o suficiente para gerar um sinal de engajamento consistente (dezenas de milhares de usuários é um bom ponto de partida).
 - Você tem pelo menos duas ou três opções significativas de variantes para oferecer (linhas de assunto, CTAs ou imagens que enquadram a mensagem de forma diferente).
 - Os cliques são um indicador relevante de valor de negócio para esse programa, não apenas uma métrica de vaidade.
-- O Segment não está sendo usado ativamente por outro Canvas ou Campaign que concorreria pelo engajamento dos mesmos usuários.
+- O Segment or segmento não está sendo usado ativamente por outro Canvas ou Campaign que concorreria pelo engajamento dos mesmos usuários.

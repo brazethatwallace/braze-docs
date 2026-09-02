@@ -9,7 +9,7 @@
 {% if include.alert == 'BCC address billable emails' %}
 
 {% alert important %}
-Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 하나, BCC 주소에 하나의 메시지를 보내기 때문에 해당 Campaign 또는 Canvas 구성요소의 청구 가능한 이메일이 두 배로 늘어납니다.
+Campaign 또는 Canvas에 BCC or 배너 콘텐츠 카드 주소를 추가하면 Braze가 사용자에게 하나, BCC or 배너 콘텐츠 카드 주소에 하나의 메시지를 보내기 때문에 해당 Campaign 또는 Canvas 구성요소의 청구 가능한 이메일이 두 배로 늘어납니다.
 {% endalert %}
 
 {% endif %}
@@ -25,11 +25,11 @@ Campaign 또는 Canvas에 BCC 주소를 추가하면 Braze가 사용자에게 �
 {% if include.alert == "Email via SMS" %}
 
 {% alert important %}
-법적으로 요구되는 트랜잭션 이메일은 전달되지 않을 가능성이 높으므로 SMS 게이트웨이로 보내지 마세요.
+법적으로 요구되는 트랜잭션 이메일은 전달되지 않을 가능성이 높으므로 단문 메시지 서비스 게이트웨이로 보내지 마세요.
 <br><br>
-전화번호와 제공업체의 게이트웨이 도메인(MM3라고 함)을 사용하여 보내는 이메일은 SMS(문자) 메시지로 수신될 수 있지만, 일부 이메일 제공업체는 이 동작을 지원하지 않습니다. 예를 들어, T-Mobile 전화번호(예: "9999999999@tmomail.net")로 이메일을 보내면 T-Mobile 네트워크에서 해당 전화번호를 소유한 사람에게 SMS 메시지가 전송됩니다.
+전화번호와 제공업체의 게이트웨이 도메인(MM3라고 함)을 사용하여 보내는 이메일은 단문 메시지 서비스(문자) 메시지로 수신될 수 있지만, 일부 이메일 제공업체는 이 동작을 지원하지 않습니다. 예를 들어, T-Mobile 전화번호(예: "9999999999@tmomail.net")로 이메일을 보내면 T-Mobile 네트워크에서 해당 전화번호를 소유한 사람에게 단문 메시지 서비스 메시지가 전송됩니다.
 <br><br>
-이러한 이메일이 SMS 게이트웨이로 전달되지 않더라도 이메일 요금 청구에 포함된다는 점에 유의하세요. 지원되지 않는 게이트웨이로 이메일을 보내지 않으려면 [지원되지 않는 게이트웨이 도메인 이름 목록](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)을 검토하세요.
+이러한 이메일이 단문 메시지 서비스 게이트웨이로 전달되지 않더라도 이메일 요금 청구에 포함된다는 점에 유의하세요. 지원되지 않는 게이트웨이로 이메일을 보내지 않으려면 [지원되지 않는 게이트웨이 도메인 이름 목록](https://www.fcc.gov/consumer-governmental-affairs/about-bureau/consumer-policy-division/can-spam/domain-name-downloads)을 검토하세요.
 {% endalert %}
 
 {% endif %}

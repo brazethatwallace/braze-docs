@@ -23,7 +23,7 @@ Use a integração de webhook entre a optilyz e a Braze para enviar mala direta 
 | Requisito | Descrição |
 |---|---|
 | Conta optilyz | Uma conta da optilyz é necessária para usar essa parceria. |
-| Chave de API da optilyz<br><br>`<OPTILYZ_API_KEY>`| Seu gerente de sucesso do cliente da optilyz fornecerá sua chave de API da optilyz.<br><br>Essa chave de API permitirá que você conecte suas contas da Braze e da optilyz. |
+| Chave de API or interface de programação do aplicativo (API) da optilyz<br><br>`<OPTILYZ_API_KEY>`| Seu gerente de sucesso do cliente da optilyz fornecerá sua chave de API or interface de programação do aplicativo (API) da optilyz.<br><br>Essa chave de API or interface de programação do aplicativo (API) permitirá que você conecte suas contas da Braze e da optilyz. |
 | ID de automação da optilyz<br><br>`<OPTILYZ_AUTOMATION_ID>` | O ID de automação pode ser encontrado em uma caixa no cabeçalho da página.<br><br>Depois de fazer login na optilyz, você poderá navegar até a automação para a qual deseja enviar dados.<br>A automação deve ser ativada primeiro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -36,7 +36,7 @@ Operar a mala direta como um canal digital significa afastar-se das correspondê
 
 ## Integração {#integration}
 
-Para integrar com a optilyz, use a [API da optilyz](https://www.optilyz.com/doc/api/) para enviar dados do destinatário para o webhook da Braze.
+Para integrar com a optilyz, use a [API or interface de programação do aplicativo (API) da optilyz](https://www.optilyz.com/doc/api/) para enviar dados do destinatário para o webhook da Braze.
 
 ### Etapa 1: crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 
@@ -50,7 +50,7 @@ Em seu novo modelo de webhook, preencha os seguintes campos:
 
 #### Cabeçalhos de solicitação e método {#request-headers-and-method}
 
-A optilyz também requer um cabeçalho HTTP para autorização e um método HTTP. Os dados a seguir já estarão incluídos no modelo como par de valor-chave, mas, na guia **Configurações**, substitua `<OPTILYZ_API_KEY>` pela sua chave de API da optilyz. Essa chave deve incluir um ":" logo após a chave e ser codificada em base 64.
+A optilyz também requer um cabeçalho HTTP para autorização e um método HTTP. Os dados a seguir já estarão incluídos no modelo como par de valor-chave, mas, na guia **Configurações**, substitua `<OPTILYZ_API_KEY>` pela sua chave de API or interface de programação do aplicativo (API) da optilyz. Essa chave deve incluir um ":" logo após a chave e ser codificada em base 64.
 
 - **Método HTTP**: POST
 - **Cabeçalhos de solicitação**:
@@ -61,7 +61,7 @@ A optilyz também requer um cabeçalho HTTP para autorização e um método HTTP
 
 #### Corpo da solicitação {#request-body}
 
-No corpo da solicitação a seguir, você pode usar qualquer tag de personalização Liquid e criar um modelo de solicitação personalizado de acordo com a [documentação da API](https://www.optilyz.com/doc/api/) da optilyz.
+No corpo da solicitação a seguir, você pode usar qualquer tag de personalização Liquid e criar um modelo de solicitação personalizado de acordo com a [documentação da API or interface de programação do aplicativo (API)](https://www.optilyz.com/doc/api/) da optilyz.
 
 O campo `variation` é opcional e pode definir qual design dentro da automação deve ser usado. Se uma variação for omitida, a optilyz atribuirá uma das variações definidas de forma aleatória.
 

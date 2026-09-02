@@ -1,6 +1,6 @@
 ## In-App-Nachrichten abonnieren
 
-Sie können Unity Spielobjekte registrieren, um über eingehende In-App-Nachrichten benachrichtigt zu werden. Wir empfehlen Ihnen, Spielobjekt-Listener über den Braze-Konfigurationseditor einzustellen. Im Konfigurationseditor müssen die Hörer für Android und iOS getrennt eingestellt werden.
+Sie können Unity Spielobjekte Registrierung or registrieren, um über eingehende In-App-Nachrichten benachrichtigt zu werden. Wir empfehlen Ihnen, Spielobjekt-Listener über den Braze-Konfigurationseditor einzustellen. Im Konfigurationseditor müssen die Hörer für Android und iOS getrennt eingestellt werden.
 
 Wenn Sie den Spielobjekt-Listener zur Laufzeit konfigurieren müssen, verwenden Sie `AppboyBinding.ConfigureListener()` und geben Sie `BrazeUnityMessageType.IN_APP_MESSAGE` an.
 

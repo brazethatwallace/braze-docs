@@ -14,7 +14,7 @@ channel:
 
 Si vous avez acheté l'aide de Braze pour enregistrer votre 10DLC, vous devrez nous envoyer toutes les informations requises listées ci-dessous à l'adresse e-mail indiquée dans la section suivante, comme convenu dans votre contrat avec nous.
 
-Veuillez inclure toutes les captures d'écran et pièces jointes pertinentes et envoyer le tout à [smsapplications@braze.com](mailto:smsapplications@braze.com). Si vous avez des questions sur le 10DLC, consultez le [guide SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) ou contactez votre CSM Braze.
+Veuillez inclure toutes les captures d'écran et pièces jointes pertinentes et envoyer le tout à [smsapplications@braze.com](mailto:smsapplications@braze.com). Si vous avez des questions sur le 10DLC, consultez le [guide SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) ou contactez votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients Braze.
 
 
 ## Informations sur l'entreprise (10DLC) {#company-information-10dlc}
@@ -56,7 +56,7 @@ Nous devrons enregistrer chaque groupe d'abonnement SMS contenant un code long a
 
 | Champ | Options (le cas échéant) | Description |
 | ------ | ------------------------ | --------------- |
-| Cas d'usage de la campagne (choisissez celui qui correspond le mieux) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Remarque : si vous prévoyez d'utiliser un cas d'usage « Mixed » pour un groupe d'abonnement, consultez au préalable votre CSM ou votre gestionnaire d'onboarding pour obtenir des détails importants. |
+| Cas d'usage de la campagne (choisissez celui qui correspond le mieux) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Remarque : si vous prévoyez d'utiliser un cas d'usage « Mixed » pour un groupe d'abonnement, consultez au préalable votre CSM or gestionnaire de la satisfaction client or gestionnaire du succès des clients ou votre gestionnaire d'onboarding pour obtenir des détails importants. |
 | Nom de la campagne | | {::nomarkdown}<p>Le nom de la campagne SMS doit être affiché de manière cohérente dans vos messages, vos conditions d'utilisation et partout où vos utilisateurs s'inscrivent à votre programme.</p><p>Exemples :</p><ul><li>Braze Marketing Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
 | Description de la campagne | | Cette campagne envoie des messages marketing et promotionnels aux utilisateurs qui s'abonnent pour recevoir des SMS, y compris des offres spéciales/coupons et des notifications de rappel de panier. |
 | Adresse e-mail du service client | | Où les utilisateurs finaux peuvent-ils envoyer un e-mail pour obtenir de l'aide et de l'assistance ? |

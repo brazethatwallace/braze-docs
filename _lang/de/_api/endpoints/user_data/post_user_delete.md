@@ -14,7 +14,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Nutze
 /users/delete
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um ein beliebiges Nutzerprofil zu löschen, indem Sie einen bekannten Bezeichner angeben.
+> Verwenden Sie diesen Endpunkt, um ein beliebiges Kundenprofil or Nutzerprofil zu löschen, indem Sie einen bekannten Bezeichner angeben.
 
 Bis zu 50 `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` oder `phone_numbers` können in einer einzigen Anfrage enthalten sein. In einer Anfrage kann nur eine der Optionen `external_ids`, `user_aliases`, `braze_ids`, `email_addresses` oder `phone_numbers` enthalten sein.
 
@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/delete' \
 
 Wenn Sie Nutzer:innen mit diesem Endpunkt entfernen, geschieht Folgendes:
 
-- Das Nutzerprofil wird gelöscht (auf null gesetzt).
+- Das Kundenprofil or Nutzerprofil wird gelöscht (auf null gesetzt).
 - Die Nutzeranzahl im Workspace (z. B. die Gesamtanzahl der Nutzer:innen auf der [Analytics-Startseite]({{site.baseurl}}/user_guide/analytics/dashboards/home)) wird aktualisiert, um die entfernten Nutzer:innen zu berücksichtigen.
 - Die entfernten Nutzer:innen werden weiterhin in den aggregierten Conversion-Prozentsatz einbezogen. Angepasste Event-Zähler und Kaufzähler werden für entfernte Nutzer:innen nicht aktualisiert.
 

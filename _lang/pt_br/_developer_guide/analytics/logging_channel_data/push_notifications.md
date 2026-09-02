@@ -1,18 +1,18 @@
 ---
 nav_title: Notificações por push
-article_title: Registre os dados de notificação por push pelo SDK da Braze
+article_title: Registre os dados de notificação por push pelo SDK or kit de desenvolvimento de software da Braze
 page_order: 7.2
-description: "Aprenda como registrar os dados de notificação por push pelo SDK da Braze."
+description: "Aprenda como registrar os dados de notificação por push pelo SDK or kit de desenvolvimento de software da Braze."
 noindex: true
 ---
 
 # Registre os dados de notificação por push {#log-push-notification-data}
 
-> Aprenda como registrar os dados de notificação por push pelo SDK da Braze.
+> Aprenda como registrar os dados de notificação por push pelo SDK or kit de desenvolvimento de software da Braze.
 
 {% sdktabs %}
 {% sdktab android %}
-## Registrando dados com a API da Braze (recomendado) {#logging-data-with-the-braze-api-recommended}
+## Registrando dados com a API or interface de programação do aplicativo (API) da Braze (recomendado) {#logging-data-with-the-braze-api-recommended}
 
 Você pode registrar análises em tempo real fazendo chamadas para o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Para registrar análises, envie o valor `braze_id` do dashboard da Braze para identificar qual perfil de usuário atualizar.
 

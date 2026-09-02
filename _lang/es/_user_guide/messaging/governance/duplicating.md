@@ -30,7 +30,7 @@ Para duplicar una Campaign:
 3. Selecciona **Duplicar**.
 {% endtab %}
 
-{% tab canvas %}
+{% tab Canvas %}
 Para duplicar un Canvas:
 
 1. Ve a **Mensajería** > **Canvas**.

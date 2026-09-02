@@ -1,26 +1,26 @@
 ---
-nav_title: SMS-, RCS- und WhatsApp-Registrierungsformular
-article_title: SMS-, RCS- und WhatsApp-Registrierungsformular
+nav_title: Kurzmitteilungsdienst or SMS-, RCS- und WhatsApp-Registrierungsformular
+article_title: Kurzmitteilungsdienst or SMS-, RCS- und WhatsApp-Registrierungsformular
 alias: "/phone_number_capture/"
 page_order: 2
-description: "Diese Seite beschreibt, wie Sie ein SMS-, RCS- und WhatsApp-Registrierungsformular mit dem Drag-and-Drop-Editor für In-App-Nachrichten erstellen."
+description: "Diese Seite beschreibt, wie Sie ein Kurzmitteilungsdienst or SMS-, RCS- und WhatsApp-Registrierungsformular mit dem Drag-and-Drop-Editor für In-App-Nachrichten erstellen."
 ---
 
-# SMS-, RCS- und WhatsApp-Registrierungsformular {#sms-rcs-and-whatsapp-sign-up-form}
+# Kurzmitteilungsdienst or SMS-, RCS- und WhatsApp-Registrierungsformular {#sms-rcs-and-whatsapp-sign-up-form}
 
-> Die SMS-, RCS- und WhatsApp-Registrierungsformulare sind Templates, die im Drag-and-Drop-Editor für In-App-Nachrichten verfügbar sind. Verwenden Sie diese Templates, um die Telefonnummern Ihrer Nutzer:innen zu erfassen und Ihre SMS-, MMS-, RCS- und WhatsApp-Abo-Gruppen zu vergrößern.
+> Die Kurzmitteilungsdienst or SMS-, RCS- und WhatsApp-Registrierungsformulare sind Templates, die im Drag-and-Drop-Editor für In-App-Nachrichten verfügbar sind. Verwenden Sie diese Templates, um die Telefonnummern Ihrer Nutzer:innen zu erfassen und Ihre Kurzmitteilungsdienst or SMS-, MMS-, RCS- und WhatsApp-Abo-Gruppen zu vergrößern.
 
 ![Drei Beispiele für In-App-Nachrichten, die mit dem Template für Telefonnummer-Registrierungsformulare erstellt wurden.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_example2.png %})
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or Software-Development-Kit requirements' %}
 
 ## Ein Telefonnummer-Registrierungsformular erstellen {#creating-a-phone-number-sign-up-form}
 
 ### Schritt 1: Template auswählen {#step-1-choose-your-template}
 
-Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **SMS sign-up** (dies deckt auch die RCS-Registrierung ab) oder **WhatsApp sign-up** als Template und dann **Build message**. Diese Templates werden sowohl für mobile Apps als auch für Webbrowser unterstützt.
+Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **Kurzmitteilungsdienst or SMS Registrierung or registrieren** (dies deckt auch die RCS-Registrierung ab) oder **WhatsApp Registrierung or registrieren** als Template und dann **Build message**. Diese Templates werden sowohl für mobile Apps als auch für Webbrowser unterstützt.
 
-![Modal zur Auswahl von „SMS sign-up“ oder „WhatsApp sign-up“ als Template beim Erstellen einer In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
+![Modal zur Auswahl von „Kurzmitteilungsdienst or SMS Registrierung or registrieren“ oder „WhatsApp Registrierung or registrieren“ als Template beim Erstellen einer In-App-Nachricht.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_template.png %}){: style="max-width:80%"}
 
 ### Schritt 2: Nachrichtenstile einrichten {#step-2-set-up-your-message-styles}
 
@@ -46,14 +46,14 @@ Standardmäßig werden Nummern weltweit erfasst. Sie können jedoch die Anzahl d
 
 Wenn Ihre Nutzer:innen eine Telefonnummer eingeben, die nicht akzeptierte Sonderzeichen enthält, wird ein allgemeiner Fehlerindikator angezeigt, der nicht anpassbar ist, und das Formular kann nicht abgesendet werden. Sie können das Fehlerverhalten im Tab **Preview & Test** und auf Ihrem Testgerät überprüfen. Lesen Sie diesen Artikel, um zu erfahren, [wie Braze Telefonnummern formatiert]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers).
 
-### Schritt 4: Haftungsausschluss hinzufügen (für SMS- und RCS-Registrierungsformulare) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
+### Schritt 4: Haftungsausschluss hinzufügen (für Kurzmitteilungsdienst or SMS- und RCS-Registrierungsformulare) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
-Für SMS- und RCS-Registrierungsformulare ist es wichtig, klar zu kommunizieren, welche Art von SMS oder RCS Sie senden werden. Stellen Sie sicher, dass Ihr Listenwachstum konform ist, indem Sie die folgenden Informationen in Ihr Formular aufnehmen:
+Für Kurzmitteilungsdienst or SMS- und RCS-Registrierungsformulare ist es wichtig, klar zu kommunizieren, welche Art von Kurzmitteilungsdienst or SMS oder RCS Sie senden werden. Stellen Sie sicher, dass Ihr Listenwachstum konform ist, indem Sie die folgenden Informationen in Ihr Formular aufnehmen:
 
-- Beschreibung der Arten von SMS- und RCS-Nachrichten, die Ihre Kund:innen erwarten können (Warenkorb-Erinnerungen, Aktionen und Angebote, Terminerinnerungen usw.). Sie müssen nicht jeden Anwendungsfall auflisten, sollten aber eine Beschreibung der Nachrichtentypen bereitstellen, die Ihre Marke senden wird.
+- Beschreibung der Arten von Kurzmitteilungsdienst or SMS- und RCS-Nachrichten, die Ihre Kund:innen erwarten können (Warenkorb-Erinnerungen, Aktionen und Angebote, Terminerinnerungen usw.). Sie müssen nicht jeden Anwendungsfall auflisten, sollten aber eine Beschreibung der Nachrichtentypen bereitstellen, die Ihre Marke senden wird.
 - Hinweis, dass die Einwilligung keine Bedingung für einen Kauf ist (falls zutreffend).
 - Nachrichtenhäufigkeit und Hinweis, dass Nachrichten- und Datengebühren anfallen. Wenn Sie die genaue Nachrichtenhäufigkeit nicht kennen, können Sie angeben, dass die Häufigkeit variieren kann.
-- Links zu Ihren Allgemeinen Geschäftsbedingungen und der SMS- und RCS-Datenschutzrichtlinie.
+- Links zu Ihren Allgemeinen Geschäftsbedingungen und der Kurzmitteilungsdienst or SMS- und RCS-Datenschutzrichtlinie.
 - Hinweis auf Hilfe- und Abmelde-Schlüsselwörter (HELP für Hilfe; STOP zum Abbestellen).
 
 Wir haben im Template einen Platzhalter-Haftungsausschluss ausschließlich als Beispiel bereitgestellt – er stellt keine Rechtsberatung dar und sollte nicht für Compliance-Zwecke herangezogen werden. Es ist wichtig, mit Ihrem Rechtsteam zusammenzuarbeiten, um eine Formulierung zu entwickeln, die auf Ihre spezifische Marke zugeschnitten ist.
@@ -62,7 +62,7 @@ Wir haben im Template einen Platzhalter-Haftungsausschluss ausschließlich als B
 Diese Dokumentation ist nicht dazu bestimmt, Rechtsberatung zu erteilen, und darf auch nicht vollständig als solche herangezogen werden.
 {% endalert %}
 
-Weitere Informationen zur SMS- und RCS-Compliance finden Sie unter [Gesetze und Vorschriften für SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+Weitere Informationen zur Kurzmitteilungsdienst or SMS- und RCS-Compliance finden Sie unter [Gesetze und Vorschriften für Kurzmitteilungsdienst or SMS, MMS und RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Schritt 5: Nachricht gestalten {#step-5-style-your-message}
 

@@ -49,7 +49,7 @@ Eppo에서 Braze 데이터를 사용하여 실험을 실행하려면, Braze에�
 {% endtab %}
 
 {% tab 캠페인 실험 %}
-캠페인 실험의 경우 전송 이벤트(푸시, 이메일, SMS 등)를 사용하여 사용자가 실험에 진입한 시점을 확인합니다. `campaign_name`, `message_variation_name`, `time`을 사용하여 할당 테이블을 채웁니다.
+캠페인 실험의 경우 전송 이벤트(푸시, 이메일, 단문 메시지 서비스 등)를 사용하여 사용자가 실험에 진입한 시점을 확인합니다. `campaign_name`, `message_variation_name`, `time`을 사용하여 할당 테이블을 채웁니다.
 
 {% endtab %}
 {% endtabs %}

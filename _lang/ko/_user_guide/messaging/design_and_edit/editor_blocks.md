@@ -108,8 +108,8 @@ tool: Media
 | 링크 유형 | 버튼 클릭 시 동작을 결정하고 적절한 프로토콜을 설정합니다. |
 | URL | **웹 페이지 열기** 링크 유형에 따라 동적으로 변경됩니다. |
 | 수신자, 제목, 본문 | **이메일 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 이메일 초안에 채워질 수신자 이메일 주소, 제목, 콘텐츠를 설정합니다. |
-| 전화번호 | **전화 걸기** 및 **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 전화하거나 문자를 보낼 전화번호를 설정합니다. |
-| 메시지 | **SMS 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 SMS 메시지 초안에 채워질 콘텐츠를 설정합니다. |
+| 전화번호 | **전화 걸기** 및 **단문 메시지 서비스 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 전화하거나 문자를 보낼 전화번호를 설정합니다. |
+| 메시지 | **단문 메시지 서비스 보내기** 링크 유형의 경우, 사용자가 버튼을 선택했을 때 단문 메시지 서비스 메시지 초안에 채워질 콘텐츠를 설정합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### 구분선 {#divider}
@@ -347,7 +347,7 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 
 ### 전화번호 수집 {#phone-capture}
 
-전화번호 입력 양식 필드를 삽입합니다. 제출 시 사용자가 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups)에 가입됩니다.
+전화번호 입력 양식 필드를 삽입합니다. 제출 시 사용자가 [단문 메시지 서비스]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp 구독 그룹]({{site.baseurl}}/whatsapp_subscription_groups)에 가입됩니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -390,7 +390,7 @@ Liquid 또는 연결된 콘텐츠를 사용하여 이메일에 개인화를 추�
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row {#saved-row}
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success 매니저.
 -->
 
 ## 알아두어야 할 사항 {#things-to-know}
@@ -462,7 +462,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 
 ### 커스텀 코드
 
-[Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)와 같은 고급 커스터마이징을 위한 커스텀 HTML, CSS 또는 JavaScript를 삽입합니다.
+[Google Tag 매니저]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page)와 같은 고급 커스터마이징을 위한 커스텀 HTML, CSS 또는 JavaScript를 삽입합니다.
 
 | 속성 | 설명 |
 | --- | --- |
@@ -472,7 +472,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 <!-- Countdown timer is not yet released. Uncomment when available.
 ### Countdown timer {#countdown-timer}
 
-Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Displays a countdown to a date and time you set. If you don't see this block, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success 매니저.
 
 After you add a **Countdown timer** block, use the properties panel to set the target date and time, labels, and styling.
 -->
@@ -485,7 +485,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 전화번호 수집
 
-전화번호 입력 양식 필드를 추가합니다. 제출 시 선택한 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) 구독 그룹에 사용자를 가입시킵니다.
+전화번호 입력 양식 필드를 추가합니다. 제출 시 선택한 [단문 메시지 서비스]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) 구독 그룹에 사용자를 가입시킵니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -515,7 +515,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 
 ### 구독 관리 {#manage-subscriptions}
 
-방문자가 양식을 제출할 때 [이메일]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) 또는 [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) 구독 그룹에 옵트인하거나 구독을 관리할 수 있는 체크리스트를 추가합니다. 각 블록은 하나의 채널용입니다. 블록에 구독 그룹을 추가한 후 구성합니다. 이 블록은 RCS 구독 그룹을 나열하지 않습니다.
+방문자가 양식을 제출할 때 [이메일]({{site.baseurl}}/user_guide/audience/subscription_preferences/subscription_groups#email-subscription-groups), [단문 메시지 서비스]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups#sms-subscription-states) 또는 [WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-subscription-states) 구독 그룹에 옵트인하거나 구독을 관리할 수 있는 체크리스트를 추가합니다. 각 블록은 하나의 채널용입니다. 블록에 구독 그룹을 추가한 후 구성합니다. 이 블록은 RCS 구독 그룹을 나열하지 않습니다.
 
 랜딩 페이지의 [Liquid 태그]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users)를 통해 페이지를 여는 식별된 사용자의 경우, 블록이 각 체크박스에 사용자의 현재 구독 상태를 미리 채우므로 환경설정 관리 페이지로도 활용할 수 있습니다.
 
@@ -544,7 +544,7 @@ After you add a **Countdown timer** block, use the properties panel to set the t
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success 매니저.
 -->
 
 ## 알아두어야 할 사항
@@ -619,7 +619,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 
 ### 전화번호 수집
 
-전화번호를 수집합니다. 제출 시 선택한 [SMS]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) 구독 그룹에 사용자를 가입시킵니다. 배너당 하나만 허용됩니다.
+전화번호를 수집합니다. 제출 시 선택한 [단문 메시지 서비스]({{site.baseurl}}/sms_rcs_subscription_groups) 또는 [WhatsApp]({{site.baseurl}}/whatsapp_subscription_groups) 구독 그룹에 사용자를 가입시킵니다. 배너당 하나만 허용됩니다.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/phone_capture.md %}
 
@@ -638,7 +638,7 @@ Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved
 <!-- Saved row is not yet released. Uncomment when available.
 ### Saved row
 
-Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success manager.
+Inserts a reusable row you saved earlier as a drag-and-drop Content Block. Saved rows are **not linked** to the original Content Block — if the original is updated, you'll need to drag it into the editor again to get the latest version. For more information, see [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). If you don't see **Saved row** under **Rows**, contact [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) or your Braze customer success 매니저.
 -->
 
 ## 알아두어야 할 사항

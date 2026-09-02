@@ -8,23 +8,23 @@ page_type: reference
 description: "Este artigo traz informações sobre o endpoint da Braze \"Exportar análise de dados de envio\"."
 
 ---
-{% api %}
+{% API or interface de programação do aplicativo (API) %}
 # Exportar análise de dados de envio {#export-send-analytics}
 {% apimethod get %}
 /sends/data_series
 {% endapimethod %}
 
-> Use esse endpoint para recuperar uma série diária de várias estatísticas de um `send_id` rastreado para Campaigns de API.
+> Use esse endpoint para recuperar uma série diária de várias estatísticas de um `send_id` rastreado para Campaigns de API or interface de programação do aplicativo (API).
 
 A Braze armazena a análise de dados de envio por 14 dias após o envio. As conversões da campanha serão atribuídas ao `send_id` mais recente que um determinado usuário recebeu da campanha.
 
-{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='send' %}
+{% multi_lang_include API or interface de programação do aplicativo (API)/export_data_series_analytics_dashboard_note.md type='send' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#76f822a8-a13b-4bfb-b20e-72b5013dfe86 {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Esse endpoint é apenas para Campaigns de API. Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sends.data_series`.
+Esse endpoint é apenas para Campaigns de API or interface de programação do aplicativo (API). Para usar esse endpoint, você precisará de uma [chave de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sends.data_series`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -34,8 +34,8 @@ Esse endpoint é apenas para Campaigns de API. Para usar esse endpoint, você pr
 
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- |------------ |
-| `campaign_id` | Obrigatório | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types). |
-| `send_id` | Obrigatório | String | Consulte o [identificador de API de envio]({{site.baseurl}}/api/identifier_types). |
+| `campaign_id` | Obrigatório | String | Consulte o [identificador de API or interface de programação do aplicativo (API) da campanha]({{site.baseurl}}/api/identifier_types). |
+| `send_id` | Obrigatório | String | Consulte o [identificador de API or interface de programação do aplicativo (API) de envio]({{site.baseurl}}/api/identifier_types). |
 | `length` | Obrigatório | Número inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é a hora da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
@@ -98,7 +98,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 ```
 
 {% alert tip %}
-Para obter ajuda com exportações de CSV e API, acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
+Para obter ajuda com exportações de CSV e API or interface de programação do aplicativo (API), acesse [Resolução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

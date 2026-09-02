@@ -16,7 +16,7 @@ L'éditeur HTML mis à jour crée une expérience cohérente avec nos éditeurs 
 
 Les avantages incluent également une prise en charge améliorée de la syntaxe Liquid et la [prise en charge des paramètres multilingues]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings).
 
-La gestion des liens est également prise en charge dans l'éditeur HTML mis à jour, même si vous n'avez pas activé l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
+La gestion des liens est également prise en charge dans l'éditeur HTML mis à jour, même si vous n'avez pas activé l'[aliasage de lien or aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 
 ![L'éditeur HTML mis à jour pour les e-mails avec un exemple d'e-mail HTML.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
 

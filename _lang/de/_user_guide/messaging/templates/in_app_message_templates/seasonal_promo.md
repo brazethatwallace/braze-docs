@@ -10,7 +10,7 @@ description: "Diese Seite beschreibt, wie Sie den Drag-and-Drop-Editor für In-A
 
 > Verwenden Sie den Drag-and-Drop-Editor für In-App-Nachrichten, um ein saisonales Angebot oder eine Aktion zu bewerben und das Engagement der Nutzer:innen zu steigern.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or Software-Development-Kit requirements' %}
 
 ## Eine saisonale Aktion mit Hintergrundbild erstellen {#creating-a-seasonal-promotion-with-a-background-image}
 

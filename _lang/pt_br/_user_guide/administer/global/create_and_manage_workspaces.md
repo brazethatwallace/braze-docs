@@ -72,21 +72,21 @@ Nos referimos aos diferentes sites e apps coletados dentro de um espaço de trab
 {:start="3"}
 3. Selecione **Add app** para confirmar.
 
-#### Chaves de API do app {#app-api-keys}
+#### Chaves de API or interface de programação do aplicativo (API) do app {#app-api-keys}
 
-Após adicionar sua instância do app, você terá acesso à sua chave de API. A chave de API é usada ao fazer solicitações entre sua instância do app e a API da Braze. A chave de API também é importante para integrar o SDK da Braze com seu app ou site.
+Após adicionar sua instância do app, você terá acesso à sua chave de API or interface de programação do aplicativo (API). A chave de API or interface de programação do aplicativo (API) é usada ao fazer solicitações entre sua instância do app e a API or interface de programação do aplicativo (API) da Braze. A chave de API or interface de programação do aplicativo (API) também é importante para integrar o SDK or kit de desenvolvimento de software da Braze com seu app ou site.
 
 ![Página de configurações do app Upon Voyage iOS com campos para a chave de API e o endpoint de SDK.]({% image_buster /assets/img/workspaces/app_api_key.png %})
 
 {% alert note %}
-Você deve criar instâncias do app separadas para cada versão do seu app em cada plataforma. Por exemplo, se você tem versões Free e Pro do seu app tanto no iOS quanto no Android, crie quatro instâncias do app dentro do seu espaço de trabalho (app Free iOS, app Free Android, app Pro iOS e app Pro Android). Isso fornecerá quatro chaves de API para usar, uma para cada instância do app.
+Você deve criar instâncias do app separadas para cada versão do seu app em cada plataforma. Por exemplo, se você tem versões Free e Pro do seu app tanto no iOS quanto no Android, crie quatro instâncias do app dentro do seu espaço de trabalho (app Free iOS, app Free Android, app Pro iOS e app Pro Android). Isso fornecerá quatro chaves de API or interface de programação do aplicativo (API) para usar, uma para cada instância do app.
 {% endalert %}
 
-#### Versão ativa do SDK {#live-sdk-version}
+#### Versão ativa do SDK or kit de desenvolvimento de software {#live-sdk-version}
 
-A versão ativa do SDK exibida na página Configurações do app para um app específico é a versão mais alta do app com pelo menos 5% do total de sessões diárias e que teve pelo menos 500 sessões no último dia.
+A versão ativa do SDK or kit de desenvolvimento de software exibida na página Configurações do app para um app específico é a versão mais alta do app com pelo menos 5% do total de sessões diárias e que teve pelo menos 500 sessões no último dia.
 
-Esse campo aparece depois que você integra o SDK da Braze com seu app ou site. Se uma versão mais recente do SDK da Braze estiver disponível para sua plataforma, isso será indicado aqui com a tag "Newer Version Available".
+Esse campo aparece depois que você integra o SDK or kit de desenvolvimento de software da Braze com seu app ou site. Se uma versão mais recente do SDK or kit de desenvolvimento de software da Braze estiver disponível para sua plataforma, isso será indicado aqui com a tag "Newer Version Available".
 
 ![Seção "Versão ativa do SDK" com o valor do campo "5.4.0" e um ícone indicando que uma nova versão está disponível.]({% image_buster /assets/img/workspaces/app_live_sdk_version.png %})
 
@@ -95,7 +95,7 @@ Esse campo aparece depois que você integra o SDK da Braze com seu app ou site. 
 Repita as etapas 2 e 3 para configurar quantos espaços de trabalho seu plano exigir. Como prática recomendada, sugerimos que você crie um espaço de trabalho de teste para testes de integração e de Campaigns.
 
 {% alert tip %}
-**Adicione um espaço de trabalho de teste**<br>Você pode realizar testes do app isolando completamente certos usuários da sua instância de produção. Crie um novo espaço de trabalho e, ao publicar seu aplicativo, certifique-se de alterar a chave de API que a Braze está usando para que corresponda à do seu espaço de trabalho de produção, e não à do espaço de trabalho de teste.
+**Adicione um espaço de trabalho de teste**<br>Você pode realizar testes do app isolando completamente certos usuários da sua instância de produção. Crie um novo espaço de trabalho e, ao publicar seu aplicativo, certifique-se de alterar a chave de API or interface de programação do aplicativo (API) que a Braze está usando para que corresponda à do seu espaço de trabalho de produção, e não à do espaço de trabalho de teste.
 {% endalert %}
 
 ## Gerenciando espaços de trabalho {#managing-workspaces}
@@ -158,29 +158,29 @@ Se você está lançando um app totalmente novo na loja de aplicativos, deve cri
 
 ### Tenho múltiplas instâncias do app em um espaço de trabalho — como posso garantir que minha mensagem seja direcionada apenas para um único app? {#singular-app}
 
-Para garantir que sua mensagem seja direcionada apenas para um app específico, adicione um segmento que inclua apenas usuários das instâncias do app escolhidas. Isso é especialmente importante se um usuário puder ter dois tokens por push para diferentes instâncias do app no mesmo espaço de trabalho. Nesse cenário, os usuários podem receber uma notificação de um app diferente daquele em que estão. Não é uma experiência ideal!
+Para garantir que sua mensagem seja direcionada apenas para um app específico, adicione um Segment or segmento or segmento que inclua apenas usuários das instâncias do app escolhidas. Isso é especialmente importante se um usuário puder ter dois tokens por push para diferentes instâncias do app no mesmo espaço de trabalho. Nesse cenário, os usuários podem receber uma notificação de um app diferente daquele em que estão. Não é uma experiência ideal!
 
-Por padrão, um segmento inclui todos os apps e sites no espaço de trabalho. Para configurar um segmento que inclua apenas um app ou site:
+Por padrão, um Segment or segmento or segmento inclui todos os apps e sites no espaço de trabalho. Para configurar um Segment or segmento or segmento que inclua apenas um app ou site:
 
-1. Crie um segmento com um nome significativo. Na Braze, usamos o formato "All Users ({Name} {Platform})". Por exemplo, "All Users (Upon Voyage iOS)".
+1. Crie um Segment or segmento or segmento com um nome significativo. Na Braze, usamos o formato "All Users ({Name} {Platform})". Por exemplo, "All Users (Upon Voyage iOS)".
 2. Em **Apps and websites targeted**, selecione **Users from specific apps**.
 3. No menu suspenso **Specific apps**, selecione seu app ou site.
 
 ![Segmento que está direcionando usuários de apps específicos.]({% image_buster /assets/img/workspaces/users_from_specific_apps_filter.png %})
 
-Você pode então adicionar esse segmento à sua mensagem e começar a refinar ainda mais seu público com segmentos e filtros adicionais, se necessário.
+Você pode então adicionar esse Segment or segmento or segmento à sua mensagem e começar a refinar ainda mais seu público com segmentos e filtros adicionais, se necessário.
 
 #### Campaigns {#campaigns}
 
-Para Campaigns, adicione seu segmento à etapa **Público-alvo** do criador.
+Para Campaigns, adicione seu Segment or segmento or segmento à etapa **Público-alvo** do criador.
 
 #### Canvas {#canvas}
 
-No Canvas, adicione seu segmento às etapas de Mensagem, na seção **Delivery Validations**. As validações de entrega verificam novamente se seu público atende aos critérios de entrega no momento do envio da mensagem. Lembre-se de especificar validações de entrega para cada etapa de Mensagem para garantir que ela seja entregue ao app correto. Não é necessário segmentar no nível de entrada.
+No Canvas, adicione seu Segment or segmento or segmento às etapas de Mensagem, na seção **Delivery Validations**. As validações de entrega verificam novamente se seu público atende aos critérios de entrega no momento do envio da mensagem. Lembre-se de especificar validações de entrega para cada etapa de Mensagem para garantir que ela seja entregue ao app correto. Não é necessário segmentar no nível de entrada.
 
 {% details Expandir para ver as etapas no fluxo de trabalho original do Canvas %}
 
-No fluxo de trabalho original do Canvas, adicione seu segmento no nível do componente do Canvas, na seção **Audience**. Não é necessário segmentar no nível de entrada.
+No fluxo de trabalho original do Canvas, adicione seu Segment or segmento or segmento no nível do componente do Canvas, na seção **Audience**. Não é necessário segmentar no nível de entrada.
 
 {% enddetails %}
 
@@ -188,5 +188,5 @@ No fluxo de trabalho original do Canvas, adicione seu segmento no nível do comp
 
 Após criar seu espaço de trabalho, configure-o:
 
-- [Configurações do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings) para configurar chaves de API, preferências de e-mail, configurações de push e mais.
+- [Configurações do espaço de trabalho]({{site.baseurl}}/user_guide/administer/global/workspace_settings) para configurar chaves de API or interface de programação do aplicativo (API), preferências de e-mail, configurações de push e mais.
 - [Gerenciar usuários da empresa]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users) para adicionar usuários e atribuir permissões para este espaço de trabalho.

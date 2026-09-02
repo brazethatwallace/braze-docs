@@ -2,7 +2,7 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Mixpanel, einer Business-Analytics-Plattform, die es Ihnen erlaubt, Mixpanel-Kohorten in Braze zu importieren, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Mixpanel, einer Business-Analytics-Plattform, die es Ihnen erlaubt, Mixpanel-Kohorten in Braze zu importieren, um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvase verwendet werden können."
 page_type: partner
 search_tag: Partner
 tool: Currents
@@ -12,7 +12,7 @@ tool: Currents
 
 > [Mixpanel](https://mixpanel.com/) ist eine Business-Analytics-Plattform, die es Ihnen erlaubt, Events aus Mixpanel in andere Plattformen zu exportieren, um tiefere Analysen durchzuführen. Die gesammelten Daten können dann dazu verwendet werden, angepasste Berichte zu erstellen und das Engagement und die Bindung der Nutzer:innen zu messen.
 
-Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel-Kohorten in Braze zu importieren]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import), um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvases verwendet werden können. Die Kohortensynchronisierung aktualisiert die Kohortenmitgliedschaft in Braze und importiert keine Mixpanel-Events oder Nutzer:innen-Eigenschaften. Weitere Informationen finden Sie unter [Mixpanel-Kohortenimport]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration).
+Die Integration von Braze und Mixpanel erlaubt es Ihnen, [Mixpanel-Kohorten in Braze zu importieren]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import), um Braze-Segmente zu erstellen, die für das Targeting von Nutzer:innen in zukünftigen Braze-Campaigns oder Canvase verwendet werden können. Die Kohortensynchronisierung aktualisiert die Kohortenmitgliedschaft in Braze und importiert keine Mixpanel-Events oder Nutzer:innen-Eigenschaften. Weitere Informationen finden Sie unter [Mixpanel-Kohortenimport]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration).
 
 Sie können Braze-Currents auch nutzen, um [Ihre Braze-Events nach Mixpanel zu exportieren](#data-export-integration) und so tiefere Analytics zu Conversions, Bindung und Produktnutzung zu erhalten.
 
@@ -30,20 +30,20 @@ Eine vollständige Liste der Events, die von Braze nach Mixpanel exportiert werd
 
 Sie können zwei Arten von Events nach Mixpanel exportieren: [Nachrichteninteraktions-Events](#supported-currents-events), die sich auf die Braze-Events beziehen, die direkt mit dem Nachrichtenversand zusammenhängen, und [Kundenverhalten-Events](#supported-currents-events), die andere App- oder Website-Aktivitäten wie Sitzungen, angepasste Events und über die Plattform erfasste Käufe umfassen. Alle angepassten Events erhalten das Präfix `[Braze Custom Event]`. Angepasste Event-Eigenschaften und Kauf-Event-Eigenschaften erhalten die Präfixe `[Custom event property]` bzw. `[Purchase property]`.
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
+Wenden Sie sich an Ihren Account Manager:in oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/user_guide/administer/personal/braze_support), wenn Sie Zugang zu zusätzlichen Event-Berechtigungen benötigen.
 
 ### Schritt 1: Mixpanel-Zugangsdaten abrufen {#step-1-get-mixpanel-credentials}
 
-Klicken Sie in Ihrem Mixpanel-Dashboard unter einem neuen oder bestehenden Projekt auf **Project Settings**. Dort finden Sie das Mixpanel-API-Secret und das Mixpanel-Token. Diese Zugangsdaten werden im nächsten Schritt zum Erstellen Ihrer Currents-Verbindung verwendet.
+Klicken Sie in Ihrem Mixpanel-Dashboard unter einem neuen oder bestehenden Projekt auf **Project Settings**. Dort finden Sie das Mixpanel-API-Secret und das Mixpanel-Token / Textbaustein. Diese Zugangsdaten werden im nächsten Schritt zum Erstellen Ihrer Currents-Verbindung verwendet.
 
 ### Schritt 2: Braze-Current erstellen {#step-2-create-braze-current}
 
 1. Gehen Sie in Braze zu **Currents** > **+ Create Current** > **Create Mixpanel Export**.
-2. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail, das Mixpanel-API-Secret und das Mixpanel-Token in die entsprechenden Felder ein.
+2. Geben Sie einen Integrationsnamen, eine Kontakt-E-Mail, das Mixpanel-API-Secret und das Mixpanel-Token / Textbaustein in die entsprechenden Felder ein.
 3. Wählen Sie die Events aus, die Sie verfolgen möchten; eine Liste der verfügbaren Events wird bereitgestellt.
 4. Wählen Sie **Launch Current**.
 
-![Die Braze-Mixpanel-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, das API-Secret und das Mixpanel-Export-Token. Die untere Hälfte der Currents-Seite zeigt die verfügbaren Currents-Events, die Sie senden können.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
+![Die Braze-Mixpanel-Currents-Seite. Diese Seite enthält Felder für den Integrationsnamen, die Kontakt-E-Mail, das API-Secret und das Mixpanel-Export-Token / Textbaustein. Die untere Hälfte der Currents-Seite zeigt die verfügbaren Currents-Events, die Sie senden können.]({% image_buster /assets/img_archive/mixpanel4.png %}){: style="max-width:80%;"}
 
 {% tab note %}
 Weitere Informationen finden Sie in der [Integrationsdokumentation](https://help.mixpanel.com/hc/en-us/articles/360001243663) von Mixpanel.
@@ -74,7 +74,7 @@ Um Mehrdeutigkeiten zu vermeiden, setzen Sie `braze_external_id` direkt in Mixpa
 
 ### Automatische Eigenschaftszuweisung (SDKs) {#automatic-property-setting-sdks}
 
-Das Mixpanel-SDK kann `braze_external_id` automatisch setzen, wenn das Braze-SDK in derselben App integriert ist. Wenn Sie sowohl Mixpanel als auch Braze gemeinsam implementieren, ist in der Regel keine zusätzliche Konfiguration über die Installation beider SDKs hinaus erforderlich.
+Das Mixpanel-SDK or Software-Development-Kit kann `braze_external_id` automatisch setzen, wenn das Braze-SDK or Software-Development-Kit in derselben App integriert ist. Wenn Sie sowohl Mixpanel als auch Braze gemeinsam implementieren, ist in der Regel keine zusätzliche Konfiguration über die Installation beider SDKs hinaus erforderlich.
 
 {% alert note %}
 `braze_external_id` wird nicht gesetzt, wenn `changeUser()` in Braze aufgerufen wird; es wird gesetzt, wenn Mixpanel initialisiert oder eine Sitzung startet (während „init“ oder „start session“).

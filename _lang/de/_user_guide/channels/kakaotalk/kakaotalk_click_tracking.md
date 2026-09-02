@@ -13,7 +13,7 @@ channel:
 
 > Diese Seite beschreibt, wie Sie das Klick-Tracking in Ihren KakaoTalk-Nachrichten aktivieren, gekürzte Links testen, Ihre benutzerdefinierte Domain in getrackten Links verwenden und mehr.
 
-Wenn das KakaoTalk-Klick-Tracking aktiviert ist, kürzt Braze Ihre URLs automatisch, fügt Tracking-Mechanismen hinzu und zeichnet Klicks in Echtzeit auf. Diese Daten ermöglichen es Ihnen, gezieltere Segmentierungs- und Retargeting-Strategien zu erstellen, z. B. Nutzer:innen basierend auf dem Klickverhalten zu segmentieren und Nachrichten als Reaktion auf bestimmte Klicks zu triggern.
+Wenn das KakaoTalk-Klick-Tracking aktiviert ist, kürzt Braze Ihre URLs automatisch, fügt Tracking-Mechanismen hinzu und zeichnet Klicks in Echtzeit auf. Diese Daten ermöglichen es Ihnen, gezieltere Segmentierungs- und Retargeting-Strategien zu erstellen, z. B. Nutzer:innen basierend auf dem Klickverhalten zu segmentieren und Nachrichten als Reaktion auf bestimmte Klicks zu Trigger or triggern or triggern.
 
 KakaoTalk-Klick-Tracking kann für Text-, Bild- und Listenelementnachrichten verwendet werden. Es unterstützt Links innerhalb von Buttons und Bild-Klick-Aktionen. Sie können URLs auch mit Liquid und benutzerdefinierten Domains personalisieren.
 
@@ -30,7 +30,7 @@ Alle URLs, die mit `http://` oder `https://` beginnen, werden gekürzt. Sie kön
 So richten Sie das Klick-Tracking für eine Textnachricht ein:
 
 1. Verfassen Sie eine **Text**-Nachricht und fügen Sie eine URL in das Textfeld oder den Button ein.
-2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Click Tracking** aktiviert ist. Das Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
+2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Klick, der or klicken Tracking** aktiviert ist. Das Klick-Tracking ist standardmäßig für alle neuen Nachrichten aktiviert.
 
 ![KakaoTalk-Textnachrichten-Editor mit dem Abschnitt „Link options“ und aktiviertem „Click Tracking“.]({% image_buster /assets/img/kakaotalk/kakaotalk_text.png %})
 
@@ -40,14 +40,14 @@ So richten Sie das Klick-Tracking für eine Bildnachricht ein:
 
 1. Verfassen Sie eine **Image**-Nachricht und stellen Sie das Klickverhalten so ein, dass eine URL geöffnet wird.
 2. Geben Sie eine URL in das URL-Feld ein.
-3. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Click Tracking** aktiviert ist.
+3. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Klick, der or klicken Tracking** aktiviert ist.
 
 ### Listenelementnachrichten {#list-item-messages}
 
 So richten Sie das Klick-Tracking für eine Listenelementnachricht ein:
 
 1. Verfassen Sie eine **List item**-Nachricht und fügen Sie eine URL in das Feld **Website URL** für ein beliebiges Element ein.
-2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Click Tracking** aktiviert ist.
+2. Bestätigen Sie im Abschnitt **Link options** des Editors, dass **Klick, der or klicken Tracking** aktiviert ist.
 
 ## Benutzerdefinierte Domains {#custom-domains}
 
@@ -74,7 +74,7 @@ https://example.com/{{url_var}}
 ```
 {% endraw %}
 
-Braze kürzt URLs, die von Liquid gerendert werden, einschließlich solcher, die in API-Trigger-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, wird Braze diese URL kürzen und tracken, bevor die KakaoTalk-Nachricht gesendet wird.
+Braze kürzt URLs, die von Liquid gerendert werden, einschließlich solcher, die in API-Trigger or triggern-Eigenschaften enthalten sind. Wenn beispielsweise {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} eine gültige URL darstellt, wird Braze diese URL kürzen und tracken, bevor die KakaoTalk-Nachricht gesendet wird.
 
 ## Testen {#testing}
 
@@ -94,9 +94,9 @@ Klickdaten werden automatisch im Analytics-Dashboard angezeigt.
 
 ## Nutzer:innen retargeten {#retarget-users}
 
-Sie können Nutzer:innen, die auf eine URL in einer KakaoTalk-Nachricht geklickt haben, mit den folgenden Segmentierungsfiltern und Triggern retargeten:
+Sie können Nutzer:innen, die auf eine URL in einer KakaoTalk-Nachricht geklickt haben, mit den folgenden Segmentierungsfiltern und Trigger or triggern or triggern retargeten:
 
-- Aktionsbasierte Trigger
+- Aktionsbasierte Trigger or triggern
     - Mit Campaign interagiert
     - Mit Schritt interagiert
 
@@ -119,9 +119,9 @@ Ja, sowohl statische als auch dynamische Parameter können hinzugefügt werden.
 
 Personalisierte URLs sind zwei Monate ab dem Zeitpunkt der URL-Registrierung gültig.
 
-### Muss das Braze SDK installiert sein, um URLs zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
+### Muss das Braze SDK or Software-Development-Kit installiert sein, um URLs zu kürzen? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
 
-Nein, das Klick-Tracking funktioniert ohne jegliche SDK-Integration.
+Nein, das Klick-Tracking funktioniert ohne jegliche SDK or Software-Development-Kit-Integration.
 
 ### Weiß ich, welche einzelnen Nutzer:innen auf eine URL klicken? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 

@@ -2,7 +2,7 @@
 
 ## Deaktivieren des Daten-Trackings {#disabling-data-tracking}
 
-Um die Datenerfassung zu deaktivieren, verwenden Sie die Methode `disableSDK`. Nach dem Aufruf dieser Methode sendet das Braze SDK keine Daten mehr an die Braze-Server.
+Um die Datenerfassung zu deaktivieren, verwenden Sie die Methode `disableSDK`. Nach dem Aufruf dieser Methode sendet das Braze SDK or Software-Development-Kit keine Daten mehr an die Braze-Server.
 
 ```javascript
 Braze.disableSDK();
@@ -18,7 +18,7 @@ Braze.enableSDK();
 
 ## Daten löschen {#wiping-data}
 
-Um alle lokal gespeicherten Braze-SDK-Daten auf dem Gerät zu löschen, verwenden Sie die Methode `wipeData`. Nach dem Aufruf dieser Methode ist das SDK deaktiviert und muss mit `enableSDK` wieder aktiviert werden.
+Um alle lokal gespeicherten Braze-SDK or Software-Development-Kit-Daten auf dem Gerät zu löschen, verwenden Sie die Methode `wipeData`. Nach dem Aufruf dieser Methode ist das SDK or Software-Development-Kit deaktiviert und muss mit `enableSDK` wieder aktiviert werden.
 
 ```javascript
 Braze.wipeData();
@@ -34,7 +34,7 @@ Braze.requestImmediateDataFlush();
 
 ## Aktivierung des Ad-Trackings festlegen {#setting-ad-tracking-enabled}
 
-Um Braze darüber zu informieren, ob Ad-Tracking für dieses Gerät aktiviert ist, verwenden Sie die Methode `setAdTrackingEnabled`. Das SDK erfasst diese Daten nicht automatisch.
+Um Braze darüber zu informieren, ob Ad-Tracking für dieses Gerät aktiviert ist, verwenden Sie die Methode `setAdTrackingEnabled`. Das SDK or Software-Development-Kit erfasst diese Daten nicht automatisch.
 
 ```javascript
 Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
@@ -42,9 +42,9 @@ Braze.setAdTrackingEnabled(true, "GOOGLE_ADVERTISING_ID");
 
 Der zweite Parameter ist die Google Advertising ID und wird nur auf Android verwendet.
 
-## Aktualisieren der Tracking-Eigenschaft-Zulassungsliste (nur iOS) {#updating-the-tracking-property-allow-list-ios-only}
+## Update or aktualisieren or aktualisieren der Tracking-Eigenschaft-Zulassungsliste (nur iOS) {#updating-the-tracking-property-allow-list-ios-only}
 
-Um die Liste der für das Tracking deklarierten Datentypen zu aktualisieren, verwenden Sie `updateTrackingPropertyAllowList`. Auf Android hat dies keine Auswirkung.
+Um die Liste der für das Tracking deklarierten Datentypen zu Update or aktualisieren or aktualisieren, verwenden Sie `updateTrackingPropertyAllowList`. Auf Android hat dies keine Auswirkung.
 
 ```javascript
 Braze.updateTrackingPropertyAllowList({
@@ -61,4 +61,4 @@ Weitere Informationen finden Sie unter [Datenschutzmanifest]({{site.baseurl}}/de
 
 ## Abmeldung und Push-Deregistrierung {#logout-and-unregister-push}
 
-Dieses Feature wird im React Native SDK noch nicht unterstützt.
+Dieses Feature wird im React Native SDK or Software-Development-Kit noch nicht unterstützt.

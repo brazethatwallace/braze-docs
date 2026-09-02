@@ -31,12 +31,12 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
 2. Wählen Sie **Neuen Bericht erstellen**.
 3. Wählen Sie im **Zeilen**-Dropdown aus, worüber Sie berichten möchten:
     - Campaigns
-    - Canvases
-    - Campaigns und Canvases
+    - Canvase
+    - Campaigns und Canvase
     - Kanäle
     - Tags
 
-    Beachten Sie, dass Ihre Auswahl unter **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Beispielsweise können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvases** oder **Campaigns** mit einer **Varianten**-Aufschlüsselung berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvases** berichten, selbst wenn diese Campaigns und Canvases multivariate Tests enthalten.
+    Beachten Sie, dass Ihre Auswahl unter **Zeilen** beeinflusst, [welche Metriken Sie anzeigen können](#metrics-availability). Beispielsweise können Sie multivariate Metriken nur anzeigen, wenn Sie über **Canvase** oder **Campaigns** mit einer **Varianten**-Aufschlüsselung berichten. Sie können diese Metriken nicht anzeigen, wenn Sie über **Campaigns und Canvase** berichten, selbst wenn diese Campaigns und Canvase multivariate Tests enthalten.
 
 ![Der Bereich „Zeilen und Spalten“ mit Feldern zur Auswahl der Zeilen und Gruppierungen für Ihren Bericht.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
@@ -49,7 +49,7 @@ Das folgende Video bietet einen Überblick darüber, wie Sie Berichte im Bericht
             - **Gruppierung:** Datum
             - **Intervall:** Tage
     - Varianten
-    - Campaigns und Canvases
+    - Campaigns und Canvase
 
 {% alert tip %}
 Probieren Sie verschiedene Konfigurationen der Aufschlüsselungsoptionen aus, um die [vielen Möglichkeiten zur Aufschlüsselung Ihrer Daten](#metrics-availability) zu erkunden.
@@ -64,15 +64,15 @@ Probieren Sie verschiedene Konfigurationen der Aufschlüsselungsoptionen aus, um
 6. Durchsuchen Sie Metriken nach Kategorie und aktivieren Sie das entsprechende Kontrollkästchen, um eine Metrik zu Ihrem Bericht hinzuzufügen.
     - Ordnen Sie die Metriken und Spalten neu an, indem Sie das gepunktete Symbol nach oben oder unten ziehen.
 7. Konfigurieren Sie unter **Berichtsinhalt** den Zeitraum, für den Sie Daten in Ihren Bericht aufnehmen möchten.
-8. Wählen Sie dann, abhängig von Ihrer Auswahl in Schritt 3, ob Sie Campaigns, Canvases oder beides manuell oder automatisch zu Ihrem Bericht hinzufügen möchten.
+8. Wählen Sie dann, abhängig von Ihrer Auswahl in Schritt 3, ob Sie Campaigns, Canvase oder beides manuell oder automatisch zu Ihrem Bericht hinzufügen möchten.
     - **Manuell hinzufügen:** Wählen Sie jede Campaign oder jedes Canvas aus, das in den Bericht aufgenommen werden soll, indem Sie die Filter für **Zuletzt gesendet**-Daten und Tags oder Kanäle verwenden oder nach dem Campaign- oder Canvas-Namen suchen.<br><br>![Der Bereich „Campaigns und Canvases manuell hinzufügen“ mit einer Liste auswählbarer Campaigns.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
-    - **Automatisch hinzufügen:** Legen Sie Regeln fest, welche Campaigns oder Canvases in den Bericht aufgenommen werden sollen. Sie müssen auf dieser Seite nur ein Feld auswählen.
-        - Beachten Sie, dass zusätzliche Campaigns oder Canvases, die die von Ihnen festgelegten Bedingungen erfüllen, automatisch zu zukünftigen Ausführungen Ihres Berichts hinzugefügt werden.
+    - **Automatisch hinzufügen:** Legen Sie Regeln fest, welche Campaigns oder Canvase in den Bericht aufgenommen werden sollen. Sie müssen auf dieser Seite nur ein Feld auswählen.
+        - Beachten Sie, dass zusätzliche Campaigns oder Canvase, die die von Ihnen festgelegten Bedingungen erfüllen, automatisch zu zukünftigen Ausführungen Ihres Berichts hinzugefügt werden.
         - Banner ist keine Option im **Kanal**-Dropdown, sodass Sie keine Kanalregeln verwenden können, um Banner-Campaigns oder -Canvases automatisch hinzuzufügen. Sie können Banner-KPIs dennoch in Ihre Berichtsmetriken aufnehmen.<br><br>![Der Bereich „Campaigns und Canvases automatisch hinzufügen“ mit Feldern zum Festlegen von Regeln, welche Campaigns und Canvases dem Bericht hinzugefügt werden sollen.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Führen Sie den Bericht aus, indem Sie **Speichern & Ausführen** auswählen.
 
 {% alert note %}
-Die Erstellung des Berichts kann je nach Zeitraum und Anzahl der in der Konfigurationsphase ausgewählten Campaigns oder Canvases bis zu einige Minuten dauern.
+Die Erstellung des Berichts kann je nach Zeitraum und Anzahl der in der Konfigurationsphase ausgewählten Campaigns oder Canvase bis zu einige Minuten dauern.
 {% endalert %}
 
 ## Verfügbarkeit von Metriken {#metrics-availability}
@@ -80,27 +80,27 @@ Die Erstellung des Berichts kann je nach Zeitraum und Anzahl der in der Konfigur
 Ihre Auswahl für **Zeilen** beeinflusst die Metriken, die Sie auswählen können.
 
 {% alert tip %}
-Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Nach dem Ausführen des Berichts erscheint auf der Ergebnisseite ein **Canvas-Ansicht**-Dropdown, um Metriken nur für das Canvas anzuzeigen oder Metriken nach Variante, Schritt oder Nachricht zu gruppieren.<br><br> Beim Bearbeiten Ihres Berichts zeigt die Vorschautabelle maximal 50 Zeilen an. Führen Sie den Bericht aus, um alle Zeilen auf der Ergebnisseite mit Paginierung (100 Zeilen pro Seite) anzuzeigen, oder exportieren Sie den vollständigen Datensatz als CSV.
+Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvase** für Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Nach dem Ausführen des Berichts erscheint auf der Ergebnisseite ein **Canvas-Ansicht**-Dropdown, um Metriken nur für das Canvas anzuzeigen oder Metriken nach Variante, Schritt oder Nachricht zu gruppieren.<br><br> Beim Bearbeiten Ihres Berichts zeigt die Vorschautabelle maximal 50 Zeilen an. Führen Sie den Bericht aus, um alle Zeilen auf der Ergebnisseite mit Paginierung (100 Zeilen pro Seite) anzuzeigen, oder exportieren Sie den vollständigen Datensatz als CSV.
 
 ![Das geöffnete „Canvas-Ansicht“-Dropdown.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
 
 | Metrik | Beschreibung |
 | --- | --- |
-| Konversionsmetriken | Verfügbar für Campaigns, Canvases, Campaigns und Canvases. |
-| Eintritte | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. |
-| Letztes Sendedatum | Verfügbar für Campaigns, Canvases, Campaigns und Canvases. Wird nur für geplante Campaigns angezeigt – wird für aktionsbasierte oder API-getriggerte Campaigns nicht befüllt. |
+| Konversionsmetriken | Verfügbar für Campaigns, Canvase, Campaigns und Canvase. |
+| Eintritte | Verfügbar für Campaigns, Canvase, Campaigns und Canvase, Tags. |
+| Letztes Sendedatum | Verfügbar für Campaigns, Canvase, Campaigns und Canvase. Wird nur für geplante Campaigns angezeigt – wird für aktionsbasierte oder API-getriggerte Campaigns nicht befüllt. |
 | Sends | Verfügbar für jeden relevanten Kanal. |
-| Gesendete Nachrichten | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. |
-| Betreffzeile | Verfügbar für E-Mail-Campaigns mit **Varianten**-Drilldown, Canvases und Canvases mit **Varianten**-Drilldown. |
-| Gesamtumsatz | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. Nicht verfügbar mit **Kanäle**-Drilldown. |
-| Eindeutige Impressionen | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. |
-| Eindeutige Empfänger:innen | Verfügbar für Campaigns, Canvases, Campaigns und Canvases, Tags. Nicht verfügbar mit **Kanäle**-Drilldown. |
+| Gesendete Nachrichten | Verfügbar für Campaigns, Canvase, Campaigns und Canvase, Tags. |
+| Betreffzeile | Verfügbar für E-Mail-Campaigns mit **Varianten**-Drilldown, Canvase und Canvase mit **Varianten**-Drilldown. |
+| Gesamtumsatz | Verfügbar für Campaigns, Canvase, Campaigns und Canvase, Tags. Nicht verfügbar mit **Kanäle**-Drilldown. |
+| Eindeutige Impressionen | Verfügbar für Campaigns, Canvase, Campaigns und Canvase, Tags. |
+| Eindeutige Empfänger:innen | Verfügbar für Campaigns, Canvase, Campaigns und Canvase, Tags. Nicht verfügbar mit **Kanäle**-Drilldown. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbarkeit von Metriken" }
 
 ### Gelöschte Nachrichtenvarianten {#deleted-message-variants}
 
-Statistiken für gelöschte Nachrichtenvarianten werden nicht angezeigt, wenn Sie Ihren Bericht nach Campaigns oder Canvases aufschlüsseln. Die Gesamtwerte auf Kanalebene enthalten jedoch alle Statistiken, unabhängig davon, ob die Variante gelöscht wurde. Zum Beispiel umfassen _Sends_ für E-Mail alle E-Mail-Sends, aber wenn Sie diese Statistiken nach Campaign aufschlüsseln, können die Zahlen niedriger sein, da Sends für gelöschte Nachrichtenvarianten herausgefiltert werden.
+Statistiken für gelöschte Nachrichtenvarianten werden nicht angezeigt, wenn Sie Ihren Bericht nach Campaigns oder Canvase aufschlüsseln. Die Gesamtwerte auf Kanalebene enthalten jedoch alle Statistiken, unabhängig davon, ob die Variante gelöscht wurde. Zum Beispiel umfassen _Sends_ für E-Mail alle E-Mail-Sends, aber wenn Sie diese Statistiken nach Campaign aufschlüsseln, können die Zahlen niedriger sein, da Sends für gelöschte Nachrichtenvarianten herausgefiltert werden.
 
 Im selben Bericht können _Eindeutige Empfänger:innen_ höher sein als _Eindeutige Impressionen_, wenn eine Nachrichtenvariante nach dem Versand gelöscht wurde. _Eindeutige Empfänger:innen_ auf Campaign-Ebene können weiterhin Nutzer:innen enthalten, die die gelöschte Variante erhalten haben, während _Eindeutige Impressionen_ Statistiken von gelöschten Varianten in Aggregationen auf Nachrichtenebene auslassen.
 
@@ -149,15 +149,15 @@ Das Dropdown **Email Recipients** listet nur Braze-Unternehmensnutzer:innen auf 
 
 ## Team-Berechtigungen {#team-permissions}
 
-Berichte im Berichts-Builder unterstützen keine [Team-Zuweisung]({{site.baseurl}}/user_guide/administer/global/user_management/teams) wie Campaigns oder Canvases. Sie können einen gespeicherten Bericht beim Erstellen nicht auf ein bestimmtes Team beschränken.
+Berichte im Berichts-Builder unterstützen keine [Team-Zuweisung]({{site.baseurl}}/user_guide/administer/global/user_management/teams) wie Campaigns oder Canvase. Sie können einen gespeicherten Bericht beim Erstellen nicht auf ein bestimmtes Team beschränken.
 
 Nutzer:innen mit der [„Dashboard-Berichte anzeigen“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)-Berechtigung auf Team-Ebene (statt auf Workspace-Ebene) können den Berichts-Builder weiterhin verwenden, die Sichtbarkeit von Berichten ist jedoch eingeschränkt:
 
 - Diese Nutzer:innen sehen nur Berichte, bei denen jede ausgewählte Campaign und jedes ausgewählte Canvas ihren Teams zugewiesen ist.
 - Berichte mit **Kanälen** als Zeilen werden ausgeblendet.
-- Berichte, die eine automatische Auswahl zum Hinzufügen von Campaigns oder Canvases verwenden, werden ausgeblendet, da Braze den Team-Zugriff für Nachrichten, die beim Ausführen des Berichts möglicherweise hinzugefügt werden, nicht überprüfen kann.
+- Berichte, die eine automatische Auswahl zum Hinzufügen von Campaigns oder Canvase verwenden, werden ausgeblendet, da Braze den Team-Zugriff für Nachrichten, die beim Ausführen des Berichts möglicherweise hinzugefügt werden, nicht überprüfen kann.
 
-Der [Berichts-Builder (Legacy)]({{site.baseurl}}/report_builder_legacy) schränkt ein, welche Campaigns und Canvases Sie nach Team zu einem Bericht hinzufügen können, aber gespeicherte Berichte werden nicht auf die gleiche Weise aus der Liste gefiltert wie im Berichts-Builder (Neu). Informationen zur Einrichtung von Berechtigungen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
+Der [Berichts-Builder (Legacy)]({{site.baseurl}}/report_builder_legacy) schränkt ein, welche Campaigns und Canvase Sie nach Team zu einem Bericht hinzufügen können, aber gespeicherte Berichte werden nicht auf die gleiche Weise aus der Liste gefiltert wie im Berichts-Builder (Neu). Informationen zur Einrichtung von Berechtigungen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) und [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams).
 
 ## Fehlerbehebung {#troubleshooting}
 

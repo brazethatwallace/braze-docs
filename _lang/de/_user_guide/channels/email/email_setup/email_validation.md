@@ -15,7 +15,7 @@ channel: email
 
 ## Funktionsweise {#how-it-works}
 
-Braze validiert eine E-Mail-Adresse, wenn sie aktualisiert, per API importiert, per CSV hochgeladen, über das SDK übermittelt oder im Dashboard geändert wird. E-Mail-Adressen dürfen keine Leerzeichen enthalten. Wenn Sie die API verwenden, gibt ein Leerzeichen einen `400`-Fehler zurück.
+Braze validiert eine E-Mail-Adresse, wenn sie aktualisiert, per API importiert, per CSV hochgeladen, über das SDK or Software-Development-Kit übermittelt oder im Dashboard geändert wird. E-Mail-Adressen dürfen keine Leerzeichen enthalten. Wenn Sie die API verwenden, gibt ein Leerzeichen einen `400`-Fehler zurück.
 
 Braze lehnt bestimmte Zeichen ab und markiert die Adresse als ungültig. Wenn eine E-Mail einen Bounce verursacht, markiert Braze die Adresse als ungültig und ändert den Abo-Status nicht. Wenn der E-Mail-Text nicht standardmäßige [ASCII](https://en.wikipedia.org/wiki/ASCII)-Zeichen enthält, sendet Braze die E-Mail nicht.
 

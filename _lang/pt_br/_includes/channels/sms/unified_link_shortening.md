@@ -75,7 +75,7 @@ Sim. Você pode redirecionar usuários que clicaram em URLs usando os [filtros d
 
 ### O encurtamento de links funciona com deep links ou links universais? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
-O encurtamento de links não funciona com deep links. Como alternativa, você pode encurtar links universais de provedores terceiros, como Branch ou Appsflyer, mas os usuários podem experimentar um breve redirecionamento ou efeito de "cintilação". Isso ocorre porque o link encurtado passa pela web antes de resolver para o link universal que permite a abertura do app. Além disso, a Braze não consegue solucionar problemas que possam surgir ao encurtar links universais, como quebra de atribuição ou redirecionamentos inesperados.
+O encurtamento de links não funciona com deep links. Como alternativa, você pode encurtar links universais de provedores terceiros, como Branch or ramificação ou Appsflyer, mas os usuários podem experimentar um breve redirecionamento ou efeito de "cintilação". Isso ocorre porque o link encurtado passa pela web antes de resolver para o link universal que permite a abertura do app. Além disso, a Braze não consegue solucionar problemas que possam surgir ao encurtar links universais, como quebra de atribuição ou redirecionamentos inesperados.
 
 {% alert note %}
 Teste a experiência do usuário antes de implementar o encurtamento de links com links universais para confirmar que atende às suas expectativas.

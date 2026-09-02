@@ -16,15 +16,15 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Abo-G
 
 > Verwenden Sie diesen Endpunkt, um den Abo-Status einer Nutzer:in in einer Abo-Gruppe abzurufen.
 
-Diese Gruppen sind auf der Seite **Abo-Gruppe** verfügbar. Die Antwort dieses Endpunkts enthält die externe ID sowie den Status „Abonniert“, „Abgemeldet“ oder „Unbekannt“ für die im API-Aufruf angeforderte Abo-Gruppe. Dies kann verwendet werden, um den Abo-Gruppenstatus in nachfolgenden API-Aufrufen zu aktualisieren oder auf einer gehosteten Webseite anzuzeigen.
+Diese Gruppen sind auf der Seite **Abo-Gruppe** verfügbar. Die Antwort dieses Endpunkts enthält die externe ID sowie den Status „Abonniert“, „Abgemeldet“ oder „Unbekannt“ für die im API-Aufruf angeforderte Abo-Gruppe. Dies kann verwendet werden, um den Abo-Gruppenstatus in nachfolgenden API-Aufrufen zu Update or aktualisieren or aktualisieren oder auf einer gehosteten Webseite anzuzeigen.
 
-Wenn Sie E-Mails über ein angepasstes Formular erfassen und dann die Abo-Gruppenmitgliedschaft über die REST API festlegen, rufen Sie diesen Endpunkt zuerst auf, um zu prüfen, ob bereits ein Profil vorhanden ist. Wenn kein übereinstimmendes Profil existiert, erstellen oder abonnieren Sie die Nutzer:in mit dem Endpunkt [Abo-Gruppenstatus der Nutzer:innen aktualisieren]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Andernfalls aktualisieren Sie das vorhandene Profil, anstatt ein Duplikat zu erstellen. Weitere Erfassungsmuster finden Sie unter [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
+Wenn Sie E-Mails über ein angepasstes Formular erfassen und dann die Abo-Gruppenmitgliedschaft über die Representational State Transfer API festlegen, rufen Sie diesen Endpunkt zuerst auf, um zu prüfen, ob bereits ein Profil vorhanden ist. Wenn kein übereinstimmendes Profil existiert, erstellen oder abonnieren Sie die Nutzer:in mit dem Endpunkt [Abo-Gruppenstatus der Nutzer:innen Update or aktualisieren or aktualisieren]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Andernfalls Update or aktualisieren or aktualisieren Sie das vorhandene Profil, anstatt ein Duplikat zu erstellen. Weitere Erfassungsmuster finden Sie unter [Best Practices für die Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices).
 
 Wenn Sie Beispiele sehen oder diesen Endpunkt für **E-Mail-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#488c8923-fa44-4124-9245-036d13c615f2 {% endapiref %}
 
-Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS-Abo-Gruppen** testen möchten:
+Wenn Sie Beispiele sehen oder diesen Endpunkt für **Kurzmitteilungsdienst or SMS-Abo-Gruppen** testen möchten:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4b8515b8-067f-41fd-b213-8bb2d18b1557 {% endapiref %}
 
@@ -52,7 +52,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 
 *Für jede Nutzer:in ist entweder `external_id`, `email` oder `phone` erforderlich.
 
-- Für SMS- und WhatsApp-Abo-Gruppen ist entweder `external_id` oder `phone` erforderlich. Wenn beide übermittelt werden, wird nur die `external_id` für die Abfrage verwendet und die Telefonnummer wird dieser Nutzer:in zugeordnet.
+- Für Kurzmitteilungsdienst or SMS- und WhatsApp-Abo-Gruppen ist entweder `external_id` oder `phone` erforderlich. Wenn beide übermittelt werden, wird nur die `external_id` für die Abfrage verwendet und die Telefonnummer wird dieser Nutzer:in zugeordnet.
 - Für E-Mail-Abo-Gruppen ist entweder `external_id` oder `email` erforderlich. Wenn beide übermittelt werden, wird nur die `external_id` für die Abfrage verwendet und die E-Mail-Adresse wird dieser Nutzer:in zugeordnet.
 
 ## Beispielanfrage {#example-request}
@@ -65,7 +65,7 @@ https://rest.iad-03.braze.com/subscription/status/get?subscription_group_id={{su
 ```
 {% endraw %}
 {% endtab %}
-{% tab SMS und WhatsApp %}
+{% tab Kurzmitteilungsdienst or SMS und WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/status/get?subscription_group_id={{subscription_group_id}}&phone=+11112223333' \

@@ -12,7 +12,7 @@ noindex: true
 
 # Localização {#localization}
 
-A localização é suportada no SDK iOS da Braze. Além do inglês, a Braze oferece suporte a vários idiomas para as mensagens integradas do SDK. Essas mensagens se referem às mensagens padrão exibidas em aplicativos integrados com a Braze, como locais no app quando há problemas de conectividade (por exemplo, "Não é possível estabelecer conexão de rede. Por favor, tente novamente mais tarde."). Se o idioma do telefone estiver configurado para um dos idiomas suportados, qualquer uma das strings padrão da Braze acionadas em um aplicativo integrado aparecerá automaticamente nesse idioma.
+A localização é suportada no SDK or kit de desenvolvimento de software iOS da Braze. Além do inglês, a Braze oferece suporte a vários idiomas para as mensagens integradas do SDK or kit de desenvolvimento de software. Essas mensagens se referem às mensagens padrão exibidas em aplicativos integrados com a Braze, como locais no app quando há problemas de conectividade (por exemplo, "Não é possível estabelecer conexão de rede. Por favor, tente novamente mais tarde."). Se o idioma do telefone estiver configurado para um dos idiomas suportados, qualquer uma das strings padrão da Braze acionadas em um aplicativo integrado aparecerá automaticamente nesse idioma.
 
 Se estiver procurando uma lista completa dos idiomas suportados que podem ser atribuídos aos seus usuários nos perfis deles, consulte nossa [lista de idiomas do usuário]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes).
 

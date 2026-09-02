@@ -20,7 +20,7 @@ description: "이 문서에서는 사용자의 구독 그룹 나열 Braze 엔드
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#d1c3b617-22f1-47bf-9ee8-499526824470 {% endapiref %}
 
-**SMS 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
+**단문 메시지 서비스 구독 그룹**에 대한 이 엔드포인트의 예제를 보거나 테스트하려면 다음을 참조하세요:
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#54bd7ca8-60d9-4654-aff5-406479f3c666 {% endapiref %}
 
@@ -59,7 +59,7 @@ description: "이 문서에서는 사용자의 구독 그룹 나열 Braze 엔드
 `https://rest.iad-03.braze.com/subscription/user/status?external_id[]=1&external_id[]=2`
 {% endraw %}
 {% endtab %}
-{% tab SMS 및 WhatsApp %}
+{% tab 단문 메시지 서비스 및 WhatsApp %}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&limit=100&offset=1&phone=+11112223333' \

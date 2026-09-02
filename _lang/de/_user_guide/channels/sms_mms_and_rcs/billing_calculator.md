@@ -2,7 +2,7 @@
 nav_title: Abrechnungsrechner
 article_title: Abrechnungsrechner
 page_order: 5
-description: "Dieser Referenzartikel behandelt, was ein SMS-Segment ist, wie Segmente für die Abrechnung gezählt werden und was beim Erstellen von SMS- und RCS-Nachrichtentexten zu beachten ist."
+description: "Dieser Referenzartikel behandelt, was ein Kurzmitteilungsdienst or SMS-Segment ist, wie Segmente für die Abrechnung gezählt werden und was beim Erstellen von Kurzmitteilungsdienst or SMS- und RCS-Nachrichtentexten zu beachten ist."
 page_type: reference
 alias: /sms_rcs_billing_calculators/
 tool:
@@ -14,33 +14,33 @@ channel:
 
 ---
 
-# SMS- und RCS-Abrechnungsrechner {#sms-and-rcs-billing-calculators}
+# Kurzmitteilungsdienst or SMS- und RCS-Abrechnungsrechner {#sms-and-rcs-billing-calculators}
 
-> Bei Braze werden SMS-Nachrichten pro Nachrichten-Segment abgerechnet, während RCS-Nachrichten pro Nachricht berechnet werden. Wenn Sie verstehen, was ein SMS-Segment ausmacht und welche verschiedenen RCS-Abrechnungstypen es gibt, können Sie besser nachvollziehen, wie Ihre Abrechnung erfolgt, und unbeabsichtigte Mehrkosten vermeiden.
+> Bei Braze werden Kurzmitteilungsdienst or SMS-Nachrichten pro Nachrichten-Segment abgerechnet, während RCS-Nachrichten pro Nachricht berechnet werden. Wenn Sie verstehen, was ein Kurzmitteilungsdienst or SMS-Segment ausmacht und welche verschiedenen RCS-Abrechnungstypen es gibt, können Sie besser nachvollziehen, wie Ihre Abrechnung erfolgt, und unbeabsichtigte Mehrkosten vermeiden.
 
-## SMS-Nachrichtentext und Nachrichtensegment-Rechner {#sms-message-copy-and-segment-calculator}
+## Kurzmitteilungsdienst or SMS-Nachrichtentext und Nachrichtensegment-Rechner {#sms-message-copy-and-segment-calculator}
 
-SMS-Nachrichten werden pro Nachrichtensegment berechnet. Zu verstehen, wie SMS-Nachrichten aufgeteilt werden, ist entscheidend für Ihr Verständnis der Abrechnung.
+Kurzmitteilungsdienst or SMS-Nachrichten werden pro Nachrichtensegment berechnet. Zu verstehen, wie Kurzmitteilungsdienst or SMS-Nachrichten aufgeteilt werden, ist entscheidend für Ihr Verständnis der Abrechnung.
 
-### Was ist ein SMS-Nachrichtensegment? {#what-is-an-sms-segment}
+### Was ist ein Kurzmitteilungsdienst or SMS-Nachrichtensegment? {#what-is-an-sms-segment}
 
-Der Short Messaging Service (SMS) ist ein standardisiertes Kommunikationsprotokoll, das es Geräten ermöglicht, kurze Textnachrichten zu senden und zu empfangen. Er wurde so konzipiert, dass er „zwischen“ andere Signalisierungsprotokolle passt, weshalb die SMS-Nachrichtenlänge auf 160 7-Bit-Zeichen begrenzt ist, also 1120 Bits oder 140 Bytes. SMS-Nachrichtensegmente sind die Zeichenpakete, die Mobilfunkanbieter zur Messung von Textnachrichten verwenden. Nachrichten werden pro Nachrichtensegment berechnet, weshalb Clients, die SMS nutzen, stark davon profitieren, die Feinheiten der Nachrichtenaufteilung zu verstehen.
+Der Short Messaging Service (Kurzmitteilungsdienst or SMS) ist ein standardisiertes Kommunikationsprotokoll, das es Geräten ermöglicht, kurze Textnachrichten zu senden und zu empfangen. Er wurde so konzipiert, dass er „zwischen“ andere Signalisierungsprotokolle passt, weshalb die Kurzmitteilungsdienst or SMS-Nachrichtenlänge auf 160 7-Bit-Zeichen begrenzt ist, also 1120 Bits oder 140 Bytes. Kurzmitteilungsdienst or SMS-Nachrichtensegmente sind die Zeichenpakete, die Mobilfunkanbieter zur Messung von Textnachrichten verwenden. Nachrichten werden pro Nachrichtensegment berechnet, weshalb Clients, die Kurzmitteilungsdienst or SMS nutzen, stark davon profitieren, die Feinheiten der Nachrichtenaufteilung zu verstehen.
 
-Wenn Sie eine SMS-Campaign oder ein Canvas mit Braze erstellen, sind die Nachrichten, die Sie im Editor verfassen, repräsentativ für das, was Ihre Nutzer:innen sehen, wenn die Nachricht auf ihrem Telefon zugestellt wird. **Dies gibt jedoch keinen Aufschluss darüber, wie Ihre Nachricht in Segmente aufgeteilt wird und wie letztlich die Abrechnung erfolgt.** Es liegt in Ihrer Verantwortung zu verstehen, wie viele Segmente gesendet werden, und sich über mögliche Mehrkosten im Klaren zu sein – wir stellen Ihnen jedoch einige Ressourcen zur Verfügung, um dies zu erleichtern. Nutzen Sie unseren integrierten [Nachrichtensegment-Rechner](#segment-calculator).
+Wenn Sie eine Kurzmitteilungsdienst or SMS-Campaign oder ein Canvas mit Braze erstellen, sind die Nachrichten, die Sie im Editor verfassen, repräsentativ für das, was Ihre Nutzer:innen sehen, wenn die Nachricht auf ihrem Telefon zugestellt wird. **Dies gibt jedoch keinen Aufschluss darüber, wie Ihre Nachricht in Segmente aufgeteilt wird und wie letztlich die Abrechnung erfolgt.** Es liegt in Ihrer Verantwortung zu verstehen, wie viele Segmente gesendet werden, und sich über mögliche Mehrkosten im Klaren zu sein – wir stellen Ihnen jedoch einige Ressourcen zur Verfügung, um dies zu erleichtern. Nutzen Sie unseren integrierten [Nachrichtensegment-Rechner](#segment-calculator).
 
 ![Wenn Sie eine SMS-Campaign oder ein Canvas mit Braze erstellen, sind die Nachrichten im Editor repräsentativ für das, was Ihre Nutzer:innen sehen, geben jedoch keinen Aufschluss über die Segmentaufteilung und Abrechnung. Nutzen Sie unseren integrierten Nachrichtensegment-Rechner.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Aufschlüsselung der Segmente {#segment-breakdown}
 
-Das Zeichenlimit für **ein einzelnes SMS-Nachrichtensegment** beträgt 160 Zeichen ([GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)-Codierung) oder 70 Zeichen ([UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)-Codierung), je nach Codierungstyp. Die meisten Telefone und Netzwerke unterstützen jedoch die Verkettung und ermöglichen so längere SMS-Nachrichten von bis zu 1530 Zeichen (GSM-7) oder 670 Zeichen (UCS-2). Obwohl eine Nachricht also mehrere Segmente umfassen kann, wird sie als eine einzige Nachricht angezeigt und auch so gemeldet, solange diese Verkettungslimits nicht überschritten werden.
+Das Zeichenlimit für **ein einzelnes Kurzmitteilungsdienst or SMS-Nachrichtensegment** beträgt 160 Zeichen ([GSM-7](https://en.wikipedia.org/wiki/GSM_03.38)-Codierung) oder 70 Zeichen ([UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)-Codierung), je nach Codierungstyp. Die meisten Telefone und Netzwerke unterstützen jedoch die Verkettung und ermöglichen so längere Kurzmitteilungsdienst or SMS-Nachrichten von bis zu 1530 Zeichen (GSM-7) oder 670 Zeichen (UCS-2). Obwohl eine Nachricht also mehrere Segmente umfassen kann, wird sie als eine einzige Nachricht angezeigt und auch so gemeldet, solange diese Verkettungslimits nicht überschritten werden.
 
 Wichtig zu beachten: **Sobald Sie das Zeichenlimit Ihres ersten Segments überschreiten, führen zusätzliche Zeichen dazu, dass Ihre gesamte Nachricht anhand neuer Zeichenlimits aufgeteilt und segmentiert wird**:
 - **GSM-7-Codierung**
     - Nachrichten, die das 160-Zeichen-Limit überschreiten, werden in 153-Zeichen-Segmente aufgeteilt und einzeln gesendet, dann auf dem Gerät der Empfängerin bzw. des Empfängers wieder zusammengesetzt. Beispiel: Eine 161-Zeichen-Nachricht wird als zwei Nachrichten gesendet – eine mit 153 Zeichen und eine zweite mit 8 Zeichen.
 - **UCS-2-Codierung**
-    - Wenn Sie Nicht-GSM-Zeichen wie Emojis, chinesische, koreanische oder japanische Schriftzeichen in SMS-Nachrichten verwenden, müssen diese Nachrichten per UCS-2-Codierung gesendet werden. Nachrichten, die das anfängliche Segmentlimit von 70 Zeichen überschreiten, werden in 67-Zeichen-Nachrichtensegmente verkettet. Beispiel: Eine 71-Zeichen-Nachricht wird als zwei Nachrichten gesendet – eine mit 67 Zeichen und eine zweite mit 4 Zeichen.
+    - Wenn Sie Nicht-GSM-Zeichen wie Emojis, chinesische, koreanische oder japanische Schriftzeichen in Kurzmitteilungsdienst or SMS-Nachrichten verwenden, müssen diese Nachrichten per UCS-2-Codierung gesendet werden. Nachrichten, die das anfängliche Segmentlimit von 70 Zeichen überschreiten, werden in 67-Zeichen-Nachrichtensegmente verkettet. Beispiel: Eine 71-Zeichen-Nachricht wird als zwei Nachrichten gesendet – eine mit 67 Zeichen und eine zweite mit 4 Zeichen.
 
-Unabhängig vom Codierungstyp hat jede von Braze gesendete SMS-Nachricht ein Limit von bis zu 10 Segmenten und ist kompatibel mit [Liquid-Templating]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), Emojis und Links.
+Unabhängig vom Codierungstyp hat jede von Braze gesendete Kurzmitteilungsdienst or SMS-Nachricht ein Limit von bis zu 10 Segmenten und ist kompatibel mit [Liquid-Templating]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), Emojis und Links.
 
 {% tabs %}
 {% tab GSM-7-Codierung %}
@@ -78,21 +78,21 @@ Unabhängig vom Codierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 ### Wichtige Hinweise beim Verfassen Ihres Textes {#things-to-keep-in-mind-as-you-create-your-copy}
 
 - **Zeichenlimit pro Segment**
-    - [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38) hat ein Limit von 160 Zeichen für ein einzelnes SMS-Segment. Bei Nachrichten mit mehr als 160 Zeichen werden alle Nachrichten mit einem Limit von 153 Zeichen pro Segment aufgeteilt.
+    - [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38) hat ein Limit von 160 Zeichen für ein einzelnes Kurzmitteilungsdienst or SMS-Segment. Bei Nachrichten mit mehr als 160 Zeichen werden alle Nachrichten mit einem Limit von 153 Zeichen pro Segment aufgeteilt.
     - [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set) hat ein Limit von 70 Zeichen pro Nachrichtensegment. Bei Nachrichten mit mehr als 70 Zeichen werden alle Nachrichten mit einem Limit von 67 Zeichen pro Segment aufgeteilt.<br><br>
 - **Segmentlimit pro Nachricht**
-    - Aufgrund der Beschränkungen des Mediums gibt es eine maximale Anzahl von Segmenten, die Sie senden können. In einer einzelnen Braze-SMS-Nachricht können maximal **10 Segmente** gesendet werden.
+    - Aufgrund der Beschränkungen des Mediums gibt es eine maximale Anzahl von Segmenten, die Sie senden können. In einer einzelnen Braze-Kurzmitteilungsdienst or SMS-Nachricht können maximal **10 Segmente** gesendet werden.
     - Diese 10 Segmente sind auf 1530 Zeichen (GSM-7-Codierung) oder 670 Zeichen (UCS-2-Codierung) begrenzt.<br><br>
 - **Kompatibel mit Liquid-Templating, Connected Content, Emojis und Links**
     - Liquid-Templating und Connected Content können dazu führen, dass Ihre Nachricht das Zeichenlimit für Ihren Codierungstyp überschreitet. Sie können den [truncate words-Filter](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) verwenden, um die Anzahl der Wörter zu begrenzen, die Liquid zu Ihrer Nachricht hinzufügen könnte.
     - Emojis haben keine standardisierte Zeichenanzahl, daher sollten Sie stets testen, ob Ihre Nachrichten korrekt segmentiert und angezeigt werden.
-    - Links können viele Zeichen beanspruchen, was zu mehr Nachrichtensegmenten als beabsichtigt führen kann. Obwohl der Einsatz von Link-Shortenern möglich ist, eignen sie sich am besten für Shortcodes. Weitere Informationen finden Sie in unseren [SMS-FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs).<br><br>
+    - Links können viele Zeichen beanspruchen, was zu mehr Nachrichtensegmenten als beabsichtigt führen kann. Obwohl der Einsatz von Link-Shortenern möglich ist, eignen sie sich am besten für Shortcodes. Weitere Informationen finden Sie in unseren [Kurzmitteilungsdienst or SMS-FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs).<br><br>
 - **Testen**
-    - Testen Sie Ihre SMS-Nachrichten immer vor dem Start, insbesondere bei Verwendung von Liquid und Connected Content, da das Überschreiten von Nachrichten- oder Textlimits zu zusätzlichen Kosten führen kann. Beachten Sie, dass Testnachrichten auf Ihre Nachrichtenlimits angerechnet werden.<br><br>
+    - Testen Sie Ihre Kurzmitteilungsdienst or SMS-Nachrichten immer vor dem Start, insbesondere bei Verwendung von Liquid und Connected Content, da das Überschreiten von Nachrichten- oder Textlimits zu zusätzlichen Kosten führen kann. Beachten Sie, dass Testnachrichten auf Ihre Nachrichtenlimits angerechnet werden.<br><br>
 - **Automatische Antwortnachrichten**
-    - Automatische Antwortnachrichten, die von Braze gesendet werden, wie z. B. Double-Opt-in-Bestätigungen und Antworten auf HELP-Keywords, sind SMS-Sendungen, die als kostenpflichtige Segmente zählen. Die Anzahl der kostenpflichtigen Segmente hängt von der Textlänge und der Zeichencodierung ab.
+    - Automatische Antwortnachrichten, die von Braze gesendet werden, wie z. B. Double-Opt-in-Bestätigungen und Antworten auf HELP-Keywords, sind Kurzmitteilungsdienst or SMS-Sendungen, die als kostenpflichtige Segmente zählen. Die Anzahl der kostenpflichtigen Segmente hängt von der Textlänge und der Zeichencodierung ab.
 
-### SMS-Nachrichtensegment-Rechner {#segment-calculator}
+### Kurzmitteilungsdienst or SMS-Nachrichtensegment-Rechner {#segment-calculator}
 ---
 
 {% multi_lang_include alerts/tip_alerts.md alert='SMS segment calculator' %}

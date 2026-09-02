@@ -240,7 +240,7 @@ Les données d'attribution pour les campagnes Meta Business ne sont pas disponib
 
 ## URL de suivi des clics Airbridge dans Braze (facultatif) {#airbridge-click-tracking-urls-in-braze-optional}
 
-L'utilisation de liens de suivi des clics dans vos campagnes Braze montre quelles campagnes favorisent les installations d'applications et le réengagement. Utilisez les résultats pour mesurer les performances marketing et décider où investir les ressources pour un meilleur ROI.
+L'utilisation de liens de suivi des clics dans vos campagnes Braze montre quelles campagnes favorisent les installations d'applications et le réengagement. Utilisez les résultats pour mesurer les performances marketing et décider où investir les ressources pour un meilleur ROI or retour sur investissement.
 
 Pour commencer avec les liens de suivi des clics Airbridge, consultez [Airbridge](https://help.airbridge.io/en/guides/creating-a-new-tracking-link). Une fois la configuration terminée, vous pouvez directement insérer les liens de suivi des clics Airbridge dans vos campagnes Braze. Airbridge utilisera ensuite ses [méthodologies d'attribution probabiliste](https://help.airbridge.io/en/guides/identity-matching) pour attribuer l'utilisateur qui a cliqué sur le lien. Nous recommandons d'ajouter un identifiant d'appareil à vos liens de suivi Airbridge pour améliorer la précision des attributions de vos campagnes Braze. Cela attribuera de manière déterministe l'utilisateur qui a cliqué sur le lien.
 

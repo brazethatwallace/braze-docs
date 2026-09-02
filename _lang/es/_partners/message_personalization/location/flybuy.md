@@ -25,7 +25,7 @@ Lo siguiente es necesario antes de habilitar la integración:
 | Requisito | Descripción |
 |---|---|
 | Cuenta de Flybuy | Una cuenta de Flybuy con al menos un proyecto. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos de `users.track`. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos de `users.track`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -62,7 +62,7 @@ Por ejemplo, dirígete a cualquier cliente que calificó su experiencia de recog
 
 ### Desencadenar una alerta cuando un cliente entra en un área de recogida virtual {#trigger-an-alert-when-a-customer-enters-a-virtual-pickup-area}
 
-Envía un SMS personalizado dirigido a clientes sin una cuenta de fidelización para que descarguen la aplicación y creen una cuenta de fidelización.
+Envía un servicio de mensajes cortos personalizado dirigido a clientes sin una cuenta de fidelización para que descarguen la aplicación y creen una cuenta de fidelización.
 
 ![Desencadenar una alerta cuando un cliente entra en un área de recogida virtual]({% image_buster /assets/img/flybuy/flybuy2.png %})
 

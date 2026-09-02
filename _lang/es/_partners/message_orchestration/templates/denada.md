@@ -24,8 +24,8 @@ Se requiere lo siguiente para usar esta integración:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Denada | Se requiere una [cuenta de Denada](https://app.heydenada.com) para usar esta integración. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos completos de **Templates**. <br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos completos de **Templates**. <br><br>Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST or transferencia de estado representacional de Braze | [La URL de tu endpoint REST or transferencia de estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze para tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Ejemplos {#use-cases}
@@ -41,7 +41,7 @@ Denada está diseñado para especialistas en marketing y expertos en la materia 
 
 En Denada, selecciona el nombre de tu empresa en el menú de perfil y luego selecciona **Team settings** > **Add integration**.
 
-Selecciona **Braze** como la integración, luego introduce tu **clave de API** de Braze y selecciona tu **endpoint de REST API** de la lista de regiones disponibles.
+Selecciona **Braze** como la integración, luego introduce tu **clave de API** de Braze y selecciona tu **endpoint de REST or transferencia de estado representacional API** de la lista de regiones disponibles.
 
 {% alert note %}
 Esta es una configuración única. Cuando tus credenciales sean validadas, tu configuración se guardará para todas las exportaciones futuras.

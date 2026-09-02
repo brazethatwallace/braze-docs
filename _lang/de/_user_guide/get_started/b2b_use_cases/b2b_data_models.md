@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie mit den Daten-Tools von Braze B2B-Modelle er
 
 # Ein B2B-Datenmodell erstellen {#create-a-b2b-data-model}
 
-> Dieser Anwendungsfall zeigt, wie Sie mit den Daten-Tools von Braze ein effektives und effizientes B2B-Datenmodell erstellen können, das Sie beim Targeting, Triggern, Personalisieren und Versenden von Nachrichten an Ihre Geschäftsnutzer:innen unterstützt.
+> Dieser Anwendungsfall zeigt, wie Sie mit den Daten-Tools von Braze ein effektives und effizientes B2B-Datenmodell erstellen können, das Sie beim Targeting, Trigger or triggern or triggern, Personalisieren und Versenden von Nachrichten an Ihre Geschäftsnutzer:innen unterstützt.
 
 {% alert note %}
 Diese Empfehlungen können sich im Laufe der Zeit ändern, wenn Braze seine B2B-Funktionen ausbaut.
@@ -30,8 +30,8 @@ In Braze werden diese vier Objekte kombiniert und auf zwei Objekte reduziert: Nu
 
 | Braze-B2B-Objekt | Beschreibung | Ursprüngliche B2B-Objekte  |
 | --- | --- | --- |
-| Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM-System zugeordnet. Da die Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details wieder mit Braze synchronisiert. | Leads<br> Kontakte |
-| Geschäftsobjekte | Diese lassen sich auf alle Nicht-Nutzer:innen-Objekte in Ihrem Vertriebs-CRM-System abbilden. Dazu gehören Ihre vertriebsspezifischen Objekte, wie z. B. Kontoobjekte und Opportunity-Objekte. | Konten<br> Opportunities |
+| Nutzerprofile | Diese werden direkt den Leads und Kontakten in Ihrem Vertriebs-CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System zugeordnet. Da die Leads von Braze erfasst werden, werden sie automatisch als Leads in Ihrem Vertriebs-CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System angelegt. Wenn sie in Kontakte umgewandelt werden, werden die Kontakt-IDs und -details wieder mit Braze synchronisiert. | Leads<br> Kontakte |
+| Geschäftsobjekte | Diese lassen sich auf alle Nicht-Nutzer:innen-Objekte in Ihrem Vertriebs-CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System abbilden. Dazu gehören Ihre vertriebsspezifischen Objekte, wie z. B. Kontoobjekte und Opportunity-Objekte. | Konten<br> Opportunities |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Ein B2B-Datenmodell erstellen" }
 
 ## Schritt 1: Erstellen Sie Ihre Geschäftsobjekte in Braze {#step-1-create-your-business-objects-in-braze}
@@ -42,7 +42,7 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 
 | Methode | Beschreibung |
 | --- | --- |
-| [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Nutzerprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
+| [Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs) | Dies sind unabhängige Datenobjekte (ergänzende Datenobjekte) zum primären Kundenprofil or Nutzerprofil in Braze. In einem B2B-Kontext würden Sie wahrscheinlich Kataloge für Ihre Konten und Opportunities haben. |
 | [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) | Diese erlauben es Braze, Ihr Data Warehouse direkt abzufragen. Wahrscheinlich synchronisieren Sie Ihre Lead-, Kontakt-, Opportunity- und Kontoobjekte bereits regelmäßig mit Ihrem Data Warehouse, sodass Sie die Segmentierung von Braze direkt auf dieses Warehouse verweisen und es in einer Zero-Copy-Umgebung aktivieren können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: Erstellen Sie Ihre Geschäftsobjekte in Braze" }
 
@@ -51,27 +51,27 @@ Es gibt zwei Methoden zur Erstellung und Verwaltung Ihrer Geschäftsobjekte in B
 
 ### Option 1: Verwenden Sie Kataloge für Konten und Opportunities {#option-1-use-catalogs-for-accounts-and-opportunities}
 
-Kataloge sind Datentabellen, die in Braze gehostet und verwaltet werden. Während Konto- und Opportunity-Daten aus dem CRM-System Ihrer Wahl stammen, würden Sie diese in Braze duplizieren, um sie für Marketingzwecke zu verwenden: kontobasierte Segmentierung, kontobasiertes Marketing, Lead-Management und mehr.
+Kataloge sind Datentabellen, die in Braze gehostet und verwaltet werden. Während Konto- und Opportunity-Daten aus dem CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System Ihrer Wahl stammen, würden Sie diese in Braze duplizieren, um sie für Marketingzwecke zu verwenden: kontobasierte Segmentierung, kontobasiertes Marketing, Lead-Management und mehr.
 
-Bei dieser Option empfehlen wir Ihnen, einen Katalog für Ihre Konten und einen für Ihre Opportunities zu erstellen und beide regelmäßig zu aktualisieren, indem Sie Braze-Updates über unsere [Katalog-API]({{site.baseurl}}/api/endpoints/catalogs) oder [Cloud-Datenaufnahme (CDI) für Kataloge]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) senden. Stellen Sie bei der Erstellung dieser Kataloge sicher, dass die `id` (erste Spalte) Ihres Katalogs mit der `id` in Ihrem CRM-System übereinstimmt.
+Bei dieser Option empfehlen wir Ihnen, einen Katalog für Ihre Konten und einen für Ihre Opportunities zu erstellen und beide regelmäßig zu Update or aktualisieren or aktualisieren, indem Sie Braze-Updates über unsere [Katalog-API]({{site.baseurl}}/api/endpoints/catalogs) oder [Cloud-Datenaufnahme (CDI) für Kataloge]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) senden. Stellen Sie bei der Erstellung dieser Kataloge sicher, dass die `id` (erste Spalte) Ihres Katalogs mit der `id` in Ihrem CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System übereinstimmt.
 
-#### Abbildung Ihrer CRM-Felder {#map-over-your-crm-fields}
+#### Abbildung Ihrer CRM or Customer-Relationship-Management [-System] (CRM)-Felder {#map-over-your-crm-fields}
 
-In den nachstehenden Tabellen finden Sie einige Beispiele für Felder, die Sie aus den Konto- und Opportunity-Objekten Ihres CRM übernehmen können.
+In den nachstehenden Tabellen finden Sie einige Beispiele für Felder, die Sie aus den Konto- und Opportunity-Objekten Ihres CRM or Customer-Relationship-Management [-System] (CRM) übernehmen können.
 
 {% subtabs %}
 {% subtab Account catalog %}
 
-In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld abbilden, das in den Objekten Ihres CRM enthalten ist.
+In diesem Anwendungsfall ist Salesforce das Beispiel-CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System. Sie können jedes Feld abbilden, das in den Objekten Ihres CRM or Customer-Relationship-Management [-System] (CRM) enthalten ist.
 
-<table aria-label="Abbildung Ihrer CRM-Felder" border="1">
-  <caption>Abbildung Ihrer CRM-Felder</caption>
+<table aria-label="Abbildung Ihrer CRM or Customer-Relationship-Management [-System] (CRM)-Felder" border="1">
+  <caption>Abbildung Ihrer CRM or Customer-Relationship-Management [-System] (CRM)-Felder</caption>
   <thead>
   <tr>
     <th><b>Braze-Objekt</b></th>
     <th><b>Braze-Feld</b></th>
-    <th><b>CRM-Objekt (Salesforce)</b></th>
-    <th><b>CRM-Feld (Salesforce)</b></th>
+    <th><b>CRM or Customer-Relationship-Management [-System] (CRM)-Objekt (Salesforce)</b></th>
+    <th><b>CRM or Customer-Relationship-Management [-System] (CRM)-Feld (Salesforce)</b></th>
   </tr>
   </thead>
   <tbody>
@@ -102,7 +102,7 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
 {% endsubtab %}
 {% subtab Opportunity catalog %}
 
-In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jedes Feld abbilden, das in den Objekten Ihres CRM enthalten ist.
+In diesem Anwendungsfall ist Salesforce das Beispiel-CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System. Sie können jedes Feld abbilden, das in den Objekten Ihres CRM or Customer-Relationship-Management [-System] (CRM) enthalten ist.
 
 <table aria-label="Beispieltabelle der zugeordneten Kontofelder" border="1">
   <caption>Beispieltabelle der zugeordneten Kontofelder</caption>
@@ -110,8 +110,8 @@ In diesem Anwendungsfall ist Salesforce das Beispiel-CRM-System. Sie können jed
   <tr>
     <th><b>Braze-Objekt</b></th>
     <th><b>Braze-Feld</b></th>
-    <th><b>CRM-Objekt (Salesforce)</b></th>
-    <th><b>CRM-Feld (Salesforce)</b></th>
+    <th><b>CRM or Customer-Relationship-Management [-System] (CRM)-Objekt (Salesforce)</b></th>
+    <th><b>CRM or Customer-Relationship-Management [-System] (CRM)-Feld (Salesforce)</b></th>
   </tr>
   </thead>
   <tbody>
@@ -155,15 +155,15 @@ Wie Sie verbundene Quellen einrichten, erfahren Sie unter [Einbindung verbundene
 
 ## Schritt 2: Verknüpfen Sie Ihre Geschäftsobjekte mit Nutzerprofilen {#step-2-relate-your-business-objects-to-user-profiles}
 
-Nutzerprofile sind das primäre Objekt in Braze, das den Großteil Ihrer demografischen Segmentierung, Triggerung und Personalisierung ermöglicht. Zu den Nutzerprofilen gehören [Standard-Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/user_data), die von unserem SDK und anderen Quellen erfasst werden, einschließlich [benutzerdefinierter Daten]({{site.baseurl}}/user_guide/data/activation), die entweder in Form von Attributen (demografische Daten), Ereignissen (Verhaltensdaten) oder Käufen (Transaktionsdaten) vorliegen.
+Nutzerprofile sind das primäre Objekt in Braze, das den Großteil Ihrer demografischen Segmentierung, Triggerung und Personalisierung ermöglicht. Zu den Nutzerprofilen gehören [Standard-Nutzerdaten]({{site.baseurl}}/user_guide/data/unification/user_data), die von unserem SDK or Software-Development-Kit und anderen Quellen erfasst werden, einschließlich [benutzerdefinierter Daten]({{site.baseurl}}/user_guide/data/activation), die entweder in Form von Attributen (demografische Daten), Ereignissen (Verhaltensdaten) oder Käufen (Transaktionsdaten) vorliegen.
 
-### Schritt 2.1: Vertriebs-CRM-IDs auf Braze abbilden {#step-21-map-sales-crm-ids-to-braze}
+### Schritt 2.1: Vertriebs-CRM or Customer-Relationship-Management [-System] (CRM)-IDs auf Braze abbilden {#step-21-map-sales-crm-ids-to-braze}
 
-Stellen Sie zunächst sicher, dass Braze und das CRM Ihrer Wahl über einen gemeinsamen Bezeichner verfügen, um Daten auszutauschen. Wir empfehlen, die folgende Tabelle zu verwenden, um die ID-Felder Ihres Vertriebs-CRM auf das Braze-Nutzerobjekt abzubilden. In der folgenden Tabelle ist Salesforce als CRM-System angegeben, aber dies kann mit jedem CRM-System durchgeführt werden.
+Stellen Sie zunächst sicher, dass Braze und das CRM or Customer-Relationship-Management [-System] (CRM) Ihrer Wahl über einen gemeinsamen Bezeichner verfügen, um Daten auszutauschen. Wir empfehlen, die folgende Tabelle zu verwenden, um die ID-Felder Ihres Vertriebs-CRM or Customer-Relationship-Management [-System] (CRM) auf das Braze-Nutzerobjekt abzubilden. In der folgenden Tabelle ist Salesforce als CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System angegeben, aber dies kann mit jedem CRM or Customer-Relationship-Management [-System] (CRM)-System or Customer-Relationship-Management-System durchgeführt werden.
 
 #### Braze-Objekt: Nutzer:in {#braze-object-user}
 
-| Braze-Feld | CRM-Objekt (Salesforce) | CRM-Feld (Salesforce) | Zusätzliche Informationen |
+| Braze-Feld | CRM or Customer-Relationship-Management [-System] (CRM)-Objekt (Salesforce) | CRM or Customer-Relationship-Management [-System] (CRM)-Feld (Salesforce) | Zusätzliche Informationen |
 | --- | --- | --- | --- |
 | `Aliases.salesforce_lead_id` | Lead | `id` | - Alias-Label: `salesforce_lead_id` <br>- Alias-Name: `lead_id` |
 | `Aliases.salesforce_contact_id` | Kontakt | `id` | - Alias-Label: `salesforce_contact_id` <br>- Alias-Name: `contact_id` |
@@ -186,7 +186,7 @@ Nachdem Sie Ihre IDs synchronisiert haben, müssen Sie Ihre Braze-Nutzerprofile 
 
 Da Ihre Opportunity- und Kontodaten nun als Braze-Kataloge erfasst sind, müssen Sie eine Beziehung zwischen diesen Katalogen und den Nutzerprofilen herstellen, an die Sie Nachrichten senden möchten. Derzeit sind dafür zwei Schritte erforderlich:
 
-1. Nehmen Sie das Konto (z. B. `account_id (string)`), die Opportunity-ID (z. B. `opportunity_ids (array)`) oder beide als Attribute in das Nutzerprofil auf.
+1. Nehmen Sie das Konto (z. B. `account_id (string)`), die Opportunity-ID (z. B. `opportunity_ids (array)`) oder beide als Attribute in das Kundenprofil or Nutzerprofil auf.
 2. Protokollieren Sie ein Ereignis (z. B. `account_linked`), das die Konto-ID als Eigenschaft des Ereignisses enthält.
 
 ```json

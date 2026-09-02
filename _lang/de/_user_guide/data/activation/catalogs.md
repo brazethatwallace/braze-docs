@@ -76,4 +76,4 @@ Bei der kostenlosen Version der Kataloge sind bis zu 500&nbsp;MB Speicherplatz z
 
 Für Catalogs Pro stehen folgende Speichergrößen zur Verfügung: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB oder 50&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (500&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
-Wenn Sie Ihren Katalogspeicher upgraden möchten, kontaktieren Sie Ihren Braze Account Manager. Einzelheiten zu den Tarifen und Berechtigungshinweise finden Sie unter [Katalogspeicher]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).
+Wenn Sie Ihren Katalogspeicher upgraden möchten, kontaktieren Sie Ihren Braze Account Manager:in. Einzelheiten zu den Tarifen und Berechtigungshinweise finden Sie unter [Katalogspeicher]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

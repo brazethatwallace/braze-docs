@@ -19,7 +19,7 @@ Geografische Einschränkungen sind ein entscheidender erster Schritt, aber nur e
 
 - Clientseitige und serverseitige Validierung zur Sicherstellung der Datenintegrität
 - Sinnvolles Rate-Limiting auf anfälligen Endpunkten, um automatisierte Übermittlungen zu verlangsamen
-- CSRF-Token, um sicherzustellen, dass Anfragen von Ihren legitimen Formularen stammen
+- CSRF-Token / Textbaustein, um sicherzustellen, dass Anfragen von Ihren legitimen Formularen stammen
 - CAPTCHA, um massenhafte betrügerische Einträge abzuwehren
 
 {% alert note %}

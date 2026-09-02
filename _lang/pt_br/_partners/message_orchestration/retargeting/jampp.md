@@ -32,7 +32,7 @@ Esta integração suporta apps iOS e Android.
 | Conta da Jampp | Uma [conta Jampp](https://www.jampp.com/) é necessária para aproveitar esta parceria. |
 | ID do app para Android | Seu identificador exclusivo do aplicativo Braze para Android (como "com.example"). |
 | ID do app para iOS | Seu identificador exclusivo do aplicativo Braze para iOS (como "012345678"). |
-| Ativar a coleta de IDFA no SDK da Braze | A coleta de IDFA é opcional no SDK da Braze e fica desativada por padrão. |
+| Ativar a coleta de IDFA no SDK or kit de desenvolvimento de software da Braze | A coleta de IDFA é opcional no SDK or kit de desenvolvimento de software da Braze e fica desativada por padrão. |
 | Coleta de ID de publicidade do Google via atributo personalizado | A coleta de ID de publicidade do Google é opcional para os clientes e pode ser coletada como um [atributo personalizado]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types).
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -90,7 +90,7 @@ Você não precisa definir um corpo de solicitação para este webhook.
 
 ### Etapa 2: Visualize sua solicitação {#step-2-preview-your-request}
 
-Visualize a mensagem para garantir que a solicitação esteja sendo renderizada corretamente para diferentes usuários. Recomendamos visualizar e enviar solicitações de teste para usuários de Android e iOS. Se a solicitação for bem-sucedida, a API responderá com `HTTP 204`.
+Visualize a mensagem para garantir que a solicitação esteja sendo renderizada corretamente para diferentes usuários. Recomendamos visualizar e enviar solicitações de teste para usuários de Android e iOS. Se a solicitação for bem-sucedida, a API or interface de programação do aplicativo (API) responderá com `HTTP 204`.
 
 {% alert important %}
 Lembre-se de salvar seu modelo antes de sair da página! <br>Os modelos de webhook atualizados podem ser encontrados na lista **Modelos de webhooks salvos** ao criar uma nova [campanha de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).

@@ -83,13 +83,13 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 
 | 인게이지먼트 카테고리 | 포함 내용 |
 | --- | --- |
-| 연락처 설정 | 이메일, SMS, 푸시의 구독 상태와 이 세 채널에 대해 사용자가 연결된 구독 그룹. 이 섹션에는 푸시 토큰에 대한 변경 기록 정보도 포함됩니다. 구독 및 옵트인 설정 방법에 대한 자세한 내용은 [이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions), [SMS]({{site.baseurl}}/sms_rcs_subscription_groups), [푸시]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)를 참조하세요. |
-| 수신한 Campaigns | **수신한 Campaigns**는 채널별 발송 및 조회 시점을 반영합니다. 대부분의 채널은 Braze가 메시지를 전달 제공업체에 전달할 때 발송을 기록하며, 메시지가 최종적으로 전달되지 않더라도 기록됩니다. **Content Cards**는 다릅니다. 사용자가 앱에서 카드를 조회한 후에만 여기에 표시됩니다. 채널별 분류는 [수신한 Campaigns에 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요. <br><br>메시지가 수신, 열람 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 해당 Campaign에 포함되지 않았거나 직접 메시지를 받지 않았더라도 이 필터에 매칭될 수 있습니다.<br><br>이 목록은 리타겟팅 및 기록에 표시되는 내용을 결정할 때 [메시징 상호작용 데이터]({{site.baseurl}}/api/data_retention/messaging_interaction_data)(만료 규칙 포함)를 사용합니다.<br><br> 목록에서 Campaign을 선택하여 확인할 수 있습니다. |
+| 연락처 설정 | 이메일, 단문 메시지 서비스, 푸시의 구독 상태와 이 세 채널에 대해 사용자가 연결된 구독 그룹. 이 섹션에는 푸시 토큰에 대한 변경 기록 정보도 포함됩니다. 구독 및 옵트인 설정 방법에 대한 자세한 내용은 [이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions), [단문 메시지 서비스]({{site.baseurl}}/sms_rcs_subscription_groups), [푸시]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)를 참조하세요. |
+| 수신한 Campaigns | **수신한 Campaigns**는 채널별 발송 및 조회 시점을 반영합니다. 대부분의 채널은 Braze가 메시지를 전달 제공업체에 전달할 때 발송을 기록하며, 메시지가 최종적으로 전달되지 않더라도 기록됩니다. **Content Cards**는 다릅니다. 사용자가 앱에서 카드를 조회한 후에만 여기에 표시됩니다. 채널별 분류는 [수신한 Campaigns에 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요. <br><br>메시지가 수신, 열람 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, 단문 메시지 서비스 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 해당 Campaign에 포함되지 않았거나 직접 메시지를 받지 않았더라도 이 필터에 매칭될 수 있습니다.<br><br>이 목록은 리타겟팅 및 기록에 표시되는 내용을 결정할 때 [메시징 상호작용 데이터]({{site.baseurl}}/api/data_retention/messaging_interaction_data)(만료 규칙 포함)를 사용합니다.<br><br> 목록에서 Campaign을 선택하여 확인할 수 있습니다. |
 | Segments | 이 사용자가 포함된 Segments. 목록에서 Segment를 선택하여 확인할 수 있습니다. |
 | 커뮤니케이션 통계 | 각 채널에서 이 사용자가 마지막으로 메시지를 수신한 시점. |
 | 설치 경로 | 사용자가 앱을 설치한 방법과 시점에 대한 정보. [사용자 설치 이해]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/install_attribution)에서 자세히 알아보세요. |
 | 기타 | 사용자의 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers). |
-| 수신한 Canvas 메시지 | 이 사용자가 수신한 Canvas 메시지와 수신 시점. 발송 시점은 **수신한 Campaigns**와 동일한 채널 규칙을 따릅니다. [수신한 Campaigns에 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요.<br><br> 메시지가 수신, 열람 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, SMS 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 해당 Campaign에 포함되지 않았거나 직접 메시지를 받지 않았더라도 이 필터에 매칭될 수 있습니다.<br><br> 목록에서 메시지를 선택하여 확인할 수 있습니다. |
+| 수신한 Canvas 메시지 | 이 사용자가 수신한 Canvas 메시지와 수신 시점. 발송 시점은 **수신한 Campaigns**와 동일한 채널 규칙을 따릅니다. [수신한 Campaigns에 표시되는 시점](#when-campaigns-appear-in-campaigns-received)을 참조하세요.<br><br> 메시지가 수신, 열람 또는 클릭되면 Braze는 상호작용을 기록한 프로필과 동일한 채널 식별자를 공유하는 모든 프로필의 데이터를 업데이트합니다(예: 이메일의 경우 동일한 이메일 주소, 단문 메시지 서비스 또는 WhatsApp의 경우 동일한 전화번호). 메시지를 수신, 열람 또는 클릭한 사람과 식별자를 공유하는 사용자는 원래 해당 Campaign에 포함되지 않았거나 직접 메시지를 받지 않았더라도 이 필터에 매칭될 수 있습니다.<br><br> 목록에서 메시지를 선택하여 확인할 수 있습니다. |
 | 예측 | 이 사용자의 [고객이탈 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) 및 [이벤트 예측]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) 점수. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인게이지먼트 탭" }
 
@@ -129,7 +129,7 @@ description: "이 참조 문서에서는 대시보드에서 사용자의 프로�
 - **푸시:** Braze는 메시지가 푸시 제공업체(예: Apple Push Notification service(APNs) 또는 Firebase Cloud Messaging(FCM))에 전달될 때 발송을 기록합니다. 제공업체는 보통 즉시 전달을 시도하며, 기기를 사용할 수 없는 경우(예: 오프라인) 메시지가 만료될 때까지 재시도할 수 있습니다.
 - **인앱 메시지:** Braze는 Campaign이 시작될 때 발송을 기록합니다.
 - **Content Cards:** Braze가 _발송_ 이벤트를 기록하는 시점은 전달 유형과 **카드 생성** 설정에 따라 달라집니다. 콘텐츠 카드 Campaign은 사용자가 앱에서 카드를 조회한 후에만 고객 프로필의 **수신한 Campaigns**에 표시됩니다. 전체 분류는 Content Cards 리포팅 문서의 [발송이 기록되는 시점]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged) 및 [수신한 Campaigns 및 리타겟팅 필터]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters)를 참조하세요.
-- **SMS, WhatsApp, 웹훅:** Braze는 메시지가 해당 채널의 전달 경로(예: SMS 또는 WhatsApp 제공업체, 또는 웹훅 엔드포인트)에 진입할 때 발송을 기록합니다.
+- **단문 메시지 서비스, WhatsApp, 웹훅:** Braze는 메시지가 해당 채널의 전달 경로(예: 단문 메시지 서비스 또는 WhatsApp 제공업체, 또는 웹훅 엔드포인트)에 진입할 때 발송을 기록합니다.
 
 {% alert note %}
 이 설명은 **수신한 Campaigns**에 대해 발송이 기록되는 시점을 다룹니다. 메시지가 제공업체에 도달하기 전에 중단할 수 있는 [메시지 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)과는 별개입니다.
@@ -155,12 +155,12 @@ RCS 이벤트는 현재 **메시징 기록** 탭에서 지원되지 않습니다
 
 ##### 메시지 인게이지먼트 이벤트 {#message-engagement-events}
 
-다음 메시지 인게이지먼트 이벤트는 이메일, SMS, 푸시, 인앱 메시지, Content Cards, 웹훅에서 사용할 수 있습니다. 특정 이벤트가 추적되는 방식에 대한 자세한 내용은 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.
+다음 메시지 인게이지먼트 이벤트는 이메일, 단문 메시지 서비스, 푸시, 인앱 메시지, Content Cards, 웹훅에서 사용할 수 있습니다. 특정 이벤트가 추적되는 방식에 대한 자세한 내용은 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.
 
 | 채널 | 사용 가능한 인게이지먼트 이벤트 |
 | --- | --- |
 | 이메일 | 반송<br>클릭<br>지연 이벤트<br>전달<br>스팸 신고<br>열람 ([이메일 열람 이벤트에 대한 참고 사항](#note-on-email-open-event) 참조)<br>발송<br>소프트 반송<br>탈퇴 |
-| SMS | 통신사 발송<br>전달<br>전달 실패<br>인바운드 수신<br>거부<br>발송 |
+| 단문 메시지 서비스 | 통신사 발송<br>전달<br>전달 실패<br>인바운드 수신<br>거부<br>발송 |
 | 푸시 | 반송<br>영향받은 열람<br>iOS 포그라운드<br>열람<br>발송 |
 | 인앱 메시지 | 클릭<br>노출 |
 | Content Cards | 클릭<br>닫기<br>노출<br>발송 |
@@ -175,7 +175,7 @@ RCS 이벤트는 현재 **메시징 기록** 탭에서 지원되지 않습니다
 중단 이벤트는 다음 채널에서 사용할 수 있습니다:
 
 - 이메일
-- SMS
+- 단문 메시지 서비스
 - 푸시
 - 웹훅
 

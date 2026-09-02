@@ -10,7 +10,7 @@ search_tag: Partner
 
 # SalesWings
 
-> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)는 B2B SaaS 영업 및 마케팅 운영 솔루션으로, 전체적인 리드 스코어링 및 등급을 통해 리드 및 계정 자격을 관리하고 영업 인사이트 및 알림, B2B 기여도 보고와 함께 긴밀한 Salesforce CRM 통합을 제공합니다. Digioh와 유사한 웹사이트 참여 애드온을 통해 웹사이트에서 리드를 생성할 수 있습니다. Canvas와 세분화에서 개인화를 위해 Braze 내부의 관심사와 참여를 활용할 수 있습니다.
+> [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs)는 B2B SaaS(software-as-a-service) 영업 및 마케팅 운영 솔루션으로, 전체적인 리드 스코어링 및 등급을 통해 리드 및 계정 자격을 관리하고 영업 인사이트 및 알림, B2B 기여도 보고와 함께 긴밀한 Salesforce CRM 통합을 제공합니다. Digioh와 유사한 웹사이트 참여 애드온을 통해 웹사이트에서 리드를 생성할 수 있습니다. Canvas와 세분화에서 개인화를 위해 Braze 내부의 관심사와 참여를 활용할 수 있습니다.
 
 _이 통합은 SalesWings에서 유지 관리합니다._
 
@@ -134,7 +134,7 @@ Current 생성 양식의 **Credentials** 섹션에서 [**SalesWings 통합** 페
 
 ### URL 클릭으로 사용자 식별 {#identifying-users-from-url-clicks}
 
-사용자가 추적 가능한 URL(예: 이메일 대량 발송, URL이 포함된 배너)을 클릭할 때 자동으로 사용자를 식별할 수 있습니다. URL을 추적 가능하게 만들려면 이메일, 배너 또는 SMS에서 링크 끝에 매개변수와 ID를 추가하여 웹사이트 URL을 수정하는 두 가지 방법이 있습니다.
+사용자가 추적 가능한 URL(예: 이메일 대량 발송, URL이 포함된 배너)을 클릭할 때 자동으로 사용자를 식별할 수 있습니다. URL을 추적 가능하게 만들려면 이메일, 배너 또는 단문 메시지 서비스에서 링크 끝에 매개변수와 ID를 추가하여 웹사이트 URL을 수정하는 두 가지 방법이 있습니다.
 
 1. `?braze_id=` 뒤에 {% raw %}`{{${braze_id}}}`{% endraw %}를 추가
   - **링크 예시:** {% raw %}`https://www.your-website.com?braze_id={{${braze_id}}}`{% endraw %}<br><br>
@@ -189,8 +189,8 @@ Braze Current를 SalesWings에 연결하면 SalesWings는 이메일이 있는 �
 | 메시지 이벤트 | 이메일 구독 취소 | `[Subscription status change] Unsubscribed from $campaign_name` |
 | 메시지 이벤트 | 인앱 메시지 클릭 | `[In-app campaign engagement] Clicked on message $campaign_name` |
 | 메시지 이벤트 | 푸시 열기 | `[Push notification engagement] Clicked on notification $campaign_name` |
-| 메시지 이벤트 | SMS/MMS 인바운드 수신 | `[SMS/mobile campaign engagement] We received a message from this person to our internal number $inbound_phone_number: $message_body` |
-| 메시지 이벤트 | SMS/MMS 짧은 링크 클릭 | `[SMS/mobile campaign engagement] Clicked on $short_url` |
+| 메시지 이벤트 | 단문 메시지 서비스/MMS 인바운드 수신 | `[SMS/mobile campaign engagement] We received a message from this person to our internal number $inbound_phone_number: $message_body` |
+| 메시지 이벤트 | 단문 메시지 서비스/MMS 짧은 링크 클릭 | `[SMS/mobile campaign engagement] Clicked on $short_url` |
 | 메시지 이벤트 | WhatsApp 인바운드 수신 | `[WhatsApp engagement] We received a message from this person to our WhatsApp number $inbound_phone_number: $message_body` |
 | 메시지 이벤트 | WhatsApp 읽음 | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | 구독 | 글로벌 구독 상태 변경 | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |

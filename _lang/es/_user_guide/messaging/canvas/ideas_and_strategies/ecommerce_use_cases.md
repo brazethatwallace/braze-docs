@@ -27,7 +27,7 @@ Para usar una plantilla de Canvas:
 
 Braze ofrece cuatro plantillas de Canvas de comercio electrónico.
 
-{% multi_lang_include canvas/ecommerce_templates.md %}
+{% multi_lang_include Canvas/ecommerce_templates.md %}
 
 ## Personalización de mensajes {#message-personalization}
 

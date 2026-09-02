@@ -22,7 +22,7 @@ Sie können die Analytics für Ihre Empfehlung einsehen, um zu sehen, welche Art
 
 Diese Metriken beschreiben Ihre Empfehlungszielgruppe. Je nach Empfehlungstyp und verfügbaren Analytics-Daten kann der Abschnitt **Zielgruppe** die Metriken **Precision** und **Coverage** enthalten.
 
-Bei **KI-personalisierten** Empfehlungen zeigt die Karte **Empfehlungstyp** die geschätzte Personalisierungsrate, Nutzer:innen mit dem konfigurierten Event und die Gesamtpopulation an. Bei **Neueste**-Empfehlungen wird der Anteil der Nutzer:innen angezeigt, die **Neueste**-Empfehlungen erhalten, im Vergleich zum **Beliebteste**-Fallback. **Beliebteste**- und **Trending**-Empfehlungen zeigen keine Aufschlüsselung des Empfehlungstyps auf Nutzer:innen-Ebene.
+Bei **KI or künstliche Intelligenz-personalisierten** Empfehlungen zeigt die Karte **Empfehlungstyp** die geschätzte Personalisierungsrate, Nutzer:innen mit dem konfigurierten Event und die Gesamtpopulation an. Bei **Neueste**-Empfehlungen wird der Anteil der Nutzer:innen angezeigt, die **Neueste**-Empfehlungen erhalten, im Vergleich zum **Beliebteste**-Fallback. **Beliebteste**- und **Trending**-Empfehlungen zeigen keine Aufschlüsselung des Empfehlungstyps auf Nutzer:innen-Ebene.
 
 ![Metriken zur Empfehlungszielgruppe mit Precision, Coverage und Empfehlungstypen, aufgeteilt in personalisierte und beliebteste Artikel.]({% image_buster /assets/img/item_recs_analytics_1.png %}){: style="max-width:80%;"}
 
@@ -32,7 +32,7 @@ Weitere Informationen finden Sie in der folgenden Tabelle:
 | ------------------- | ---------- |
 | **Precision**           | Der prozentuale Anteil, mit dem das Modell den nächsten Artikel, den Nutzer:innen kaufen, korrekt vorhergesagt hat. Precision hängt stark von Ihrer spezifischen Kataloggröße und -zusammensetzung ab und sollte als Orientierung dafür dienen, wie oft das Modell richtig liegt.<br><br>In bisherigen Tests haben Modelle mit Precision-Werten zwischen 6–20 % gut abgeschnitten. Diese Metrik wird beim nächsten Neutraining des Modells aktualisiert. |
 | **Coverage**            | Welcher Prozentsatz der verfügbaren Artikel im Katalog mindestens einer/einem Nutzer:in empfohlen wird. Bei personalisierten Artikelempfehlungen ist eine höhere Artikelabdeckung zu erwarten als bei den beliebtesten Artikeln. |
-| **Personalisierungsrate** | Bei **KI-personalisierten** Empfehlungen der geschätzte Prozentsatz der Nutzer:innen, für die personalisierte Empfehlungen in ihrem Profil gespeichert sind, berechnet anhand der Gesamtzahl der Nutzer:innen, die das konfigurierte Event in den letzten 24 Monaten ausgeführt haben. Nutzer:innen, die das Event ausgeführt haben, aber nicht über genügend Daten verfügen, um eine personalisierte Empfehlung zu generieren, erhalten beim Versand die beliebtesten Artikel als Fallback. |
+| **Personalisierungsrate** | Bei **KI or künstliche Intelligenz-personalisierten** Empfehlungen der geschätzte Prozentsatz der Nutzer:innen, für die personalisierte Empfehlungen in ihrem Profil gespeichert sind, berechnet anhand der Gesamtzahl der Nutzer:innen, die das konfigurierte Event in den letzten 24 Monaten ausgeführt haben. Nutzer:innen, die das Event ausgeführt haben, aber nicht über genügend Daten verfügen, um eine personalisierte Empfehlung zu generieren, erhalten beim Versand die beliebtesten Artikel als Fallback. |
 | **Empfehlungstyp** | Bei **Neueste**-Empfehlungen der Prozentsatz der Nutzer:innen, die **Neueste**-Empfehlungen erhalten, im Vergleich zum **Beliebteste**-Fallback. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zielgruppe" }
 

@@ -80,7 +80,7 @@ Para outros usos avançados do bloco **Custom Code**, consulte [Ponte JavaScript
 {% endalert %}
 
 {% alert warning %}
-Ao buscar dados externos, você é responsável pela segurança da sua implementação. Identificadores externos usados em chamadas de API devem ser UUIDs ou usar um esquema de nomenclatura equivalentemente seguro. Consulte [Práticas recomendadas de nomenclatura de ID de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+Ao buscar dados externos, você é responsável pela segurança da sua implementação. Identificadores externos usados em chamadas de API or interface de programação do aplicativo (API) devem ser UUIDs ou usar um esquema de nomenclatura equivalentemente seguro. Consulte [Práticas recomendadas de nomenclatura de ID de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 {% endalert %}
 
 ### Caso de uso {#use-case}
@@ -89,7 +89,7 @@ Esse padrão é útil quando você precisa exibir dados específicos do usuário
 
 ### Exemplo de implementação {#example-implementation}
 
-Este exemplo mostra como buscar dados de usuário de uma API externa. Substitua o endpoint da API pelo seu próprio endpoint seguro e use um identificador seguro.
+Este exemplo mostra como buscar dados de usuário de uma API or interface de programação do aplicativo (API) externa. Substitua o endpoint da API or interface de programação do aplicativo (API) pelo seu próprio endpoint seguro e use um identificador seguro.
 
 {% raw %}
 ```html
@@ -134,8 +134,8 @@ Ao buscar dados externos em landing pages:
 
 - **Estados de carregamento:** Os usuários verão um texto de placeholder até que o endpoint responda. Considere adicionar um indicador de carregamento ou uma tela esqueleto.
 - **Tratamento de erros:** Se o endpoint falhar ou demorar para responder, a página pode parecer quebrada. Implemente mensagens de erro e fallbacks apropriados.
-- **Desempenho:** A página carrega imediatamente, mas os dados aparecem após a conclusão da requisição externa. Mantenha as respostas da sua API rápidas para a melhor experiência do usuário.
-- **Segurança:** Certifique-se de que seu endpoint de API valide o identificador e retorne apenas dados que o usuário está autorizado a ver. Implemente limite de frequência para evitar abusos. Para orientações sobre como escolher identificadores seguros, consulte [Práticas recomendadas de nomenclatura de ID de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
+- **Desempenho:** A página carrega imediatamente, mas os dados aparecem após a conclusão da requisição externa. Mantenha as respostas da sua API or interface de programação do aplicativo (API) rápidas para a melhor experiência do usuário.
+- **Segurança:** Certifique-se de que seu endpoint de API or interface de programação do aplicativo (API) valide o identificador e retorne apenas dados que o usuário está autorizado a ver. Implemente limite de frequência para evitar abusos. Para orientações sobre como escolher identificadores seguros, consulte [Práticas recomendadas de nomenclatura de ID de usuário]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).
 
 {% alert warning %}
 Para landing pages personalizadas com Liquid, a Braze processa os delimitadores {% raw %}`{{`{% endraw %} e {% raw %}`{%`{% endraw %} em qualquer lugar em que apareçam no HTML da landing page — incluindo dentro de strings JavaScript, comentários e expressões regulares. Isso se aplica à página inteira, mas os blocos **Custom Code** são o local mais provável para incluir essas sequências acidentalmente.

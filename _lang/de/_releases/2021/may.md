@@ -18,11 +18,11 @@ Wir haben die Metriken des Berichts über [die globalen Kontrollgruppen]({{site.
 
 ## Übersicht der Berichte {#reports-overview}
 
-Sie wissen nicht, wo Sie mit der Analyse Ihrer Campaigns oder Canvases beginnen sollen? Die [Übersicht der Berichte]({{site.baseurl}}/user_guide/analytics/reports/) gibt Ihnen Hinweise darauf, welche Berichte und Analytics Sie verwenden können, um allgemeine Fragen zur Marketing-Strategie zu beantworten.
+Sie wissen nicht, wo Sie mit der Analyse Ihrer Campaigns oder Canvase beginnen sollen? Die [Übersicht der Berichte]({{site.baseurl}}/user_guide/analytics/reports/) gibt Ihnen Hinweise darauf, welche Berichte und Analytics Sie verwenden können, um allgemeine Fragen zur Marketing-Strategie zu beantworten.
 
 ## Neuer US-05-Cluster {#new-us-05-cluster}
 
-Braze unterstützt einen neuen US-Cluster, US-05. In unserer Liste der Dashboard- und REST-[Endpunkte]({{site.baseurl}}/api/basics/#endpoints) finden Sie weitere Informationen.
+Braze unterstützt einen neuen US-Cluster, US-05. In unserer Liste der Dashboard- und Representational State Transfer-[Endpunkte]({{site.baseurl}}/api/basics/#endpoints) finden Sie weitere Informationen.
 
 ## Braze-UI-Updates
 
@@ -32,5 +32,5 @@ Im Mai 2021 hat Braze die folgenden Bezeichnungen und Begriffe im Braze-Dashboar
 - App Settings --> Settings
 - Manage App Group --> Manage Settings
 - Money Spent In-App --> Money Spent
-- App Usage (User Profile) --> Sessions Overview
-- Import a CSV of user information to add and/or update users in this App Group --> Import a CSV of user information to add or update users
+- App Usage (Kundenprofil or Nutzerprofil) --> Sessions Overview
+- Import a CSV of user information to add and/or Update or aktualisieren users in this App Group --> Import a CSV of user information to add or Update or aktualisieren users

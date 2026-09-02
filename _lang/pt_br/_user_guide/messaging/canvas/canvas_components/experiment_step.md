@@ -37,11 +37,11 @@ As Jornadas do experimento são mais adequadas para testar entrega, cadência, t
 
 Para criar um componente de Jornadas do experimento, primeiro adicione uma etapa ao seu Canvas. Arraste e solte o componente da barra lateral, ou clique no botão de adição <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Experiment Paths**.
 
-Na configuração padrão desse componente, existem duas jornadas padrão, **Path 1** e **Path 2**, com 50% do público sendo enviado por cada jornada. Clique no componente para expandir o painel de **Experiment Settings**, e você verá as opções de configuração do componente.
+Na configuração padrão desse componente, existem duas jornadas padrão, **jornada 1** e **jornada 2**, com 50% do público sendo enviado por cada jornada. Clique no componente para expandir o painel de **Experiment Settings**, e você verá as opções de configuração do componente.
 
 ### Etapa 1: Escolher o número de jornadas e a distribuição do público {#step-1-choose-the-number-of-paths-and-audience-distribution}
 
-Você pode adicionar até quatro jornadas clicando em **Add Path** e um grupo de controle opcional marcando **Add a Control Group**. Usando as caixas de porcentagem para cada jornada, você pode especificar a porcentagem do público que deve seguir por cada jornada e pelo grupo de controle. As porcentagens fornecidas devem somar 100% para continuar. Se quiser definir rapidamente todas as jornadas disponíveis (e o controle) com a mesma porcentagem, clique em **Distribute Paths Evenly**.
+Você pode adicionar até quatro jornadas clicando em **Add jornada** e um grupo de controle opcional marcando **Add a Control Group**. Usando as caixas de porcentagem para cada jornada, você pode especificar a porcentagem do público que deve seguir por cada jornada e pelo grupo de controle. As porcentagens fornecidas devem somar 100% para continuar. Se quiser definir rapidamente todas as jornadas disponíveis (e o controle) com a mesma porcentagem, clique em **Distribute Paths Evenly**.
 
 Você também pode escolher se os usuários no grupo de controle devem continuar no Canvas ou sair após a janela de rastreamento de conversão para o **Control Group Behavior**. Opcionalmente, você pode adicionar uma descrição para explicar aos outros o que essa jornada experimental pretende testar ou incluir informações adicionais que possam ser úteis.
 

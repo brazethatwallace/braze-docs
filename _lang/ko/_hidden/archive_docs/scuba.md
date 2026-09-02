@@ -90,7 +90,7 @@ Braze에서 **오디언스** > **Segments**로 이동한 다음 **Create Segment
 
 !['Segment Details'에서 '커스텀 속성' 필터를 선택하는 화면.]({% image_buster /assets/img/scuba/analytics/filter_attribute.png %})
 
-**Search custom attributes**를 선택한 다음 이전 POST 요청에서 사용한 액터 속성정보 이름을 선택합니다.
+**Search 커스텀 속성**를 선택한 다음 이전 POST 요청에서 사용한 액터 속성정보 이름을 선택합니다.
 
 ![액터 속성정보를 커스텀 속성으로 선택하는 화면.]({% image_buster /assets/img/scuba/analytics/select_property.png %})
 

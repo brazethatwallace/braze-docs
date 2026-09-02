@@ -111,7 +111,7 @@ Ces fonctionnalités augmentent légèrement la taille du message rendu :
 
 - Pixel de suivi d'ouverture : ajoute une balise image de 1 x 1&nbsp;px au corps du message
 - Accroche : ajoute un `<div>` masqué en haut du corps du message
-- Aliasing de lien : ajoute un paramètre de requête de 16 caractères (`lid=`) à chaque URL suivie
+- aliasage de lien or aliasing de lien : ajoute un paramètre de requête de 16 caractères (`lid=`) à chaque URL suivie
 - Modèles de liens : ajoute les paramètres de requête configurés dans le tableau de bord aux URL correspondantes
 - Insertion CSS (optionnelle) : applique les règles de feuille de style intégrées en ligne aux éléments HTML, ce qui peut ajouter du CSS redondant selon la complexité de la feuille de style
 

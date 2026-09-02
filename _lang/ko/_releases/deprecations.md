@@ -77,7 +77,7 @@ Factual에 대한 지원은 2020년 6월부로 중단되었습니다. 최근 Fou
 
 **지원 철회**: 2020년 1월
 
-2020년 1월 31일부로 [Twilio 웹훅 통합]({{site.baseurl}}/partners/twilio/)에 대한 지원이 중단되었습니다. Braze에서 여전히 SMS 서비스에 액세스하려면 [SMS 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)를 참조하세요.
+2020년 1월 31일부로 [Twilio 웹훅 통합]({{site.baseurl}}/partners/twilio/)에 대한 지원이 중단되었습니다. Braze에서 여전히 단문 메시지 서비스 서비스에 액세스하려면 [단문 메시지 서비스 설명서]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)를 참조하세요.
 
 ### Apptimize 파트너십 {#apptimize-partnership}
 

@@ -18,26 +18,26 @@ _Diese Integration wird von Iterate gepflegt._
 
 Die Integration von Iterate in Braze ermöglicht es Ihnen, Iterate-Umfragen nativ und nahtlos in Ihrem Produkt oder Ihren Campaigns bereitzustellen. Umfrageantworten können als angepasste Nutzer:innen-Attribute in Braze aufgezeichnet werden, sodass Sie sich ein vollständiges Bild Ihrer Nutzer:innen machen oder leistungsstarke neue Zielgruppen und Segmente erstellen können.
 
-Mit dem in Ihrer App oder Website installierten Braze SDK können Sie die in Braze verfügbaren Segmentierungs- und Targeting-Tools nutzen, um Umfragen über In-App-Nachrichten an einen bestimmten Teil Ihrer Zielgruppe zuzustellen – basierend auf einem beliebigen Auslöser oder angepassten Segment. Iterate-Umfragen können auch direkt in Ihre E-Mail-Campaigns eingebettet oder als Links in Ihre Push- oder andere Campaign-Typen eingebunden werden.
+Mit dem in Ihrer App oder Website installierten Braze SDK or Software-Development-Kit können Sie die in Braze verfügbaren Segmentierungs- und Targeting-Tools nutzen, um Umfragen über In-App-Nachrichten an einen bestimmten Teil Ihrer Zielgruppe zuzustellen – basierend auf einem beliebigen Auslöser oder angepassten Segment. Iterate-Umfragen können auch direkt in Ihre E-Mail-Campaigns eingebettet oder als Links in Ihre Push- oder andere Campaign-Typen eingebunden werden.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Herkunft |
 |---|---|
 | Iterate-Konto | Ein [Iterate-Konto](https://iteratehq.com) ist erforderlich, um diese Partnerschaft zu nutzen. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. Um Umfragen über Braze In-App Messages zu versenden, benötigen Sie außerdem die Berechtigung `kpi.mau.data_series`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
+| Braze Representational State Transfer-API-Schlüssel | Ein Braze Representational State Transfer-API-Schlüssel mit `users.track`-Berechtigungen. Um Umfragen über Braze In-App Messages zu versenden, benötigen Sie außerdem die Berechtigung `kpi.mau.data_series`.<br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze Representational State Transfer-Endpunkt | Ihre Representational State Transfer-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/api/basics/#endpoints) ab. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-Mit Iterate können Sie nahezu alle Arten von Daten erfassen – von persönlichen Informationen (Name, Alter, E-Mail) über Performance-Daten (NPS, Kundenzufriedenheit, Sternebewertungen) und Präferenzen (bevorzugtes Gerät, bevorzugte Kommunikationshäufigkeit) bis hin zu Persönlichkeitsmerkmalen (Lieblingsbuch, Hunde- oder Katzenmensch). Was Sie fragen, bleibt ganz Ihnen überlassen – ebenso wie die Art der Daten, die Sie erfassen, oder die Zielgruppen, die Sie aufbauen möchten.
+Mit Iterate können Sie nahezu alle Arten von Daten erfassen – von persönlichen Informationen (Name, Alter, E-Mail) über Performance-Daten (Net Promoter Score, Kundenzufriedenheit, Sternebewertungen) und Präferenzen (bevorzugtes Gerät, bevorzugte Kommunikationshäufigkeit) bis hin zu Persönlichkeitsmerkmalen (Lieblingsbuch, Hunde- oder Katzenmensch). Was Sie fragen, bleibt ganz Ihnen überlassen – ebenso wie die Art der Daten, die Sie erfassen, oder die Zielgruppen, die Sie aufbauen möchten.
 
 ## Integration
 
 ### Erste Schritte: Braze mit Iterate verbinden {#getting-started-connect-braze-with-iterate}
 
-Melden Sie sich bei Ihrem Iterate-Konto an und fügen Sie Ihren Braze REST-Endpunkt und Ihren REST-API-Schlüssel auf der Seite **Unternehmenseinstellungen** hinzu.
+Melden Sie sich bei Ihrem Iterate-Konto an und fügen Sie Ihren Braze Representational State Transfer-Endpunkt und Ihren Representational State Transfer-API-Schlüssel auf der Seite **Unternehmenseinstellungen** hinzu.
 
 ### Umfragen als In-App-Nachricht zustellen {#deliver-surveys-as-an-in-app-message}
 
@@ -81,7 +81,7 @@ Wenn Nutzer:innen antworten, werden ihre Profile in Echtzeit mit Daten befüllt.
 
 ## Angepasste Events in Braze {#braze-custom-events}
 
-Wenn Nutzer:innen eine Umfragefrage beantworten, triggert Iterate ein angepasstes Event innerhalb von Braze namens `survey-question-response`. Angepasste Events ermöglichen es Ihnen, eine beliebige Anzahl und Art von Folgekampagnen zu triggern.
+Wenn Nutzer:innen eine Umfragefrage beantworten, triggert Iterate ein angepasstes Event innerhalb von Braze namens `survey-question-response`. Angepasste Events ermöglichen es Ihnen, eine beliebige Anzahl und Art von Folgekampagnen zu Trigger or triggern or triggern.
 
 ## Namen von Nutzer:innen-Attributen anpassen {#customize-user-attribute-names}
 

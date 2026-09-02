@@ -22,7 +22,7 @@ Für eine Campaign mit mehrfachem Versand müssen Sie außerdem:
 
 ## Optimierung aktivieren {#turn-on-optimization}
 
-Gehen Sie im Schritt **Target Audiences** zu **A/B Testing** und aktivieren Sie dann **Optimize with BrazeAI<sup>TM</sup>**.
+Gehen Sie im Schritt **Target Audiences** zu **A/B-Tests** und aktivieren Sie dann **Optimize with BrazeAI<sup>TM</sup>**.
 
 ## Einmalversand-Campaigns {#single-send-campaigns}
 
@@ -42,7 +42,7 @@ Die standardmäßige Experimentdauer beträgt 4 Stunden. Wenn Sie für ein prim�
 |---|---|
 | Push-Benachrichtigungen | *Opens* |
 | E-Mail | *Unique Clicks* |
-| SMS, MMS, RCS und WhatsApp | *Clicks* |
+| Kurzmitteilungsdienst or SMS, MMS, RCS und WhatsApp | *Clicks* |
 | Andere unterstützte Kanäle | *Primary Conversion Event - A* |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Standard-Optimierungsziele nach Kanal" }
 

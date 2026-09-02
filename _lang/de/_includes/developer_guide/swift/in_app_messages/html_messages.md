@@ -5,7 +5,7 @@
 Mit der Braze JavaScript-Schnittstelle können Sie Braze innerhalb der angepassten WebViews Ihrer App nutzen. Der [`ScriptMessageHandler`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/webviewbridge/scriptmessagehandler) der Schnittstelle ist verantwortlich für:
 
 1. Einspeisen der Braze JavaScript-Bridge in Ihre WebView, wie beschrieben in [Nutzerhandbuch: In-App-Nachrichten im HTML-Format]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#custom-html-messages).
-2. Übergabe der von Ihrer WebView empfangenen Bridge-Methoden an das [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk).
+2. Übergabe der von Ihrer WebView empfangenen Bridge-Methoden an das [Braze Swift SDK or Software-Development-Kit](https://github.com/braze-inc/braze-swift-sdk).
 
 ## Hinzufügen der Schnittstelle zu einer WebView {#adding-the-interface-to-a-webview}
 
@@ -58,7 +58,7 @@ let webView = WKWebView(frame: .zero, configuration: configuration)
 
 ## Beispiel: Ein angepasstes Event protokollieren {#example-logging-a-custom-event}
 
-Im folgenden Beispiel protokolliert `BrazeBridge` ein angepasstes Event aus vorhandenen Web-Inhalten an das Braze Swift SDK.
+Im folgenden Beispiel protokolliert `BrazeBridge` ein angepasstes Event aus vorhandenen Web-Inhalten an das Braze Swift SDK or Software-Development-Kit.
 
 ```javascript
 <!DOCTYPE html>

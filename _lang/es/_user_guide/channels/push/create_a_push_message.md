@@ -167,7 +167,7 @@ Para iOS, puedes limitar aún más la mensajería enviando notificaciones push s
 
 ## Paso 5: Vista previa y prueba de tu mensaje (opcional) {#step-5-preview-and-test-your-message-optional}
 
-Probar es posiblemente uno de los pasos más importantes. Después de terminar de redactar tu mensaje push perfecto, pruébalo antes de enviarlo. Selecciona la pestaña **Test** para elegir entre las opciones de cómo probar tu mensaje push. En **Test Recipients**, puedes seleccionar un grupo de prueba de contenido o usuarios individuales. También puedes usar **Preview message as user** para hacerte una idea de cómo puede verse tu mensaje en dispositivos móviles para un usuario aleatorio, un usuario existente, un usuario personalizado o un usuario multilingüe.
+Probar es posiblemente uno de los pasos más importantes. Después de terminar de redactar tu mensaje push perfecto, pruébalo antes de enviarlo. Selecciona la pestaña **Test** para elegir entre las opciones de cómo probar tu mensaje push. En **Test Recipients**, puedes seleccionar un grupo de prueba de contenido o usuarios individuales. También puedes usar **vista previa message as user** para hacerte una idea de cómo puede verse tu mensaje en dispositivos móviles para un usuario aleatorio, un usuario existente, un usuario personalizado o un usuario multilingüe.
 
 Para más información, consulta [Enviar mensajes de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=push).
 
@@ -188,7 +188,7 @@ En este paso también puedes especificar los controles de entrega, como permitir
 
 ### Elige los usuarios a los que dirigirte {#choose-users-to-target}
 
-A continuación, debes [segmentar a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para reducir tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Las estadísticas detalladas de audiencia para los canales a los que se dirige tu campaña están disponibles en el pie de página. Para ver qué porcentaje de tu base de usuarios está siendo segmentado y el valor de duración del ciclo de vida para este segmento, selecciona **Show Additional Stats**.
+A continuación, debes [segmentar a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo segmentos o filtros para reducir tu audiencia. Recibirás automáticamente una vista previa de cómo se ve aproximadamente la población de ese segmento. Las estadísticas detalladas de audiencia para los canales a los que se dirige tu campaña están disponibles en el pie de página. Para ver qué porcentaje de tu base de usuarios está siendo segmentado y el LTV or valor de duración del ciclo de vida or valor de duración del ciclo de vida para este segmento, selecciona **Show Additional Stats**.
 
 {% multi_lang_include audience/target_audiences.md %}
 
@@ -241,7 +241,7 @@ A continuación, consulta [Informes push]({{site.baseurl}}/user_guide/channels/p
 
 #### Comportamiento al hacer clic
 
-Si estás usando el comportamiento al hacer clic predeterminado para tu versión del SDK y al seleccionar una notificación push con una URL web se abre dentro de la aplicación en lugar de en un navegador web, consulta las siguientes guías de integración para determinar el manejo de notificaciones push:
+Si estás usando el comportamiento al hacer clic predeterminado para tu versión del SDK or kit de desarrollo de software y al seleccionar una notificación push con una URL web se abre dentro de la aplicación en lugar de en un navegador web, consulta las siguientes guías de integración para determinar el manejo de notificaciones push:
 
 - [Swift]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#swift_step-2-enable-push-capabilities)
 - [Android]({{site.baseurl}}/developer_guide/push_notifications#android_step-1-register-braze-firebase-messaging-service)

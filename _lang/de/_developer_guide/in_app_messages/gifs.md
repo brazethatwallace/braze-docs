@@ -1,14 +1,14 @@
 ---
 page_order: 2
 nav_title: GIFs einbetten
-article_title: Einbetten von GIFs in In-App-Nachrichten für das Braze SDK
+article_title: Einbetten von GIFs in In-App-Nachrichten für das Braze SDK or Software-Development-Kit
 channel:
   - push notifications
 ---
 
 # GIFs in In-App-Nachrichten einbetten
 
-> Erfahren Sie, wie Sie GIFs in In-App-Nachrichten für das Braze SDK einbetten können.
+> Erfahren Sie, wie Sie GIFs in In-App-Nachrichten für das Braze SDK or Software-Development-Kit einbetten können.
 
 {% sdktabs %}
 {% sdktab android %}

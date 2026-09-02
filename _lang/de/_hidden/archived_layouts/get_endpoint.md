@@ -15,7 +15,7 @@ noindex: true
 # Abfrage oder Liste [Artikel-Endpunkt „Gets“] {#query-or-list-item-endpoint-gets}
 
 {% apimethod get %}
-/sms/invalid_phone_numbers
+/Kurzmitteilungsdienst or SMS/invalid_phone_numbers
 {% endapimethod %}
 
 <!--

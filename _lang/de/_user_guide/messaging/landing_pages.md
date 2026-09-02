@@ -14,7 +14,7 @@ alias: /landing_pages/
 Nutzen Sie Landing-Pages, um Ihre Zielgruppe zu vergrößern, Nutzerdaten zu erfassen, Sonderangebote zu bewerben und Multichannel-Kampagnen zu unterstützen. Eine Referenz der Drag-and-Drop-Blöcke für Landing-Pages finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 {% alert note %}
-Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
+Die Verfügbarkeit von Landing-Pages und angepassten Domains hängt von Ihrem Braze-Paket ab. Kontaktieren Sie Ihren Account Manager:in oder CSM or Customer-Success-Manager or Customer-Success-Manager:in, um loszulegen.
 {% endalert %}
 
 {% multi_lang_include video.html id="eg4r7agod1" source="wistia" %}
@@ -47,9 +47,9 @@ Braze wendet ein Rate-Limit von 500 Anfragen pro drei Sekunden (ca. 167 Anfragen
 
 Zwischengespeicherte Landing-Page-Aufrufe werden nicht auf dieses Limit angerechnet. Informationen dazu, wie Caching den Datenverkehr beeinflusst, finden Sie unter [Können Landing-Pages Szenarien mit hohem Datenverkehr bewältigen?](#can-landing-pages-handle-high-traffic-scenarios).
 
-## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
+## Google Tag Manager:in zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
 
-Um Google Tag Manager zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und setzen Sie dann den Tag Manager-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag Manager-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
+Um Google Tag Manager:in zu Ihren Landing-Pages hinzuzufügen, fügen Sie im Drag-and-Drop-Editor einen **Custom Code**-Block zu Ihrer Landing-Page hinzu und setzen Sie dann den Tag Manager:in-Code in den Block ein. Stellen Sie sicher, dass Sie vor dem Tag Manager:in-Code einen Data Layer hinzufügen, wie in diesem Beispiel:
 
 ```
 <script>
@@ -64,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 ```
 
-Weitere Informationen zur Implementierung von Google Tag Manager finden Sie in der [Dokumentation von Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
+Weitere Informationen zur Implementierung von Google Tag Manager:in finden Sie in der [Dokumentation von Google](https://developers.google.com/tag-platform/tag-manager/datalayer#installation).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -86,7 +86,7 @@ Nein, es gibt keine technischen Voraussetzungen.
 
 ### Gibt es einen HTML-Editor für Landing-Pages? {#is-there-an-html-editor-for-landing-pages}
 
-Ja. Verwenden Sie den **Custom Code**-Block im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten. Informationen zur Anbindung an das Braze SDK aus Ihrem angepassten Code finden Sie unter [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Um eine vollständig angepasste UI mit einem Landing-Page-Formular zu verbinden, lesen Sie [Angepasste Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
+Ja. Verwenden Sie den **Custom Code**-Block im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten. Informationen zur Anbindung an das Braze SDK or Software-Development-Kit aus Ihrem angepassten Code finden Sie unter [JavaScript-Bridge für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge). Um eine vollständig angepasste UI mit einem Landing-Page-Formular zu verbinden, lesen Sie [Angepasste Formularblöcke erstellen]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks).
 
 ### Kann ich iframes auf Landing-Pages verwenden? {#can-i-use-iframes-on-landing-pages}
 
@@ -96,11 +96,11 @@ Wenn die eingebettete Website das Framing über `frame-ancestors` in ihrer Conte
 
 ### Kann ich einen Webhook innerhalb einer Landing-Page erstellen? {#can-i-create-a-webhook-inside-a-landing-page}
 
-Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger für Canvases oder Webhook-Campaigns dienen:
+Nein, aber das Ereignis **Submitted a Landing Page form** kann als Trigger or triggern für Canvase oder Webhook-Campaigns dienen:
 
-- **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Entry-Trigger und fügen Sie einen Webhook-Schritt hinzu.
-- **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu triggern.
+- **Canvas:** Verwenden Sie das Ereignis **Submitted a Landing Page form** als Canvas-Entry-Trigger or triggern und fügen Sie einen Webhook-Schritt hinzu.
+- **Campaign:** Verwenden Sie das Ereignis **Submitted a Landing Page form**, um basierend auf der Formularübermittlung zu Trigger or triggern or triggern.
 
-Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Nutzerprofil erstellt werden – auch wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie ein Canvas ein, das durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-to-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
+Wenn die Seite nicht über einen Braze-Kanal gesendet wird (z. B. über eine Website oder Anzeige), kann bei der Übermittlung ein neues Kundenprofil or Nutzerprofil erstellt werden – auch wenn diese Person bereits in Braze existiert. Um dies zu handhaben, richten Sie ein Canvas ein, das durch **Submitted a Landing Page form** getriggert wird, und fügen Sie einen Braze-to-Braze-Webhook-Schritt hinzu, der den Endpunkt [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) aufruft, um das neue Profil mit dem bestehenden zusammenzuführen.
 
-Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Nutzerprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.
+Wenn Sie den Liquid-Tag `landing_page_url` verwenden, um die Seite zu teilen, werden Formularübermittlungen automatisch dem bestehenden Kundenprofil or Nutzerprofil zugeordnet. Sie können dann die auf der Landing-Page übermittelten Nutzerattribute über Liquid für nachfolgendes Templating referenzieren.

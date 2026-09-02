@@ -26,7 +26,7 @@ Como ponto de partida, um tenant da Peak deve hospedar a integração entre a Pe
 | ----------- | ----------- |
 | Tenant da Peak | Uma instância da plataforma Peak, conhecida como tenant, é necessária para hospedar e orquestrar a integração. |
 | Solução de inteligência de decisão | A integração entre a Peak e a Braze é baseada em resultados orientados por IA e, portanto, requer uma solução implantada pela Peak ou pelo cliente em seu tenant. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões `users.track`. <br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
@@ -43,7 +43,7 @@ Com base em quando os atributos foram atualizados, uma seleção é realizada pa
 
 Com os clientes atualizados e os atributos associados, a Peak enviará esses dados para a Braze usando o [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), com o cabeçalho [em massa]({{site.baseurl}}/api/endpoints/user_data/post_user_track#need-to-update-users-in-bulk).
 
-Após o recebimento de códigos de status bem-sucedidos da API, a Peak registrará a sincronização bem-sucedida entre a Peak e a Braze.
+Após o recebimento de códigos de status bem-sucedidos da API or interface de programação do aplicativo (API), a Peak registrará a sincronização bem-sucedida entre a Peak e a Braze.
 
 ### Etapa 3: Usando esta integração {#step-3-using-this-integration}
 

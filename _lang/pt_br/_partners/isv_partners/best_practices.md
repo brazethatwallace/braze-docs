@@ -8,7 +8,7 @@ hidden: true
 ## Coleta de dados {#data-collection}
 
 Saiba mais sobre como a Braze coleta dados:
-- [Coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
+- [Coleta de dados do SDK or kit de desenvolvimento de software]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
 - [Melhores práticas de coleta de dados]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)
 - [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 
@@ -40,7 +40,7 @@ Para um caso de uso em que você precisa criar ou atualizar um perfil de usuári
 }
 ```
 
-Se um usuário existir na Braze com esse e-mail ou telefone, o perfil dele será retornado. Caso contrário, um array "users" vazio será retornado. O benefício de usar o endpoint de exportação para determinar se um usuário com esse endereço de e-mail já existe é que isso permite identificar se algum perfil de usuário anônimo está associado ao usuário. Por exemplo, um perfil anônimo criado via SDK (que terá um `braze_id`) ou um perfil de alias de usuário criado anteriormente.
+Se um usuário existir na Braze com esse e-mail ou telefone, o perfil dele será retornado. Caso contrário, um array "users" vazio será retornado. O benefício de usar o endpoint de exportação para determinar se um usuário com esse endereço de e-mail já existe é que isso permite identificar se algum perfil de usuário anônimo está associado ao usuário. Por exemplo, um perfil anônimo criado via SDK or kit de desenvolvimento de software (que terá um `braze_id`) ou um perfil de alias de usuário criado anteriormente.
 
 Se a requisição não retornar um perfil de usuário, você pode optar por criar um alias de usuário ou criar um usuário somente com e-mail:
 
@@ -110,7 +110,7 @@ Essa funcionalidade está em acesso antecipado.
 ## Enviando públicos de usuários para a Braze {#sending-audiences-of-users-to-braze}
 
 [Documentação de parceiros para sincronização de importação de coortes]({{site.baseurl}}/partners/isv_partners/cohort_import)<br>
-- Públicos de usuários podem ser sincronizados com a Braze como uma coorte usando os endpoints da API de importação de coortes da Braze. Em vez de esses públicos serem armazenados no perfil de usuário como atributos de usuário, os clientes podem criar e direcionar essa coorte por meio de um filtro com a marca do parceiro dentro da nossa ferramenta de segmentação. Isso permite que você encontre e direcione um Segment específico de usuários de forma mais eficiente.
+- Públicos de usuários podem ser sincronizados com a Braze como uma coorte usando os endpoints da API or interface de programação do aplicativo (API) de importação de coortes da Braze. Em vez de esses públicos serem armazenados no perfil de usuário como atributos de usuário, os clientes podem criar e direcionar essa coorte por meio de um filtro com a marca do parceiro dentro da nossa ferramenta de segmentação. Isso permite que você encontre e direcione um Segment or segmento específico de usuários de forma mais eficiente.
 - Os endpoints de importação de coortes não são públicos e são específicos para cada parceiro. Por esse motivo, as sincronizações com os endpoints de coorte não contam para os limites de frequência do espaço de trabalho do cliente.
 
 [Rastreamento de usuários]({{site.baseurl}}/api/endpoints/user_data/post_user_track)<br>
@@ -146,28 +146,28 @@ A Braze oferece vários endpoints que permitem que clientes e parceiros criem/at
     - [Endpoint de criação de Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block)
     - [Endpoint de atualização de Content Block]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)
 
-### Campaigns e Canvas disparados por API {#api-triggered-campaigns-and-canvases}
+### Campaigns e Canvas disparados por API or interface de programação do aplicativo (API) {#api-triggered-campaigns-and-canvases}
 
-Os clientes podem configurar Campaigns e Canvas para serem disparados por API. As solicitações de API para disparar essas Campaigns podem ser usadas para personalizar e segmentar ainda mais a Campaign, passando propriedades de disparo da API e parâmetros de público ou destinatário.
-- [Disparar Campaigns via API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body)
+Os clientes podem configurar Campaigns e Canvas para serem disparados por API or interface de programação do aplicativo (API). As solicitações de API or interface de programação do aplicativo (API) para disparar essas Campaigns podem ser usadas para personalizar e segmentar ainda mais a Campaign, passando propriedades de disparo da API or interface de programação do aplicativo (API) e parâmetros de público ou destinatário.
+- [Disparar Campaigns via API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body)
     - Campaigns são mensagens individuais, como e-mails avulsos.
-- [Disparar Canvas via API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#request-body)
+- [Disparar Canvas via API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#request-body)
     - Canvas é uma interface unificada onde profissionais de marketing podem criar Campaigns com múltiplas mensagens e etapas para formar uma jornada coesa. Ao disparar um Canvas, você insere um usuário no fluxo do Canvas, onde ele continuará recebendo mensagens até que não atenda mais aos critérios do Canvas.
-- [Propriedades de disparo da API / propriedades de entrada do Canvas]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
+- [Propriedades de disparo da API or interface de programação do aplicativo (API) / propriedades de entrada do Canvas]({{site.baseurl}}/api/objects_filters/trigger_properties_object)
     - Dados que podem ser preenchidos dinamicamente na mensagem no momento do envio.
 
-### Campaigns de API {#api-campaigns}
-Ao criar Campaigns de API (diferentes das Campaigns disparadas por API mencionadas nesta seção), o dashboard da Braze é usado apenas para gerar um `campaign_id`, que permite ao cliente rastrear análises de dados para relatórios de Campaign. A mensagem da Campaign em si é definida na solicitação de API.
-- [Enviar Campaign de API imediatamente]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
-- [Agendar uma Campaign de API]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+### Campaigns de API or interface de programação do aplicativo (API) {#api-campaigns}
+Ao criar Campaigns de API or interface de programação do aplicativo (API) (diferentes das Campaigns disparadas por API or interface de programação do aplicativo (API) mencionadas nesta seção), o dashboard da Braze é usado apenas para gerar um `campaign_id`, que permite ao cliente rastrear análises de dados para relatórios de Campaign. A mensagem da Campaign em si é definida na solicitação de API or interface de programação do aplicativo (API).
+- [Enviar Campaign de API or interface de programação do aplicativo (API) imediatamente]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
+- [Agendar uma Campaign de API or interface de programação do aplicativo (API)]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 
 ### IDs de envio {#send-ids}
-Use o endpoint da Braze para gerar um ID de envio que pode ser usado para detalhar a análise de dados da Campaign por envio. Por exemplo, se um `campaign_id` (Campaign de API) for criado por localização, um ID de envio pode ser gerado por envio para rastrear o desempenho de diferentes mensagens para uma localização específica.
+Use o endpoint da Braze para gerar um ID de envio que pode ser usado para detalhar a análise de dados da Campaign por envio. Por exemplo, se um `campaign_id` (Campaign de API or interface de programação do aplicativo (API)) for criado por localização, um ID de envio pode ser gerado por envio para rastrear o desempenho de diferentes mensagens para uma localização específica.
 - [IDs de envio]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_create_send_ids)
 
 ## Connected Content
 
-O Connected Content pode ser usado em qualquer tipo de canal para fazer uma solicitação de API ao endpoint especificado no momento do envio e inserir o conteúdo retornado na resposta dentro da mensagem.
+O Connected Content pode ser usado em qualquer tipo de canal para fazer uma solicitação de API or interface de programação do aplicativo (API) ao endpoint especificado no momento do envio e inserir o conteúdo retornado na resposta dentro da mensagem.
 
 A versatilidade do Connected Content faz dele um recurso utilizado por muitos dos nossos clientes para inserir conteúdo que não existe ou não pode ser armazenado na Braze. Alguns dos casos de uso mais comuns que vemos são:
 - Inserção de conteúdo de blogs ou artigos em mensagens
@@ -176,11 +176,11 @@ A versatilidade do Connected Content faz dele um recurso utilizado por muitos do
 - Localização e tradução
 
 Pontos importantes:
-- A Braze não cobra pelas chamadas de API e elas não são contabilizadas no seu uso de pontos de dados.
+- A Braze não cobra pelas chamadas de API or interface de programação do aplicativo (API) e elas não são contabilizadas no seu uso de pontos de dados.
 - Há um limite de 1 MB para as respostas do Connected Content.
 - As chamadas do Connected Content acontecem quando a mensagem é enviada, exceto para mensagens no app, que fazem essa chamada quando a mensagem é visualizada.
 - As chamadas do Connected Content não seguem redirecionamentos. A Braze exige que o tempo de resposta do servidor seja inferior a 2 segundos por motivos de performance. Se o servidor levar mais de 2 segundos para responder, o conteúdo não será inserido.
-- Os sistemas da Braze podem fazer a mesma chamada de API do Connected Content mais de uma vez por destinatário. Isso acontece porque a Braze pode precisar fazer uma chamada de API do Connected Content para renderizar a carga útil da mensagem, e as cargas úteis podem ser renderizadas várias vezes por destinatário para validação, lógica de tentativas ou outros fins internos.
+- Os sistemas da Braze podem fazer a mesma chamada de API or interface de programação do aplicativo (API) do Connected Content mais de uma vez por destinatário. Isso acontece porque a Braze pode precisar fazer uma chamada de API or interface de programação do aplicativo (API) do Connected Content para renderizar a carga útil da mensagem, e as cargas úteis podem ser renderizadas várias vezes por destinatário para validação, lógica de tentativas ou outros fins internos.
 
 Consulte estes artigos para saber mais sobre o Connected Content:
 - [Fazendo uma chamada de Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)

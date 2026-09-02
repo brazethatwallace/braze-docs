@@ -69,7 +69,7 @@ Añade un desencadenante o varios desencadenantes para definir tus grupos de acc
 - Interactúan con una Campaign o tarjeta de contenido
 - Entran en una ubicación
 - Desencadenan una geovalla
-- Envían un mensaje de entrada por SMS o WhatsApp
+- Envían un mensaje de entrada por servicio de mensajes cortos o WhatsApp
 
 #### Desencadenante de añadir una dirección de correo electrónico {#add-an-email-address-trigger}
 

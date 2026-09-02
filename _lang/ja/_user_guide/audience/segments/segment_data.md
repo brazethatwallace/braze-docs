@@ -55,7 +55,7 @@ Brazeダッシュボードの**セグメント**ページには、すべての�
         </tr>
         <tr>
             <td class="no-split">LTV (Paying Users)</td>
-            <td class="no-split">このセグメントのユーザーあたりの生涯価値（LTV）と、課金ユーザーあたりの生涯価値です。LTVは、生涯収益を生涯ユーザー数で割って算出されます。</td>
+            <td class="no-split">このセグメントのユーザーあたりのLTV or 生涯価値（LTV）と、課金ユーザーあたりのLTV or 生涯価値です。LTVは、生涯収益を生涯ユーザー数で割って算出されます。</td>
         </tr>
         <tr>
             <td class="no-split">Emailable (Opted-In)</td>

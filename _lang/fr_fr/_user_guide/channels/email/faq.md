@@ -104,15 +104,15 @@ Lorsqu'un destinataire transfère un e-mail, l'e-mail transféré inclut le mêm
 - Si elle clique sur un lien dans l'e-mail transféré, Braze enregistre un événement de clic.
 - Ces événements sont attribués au profil du destinataire original, et non à la personne qui a reçu l'e-mail transféré, car le pixel de suivi et les liens sont liés au destinataire original.
 
-Braze ne peut pas distinguer les ouvertures et les clics du destinataire original de ceux des personnes qui ont reçu une copie transférée. C'est un comportement standard pour les pixels de suivi d'e-mail et cela affecte tous les fournisseurs de services d'e-mailing.
+Braze ne peut pas distinguer les ouvertures et les clics du destinataire original de ceux des personnes qui ont reçu une copie transférée. C'est un comportement standard pour les pixels de suivi d'e-mail et cela affecte tous les fournisseurs de services d'e-mail marketing or e-mailing.
 
 Lors de l'analyse des indicateurs d'e-mail, gardez à l'esprit que l'activité de transfert peut contribuer aux compteurs d'ouvertures et de clics. Si vous remarquez des taux d'engagement inhabituellement élevés ou une activité répétée du même profil au fil du temps, le transfert peut en être un facteur.
 
 ### Un e-mail envoyé via une Campaign ou un Canvas peut-il être rappelé ? {#can-a-sent-email-campaign-or-canvas-be-recalled}
 
-Non. Une fois que Braze a transmis une demande d'envoi à votre fournisseur de services d'e-mailing (ESP), cet envoi ne peut pas être rappelé. Une fois que le message est dans la boîte de réception du destinataire, il ne peut pas non plus être supprimé.
+Non. Une fois que Braze a transmis une demande d'envoi à votre fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing), cet envoi ne peut pas être rappelé. Une fois que le message est dans la boîte de réception du destinataire, il ne peut pas non plus être supprimé.
 
-Pour arrêter les envois ultérieurs, sélectionnez **Arrêter la Campaign** ou **Arrêter le Canvas**. Les messages déjà transmis à l'ESP peuvent toujours être livrés. Pour plus de détails, consultez [Que se passe-t-il lorsqu'une Campaign ou un Canvas par e-mail est arrêté ?](#what-happens-when-an-email-campaign-or-canvas-is-stopped)
+Pour arrêter les envois ultérieurs, sélectionnez **Arrêter la Campaign** ou **Arrêter le Canvas**. Les messages déjà transmis à l'fournisseur de services d'e-mailing peuvent toujours être livrés. Pour plus de détails, consultez [Que se passe-t-il lorsqu'une Campaign ou un Canvas par e-mail est arrêté ?](#what-happens-when-an-email-campaign-or-canvas-is-stopped)
 
 ### Que se passe-t-il lorsqu'une Campaign ou un Canvas par e-mail est arrêté ? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -120,7 +120,7 @@ Les utilisateurs ne peuvent plus entrer dans le Canvas, et aucun message supplé
 
 Pour les Campaigns par e-mail et les Canvas, le bouton d'arrêt n'interrompt pas immédiatement l'envoi. Lorsque les demandes d'envoi sont transmises, elles ne peuvent pas être empêchées d'être livrées à l'utilisateur, ce qui peut se produire après un certain délai.
 
-Bien que Braze n'envoie plus de demandes une fois la Campaign ou le Canvas arrêté, les statistiques peuvent continuer à augmenter pendant que l'ESP termine le traitement des demandes déjà en cours.
+Bien que Braze n'envoie plus de demandes une fois la Campaign ou le Canvas arrêté, les statistiques peuvent continuer à augmenter pendant que l'fournisseur de services d'e-mailing termine le traitement des demandes déjà en cours.
 
 ### Pourquoi est-ce que je vois plus de _clics totaux_ que d'_ouvertures totales_ dans mes statistiques d'e-mail ? {#why-am-i-seeing-more-_total-clicks_-than-_total-opens_-in-my-email-analytics}
 
@@ -250,7 +250,7 @@ Gmail supprime tous les liens non HTTP/HTTPS des e-mails. Si votre deep link uti
 Pour contourner ce problème :
 
 - **Utilisez les Universal Links (iOS) ou App Links (Android).** Ceux-ci utilisent des URL standard `https://` qui ouvrent votre application lorsqu'elle est installée et redirigent vers une page web dans le cas contraire. Consultez [Universal Links et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links) pour les instructions de configuration.
-- **Utilisez un fournisseur de deep linking.** Des services comme [Branch](https://www.branch.io/) génèrent des deep links au format HTTP qui sont compatibles avec les clients de messagerie, y compris Gmail.
+- **Utilisez un fournisseur de deep linking.** Des services comme [Branch or branche](https://www.branch.io/) génèrent des deep links au format HTTP qui sont compatibles avec les clients de messagerie, y compris Gmail.
 - **Configurez un endpoint de redirection.** Hébergez un endpoint `https://` sur votre serveur qui redirige vers l'URL du schéma personnalisé de votre application. Les clients de messagerie préserveront le lien `https://`, et la redirection se chargera d'ouvrir l'application.
 
 ### L'indicateur *Ouvertures uniques* inclut-il les *ouvertures automatiques* ? {#does-the-unique-opens-metric-include-machine-opens}
@@ -261,7 +261,7 @@ Pour comprendre l'impact de cela sur l'attribution du **tableau de bord des conv
 
 ### Pourquoi mon volume de livraison d'e-mails ne correspond-il pas à mon volume d'envoi ? {#why-does-my-email-delivery-volume-not-match-my-send-volume}
 
-Après l'envoi d'un e-mail, la boîte de réception du destinataire décide quand il est livré. Les messages peuvent être différés pendant des heures ou des jours en raison d'une boîte aux lettres pleine, d'une limitation du débit par l'ESP depuis une IP donnée, et d'autres raisons similaires.
+Après l'envoi d'un e-mail, la boîte de réception du destinataire décide quand il est livré. Les messages peuvent être différés pendant des heures ou des jours en raison d'une boîte aux lettres pleine, d'une limitation du débit par l'fournisseur de services d'e-mailing depuis une IP donnée, et d'autres raisons similaires.
 
 Lorsque les messages différés sont livrés un jour calendaire différent du jour d'envoi, les _livraisons_ peuvent dépasser les _envois_ pour la même période. Lorsque de nombreux reports arrivent un même jour, les _envois_ peuvent dépasser les _livraisons_ pour cette période.
 
@@ -277,7 +277,7 @@ Cet avertissement peut persister pour les Campaigns dupliquées à partir d'une 
 La livraison peut sembler incorrecte même lorsque Braze a fonctionné comme configuré. Examinez les points suivants :
 
 - **Profils en double** qui partagent une boîte de réception (voir [Que se passe-t-il lorsqu'un e-mail est envoyé et que plusieurs profils partagent la même adresse e-mail ?](#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)).
-- **Listes de test, destinataires de test ou adresses internes** inclus dans l'audience ou dans un envoi en CC/CCI.
+- **Listes de test, destinataires de test ou adresses internes** inclus dans l'audience ou dans un envoi en CC/CCI or carte de contenu de type bannière.
 - **Moment du Segment ou du Canvas :** l'utilisateur correspondait à l'audience ou à l'étape Canvas lorsque Braze a évalué l'éligibilité, puis les attributs ou le statut d'abonnement ont changé avant qu'il ne lise le message.
 - **Groupes d'abonnement :** l'utilisateur est resté abonné à un groupe ciblé par votre message même si son statut d'abonnement global suggérait le contraire.
 - **Importations via API ou fichier** qui ont mis à jour l'utilisateur après la segmentation mais avant que vous ne vous attendiez à ce que le changement s'applique.
@@ -314,7 +314,7 @@ Utilisez les tableaux suivants pour déterminer la cause.
 
 | Cause possible | Ce qu'il faut vérifier |
 |---|---|
-| Le fournisseur de boîte aux lettres (MBP) était injoignable | Un problème temporaire a empêché l'e-mail d'atteindre le MBP du destinataire. Cela se résout généralement avec les nouvelles tentatives. Les fournisseurs de services d'e-mailing réessaient les échecs provisoires pendant un maximum de 72 heures. |
+| Le fournisseur de boîte aux lettres (MBP) était injoignable | Un problème temporaire a empêché l'e-mail d'atteindre le MBP du destinataire. Cela se résout généralement avec les nouvelles tentatives. Les fournisseurs de services d'e-mail marketing or e-mailing réessaient les échecs provisoires pendant un maximum de 72 heures. |
 | Le MBP a rejeté l'e-mail | Le serveur de messagerie du destinataire a rejeté l'e-mail. Consultez le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) pour les détails du rebond. |
 | Le MBP a silencieusement supprimé l'e-mail | Le MBP a accepté l'e-mail mais ne l'a pas affiché à l'utilisateur et n'a pas renvoyé de rebond. Cela est en dehors du contrôle de Braze et ne peut pas être détecté dans les journaux de Braze. |
 | L'e-mail est allé dans le dossier spam | Le MBP a identifié le message comme spam et l'a routé vers le dossier spam ou courrier indésirable de l'utilisateur. Demandez à l'utilisateur de vérifier son dossier spam. |
@@ -323,7 +323,7 @@ Utilisez les tableaux suivants pour déterminer la cause.
 
 ### Comment puis-je retirer une adresse e-mail de la liste des rebonds ? {#how-can-i-remove-an-email-address-from-the-bounce-list}
 
-Si une adresse e-mail valide apparaît comme invalide dans Braze (généralement après un échec d'envoi définitif de votre fournisseur de services d'e-mailing), utilisez l'endpoint [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces). Cela supprime l'adresse de votre liste de rebonds Braze et de la liste de rebonds maintenue par votre fournisseur d'e-mail. Braze reprend alors les envois vers cette adresse.
+Si une adresse e-mail valide apparaît comme invalide dans Braze (généralement après un échec d'envoi définitif de votre fournisseur de services d'e-mail marketing or e-mailing), utilisez l'endpoint [`/email/bounce/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_hard_bounces). Cela supprime l'adresse de votre liste de rebonds Braze et de la liste de rebonds maintenue par votre fournisseur d'e-mail. Braze reprend alors les envois vers cette adresse.
 
 Si l'adresse a été marquée comme spam plutôt que comme un échec d'envoi définitif, utilisez plutôt l'endpoint [`/email/spam/remove`]({{site.baseurl}}/api/endpoints/email/post_remove_spam).
 
@@ -333,15 +333,15 @@ Pour plus d'informations, consultez [Rebonds et e-mails invalides]({{site.baseur
 
 Si vos e-mails sont retardés, différés ou rejetés, consultez le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) pour les détails de rebond et de report, puis identifiez où le problème se situe dans la chaîne de livraison. Les problèmes de livrabilité courants se répartissent en quatre catégories :
 
-#### Comprendre les réponses de limitation du débit de l'ESP {#reading-esp-rate-limit-responses}
+#### Comprendre les réponses de limitation du débit de l'fournisseur de services d'e-mailing {#reading-esp-rate-limit-responses}
 
-Votre fournisseur de services d'e-mailing (ESP), tel qu'Amazon SES, SparkPost ou SendGrid, renvoie des codes de réponse SMTP lors de l'acceptation ou du report des messages. Les réponses de limitation du débit utilisent généralement des codes 4xx, qui indiquent des échecs temporaires :
+Votre fournisseur de services d'e-mail marketing or e-mailing (fournisseur de services d'e-mailing), tel qu'Amazon SES, SparkPost ou SendGrid, renvoie des codes de réponse SMTP lors de l'acceptation ou du report des messages. Les réponses de limitation du débit utilisent généralement des codes 4xx, qui indiquent des échecs temporaires :
 
-- **421 :** Service temporairement indisponible, souvent en raison d'un volume élevé, de limites de connexion ou de contraintes de ressources du serveur. Le message reste en file d'attente et votre ESP réessaie automatiquement la livraison.
+- **421 :** Service temporairement indisponible, souvent en raison d'un volume élevé, de limites de connexion ou de contraintes de ressources du serveur. Le message reste en file d'attente et votre fournisseur de services d'e-mailing réessaie automatiquement la livraison.
 - **429 :** Limite de débit de l'API dépassée. Vous avez envoyé trop de requêtes dans la fenêtre de temps autorisée.
 - **450 / 451 :** Report temporaire dû au volume ou aux connexions. Le serveur du destinataire vous demande de ralentir.
 
-Lorsque vous voyez ces codes dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou le tableau de bord de votre ESP, réduisez le volume d'envoi vers le domaine concerné et utilisez des intervalles de nouvelle tentative progressivement plus longs. Continuer à plein volume pendant une limitation du débit peut transformer les reports temporaires en rejets permanents.
+Lorsque vous voyez ces codes dans le [journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) ou le tableau de bord de votre fournisseur de services d'e-mailing, réduisez le volume d'envoi vers le domaine concerné et utilisez des intervalles de nouvelle tentative progressivement plus longs. Continuer à plein volume pendant une limitation du débit peut transformer les reports temporaires en rejets permanents.
 
 #### Limites du débit des fournisseurs de boîtes aux lettres {#mailbox-provider-rate-limits}
 
@@ -425,7 +425,7 @@ Le [relais d'e-mail privé d'Apple]({{site.baseurl}}/user_guide/channels/email/b
 
 ### Puis-je ajouter des liens hypertexte dans les lignes d'objet ou les accroches des e-mails ? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 
-Non. L'ajout de liens hypertexte dans les lignes d'objet des e-mails n'est pas pris en charge par les fournisseurs de boîtes aux lettres. Bien que certains fournisseurs analysent automatiquement les lignes d'objet et convertissent les adresses physiques, dates ou heures en liens cliquables, cela se produit automatiquement sur l'appareil du destinataire et est en dehors du contrôle de Braze (ou de tout ESP).
+Non. L'ajout de liens hypertexte dans les lignes d'objet des e-mails n'est pas pris en charge par les fournisseurs de boîtes aux lettres. Bien que certains fournisseurs analysent automatiquement les lignes d'objet et convertissent les adresses physiques, dates ou heures en liens cliquables, cela se produit automatiquement sur l'appareil du destinataire et est en dehors du contrôle de Braze (ou de tout fournisseur de services d'e-mailing).
 
 De même, l'ajout de liens hypertexte dans l'accroche n'est pas pris en charge dans l'industrie de l'e-mail.
 

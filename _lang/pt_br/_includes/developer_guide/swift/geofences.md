@@ -35,7 +35,7 @@ A Apple descontinuou `NSLocationAlwaysUsageDescription`. Para saber mais, veja a
 
 ### Etapa 3: Ative geofences no seu código {#step-3-enable-geofences-in-your-code}
 
-No código do seu app, ative geofences definindo `location.geofencesEnabled` como `true` no objeto `configuration` que inicializa a instância [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/). Para outras opções de configuração `location`, veja a [referência do SDK Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
+No código do seu app, ative geofences definindo `location.geofencesEnabled` como `true` no objeto `configuration` que inicializa a instância [`Braze`](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/d1-brazelocation/). Para outras opções de configuração `location`, veja a [referência do SDK or kit de desenvolvimento de software Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/location-swift.class).
 
 {% tabs %}
 {% tab swift %}
@@ -192,9 +192,9 @@ CLLocationManager *locationManager = [[CLLocationManager alloc] init];
 
 ## Solicitar geofences manualmente {#manually-request-geofences}
 
-Quando o SDK da Braze solicita geofences do backend, ele reporta a localização atual do usuário e recebe geofences que são determinadas como otimamente relevantes com base na localização reportada.
+Quando o SDK or kit de desenvolvimento de software da Braze solicita geofences do backend, ele reporta a localização atual do usuário e recebe geofences que são determinadas como otimamente relevantes com base na localização reportada.
 
-Para controlar a localização que o SDK reporta para receber as geofences mais relevantes, você pode solicitar geofences manualmente fornecendo as coordenadas desejadas.
+Para controlar a localização que o SDK or kit de desenvolvimento de software reporta para receber as geofences mais relevantes, você pode solicitar geofences manualmente fornecendo as coordenadas desejadas.
 
 ### Etapa 1: Defina `automaticGeofenceRequests` como `false` {#step-1-set-automaticgeofencerequests-to-false}
 
@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### Por que não estou recebendo geofences no meu dispositivo? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Para confirmar se os geofences estão sendo recebidos no seu dispositivo, primeiro use a [ferramenta Depurador do SDK]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para verificar os registros do SDK. Você poderá ver se os geofences estão sendo recebidos com sucesso do servidor e se há algum erro notável.
+Para confirmar se os geofences estão sendo recebidos no seu dispositivo, primeiro use a [ferramenta Depurador do SDK or kit de desenvolvimento de software]({{site.baseurl}}/developer_guide/sdk_integration/debugging) para verificar os registros do SDK or kit de desenvolvimento de software. Você poderá ver se os geofences estão sendo recebidos com sucesso do servidor e se há algum erro notável.
 
 Outras possíveis razões pelas quais os geofences podem não ser recebidos no seu dispositivo:
 
@@ -282,4 +282,4 @@ Por exemplo, digamos que um dispositivo recebeu e registrou com sucesso geofence
 
 ### Por que as geofences não são monitoradas quando meu app está em segundo plano/terminado? {#why-are-geofences-not-monitored-when-my-app-is-backgroundedterminated}
 
-Sem autorização `Always`, a Apple restringe os serviços de localização de funcionar enquanto um app não está em uso. Isso é imposto pelo sistema operacional e está fora do controle do SDK da Braze. Embora a Braze ofereça configurações separadas para executar serviços enquanto o app está em segundo plano, não há como contornar essas restrições para apps que são terminados sem receber autorização explícita do usuário.
+Sem autorização `Always`, a Apple restringe os serviços de localização de funcionar enquanto um app não está em uso. Isso é imposto pelo sistema operacional e está fora do controle do SDK or kit de desenvolvimento de software da Braze. Embora a Braze ofereça configurações separadas para executar serviços enquanto o app está em segundo plano, não há como contornar essas restrições para apps que são terminados sem receber autorização explícita do usuário.

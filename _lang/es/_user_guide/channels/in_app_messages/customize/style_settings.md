@@ -7,7 +7,7 @@ page_order: 1
 
 # Configuración de estilos de mensajes dentro de la aplicación {#in-app-message-style-settings}
 
-> La experiencia de edición de arrastrar y soltar se divide en dos secciones: **Build** y **Preview & Test**. Este artículo cubre lo que necesitas saber para trabajar dentro de la pestaña **Build** del editor y asume que ya has [creado un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
+> La experiencia de edición de arrastrar y soltar se divide en dos secciones: **Build** y **vista previa & Test**. Este artículo cubre lo que necesitas saber para trabajar dentro de la pestaña **Build** del editor y asume que ya has [creado un mensaje dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 ![Pestaña "Estilos de mensaje".]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -147,7 +147,7 @@ https://example.com/images/default-background.png
 
 Para añadir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) a tu mensaje dentro de la aplicación, selecciona <i class="fa-solid fa-circle-plus"></i> **Add Personalization** desde la barra de herramientas del editor. Aquí puedes añadir varios tipos de personalización como atributos predeterminados, atributos de dispositivo, atributos personalizados y más.
 
-A continuación, toma tu fragmento de código Liquid generado e insértalo en tu mensaje. Después de diseñar y construir tu mensaje dentro de la aplicación, ve a **Preview & Test** para previsualizar tu mensaje.
+A continuación, toma tu fragmento de código Liquid generado e insértalo en tu mensaje. Después de diseñar y construir tu mensaje dentro de la aplicación, ve a **vista previa & Test** para previsualizar tu mensaje.
 
 ### Usar el asistente de redacción con inteligencia artificial {#use-the-ai-copywriter}
 

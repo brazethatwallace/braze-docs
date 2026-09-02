@@ -17,7 +17,7 @@ alias: /scim_api_appendix/
 
 Bestehende SCIM-Integrationen und [Legacy-SCIM-API-Objekte]({{site.baseurl}}/api/objects_filters/scim_api_appendix/?sdktab=legacy%20scim%20api) funktionieren auch nach der Migration zu granularen Berechtigungen weiterhin, aber Braze wird Legacy-SCIM-API-Werte ab Dezember 2026 nicht mehr akzeptieren.
 
-Sie müssen nicht sofort handeln. Überprüfen Sie jedoch Ihre Integrationen auf Berechtigungen, die zu granularen Berechtigungen migriert werden. Wenn Sie beispielsweise derzeit `basic_access` in der API senden, aktualisieren Sie Ihre Integration nach der Migration zu granularen Berechtigungen, um die spezifischen Berechtigungen einzuschließen (zum Beispiel `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze akzeptiert weiterhin Legacy-Strings wie `basic_access` nach der Migration zu granularen Berechtigungen, damit bestehende Integrationen nicht unterbrochen werden.
+Sie müssen nicht sofort handeln. Überprüfen Sie jedoch Ihre Integrationen auf Berechtigungen, die zu granularen Berechtigungen migriert werden. Wenn Sie beispielsweise derzeit `basic_access` in der API senden, Update or aktualisieren or aktualisieren Sie Ihre Integration nach der Migration zu granularen Berechtigungen, um die spezifischen Berechtigungen einzuschließen (zum Beispiel `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze akzeptiert weiterhin Legacy-Strings wie `basic_access` nach der Migration zu granularen Berechtigungen, damit bestehende Integrationen nicht unterbrochen werden.
 
 ## Berechtigungsobjekt {#permissions-object}
 
@@ -107,9 +107,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | View Campaigns | `view_campaigns` |
 | Edit Campaigns | `edit_campaigns` |
 | Archive Campaigns | `archive_campaigns` |
-| View Canvases | `view_canvases` |
-| Edit Canvases | `edit_canvases` |
-| Archive Canvases | `archive_canvases` |
+| View Canvase | `view_canvases` |
+| Edit Canvase | `edit_canvases` |
+| Archive Canvase | `archive_canvases` |
 | View Frequency Capping Rules | `view_frequency_caps` |
 | Edit Frequency Capping Rules | `edit_frequency_caps` |
 | View Message Prioritization | `view_message_prioritization` |
@@ -155,9 +155,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | View Decisioning Studio Agents | `view_decisioning_studio_agents` |
 | View Decisioning Studio Audience | `view_decisioning_studio_audience` |
 | View Decisioning Studio Conversion Event | `view_decisioning_studio_conversion_event` |
-| View Decisioning Studio Guardrails | `view_decisioning_studio_guardrails` |
+| View Decisioning Studio Guardrails or Sicherheitsregeln | `view_decisioning_studio_guardrails` |
 | Launch Campaigns | `launch_campaigns` |
-| Launch Canvases | `launch_canvases` |
+| Launch Canvase | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 | Edit Media Library Assets | `edit_media_library_assets` |
 | Delete Media Library Assets | `delete_media_library_assets` |
@@ -178,8 +178,8 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | View API Limits | `view_api_limits` |
 | View API Usage Alerts | `view_api_usage_alerts` |
 | Edit API Usage Alerts | `edit_api_usage_alerts` |
-| View SDK Debugger | `view_sdk_debugger` |
-| Edit SDK Debugger | `edit_sdk_debugger` |
+| View SDK or Software-Development-Kit Debugger | `view_sdk_debugger` |
+| Edit SDK or Software-Development-Kit Debugger | `edit_sdk_debugger` |
 | Launch Content Blocks | `launch_content_blocks` |
 | Edit Cloud Data Ingestion | `edit_cloud_data_ingestion` |
 | View App Settings | `view_app_settings` |
@@ -189,11 +189,11 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | View Teams | `view_teams` |
 | Edit Teams | `edit_teams` |
 | Archive Teams | `archive_teams` |
-| View Custom Attributes | `view_custom_attributes` |
-| Edit Custom Attributes | `edit_custom_attributes` |
-| Blocklist Custom Attributes | `blocklist_custom_attributes` |
-| Delete Custom Attributes | `delete_custom_attributes` |
-| Export Custom Attributes | `export_custom_attributes` |
+| View angepasste Attribute | `view_custom_attributes` |
+| Edit angepasste Attribute | `edit_custom_attributes` |
+| Blocklist angepasste Attribute | `blocklist_custom_attributes` |
+| Delete angepasste Attribute | `delete_custom_attributes` |
+| Export angepasste Attribute | `export_custom_attributes` |
 | View Custom Events | `view_custom_events` |
 | Edit Custom Events | `edit_custom_events` |
 | Blocklist Custom Events | `blocklist_custom_events` |
@@ -224,9 +224,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | View Campaigns | `view_campaigns` |
 | Edit Campaigns | `edit_campaigns` |
 | Archive Campaigns | `archive_campaigns` |
-| View Canvases | `view_canvases` |
-| Edit Canvases | `edit_canvases` |
-| Archive Canvases | `archive_canvases` |
+| View Canvase | `view_canvases` |
+| Edit Canvase | `edit_canvases` |
+| Archive Canvase | `archive_canvases` |
 | View Frequency Capping Rules | `view_frequency_caps` |
 | Edit Frequency Capping Rules | `edit_frequency_caps` |
 | View Message Prioritization | `view_message_prioritization` |
@@ -266,7 +266,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Use BrazeAI Operator<sup>TM</sup> | `use_operator` |
 | View Decisioning Studio Agents | `view_decisioning_studio_agents` |
 | Launch Campaigns | `launch_campaigns` |
-| Launch Canvases | `launch_canvases` |
+| Launch Canvase | `launch_canvases` |
 | Edit Dashboard Users | `edit_dashboard_users` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungs-Strings" }
 
@@ -376,9 +376,9 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
 | Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Access Campaigns, Canvase, Cards, Segments, Media Library | `basic_access` |
+| Approve and Deny Canvase | `approve_deny_campaigns` |
+| Send Campaigns, Canvase | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
@@ -387,7 +387,7 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 | View Usage Data | `view_usage_data` |
-| Import and Update User Data | `import_update_user_data` |
+| Import and Update or aktualisieren User Data | `import_update_user_data` |
 | View Billing Details | `view_billing_details` |
 | Access Dev Console | `dev_console` |
 | Launch Content Blocks | `launch_content_blocks` |
@@ -407,13 +407,13 @@ Ein gültiges Rollenobjekt ist ein JSON-Objekt mit den folgenden Schlüssel-Wert
 | Berechtigungsname | SCIM-API-String |
 | --- | --- |
 | Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
+| Access Campaigns, Canvase, Cards, Segments, Media Library | `basic_access` |
+| Approve and Deny Canvase | `approve_deny_campaigns` |
+| Send Campaigns, Canvase | `send_campaigns_canvases` |
 | Publish Cards | `publish_cards` |
 | Edit Segments | `edit_segments` |
 | Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
+| View Kundenprofil or Nutzerprofil | `view_user_profile` |
 | Manage Dashboard Users | `manage_dashboard_users` |
 | Manage Media Library Assets | `manage_media_library` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Team-Berechtigungs-Strings" }

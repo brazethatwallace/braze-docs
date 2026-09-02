@@ -100,7 +100,7 @@ func application(_ application: UIApplication,
 }
 ```
 
-### Überprüfen Sie die Braze-SDK-Konfiguration {#verify-braze-sdk-configuration}
+### Überprüfen Sie die Braze-SDK or Software-Development-Kit-Konfiguration {#verify-braze-sdk-configuration}
 
 Wenn Sie Universal Links aus Push-Benachrichtigungen, In-App-Nachrichten oder Content Cards von Braze verwenden, stellen Sie sicher, dass `forwardUniversalLinks` aktiviert ist:
 
@@ -121,15 +121,15 @@ Wenn Sie einen Universal Link lange gedrückt halten und **Öffnen** auswählen,
 
 **Symptom:** Ein Link in einer E-Mail öffnet Ihre App nicht über den Universal Link.
 
-E-Mail-Links durchlaufen das Klick-Tracking-System Ihres ESP, das Links in eine Tracking-Domain einbettet (zum Beispiel `https://click.yourdomain.com/...`). Damit Universal Links aus E-Mails funktionieren, müssen Sie die AASA-Datei auf Ihrer Klick-Tracking-Domain konfigurieren – nicht nur auf Ihrer primären Domain.
+E-Mail-Links durchlaufen das Klick-Tracking-System Ihres E-Mail-Anbieter or ESP, das Links in eine Tracking-Domain einbettet (zum Beispiel `https://click.yourdomain.com/...`). Damit Universal Links aus E-Mails funktionieren, müssen Sie die AASA-Datei auf Ihrer Klick-Tracking-Domain konfigurieren – nicht nur auf Ihrer primären Domain.
 
 ### AASA der Klick-Tracking-Domain überprüfen {#verify-click-tracking-domain-aasa}
 
-1. Identifizieren Sie Ihre Klick-Tracking-Domain in den Einstellungen Ihres ESP (SendGrid, SparkPost oder Amazon SES).
+1. Identifizieren Sie Ihre Klick-Tracking-Domain in den Einstellungen Ihres E-Mail-Anbieter or ESP (SendGrid, SparkPost oder Amazon SES).
 2. Hosten Sie die AASA-Datei unter `https://your-click-tracking-domain/.well-known/apple-app-site-association`.
 3. Bestätigen Sie, dass die AASA-Datei auf der Klick-Tracking-Domain dieselbe `appID` und gültige Pfadmuster enthält.
 
-ESP-spezifische Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
+E-Mail-Anbieter or ESP-spezifische Einrichtungsanweisungen finden Sie unter [Universal Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
 ### Weiterleitungskette prüfen {#check-the-redirect-chain}
 
@@ -149,7 +149,7 @@ Ihre AASA-Datei auf der Klick-Tracking-Domain verwendet `paths`, die jede URL au
 
 Beschränken Sie `paths` auf die URLs, die die App öffnen sollen. Für SendGrid matchen Sie `/uni/` und fügen Sie `universal="true"` nur bei diesen Links hinzu.
 
-Informationen zur ESP-spezifischen Einrichtung, einschließlich Android-`pathPrefix`-Werte, finden Sie unter [Universelle Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
+Informationen zur E-Mail-Anbieter or ESP-spezifischen Einrichtung, einschließlich Android-`pathPrefix`-Werte, finden Sie unter [Universelle Links und App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#universal-links-app-links-and-click-tracking).
 
 ## Deeplink funktioniert über Push, aber nicht über In-App-Nachricht (oder umgekehrt) {#deep-link-works-from-push-but-not-from-in-app-message}
 
@@ -170,17 +170,17 @@ Opening '<URL>':
 - isUniversalLink: <true/false>
 ```
 
-Vergleichen Sie die Logausgabe des funktionierenden Kanals mit der des nicht funktionierenden Kanals. Unterschiede bei `useWebView` oder `isUniversalLink` zeigen, wie das SDK den Link unterschiedlich interpretiert.
+Vergleichen Sie die Logausgabe des funktionierenden Kanals mit der des nicht funktionierenden Kanals. Unterschiede bei `useWebView` oder `isUniversalLink` zeigen, wie das SDK or Software-Development-Kit den Link unterschiedlich interpretiert.
 
 ### Angepasste Display-Delegates überprüfen {#check-for-custom-display-delegates}
 
-Wenn Sie einen angepassten In-App-Nachrichten-Display-Delegate oder Content-Card-Klick-Handler verwenden, stellen Sie sicher, dass Link-Ereignisse korrekt an das Braze SDK zur Verarbeitung weitergeleitet werden.
+Wenn Sie einen angepassten In-App-Nachrichten-Display-Delegate oder Content-Card-Klick-Handler verwenden, stellen Sie sicher, dass Link-Ereignisse korrekt an das Braze SDK or Software-Development-Kit zur Verarbeitung weitergeleitet werden.
 
 ## „Web-URL in App öffnen“ zeigt eine leere oder fehlerhafte Seite {#open-web-url-inside-app-shows-a-blank-or-broken-page}
 
 **Symptom:** Die Auswahl von **Open Web URL Inside App** führt zu einer leeren oder fehlerhaften WebView.
 
-1. **Überprüfen Sie, ob die URL HTTPS verwendet.** Die WebView des SDK erfordert ATS-konforme URLs. HTTP-Links schlagen ohne Fehlermeldung fehl.
+1. **Überprüfen Sie, ob die URL HTTPS verwendet.** Die WebView des SDK or Software-Development-Kit erfordert ATS-konforme URLs. HTTP-Links schlagen ohne Fehlermeldung fehl.
 2. **Überprüfen Sie die Content-Security-Policy-Header.** Wenn die Zielwebseite `X-Frame-Options: DENY` oder eine restriktive `Content-Security-Policy` setzt, wird die Darstellung in einer WebView blockiert.
 3. **Überprüfen Sie Weiterleitungen zu benutzerdefinierten Schemata.** Wenn die Webseite zu einem benutzerdefinierten Schema weiterleitet (z. B. `myapp://`), kann die WebView dies nicht verarbeiten.
 4. **Testen Sie die URL in Safari.** Wenn die Seite in Safari auf dem Gerät nicht geladen wird, wird sie auch in der WebView nicht geladen.
@@ -191,7 +191,7 @@ Wenn Sie [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/br
 
 ### Überprüfen Sie, ob der BrazeDelegate an Branch weiterleitet {#verify-the-brazedelegate-routes-to-branch}
 
-Ihr `BrazeDelegate` muss Branch-Links abfangen und an das Branch SDK weiterleiten. Überprüfen Sie Folgendes:
+Ihr `BrazeDelegate` muss Branch-Links abfangen und an das Branch SDK or Software-Development-Kit weiterleiten. Überprüfen Sie Folgendes:
 
 ```swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
@@ -219,7 +219,7 @@ Stellen Sie sicher, dass die Branch-Domain in Ihrem `BrazeDelegate` mit Ihrer ta
 
 Um festzustellen, wo der Link in der Kette unterbrochen wird:
 
-1. Aktivieren Sie die [ausführliche Protokollierung von Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Suchen Sie nach `Opening '<URL>':`-Einträgen, um sicherzustellen, dass das SDK den Link erhalten hat.
+1. Aktivieren Sie die [ausführliche Protokollierung von Braze]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Suchen Sie nach `Opening '<URL>':`-Einträgen, um sicherzustellen, dass das SDK or Software-Development-Kit den Link erhalten hat.
 2. Aktivieren Sie den [Branch-Testmodus](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking). Überprüfen Sie das Branch-Dashboard auf Link-Klick-Ereignisse.
 3. Wenn Braze den Link protokolliert, Branch jedoch keinen Klick erkennt, liegt das Problem wahrscheinlich an der `BrazeDelegate`-Weiterleitungslogik.
 
@@ -242,15 +242,15 @@ Testen Sie den Branch-Link außerhalb von Braze, um das Problem einzugrenzen:
 
 ### Ausführliche Protokollierung verwenden {#use-verbose-logging}
 
-[Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), um genau zu sehen, wie das SDK Links verarbeitet. Wichtige Einträge, auf die Sie achten sollten:
+[Aktivieren Sie die ausführliche Protokollierung]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), um genau zu sehen, wie das SDK or Software-Development-Kit Links verarbeitet. Wichtige Einträge, auf die Sie achten sollten:
 
 | Protokolleintrag | Bedeutung |
 |---|---|
-| `Opening '<URL>': - channel: notification` | Das SDK verarbeitet einen Link aus einer Push-Benachrichtigung |
-| `Opening '<URL>': - channel: inAppMessage` | Das SDK verarbeitet einen Link aus einer In-App-Nachricht |
-| `Opening '<URL>': - channel: contentCard` | Das SDK verarbeitet einen Link aus einer Content-Card |
-| `useWebView: true` | Das SDK öffnet die URL in der In-App-WebView |
-| `isUniversalLink: true` | Das SDK hat die URL als Universal Link identifiziert |
+| `Opening '<URL>': - channel: notification` | Das SDK or Software-Development-Kit verarbeitet einen Link aus einer Push-Benachrichtigung |
+| `Opening '<URL>': - channel: inAppMessage` | Das SDK or Software-Development-Kit verarbeitet einen Link aus einer In-App-Nachricht |
+| `Opening '<URL>': - channel: contentCard` | Das SDK or Software-Development-Kit verarbeitet einen Link aus einer Content-Card |
+| `useWebView: true` | Das SDK or Software-Development-Kit öffnet die URL in der In-App-WebView |
+| `isUniversalLink: true` | Das SDK or Software-Development-Kit hat die URL als Universal Link identifiziert |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ausführliche Protokollierung verwenden" }
 
 Weitere Informationen zum Lesen dieser Protokolle finden Sie unter [Ausführliche Protokolle lesen]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging).

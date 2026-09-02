@@ -58,7 +58,7 @@ Bestimmte Events geben einen `platform`-Wert zurück, der die Plattform des Ger�
 {% details Hinweise zu Kundenverhalten- und Nutzer:innen-Events %}
 
 - Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
-- Viele der Events in diesem Glossar werden vom SDK initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK oder vom Backend initiiert werden (zum Beispiel als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder für die Nutzer:innen nicht gesetzt sind, können diese Felder `null` sein.
+- Viele der Events in diesem Glossar werden vom SDK or Software-Development-Kit initiiert. Einige Events, wie z. B. `token_state_change`, können entweder vom SDK or Software-Development-Kit oder vom Backend initiiert werden (zum Beispiel als Reaktion auf einen Push-Bounce). Die Felder `sdk_version`, `gender`, `language` und `country` werden nur für SDK or Software-Development-Kit-initiierte Events gesetzt; bei Backend-initiierten Events oder wenn diese Informationen nicht verfügbar oder für die Nutzer:innen nicht gesetzt sind, können diese Felder `null` sein.
 
 {% enddetails %}
 

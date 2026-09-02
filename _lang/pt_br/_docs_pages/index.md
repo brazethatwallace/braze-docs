@@ -7,7 +7,7 @@ hidden: true
 layout: doc_guide
 custom_collection: home
 nav_title: "Documentação"
-description: "Esta é a landing page do site de documentação da Braze. Aqui, você encontra links para o guia do usuário, guia do desenvolvedor, guia da API, documentação dos parceiros de tecnologia e artigos de ajuda. Há também links rápidos para materiais úteis e artigos populares."
+description: "Esta é a landing page do site de documentação da Braze. Aqui, você encontra links para o guia do usuário, guia do desenvolvedor, guia da API or interface de programação do aplicativo (API), documentação dos parceiros de tecnologia e artigos de ajuda. Há também links rápidos para materiais úteis e artigos populares."
 
 doc_top_header: "Documentação da Braze"
 doc_top_text: ""
@@ -24,7 +24,7 @@ doc_menu_list:
     bg_color: '#f7918e'
     image: /assets/img/braze_icons/file-code-01.svg
     link: /docs/developer_guide/home/
-    description: "Integre e ative seu app ou site com o SDK da Braze."
+    description: "Integre e ative seu app ou site com o SDK or kit de desenvolvimento de software da Braze."
   - name: Parceiros de tecnologia
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/settings-02.svg
@@ -34,12 +34,12 @@ doc_menu_list:
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/code-browser.svg
     link: /docs/api/home/
-    description: "A Braze oferece uma REST API de alto desempenho para que você possa rastrear usuários, enviar mensagens, exportar dados e muito mais."
+    description: "A Braze oferece uma REST or transferir estado representacional API or interface de programação do aplicativo (API) de alto desempenho para que você possa rastrear usuários, enviar mensagens, exportar dados e muito mais."
   - name: Novidades
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/annotation-dots.svg
     link: /docs/releases/home/
-    description: "Confira resumos mensais sobre os principais lançamentos de produtos, melhorias contínuas, mudanças importantes no SDK e muito mais."
+    description: "Confira resumos mensais sobre os principais lançamentos de produtos, melhorias contínuas, mudanças importantes no SDK or kit de desenvolvimento de software e muito mais."
   - name: Documentação de compliance
     bg_color: '#ff9349'
     image: /assets/img/braze_icons/certificate-01.svg

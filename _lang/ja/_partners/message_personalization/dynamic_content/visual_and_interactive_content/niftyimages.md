@@ -57,7 +57,7 @@ NiftyImagesでBrazeアカウントを接続して、コンタクトプロパテ�
 
 1. Brazeで、**設定** > **APIキー**に移動します。
 2. NiftyImages統合用のREST APIキーを作成または選択します。
-3. **Custom Attributes**で、`custom_attributes.get`を選択します。
+3. **カスタム属性**で、`custom_attributes.get`を選択します。
 4. **Content Blocks**で、`content_blocks.create`を選択します。
 5. APIキーを保存し、REST APIキーと[RESTエンドポイント]({{site.baseurl}}/api/basics#endpoints)をコピーします。
 

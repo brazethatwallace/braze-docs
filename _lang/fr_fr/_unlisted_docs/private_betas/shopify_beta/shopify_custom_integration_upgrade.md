@@ -203,7 +203,7 @@ De retour dans Braze, vous serez notifié lorsque l'installation de votre intég
 
 ![Page d'intégration Shopify avec une bannière de succès.]({% image_buster /assets/unlisted_docs/img/shopify/success_integration.png %})
 
-Pour vérifier que votre nouveau connecteur Shopify est en direct, testez les éléments suivants :
+Pour vérifier que votre nouveau connecteur Shopify est en direct or en ligne/en production/instantané, testez les éléments suivants :
 
 {% multi_lang_include partners/shopify/upgrade_validation_checklist.md %}
 

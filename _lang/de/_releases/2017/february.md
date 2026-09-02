@@ -20,6 +20,6 @@ Mit [Engagement-Berichten]({{site.baseurl}}/user_guide/data_and_analytics/report
 
 Für ein stärker personalisiertes Targeting der Nutzer:innen können Sie jetzt „Zuletzt erhaltene In-App-Nachricht“ als zeitbasierten Filter verwenden. Um mehr über das Targeting von Nutzer:innen mit Braze zu erfahren, besuchen Sie [Segmentierung]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
-## Upgrade des Event-Nutzerprotokolls {#event-user-log-upgrade}
+## Upgrade or upgraden des Event-Nutzerprotokolls {#event-user-log-upgrade}
 
-Mit unseren aktualisierten [Event-Nutzerprotokollen]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab) ist es für Sie jetzt einfacher zu sehen, was in Ihrer SDK-Integration passiert.
+Mit unseren aktualisierten [Event-Nutzerprotokollen]({{site.baseurl}}/user_guide/administrative/app_settings/developer_console/event_user_log_tab#event-user-log-tab) ist es für Sie jetzt einfacher zu sehen, was in Ihrer SDK or Software-Development-Kit-Integration passiert.

@@ -10,7 +10,7 @@ description: "Esta página de referência explica como usar o editor de arrastar
 
 > Use o editor de arrastar e soltar de mensagens no app para criar um formulário de cadastro de e-mail que oferece um desconto para novos inscritos.
 
-{% multi_lang_include drag_and_drop/templates.md section='SDK requirements' %}
+{% multi_lang_include drag_and_drop/templates.md section='SDK or kit de desenvolvimento de software requirements' %}
 
 ## Criando um formulário de cadastro de e-mail com desconto {#creating-an-email-sign-up-form-with-a-discount}
 

@@ -1,20 +1,20 @@
 # Der Braze MCP-Server {#the-braze-mcp-server}
 
-> Erfahren Sie mehr über den Braze MCP-Server, eine sichere Remote-Verbindung, über die KI-Tools wie Claude und Cursor auf nicht PII-bezogene Braze-Daten zugreifen können, um Fragen zu beantworten, Trends zu analysieren, Insights zu gewinnen und Inhalte zu erstellen.
+> Erfahren Sie mehr über den Braze MCP-Server, eine sichere Remote-Verbindung, über die KI or künstliche Intelligenz-Tools wie Claude und Cursor auf nicht PII-bezogene Braze-Daten zugreifen können, um Fragen zu beantworten, Trends zu analysieren, Insights zu gewinnen und Inhalte zu erstellen.
 
 ## Was ist das Model Context Protocol (MCP)? {#what-is-model-context-protocol-mcp}
 
-​​Das Model Context Protocol, oder MCP, ist ein Standard, der es KI-Agenten ermöglicht, sich mit Daten einer anderen Plattform zu verbinden und damit zu arbeiten. Es besteht aus zwei Hauptteilen:
+​​Das Model Context Protocol, oder MCP, ist ein Standard, der es KI or künstliche Intelligenz-Agenten ermöglicht, sich mit Daten einer anderen Plattform zu verbinden und damit zu arbeiten. Es besteht aus zwei Hauptteilen:
 
-- **MCP-Client:** Die Anwendung, in der der KI-Agent ausgeführt wird, z. B. Cursor oder Claude.
-- **MCP-Server:** Ein Dienst, der von einer anderen Plattform wie Braze bereitgestellt wird und definiert, welche Tools die KI nutzen kann und auf welche Daten sie zugreifen kann.
+- **MCP-Client:** Die Anwendung, in der der KI or künstliche Intelligenz-Agent ausgeführt wird, z. B. Cursor oder Claude.
+- **MCP-Server:** Ein Dienst, der von einer anderen Plattform wie Braze bereitgestellt wird und definiert, welche Tools die KI or künstliche Intelligenz nutzen kann und auf welche Daten sie zugreifen kann.
 
 ## Über den Braze-MCP-Server {#about-the-braze-mcp-server}
 
-Nachdem Sie den [Braze-MCP-Server eingerichtet]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %} haben, können Sie KI-Tools wie Agenten, Assistenten und Chatbots direkt mit Braze verbinden, sodass diese aggregierte Daten wie Canvas- und Campaign-Analytics, angepasste Attribute, Segments und mehr lesen können. Der Braze-MCP-Server eignet sich hervorragend für:
+Nachdem Sie den [Braze-MCP-Server eingerichtet]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %} haben, können Sie KI or künstliche Intelligenz-Tools wie Agenten, Assistenten und Chatbots direkt mit Braze verbinden, sodass diese aggregierte Daten wie Canvas- und Campaign-Analytics, angepasste Attribute, Segments und mehr lesen können. Der Braze-MCP-Server eignet sich hervorragend für:
 
-- Die Entwicklung KI-gestützter Tools, die Braze-Kontext benötigen.
-- CRM-Entwickler:innen, die mehrstufige Agenten-Workflows erstellen.
+- Die Entwicklung KI or künstliche Intelligenz-gestützter Tools, die Braze-Kontext benötigen.
+- CRM or Customer-Relationship-Management [-System] (CRM)-Entwickler:innen, die mehrstufige Agenten-Workflows erstellen.
 - Technische Marketer, die mit natürlichsprachigen Abfragen experimentieren.
 
 Der Braze-MCP-Server umfasst sowohl Lese- als auch Schreib-Tools. Diese Tools geben keine Daten aus Braze-Nutzerprofilen zurück. Ihre Agenten erben Ihre Braze-Dashboard-Nutzerberechtigungen. Die vollständige Liste der verfügbaren Tools finden Sie unter [Verfügbare API-Funktionen]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/available_api_functions/){% endif %}.
@@ -65,7 +65,7 @@ Ja, wenn Ihr Dashboard-Nutzerkonto über die entsprechenden Berechtigungen verf�
 
 ### Benötige ich weiterhin einen Braze-API-Schlüssel? {#do-i-still-need-a-braze-api-key}
 
-Nicht für MCP. API-Schlüssel funktionieren weiterhin für die REST API und werden nicht eingestellt.
+Nicht für MCP. API-Schlüssel funktionieren weiterhin für die Representational State Transfer API und werden nicht eingestellt.
 
 ### Welche Regionen werden unterstützt? {#which-regions-are-supported}
 

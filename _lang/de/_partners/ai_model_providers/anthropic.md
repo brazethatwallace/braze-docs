@@ -1,7 +1,7 @@
 ---
 nav_title: Anthropic
 article_title: Anthropic
-description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Anthropic, die es Ihnen ermöglicht, Claude-Modelle mit Braze zu verbinden, um sie mit angepassten KI-Agenten zu verwenden."
+description: "Dieser Referenzartikel beschreibt die Partnerschaft zwischen Braze und Anthropic, die es Ihnen ermöglicht, Claude-Modelle mit Braze zu verbinden, um sie mit angepassten KI or künstliche Intelligenz-Agenten zu verwenden."
 alias: /partners/anthropic/
 page_type: partner
 search_tag: Partner
@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Anthropic
 
-> [Anthropic](https://www.anthropic.com/) ist ein Unternehmen für KI-Sicherheit und -Forschung und entwickelt Claude, einen KI-Assistenten der nächsten Generation, der hilfreich, ehrlich und sicher bei einer Vielzahl von Sprachaufgaben ist.
+> [Anthropic](https://www.anthropic.com/) ist ein Unternehmen für KI or künstliche Intelligenz-Sicherheit und -Forschung und entwickelt Claude, einen KI or künstliche Intelligenz-Assistenten der nächsten Generation, der hilfreich, ehrlich und sicher bei einer Vielzahl von Sprachaufgaben ist.
 
 {% multi_lang_include alerts/important_alerts.md alert='Braze Agents' %}
 
@@ -18,14 +18,14 @@ _Diese Integration wird von Anthropic gepflegt._
 
 ## Über die Integration {#about-the-integration}
 
-Mit der Integration von Braze und Anthropic können Sie Ihren Anthropic-API-Schlüssel mit Braze verbinden, sodass Sie Claude-Modelle bei der Erstellung angepasster KI-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte erstellen, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe der Claude-Modelle von Anthropic aktualisieren.
+Mit der Integration von Braze und Anthropic können Sie Ihren Anthropic-API-Schlüssel mit Braze verbinden, sodass Sie Claude-Modelle bei der Erstellung angepasster KI or künstliche Intelligenz-Agenten verwenden können. Mit dieser Integration können Ihre Agenten personalisierte Texte erstellen, Realtime-Entscheidungen treffen oder Katalogfelder mithilfe der Claude-Modelle von Anthropic Update or aktualisieren or aktualisieren.
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderungen | Beschreibung |
 |---|---|
 | Anthropic-Konto mit API-Schlüssel | Ein Anthropic-Konto mit einem API-Schlüssel. Wenn Sie Hilfe benötigen, wenden Sie sich an Ihren Administrator oder den [Anthropic-Support](https://support.anthropic.com/). |
-| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in. |
+| Braze-Instanz | Sie finden Ihre Braze-Instanz auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints) oder über Ihre:n Braze-Onboarding-Manager:in:in. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration

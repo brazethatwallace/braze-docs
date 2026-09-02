@@ -14,7 +14,7 @@ Wir haben einen neuen Filter „Von Canvas konvertiert“ hinzugefügt, um nahtl
 
 ## Webhook-Templates
 
-Sie können jetzt Webhook-Nachrichten als Templates zur einfachen Wiederverwendung speichern oder mit vorkonfigurierten Templates für Plattformen wie SMS mit Twilio oder Chatbots wie Facebook Messenger beginnen. Erfahren Sie mehr über die [Erstellung eines Webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook).
+Sie können jetzt Webhook-Nachrichten als Templates zur einfachen Wiederverwendung speichern oder mit vorkonfigurierten Templates für Plattformen wie Kurzmitteilungsdienst or SMS mit Twilio oder Chatbots wie Facebook Messenger beginnen. Erfahren Sie mehr über die [Erstellung eines Webhooks]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook).
 
 ## Unterstützung mehrerer E-Mail-Adressen für Engagement-Berichte {#multiple-email-support-for-engagement-reports}
 
@@ -22,4 +22,4 @@ Sie können jetzt Webhook-Nachrichten als Templates zur einfachen Wiederverwendu
 
 ## Zeitangabe bei aktionsbasierter Zustellung {#specify-time-on-action-based-delivery}
 
-Sie haben jetzt die Möglichkeit, bei der Verwendung von verzögerten aktionsbasierten Triggern zu einem bestimmten Zeitpunkt nach einer Verzögerung zu senden. Diese Funktion ist für Canvas und Campaigns verfügbar. Erfahren Sie mehr über den Versand von [Campaigns mit aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+Sie haben jetzt die Möglichkeit, bei der Verwendung von verzögerten aktionsbasierten Trigger or triggern or triggern zu einem bestimmten Zeitpunkt nach einer Verzögerung zu senden. Diese Funktion ist für Canvas und Campaigns verfügbar. Erfahren Sie mehr über den Versand von [Campaigns mit aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).

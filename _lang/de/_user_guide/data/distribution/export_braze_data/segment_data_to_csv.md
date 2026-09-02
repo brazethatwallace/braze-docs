@@ -55,7 +55,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | Appboy ID                   | Interne ID (kann nicht geändert werden)                  |
 | country                     | Land                                                     |
 | created_at                  | Datum und Uhrzeit der Erstellung des Nutzerprofils       |
-| created_from                | Methode, mit der das Nutzerprofil erstellt wurde (z. B. REST API, SDK oder CSV-Import) |
+| created_from                | Methode, mit der das Kundenprofil or Nutzerprofil erstellt wurde (z. B. Representational State Transfer API, SDK or Software-Development-Kit oder CSV-Import) |
 | devices                     | Geräteinformationen                                      |
 | date_of_birth               | Geburtsdatum                                             |
 | email                       | E-Mail-Adresse                                           |
@@ -75,7 +75,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | number_of_google_ad_ids     | Anzahl der verknüpften Google-Werbe-IDs                  |
 | number_of_IDFAs             | Anzahl der verknüpften IDFAs                             |
 | number_of_IDFVs             | Anzahl der verknüpften IDFVs                             |
-| number_of_push_tokens       | Anzahl der verknüpften Push-Benachrichtigungs-Token      |
+| number_of_push_tokens       | Anzahl der verknüpften Push-Benachrichtigungs-Token / Textbaustein      |
 | number_of_roku_ad_ids       | Anzahl der verknüpften Roku-Werbe-IDs                    |
 | number_of_windows_ad_ids    | Anzahl der verknüpften Windows-Werbe-IDs                 |
 | phone_number                | Telefonnummer                                            |
@@ -89,7 +89,7 @@ Die folgenden Daten sind je nach Ihrer Auswahl in Ihrem Export enthalten.
 | user_aliases                | Nutzer-Aliase, falls vorhanden                           |
 | windows_ad_ids              | Windows-Werbe-IDs                                        |
 | Custom events               | Basierend auf der Auswahl beim Export                    |
-| Custom attributes           | Basierend auf der Auswahl beim Export                    |
+| angepasste Attribute           | Basierend auf der Auswahl beim Export                    |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV-Export – Nutzerdaten" }
 
 {% alert note %}

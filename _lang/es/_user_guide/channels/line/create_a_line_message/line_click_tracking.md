@@ -38,7 +38,7 @@ Para configurar el seguimiento de clics en un mensaje de texto:
 2. Ve a la pestaña **Settings** y confirma que **Click Tracking** está activado. El seguimiento de clics está activado de forma predeterminada para todos los mensajes nuevos.
 
 {% alert note %}
-Puedes ver vistas previas del enlace acortado en la pestaña **Settings** o **Preview & Test**. El enlace completo se mostrará en el creador mientras construyes tu mensaje.
+Puedes ver vistas previas del enlace acortado en la pestaña **Settings** o **vista previa & Test**. El enlace completo se mostrará en el creador mientras construyes tu mensaje.
 {% endalert %}
 
 ![Pestaña "Settings" del creador de mensajes LINE con "Click Tracking" activado y una vista previa del mensaje de texto con una URL acortada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
@@ -151,9 +151,9 @@ Sí, se pueden agregar tanto parámetros estáticos como dinámicos.
 
 Las URL personalizadas son válidas durante dos meses a partir del momento del registro de la URL.
 
-### ¿Es necesario tener instalado el SDK de Braze para acortar URL? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
+### ¿Es necesario tener instalado el SDK or kit de desarrollo de software de Braze para acortar URL? {#does-the-braze-sdk-need-to-be-installed-in-order-to-shorten-urls}
 
-No, el seguimiento de clics funciona sin ninguna integración de SDK.
+No, el seguimiento de clics funciona sin ninguna integración de SDK or kit de desarrollo de software.
 
 ### ¿Puedo saber qué usuarios individuales están haciendo clic en una URL? {#do-i-know-which-individual-users-are-clicking-on-a-url}
 

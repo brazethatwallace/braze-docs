@@ -21,7 +21,7 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 | Standard-Attribute | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | Geräte-Attribute | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
 | <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>E-Mail-Listen-Attribute</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Dieses Tag ersetzt das frühere `{{${unsubscribe_url}}}`-Tag. Obwohl das ältere Tag in zuvor erstellten E-Mails weiterhin funktioniert, empfehlen wir, stattdessen das neuere Tag zu verwenden. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
-| <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS-Attribute</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
+| <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#Trigger or triggern-messages'>Kurzmitteilungsdienst or SMS-Attribute</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp-Attribute</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Campaign-Attribute und Canvas-Schritt-Attribute | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
 | Canvas-Attribute | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
@@ -30,19 +30,19 @@ Zur besseren Übersicht finden Sie hier eine Zusammenfassung der unterstützten 
 | Event-Eigenschaften <br> (Diese sind spezifisch für Ihren Workspace.)| `{{event_properties.${your_custom_event_property}}}` |
 | Canvas-Kontextvariablen | `{{context.${your_context_variable}}}` |
 | Angepasste Attribute <br> (Diese sind spezifisch für Ihren Workspace.) | `{{custom_attribute.${your_custom_attribute}}}` |
-| <a href='/docs/api/objects_filters/trigger_properties_object'>API-Trigger-Eigenschaften</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+| <a href='/docs/api/objects_filters/trigger_properties_object'>API-Trigger or triggern-Eigenschaften</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Canvas-Entry-Eigenschaften | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Zusammenfassung der unterstützten Tags" }
 
 {% endraw %}
 
 {% alert note %}
-API-Trigger-Eigenschaften müssen zwei geschweifte Klammern pro Tag verwenden: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Dreifache Klammern (zum Beispiel `{{{...}}}`){% endraw %} sind keine gültige Braze-Personalisierungssyntax. Siehe [Warum schlägt mein API-getriggertes Liquid in Braze fehl?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
+API-Trigger or triggern-Eigenschaften müssen zwei geschweifte Klammern pro Tag verwenden: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Dreifache Klammern (zum Beispiel `{{{...}}}`){% endraw %} sind keine gültige Braze-Personalisierungssyntax. Siehe [Warum schlägt mein API-getriggertes Liquid in Braze fehl?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 {% endalert %}
 
 ### Unterstützte Attribute {#supported-attributes}
 
-Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt. Zum Beispiel wird `dispatch_id` in Liquid für Messaging-Kanäle wie E-Mail, Push, SMS und WhatsApp unterstützt, jedoch nicht für In-App-Nachrichten oder Banner.
+Campaign-, Card- und Canvas-Attribute werden nur in ihren entsprechenden Messaging-Templates unterstützt. Zum Beispiel wird `dispatch_id` in Liquid für Messaging-Kanäle wie E-Mail, Push, Kurzmitteilungsdienst or SMS und WhatsApp unterstützt, jedoch nicht für In-App-Nachrichten oder Banner.
 
 Weitere Details finden Sie unter [Campaign- und Canvas-Attribute über verschiedene Quellen hinweg]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources).
 
@@ -66,7 +66,7 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 
 ## Informationen zum zuletzt verwendeten Gerät {#most-recently-used-device-information}
 
-Sie können die folgenden Attribute für das zuletzt verwendete Gerät der Nutzer:innen über alle Plattformen hinweg als Template verwenden. Wenn Nutzer:innen Ihre Anwendung nicht verwendet haben (z. B. wenn Sie die Nutzer:innen über die REST API importiert haben), sind alle diese Werte `null`.
+Sie können die folgenden Attribute für das zuletzt verwendete Gerät der Nutzer:innen über alle Plattformen hinweg als Template verwenden. Wenn Nutzer:innen Ihre Anwendung nicht verwendet haben (z. B. wenn Sie die Nutzer:innen über die Representational State Transfer API importiert haben), sind alle diese Werte `null`.
 
 {% raw %}
 
@@ -88,11 +88,11 @@ Da es eine große Bandbreite an Mobilfunkanbietern, Modellnamen und Betriebssyst
 
 ## Informationen zur Ziel-App {#targeted-app-information}
 
-Für In-App-Nachrichten können Sie die folgenden App-Attribute in Liquid verwenden. Die Werte basieren darauf, welchen SDK-API-Schlüssel Ihre Apps verwenden, um Messaging anzufordern.
+Für In-App-Nachrichten können Sie die folgenden App-Attribute in Liquid verwenden. Die Werte basieren darauf, welchen SDK or Software-Development-Kit-API-Schlüssel Ihre Apps verwenden, um Messaging anzufordern.
 
 |Tag | Beschreibung |
 |------------------|---|
-| `{{app.${api_id}}}` | Der API-Schlüssel der App, die die Nachricht anfordert. Sie verwenden diesen Schlüssel beispielsweise in Verbindung mit `abort_message()` Liquid, um das Senden von In-App-Nachrichten an bestimmte Apps zu vermeiden, z. B. TV-Plattformen oder Entwicklungs-Builds, die einen separaten SDK-API-Schlüssel verwenden.|
+| `{{app.${api_id}}}` | Der API-Schlüssel der App, die die Nachricht anfordert. Sie verwenden diesen Schlüssel beispielsweise in Verbindung mit `abort_message()` Liquid, um das Senden von In-App-Nachrichten an bestimmte Apps zu vermeiden, z. B. TV-Plattformen oder Entwicklungs-Builds, die einen separaten SDK or Software-Development-Kit-API-Schlüssel verwenden.|
 | `{{app.${name}}}` | Der Name der App (wie im Braze-Dashboard definiert), die die Nachricht anfordert. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Informationen zur Ziel-App" }
 
@@ -128,7 +128,7 @@ Für Push-Benachrichtigungen, In-App-Nachrichten und Banner können Sie die folg
 
 Da es eine große Bandbreite an Mobilfunkanbietern, Modellnamen und Betriebssystemen gibt, empfehlen wir Ihnen, jede Logik, die bedingt von einem dieser Werte abhängt, gründlich zu testen. Diese Werte sind `null`, wenn sie auf einem bestimmten Gerät nicht verfügbar sind.
 
-Darüber hinaus ist es bei Push-Benachrichtigungen möglich, dass Braze unter bestimmten Umständen das mit der Push-Benachrichtigung verknüpfte Gerät nicht ermitteln kann, z. B. wenn das Push-Token über die API importiert wurde, was dazu führt, dass die Werte für diese Nachrichten `null` sind.
+Darüber hinaus ist es bei Push-Benachrichtigungen möglich, dass Braze unter bestimmten Umständen das mit der Push-Benachrichtigung verknüpfte Gerät nicht ermitteln kann, z. B. wenn das Push-Token / Textbaustein über die API importiert wurde, was dazu führt, dass die Werte für diese Nachrichten `null` sind.
 
 ![Beispiel für die Verwendung eines Standardwerts „there“ bei Nutzung einer Vornamens-Variable in einer Push-Nachricht.]({% image_buster /assets/img_archive/personalized_firstname_.png %})
 

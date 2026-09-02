@@ -3,21 +3,21 @@ nav_title: "Automatisierte Bereitstellung von Nutzer:innen"
 article_title: "Automatisierte Bereitstellung von Nutzer:innen"
 page_order: 3
 page_type: reference
-description: "In diesem Referenzartikel erfahren Sie, welche Informationen Sie für die automatisierte Bereitstellung von Nutzer:innen bereitstellen müssen und wie und wo Sie Ihr generiertes System for Cross-domain Identity Management (SCIM) Token verwenden."
+description: "In diesem Referenzartikel erfahren Sie, welche Informationen Sie für die automatisierte Bereitstellung von Nutzer:innen bereitstellen müssen und wie und wo Sie Ihr generiertes System for Cross-domain Identity Management (SCIM) Token / Textbaustein verwenden."
 alias: /scim/automated_user_provisioning/
 
 ---
 
 # Automatisierte Bereitstellung von Nutzer:innen {#automated-user-provisioning}
 
-> Die automatisierte Bereitstellung von Nutzer:innen ermöglicht es Ihnen, Braze-Nutzer:innen über eine API zu erstellen und zu verwalten, anstatt dies manuell im Dashboard zu tun. Braze unterstützt dies über das System for Cross-domain Identity Management (SCIM). In diesem Artikel erfahren Sie, welche Informationen Sie angeben müssen, wie Sie Ihr SCIM-Token generieren und wo Sie Ihren SCIM-API-Endpunkt finden.
+> Die automatisierte Bereitstellung von Nutzer:innen ermöglicht es Ihnen, Braze-Nutzer:innen über eine API zu erstellen und zu verwalten, anstatt dies manuell im Dashboard zu tun. Braze unterstützt dies über das System for Cross-domain Identity Management (SCIM). In diesem Artikel erfahren Sie, welche Informationen Sie angeben müssen, wie Sie Ihr SCIM-Token / Textbaustein generieren und wo Sie Ihren SCIM-API-Endpunkt finden.
 
 {% multi_lang_include scim/scim_alerts.md alert='one_integration' %}
 
 ## Zugriff auf die SCIM-Bereitstellungseinstellungen {#accessing-scim-provisioning-settings}
 
 {% alert important %}
-Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature nicht in Ihrem Workspace verfügbar ist, wenden Sie sich an Ihren Customer-Success-Manager für weitere Informationen.
+Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab. Wenn dieses Feature nicht in Ihrem Workspace verfügbar ist, wenden Sie sich an Ihren CSM or Customer-Success-Manager or Customer-Success-Manager:in für weitere Informationen.
 {% endalert %}
 
 1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **Unternehmenseinstellungen** > **Administratoreinstellungen** > **SCIM-Bereitstellung** und wählen Sie dann **SCIM-Integration konfigurieren** aus.
@@ -33,7 +33,7 @@ Die Verfügbarkeit der SCIM-Bereitstellung hängt von Ihrer Plattform-Edition ab
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Verwenden Sie die Option **Okta – Braze-App**, wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben. Wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Benutzerdefinierte App-Integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Verwenden Sie die Option **Okta – Braze-App**, wenn Sie die Braze-App für SAML Single Sign-on in Okta eingerichtet haben. Wenn Sie eine benutzerdefinierte App für Single Sign-on eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Benutzerdefinierte App-Integration]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -53,7 +53,7 @@ Verwenden Sie die Option **Okta – Braze-App**, wenn Sie die Braze-App für SAM
 
 ### Schritt 1.2: Anwendungssichtbarkeit deaktivieren {#step-12-disable-application-visibility}
 
-1. Aktivieren Sie im Feld **Application visibility** das Kontrollkästchen **Do not display application icon to user**. Dies verhindert, dass Nutzer:innen über die App auf SSO zugreifen, da diese ausschließlich für SCIM vorgesehen ist.
+1. Aktivieren Sie im Feld **Application visibility** das Kontrollkästchen **Do not display application icon to user**. Dies verhindert, dass Nutzer:innen über die App auf Single Sign-on zugreifen, da diese ausschließlich für SCIM vorgesehen ist.
 2. Wählen Sie **Save** aus.
 
 ### Schritt 1.3: SCIM-Integration einrichten {#step-13-set-up-the-scim-integration}
@@ -70,7 +70,7 @@ Wählen Sie **Test API Credentials** aus. Bei erfolgreicher Integration erschein
 1. Wählen Sie unter **Provisioning** > **Settings** > **To App** > **Provisioning to App** die Option **Edit** aus.
 2. Aktivieren Sie Folgendes:
     - Create Users
-    - Update Users Attributes
+    - Update or aktualisieren Users Attributes
     - Deactivate Users
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping** mit den Zuordnungen, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 
@@ -86,7 +86,7 @@ Wählen Sie **Test API Credentials** aus. Bei erfolgreicher Integration erschein
 
 {% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn Sie eine benutzerdefinierte App für SSO eingerichtet haben. Wenn Sie die Braze-App für SAML SSO in Okta eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Braze-App]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn Sie eine benutzerdefinierte App für Single Sign-on eingerichtet haben. Wenn Sie die Braze-App für SAML Single Sign-on in Okta eingerichtet haben, folgen Sie den Anweisungen im Tab [Okta – Braze-App]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 {% multi_lang_include scim/scim_alerts.md alert='idp_integration' idp='Okta' %}
 
@@ -112,7 +112,7 @@ Verwenden Sie die Option **Okta – Benutzerdefinierte App-Integration**, wenn S
 1. Wählen Sie unter **Provisioning** > **Settings** > **To App** > **Provisioning to App** die Option **Edit** aus.
 2. Aktivieren Sie Folgendes:
     - Create Users
-    - Update Users Attributes
+    - Update or aktualisieren Users Attributes
     - Deactivate Users
 3. Überprüfen und konfigurieren Sie den Abschnitt **Attribute Mapping** mit den Zuordnungen, die in der Tabelle auf der Seite **Setup SCIM provisioning** angezeigt werden.
 
@@ -177,13 +177,13 @@ Das Attribut `userName` muss exakt mit der E-Mail-Adresse der Nutzer:innen in Br
 - **Dienst-Herkunft:** Geben Sie die Herkunfts-Domain Ihrer SCIM-Anfragen ein. Braze verwendet diese im `X-Request-Origin`-Header, um zu überprüfen, woher Anfragen stammen.
 - **IP-Allowlisting (optional):** Sie können SCIM-Anfragen auf bestimmte IP-Adressen beschränken. Geben Sie eine kommagetrennte Liste oder einen Bereich von IP-Adressen ein, die zugelassen werden sollen. Der `X-Request-Origin`-Header in jeder Anfrage wird verwendet, um die Anfrage-IP-Adresse mit der Allowlist abzugleichen.
 
-## Schritt 2: SCIM-Token generieren {#step-2-generate-a-scim-token}
+## Schritt 2: SCIM-Token / Textbaustein generieren {#step-2-generate-a-scim-token}
 
-Nachdem Sie die erforderlichen Felder ausgefüllt haben, klicken Sie auf **SCIM-Token generieren**, um ein SCIM-Token zu generieren und Ihren SCIM-API-Endpunkt anzuzeigen. Stellen Sie sicher, dass Sie das SCIM-Token kopieren, bevor Sie die Seite verlassen. **Dieses Token wird nur einmal angezeigt.**
+Nachdem Sie die erforderlichen Felder ausgefüllt haben, klicken Sie auf **SCIM-Token / Textbaustein generieren**, um ein SCIM-Token / Textbaustein zu generieren und Ihren SCIM-API-Endpunkt anzuzeigen. Stellen Sie sicher, dass Sie das SCIM-Token / Textbaustein kopieren, bevor Sie die Seite verlassen. **Dieses Token / Textbaustein wird nur einmal angezeigt.**
 
 ![Felder für SCIM-API-Endpunkt und SCIM-Token mit maskierten Werten und Kopier-Buttons. Unterhalb des Token-Felds befindet sich ein Button „Token zurücksetzen“.]({% image_buster /assets/img/scim.png %})
 
-Braze erwartet, dass alle SCIM-Anfragen das SCIM-API-Bearer-Token enthalten, das über einen HTTP-`Authorization`-Header angehängt wird.
+Braze erwartet, dass alle SCIM-Anfragen das SCIM-API-Bearer-Token / Textbaustein enthalten, das über einen HTTP-`Authorization`-Header angehängt wird.
 
 {% endtab %}
 {% endtabs %}

@@ -4,9 +4,9 @@
 
 ## Requisitos previos {#prerequisites}
 
-### Versión del SDK {#sdk-version}
+### Versión del SDK or kit de desarrollo de software {#sdk-version}
 
-Para usar los conmutadores de características, asegúrate de que tus SDK estén actualizados con al menos estas versiones mínimas:
+Para usar los conmutadores de características, asegúrate de que tus SDK or kit de desarrollo de software estén actualizados con al menos estas versiones mínimas:
 
 {% sdk_min_versions swift:5.9.0 android:24.2.0 web:4.6.0 unity:4.1.0 cordova:5.0.0 reactnative:4.1.0 flutter:6.0.0 roku:1.0.0 %}
 
@@ -45,7 +45,7 @@ En **Detalles del conmutador de características**, introduce un nombre, ID y de
 
 ### Paso 2a: Crear propiedades personalizadas {#step-2a-create-custom-properties}
 
-En **Propiedades**, opcionalmente puedes crear propiedades personalizadas a las que tu aplicación puede acceder a través del SDK de Braze cuando tu característica está habilitada. Puedes asignar un valor de cadena, booleano, imagen, marca de tiempo, JSON o número a cada variable, así como establecer un valor predeterminado.
+En **Propiedades**, opcionalmente puedes crear propiedades personalizadas a las que tu aplicación puede acceder a través del SDK or kit de desarrollo de software de Braze cuando tu característica está habilitada. Puedes asignar un valor de cadena, booleano, imagen, marca de tiempo, JSON o número a cada variable, así como establecer un valor predeterminado.
 
 {% tabs local %}
 {% tab ejemplo %}
@@ -129,9 +129,9 @@ Supongamos que eres un gestor de producto que quiere asegurarse de que tus teste
 
 ## Utilizar el campo «habilitado» para tus conmutadores de características {#enabled}
 
-Una vez definido tu conmutador de características, configura tu aplicación o sitio web para comprobar si está habilitado para un usuario concreto. Cuando esté habilitado, establecerás alguna acción o harás referencia a las propiedades variables del conmutador de características en función de tu caso de uso. El SDK de Braze proporciona métodos getter para obtener el estado de tu conmutador de características y sus propiedades en tu aplicación.
+Una vez definido tu conmutador de características, configura tu aplicación o sitio web para comprobar si está habilitado para un usuario concreto. Cuando esté habilitado, establecerás alguna acción o harás referencia a las propiedades variables del conmutador de características en función de tu caso de uso. El SDK or kit de desarrollo de software de Braze proporciona métodos getter para obtener el estado de tu conmutador de características y sus propiedades en tu aplicación.
 
-Los conmutadores de características se actualizan automáticamente al inicio de la sesión, para que puedas mostrar la versión más actualizada de tu característica en el momento del lanzamiento. El SDK almacena en caché estos valores para poder utilizarlos sin conexión.
+Los conmutadores de características se actualizan automáticamente al inicio de la sesión, para que puedas mostrar la versión más actualizada de tu característica en el momento del lanzamiento. El SDK or kit de desarrollo de software almacena en caché estos valores para poder utilizarlos sin conexión.
 
 {% alert note %}
 Asegúrate de registrar [las impresiones del conmutador de características](#impressions).
@@ -735,7 +735,7 @@ m.Braze.refreshFeatureFlags()
 
 ### Escuchar los cambios {#updates}
 
-Puedes configurar el SDK de Braze para que escuche y actualice tu aplicación cuando el SDK actualice cualquier conmutador de características.
+Puedes configurar el SDK or kit de desarrollo de software de Braze para que escuche y actualice tu aplicación cuando el SDK or kit de desarrollo de software actualice cualquier conmutador de características.
 
 Esto es útil si quieres actualizar tu aplicación cuando un usuario ya no es elegible para una característica. Por ejemplo, establecer algún estado en tu aplicación en función de si una característica está habilitada o no, o de uno de sus valores de propiedad.
 
@@ -833,16 +833,16 @@ featureFlagsStreamSubscription.cancel();
 ```
 
 {% subtabs %}
-{% subtab Flutter SDK 18.0.0+ %}
+{% subtab Flutter SDK or kit de desarrollo de software 18.0.0+ %}
 
 Los datos de los conmutadores de características se reenvían automáticamente desde las capas nativas de Android e iOS. No se requiere configuración adicional.
 
 {% endsubtab %}
-{% subtab Flutter SDK 17.1.0 and earlier %}
+{% subtab Flutter SDK or kit de desarrollo de software 17.1.0 and earlier %}
 
-Si estás usando Flutter SDK 17.1.0 o anterior, el reenvío de datos de conmutadores de características desde la capa nativa de iOS requiere configuración manual. Es probable que tu aplicación contenga una devolución de llamada `featureFlags.subscribeToUpdates` que llame a `BrazePlugin.processFeatureFlags(featureFlags)`. Para migrar a Flutter SDK 18.0.0, elimina la llamada a `BrazePlugin.processFeatureFlags(_:)` — el reenvío de datos ahora se gestiona automáticamente.
+Si estás usando Flutter SDK or kit de desarrollo de software 17.1.0 o anterior, el reenvío de datos de conmutadores de características desde la capa nativa de iOS requiere configuración manual. Es probable que tu aplicación contenga una devolución de llamada `featureFlags.subscribeToUpdates` que llame a `BrazePlugin.processFeatureFlags(featureFlags)`. Para migrar a Flutter SDK or kit de desarrollo de software 18.0.0, elimina la llamada a `BrazePlugin.processFeatureFlags(_:)` — el reenvío de datos ahora se gestiona automáticamente.
 
-Para ver un ejemplo, consulta [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) en la aplicación de ejemplo del SDK de Braze para Flutter.
+Para ver un ejemplo, consulta [AppDelegate.swift](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/ios/Runner/AppDelegate.swift) en la aplicación de ejemplo del SDK or kit de desarrollo de software de Braze para Flutter.
 
 {% endsubtab %}
 {% endsubtabs %}

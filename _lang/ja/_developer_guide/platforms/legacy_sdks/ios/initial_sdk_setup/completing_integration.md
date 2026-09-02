@@ -12,7 +12,7 @@ noindex: true
 
 # 統合を完了する {#complete-the-integration}
 
-これらの手順に従う前に、[Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration)、[CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods)、[Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager)、または[手動]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)統合のいずれかを使用してSDKを統合していることを確認してください。
+これらの手順に従う前に、[Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration)、[CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods)、[Swift Package マネージャー]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager)、または[手動]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)統合のいずれかを使用してSDKを統合していることを確認してください。
 
 ## ステップ1: アプリデリゲートを更新する {#step-1-update-your-app-delegate}
 
@@ -25,7 +25,7 @@ Braze SDKをCocoaPods、Carthage、または[ダイナミック手動統合]({{s
 #import "Appboy-iOS-SDK/AppboyKit.h"
 ```
 
-Swift Package Managerまたは[スタティック手動統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)で統合する場合は、代わりに以下の行を使用してください：
+Swift Package マネージャーまたは[スタティック手動統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)で統合する場合は、代わりに以下の行を使用してください：
 
 ```objc
 #import "AppboyKit.h"
@@ -50,7 +50,7 @@ Braze SDKをCocoaPods、Carthage、または[ダイナミック手動統合]({{s
 import Appboy_iOS_SDK
 ```
 
-Swift Package Managerまたは[スタティック手動統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)で統合する場合は、代わりに以下の行を使用してください：
+Swift Package マネージャーまたは[スタティック手動統合]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options)で統合する場合は、代わりに以下の行を使用してください：
 
 ```swift
 import AppboyKit

@@ -71,7 +71,7 @@ Puedes usar estos bloques para añadir contenido y personalizar la disposición 
 | Imagen | Un bloque para mostrar imágenes. Puedes subir una imagen o proporcionar una URL para hacer referencia a una fuente externa. |
 | Enlace | Un hipervínculo que los usuarios pueden pulsar para navegar a una URL especificada. Puede estar integrado dentro del texto o ser independiente. |
 | Espaciador | Un bloque invisible que añade espacio vertical entre elementos para mejorar la disposición y la legibilidad. |
-| Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizados para personalización avanzada. Para interactuar con el SDK de Braze desde este bloque, consulta [Puente JavaScript para páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) y [Crear bloques de formulario personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
+| Código personalizado | Un bloque que te permite insertar y ejecutar HTML, CSS o JavaScript personalizados para personalización avanzada. Para interactuar con el SDK or kit de desarrollo de software de Braze desde este bloque, consulta [Puente JavaScript para páginas de destino]({{site.baseurl}}/user_guide/messaging/landing_pages/javascript_bridge) y [Crear bloques de formulario personalizados]({{site.baseurl}}/user_guide/messaging/landing_pages/custom_form_blocks). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Personalizar la página" }
 
 #### Texto con span {#span-text}
@@ -105,12 +105,12 @@ Puedes dividir un formulario largo en varios pasos, cada uno con sus propios cam
 | Tipo de bloque | Descripción |
 |---------------|-------------|
 | Captura de correo electrónico | Un campo de formulario para direcciones de correo electrónico. Al enviarse, la dirección de correo electrónico se añade al perfil de ese usuario en Braze. |
-| Captura de teléfono | Un campo de formulario para números de teléfono. Al enviarse, el usuario queda suscrito a tu grupo de suscripción de SMS o WhatsApp. |
+| Captura de teléfono | Un campo de formulario para números de teléfono. Al enviarse, el usuario queda suscrito a tu grupo de suscripción de servicio de mensajes cortos o WhatsApp. |
 | Campo de entrada | Un campo de formulario que admite atributos estándar (como nombre y apellido) o una cadena de atributo personalizado de tu elección. |
 | Desplegable | Los usuarios pueden seleccionar un elemento de una lista predefinida. Puedes añadir cualquier cadena de atributo personalizado a la lista. |
 | Casilla de verificación | Si un usuario marca la casilla, el atributo del bloque se establece en `true`. Si se deja sin marcar, su atributo se establece en `false`. |
 | Grupo de casillas de verificación | Los usuarios pueden seleccionar entre múltiples opciones presentadas. Los valores se establecen o se añaden a un atributo personalizado de tipo array definido. |
-| Gestionar suscripciones | Una lista de verificación de grupos de suscripción de correo electrónico, SMS o WhatsApp. Los usuarios seleccionan a qué grupos quieren unirse cuando envían el formulario. Cada bloque es para un canal. Para más información, consulta [Bloque de gestión de suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
+| Gestionar suscripciones | Una lista de verificación de grupos de suscripción de correo electrónico, servicio de mensajes cortos o WhatsApp. Los usuarios seleccionan a qué grupos quieren unirse cuando envían el formulario. Cada bloque es para un canal. Para más información, consulta [Bloque de gestión de suscripciones]({{site.baseurl}}/user_guide/messaging/landing_pages/manage_subscriptions). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Texto con span" }
 
 {% alert important %}

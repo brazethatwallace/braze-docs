@@ -16,13 +16,13 @@ Qualquer integração que você configurar contará para o volume de pontos de d
 
 ### Etapa 1: Obter a chave de importação de dados da Braze {#step-1-get-the-braze-data-import-key}
 
-Na Braze, navegue até **Partner Integrations** > **Technology Partners** e selecione **Amplitude**. Lá, você encontrará o endpoint REST e poderá gerar sua chave de importação de dados da Braze.
+Na Braze, navegue até **Partner Integrations** > **Technology Partners** e selecione **Amplitude**. Lá, você encontrará o endpoint REST or transferir estado representacional e poderá gerar sua chave de importação de dados da Braze.
 
 Após gerar a chave, você pode criar uma nova ou invalidar uma existente. A chave de importação de dados e o endpoint REST são usados na próxima etapa ao configurar um postback no dashboard da Amplitude.<br><br>![Página da parceira de tecnologia Amplitude na Braze mostrando a chave de importação de dados e o endpoint.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Etapa 2: Configurar a integração com a Braze na Amplitude {#step-2-set-up-the-braze-integration-in-amplitude}
 
-Na Amplitude, navegue até **Sources & Destinations** > **[nome do projeto]** > **Destinations** > **Braze**. No prompt que aparecer, forneça a chave de importação de dados da Braze e o endpoint REST, e clique em **Save**.
+Na Amplitude, navegue até **Sources & Destinations** > **[nome do projeto]** > **Destinations** > **Braze**. No prompt que aparecer, forneça a chave de importação de dados da Braze e o endpoint REST or transferir estado representacional, e clique em **Save**.
 
 ![Configurações de destino da Amplitude para sincronização de coorte com a Braze com credenciais preenchidas.]({% image_buster /assets/img/amplitude.png %})
 
@@ -48,11 +48,11 @@ Qualquer integração que você configurar registrará pontos de dados. Se você
 
 ### Etapa 4: Segmentar usuários na Braze {#step-4-segment-users-in-braze}
 
-Na Braze, para criar um Segment desses usuários, navegue até **Segments** em **Engagement**, nomeie seu Segment e selecione **Amplitude Cohorts** como filtro. Em seguida, use a opção "includes" e escolha a coorte que você criou na Amplitude.
+Na Braze, para criar um Segment or segmento desses usuários, navegue até **Segments** em **Engagement**, nomeie seu Segment or segmento e selecione **Amplitude Cohorts** como filtro. Em seguida, use a opção "includes" e escolha a coorte que você criou na Amplitude.
 
 ![No criador de segmentos da Braze, o filtro "amplitude_cohorts" está definido como "includes_value" e "Amplitude cohort test".]({% image_buster /assets/img/amplitude2.png %})
 
-Após salvar, você pode referenciar esse Segment durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
+Após salvar, você pode referenciar esse Segment or segmento durante a criação de Canvas ou Campaign na etapa de direcionamento de usuários.
 
 ## Correspondência de usuários {#user-matching}
 
@@ -62,9 +62,9 @@ Usuários identificados podem ser correspondidos pelo `external_id` ou `alias`. 
 
 ### Posso obter uma lista de coortes do Amplitude? {#can-i-pull-a-list-of-amplitude-cohorts}
 
-A Braze não oferece uma API para exportar um catálogo com todas as definições de coortes do Amplitude. Você pode visualizar e usar coortes nos seguintes locais:
+A Braze não oferece uma API or interface de programação do aplicativo (API) para exportar um catálogo com todas as definições de coortes do Amplitude. Você pode visualizar e usar coortes nos seguintes locais:
 
 1. **No Amplitude:** visualize e gerencie coortes no dashboard do Amplitude antes de sincronizá-las com a Braze.
-2. **Na Braze:** após a sincronização de uma coorte, direcione usuários com o filtro de Segment **Amplitude Cohorts**. O filtro lista as coortes sincronizadas pelo nome enviado pelo Amplitude.
+2. **Na Braze:** após a sincronização de uma coorte, direcione usuários com o filtro de Segment or segmento **Amplitude Cohorts**. O filtro lista as coortes sincronizadas pelo nome enviado pelo Amplitude.
 
-Para erros de sincronização de coortes, confirme o alinhamento de IDs de usuário e as chaves de API no Amplitude primeiro. Consulte ["We do not have enough data yet for this filter" ao sincronizar uma coorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).
+Para erros de sincronização de coortes, confirme o alinhamento de IDs de usuário e as chaves de API or interface de programação do aplicativo (API) no Amplitude primeiro. Consulte ["We do not have enough data yet for this filter" ao sincronizar uma coorte]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences#we-do-not-have-enough-data-yet-for-this-filter-when-syncing-a-cohort).

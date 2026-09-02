@@ -8,13 +8,13 @@ description: "Este artigo contém notas de versão para agosto de 2021."
 
 # Agosto de 2021 {#august-2021}
 
-## Sincronização do público do Google {#google-audience-sync}
+## Sincronização do Google Audience or público do Google or público do Google {#google-audience-sync}
 
-A integração da Braze [Audience Sync com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) permite que as marcas estendam o alcance de suas jornadas de clientes entre canais para a Pesquisa do Google, o Google Shopping, o Gmail, o YouTube e o Google Display. Usando seus dados primários de clientes, é possível fornecer anúncios com segurança com base em gatilhos comportamentais dinâmicos, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (por exemplo, push, e-mail, SMS etc.) como parte de um Braze Canvas pode ser usado para disparar um anúncio para esse usuário por meio do Customer Match do Google.
+A integração da Braze [Audience Sync com o Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) permite que as marcas estendam o alcance de suas jornadas de clientes entre canais para a Pesquisa do Google, o Google Shopping, o Gmail, o YouTube e o Google Display. Usando seus dados primários de clientes, é possível fornecer anúncios com segurança com base em gatilhos comportamentais dinâmicos, segmentação e muito mais. Qualquer critério que você normalmente usaria para disparar uma mensagem (por exemplo, push, e-mail, SMS etc.) como parte de um BRAZE CANVAS pode ser usado para disparar um anúncio para esse usuário por meio do Customer Match do Google.
 
-## Guia de práticas recomendadas para integração do SDK do iOS {#best-practice-ios-sdk-integration-guide}
+## Guia de práticas recomendadas para integração do SDK or kit de desenvolvimento de software do iOS {#best-practice-ios-sdk-integration-guide}
 
-Este guia opcional de [integração do SDK com o iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) leva você a uma jornada passo a passo sobre as práticas recomendadas de configuração ao integrar pela primeira vez o SDK do iOS e seus componentes principais em seu aplicativo. Este guia o ajudará a criar um arquivo auxiliar `BrazeManager.swift` que desacoplará todas as dependências do SDK da Braze para iOS do restante do seu código de produção, resultando em um único `import AppboyUI` em todo o seu aplicativo. Essa abordagem limita os problemas decorrentes do excesso de importações de SDK, facilitando o rastreamento, a depuração e a alteração do código.
+Este guia opcional de [integração do SDK or kit de desenvolvimento de software com o iOS]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_integrating-the-swift-sdk) leva você a uma jornada passo a passo sobre as práticas recomendadas de configuração ao integrar pela primeira vez o SDK or kit de desenvolvimento de software do iOS e seus componentes principais em seu aplicativo. Este guia o ajudará a criar um arquivo auxiliar `BrazeManager.swift` que desacoplará todas as dependências do SDK or kit de desenvolvimento de software da Braze para iOS do restante do seu código de produção, resultando em um único `import AppboyUI` em todo o seu aplicativo. Essa abordagem limita os problemas decorrentes do excesso de importações de SDK or kit de desenvolvimento de software, facilitando o rastreamento, a depuração e a alteração do código.
 
 ## Predictive Purchases
 
@@ -30,11 +30,11 @@ Para direcionar os usuários que não têm um `external_id`, é possível [impor
 
 ## Guia de atualização do iOS 15 {#ios-15-upgrade-guide}
 
-Este [guia de atualização do iOS 15]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) descreve as alterações introduzidas no iOS 15 (WWDC21) e as etapas de atualização necessárias para a integração do SDK da Braze para iOS.
+Este [guia de atualização do iOS 15]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/overview/) descreve as alterações introduzidas no iOS 15 (WWDC21) e as etapas de atualização necessárias para a integração do SDK or kit de desenvolvimento de software da Braze para iOS.
 
 ## Guia de atualização do Android 12 {#android-12-upgrade-guide}
 
-Este [guia de atualização do Android 12]({{site.baseurl}}/developer_guide/platforms/android/android_13/) descreve as alterações relevantes introduzidas no Android 12 (2021) e as etapas de atualização necessárias para a integração do Braze Android SDK.
+Este [guia de atualização do Android 12]({{site.baseurl}}/developer_guide/platforms/android/android_13/) descreve as alterações relevantes introduzidas no Android 12 (2021) e as etapas de atualização necessárias para a integração do Braze Android SDK or kit de desenvolvimento de software.
 
 ## A2P 10DLC
 

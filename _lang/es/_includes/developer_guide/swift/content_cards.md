@@ -1,16 +1,16 @@
 ## Requisitos previos {#prerequisites}
 
-Antes de poder usar Content Cards, necesitas integrar el [SDK de Braze Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) en tu aplicación. Sin embargo, no es necesaria ninguna configuración adicional.
+Antes de poder usar Content Cards, necesitas integrar el [SDK or kit de desarrollo de software de Braze Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) en tu aplicación. Sin embargo, no es necesaria ninguna configuración adicional.
 
 ## Contextos de controlador de vista {#view-controller-contexts}
 
-La interfaz de usuario predeterminada de Content Cards puede integrarse desde la biblioteca `BrazeUI` del SDK de Braze. Crea el controlador de vista de Content Cards utilizando la instancia `braze`. Si deseas interceptar y reaccionar al ciclo de vida de la interfaz de usuario de Content Cards, implementa [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) como delegado de tu `BrazeContentCardUI.ViewController`.
+La interfaz de usuario predeterminada de Content Cards puede integrarse desde la biblioteca `BrazeUI` del SDK or kit de desarrollo de software de Braze. Crea el controlador de vista de Content Cards utilizando la instancia `braze`. Si deseas interceptar y reaccionar al ciclo de vida de la interfaz de usuario de Content Cards, implementa [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) como delegado de tu `BrazeContentCardUI.ViewController`.
 
 {% alert note %}
 Para más información sobre las opciones del controlador de vista de iOS, consulta la [documentación para desarrolladores de Apple](https://developer.apple.com/documentation/uikit/view_controllers/showing_and_hiding_view_controllers).
 {% endalert %}
 
-La biblioteca `BrazeUI` del SDK de Swift proporciona dos contextos predeterminados de controlador de vista: [navegación](#swift_navigation) o [modal](#swift_modal). Esto significa que puedes integrar Content Cards en estos contextos añadiendo unas pocas líneas de código a tu aplicación o sitio web. Ambas vistas ofrecen opciones de personalización y estilo, como se describe en la [guía de personalización]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_styles/?tab=ios). También puedes crear un controlador de vista de tarjeta de contenido personalizado, en lugar de utilizar el estándar de Braze, para tener aún más opciones de personalización&#8212;consulta el [tutorial sobre la interfaz de usuario de Content Cards](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c2-contentcardsui/) para ver un ejemplo.
+La biblioteca `BrazeUI` del SDK or kit de desarrollo de software de Swift proporciona dos contextos predeterminados de controlador de vista: [navegación](#swift_navigation) o [modal](#swift_modal). Esto significa que puedes integrar Content Cards en estos contextos añadiendo unas pocas líneas de código a tu aplicación o sitio web. Ambas vistas ofrecen opciones de personalización y estilo, como se describe en la [guía de personalización]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_styles/?tab=ios). También puedes crear un controlador de vista de tarjeta de contenido personalizado, en lugar de utilizar el estándar de Braze, para tener aún más opciones de personalización&#8212;consulta el [tutorial sobre la interfaz de usuario de Content Cards](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c2-contentcardsui/) para ver un ejemplo.
 
 {% alert important %}
 Para manejar Content Cards con variantes de control en tu interfaz de usuario personalizada, pasa tu objeto [`Braze.ContentCard.Control`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control(_:)) y llama al método `logImpression` como harías con cualquier otro tipo de tarjeta de contenido. El objeto registrará implícitamente una impresión de control para informar a nuestros análisis de cuándo un usuario habría visto la tarjeta de control.
@@ -84,7 +84,7 @@ Para ver ejemplos de uso de los controladores de vista `BrazeUI`, consulta los e
 
 ## Modelo de tarjeta base {#base-card-model}
 
-El modelo de datos de Content Cards está disponible en el módulo `BrazeKit` del SDK de Braze Swift. Este módulo contiene los siguientes tipos de Content Cards, que son una implementación del tipo `Braze.ContentCard`. Para obtener una lista completa de las propiedades de Content Cards y su uso, consulta la [clase `ContentCard`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard).
+El modelo de datos de Content Cards está disponible en el módulo `BrazeKit` del SDK or kit de desarrollo de software de Braze Swift. Este módulo contiene los siguientes tipos de Content Cards, que son una implementación del tipo `Braze.ContentCard`. Para obtener una lista completa de las propiedades de Content Cards y su uso, consulta la [clase `ContentCard`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard).
 
 - Solo imagen
 - Imagen con subtítulo
@@ -95,7 +95,7 @@ El modelo de datos de Content Cards está disponible en el módulo `BrazeKit` de
 Para acceder al modelo de datos de Content Cards, llama a `contentCards.cards` en tu instancia `braze`. Consulta [Registro de análisis]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) para obtener más información sobre cómo suscribirte a los datos de las tarjetas.
 
 {% alert note %}
-La lectura de `contentCards.cards`, `contentCards.unviewedCards` o `contentCards.lastUpdate` bloquea el hilo que realiza la llamada hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Para contextos en el hilo principal o sensibles a la latencia, utiliza las alternativas no bloqueantes [`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:)), [`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:)) o [`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:)).
+La lectura de `contentCards.cards`, `contentCards.unviewedCards` o `contentCards.lastUpdate` bloquea el hilo que realiza la llamada hasta que el SDK or kit de desarrollo de software haya completado sus operaciones posteriores a la inicialización. Para contextos en el hilo principal o sensibles a la latencia, utiliza las alternativas no bloqueantes [`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:)), [`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:)) o [`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:)).
 {% endalert %}
 
 {% alert note %}

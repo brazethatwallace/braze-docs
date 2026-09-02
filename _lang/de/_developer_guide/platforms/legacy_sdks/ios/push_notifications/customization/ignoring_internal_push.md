@@ -14,16 +14,16 @@ noindex: true
 
 # Interne Push-Benachrichtigungen von Braze ignorieren
 
-Braze verwendet stille Push-Benachrichtigungen für die interne Implementierung bestimmter erweiterter Funktionen. Bei den meisten Integrationen erfordert dies keine Änderungen an Ihrer App. Wenn Sie jedoch eine Braze-Funktion integrieren, die auf interne Push-Benachrichtigungen angewiesen ist (z. B. Deinstallations-Tracking oder Geofences), sollten Sie Ihre App so aktualisieren, dass sie unsere internen Push-Benachrichtigungen ignoriert.
+Braze verwendet stille Push-Benachrichtigungen für die interne Implementierung bestimmter erweiterter Funktionen. Bei den meisten Integrationen erfordert dies keine Änderungen an Ihrer App. Wenn Sie jedoch eine Braze-Funktion integrieren, die auf interne Push-Benachrichtigungen angewiesen ist (z. B. Deinstallations-Tracking oder Geofences), sollten Sie Ihre App so Update or aktualisieren or aktualisieren, dass sie unsere internen Push-Benachrichtigungen ignoriert.
 
 Wenn Ihre App beim Starten von Anwendungen oder bei Push-Nachrichten im Hintergrund automatisch Aktionen ausführt, sollten Sie in Erwägung ziehen, diese Aktivitäten so zu steuern, dass sie nicht durch interne Push-Benachrichtigungen ausgelöst werden. Wenn Sie beispielsweise eine Logik haben, die Ihre Server bei jedem Hintergrund-Push oder Anwendungsstart nach neuen Inhalten fragt, möchten Sie wahrscheinlich nicht, dass unsere internen Pushs dies auslösen, da dies unnötigen Netzwerkverkehr verursachen würde. Da Braze außerdem bestimmte Arten von internen Push-Nachrichten an alle Benutzer ungefähr zur gleichen Zeit sendet, könnten Netzwerkaufrufe beim Start von internen Push-Nachrichten zu einer erheblichen Serverbelastung führen, wenn sie nicht unterbrochen werden.
 
 ## Überprüfen Sie Ihre App auf automatische Aktionen
 
-Sie sollten Ihre Anwendung an den folgenden Stellen auf automatische Aktionen überprüfen und Ihren Code aktualisieren, um unsere internen Pushes zu ignorieren:
+Sie sollten Ihre Anwendung an den folgenden Stellen auf automatische Aktionen überprüfen und Ihren Code Update or aktualisieren or aktualisieren, um unsere internen Pushes zu ignorieren:
 
 1. **Push-Empfänger.** Push-Benachrichtigungen im Hintergrund rufen `application:didReceiveRemoteNotification:fetchCompletionHandler:` auf der `UIApplicationDelegate` auf.
-2. **App-Delegat.** Pushes im Hintergrund können [angehaltene](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW3) Apps im Hintergrund starten und dabei die Methoden `application:willFinishLaunchingWithOptions:` und `application:didFinishLaunchingWithOptions:` beim `UIApplicationDelegate` triggern. Sie können die `launchOptions` dieser Methoden überprüfen, um festzustellen, ob die Anwendung durch einen Push im Hintergrund gestartet wurde.
+2. **App-Delegat.** Pushes im Hintergrund können [angehaltene](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW3) Apps im Hintergrund starten und dabei die Methoden `application:willFinishLaunchingWithOptions:` und `application:didFinishLaunchingWithOptions:` beim `UIApplicationDelegate` Trigger or triggern or triggern. Sie können die `launchOptions` dieser Methoden überprüfen, um festzustellen, ob die Anwendung durch einen Push im Hintergrund gestartet wurde.
 
 ## Verwendung der internen Push-Utility-Methoden von Braze
 

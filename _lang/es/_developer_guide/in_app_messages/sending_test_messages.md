@@ -1,8 +1,8 @@
 ---
 nav_title: Probando un mensaje
-article_title: Envía un mensaje de prueba para el SDK de Braze.
+article_title: Envía un mensaje de prueba para el SDK or kit de desarrollo de software de Braze.
 page_order: 10.0
-description: "Aprende a enviar un mensaje de prueba para el SDK de Braze."
+description: "Aprende a enviar un mensaje de prueba para el SDK or kit de desarrollo de software de Braze."
 ---
 
 {% multi_lang_include developer_guide/_shared/sending_test_messages.md %}

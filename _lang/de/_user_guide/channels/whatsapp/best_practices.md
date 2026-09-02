@@ -21,7 +21,7 @@ Wenn Sie einem/einer Nutzer:in zum ersten Mal in WhatsApp eine Nachricht senden,
 ![WhatsApp-Nachrichtenverlauf mit Optionen zum Blockieren oder Melden eines Unternehmens]({% image_buster /assets/img/whatsapp/whatsapp_block_report.png %}){: style="max-width:30%;"}
 
 {% alert note %}
-Für Metriken zu Ihren Blockierungen und Meldungen stellen Sie sicher, dass der [Insights-Tab](https://www.facebook.com/business/help/683499390267496) in Ihrem WhatsApp Manager aktiviert ist.
+Für Metriken zu Ihren Blockierungen und Meldungen stellen Sie sicher, dass der [Insights-Tab](https://www.facebook.com/business/help/683499390267496) in Ihrem WhatsApp Manager:in aktiviert ist.
 {% endalert %}
 
 Um eine hohe Anzahl von Blockierungen und Meldungen zu vermeiden, empfiehlt Braze die folgenden Best Practices, um eine hohe Telefonqualitätsbewertung und stabile Nachrichtenlimits aufrechtzuerhalten.
@@ -52,6 +52,6 @@ Eine empfohlene Best Practice ist es, in der Fußzeile der ersten Nachricht, die
 
 Für interaktive Canvas-Flows, die mit [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/message_and_image_formats#response-messages) reagieren:
 
-- Platzieren Sie den Antwortnachricht-Schritt unmittelbar nach dem eingehenden Trigger oder der Aktionspfad-Auswertung.
-- Verwenden Sie [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) anstelle von Nutzer:innen-Update-Schritten, wenn vor der Antwort keine Abo-Änderungen erforderlich sind.
+- Platzieren Sie den Antwortnachricht-Schritt unmittelbar nach dem eingehenden Trigger or triggern oder der Aktionspfad-Auswertung.
+- Verwenden Sie [Webhooks]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) anstelle von Nutzer:innen-Update or aktualisieren-Schritten, wenn vor der Antwort keine Abo-Änderungen erforderlich sind.
 - Vermeiden Sie lange Verzögerungen oder mehrtägige Wartezeiten zwischen eingehenden Nachrichten und dem Versand von Antworten; das WhatsApp-Kundenservice-Fenster beträgt 24 Stunden pro eingehender Nachricht.

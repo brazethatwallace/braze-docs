@@ -38,7 +38,7 @@ Agentes que infieren los intereses o la motivación de un usuario a partir de at
 
 ### Estandarización de datos {#data-standardization}
 
-Agentes que convierten entradas no estructuradas en campos estructurados y consistentes para herramientas y automatización posteriores. Los ejemplos incluyen clasificar el sentimiento y el tema de un cuestionario para un traspaso a CRM, o normalizar SMS o chat entrantes en intención, entidades y señales de cumplimiento.
+Agentes que convierten entradas no estructuradas en campos estructurados y consistentes para herramientas y automatización posteriores. Los ejemplos incluyen clasificar el sentimiento y el tema de un cuestionario para un traspaso a CRM or administración de las relaciones con el cliente, o normalizar servicio de mensajes cortos o chat entrantes en intención, entidades y señales de cumplimiento.
 
 ### Clasificación y enrutamiento {#classification-and-routing}
 
@@ -63,7 +63,7 @@ Cada ejemplo solicita al modelo que devuelva un campo `explanation` junto con su
 ## Escribir mensajería personalizada basada en el contexto de un usuario {#write-personalized-messaging-based-on-a-users-context}
 
 {% apitags %}
-Content generation, canvas step agent
+Content generation, Canvas step agent
 {% endapitags %}
 
 Usa este agente de paso en Canvas para generar líneas de asunto de correo electrónico coordinadas, preencabezados y título y cuerpo de notificaciones push para usuarios que buscaron en la aplicación pero no reservaron. El objetivo es reorientarlos en un recorrido en Canvas con mensajería localizada, segura para la marca, que impulse la finalización de la compra respetando los límites de caracteres de cada canal.
@@ -144,10 +144,10 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 ## Analizar comentarios de usuarios para determinar los próximos pasos {#analyze-user-feedback-to-determine-next-steps}
 
 {% apitags %}
-Data standardization, canvas step agent
+Data standardization, Canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de paso en Canvas puede analizar los comentarios de los usuarios a partir de cuestionarios posteriores al viaje y categorizar el sentimiento y los temas. El objetivo de este agente es determinar los próximos pasos para una plataforma CRM independiente.
+Este ejemplo describe cómo un agente de paso en Canvas puede analizar los comentarios de los usuarios a partir de cuestionarios posteriores al viaje y categorizar el sentimiento y los temas. El objetivo de este agente es determinar los próximos pasos para una plataforma CRM or administración de las relaciones con el cliente independiente.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -212,7 +212,7 @@ Input & Output Example:
 ## Categorizar usuarios en contenedores de interés a partir de atributos existentes {#categorize-users-into-interest-buckets-from-existing-attributes}
 
 {% apitags %}
-Affinity agent, canvas step agent
+Affinity agent, Canvas step agent
 {% endapitags %}
 
 Este ejemplo describe cómo un agente de paso en Canvas puede clasificar usuarios en contenedores de interés específicos basándose en atributos personalizados existentes y señales de comportamiento de alta intención, y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es enrutar a los usuarios hacia experiencias orientadas con precisión —como recuperación de carrito o recomendaciones específicas por categoría— basándose únicamente en datos verificados, sin alucinar atributos que no estén presentes.
@@ -291,7 +291,7 @@ Recent Search: "cordless drill"
 ## Enrutar usuarios a la ruta de Canvas más relevante a partir de comportamiento reciente {#route-users-to-the-most-relevant-canvas-path-from-recent-behavior}
 
 {% apitags %}
-Affinity agent, canvas step agent
+Affinity agent, Canvas step agent
 {% endapitags %}
 
 Este ejemplo describe cómo un agente de paso en Canvas puede inferir la motivación actual de un usuario a partir de su comportamiento reciente y contexto —como favoritos recientes o historial de búsqueda— y devolver la mejor clave de ruta para su siguiente paso. El objetivo es enviar a cada usuario por la ruta de Canvas más relevante sin segmentación manual.
@@ -363,7 +363,7 @@ Recently Engaged Products: Drill bits
 ## Asignar usuarios a categorías de interés a partir de acciones de alta intención en tiempo real {#assign-users-to-interest-categories-from-real-time-high-intent-actions}
 
 {% apitags %}
-Affinity agent, canvas step agent
+Affinity agent, Canvas step agent
 {% endapitags %}
 
 Este ejemplo describe cómo un agente de paso en Canvas puede asignar usuarios a entre una y tres categorías de interés basándose en acciones recientes de alta intención y contexto de comportamiento (pasado a través del contexto de Canvas), y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es personalizar el siguiente paso de un recorrido del cliente en tiempo real usando señales de comportamiento verificadas en lugar de suposiciones.
@@ -445,7 +445,7 @@ Recent Search: "18v cordless drill"
 ## Clasificar mensajes entrantes por intención de cancelar suscripción {#classify-inbound-messages-for-opt-out-intent}
 
 {% apitags %}
-Classification and routing, canvas step agent
+Classification and routing, Canvas step agent
 {% endapitags %}
 
 Este ejemplo describe cómo un agente de paso en Canvas puede evaluar un mensaje entrante de un cliente a la vez y devolver si debe tratarse como una solicitud de cancelar suscripción de mensajería futura (por ejemplo, STOP, cancelar suscripción o revocar consentimiento). El objetivo es generar un booleano estricto para que puedas ramificar recorridos de forma conservadora, reduciendo el riesgo de enviar mensajes después de la revocación y evitando falsos positivos cuando el usuario claramente está haciendo una pregunta o continúa interactuando.
@@ -459,7 +459,7 @@ La gestión de cancelación de suscripción y consentimiento conlleva obligacion
 
 Estas instrucciones asumen que la siguiente información está disponible:
 
-- Texto del mensaje entrante disponible para el agente (por ejemplo, una variable de contexto para la última respuesta SMS del usuario u otro texto entrante)
+- Texto del mensaje entrante disponible para el agente (por ejemplo, una variable de contexto para la última respuesta servicio de mensajes cortos del usuario u otro texto entrante)
 - **Contexto del agente** desde las [instrucciones de la consola del agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
     - **Todo el contexto de Canvas:** Pasa cualquier variable de contexto adicional al agente que no hayas definido ya en las instrucciones de tu agente, en caso de que sean útiles o relevantes
 
@@ -527,10 +527,10 @@ Input: “This sucks—what’s the promo code?” → false
 ## Estandarizar mensajes entrantes en datos estructurados para automatización {#standardize-inbound-messages-into-structured-data-for-automation}
 
 {% apitags %}
-Data standardization, canvas step agent
+Data standardization, Canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de paso en Canvas puede normalizar respuestas SMS o de chat entrantes desordenadas y no estructuradas en un formato estructurado consistente —clasificando la intención, extrayendo entidades y señalando indicadores de cumplimiento como cancelaciones de suscripción y PII. El objetivo es proporcionar a la automatización posterior y a las notificaciones internas datos limpios y legibles por máquina para un enrutamiento confiable.
+Este ejemplo describe cómo un agente de paso en Canvas puede normalizar respuestas servicio de mensajes cortos o de chat entrantes desordenadas y no estructuradas en un formato estructurado consistente —clasificando la intención, extrayendo entidades y señalando indicadores de cumplimiento como cancelaciones de suscripción y PII. El objetivo es proporcionar a la automatización posterior y a las notificaciones internas datos limpios y legibles por máquina para un enrutamiento confiable.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -818,7 +818,7 @@ existing_category: "hydration"
 ## Estandarizar entradas no estructuradas con coincidencia aproximada de catálogo {#standardize-unstructured-input-with-approximate-catalog-matching}
 
 {% apitags %}
-Data standardization, canvas step agent
+Data standardization, Canvas step agent
 {% endapitags %}
 
 Este ejemplo describe cómo un agente de paso en Canvas puede procesar entradas de usuario no estructuradas —como texto escrito manualmente con errores tipográficos o variaciones— y usar coincidencia asistida por LLM contra resultados de búsqueda de catálogo para estandarizarlas contra artículos de catálogo conocidos. El objetivo es identificar lo que el usuario realmente quiso decir a partir de su entrada imperfecta, lo cual es especialmente útil cuando las búsquedas de Liquid no pueden manejar coincidencias aproximadas.

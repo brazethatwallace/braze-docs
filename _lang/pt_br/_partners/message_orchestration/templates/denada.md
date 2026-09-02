@@ -24,8 +24,8 @@ Os itens a seguir são necessários para usar esta integração:
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Denada | Uma [conta Denada](https://app.heydenada.com) é necessária para usar esta integração. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões completas de **Templates**. <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [A URL do seu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. |
+| Chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze | Uma chave da API or interface de programação do aplicativo (API) REST or transferir estado representacional da Braze com permissões completas de **Templates**. <br><br>Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API or interface de programação do aplicativo (API)**. |
+| Endpoint REST or transferir estado representacional da Braze | [A URL do seu endpoint REST or transferir estado representacional]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para a sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
@@ -41,7 +41,7 @@ A Denada foi criada para profissionais de marketing e especialistas no assunto q
 
 Na Denada, selecione o nome da sua empresa no menu de perfil e, em seguida, selecione **Team settings** > **Add integration**.
 
-Selecione **Braze** como a integração, insira sua **chave de API** da Braze e selecione seu **endpoint da API REST** na lista de regiões disponíveis.
+Selecione **Braze** como a integração, insira sua **chave de API or interface de programação do aplicativo (API)** da Braze e selecione seu **endpoint da API or interface de programação do aplicativo (API) REST or transferir estado representacional** na lista de regiões disponíveis.
 
 {% alert note %}
 Esta é uma configuração única. Quando suas credenciais forem validadas, sua configuração será salva para todas as exportações futuras.

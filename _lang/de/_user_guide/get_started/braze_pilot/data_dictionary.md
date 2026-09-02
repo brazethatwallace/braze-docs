@@ -173,14 +173,14 @@ th:nth-child(5), td:nth-child(5) {
             <td>Steppington</td>
             <td>Ereignis</td>
             <td></td>
-            <td>Wenn Nutzer:innen den Button <strong>Start Free Trial</strong> auswählen</td>
+            <td>Wenn Nutzer:innen den Button <strong>Start kostenlose Demo</strong> auswählen</td>
         </tr>
         <tr>
             <td><code>st_set_goal</code></td>
             <td>Steppington</td>
             <td>Ereignis</td>
             <td><code>goal_name: string</code><br><code>goal: number</code><br><code>units: string</code></td>
-            <td>Wenn Nutzer:innen den Button <strong>Start Free Trial</strong> auswählen.</td>
+            <td>Wenn Nutzer:innen den Button <strong>Start kostenlose Demo</strong> auswählen.</td>
         </tr>
     </tbody>
 </table>

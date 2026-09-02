@@ -1131,13 +1131,13 @@ Lorsqu'un utilisateur démarre sa première session, un événement `FirstSessio
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton Push To Start pour les Live Activity {#live-activity-push-to-start-token-change-events}
+## Événements de changement de jeton Push To Start pour les en direct or en ligne/en production/instantané Activity {#live-activity-push-to-start-token-change-events}
 
 {% apitags %}
-Live Activity, Push To Start Token
+en direct or en ligne/en production/instantané Activity, Push To Start Token
 {% endapitags %}
 
-Cet événement se produit lorsque Braze synchronise le jeton Push To Start de la Live Activity avec l'utilisateur.
+Cet événement se produit lorsque Braze synchronise le jeton Push To Start de la en direct or en ligne/en production/instantané Activity avec l'utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -1264,18 +1264,18 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 
 ### Détails des propriétés
 
-- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de Live Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
+- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de en direct or en ligne/en production/instantané Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
 
 {% endapi %}
 
 {% api %}
-## Événements de changement de jeton de mise à jour des Live Activity {#live-activity-update-token-change-events}
+## Événements de changement de jeton de mise à jour des en direct or en ligne/en production/instantané Activity {#live-activity-update-token-change-events}
 
 {% apitags %}
-Live Activity, Update Token
+en direct or en ligne/en production/instantané Activity, Update Token
 {% endapitags %}
 
-Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de la Live Activity avec l'utilisateur.
+Cet événement se produit lorsque Braze synchronise le jeton de mise à jour de la en direct or en ligne/en production/instantané Activity avec l'utilisateur.
 
 {% tabs %}
 {% tab Cloud Storage %}

@@ -11,12 +11,12 @@ description: "En este artículo se describen los detalles del endpoint Exportar 
 {% api %}
 # Exportar análisis de series de datos de Canvas {#export-canvas-data-series-analytics}
 {% apimethod get %}
-/canvas/data_series
+/Canvas/data_series
 {% endapimethod %}
 
 > Usa este endpoint para exportar datos de series temporales de un Canvas.
 
-{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='canvas' %}
+{% multi_lang_include api/export_data_series_analytics_dashboard_note.md type='Canvas' %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#0fd61e93-7edf-4d87-a8dc-052420aefb73 {% endapiref %}
 

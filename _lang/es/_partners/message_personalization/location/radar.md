@@ -25,14 +25,14 @@ Además, las Geo APIs de Radar pueden utilizarse para enriquecer o personalizar 
 | Requisito | Descripción |
 |---|---|
 | Cuenta Radar | Se necesita una cuenta Radar para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST or transferencia de estado representacional de Braze | Una clave de API REST or transferencia de estado representacional de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Identificador de la aplicación | Tu [identificador de la aplicación]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) se puede encontrar en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Clave de API de iOS<br>Clave de API de Android | Estas claves de API se pueden encontrar en el panel de Braze desde **Configuración** > **Configuración de la aplicación**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
-Para mapear datos entre los SDK de Braze y Radar, debes establecer los mismos ID de usuario o alias de usuario en ambos sistemas. Esto puede hacerse utilizando el método `changeUser()` del SDK de Braze y el método `setUserId()` del SDK de Radar.
+Para mapear datos entre los SDK or kit de desarrollo de software de Braze y Radar, debes establecer los mismos ID de usuario o alias de usuario en ambos sistemas. Esto puede hacerse utilizando el método `changeUser()` del SDK or kit de desarrollo de software de Braze y el método `setUserId()` del SDK or kit de desarrollo de software de Radar.
 
 Para activar la integración:
 
@@ -129,7 +129,7 @@ El siguiente fragmento de código es un ejemplo de lo que Radar devolverá como 
 }
 ```
 
-Para construir el mensaje de Braze dirigido y personalizado con Contenido conectado, puedes utilizar el atributo de Braze `most_recent_location` como entrada para el parámetro `near` en la URL de la solicitud de la API. El atributo `most_recent_location` se recoge a través de la integración de eventos Radar o directamente a través del SDK de Braze.
+Para construir el mensaje de Braze dirigido y personalizado con Contenido conectado, puedes utilizar el atributo de Braze `most_recent_location` como entrada para el parámetro `near` en la URL de la solicitud de la API. El atributo `most_recent_location` se recoge a través de la integración de eventos Radar o directamente a través del SDK or kit de desarrollo de software de Braze.
 
 En el siguiente ejemplo, el filtrado de cadena de Radar se aplica a las ubicaciones de Target y Walmart, y el radio de búsqueda de las ubicaciones cercanas se establece en 2 km.
 

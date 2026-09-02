@@ -104,7 +104,7 @@ Vous configureriez un segment de catalogue en utilisant les variables suivantes 
 
 ### Plateforme SaaS {#saas-platform}
 
-Supposons que vous ayez une plateforme SaaS B2B et que vous souhaitiez segmenter les utilisateurs qui sont des employés d'un client existant. Vous disposez également des éléments suivants :
+Supposons que vous ayez une plateforme SaaS B2B et que vous souhaitiez segmenter les utilisateurs qui sont des employé or salariés d'un client existant. Vous disposez également des éléments suivants :
 
 - Un catalogue `Accounts` contenant les différents comptes utilisant actuellement votre plateforme SaaS, chacun associé à un `account ID`
 - Un événement personnalisé `Event Attendance` avec une propriété « account ID » partageant les mêmes valeurs que le champ « account ID » de votre catalogue

@@ -7,7 +7,7 @@ description: "Dieser Artikel enthält Versionshinweise für Februar 2021."
 ---
 # Februar 2021
 
-## Schnelles Update
+## Schnelles Update or aktualisieren
 
 Ab dem 22\. März 2021 müssen die Serviceleistungen; Dienste von Braze TLS-Verbindungen mit Server Name Indication (SNI) unterstützen, da unser vorgelagertes Netzwerk für die Zustellung von Inhalten Fastly den gesamten TLS-Verkehr auf SNI umstellt. Alle modernen Browser, Betriebssysteme und HTTPS-Verbindungsprotokolle unterstützen SNI. Geräte, die SNI nicht unterstützen, können sich nicht mehr mit Braze verbinden. Nach unseren Verkehrsschätzungen sind dies etwa 0,000001% der Endnutzer:innen.
 

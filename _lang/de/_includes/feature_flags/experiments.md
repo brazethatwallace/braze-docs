@@ -74,7 +74,7 @@ Feature-Flag-Experimente unterstützen bis zu neun Gruppen insgesamt: eine Kontr
 
 Sie können die Standardeigenschaften überschreiben, die Sie ursprünglich für Nutzer:innen eingerichtet haben, die eine bestimmte Kampagnenvariante erhalten.
 
-Um zusätzliche Standardeigenschaften zu bearbeiten, hinzuzufügen oder zu entfernen, bearbeiten Sie das Feature-Flag selbst unter **Messaging** > **Feature Flags**. Wenn eine Variante deaktiviert ist, gibt das SDK ein leeres Eigenschaftsobjekt für das entsprechende Feature-Flag zurück.
+Um zusätzliche Standardeigenschaften zu bearbeiten, hinzuzufügen oder zu entfernen, bearbeiten Sie das Feature-Flag selbst unter **Messaging** > **Feature Flags**. Wenn eine Variante deaktiviert ist, gibt das SDK or Software-Development-Kit ein leeres Eigenschaftsobjekt für das entsprechende Feature-Flag zurück.
 
 ![Der Abschnitt „Experimentvarianten“ mit dem überschriebenen Variablenschlüssel „link“ mit dem Wert „/sales“.]({% image_buster /assets/img/feature_flags/feature_flag_experiment_override.png %}){: style="max-width:80%"}
 

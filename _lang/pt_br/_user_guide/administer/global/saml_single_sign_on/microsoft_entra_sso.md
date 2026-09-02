@@ -19,7 +19,7 @@ Ao configurar, será solicitado que você forneça uma URL do Assertion Consumer
 |---|---|
 | URL do Assertion Consumer Service (ACS) | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br> Para alguns provedores de identidade, isso também pode ser chamado de URL de resposta, URL de público ou URI de público. |
 | Entity ID | `braze_dashboard` por padrão. <br><br> Para dar a esse dashboard um Entity ID exclusivo, ative um Entity ID personalizado e use o valor gerado (`braze_dashboard_<COMPANY_ID>`). Para ver as etapas, consulte [Usar um Entity ID personalizado]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#using-a-custom-entity-id). |
-| Chave de API RelayState | Para ativar o login pelo provedor de identidade, acesse **Configurações** > **Chaves de API** e crie uma chave de API com permissões `sso.saml.login`. |
+| Chave de API or interface de programação do aplicativo (API) RelayState | Para ativar o login pelo provedor de identidade, acesse **Configurações** > **Chaves de API or interface de programação do aplicativo (API)** e crie uma chave de API or interface de programação do aplicativo (API) com permissões `sso.saml.login`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Login iniciado pelo provedor de serviço (SP) no SSO do Microsoft Entra {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
@@ -36,7 +36,7 @@ Ao configurar, será solicitado que você forneça uma URL do Assertion Consumer
 3. Na página **Set up Single Sign-On with SAML**, selecione o ícone de edição em **Basic SAML Configuration**.
 4. Configure o aplicativo no modo iniciado pelo IdP inserindo uma **Reply URL** que combine sua [instância da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) com o seguinte padrão: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Na mesma seção **Basic SAML Configuration**, deixe o campo **Identifier (Entity ID)** definido como `braze_dashboard`, a menos que esteja usando um [Entity ID personalizado]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#using-a-custom-entity-id). Nesse caso, insira o valor gerado pelo seu dashboard (`braze_dashboard_<COMPANY_ID>`) para que ele corresponda ao valor exibido nas configurações de segurança da Braze.
-6. Configure o RelayState inserindo a chave de API do Relay State gerada no campo **Relay State**.
+6. Configure o RelayState inserindo a chave de API or interface de programação do aplicativo (API) do Relay State gerada no campo **Relay State**.
 
 {% alert important %}
 **Não** defina o campo **Sign-On URL**. Deixe esse campo em branco para evitar problemas com o SSO SAML iniciado pelo IdP.

@@ -1,5 +1,5 @@
 {% comment %}
-  Moved into the includes/api subfolder; previously, this wasn't in a subfolder.
+  Moved into the includes/API or interface de programação do aplicativo (API) subfolder; previously, this wasn't in a subfolder.
   Note for GET export campaign/canvas/send data_series analytics endpoints.
   Use with multi_lang_include.
 
@@ -18,5 +18,5 @@
 {% capture dashboard_match %}análise de dados de engajamento no dashboard{% endcapture %}
 {% endif %}
 {% alert note %}
-{{ counts_subject }} nem sempre correspondem exatamente à {{ dashboard_match }} ou aos agregados que você cria a partir do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/). As métricas do dashboard e as séries temporais da API usam janelas de agregação e definições diferentes dos eventos brutos do Currents. Para notas comuns de reconciliação, consulte as [Perguntas frequentes sobre o Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
+{{ counts_subject }} nem sempre correspondem exatamente à {{ dashboard_match }} ou aos agregados que você cria a partir do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/). As métricas do dashboard e as séries temporais da API or interface de programação do aplicativo (API) usam janelas de agregação e definições diferentes dos eventos brutos do Currents. Para notas comuns de reconciliação, consulte as [Perguntas frequentes sobre o Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/faq/).
 {% endalert %}

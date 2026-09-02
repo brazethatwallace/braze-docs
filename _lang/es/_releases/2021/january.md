@@ -15,9 +15,9 @@ El generador de informes te permite comparar los resultados de varias Campaigns 
 
 Esta guía detallada explica cómo aprovechar las subclases para crear mensajes personalizados de deslizamiento hacia arriba dentro de la aplicación, mensajes modales personalizados dentro de la aplicación y mensajes completos personalizados dentro de la aplicación para añadirlos a tus Campaigns y Canvas de Braze. Se incluyen las consideraciones sobre códigos necesarias, ejemplos detallados construidos por nuestro equipo y fragmentos de código adjuntos. Visita nuestra [guía de implementación de mensajes dentro de la aplicación para iOS]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide) para saber más.
 
-## Categorías de palabras clave personalizadas por SMS y opciones de reorientación {#sms-custom-keyword-categories-and-retargeting-options}
+## Categorías de palabras clave personalizadas por servicio de mensajes cortos y opciones de reorientación {#sms-custom-keyword-categories-and-retargeting-options}
 
-Braze ha ampliado nuestras capacidades nativas de SMS para incluir la posibilidad de añadir palabras clave personalizadas para mensajería bidireccional, categorías personalizadas para palabras clave, compatibilidad con varios idiomas y opciones de reorientación y filtrado de palabras clave. Para saber más sobre el procesamiento de palabras clave por SMS, visita nuestra [documentación sobre SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
+Braze ha ampliado nuestras capacidades nativas de servicio de mensajes cortos para incluir la posibilidad de añadir palabras clave personalizadas para mensajería bidireccional, categorías personalizadas para palabras clave, compatibilidad con varios idiomas y opciones de reorientación y filtrado de palabras clave. Para saber más sobre el procesamiento de palabras clave por servicio de mensajes cortos, visita nuestra [documentación sobre servicio de mensajes cortos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
 
 ## La asociación con Playable está en vivo {#playable-partnership-is-live}
 

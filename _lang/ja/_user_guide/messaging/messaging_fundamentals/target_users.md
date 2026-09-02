@@ -93,7 +93,7 @@ Androidアプリのみにアプリ内メッセージを送信したい場合を�
 Brazeは、フッターにターゲットチャネルの詳細なオーディエンス統計を提供します。ユーザー群が大きいほど、**到達可能なユーザー**の数は概算になる可能性が高くなります。[グローバルコントロールグループ]({{site.baseurl}}/user_guide/audience/global_control_group)を使用したり、メッセージの適格性を設定したりすると、到達可能なユーザー数が減少する場合があります。
 
 - 到達可能なユーザーの正確な数を確認するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)を選択してください。これにより、ユーザー群内のすべてのユーザーが検索されます。
-- ユーザー群のうちターゲットにされている割合やこのセグメントの生涯価値（LTV）を確認するには、**追加の統計を表示**を選択してください。
+- ユーザー群のうちターゲットにされている割合やこのセグメントのLTV or 生涯価値（LTV）を確認するには、**追加の統計を表示**を選択してください。
 
 ##### ターゲットオーディエンス数と到達可能なユーザー数が異なる理由 {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 

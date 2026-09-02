@@ -13,7 +13,7 @@ search_rank: 3
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
-購入イベントは、ユーザーが実行した購入アクションであり、アプリ内購入を記録し、ユーザープロファイルごとに生涯価値（LTV）を確立するために使用されます。これらのイベントは、チームが設定する必要があります。購入イベントをログに記録すると、数量やタイプなどのプロパティを追加できるため、それらのプロパティに基づいてユーザーのターゲットをさらに絞り込むことができます。
+購入イベントは、ユーザーが実行した購入アクションであり、アプリ内購入を記録し、ユーザープロファイルごとにLTV or 生涯価値（LTV）を確立するために使用されます。これらのイベントは、チームが設定する必要があります。購入イベントをログに記録すると、数量やタイプなどのプロパティを追加できるため、それらのプロパティに基づいてユーザーのターゲットをさらに絞り込むことができます。
 
 ## 購入イベントの記録 {#log-purchase-events}
 
@@ -137,8 +137,8 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Revenue' %}</td>
         </tr>
         <tr>
-            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">ユーザーあたりの生涯価値</a></td>
-            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Lifetime Value Per User' %}</td>
+            <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#lifetime-value-per-user">ユーザーあたりのLTV or 生涯価値</a></td>
+            <td class="no-split">{% multi_lang_include analytics/metrics.md metric='LTV or LTV or 生涯価値 Per User' %}</td>
         </tr>
         <tr>
             <td class="no-split"><a href="/docs/user_guide/analytics/metrics_glossary#average-daily-revenue">1日あたりの平均収益</a></td>
@@ -161,13 +161,13 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 #### 生涯収益の計算 {#lifetime-revenue-calculation}
 
-Brazeは購入イベントを使用して、ユーザーの生涯収益（生涯価値またはLTVとも呼ばれます）を計算します。これは、顧客との将来の関係全体に帰属する純利益の予測です。これにより、顧客獲得やリテンション戦略について十分な情報に基づいた意思決定を行うことができます。
+Brazeは購入イベントを使用して、ユーザーの生涯収益（LTV or 生涯価値またはLTVとも呼ばれます）を計算します。これは、顧客との将来の関係全体に帰属する純利益の予測です。これにより、顧客獲得やリテンション戦略について十分な情報に基づいた意思決定を行うことができます。
 
 $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Total number of purchase events}}$$
 
 BrazeでユーザーのLTVを把握するための主な場所が2つあります。
 
-- 各アプリやサイトの*生涯収益*や*ユーザーあたりの生涯価値*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)を参照してください。
+- 各アプリやサイトの*生涯収益*や*ユーザーあたりのLTV or 生涯価値*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)を参照してください。
 - 特定のユーザーの生涯収益を確認するには、そのユーザーの[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)を参照してください。
 
 ##### 返金が生涯収益に与える影響 {#impact-of-refunds-on-lifetime-revenue}

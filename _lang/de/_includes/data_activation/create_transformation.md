@@ -9,8 +9,8 @@ Wählen Sie **Template verwenden**, um eine Template-Bibliothek zu durchsuchen, 
 Wenn Sie bei Null anfangen, wählen Sie ein Ziel für Ihre Transformation. Sie können trotzdem ein Code-Template aus der Template-Bibliothek einfügen.
 
 {% details Mehr zu Zielen %}
-* **POST: Nutzer:innen tracken:** Wandelt Webhooks von einer Quellplattform in Nutzerprofil-Updates um, z. B. Attribute, Ereignisse oder Käufe.
-* **PUT: Mehrere Katalogartikel aktualisieren:** Wandelt Webhooks von einer Quellplattform in Aktualisierungen von Katalogartikeln um.
+* **POST: Nutzer:innen tracken:** Wandelt Webhooks von einer Quellplattform in Kundenprofil or Nutzerprofil-Updates um, z. B. Attribute, Ereignisse oder Käufe.
+* **PUT: Mehrere Katalogartikel Update or aktualisieren or aktualisieren:** Wandelt Webhooks von einer Quellplattform in Aktualisierungen von Katalogartikeln um.
 * **DELETE: Mehrere Katalogartikel löschen:** Wandelt Webhooks von einer Quellplattform in Löschungen von Katalogartikeln um.
 * **PATCH: Mehrere Katalogartikel bearbeiten:** Wandelt Webhooks von einer Quellplattform in Bearbeitungen von Katalogartikeln um.
 * **POST: Nachrichten sofort über API Only senden:** Wandelt Webhooks von einer Quellplattform um, um Sofortnachrichten an bestimmte Nutzer:innen zu senden.

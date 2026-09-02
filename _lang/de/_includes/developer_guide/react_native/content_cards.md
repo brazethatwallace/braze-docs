@@ -1,6 +1,6 @@
 ## Über React Native Content Cards {#about-react-native-content-cards}
 
-Die Braze SDKs enthalten einen Standard-Kartenfeed, der Ihnen den Einstieg in die Arbeit mit Content Cards erleichtert. Sie können den Kartenfeed mit der Methode `Braze.launchContentCards()` anzeigen. Der im Braze SDK enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards für Nutzer:innen.
+Die Braze SDKs enthalten einen Standard-Kartenfeed, der Ihnen den Einstieg in die Arbeit mit Content Cards erleichtert. Sie können den Kartenfeed mit der Methode `Braze.launchContentCards()` anzeigen. Der im Braze SDK or Software-Development-Kit enthaltene Standard-Kartenfeed verarbeitet das gesamte Analytics-Tracking, Ausblendungen und die Darstellung der Content Cards für Nutzer:innen.
 
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
@@ -31,7 +31,7 @@ Mit diesen zusätzlichen Methoden können Sie einen angepassten Content-Card-Fee
 | Methode                                  | Beschreibung                                                                                           |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Startet das Content-Card-UI-Element.                                                                   |
-| `requestContentCardsRefresh()`           | Fordert die neuesten Content Cards vom Braze-SDK-Server an. Die resultierende Kartenliste wird an jeden der zuvor registrierten [Content-Card-Event-Listener](#reactnative_cards-methods) weitergegeben. |
+| `requestContentCardsRefresh()`           | Fordert die neuesten Content Cards vom Braze-SDK or Software-Development-Kit-Server an. Die resultierende Kartenliste wird an jeden der zuvor registrierten [Content-Card-Event-Listener](#reactnative_cards-methods) weitergegeben. |
 | `getCachedContentCards()`                | Gibt das aktuellste Content-Card-Array aus dem Cache zurück.                                           |
 | `logContentCardClicked(cardId)`          | Protokolliert einen Klick für die angegebene Content-Card-ID. Diese Methode wird nur zu Analytics-Zwecken verwendet. Rufen Sie zum Ausführen der Klick-Aktion zusätzlich `processContentCardClickAction(cardId)` auf. |
 | `logContentCardImpression(cardId)`       | Protokolliert eine Impression für die angegebene Content-Card-ID.                                      |
@@ -41,7 +41,7 @@ Mit diesen zusätzlichen Methoden können Sie einen angepassten Content-Card-Fee
 
 ## Kartentypen und Eigenschaften {#card-types-and-properties}
 
-Das Content-Card-Datenmodell ist im React Native SDK verfügbar und bietet die folgenden Content-Card-Kartentypen: [Nur Bild](#image-only), [Bildunterschrift](#captioned-image) und [Klassisch](#classic). Es gibt auch einen speziellen Kartentyp [Kontrollgruppe](#control), der an Nutzer:innen zurückgegeben wird, die sich in der Kontrollgruppe für eine bestimmte Karte befinden. Jeder Typ erbt gemeinsame Eigenschaften von einem Basismodell zusätzlich zu seinen eigenen spezifischen Eigenschaften.
+Das Content-Card-Datenmodell ist im React Native SDK or Software-Development-Kit verfügbar und bietet die folgenden Content-Card-Kartentypen: [Nur Bild](#image-only), [Bildunterschrift](#captioned-image) und [Klassisch](#classic). Es gibt auch einen speziellen Kartentyp [Kontrollgruppe](#control), der an Nutzer:innen zurückgegeben wird, die sich in der Kontrollgruppe für eine bestimmte Karte befinden. Jeder Typ erbt gemeinsame Eigenschaften von einem Basismodell zusätzlich zu seinen eigenen spezifischen Eigenschaften.
 
 {% alert tip %}
 Eine vollständige Referenz des Content-Card-Datenmodells finden Sie in der [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/index.html)- und der [iOS-Dokumentation](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard).

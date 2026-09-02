@@ -162,11 +162,11 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 2. Erstellen Sie ein persönliches Zugriffstoken in Ihrem Databricks-Workspace.
 
 - a. Wählen Sie Ihren Databricks-Nutzernamen aus und wählen Sie dann **User Settings** aus dem Dropdown-Menü.
-- b. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new token**.
-- c. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token zu identifizieren, z. B. „Braze CDI“.
+- b. Wählen Sie auf dem Tab **Access tokens** die Option **Generate new Token / Textbaustein**.
+- c. Geben Sie einen Kommentar ein, der Ihnen hilft, dieses Token / Textbaustein zu identifizieren, z. B. „Braze CDI“.
 - d. Ändern Sie die Lebensdauer des Tokens auf unbegrenzt, indem Sie das Feld **Lifetime (days)** leer lassen. Wählen Sie **Generate**.
-- e. Kopieren Sie das angezeigte Token und wählen Sie dann **Done**.
-- f. Bewahren Sie das Token an einem sicheren Ort auf, bis Sie es im Schritt zur Erstellung der Zugangsdaten im Braze-Dashboard eingeben müssen.
+- e. Kopieren Sie das angezeigte Token / Textbaustein und wählen Sie dann **Done**.
+- f. Bewahren Sie das Token / Textbaustein an einem sicheren Ort auf, bis Sie es im Schritt zur Erstellung der Zugangsdaten im Braze-Dashboard eingeben müssen.
 
 {:start="3"}
 3. Wenn Sie Netzwerkrichtlinien eingerichtet haben, müssen Sie Braze Netzwerkzugriff auf Ihre Databricks-Instanz gewähren. Eine Liste der IPs finden Sie auf der Seite [Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
@@ -344,6 +344,6 @@ FROM [braze].[product_catalog] ;
 {% endtab %}
 {% endtabs %}
 
-- Die aus der Integration abgerufenen Daten werden verwendet, um Artikel im Zielkatalog basierend auf der angegebenen `id` zu erstellen oder zu aktualisieren.
+- Die aus der Integration abgerufenen Daten werden verwendet, um Artikel im Zielkatalog basierend auf der angegebenen `id` zu erstellen oder zu Update or aktualisieren or aktualisieren.
 - Wenn DELETED auf `true` gesetzt ist, wird der entsprechende Katalogartikel gelöscht.
 - Die Synchronisierung protokolliert keine Datenpunkte, aber alle synchronisierten Daten werden auf Ihre gesamte Katalognutzung angerechnet. Diese Nutzung wird anhand der insgesamt gespeicherten Daten gemessen, sodass Sie sich keine Gedanken darüber machen müssen, nur geänderte Daten zu synchronisieren.
