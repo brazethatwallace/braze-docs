@@ -170,6 +170,12 @@ NOUN_RESTORATION = [
 NOUN_RESTORATION.sort(key=lambda pair: len(pair[0]), reverse=True)
 
 
+def _replace_noun_restoration(text: str, old: str, new: str) -> tuple[str, int]:
+    """Replace noun-restoration phrases without matching inside longer words."""
+    pattern = re.compile(rf"(?<![\wäöüÄÖÜß:]){re.escape(old)}")
+    return pattern.subn(new, text)
+
+
 def apply_click_corruption_repairs(text: str) -> tuple[str, int]:
     """Restore click literals corrupted by the ``click`` glossary key."""
     total = 0
@@ -205,10 +211,8 @@ def apply_phrase_repairs(text: str) -> tuple[str, int]:
     text, count = apply_inclusive_marker_repairs(text)
     total += count
     for old, new in NOUN_RESTORATION:
-        count = text.count(old)
-        if count:
-            text = text.replace(old, new)
-            total += count
+        text, count = _replace_noun_restoration(text, old, new)
+        total += count
     return text, total
 
 

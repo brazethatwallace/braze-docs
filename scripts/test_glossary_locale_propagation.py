@@ -205,6 +205,17 @@ class TestBuildLocaleChanges:
         assert changes[0]["search"] == "contractor"
         assert changes[0]["replace"] == "業務委託先"
 
+    def test_updated_synonym_reorder_searches_full_old_value(self):
+        old = {"campaign": "campagne or Kampagne"}
+        new = {"campaign": "Kampagne or campagne"}
+        changes = glp.build_locale_changes_from_glossary_diff("de", old, new, {"global": []})
+        translation_updates = [
+            change for change in changes if change["search"] != "campaign"
+        ]
+        assert len(translation_updates) == 1
+        assert translation_updates[0]["search"] == "campagne or Kampagne"
+        assert translation_updates[0]["replace"] == "Kampagne"
+
 
 class TestPropagateGlossaryChanges:
     def test_dry_run_counts_without_writing(self, tmp_path):
@@ -272,6 +283,22 @@ class TestPropagateGlossaryChanges:
 
 
 class TestRepairGlossaryPropagationCorruption:
+    def test_noun_restoration_skips_oder_registrieren(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = "melden Sie sich an oder registrieren Sie sich.\n"
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert repaired == text
+        assert count == 0
+
+    def test_noun_restoration_fixes_der_registrieren_phrase(self):
+        import repair_glossary_propagation_corruption as repair  # noqa: WPS433
+
+        text = "nach der registrieren einer App\n"
+        repaired, count = repair.apply_phrase_repairs(text)
+        assert repaired == "nach der Registrierung einer App\n"
+        assert count == 1
+
     def test_click_corruption_repairs_javascript_literals(self):
         import repair_glossary_propagation_corruption as repair  # noqa: WPS433
 

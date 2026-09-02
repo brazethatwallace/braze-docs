@@ -380,7 +380,10 @@ def build_locale_changes_from_glossary_diff(
                         "lang": lang,
                         "term": term,
                         "kind": "updated",
-                        "search": old_replace,
+                        # Search the full previous glossary string. Using only the
+                        # primary synonym can rewrite unrelated short tokens when
+                        # Phrase reorders an `` or `` chain.
+                        "search": old_val,
                         "replace": new_replace,
                     }
                 )
