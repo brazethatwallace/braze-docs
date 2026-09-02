@@ -45,7 +45,7 @@ Before you can add translations to a message, you must first [create the locales
 
 ### Step 2: Mark content for translation
 
-Wrap text you want to translate with the Liquid translation tags {% raw %}`{% translation your_id_here %}` and `{% endtranslation %}`{% endraw %} and assign a tag ID. Translation tag IDs must be unique within a message. Consider using semantic ID names that plainly describe the text, such as {% raw %}`{% translation header %}`{% endraw %}.
+Wrap text you want to translate with the Liquid translation tags {% raw %}`{% translation your_id_here %}` and `{% endtranslation %}`{% endraw %} and assign a tag ID. Translation tag IDs must be unique within a message. Consider using semantic ID names that plainly describe the text, such as {% raw %}`{% translation header %}`{% endraw %}. If the message includes Content Blocks, see [Content Blocks containing translation](#content-blocks-containing-translation) for how uniqueness applies.
 
 Here is an example message marked for translation: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
@@ -135,7 +135,17 @@ After adding translation tags to your message, select **Manage languages** in th
 
 #### Content Blocks containing translation
 
-If your message contains Content Blocks that already have translations saved, you do not need to re-upload those translations. Saved translations are automatically applied when the Content Block is added to your message.
+Content Blocks with translation tags behave differently depending on whether the block has its own saved translations:
+
+| Content Block state | Where translations are managed |
+| --- | --- |
+| Translation tags, but no locales or saved translations | Parent message's **Manage languages** CSV |
+| Translation tags with locales and saved translations | Content Block's own CSV or translation API |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Block translation states" }
+
+##### Content Blocks with saved translations
+
+If your message contains Content Blocks that already have translations saved, you do not need to re-upload those translations. Saved translations are automatically applied when the Content Block is added to your message. Those blocks keep their own tag IDs, which don't need to be unique against the parent message. For how to save translations on the block itself, see [Save translations in Content Blocks](#save-translations-in-content-blocks).
 
 In the **Manage languages** modal, Content Blocks with saved translations appear in the list, alongside the locales they support. This allows you to see which parts of your message are already localized before adding new translations.
 
@@ -144,6 +154,12 @@ In the **Manage languages** modal, Content Blocks with saved translations appear
 {% alert important %}
 Make sure each Content Block includes translations for every locale added to your message. If a Content Block is missing translations for one of the locales you added, it shows in its original language for users in that locale.
 {% endalert %}
+
+##### Content Blocks with translation tags only
+
+When a Content Block has translation tags but no locales or saved translations, its tags are treated as untranslated source content in the parent message. The parent's **Manage languages** export includes those tags, and the parent CSV must supply their translations. Those tags must be unique against other tags in the parent message.
+
+If you reuse an untranslated Content Block in another message, that second message must also provide translations for the block's tags. To avoid providing translations in every message that uses a Content Block, add locales and translations directly to the Content Block itself.
 
 ### Step 4: Add translations
 
