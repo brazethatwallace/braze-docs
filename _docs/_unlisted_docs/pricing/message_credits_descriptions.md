@@ -162,7 +162,11 @@ Refer to our [Canvas documentation]({{site.baseurl}}/partners/canvas_audience_sy
 
 ### Message Archiving
 
-Message Archiving credit ratios are denominated in increments of one thousand archived messages across Push, Email, and SMS/MMS channels. 
+Message Archiving credit ratios are denominated in increments of one thousand successfully archived messages across Push, Email, SMS/MMS, and In-App-Message channels. 
+
+{% alert note %}
+Beginning September 2, 2026, failed archiving attempts are excluded from usage billing; only successful archives use Action Credits. This change doesn't affect usage billed before September 2, 2026.
+{% endalert %}
 
 {% alert note %}
 Refer to our [message archiving documentation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/message_archiving) to learn more about Message Archiving.
