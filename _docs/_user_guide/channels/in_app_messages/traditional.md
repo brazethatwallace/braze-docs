@@ -300,6 +300,10 @@ Some in-app message types do not have the option for styling beyond uploading cu
 
 You can add [key-value pairs]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) to send extra custom fields to user devices.
 
+1. In the message composer, select the **Settings** tab.
+2. In **Key value pairs**, select **Add new pair**.
+3. Enter a key and value for each pair. To add another pair, select **Add new pair** again.
+
 ## Step 7: Build the remainder of your campaign or Canvas
 
 {% tabs %}
